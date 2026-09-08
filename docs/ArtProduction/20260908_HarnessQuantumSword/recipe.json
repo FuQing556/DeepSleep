@@ -1,0 +1,50 @@
+{
+  "assets": [
+    {
+      "source": "raw/HA_MeleeIdle_v01.png",
+      "output": "cutouts/HA_MeleeIdle_v01.png",
+      "method": "neutral",
+      "parameters": { "minimum": 100, "maximum": 255, "chroma": 12, "edge_dematte": true }
+    },
+    {
+      "source": "raw/HA_MeleeDownCommand_v01.png",
+      "output": "cutouts/HA_MeleeDownCommand_v01.png",
+      "method": "neutral",
+      "parameters": { "minimum": 100, "maximum": 255, "chroma": 12, "edge_dematte": true }
+    },
+    {
+      "source": "raw/HA_MeleeUpCommand_v02.png",
+      "output": "cutouts/HA_MeleeUpCommand_v02.png",
+      "method": "neutral",
+      "parameters": { "minimum": 100, "maximum": 255, "chroma": 12, "edge_dematte": true }
+    },
+    {
+      "source": "raw/HA_MeleeSweepCommand_v01.png",
+      "output": "cutouts/HA_MeleeSweepCommand_v01.png",
+      "method": "neutral",
+      "parameters": { "minimum": 100, "maximum": 255, "chroma": 12, "edge_dematte": true }
+    },
+    {
+      "source": "raw/HA_QuantumSword_v01.png",
+      "output": "cutouts/HA_QuantumSword_v01.png",
+      "method": "alpha"
+    },
+    {
+      "source": "raw/HA_QuantumSlashDown_v01.png",
+      "output": "cutouts/HA_QuantumSlashDown_v01.png",
+      "method": "neutral",
+      "parameters": { "minimum": 100, "maximum": 255, "chroma": 12, "edge_dematte": true }
+    },
+    {
+      "source": "raw/HA_QuantumSlashUp_v01.png",
+      "output": "cutouts/HA_QuantumSlashUp_v01.png",
+      "method": "neutral",
+      "parameters": { "minimum": 100, "maximum": 255, "chroma": 12, "edge_dematte": true }
+    },
+    {
+      "source": "raw/HA_QuantumSlashSweep_v01.png",
+      "output": "cutouts/HA_QuantumSlashSweep_v01.png",
+      "method": "alpha"
+    }
+  ]
+}

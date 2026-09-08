@@ -698,6 +698,8 @@ MonoBehaviour:
   _ghostRenderer: {fileID: 2143335908614876279}
   _downedSprite: {fileID: 21300000, guid: 029e724a7167c8a4baa09ff54559f7b4, type: 3}
   _config: {fileID: 11400000, guid: 876c74dac01fbb14f9576bbc14773359, type: 2}
+  _aliveScaleMultiplier: 1.05
+  _downedScaleMultiplier: 1
 --- !u!114 &387904025676734651
 MonoBehaviour:
   m_ObjectHideFlags: 0

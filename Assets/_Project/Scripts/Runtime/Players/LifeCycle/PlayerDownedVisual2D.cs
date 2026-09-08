@@ -1,9 +1,10 @@
+using DeepSleep.Runtime.Presentation.Poses;
 using UnityEngine;
 
 namespace DeepSleep.Runtime.Players.LifeCycle
 {
     /// <summary>
-    /// 将当前角色姿态冻结为世界空间残影，并立即显示独立睡眠贴图。
+    /// 将当前角色姿态复制为跟随实体平移的残影，并立即显示独立睡眠贴图。
     /// 不负责决定玩家何时宕机。
     /// </summary>
     public sealed class PlayerDownedVisual2D : MonoBehaviour
@@ -12,9 +13,14 @@ namespace DeepSleep.Runtime.Players.LifeCycle
         [SerializeField] private SpriteRenderer _ghostRenderer;
         [SerializeField] private Sprite _downedSprite;
         [SerializeField] private PlayerDownedVisualConfig _config;
+        [SerializeField, Min(0.01f), Tooltip("存活姿态相对 Visual 初始缩放的倍率。")]
+        private float _aliveScaleMultiplier = 1f;
+        [SerializeField, Min(0.01f), Tooltip("倒地姿态相对 Visual 初始缩放的倍率。")]
+        private float _downedScaleMultiplier = 1f;
 
-        private float _ghostFadeRemainingSeconds;
+        private readonly SpritePoseGhost2D _ghost = new();
         private Sprite _aliveSprite;
+        private Vector3 _baseVisualScale;
         private bool _isInitialized;
 
         private void Awake()
@@ -31,29 +37,19 @@ namespace DeepSleep.Runtime.Players.LifeCycle
 
             _ghostRenderer.enabled = false;
             _aliveSprite = _characterRenderer.sprite;
+            _baseVisualScale = _characterRenderer.transform.localScale;
+            ApplyPoseScale(_aliveScaleMultiplier);
             _isInitialized = true;
         }
 
         private void LateUpdate()
         {
-            if (!_isInitialized || !_ghostRenderer.enabled)
-            {
-                return;
-            }
+            if (_isInitialized) _ghost.Tick(Time.deltaTime);
+        }
 
-            _ghostFadeRemainingSeconds = Mathf.Max(
-                0f,
-                _ghostFadeRemainingSeconds - Time.deltaTime);
-
-            Color color = _ghostRenderer.color;
-            color.a = _config.GhostStartAlpha *
-                (_ghostFadeRemainingSeconds / _config.GhostFadeSeconds);
-            _ghostRenderer.color = color;
-
-            if (_ghostFadeRemainingSeconds <= 0f)
-            {
-                _ghostRenderer.enabled = false;
-            }
+        private void OnDisable()
+        {
+            _ghost.Clear();
         }
 
         /// <summary>
@@ -61,33 +57,11 @@ namespace DeepSleep.Runtime.Players.LifeCycle
         /// </summary>
         public void CaptureCurrentPose()
         {
-            if (!_isInitialized || _characterRenderer.sprite == null)
+            if (_isInitialized)
             {
-                return;
+                _ghost.Capture(_characterRenderer, _ghostRenderer,
+                    _config.GhostStartAlpha, _config.GhostFadeSeconds);
             }
-
-            Transform source = _characterRenderer.transform;
-            Transform ghost = _ghostRenderer.transform;
-            Transform followRoot = ghost.parent;
-            ghost.localPosition =
-                followRoot.InverseTransformPoint(source.position);
-            ghost.localRotation =
-                Quaternion.Inverse(followRoot.rotation) * source.rotation;
-            Vector3 rootScale = followRoot.lossyScale;
-            Vector3 sourceScale = source.lossyScale;
-            ghost.localScale = new Vector3(
-                DivideScale(sourceScale.x, rootScale.x),
-                DivideScale(sourceScale.y, rootScale.y),
-                DivideScale(sourceScale.z, rootScale.z));
-
-            _ghostRenderer.sprite = _characterRenderer.sprite;
-            _ghostRenderer.flipX = _characterRenderer.flipX;
-            _ghostRenderer.flipY = _characterRenderer.flipY;
-            Color ghostColor = _characterRenderer.color;
-            ghostColor.a *= _config.GhostStartAlpha;
-            _ghostRenderer.color = ghostColor;
-            _ghostRenderer.enabled = true;
-            _ghostFadeRemainingSeconds = _config.GhostFadeSeconds;
         }
 
         /// <summary>
@@ -104,6 +78,7 @@ namespace DeepSleep.Runtime.Players.LifeCycle
             color.a = 1f;
             _characterRenderer.color = color;
             _characterRenderer.sprite = _downedSprite;
+            ApplyPoseScale(_downedScaleMultiplier);
         }
 
         /// <summary>
@@ -121,10 +96,28 @@ namespace DeepSleep.Runtime.Players.LifeCycle
             color.a = 1f;
             _characterRenderer.color = color;
             _characterRenderer.sprite = _aliveSprite;
+            ApplyPoseScale(_aliveScaleMultiplier);
+        }
+
+        private void ApplyPoseScale(float multiplier)
+        {
+            // 总是从初始尺寸计算，重复切换不会累乘；Z 保持原值。
+            _characterRenderer.transform.localScale = new Vector3(
+                _baseVisualScale.x * multiplier,
+                _baseVisualScale.y * multiplier,
+                _baseVisualScale.z);
         }
 
         public bool TryValidateConfiguration(out string reason)
         {
+            if (float.IsNaN(_aliveScaleMultiplier) || float.IsInfinity(_aliveScaleMultiplier) ||
+                float.IsNaN(_downedScaleMultiplier) || float.IsInfinity(_downedScaleMultiplier) ||
+                _aliveScaleMultiplier <= 0f || _downedScaleMultiplier <= 0f)
+            {
+                reason = "姿态缩放倍率必须为有限正数。";
+                return false;
+            }
+
             if (_characterRenderer == null || _ghostRenderer == null)
             {
                 reason = "未配置角色渲染器或宕机残影渲染器。";
@@ -158,11 +151,5 @@ namespace DeepSleep.Runtime.Players.LifeCycle
             return _config.TryValidate(out reason);
         }
 
-        private static float DivideScale(float value, float divisor)
-        {
-            return Mathf.Abs(divisor) <= Mathf.Epsilon
-                ? value
-                : value / divisor;
-        }
     }
 }

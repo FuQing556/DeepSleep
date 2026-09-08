@@ -19,6 +19,12 @@ namespace DeepSleep.Runtime.Combat.Enemies
 
         public abstract void Stop();
 
+        /// <summary>攻击决策之前更新目标；不提交位移。</summary>
+        public virtual void PrepareSimulation(float deltaTime) { }
+
+        /// <summary>攻击更新之后提交本刻位移，保证蓄力锁移动当刻生效。</summary>
+        public abstract void Simulate(float deltaTime);
+
         public abstract bool TryValidateConfiguration(out string reason);
 
         protected void NotifyExitedPlayfield()

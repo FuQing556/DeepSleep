@@ -1,0 +1,282 @@
+[
+  {
+    "file": "HA_MeleeIdle_v01.png",
+    "source_sha256": "c5f1078bcf3018964dbe93304d46ee4b86481098246dcb9f727926fb522b9c5a",
+    "method": "bounded_neutral_flood",
+    "gap_rectangles": [
+      [
+        [
+          775,
+          30,
+          941,
+          164
+        ],
+        [
+          855,
+          80
+        ],
+        215
+      ],
+      [
+        [
+          265,
+          288,
+          455,
+          393
+        ],
+        [
+          350,
+          340
+        ]
+      ]
+    ],
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      49,
+      37,
+      1211,
+      1217
+    ],
+    "transparent_pixels": 976736,
+    "partial_alpha_pixels": 10474,
+    "opaque_pixels": 585306,
+    "clear_corners": true
+  },
+  {
+    "file": "HA_MeleeDownCommand_v01.png",
+    "source_sha256": "a432233b3fad3867c7f98c46aad47aa64fb4b7a58370d7a9475d5d9214a6bee7",
+    "method": "bounded_neutral_flood",
+    "gap_rectangles": [
+      [
+        [
+          393,
+          63,
+          491,
+          176
+        ],
+        [
+          444,
+          112
+        ]
+      ],
+      [
+        [
+          963,
+          211,
+          1135,
+          359
+        ],
+        [
+          1051,
+          270
+        ]
+      ],
+      [
+        [
+          243,
+          355,
+          580,
+          597
+        ],
+        [
+          350,
+          515
+        ]
+      ],
+      [
+        [
+          383,
+          373,
+          459,
+          448
+        ],
+        [
+          419,
+          407
+        ]
+      ],
+      [
+        [
+          434,
+          450,
+          529,
+          565
+        ],
+        [
+          475,
+          525
+        ]
+      ],
+      [
+        [
+          972,
+          682,
+          1111,
+          809
+        ],
+        [
+          1060,
+          769
+        ]
+      ],
+      [
+        [
+          1079,
+          652,
+          1155,
+          820
+        ],
+        [
+          1120,
+          765
+        ]
+      ],
+      [
+        [
+          430,
+          428,
+          490,
+          488
+        ],
+        [
+          452,
+          448
+        ]
+      ]
+    ],
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      53,
+      37,
+      1245,
+      1197
+    ],
+    "transparent_pixels": 863269,
+    "partial_alpha_pixels": 10529,
+    "opaque_pixels": 698718,
+    "clear_corners": true
+  },
+  {
+    "file": "HA_MeleeUpCommand_v02.png",
+    "source_sha256": "471c330edbca49c0e1943292fcfa4ddf72a415075effb28502c6ef7921f74e1f",
+    "method": "bounded_neutral_flood",
+    "gap_rectangles": [
+      [
+        [
+          725,
+          36,
+          931,
+          189
+        ],
+        [
+          820,
+          80
+        ]
+      ],
+      [
+        [
+          245,
+          603,
+          520,
+          862
+        ],
+        [
+          350,
+          820
+        ]
+      ],
+      [
+        [
+          337,
+          605,
+          409,
+          655
+        ],
+        [
+          375,
+          634
+        ]
+      ],
+      [
+        [
+          480,
+          636,
+          525,
+          711
+        ],
+        [
+          505,
+          665
+        ]
+      ],
+      [
+        [
+          529,
+          650,
+          578,
+          716
+        ],
+        [
+          550,
+          685
+        ]
+      ],
+      [
+        [
+          961,
+          596,
+          1053,
+          681
+        ],
+        [
+          986,
+          630
+        ]
+      ]
+    ],
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      31,
+      37,
+      1236,
+      1221
+    ],
+    "transparent_pixels": 871493,
+    "partial_alpha_pixels": 10480,
+    "opaque_pixels": 690543,
+    "clear_corners": true
+  },
+  {
+    "file": "HA_MeleeSweepCommand_v03.png",
+    "source_sha256": "b411ebd6f000374d746138a8fbc33e25d898ec8854f25e209cfdff0091a7c200",
+    "method": "green_screen",
+    "gap_rectangles": null,
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      86,
+      56,
+      1093,
+      1177
+    ],
+    "transparent_pixels": 1015058,
+    "partial_alpha_pixels": 12064,
+    "opaque_pixels": 545394,
+    "clear_corners": true
+  }
+]

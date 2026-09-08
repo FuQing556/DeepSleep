@@ -10,6 +10,7 @@ namespace DeepSleep.Runtime.Combat.Projectiles
     {
         [SerializeField] private Rigidbody2D _body;
         [SerializeField] private Collider2D _bodyCollider;
+        [SerializeField] private bool _canBeCleared = true;
 
         private EnemyProjectilePool2D _ownerPool;
         private LayerMask _collisionLayers;
@@ -18,6 +19,13 @@ namespace DeepSleep.Runtime.Combat.Projectiles
         private float _remainingLifetimeSeconds;
 
         public bool IsRented { get; private set; }
+
+        public bool TryClear()
+        {
+            if (!IsRented || !_canBeCleared) return false;
+            ReleaseToPool();
+            return true;
+        }
 
         private void Awake()
         {
@@ -30,14 +38,14 @@ namespace DeepSleep.Runtime.Combat.Projectiles
             }
         }
 
-        private void FixedUpdate()
+        internal void Simulate(float deltaTime)
         {
-            if (!IsRented)
+            if (!IsRented || !isActiveAndEnabled || deltaTime <= 0f)
             {
                 return;
             }
 
-            _remainingLifetimeSeconds -= Time.fixedDeltaTime;
+            _remainingLifetimeSeconds -= deltaTime;
             if (_remainingLifetimeSeconds <= 0f)
             {
                 ReleaseToPool();

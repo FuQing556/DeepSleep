@@ -51,7 +51,8 @@ namespace DeepSleep.Runtime.Combat.Enemies.DataCrawlerSnake
             }
         }
 
-        private void LateUpdate()
+        // 炮口位置参与弹体生成，必须在攻击模拟前同步，不能依赖渲染帧。
+        public void SynchronizeFacing()
         {
             if (!_isInitialized)
             {

@@ -1,5 +1,6 @@
 using System;
 using DeepSleep.Runtime.World.Playfield;
+using DeepSleep.Runtime.Simulation;
 using UnityEngine;
 
 namespace DeepSleep.Runtime.Combat.Enemies
@@ -8,7 +9,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
     /// 第一版单敌种刷怪器：在固定逻辑战斗区右侧随机高度生成，
     /// 将随机运动快照交给对象池中的敌人。
     /// </summary>
-    public sealed class EnemySpawnDirector2D : MonoBehaviour
+    public sealed class EnemySpawnDirector2D : MonoBehaviour, IFixedSimulationStep
     {
         [SerializeField] private EnemyActorPool2D _pool;
         [SerializeField] private CombatPlayfieldConfig _playfield;
@@ -44,14 +45,14 @@ namespace DeepSleep.Runtime.Combat.Enemies
             }
         }
 
-        private void FixedUpdate()
+        public void Simulate(float deltaTime)
         {
-            if (!_isRunning)
+            if (!_isRunning || !isActiveAndEnabled || deltaTime <= 0f)
             {
                 return;
             }
 
-            _remainingSeconds -= Time.fixedDeltaTime;
+            _remainingSeconds -= deltaTime;
 
             if (_remainingSeconds > 0f ||
                 _pool.ActiveCount >= _schedule.MaximumAliveCount)

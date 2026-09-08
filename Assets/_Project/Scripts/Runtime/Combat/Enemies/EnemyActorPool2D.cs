@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DeepSleep.Runtime.Simulation;
 using UnityEngine;
 
 namespace DeepSleep.Runtime.Combat.Enemies
@@ -8,7 +9,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
     /// 预热并复用一种 EnemyActor2D。
     /// 不决定出生时间和位置，也不处理掉落奖励。
     /// </summary>
-    public sealed class EnemyActorPool2D : MonoBehaviour
+    public sealed class EnemyActorPool2D : MonoBehaviour, IFixedSimulationStep
     {
         [SerializeField] private EnemyActor2D _enemyPrefab;
         [SerializeField] private Transform _poolRoot;
@@ -150,6 +151,18 @@ namespace DeepSleep.Runtime.Combat.Enemies
 
             _despawnBuffer.Clear();
             return despawnedCount;
+        }
+
+        /// <summary>稳定遍历池内存储，允许某个敌人在自己的步骤中回收。</summary>
+        public void Simulate(float deltaTime)
+        {
+            if (!_isInitialized || !isActiveAndEnabled || deltaTime <= 0f) return;
+            int count = _allActors.Count;
+            for (int index = 0; index < count; index++)
+            {
+                EnemyActor2D actor = _allActors[index];
+                if (actor != null && _rented.Contains(actor)) actor.Simulate(deltaTime);
+            }
         }
 
         private EnemyActor2D CreateActor()

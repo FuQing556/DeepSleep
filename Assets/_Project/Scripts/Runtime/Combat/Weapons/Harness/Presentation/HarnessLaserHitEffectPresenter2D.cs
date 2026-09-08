@@ -122,6 +122,14 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
                 return;
             }
 
+            PlayImpact(hit.HitPoint, hit.Direction, hit.BeamWidth);
+        }
+
+        /// <summary>复用 HS 红晶命中表现，不伪造激光命中事件，也不参与伤害。</summary>
+        public void PlayImpact(Vector2 position, Vector2 direction, float width)
+        {
+            if (!_isInitialized || !isActiveAndEnabled) return;
+
             HarnessLaserHitEffect2D effect = _available.Count > 0
                 ? _available.Pop()
                 : CreateEffect();
@@ -131,8 +139,8 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
                 _config.HitEffectMaximumRotationDegrees);
             float rotationDirection =
                 _visualRandom.Next(0, 2) == 0 ? -1f : 1f;
-            effect.Play(
-                in hit,
+            effect.PlayAt(
+                position, direction, width,
                 _config,
                 initialRotationOffset,
                 rotationMagnitude * rotationDirection);

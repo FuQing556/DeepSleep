@@ -4,7 +4,11 @@
 > 当前协作：Agent 已获授权使用 Unity MCP 完成配置、Prefab/场景装配与测试；用户主导设计、学习和手感验收。下文“用户操作所有编辑器”仅为旧流程，已被本条替代。仍禁止手写 Unity YAML、隐式补组件及覆盖用户碰撞体调参。
 > `Editor/Debugging` 下由用户主动触发、仅播放模式可用的调试菜单允许一次性场景查询；此例外不适用于 Runtime 或每帧查询。
 
+> 2026-09-08 项目专用美术技能：生成/修改角色、武器与特效时读取 `docs/Skills/deepsleep-art-generation/SKILL.md`；对已确认素材做本地抠图时读取 `docs/Skills/deepsleep-sprite-matting/SKILL.md`。只按任务加载相关分支。用户最新确认及现有母图优先；旧320px/PPU100规格不得覆盖当前512 PPU资源。两份技能不授权修改碰撞体或替换未确认的正式素材，也不重新启用已撤回的第三方动画技能。
+
 ## 1. 开工前固定读取
+
+2026-09-08 用户撤回使用本轮引入的第三方动画技能。后续美术不再加载 `2dimg2motion`、`img2mo-std`、`img2mo-learn` 或其派生制作计划；以用户确认的角色原图与当前动作要求为准。帧动画暂停，当前需求为 DS 睡眠图抠图、Harness 单手近战常态、三种攻击姿态及对应独立剑气。
 
 1. `docs/DesignSpec_v5.md`：唯一当前入口与权威顺序。
 2. `docs/18_CoopShooterGameplaySpec.md`：合作射击、角色、AI和章节规则。

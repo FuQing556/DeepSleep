@@ -1,0 +1,82 @@
+[
+  {
+    "file": "HA_QuantumSword_v01.png",
+    "source_sha256": "53565bbc39205eb4a2b10d503a4e17b362395ed69f6c29d7d18be8107465bb56",
+    "method": "preserve_alpha",
+    "size": [
+      2172,
+      724
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      25,
+      103,
+      2152,
+      708
+    ],
+    "transparent_pixels": 1334016,
+    "partial_alpha_pixels": 238324,
+    "opaque_pixels": 188,
+    "clear_corners": true
+  },
+  {
+    "file": "HA_QuantumSlashDown_v01.png",
+    "source_sha256": "da3bbc864049bfabfcbae4f7a8951a023a7c28cef1e7530ac00217310029dedf",
+    "method": "crystal_core_and_red_emission",
+    "size": [
+      1312,
+      1199
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      26,
+      13,
+      1292,
+      1172
+    ],
+    "transparent_pixels": 1086743,
+    "partial_alpha_pixels": 156493,
+    "opaque_pixels": 329852,
+    "clear_corners": true
+  },
+  {
+    "file": "HA_QuantumSlashUp_v01.png",
+    "source_sha256": "21d771837d6fd11f74853b9d4e3b5e6bc5e3401e46eb7c16204e7d6d8a09c9fc",
+    "method": "crystal_core_and_red_emission",
+    "size": [
+      1230,
+      1278
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      9,
+      17,
+      1191,
+      1265
+    ],
+    "transparent_pixels": 1006218,
+    "partial_alpha_pixels": 160557,
+    "opaque_pixels": 405165,
+    "clear_corners": true
+  },
+  {
+    "file": "HA_QuantumSlashSweep_v01.png",
+    "source_sha256": "0bbfbba992fc0be53ec86f4e3d420d667b2f6249652b1cc76d13e5e62435fd86",
+    "method": "preserve_alpha",
+    "size": [
+      2172,
+      724
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      0,
+      38,
+      2172,
+      724
+    ],
+    "transparent_pixels": 901254,
+    "partial_alpha_pixels": 671139,
+    "opaque_pixels": 135,
+    "clear_corners": true
+  }
+]

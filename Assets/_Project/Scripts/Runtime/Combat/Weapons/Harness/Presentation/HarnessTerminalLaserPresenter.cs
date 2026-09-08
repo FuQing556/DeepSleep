@@ -24,6 +24,18 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
         private HarnessLaserPoseView2D _poseView = new();
 
         private bool _isInitialized;
+        private bool _poseOverridden;
+
+        public void SetPoseOverride(bool value)
+        {
+            _poseOverridden = value;
+            if (value)
+            {
+                _poseView.Release();
+                _targetingView.Hide();
+                _shotView.HideMuzzleIfIdle();
+            }
+        }
 
         private void Awake()
         {
@@ -63,6 +75,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
             }
 
             bool shotFinished = _shotView.Tick(Time.deltaTime, _config);
+            if (_poseOverridden) return;
 
             if (shotFinished && _controller.SelectedTarget == null)
             {
@@ -104,6 +117,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
 
         private void OnTargetChanged(DamageHitbox2D target)
         {
+            if (_poseOverridden) return;
             _poseView.SetAiming(
                 target != null,
                 _config);

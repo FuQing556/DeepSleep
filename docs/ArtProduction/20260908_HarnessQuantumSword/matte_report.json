@@ -1,0 +1,208 @@
+[
+  {
+    "source": "raw/HA_MeleeIdle_v01.png",
+    "output": "cutouts/HA_MeleeIdle_v01.png",
+    "source_sha256": "c5f1078bcf3018964dbe93304d46ee4b86481098246dcb9f727926fb522b9c5a",
+    "method": "neutral",
+    "parameters": {
+      "minimum": 100,
+      "maximum": 255,
+      "chroma": 12,
+      "edge_dematte": true
+    },
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      49,
+      37,
+      1211,
+      1217
+    ],
+    "transparent_pixels": 963699,
+    "partial_alpha_pixels": 9697,
+    "opaque_pixels": 599120,
+    "clear_corners": true
+  },
+  {
+    "source": "raw/HA_MeleeDownCommand_v01.png",
+    "output": "cutouts/HA_MeleeDownCommand_v01.png",
+    "source_sha256": "a432233b3fad3867c7f98c46aad47aa64fb4b7a58370d7a9475d5d9214a6bee7",
+    "method": "neutral",
+    "parameters": {
+      "minimum": 100,
+      "maximum": 255,
+      "chroma": 12,
+      "edge_dematte": true
+    },
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      53,
+      37,
+      1245,
+      1197
+    ],
+    "transparent_pixels": 827284,
+    "partial_alpha_pixels": 8153,
+    "opaque_pixels": 737079,
+    "clear_corners": true
+  },
+  {
+    "source": "raw/HA_MeleeUpCommand_v02.png",
+    "output": "cutouts/HA_MeleeUpCommand_v02.png",
+    "source_sha256": "471c330edbca49c0e1943292fcfa4ddf72a415075effb28502c6ef7921f74e1f",
+    "method": "neutral",
+    "parameters": {
+      "minimum": 100,
+      "maximum": 255,
+      "chroma": 12,
+      "edge_dematte": true
+    },
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      31,
+      37,
+      1236,
+      1221
+    ],
+    "transparent_pixels": 832902,
+    "partial_alpha_pixels": 7998,
+    "opaque_pixels": 731616,
+    "clear_corners": true
+  },
+  {
+    "source": "raw/HA_MeleeSweepCommand_v01.png",
+    "output": "cutouts/HA_MeleeSweepCommand_v01.png",
+    "source_sha256": "49d395d9529e5a262c2febfaa9077f5058c27d07184ba93cfaf8e5e9914014f6",
+    "method": "neutral",
+    "parameters": {
+      "minimum": 100,
+      "maximum": 255,
+      "chroma": 12,
+      "edge_dematte": true
+    },
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      16,
+      60,
+      1244,
+      1188
+    ],
+    "transparent_pixels": 941578,
+    "partial_alpha_pixels": 8584,
+    "opaque_pixels": 622354,
+    "clear_corners": true
+  },
+  {
+    "source": "raw/HA_QuantumSword_v01.png",
+    "output": "cutouts/HA_QuantumSword_v01.png",
+    "source_sha256": "53565bbc39205eb4a2b10d503a4e17b362395ed69f6c29d7d18be8107465bb56",
+    "method": "alpha",
+    "parameters": {},
+    "size": [
+      2172,
+      724
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      25,
+      103,
+      2152,
+      708
+    ],
+    "transparent_pixels": 1334016,
+    "partial_alpha_pixels": 238324,
+    "opaque_pixels": 188,
+    "clear_corners": true
+  },
+  {
+    "source": "raw/HA_QuantumSlashDown_v01.png",
+    "output": "cutouts/HA_QuantumSlashDown_v01.png",
+    "source_sha256": "da3bbc864049bfabfcbae4f7a8951a023a7c28cef1e7530ac00217310029dedf",
+    "method": "neutral",
+    "parameters": {
+      "minimum": 100,
+      "maximum": 255,
+      "chroma": 12,
+      "edge_dematte": true
+    },
+    "size": [
+      1312,
+      1199
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      26,
+      13,
+      1291,
+      1172
+    ],
+    "transparent_pixels": 1078817,
+    "partial_alpha_pixels": 10649,
+    "opaque_pixels": 483622,
+    "clear_corners": true
+  },
+  {
+    "source": "raw/HA_QuantumSlashUp_v01.png",
+    "output": "cutouts/HA_QuantumSlashUp_v01.png",
+    "source_sha256": "21d771837d6fd11f74853b9d4e3b5e6bc5e3401e46eb7c16204e7d6d8a09c9fc",
+    "method": "neutral",
+    "parameters": {
+      "minimum": 100,
+      "maximum": 255,
+      "chroma": 12,
+      "edge_dematte": true
+    },
+    "size": [
+      1230,
+      1278
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      9,
+      17,
+      1191,
+      1263
+    ],
+    "transparent_pixels": 1007810,
+    "partial_alpha_pixels": 9956,
+    "opaque_pixels": 554174,
+    "clear_corners": true
+  },
+  {
+    "source": "raw/HA_QuantumSlashSweep_v01.png",
+    "output": "cutouts/HA_QuantumSlashSweep_v01.png",
+    "source_sha256": "0bbfbba992fc0be53ec86f4e3d420d667b2f6249652b1cc76d13e5e62435fd86",
+    "method": "alpha",
+    "parameters": {},
+    "size": [
+      2172,
+      724
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      0,
+      38,
+      2172,
+      724
+    ],
+    "transparent_pixels": 901254,
+    "partial_alpha_pixels": 671139,
+    "opaque_pixels": 135,
+    "clear_corners": true
+  }
+]

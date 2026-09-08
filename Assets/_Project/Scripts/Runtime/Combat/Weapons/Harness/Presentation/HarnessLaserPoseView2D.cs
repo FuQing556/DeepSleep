@@ -1,3 +1,4 @@
+using DeepSleep.Runtime.Presentation.Poses;
 using System;
 using UnityEngine;
 
@@ -16,7 +17,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
         [SerializeField] private Transform _followRoot;
 
         private float _firePoseRemainingSeconds;
-        private float _ghostFadeRemainingSeconds;
+        private readonly SpritePoseGhost2D _ghost = new();
 
         public void SetAiming(
             bool isAiming,
@@ -47,7 +48,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
             bool isAiming,
             HarnessTerminalLaserPresentationConfig config)
         {
-            FadeGhost(Mathf.Max(0f, deltaTime), config);
+            _ghost.Tick(deltaTime);
 
             if (isAiming)
             {
@@ -66,10 +67,15 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
 
         public void Reset()
         {
-            _firePoseRemainingSeconds = 0f;
-            _ghostFadeRemainingSeconds = 0f;
+            Release();
             _ghostRenderer.enabled = false;
             _characterRenderer.sprite = _idleSprite;
+        }
+
+        public void Release()
+        {
+            _firePoseRemainingSeconds = 0f;
+            _ghost.Clear();
         }
 
         public bool TryValidateConfiguration(out string reason)
@@ -114,70 +120,13 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
 
             if (previousSprite != null)
             {
-                CopyCharacterToGhost(previousSprite, config);
+                _ghost.Capture(_characterRenderer, _ghostRenderer,
+                    config.PoseGhostStartAlpha, config.PoseGhostFadeSeconds);
             }
 
             // 新状态在切换瞬间立即完整显示；旧状态只占用唯一 Ghost。
             _characterRenderer.sprite = sprite;
         }
 
-        private void CopyCharacterToGhost(
-            Sprite previousSprite,
-            HarnessTerminalLaserPresentationConfig config)
-        {
-            Transform characterTransform = _characterRenderer.transform;
-            Transform ghostTransform = _ghostRenderer.transform;
-            ghostTransform.localPosition =
-                _followRoot.InverseTransformPoint(characterTransform.position);
-            ghostTransform.localRotation =
-                Quaternion.Inverse(_followRoot.rotation) *
-                characterTransform.rotation;
-            Vector3 rootScale = _followRoot.lossyScale;
-            Vector3 characterScale = characterTransform.lossyScale;
-            ghostTransform.localScale = new Vector3(
-                DivideScale(characterScale.x, rootScale.x),
-                DivideScale(characterScale.y, rootScale.y),
-                DivideScale(characterScale.z, rootScale.z));
-
-            _ghostRenderer.sprite = previousSprite;
-            _ghostRenderer.flipX = _characterRenderer.flipX;
-            _ghostRenderer.flipY = _characterRenderer.flipY;
-            Color ghostColor = _characterRenderer.color;
-            ghostColor.a *= config.PoseGhostStartAlpha;
-            _ghostRenderer.color = ghostColor;
-            _ghostRenderer.enabled = true;
-            _ghostFadeRemainingSeconds = config.PoseGhostFadeSeconds;
-        }
-
-        private static float DivideScale(float value, float divisor)
-        {
-            return Mathf.Abs(divisor) <= Mathf.Epsilon
-                ? value
-                : value / divisor;
-        }
-
-        private void FadeGhost(
-            float deltaTime,
-            HarnessTerminalLaserPresentationConfig config)
-        {
-            if (!_ghostRenderer.enabled)
-            {
-                return;
-            }
-
-            _ghostFadeRemainingSeconds = Mathf.Max(
-                0f,
-                _ghostFadeRemainingSeconds - deltaTime);
-            float alpha = config.PoseGhostStartAlpha *
-                (_ghostFadeRemainingSeconds / config.PoseGhostFadeSeconds);
-            Color color = _ghostRenderer.color;
-            color.a = alpha;
-            _ghostRenderer.color = color;
-
-            if (_ghostFadeRemainingSeconds <= 0f)
-            {
-                _ghostRenderer.enabled = false;
-            }
-        }
     }
 }

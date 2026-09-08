@@ -1,0 +1,53 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20260908_HarnessQuantumSword\\ready\\HA_MeleeSweepCommand_v03.png",
+  "source_sha256": "5f3a3e2020d62dd2f44fa5c3f058442118cfff50fad2b8eea9c9e0d0828649f4",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 1015058,
+  "partial_alpha_pixels": 12064,
+  "opaque_pixels": 545394,
+  "visible_bbox_alpha_gt_0": [
+    86,
+    56,
+    1093,
+    1177
+  ],
+  "visible_bbox_alpha_gt_8": [
+    86,
+    56,
+    1093,
+    1177
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [
+    {
+      "role": "clear",
+      "xy": [
+        0,
+        0
+      ],
+      "rgba": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "passed": true
+    }
+  ],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

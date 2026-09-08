@@ -60,14 +60,22 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
             float initialRotationOffsetDegrees,
             float rotationDeltaDegrees)
         {
+            PlayAt(hit.HitPoint, hit.Direction, hit.BeamWidth, config,
+                initialRotationOffsetDegrees, rotationDeltaDegrees);
+        }
+
+        public void PlayAt(Vector2 position, Vector2 direction, float width,
+            HarnessTerminalLaserPresentationConfig config, float initialRotationOffsetDegrees,
+            float rotationDeltaDegrees)
+        {
             _config = config;
-            _worldPosition = hit.HitPoint;
+            _worldPosition = position;
             _rotationDegrees =
-                WorldSpriteGeometry2D.DirectionToAngle(hit.Direction) +
+                WorldSpriteGeometry2D.DirectionToAngle(direction) +
                 initialRotationOffsetDegrees;
             _worldDiameter = Mathf.Max(
                 config.HitEffectMinimumWorldDiameter,
-                hit.BeamWidth * config.HitEffectBeamWidthMultiplier);
+                width * config.HitEffectBeamWidthMultiplier);
             _rotationDeltaDegrees = rotationDeltaDegrees;
             _elapsedSeconds = 0f;
             _isPlaying = true;

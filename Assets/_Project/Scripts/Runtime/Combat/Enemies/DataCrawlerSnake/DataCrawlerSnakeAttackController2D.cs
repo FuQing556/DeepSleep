@@ -1,5 +1,6 @@
 using DeepSleep.Runtime.Combat.Projectiles;
 using DeepSleep.Runtime.Combat.Targeting;
+using DeepSleep.Runtime.Simulation;
 using UnityEngine;
 
 namespace DeepSleep.Runtime.Combat.Enemies.DataCrawlerSnake
@@ -8,7 +9,7 @@ namespace DeepSleep.Runtime.Combat.Enemies.DataCrawlerSnake
     /// 数据蛇攻击状态机：就绪、蓄力、开火姿态、后摇。
     /// 只决定攻击时序；弹体生命周期由场景级对象池负责。
     /// </summary>
-    public sealed class DataCrawlerSnakeAttackController2D : MonoBehaviour
+    public sealed class DataCrawlerSnakeAttackController2D : MonoBehaviour, IFixedSimulationStep
     {
         [SerializeField] private DataCrawlerSnakeMotor2D _motor;
         [SerializeField] private DataCrawlerSnakeVisual2D _visual;
@@ -42,8 +43,12 @@ namespace DeepSleep.Runtime.Combat.Enemies.DataCrawlerSnake
             ResetCycle();
         }
 
-        private void Update()
+        public void Simulate(float deltaTime)
         {
+            if (!isActiveAndEnabled || deltaTime <= 0f)
+            {
+                return;
+            }
             if (_projectilePool == null || !_motor.IsRunning)
             {
                 if (State != DataCrawlerSnakeAttackState.Ready)
@@ -54,7 +59,8 @@ namespace DeepSleep.Runtime.Combat.Enemies.DataCrawlerSnake
                 return;
             }
 
-            float deltaTime = Mathf.Max(0f, Time.deltaTime);
+            _visual.SynchronizeFacing();
+
             switch (State)
             {
                 case DataCrawlerSnakeAttackState.Ready:

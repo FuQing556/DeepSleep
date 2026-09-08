@@ -1,0 +1,4 @@
+interface:
+  display_name: "DeepSleep 本地抠图"
+  short_description: "保护已确认人物和黑红特效，检查假棋盘、封闭空隙、色边及真实透明通道"
+  default_prompt: "使用 $deepsleep-sprite-matting，将本次确认的素材做本地透明处理，保留人物与原图，批量交付深浅底预览和尺寸报告。"

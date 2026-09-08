@@ -332,6 +332,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Enemies.EnemyActor2D
   _health: {fileID: 6346838971342539775}
   _motor: {fileID: 3724364639585503697}
+  _simulationStepComponents:
+  - {fileID: 8043110479268437187}
 --- !u!114 &1092343744440009580
 MonoBehaviour:
   m_ObjectHideFlags: 0

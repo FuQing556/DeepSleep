@@ -32,14 +32,13 @@ namespace DeepSleep.Runtime.Combat.Enemies
             }
         }
 
-        private void FixedUpdate()
+        public override void Simulate(float deltaTime)
         {
-            if (!_isRunning)
+            if (!_isRunning || !isActiveAndEnabled || deltaTime <= 0f)
             {
                 return;
             }
 
-            float deltaTime = Time.fixedDeltaTime;
             Vector2 nextPosition =
                 _body.position +
                 _variation.TravelDirection *

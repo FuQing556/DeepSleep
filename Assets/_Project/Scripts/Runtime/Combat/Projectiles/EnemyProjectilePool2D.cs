@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DeepSleep.Runtime.Presentation.Effects;
+using DeepSleep.Runtime.Simulation;
 using UnityEngine;
 
 namespace DeepSleep.Runtime.Combat.Projectiles
@@ -7,7 +8,7 @@ namespace DeepSleep.Runtime.Combat.Projectiles
     /// <summary>
     /// 场景级敌方弹体池。多条同类敌人共享，不在敌人预制体内重复创建。
     /// </summary>
-    public sealed class EnemyProjectilePool2D : MonoBehaviour
+    public sealed class EnemyProjectilePool2D : MonoBehaviour, IFixedSimulationStep
     {
         [SerializeField] private EnemyProjectile2D _projectilePrefab;
         [SerializeField] private Transform _poolRoot;
@@ -151,6 +152,20 @@ namespace DeepSleep.Runtime.Combat.Projectiles
             projectile.transform.SetParent(_poolRoot, false);
             _available.Push(projectile);
             _reportedExhaustion = false;
+        }
+
+        /// <summary>由固定模拟推进寿命；刚体运动和触发回调仍由Unity物理执行。</summary>
+        public void Simulate(float deltaTime)
+        {
+            if (!_isInitialized || !isActiveAndEnabled || deltaTime <= 0f)
+            {
+                return;
+            }
+            int count = _all.Count;
+            for (int index = 0; index < count; index++)
+            {
+                if (_all[index] != null) _all[index].Simulate(deltaTime);
+            }
         }
 
         internal void NotifyImpact(Vector2 position, float angle)

@@ -11,6 +11,8 @@ namespace DeepSleep.Runtime.Simulation
     {
         [SerializeField] private PlayerCommandDispatcher[] playerDispatchers;
         [SerializeField] private PlayerReviveCoordinator2D[] reviveCoordinators;
+        [SerializeField] private MonoBehaviour[] worldStepComponents;
+        private IFixedSimulationStep[] worldSteps;
 
         private uint currentTick;
         private bool isInitialized;
@@ -60,6 +62,19 @@ namespace DeepSleep.Runtime.Simulation
                 return;
             }
 
+            int worldCount = worldStepComponents?.Length ?? 0;
+            worldSteps = new IFixedSimulationStep[worldCount];
+            for (int index = 0; index < worldCount; index++)
+            {
+                if (worldStepComponents[index] is not IFixedSimulationStep step ||
+                    System.Array.IndexOf(worldStepComponents, worldStepComponents[index]) != index)
+                {
+                    Debug.LogError($"[{nameof(FixedSimulationLoop)}] 世界步骤 {index} 为空、重复或未实现 IFixedSimulationStep。", this);
+                    enabled = false;
+                    return;
+                }
+                worldSteps[index] = step;
+            }
             isInitialized = true;
         }
 
@@ -87,6 +102,15 @@ namespace DeepSleep.Runtime.Simulation
             for (int index = 0; index < coordinatorCount; index++)
             {
                 reviveCoordinators[index].Simulate(deltaTime);
+            }
+
+            // Inspector 顺序是明确的依赖顺序：刷怪、敌方弹体寿命、敌人决策/运动。
+            for (int index = 0; index < worldSteps.Length; index++)
+            {
+                if (worldStepComponents[index] != null && worldStepComponents[index].isActiveAndEnabled)
+                {
+                    worldSteps[index].Simulate(deltaTime);
+                }
             }
         }
     }

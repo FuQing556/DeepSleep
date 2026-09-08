@@ -1,0 +1,4 @@
+interface:
+  display_name: "DeepSleep 生图"
+  short_description: "按 DS 与 HS 已确认母图制作统一风格、自然动作和可分层的游戏素材"
+  default_prompt: "使用 $deepsleep-art-generation，按 DeepSleep 当前母图和本次需求完成素材，先核对身份、动作与拆层，不改已确认画面。"

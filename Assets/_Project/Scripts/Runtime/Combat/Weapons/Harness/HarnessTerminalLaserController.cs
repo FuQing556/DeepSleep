@@ -32,6 +32,13 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
         private DamageHitbox2D _selectedTargetHitbox;
         private uint _nextFireSequence;
         private bool _isInitialized;
+        private bool _inputSuppressed;
+
+        public void SetInputSuppressed(bool suppressed)
+        {
+            _inputSuppressed = suppressed;
+            if (suppressed) CancelSelection();
+        }
 
         public PlayerActionBlock ActionCategory =>
             PlayerActionBlock.ActiveCombat;
@@ -79,6 +86,12 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                 return;
             }
 
+            if (_inputSuppressed)
+            {
+                AdvanceCycle(Mathf.Max(0f, deltaTime));
+                return;
+            }
+
             if (WasPressed(command.CancelAim))
             {
                 CancelSelection();
@@ -97,7 +110,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
         /// </summary>
         public bool TrySelectTarget(Collider2D target)
         {
-            if (!_isInitialized || !IsSelectableDamageTarget(target))
+            if (!_isInitialized || _inputSuppressed || !IsSelectableDamageTarget(target))
             {
                 return false;
             }

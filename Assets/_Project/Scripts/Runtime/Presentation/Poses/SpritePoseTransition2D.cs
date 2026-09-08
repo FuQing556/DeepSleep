@@ -3,7 +3,7 @@ using UnityEngine;
 namespace DeepSleep.Runtime.Presentation.Poses
 {
     /// <summary>
-    /// 通用单残影姿态切换：新姿态同帧显示，旧姿态冻结在切换位置淡出。
+    /// 通用单残影姿态切换：新姿态同帧显示，旧姿态跟随实体平移并淡出。
     /// 快速连续切换时复用唯一残影，避免无限叠图。
     /// </summary>
     public sealed class SpritePoseTransition2D : MonoBehaviour
@@ -12,7 +12,7 @@ namespace DeepSleep.Runtime.Presentation.Poses
         [SerializeField] private SpriteRenderer _ghostRenderer;
         [SerializeField] private SpritePoseTransitionConfig _config;
 
-        private float _remainingSeconds;
+        private readonly SpritePoseGhost2D _ghost = new();
         private bool _isInitialized;
 
         private void Awake()
@@ -33,23 +33,12 @@ namespace DeepSleep.Runtime.Presentation.Poses
 
         private void LateUpdate()
         {
-            if (!_isInitialized || !_ghostRenderer.enabled)
-            {
-                return;
-            }
+            if (_isInitialized) _ghost.Tick(Time.deltaTime);
+        }
 
-            _remainingSeconds = Mathf.Max(
-                0f,
-                _remainingSeconds - Mathf.Max(0f, Time.deltaTime));
-            Color color = _ghostRenderer.color;
-            color.a = _config.StartAlpha *
-                (_remainingSeconds / _config.FadeSeconds);
-            _ghostRenderer.color = color;
-
-            if (_remainingSeconds <= 0f)
-            {
-                _ghostRenderer.enabled = false;
-            }
+        private void OnDisable()
+        {
+            _ghost.Clear();
         }
 
         public void TransitionTo(Sprite nextSprite)
@@ -71,7 +60,7 @@ namespace DeepSleep.Runtime.Presentation.Poses
                 _subjectRenderer.sprite = sprite;
             }
 
-            _remainingSeconds = 0f;
+            _ghost.Clear();
             if (_ghostRenderer != null)
             {
                 _ghostRenderer.enabled = false;
@@ -109,41 +98,8 @@ namespace DeepSleep.Runtime.Presentation.Poses
 
         private void CaptureCurrentPose()
         {
-            Sprite previous = _subjectRenderer.sprite;
-            if (previous == null)
-            {
-                return;
-            }
-
-            Transform source = _subjectRenderer.transform;
-            Transform ghost = _ghostRenderer.transform;
-            Transform followRoot = ghost.parent;
-            ghost.localPosition =
-                followRoot.InverseTransformPoint(source.position);
-            ghost.localRotation =
-                Quaternion.Inverse(followRoot.rotation) * source.rotation;
-            Vector3 rootScale = followRoot.lossyScale;
-            Vector3 sourceScale = source.lossyScale;
-            ghost.localScale = new Vector3(
-                Divide(sourceScale.x, rootScale.x),
-                Divide(sourceScale.y, rootScale.y),
-                Divide(sourceScale.z, rootScale.z));
-
-            _ghostRenderer.sprite = previous;
-            _ghostRenderer.flipX = _subjectRenderer.flipX;
-            _ghostRenderer.flipY = _subjectRenderer.flipY;
-            Color color = _subjectRenderer.color;
-            color.a *= _config.StartAlpha;
-            _ghostRenderer.color = color;
-            _ghostRenderer.enabled = true;
-            _remainingSeconds = _config.FadeSeconds;
+            _ghost.Capture(_subjectRenderer, _ghostRenderer, _config.StartAlpha, _config.FadeSeconds);
         }
 
-        private static float Divide(float value, float divisor)
-        {
-            return Mathf.Abs(divisor) <= Mathf.Epsilon
-                ? value
-                : value / divisor;
-        }
     }
 }

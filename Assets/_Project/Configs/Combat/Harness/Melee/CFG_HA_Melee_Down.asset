@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752844533da14e3458f7d188c2638aa5, type: 3}
+  m_Name: CFG_HA_Melee_Down
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Weapons.Harness.Melee.HarnessMeleeAttackConfig
+  CharacterPose: {fileID: 21300000, guid: c532329b8a8719e44b96dec02e453c60, type: 3}
+  CharacterScale: 0.92
+  CharacterOffset: {x: -0.12, y: 0.12}
+  WaveSprite: {fileID: 21300000, guid: c04b4b45a4ede0742960640e04785924, type: 3}
+  GrowFraction: 0.3
+  ShrinkFraction: 0.3
+  MinimumSwordScale: 0.02
+  SwingOffset: {x: 0, y: 0}
+  SwingSeconds: 0.5
+  RecoverySeconds: 0.08
+  Travel:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 3
+      outSlope: 3
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  StartAngle: 23
+  EndAngle: -31
+  OrbitHeight: 1
+  GripRadius: 0
+  SwordLength: 1.7
+  BladeWidth: 0.16
+  BladeDamage: 2
+  WaveDamage: 3
+  WaveOffset: {x: 1.3204205, y: 1.4544008}
+  WaveRotation: 21
+  WaveFlipX: 1
+  WaveFlipY: 0
+  WaveAttachPoint: {x: -0.25, y: 0.18}
+  WaveTipProgress: 1
+  WaveWidth: 3
+  WavePolygon:
+  - {x: -0.38, y: 0.4}
+  - {x: -0.27, y: 0.02}
+  - {x: -0.12, y: -0.17}
+  - {x: 0.1, y: -0.3}
+  - {x: 0.44, y: -0.41}
+  - {x: 0.22, y: -0.3}
+  - {x: 0.05, y: -0.18}
+  - {x: -0.12, y: -0.01}
+  - {x: -0.27, y: 0.22}

@@ -1,0 +1,29 @@
+{
+  "assets": [
+    {
+      "source": "../20260908_PlayerStyleAndSword/DS_Idle_Proportion_Candidate_v02.png",
+      "output": "cutouts/DS_Idle_v02.png",
+      "method": "neutral",
+      "parameters": { "minimum": 220, "maximum": 255, "chroma": 8, "edge_dematte": true }
+    },
+    {
+      "source": "../20260908_PlayerStyleAndSword/DS_Sleep_Proportion_Candidate_v02.png",
+      "output": "cutouts/DS_Sleep_v02.png",
+      "method": "neutral",
+      "parameters": { "minimum": 85, "maximum": 240, "chroma": 20, "seeds": [[341, 850]], "edge_dematte": true }
+    },
+    {
+      "source": "raw/HA_Sword_Side_v01.png",
+      "output": "cutouts/HA_Sword_Side_v01.png",
+      "method": "green",
+      "parameters": { "emission_edges": true }
+    },
+    { "source": "raw/HA_Ready_v01.png", "output": "cutouts/HA_Ready_v01.png", "method": "green" },
+    { "source": "raw/HA_Down_v01.png", "output": "cutouts/HA_Down_v01.png", "method": "green" },
+    { "source": "raw/HA_Up_v01.png", "output": "cutouts/HA_Up_v01.png", "method": "green" },
+    { "source": "raw/HA_Sweep_v01.png", "output": "cutouts/HA_Sweep_v01.png", "method": "green" },
+    { "source": "raw/HA_Wave_Down_v01.png", "output": "cutouts/HA_Wave_Down_v01.png", "method": "emission", "parameters": {"cutoff": 8} },
+    { "source": "raw/HA_Wave_Up_v01.png", "output": "cutouts/HA_Wave_Up_v01.png", "method": "emission", "parameters": {"cutoff": 8} },
+    { "source": "raw/HA_Wave_Sweep_v01.png", "output": "cutouts/HA_Wave_Sweep_v01.png", "method": "emission", "parameters": {"cutoff": 8} }
+  ]
+}

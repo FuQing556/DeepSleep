@@ -1,5 +1,6 @@
 using System;
 using DeepSleep.Runtime.Combat.Health;
+using DeepSleep.Runtime.Simulation;
 using UnityEngine;
 
 namespace DeepSleep.Runtime.Combat.Enemies
@@ -12,6 +13,8 @@ namespace DeepSleep.Runtime.Combat.Enemies
     {
         [SerializeField] private HealthComponent _health;
         [SerializeField] private EnemyMotor2D _motor;
+        [SerializeField] private MonoBehaviour[] _simulationStepComponents;
+        private IFixedSimulationStep[] _simulationSteps;
 
         private bool _despawnRequested;
         private bool _isInitialized;
@@ -33,6 +36,12 @@ namespace DeepSleep.Runtime.Combat.Enemies
                 return;
             }
 
+            int count = _simulationStepComponents?.Length ?? 0;
+            _simulationSteps = new IFixedSimulationStep[count];
+            for (int index = 0; index < count; index++)
+            {
+                _simulationSteps[index] = (IFixedSimulationStep)_simulationStepComponents[index];
+            }
             _isInitialized = true;
         }
 
@@ -77,6 +86,18 @@ namespace DeepSleep.Runtime.Combat.Enemies
 
         public bool TryValidateConfiguration(out string reason)
         {
+            int count = _simulationStepComponents?.Length ?? 0;
+            for (int index = 0; index < count; index++)
+            {
+                MonoBehaviour component = _simulationStepComponents[index];
+                if (component is not IFixedSimulationStep ||
+                    component.gameObject != gameObject ||
+                    Array.IndexOf(_simulationStepComponents, component) != index)
+                {
+                    reason = $"敌人模拟步骤 {index} 必须是同根节点的唯一 IFixedSimulationStep。";
+                    return false;
+                }
+            }
             if (_health == null)
             {
                 reason = "未配置生命组件。";
@@ -102,6 +123,25 @@ namespace DeepSleep.Runtime.Combat.Enemies
         private void OnHealthDepleted(HealthComponent health)
         {
             TryRequestDespawn(EnemyDespawnReason.Defeated);
+        }
+
+        /// <summary>由所属对象池推进：选目标、攻击、移动。回收立即终止后续步骤。</summary>
+        public void Simulate(float deltaTime)
+        {
+            if (!_isInitialized || !isActiveAndEnabled || _despawnRequested || deltaTime <= 0f)
+            {
+                return;
+            }
+            _motor.PrepareSimulation(deltaTime);
+            for (int index = 0; index < _simulationSteps.Length; index++)
+            {
+                if (_despawnRequested) return;
+                if (_simulationStepComponents[index].isActiveAndEnabled)
+                {
+                    _simulationSteps[index].Simulate(deltaTime);
+                }
+            }
+            if (!_despawnRequested) _motor.Simulate(deltaTime);
         }
 
         private void OnExitedPlayfield(EnemyMotor2D motor)

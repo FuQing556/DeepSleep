@@ -40,14 +40,14 @@ namespace DeepSleep.Runtime.Combat.Enemies.DataCrawlerSnake
             }
         }
 
-        private void FixedUpdate()
+        public override void PrepareSimulation(float deltaTime)
         {
-            if (!_isRunning)
+            if (!_isRunning || !isActiveAndEnabled || deltaTime <= 0f)
             {
                 return;
             }
 
-            _retargetRemainingSeconds -= Time.fixedDeltaTime;
+            _retargetRemainingSeconds -= deltaTime;
             if (_retargetRemainingSeconds <= 0f ||
                 _target == null || !_target.IsTargetable)
             {
@@ -57,9 +57,27 @@ namespace DeepSleep.Runtime.Combat.Enemies.DataCrawlerSnake
                 _retargetRemainingSeconds = _config.RetargetInterval;
             }
 
+            if (_target == null || !_target.IsTargetable)
+            {
+                _travelDirection = _fallbackDirection;
+            }
+            else
+            {
+                Vector2 offset = _target.Position - _body.position;
+                if (offset.sqrMagnitude > 0.0001f)
+                    _travelDirection = offset.normalized;
+            }
+        }
+
+        public override void Simulate(float deltaTime)
+        {
+            if (!_isRunning || !isActiveAndEnabled || deltaTime <= 0f)
+            {
+                return;
+            }
             Vector2 movement = CalculateMovement();
             Vector2 nextPosition =
-                _body.position + movement * Time.fixedDeltaTime;
+                _body.position + movement * deltaTime;
             _body.MovePosition(nextPosition);
 
             Rect bounds = _playfield.WorldBounds;

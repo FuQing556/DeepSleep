@@ -1,0 +1,246 @@
+[
+  {
+    "source": "../20260908_PlayerStyleAndSword/DS_Idle_Proportion_Candidate_v02.png",
+    "output": "cutouts/DS_Idle_v02.png",
+    "source_sha256": "bc758fb44830a86ffcaccb5ffec7ed7eed7b46bc6aa86054ef049ba1fafb4f67",
+    "method": "neutral",
+    "parameters": {
+      "minimum": 220,
+      "maximum": 255,
+      "chroma": 8,
+      "edge_dematte": true
+    },
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      175,
+      66,
+      1006,
+      1173
+    ],
+    "transparent_pixels": 1167261,
+    "partial_alpha_pixels": 6521,
+    "opaque_pixels": 398734,
+    "clear_corners": true
+  },
+  {
+    "source": "../20260908_PlayerStyleAndSword/DS_Sleep_Proportion_Candidate_v02.png",
+    "output": "cutouts/DS_Sleep_v02.png",
+    "source_sha256": "01030712f2a35b46e76920255605854c140842786ecd026c6c1cdedfcd408da9",
+    "method": "neutral",
+    "parameters": {
+      "minimum": 85,
+      "maximum": 240,
+      "chroma": 20,
+      "seeds": [
+        [
+          341,
+          850
+        ]
+      ],
+      "edge_dematte": true
+    },
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      64,
+      251,
+      1209,
+      1023
+    ],
+    "transparent_pixels": 1156114,
+    "partial_alpha_pixels": 5415,
+    "opaque_pixels": 410987,
+    "clear_corners": true
+  },
+  {
+    "source": "raw/HA_Sword_Side_v01.png",
+    "output": "cutouts/HA_Sword_Side_v01.png",
+    "source_sha256": "b217cf2a815613043c0db22539f619e5c304c85a7d8c4335f0ad602317c1ee14",
+    "method": "green",
+    "parameters": {
+      "emission_edges": true
+    },
+    "size": [
+      1774,
+      887
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      34,
+      275,
+      1743,
+      587
+    ],
+    "transparent_pixels": 1359200,
+    "partial_alpha_pixels": 58640,
+    "opaque_pixels": 155698,
+    "clear_corners": true
+  },
+  {
+    "source": "raw/HA_Ready_v01.png",
+    "output": "cutouts/HA_Ready_v01.png",
+    "source_sha256": "6e4d48a7f65993ee41d4cf5034e04fb0a2b65ac9056bf330c0340f47bb35f2c5",
+    "method": "green",
+    "parameters": {},
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      84,
+      62,
+      1165,
+      1202
+    ],
+    "transparent_pixels": 1009717,
+    "partial_alpha_pixels": 12249,
+    "opaque_pixels": 550550,
+    "clear_corners": true
+  },
+  {
+    "source": "raw/HA_Down_v01.png",
+    "output": "cutouts/HA_Down_v01.png",
+    "source_sha256": "cb11d3eba15d0f56a2ab7849fd2e7bc663bc95ea1841c2ea7aa7d26b600dd42e",
+    "method": "green",
+    "parameters": {},
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      37,
+      71,
+      1203,
+      1175
+    ],
+    "transparent_pixels": 933080,
+    "partial_alpha_pixels": 12647,
+    "opaque_pixels": 626789,
+    "clear_corners": true
+  },
+  {
+    "source": "raw/HA_Up_v01.png",
+    "output": "cutouts/HA_Up_v01.png",
+    "source_sha256": "6c8df8d849486e795563e825673b83f110160fe446e50bbba53a98bb1641f7bb",
+    "method": "green",
+    "parameters": {},
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      62,
+      69,
+      1211,
+      1201
+    ],
+    "transparent_pixels": 981344,
+    "partial_alpha_pixels": 12723,
+    "opaque_pixels": 578449,
+    "clear_corners": true
+  },
+  {
+    "source": "raw/HA_Sweep_v01.png",
+    "output": "cutouts/HA_Sweep_v01.png",
+    "source_sha256": "f8009299e9c546bd0b86a1e2dd665f2a3e5db8624675740be66e97db44b026cc",
+    "method": "green",
+    "parameters": {},
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      35,
+      101,
+      1190,
+      1144
+    ],
+    "transparent_pixels": 984321,
+    "partial_alpha_pixels": 12778,
+    "opaque_pixels": 575417,
+    "clear_corners": true
+  },
+  {
+    "source": "raw/HA_Wave_Down_v01.png",
+    "output": "cutouts/HA_Wave_Down_v01.png",
+    "source_sha256": "9cbf6a0cc1ff106a122554c0d6710b07f033bd3004522c7f121e1deb226050fa",
+    "method": "emission",
+    "parameters": {
+      "cutoff": 8
+    },
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      29,
+      37,
+      1213,
+      1140
+    ],
+    "transparent_pixels": 1265534,
+    "partial_alpha_pixels": 295305,
+    "opaque_pixels": 11677,
+    "clear_corners": true
+  },
+  {
+    "source": "raw/HA_Wave_Up_v01.png",
+    "output": "cutouts/HA_Wave_Up_v01.png",
+    "source_sha256": "48b25fe3eb2b15b338bd417b5553f3f21646e312847f6c437375b4e3baac0133",
+    "method": "emission",
+    "parameters": {
+      "cutoff": 8
+    },
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      40,
+      50,
+      1242,
+      1150
+    ],
+    "transparent_pixels": 1268812,
+    "partial_alpha_pixels": 297303,
+    "opaque_pixels": 6401,
+    "clear_corners": true
+  },
+  {
+    "source": "raw/HA_Wave_Sweep_v01.png",
+    "output": "cutouts/HA_Wave_Sweep_v01.png",
+    "source_sha256": "0d58b42185ce907ae8aa9098d69aee59ec3861e2fe70d3bf2c13ccfcbee7cab7",
+    "method": "emission",
+    "parameters": {
+      "cutoff": 8
+    },
+    "size": [
+      1774,
+      887
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      22,
+      203,
+      1774,
+      669
+    ],
+    "transparent_pixels": 1249958,
+    "partial_alpha_pixels": 312824,
+    "opaque_pixels": 10756,
+    "clear_corners": true
+  }
+]

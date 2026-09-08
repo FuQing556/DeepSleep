@@ -224,6 +224,13 @@ MonoBehaviour:
   reviveCoordinators:
   - {fileID: 1571070260}
   - {fileID: 1929090245}
+  worldStepComponents:
+  - {fileID: 1173827157}
+  - {fileID: 468253772}
+  - {fileID: 1076492545}
+  - {fileID: 1173827158}
+  - {fileID: 468253773}
+  - {fileID: 769569896}
 --- !u!114 &461702372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +248,28 @@ MonoBehaviour:
   _localCommandSourceComponent: {fileID: 398080360}
   _companionCommandSourceComponent: {fileID: 0}
   _initialLocalPlayerRole: 1
+--- !u!114 &468253772 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 548840676240059590, guid: 760d36186e125014aa7fa75d3b6200da, type: 3}
+  m_PrefabInstance: {fileID: 596091806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8fb4ede931261042b9f0eac3970361d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Enemies.EnemySpawnDirector2D
+--- !u!114 &468253773 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6898690694729316662, guid: 760d36186e125014aa7fa75d3b6200da, type: 3}
+  m_PrefabInstance: {fileID: 596091806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273b701d75473104ca4ce225cccd9fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Enemies.EnemyActorPool2D
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -714,6 +743,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f28f78f6415af644a72529c9614ca7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Players.Identity.PlayerActor
+--- !u!114 &769569896 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5194881175737899449, guid: e72882fac3cb68343ae571afc322d91f, type: 3}
+  m_PrefabInstance: {fileID: 769569893}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fc856cea66d0fd4ebcdd95d1961c9af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Weapons.Harness.Melee.HarnessMeleeController
+--- !u!114 &1076492545 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1463561538679735584, guid: 760d36186e125014aa7fa75d3b6200da, type: 3}
+  m_PrefabInstance: {fileID: 596091806}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb071473af14934aa518d324ced6ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Projectiles.EnemyProjectilePool2D
 --- !u!1001 &1173827154
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -776,6 +827,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4272739088127227744, guid: ac23a44213c11ac4b9c8c874f98acf65, type: 3}
   m_PrefabInstance: {fileID: 1173827154}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1173827157 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1193470915269553916, guid: ac23a44213c11ac4b9c8c874f98acf65, type: 3}
+  m_PrefabInstance: {fileID: 1173827154}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8fb4ede931261042b9f0eac3970361d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Enemies.EnemySpawnDirector2D
+--- !u!114 &1173827158 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 368942217440691998, guid: ac23a44213c11ac4b9c8c874f98acf65, type: 3}
+  m_PrefabInstance: {fileID: 1173827154}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273b701d75473104ca4ce225cccd9fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Enemies.EnemyActorPool2D
 --- !u!1 &1421405759
 GameObject:
   m_ObjectHideFlags: 0

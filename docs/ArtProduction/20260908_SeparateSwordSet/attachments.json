@@ -1,0 +1,19 @@
+{
+  "status": "art-preview-only; not gameplay or Unity configuration",
+  "coordinate_system": "source pixels, top-left origin, clockwise degrees",
+  "canvas": [2304, 2048],
+  "body_anchor_on_canvas": [870, 1160],
+  "weapon": {
+    "file": "cutouts/HA_Sword_Side_v01.png",
+    "grip_pixel": [225, 431],
+    "uniform_scale": 0.44,
+    "front_from_x": 330,
+    "layer": "rear grip -> character -> guard/blade -> original grip pixels"
+  },
+  "poses": [
+    {"name": "Ready", "file": "cutouts/HA_Ready_v01.png", "body_anchor": [790, 710], "hand_anchor": [930, 680], "weapon_angle": -35, "grip_cover": [875, 648, 972, 713]},
+    {"name": "Down", "file": "cutouts/HA_Down_v01.png", "body_anchor": [810, 730], "hand_anchor": [1100, 807], "weapon_angle": 40, "grip_cover": [1037, 761, 1148, 850]},
+    {"name": "Up", "file": "cutouts/HA_Up_v01.png", "body_anchor": [780, 730], "hand_anchor": [1165, 354], "weapon_angle": -68, "grip_cover": [1122, 303, 1213, 402]},
+    {"name": "Sweep", "file": "cutouts/HA_Sweep_v01.png", "body_anchor": [790, 725], "hand_anchor": [1140, 600], "weapon_angle": 8, "grip_cover": [1090, 552, 1192, 636]}
+  ]
+}
