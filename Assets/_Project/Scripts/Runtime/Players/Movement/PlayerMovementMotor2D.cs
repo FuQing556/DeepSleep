@@ -1,5 +1,6 @@
 using DeepSleep.Runtime.Input.Commands;
 using DeepSleep.Runtime.Players.Commands;
+using DeepSleep.Runtime.Players.Actions;
 using UnityEngine;
 
 namespace DeepSleep.Runtime.Players.Movement
@@ -9,13 +10,16 @@ namespace DeepSleep.Runtime.Players.Movement
     /// </summary>
     public sealed class PlayerMovementMotor2D :
         MonoBehaviour,
-        IPlayerCommandConsumer
+        IPlayerActionCommandConsumer
     {
         [SerializeField] private Rigidbody2D body;
         [SerializeField] private Collider2D bodyCollider;
         [SerializeField] private PlayerMotorConfig config;
 
         private bool isInitialized;
+
+        public PlayerActionBlock ActionCategory =>
+            PlayerActionBlock.Movement;
 
         private void Awake()
         {

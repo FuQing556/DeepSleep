@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ed6c044e875ffe4aba19730a55cc95b, type: 3}
+  m_Name: CFG_HA_TerminalLaser_Default
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Weapons.Harness.HarnessTerminalLaserConfig
+  _calibrationSeconds: 0.5
+  _fireCooldownSeconds: 1.25
+  _pointSelectionRadius: 0.8
+  _maximumLockDistance: 20
+  _minimumDirectionDot: 0.85
+  _maximumTargetCandidates: 32
+  _targetLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  _baseBeamWidth: 0.28
+  _primaryTargetDamage: 2.5
+  _piercingDamageMultiplier: 1
+  _baseLanes:
+  - _angleOffsetDegrees: 0
+    _lateralOffset: 0
+    _widthMultiplier: 1
+    _damageMultiplier: 1
+  _budgetRefundPerHit: 0
+  _budgetRefundOnPrimaryKill: 0
+  _maximumBudgetRefundPerShot: 0

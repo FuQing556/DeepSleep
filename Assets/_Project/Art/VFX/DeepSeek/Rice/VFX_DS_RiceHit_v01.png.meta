@@ -1,0 +1,2186 @@
+fileFormatVersion: 2
+guid: 08c47caa3a7373740b19811b2b400f2d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2986115995954563164
+    second: VFX_DS_RiceHit_v01_0
+  - first:
+      213: 5045480932592395289
+    second: VFX_DS_RiceHit_v01_1
+  - first:
+      213: 7303468840137110602
+    second: VFX_DS_RiceHit_v01_2
+  - first:
+      213: -3847235878888044860
+    second: VFX_DS_RiceHit_v01_3
+  - first:
+      213: -6315421089581601170
+    second: VFX_DS_RiceHit_v01_4
+  - first:
+      213: 3777015096119806508
+    second: VFX_DS_RiceHit_v01_5
+  - first:
+      213: -1587012707456567416
+    second: VFX_DS_RiceHit_v01_6
+  - first:
+      213: -1312149394421731363
+    second: VFX_DS_RiceHit_v01_7
+  - first:
+      213: -9150970210989076504
+    second: VFX_DS_RiceHit_v01_8
+  - first:
+      213: -3579806763771971511
+    second: VFX_DS_RiceHit_v01_9
+  - first:
+      213: 4331266860492625349
+    second: VFX_DS_RiceHit_v01_10
+  - first:
+      213: -317306562299510836
+    second: VFX_DS_RiceHit_v01_11
+  - first:
+      213: 56002058839844644
+    second: VFX_DS_RiceHit_v01_12
+  - first:
+      213: -6942579948655135205
+    second: VFX_DS_RiceHit_v01_13
+  - first:
+      213: 3794105486441558421
+    second: VFX_DS_RiceHit_v01_14
+  - first:
+      213: -6690029403398484833
+    second: VFX_DS_RiceHit_v01_15
+  - first:
+      213: -4144598742311104606
+    second: VFX_DS_RiceHit_v01_16
+  - first:
+      213: -140742848194631924
+    second: VFX_DS_RiceHit_v01_17
+  - first:
+      213: 4816861194947932109
+    second: VFX_DS_RiceHit_v01_18
+  - first:
+      213: 2687547507582322667
+    second: VFX_DS_RiceHit_v01_19
+  - first:
+      213: 8719178004924395653
+    second: VFX_DS_RiceHit_v01_20
+  - first:
+      213: -1781108962509531674
+    second: VFX_DS_RiceHit_v01_21
+  - first:
+      213: -2496715830189868457
+    second: VFX_DS_RiceHit_v01_22
+  - first:
+      213: -102773897274920395
+    second: VFX_DS_RiceHit_v01_23
+  - first:
+      213: 46144405434001733
+    second: VFX_DS_RiceHit_v01_24
+  - first:
+      213: 2492978865895316647
+    second: VFX_DS_RiceHit_v01_25
+  - first:
+      213: 7033621366128996142
+    second: VFX_DS_RiceHit_v01_26
+  - first:
+      213: -182189935670506644
+    second: VFX_DS_RiceHit_v01_27
+  - first:
+      213: -2620638674453153493
+    second: VFX_DS_RiceHit_v01_28
+  - first:
+      213: -8635175111821372101
+    second: VFX_DS_RiceHit_v01_29
+  - first:
+      213: -4079572227770696048
+    second: VFX_DS_RiceHit_v01_30
+  - first:
+      213: 6965548091123548191
+    second: VFX_DS_RiceHit_v01_31
+  - first:
+      213: -7034272396077337718
+    second: VFX_DS_RiceHit_v01_32
+  - first:
+      213: 7817191454688565722
+    second: VFX_DS_RiceHit_v01_33
+  - first:
+      213: -4444123656199938578
+    second: VFX_DS_RiceHit_v01_34
+  - first:
+      213: 920734522958852803
+    second: VFX_DS_RiceHit_v01_35
+  - first:
+      213: 3636845647851486310
+    second: VFX_DS_RiceHit_v01_36
+  - first:
+      213: 1764259224638339998
+    second: VFX_DS_RiceHit_v01_37
+  - first:
+      213: 4090682325085998154
+    second: VFX_DS_RiceHit_v01_38
+  - first:
+      213: -4573284069467578421
+    second: VFX_DS_RiceHit_v01_39
+  - first:
+      213: -461917266567471571
+    second: VFX_DS_RiceHit_v01_40
+  - first:
+      213: 3316768940704288897
+    second: VFX_DS_RiceHit_v01_41
+  - first:
+      213: 3044970720651476248
+    second: VFX_DS_RiceHit_v01_42
+  - first:
+      213: -5713115727440867703
+    second: VFX_DS_RiceHit_v01_43
+  - first:
+      213: -1949133947713328882
+    second: VFX_DS_RiceHit_v01_44
+  - first:
+      213: -2154918200702717853
+    second: VFX_DS_RiceHit_v01_45
+  - first:
+      213: -5920385472238273055
+    second: VFX_DS_RiceHit_v01_46
+  - first:
+      213: 7951113698097961760
+    second: VFX_DS_RiceHit_v01_47
+  - first:
+      213: -5436726481739306127
+    second: VFX_DS_RiceHit_v01_48
+  - first:
+      213: -8518336761078259613
+    second: VFX_DS_RiceHit_v01_49
+  - first:
+      213: -6533552914545180491
+    second: VFX_DS_RiceHit_v01_50
+  - first:
+      213: 3424727404663611515
+    second: VFX_DS_RiceHit_v01_51
+  - first:
+      213: 8301936783661354846
+    second: VFX_DS_RiceHit_v01_52
+  - first:
+      213: 8834151628581982166
+    second: VFX_DS_RiceHit_v01_53
+  - first:
+      213: -8217857168476458333
+    second: VFX_DS_RiceHit_v01_54
+  - first:
+      213: -6180671714445086042
+    second: VFX_DS_RiceHit_v01_55
+  - first:
+      213: 8516494944004674487
+    second: VFX_DS_RiceHit_v01_56
+  - first:
+      213: 7929887473048490332
+    second: VFX_DS_RiceHit_v01_57
+  - first:
+      213: -1831269102029511946
+    second: VFX_DS_RiceHit_v01_58
+  - first:
+      213: -4561861366484512489
+    second: VFX_DS_RiceHit_v01_59
+  - first:
+      213: -134743764511508200
+    second: VFX_DS_RiceHit_v01_60
+  - first:
+      213: 5335255673935737613
+    second: VFX_DS_RiceHit_v01_61
+  - first:
+      213: -4169580072944390164
+    second: VFX_DS_RiceHit_v01_62
+  - first:
+      213: 5701088430052360518
+    second: VFX_DS_RiceHit_v01_63
+  - first:
+      213: -2349464047263763489
+    second: VFX_DS_RiceHit_v01_64
+  - first:
+      213: -4180272282209530290
+    second: VFX_DS_RiceHit_v01_65
+  - first:
+      213: -3868170940146798155
+    second: VFX_DS_RiceHit_v01_66
+  - first:
+      213: 5285493729949239369
+    second: VFX_DS_RiceHit_v01_67
+  - first:
+      213: 8763175286035710723
+    second: VFX_DS_RiceHit_v01_68
+  - first:
+      213: 1207430455778164362
+    second: VFX_DS_RiceHit_v01_69
+  - first:
+      213: -1473075118036085673
+    second: VFX_DS_RiceHit_v01_70
+  - first:
+      213: -8520193185261154011
+    second: VFX_DS_RiceHit_v01_71
+  - first:
+      213: -2587466922469057079
+    second: VFX_DS_RiceHit_v01_72
+  - first:
+      213: -581786402736443635
+    second: VFX_DS_RiceHit_v01_73
+  - first:
+      213: -4944960915475008027
+    second: VFX_DS_RiceHit_v01_74
+  - first:
+      213: 6120260892773034419
+    second: VFX_DS_RiceHit_v01_75
+  - first:
+      213: 7085594846278837589
+    second: VFX_DS_RiceHit_v01_76
+  - first:
+      213: 8894246300163972559
+    second: VFX_DS_RiceHit_v01_77
+  - first:
+      213: 8737752331817053451
+    second: VFX_DS_RiceHit_v01_78
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1237
+        height: 1236
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c58cbfc5da0d07920800000000000000
+      internalID: 2986115995954563164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_1
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 1189
+        width: 54
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9142d241d26250640800000000000000
+      internalID: 5045480932592395289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_2
+      rect:
+        serializedVersion: 2
+        x: 665
+        y: 1191
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a44b184f6322b5560800000000000000
+      internalID: 7303468840137110602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_3
+      rect:
+        serializedVersion: 2
+        x: 691
+        y: 1196
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c68db70a5fdb9ac0800000000000000
+      internalID: -3847235878888044860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_4
+      rect:
+        serializedVersion: 2
+        x: 396
+        y: 1156
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6e6a74cafd1b58a0800000000000000
+      internalID: -6315421089581601170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_5
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 1157
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2a428be737aa6430800000000000000
+      internalID: 3777015096119806508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_6
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 1163
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8873506d95cc9f9e0800000000000000
+      internalID: -1587012707456567416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_7
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 1156
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddfaf3de31f4acde0800000000000000
+      internalID: -1312149394421731363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_8
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 1160
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ef80d7b319310180800000000000000
+      internalID: -9150970210989076504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_9
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 1134
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 948b4d807b8f15ec0800000000000000
+      internalID: -3579806763771971511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_10
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 1140
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c59517f240cb1c30800000000000000
+      internalID: 4331266860492625349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_11
+      rect:
+        serializedVersion: 2
+        x: 944
+        y: 1130
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccfbc3ddc53b89bf0800000000000000
+      internalID: -317306562299510836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_12
+      rect:
+        serializedVersion: 2
+        x: 947
+        y: 1116
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 427e6d76395f6c000800000000000000
+      internalID: 56002058839844644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_13
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 1108
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1639afe15007af90800000000000000
+      internalID: -6942579948655135205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_14
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 1107
+        width: 44
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 591b5bf76de57a430800000000000000
+      internalID: 3794105486441558421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_15
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 1124
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9cc381f3bd3823a0800000000000000
+      internalID: -6690029403398484833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_16
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 1094
+        width: 36
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2af0404276d6b76c0800000000000000
+      internalID: -4144598742311104606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_17
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 1114
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c07aea0102bfb0ef0800000000000000
+      internalID: -140742848194631924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_18
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 1108
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dcf2c396cbde8d240800000000000000
+      internalID: 4816861194947932109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_19
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 1106
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be74e6a08361c4520800000000000000
+      internalID: 2687547507582322667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_20
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 1050
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 580fae4033eb00970800000000000000
+      internalID: 8719178004924395653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_21
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 1054
+        width: 34
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e5da57d5da3847e0800000000000000
+      internalID: -1781108962509531674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_22
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 955
+        width: 55
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75a307c3e22e95dd0800000000000000
+      internalID: -2496715830189868457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_23
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 981
+        width: 9
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 532feb85fafd29ef0800000000000000
+      internalID: -102773897274920395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_24
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 913
+        width: 8
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 549e34e9710f3a000800000000000000
+      internalID: 46144405434001733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_25
+      rect:
+        serializedVersion: 2
+        x: 1069
+        y: 911
+        width: 31
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ac1f36f117d89220800000000000000
+      internalID: 2492978865895316647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_26
+      rect:
+        serializedVersion: 2
+        x: 1115
+        y: 931
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2f67b4ed517c9160800000000000000
+      internalID: 7033621366128996142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_27
+      rect:
+        serializedVersion: 2
+        x: 1063
+        y: 887
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6b45b2083bb87df0800000000000000
+      internalID: -182189935670506644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_28
+      rect:
+        serializedVersion: 2
+        x: 1053
+        y: 875
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b29b194a20f91abd0800000000000000
+      internalID: -2620638674453153493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_29
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 867
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b35d796acf1b92880800000000000000
+      internalID: -8635175111821372101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_30
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 866
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09ebd206ca27267c0800000000000000
+      internalID: -4079572227770696048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_31
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 861
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f10c15575199aa060800000000000000
+      internalID: 6965548091123548191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_32
+      rect:
+        serializedVersion: 2
+        x: 1079
+        y: 847
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a837972668e316e90800000000000000
+      internalID: -7034272396077337718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_33
+      rect:
+        serializedVersion: 2
+        x: 1121
+        y: 833
+        width: 28
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad95ee5f53e3c7c60800000000000000
+      internalID: 7817191454688565722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_34
+      rect:
+        serializedVersion: 2
+        x: 1131
+        y: 829
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eedda46a41d4352c0800000000000000
+      internalID: -4444123656199938578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_35
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 771
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c2b66d9b2b17cc00800000000000000
+      internalID: 920734522958852803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_36
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 761
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66cfc1f09dba87230800000000000000
+      internalID: 3636845647851486310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_37
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 757
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9b3648da68eb7810800000000000000
+      internalID: 1764259224638339998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_38
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 678
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4c48bbb6e505c830800000000000000
+      internalID: 4090682325085998154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_39
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 525
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcf9e6e7e5e6880c0800000000000000
+      internalID: -4573284069467578421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_40
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 431
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2e50a281b0f699f0800000000000000
+      internalID: -461917266567471571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_41
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 441
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1805ab057c7870e20800000000000000
+      internalID: 3316768940704288897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_42
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 409
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81d75ebccb8e14a20800000000000000
+      internalID: 3044970720651476248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_43
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 405
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98e8039e38fe6b0b0800000000000000
+      internalID: -5713115727440867703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_44
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 409
+        width: 17
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0964e2600943f4e0800000000000000
+      internalID: -1949133947713328882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_45
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 321
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 360371f40513812e0800000000000000
+      internalID: -2154918200702717853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_46
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 334
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1edbad1d7c096dda0800000000000000
+      internalID: -5920385472238273055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_47
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 310
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02b1fd718c7085e60800000000000000
+      internalID: 7951113698097961760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_48
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 286
+        width: 23
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17b28f2e11edc84b0800000000000000
+      internalID: -5436726481739306127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_49
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 256
+        width: 20
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36067ce09d9c8c980800000000000000
+      internalID: -8518336761078259613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_50
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 270
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b0015f8d382455a0800000000000000
+      internalID: -6533552914545180491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_51
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 277
+        width: 13
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b702587fd63178f20800000000000000
+      internalID: 3424727404663611515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_52
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 254
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5f42e9e487663370800000000000000
+      internalID: 8301936783661354846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_53
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 190
+        width: 65
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6df4191d916399a70800000000000000
+      internalID: 8834151628581982166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_54
+      rect:
+        serializedVersion: 2
+        x: 1068
+        y: 256
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a23012027e44fd80800000000000000
+      internalID: -8217857168476458333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_55
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 232
+        width: 15
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a2323382d7d93aa0800000000000000
+      internalID: -6180671714445086042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_56
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 207
+        width: 9
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b31fcc770ba03670800000000000000
+      internalID: 8516494944004674487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_57
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 194
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5110e374ae9c0e60800000000000000
+      internalID: 7929887473048490332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_58
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 157
+        width: 41
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f2e16544760696e0800000000000000
+      internalID: -1831269102029511946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_59
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 192
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 711dc18c14301b0c0800000000000000
+      internalID: -4561861366484512489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_60
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 194
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 819b794924b412ef0800000000000000
+      internalID: -134743764511508200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_61
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 194
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d03b3de94c2aa0a40800000000000000
+      internalID: 5335255673935737613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_62
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 160
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cef2a99d30da226c0800000000000000
+      internalID: -4169580072944390164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_63
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 156
+        width: 17
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6414c52b8b55e1f40800000000000000
+      internalID: 5701088430052360518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_64
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 133
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd3ba42a5e6056fd0800000000000000
+      internalID: -2349464047263763489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_65
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 130
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4e4d72e180bcf5c0800000000000000
+      internalID: -4180272282209530290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_66
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 141
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b1bf0e360f715ac0800000000000000
+      internalID: -3868170940146798155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_67
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 128
+        width: 9
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 948cd2c2b88d95940800000000000000
+      internalID: 5285493729949239369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_68
+      rect:
+        serializedVersion: 2
+        x: 796
+        y: 130
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30304ac4e7d0d9970800000000000000
+      internalID: 8763175286035710723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_69
+      rect:
+        serializedVersion: 2
+        x: 848
+        y: 126
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8e35af2a97a1c010800000000000000
+      internalID: 1207430455778164362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_70
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 136
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7541efd1cf59e8be0800000000000000
+      internalID: -1473075118036085673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_71
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 130
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5211ece907132c980800000000000000
+      internalID: -8520193185261154011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_72
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 95
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cd98220b88771cd0800000000000000
+      internalID: -2587466922469057079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_73
+      rect:
+        serializedVersion: 2
+        x: 894
+        y: 115
+        width: 21
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0fedb169541de7f0800000000000000
+      internalID: -581786402736443635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_74
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 71
+        width: 27
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e5fbe43f38ff5bb0800000000000000
+      internalID: -4944960915475008027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_75
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 87
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b9a37efad88fe450800000000000000
+      internalID: 6120260892773034419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_76
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 70
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 555e9cab8f6155260800000000000000
+      internalID: 7085594846278837589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_77
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 65
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcd1b12e2e5be6b70800000000000000
+      internalID: 8894246300163972559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DS_RiceHit_v01_78
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 53
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0deb41837bb24970800000000000000
+      internalID: 8737752331817053451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_DS_RiceHit_v01_0: 2986115995954563164
+      VFX_DS_RiceHit_v01_1: 5045480932592395289
+      VFX_DS_RiceHit_v01_10: 4331266860492625349
+      VFX_DS_RiceHit_v01_11: -317306562299510836
+      VFX_DS_RiceHit_v01_12: 56002058839844644
+      VFX_DS_RiceHit_v01_13: -6942579948655135205
+      VFX_DS_RiceHit_v01_14: 3794105486441558421
+      VFX_DS_RiceHit_v01_15: -6690029403398484833
+      VFX_DS_RiceHit_v01_16: -4144598742311104606
+      VFX_DS_RiceHit_v01_17: -140742848194631924
+      VFX_DS_RiceHit_v01_18: 4816861194947932109
+      VFX_DS_RiceHit_v01_19: 2687547507582322667
+      VFX_DS_RiceHit_v01_2: 7303468840137110602
+      VFX_DS_RiceHit_v01_20: 8719178004924395653
+      VFX_DS_RiceHit_v01_21: -1781108962509531674
+      VFX_DS_RiceHit_v01_22: -2496715830189868457
+      VFX_DS_RiceHit_v01_23: -102773897274920395
+      VFX_DS_RiceHit_v01_24: 46144405434001733
+      VFX_DS_RiceHit_v01_25: 2492978865895316647
+      VFX_DS_RiceHit_v01_26: 7033621366128996142
+      VFX_DS_RiceHit_v01_27: -182189935670506644
+      VFX_DS_RiceHit_v01_28: -2620638674453153493
+      VFX_DS_RiceHit_v01_29: -8635175111821372101
+      VFX_DS_RiceHit_v01_3: -3847235878888044860
+      VFX_DS_RiceHit_v01_30: -4079572227770696048
+      VFX_DS_RiceHit_v01_31: 6965548091123548191
+      VFX_DS_RiceHit_v01_32: -7034272396077337718
+      VFX_DS_RiceHit_v01_33: 7817191454688565722
+      VFX_DS_RiceHit_v01_34: -4444123656199938578
+      VFX_DS_RiceHit_v01_35: 920734522958852803
+      VFX_DS_RiceHit_v01_36: 3636845647851486310
+      VFX_DS_RiceHit_v01_37: 1764259224638339998
+      VFX_DS_RiceHit_v01_38: 4090682325085998154
+      VFX_DS_RiceHit_v01_39: -4573284069467578421
+      VFX_DS_RiceHit_v01_4: -6315421089581601170
+      VFX_DS_RiceHit_v01_40: -461917266567471571
+      VFX_DS_RiceHit_v01_41: 3316768940704288897
+      VFX_DS_RiceHit_v01_42: 3044970720651476248
+      VFX_DS_RiceHit_v01_43: -5713115727440867703
+      VFX_DS_RiceHit_v01_44: -1949133947713328882
+      VFX_DS_RiceHit_v01_45: -2154918200702717853
+      VFX_DS_RiceHit_v01_46: -5920385472238273055
+      VFX_DS_RiceHit_v01_47: 7951113698097961760
+      VFX_DS_RiceHit_v01_48: -5436726481739306127
+      VFX_DS_RiceHit_v01_49: -8518336761078259613
+      VFX_DS_RiceHit_v01_5: 3777015096119806508
+      VFX_DS_RiceHit_v01_50: -6533552914545180491
+      VFX_DS_RiceHit_v01_51: 3424727404663611515
+      VFX_DS_RiceHit_v01_52: 8301936783661354846
+      VFX_DS_RiceHit_v01_53: 8834151628581982166
+      VFX_DS_RiceHit_v01_54: -8217857168476458333
+      VFX_DS_RiceHit_v01_55: -6180671714445086042
+      VFX_DS_RiceHit_v01_56: 8516494944004674487
+      VFX_DS_RiceHit_v01_57: 7929887473048490332
+      VFX_DS_RiceHit_v01_58: -1831269102029511946
+      VFX_DS_RiceHit_v01_59: -4561861366484512489
+      VFX_DS_RiceHit_v01_6: -1587012707456567416
+      VFX_DS_RiceHit_v01_60: -134743764511508200
+      VFX_DS_RiceHit_v01_61: 5335255673935737613
+      VFX_DS_RiceHit_v01_62: -4169580072944390164
+      VFX_DS_RiceHit_v01_63: 5701088430052360518
+      VFX_DS_RiceHit_v01_64: -2349464047263763489
+      VFX_DS_RiceHit_v01_65: -4180272282209530290
+      VFX_DS_RiceHit_v01_66: -3868170940146798155
+      VFX_DS_RiceHit_v01_67: 5285493729949239369
+      VFX_DS_RiceHit_v01_68: 8763175286035710723
+      VFX_DS_RiceHit_v01_69: 1207430455778164362
+      VFX_DS_RiceHit_v01_7: -1312149394421731363
+      VFX_DS_RiceHit_v01_70: -1473075118036085673
+      VFX_DS_RiceHit_v01_71: -8520193185261154011
+      VFX_DS_RiceHit_v01_72: -2587466922469057079
+      VFX_DS_RiceHit_v01_73: -581786402736443635
+      VFX_DS_RiceHit_v01_74: -4944960915475008027
+      VFX_DS_RiceHit_v01_75: 6120260892773034419
+      VFX_DS_RiceHit_v01_76: 7085594846278837589
+      VFX_DS_RiceHit_v01_77: 8894246300163972559
+      VFX_DS_RiceHit_v01_78: 8737752331817053451
+      VFX_DS_RiceHit_v01_8: -9150970210989076504
+      VFX_DS_RiceHit_v01_9: -3579806763771971511
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

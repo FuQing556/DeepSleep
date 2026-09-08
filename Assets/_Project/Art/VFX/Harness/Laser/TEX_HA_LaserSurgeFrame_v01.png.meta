@@ -1,0 +1,1796 @@
+fileFormatVersion: 2
+guid: 54dfe7a6591fd9741a56a02472bac346
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1693840981068716847
+    second: TEX_HA_LaserSurgeFrame_v01_0
+  - first:
+      213: 4487161170140396229
+    second: TEX_HA_LaserSurgeFrame_v01_1
+  - first:
+      213: 5804872687829925875
+    second: TEX_HA_LaserSurgeFrame_v01_2
+  - first:
+      213: 1351340668288852013
+    second: TEX_HA_LaserSurgeFrame_v01_3
+  - first:
+      213: -3973837694453398327
+    second: TEX_HA_LaserSurgeFrame_v01_4
+  - first:
+      213: 7766458512925854807
+    second: TEX_HA_LaserSurgeFrame_v01_5
+  - first:
+      213: -8735514331840850713
+    second: TEX_HA_LaserSurgeFrame_v01_6
+  - first:
+      213: -1755335142598514960
+    second: TEX_HA_LaserSurgeFrame_v01_7
+  - first:
+      213: 2879712181872580003
+    second: TEX_HA_LaserSurgeFrame_v01_8
+  - first:
+      213: -3402224109445820901
+    second: TEX_HA_LaserSurgeFrame_v01_9
+  - first:
+      213: 4741250831680354702
+    second: TEX_HA_LaserSurgeFrame_v01_10
+  - first:
+      213: -1623276828874792745
+    second: TEX_HA_LaserSurgeFrame_v01_11
+  - first:
+      213: 7675441013592776319
+    second: TEX_HA_LaserSurgeFrame_v01_12
+  - first:
+      213: 3683310652113406164
+    second: TEX_HA_LaserSurgeFrame_v01_13
+  - first:
+      213: -7368820920813912274
+    second: TEX_HA_LaserSurgeFrame_v01_14
+  - first:
+      213: 2184790995518552404
+    second: TEX_HA_LaserSurgeFrame_v01_15
+  - first:
+      213: 1394737531047615124
+    second: TEX_HA_LaserSurgeFrame_v01_16
+  - first:
+      213: 3062168266201380677
+    second: TEX_HA_LaserSurgeFrame_v01_17
+  - first:
+      213: -970701660622613277
+    second: TEX_HA_LaserSurgeFrame_v01_18
+  - first:
+      213: 6769573074954782680
+    second: TEX_HA_LaserSurgeFrame_v01_19
+  - first:
+      213: -2117375940265022846
+    second: TEX_HA_LaserSurgeFrame_v01_20
+  - first:
+      213: -2103177526965026309
+    second: TEX_HA_LaserSurgeFrame_v01_21
+  - first:
+      213: -7134274145074693238
+    second: TEX_HA_LaserSurgeFrame_v01_22
+  - first:
+      213: -217635060408588706
+    second: TEX_HA_LaserSurgeFrame_v01_23
+  - first:
+      213: 512818295306579296
+    second: TEX_HA_LaserSurgeFrame_v01_24
+  - first:
+      213: -8384851498875931182
+    second: TEX_HA_LaserSurgeFrame_v01_25
+  - first:
+      213: -7685971255790432178
+    second: TEX_HA_LaserSurgeFrame_v01_26
+  - first:
+      213: -7464393521205822035
+    second: TEX_HA_LaserSurgeFrame_v01_27
+  - first:
+      213: -1414163159084378220
+    second: TEX_HA_LaserSurgeFrame_v01_28
+  - first:
+      213: -2437561265536069921
+    second: TEX_HA_LaserSurgeFrame_v01_29
+  - first:
+      213: 3067689324395789801
+    second: TEX_HA_LaserSurgeFrame_v01_30
+  - first:
+      213: -7633450534902502668
+    second: TEX_HA_LaserSurgeFrame_v01_31
+  - first:
+      213: -6396193978108058686
+    second: TEX_HA_LaserSurgeFrame_v01_32
+  - first:
+      213: 4916359013763104385
+    second: TEX_HA_LaserSurgeFrame_v01_33
+  - first:
+      213: -436786372816570876
+    second: TEX_HA_LaserSurgeFrame_v01_34
+  - first:
+      213: -786056212138772220
+    second: TEX_HA_LaserSurgeFrame_v01_35
+  - first:
+      213: 11987415342072295
+    second: TEX_HA_LaserSurgeFrame_v01_36
+  - first:
+      213: 7049808266757267307
+    second: TEX_HA_LaserSurgeFrame_v01_37
+  - first:
+      213: 7628935102780787921
+    second: TEX_HA_LaserSurgeFrame_v01_38
+  - first:
+      213: 1017880681241490038
+    second: TEX_HA_LaserSurgeFrame_v01_39
+  - first:
+      213: 939938428924541524
+    second: TEX_HA_LaserSurgeFrame_v01_40
+  - first:
+      213: -3834932317150415104
+    second: TEX_HA_LaserSurgeFrame_v01_41
+  - first:
+      213: -3749075050222869832
+    second: TEX_HA_LaserSurgeFrame_v01_42
+  - first:
+      213: 159379993097601691
+    second: TEX_HA_LaserSurgeFrame_v01_43
+  - first:
+      213: 9220331767431749028
+    second: TEX_HA_LaserSurgeFrame_v01_44
+  - first:
+      213: 2608021734699187420
+    second: TEX_HA_LaserSurgeFrame_v01_45
+  - first:
+      213: -3815044954739192685
+    second: TEX_HA_LaserSurgeFrame_v01_46
+  - first:
+      213: -3886796717772138906
+    second: TEX_HA_LaserSurgeFrame_v01_47
+  - first:
+      213: 5315164784128411894
+    second: TEX_HA_LaserSurgeFrame_v01_48
+  - first:
+      213: 2127836648179875991
+    second: TEX_HA_LaserSurgeFrame_v01_49
+  - first:
+      213: -419495710465552333
+    second: TEX_HA_LaserSurgeFrame_v01_50
+  - first:
+      213: 4799889938665472011
+    second: TEX_HA_LaserSurgeFrame_v01_51
+  - first:
+      213: 3564973047242521139
+    second: TEX_HA_LaserSurgeFrame_v01_52
+  - first:
+      213: 3365977807199883715
+    second: TEX_HA_LaserSurgeFrame_v01_53
+  - first:
+      213: 7670060053067839110
+    second: TEX_HA_LaserSurgeFrame_v01_54
+  - first:
+      213: 5470215189773192742
+    second: TEX_HA_LaserSurgeFrame_v01_55
+  - first:
+      213: -2007032181881542745
+    second: TEX_HA_LaserSurgeFrame_v01_56
+  - first:
+      213: -6904043280895519518
+    second: TEX_HA_LaserSurgeFrame_v01_57
+  - first:
+      213: 3695450680595874564
+    second: TEX_HA_LaserSurgeFrame_v01_58
+  - first:
+      213: 8507651162022788423
+    second: TEX_HA_LaserSurgeFrame_v01_59
+  - first:
+      213: -3724480046761845218
+    second: TEX_HA_LaserSurgeFrame_v01_60
+  - first:
+      213: 5496829092277387695
+    second: TEX_HA_LaserSurgeFrame_v01_61
+  - first:
+      213: -8447571027250896704
+    second: TEX_HA_LaserSurgeFrame_v01_62
+  - first:
+      213: -2798604363506842487
+    second: TEX_HA_LaserSurgeFrame_v01_63
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 229
+        width: 1024
+        height: 232
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2b999ed56bb18710800000000000000
+      internalID: 1693840981068716847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 52
+        width: 1024
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5caf42c6f49954e30800000000000000
+      internalID: 4487161170140396229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_2
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 226
+        width: 105
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ff387c34fc0f8050800000000000000
+      internalID: 5804872687829925875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_3
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 225
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2065e79d2de0c210800000000000000
+      internalID: 1351340668288852013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_4
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 230
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c44c03dba71ad8c0800000000000000
+      internalID: -3973837694453398327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_5
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 250
+        width: 24
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75c01c97ed008cb60800000000000000
+      internalID: 7766458512925854807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_6
+      rect:
+        serializedVersion: 2
+        x: 177
+        y: 254
+        width: 25
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e4da487ff735c680800000000000000
+      internalID: -8735514331840850713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_7
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 235
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f6e7abecfbc3a7e0800000000000000
+      internalID: -1755335142598514960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_8
+      rect:
+        serializedVersion: 2
+        x: 199
+        y: 258
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a551e7d8fac6f720800000000000000
+      internalID: 2879712181872580003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_9
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 243
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1e463eb23fd8c0d0800000000000000
+      internalID: -3402224109445820901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_10
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 250
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e89355dd28e4cc140800000000000000
+      internalID: 4741250831680354702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_11
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 257
+        width: 36
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d0abca1356f879e0800000000000000
+      internalID: -1623276828874792745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_12
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 235
+        width: 34
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7e59a58fe4a48a60800000000000000
+      internalID: 7675441013592776319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_13
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 235
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d8c1a8e58fbd1330800000000000000
+      internalID: 3683310652113406164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_14
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 269
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2f7b690a60bcb990800000000000000
+      internalID: -7368820920813912274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_15
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 262
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 459fa5cb5dfe15e10800000000000000
+      internalID: 2184790995518552404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_16
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 257
+        width: 20
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49a9ff4156a1b5310800000000000000
+      internalID: 1394737531047615124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_17
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 262
+        width: 55
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 547386560d10f7a20800000000000000
+      internalID: 3062168266201380677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_18
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 263
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e415bf8bff5782f0800000000000000
+      internalID: -970701660622613277
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_19
+      rect:
+        serializedVersion: 2
+        x: 333
+        y: 240
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d78abd48da52fd50800000000000000
+      internalID: 6769573074954782680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_20
+      rect:
+        serializedVersion: 2
+        x: 371
+        y: 257
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28a6b88fcc19d92e0800000000000000
+      internalID: -2117375940265022846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_21
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 271
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf14aadae2300d2e0800000000000000
+      internalID: -2103177526965026309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_22
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 264
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8bb19cc677fdfc90800000000000000
+      internalID: -7134274145074693238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_23
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 245
+        width: 36
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e56ecadc01ecafcf0800000000000000
+      internalID: -217635060408588706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_24
+      rect:
+        serializedVersion: 2
+        x: 437
+        y: 245
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06de116c585ed1700800000000000000
+      internalID: 512818295306579296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_25
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 239
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d539139cf503ab80800000000000000
+      internalID: -8384851498875931182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_26
+      rect:
+        serializedVersion: 2
+        x: 475
+        y: 244
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e409fb86dd1f55590800000000000000
+      internalID: -7685971255790432178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_27
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 266
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dadbcc8f3a5296890800000000000000
+      internalID: -7464393521205822035
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_28
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 239
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 497d4507912ef5ce0800000000000000
+      internalID: -1414163159084378220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_29
+      rect:
+        serializedVersion: 2
+        x: 514
+        y: 247
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fde887991fa0c2ed0800000000000000
+      internalID: -2437561265536069921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_30
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 278
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ed7eddef2f929a20800000000000000
+      internalID: 3067689324395789801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_31
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 277
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4faee98ae29801690800000000000000
+      internalID: -7633450534902502668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_32
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 265
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c3606427772c37a0800000000000000
+      internalID: -6396193978108058686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_33
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 245
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18eb3ab997a6a3440800000000000000
+      internalID: 4916359013763104385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_34
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 238
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 406798dab1930f9f0800000000000000
+      internalID: -436786372816570876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_35
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 249
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 409bafd2a0e5715f0800000000000000
+      internalID: -786056212138772220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_36
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 278
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e14d31ad769a2000800000000000000
+      internalID: 11987415342072295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_37
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 245
+        width: 44
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6fdda26443f5d160800000000000000
+      internalID: 7049808266757267307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_38
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 269
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dcc1cf5e0c6fd960800000000000000
+      internalID: 7628935102780787921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_39
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 204
+        width: 32
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 672b12d261d302e00800000000000000
+      internalID: 1017880681241490038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_40
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 234
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45a39c665055b0d00800000000000000
+      internalID: 939938428924541524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_41
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 234
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 007759a306597cac0800000000000000
+      internalID: -3834932317150415104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_42
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 230
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b2af23fa1c98fbc0800000000000000
+      internalID: -3749075050222869832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_43
+      rect:
+        serializedVersion: 2
+        x: 692
+        y: 235
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9203e0624b363200800000000000000
+      internalID: 159379993097601691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_44
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 227
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4add40d14e235ff70800000000000000
+      internalID: 9220331767431749028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_45
+      rect:
+        serializedVersion: 2
+        x: 702
+        y: 255
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdc3e3723fd813420800000000000000
+      internalID: 2608021734699187420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_46
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 237
+        width: 52
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39ccf9e93dc3e0bc0800000000000000
+      internalID: -3815044954739192685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_47
+      rect:
+        serializedVersion: 2
+        x: 751
+        y: 223
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66699037af25f0ac0800000000000000
+      internalID: -3886796717772138906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_48
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 223
+        width: 23
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f8c3a0d53243c940800000000000000
+      internalID: 5315164784128411894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_49
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 273
+        width: 24
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 790c1d26828978d10800000000000000
+      internalID: 2127836648179875991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_50
+      rect:
+        serializedVersion: 2
+        x: 797
+        y: 253
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33096e8bfd6ad2af0800000000000000
+      internalID: -419495710465552333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_51
+      rect:
+        serializedVersion: 2
+        x: 806
+        y: 239
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b008023e772ac9240800000000000000
+      internalID: 4799889938665472011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_52
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 280
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33a7bb23914597130800000000000000
+      internalID: 3564973047242521139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_53
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 221
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c15fff5bfa56be20800000000000000
+      internalID: 3365977807199883715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_54
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 276
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 686b5050bf6817a60800000000000000
+      internalID: 7670060053067839110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_55
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 275
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62e806f8bbb1aeb40800000000000000
+      internalID: 5470215189773192742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_56
+      rect:
+        serializedVersion: 2
+        x: 902
+        y: 279
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a76c224dd69524e0800000000000000
+      internalID: -2007032181881542745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_57
+      rect:
+        serializedVersion: 2
+        x: 903
+        y: 245
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e4dc481739ef20a0800000000000000
+      internalID: -6904043280895519518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_58
+      rect:
+        serializedVersion: 2
+        x: 929
+        y: 248
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40384ed80d0e84330800000000000000
+      internalID: 3695450680595874564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_59
+      rect:
+        serializedVersion: 2
+        x: 984
+        y: 280
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74dbe4908af311670800000000000000
+      internalID: 8507651162022788423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_60
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 280
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1edabf612dff4cc0800000000000000
+      internalID: -3724480046761845218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_61
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 245
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa10a3c9fe8a84c40800000000000000
+      internalID: 5496829092277387695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_62
+      rect:
+        serializedVersion: 2
+        x: 1018
+        y: 250
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c024d968e234ca80800000000000000
+      internalID: -8447571027250896704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserSurgeFrame_v01_63
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 52
+        width: 19
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9840156b82c5929d0800000000000000
+      internalID: -2798604363506842487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TEX_HA_LaserSurgeFrame_v01_0: 1693840981068716847
+      TEX_HA_LaserSurgeFrame_v01_1: 4487161170140396229
+      TEX_HA_LaserSurgeFrame_v01_10: 4741250831680354702
+      TEX_HA_LaserSurgeFrame_v01_11: -1623276828874792745
+      TEX_HA_LaserSurgeFrame_v01_12: 7675441013592776319
+      TEX_HA_LaserSurgeFrame_v01_13: 3683310652113406164
+      TEX_HA_LaserSurgeFrame_v01_14: -7368820920813912274
+      TEX_HA_LaserSurgeFrame_v01_15: 2184790995518552404
+      TEX_HA_LaserSurgeFrame_v01_16: 1394737531047615124
+      TEX_HA_LaserSurgeFrame_v01_17: 3062168266201380677
+      TEX_HA_LaserSurgeFrame_v01_18: -970701660622613277
+      TEX_HA_LaserSurgeFrame_v01_19: 6769573074954782680
+      TEX_HA_LaserSurgeFrame_v01_2: 5804872687829925875
+      TEX_HA_LaserSurgeFrame_v01_20: -2117375940265022846
+      TEX_HA_LaserSurgeFrame_v01_21: -2103177526965026309
+      TEX_HA_LaserSurgeFrame_v01_22: -7134274145074693238
+      TEX_HA_LaserSurgeFrame_v01_23: -217635060408588706
+      TEX_HA_LaserSurgeFrame_v01_24: 512818295306579296
+      TEX_HA_LaserSurgeFrame_v01_25: -8384851498875931182
+      TEX_HA_LaserSurgeFrame_v01_26: -7685971255790432178
+      TEX_HA_LaserSurgeFrame_v01_27: -7464393521205822035
+      TEX_HA_LaserSurgeFrame_v01_28: -1414163159084378220
+      TEX_HA_LaserSurgeFrame_v01_29: -2437561265536069921
+      TEX_HA_LaserSurgeFrame_v01_3: 1351340668288852013
+      TEX_HA_LaserSurgeFrame_v01_30: 3067689324395789801
+      TEX_HA_LaserSurgeFrame_v01_31: -7633450534902502668
+      TEX_HA_LaserSurgeFrame_v01_32: -6396193978108058686
+      TEX_HA_LaserSurgeFrame_v01_33: 4916359013763104385
+      TEX_HA_LaserSurgeFrame_v01_34: -436786372816570876
+      TEX_HA_LaserSurgeFrame_v01_35: -786056212138772220
+      TEX_HA_LaserSurgeFrame_v01_36: 11987415342072295
+      TEX_HA_LaserSurgeFrame_v01_37: 7049808266757267307
+      TEX_HA_LaserSurgeFrame_v01_38: 7628935102780787921
+      TEX_HA_LaserSurgeFrame_v01_39: 1017880681241490038
+      TEX_HA_LaserSurgeFrame_v01_4: -3973837694453398327
+      TEX_HA_LaserSurgeFrame_v01_40: 939938428924541524
+      TEX_HA_LaserSurgeFrame_v01_41: -3834932317150415104
+      TEX_HA_LaserSurgeFrame_v01_42: -3749075050222869832
+      TEX_HA_LaserSurgeFrame_v01_43: 159379993097601691
+      TEX_HA_LaserSurgeFrame_v01_44: 9220331767431749028
+      TEX_HA_LaserSurgeFrame_v01_45: 2608021734699187420
+      TEX_HA_LaserSurgeFrame_v01_46: -3815044954739192685
+      TEX_HA_LaserSurgeFrame_v01_47: -3886796717772138906
+      TEX_HA_LaserSurgeFrame_v01_48: 5315164784128411894
+      TEX_HA_LaserSurgeFrame_v01_49: 2127836648179875991
+      TEX_HA_LaserSurgeFrame_v01_5: 7766458512925854807
+      TEX_HA_LaserSurgeFrame_v01_50: -419495710465552333
+      TEX_HA_LaserSurgeFrame_v01_51: 4799889938665472011
+      TEX_HA_LaserSurgeFrame_v01_52: 3564973047242521139
+      TEX_HA_LaserSurgeFrame_v01_53: 3365977807199883715
+      TEX_HA_LaserSurgeFrame_v01_54: 7670060053067839110
+      TEX_HA_LaserSurgeFrame_v01_55: 5470215189773192742
+      TEX_HA_LaserSurgeFrame_v01_56: -2007032181881542745
+      TEX_HA_LaserSurgeFrame_v01_57: -6904043280895519518
+      TEX_HA_LaserSurgeFrame_v01_58: 3695450680595874564
+      TEX_HA_LaserSurgeFrame_v01_59: 8507651162022788423
+      TEX_HA_LaserSurgeFrame_v01_6: -8735514331840850713
+      TEX_HA_LaserSurgeFrame_v01_60: -3724480046761845218
+      TEX_HA_LaserSurgeFrame_v01_61: 5496829092277387695
+      TEX_HA_LaserSurgeFrame_v01_62: -8447571027250896704
+      TEX_HA_LaserSurgeFrame_v01_63: -2798604363506842487
+      TEX_HA_LaserSurgeFrame_v01_7: -1755335142598514960
+      TEX_HA_LaserSurgeFrame_v01_8: 2879712181872580003
+      TEX_HA_LaserSurgeFrame_v01_9: -3402224109445820901
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

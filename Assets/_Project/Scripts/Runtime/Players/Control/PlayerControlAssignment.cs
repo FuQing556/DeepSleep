@@ -43,10 +43,7 @@ namespace DeepSleep.Runtime.Players.Control
 
         private void Start()
         {
-            if (!TryAssign(
-                    _initialLocalPlayerRole,
-                    _localCommandSource,
-                    _companionCommandSource))
+            if (!TrySelectLocalPlayerRole(_initialLocalPlayerRole))
             {
                 Debug.LogError(
                     $"[{nameof(PlayerControlAssignment)}] " +
@@ -54,6 +51,23 @@ namespace DeepSleep.Runtime.Players.Control
                     this);
                 enabled = false;
             }
+        }
+
+        /// <summary>
+        /// 应用主菜单、房间或本地调试产生的角色选择结果。
+        /// 调用方只提交角色，不接触本地、AI或网络命令源的装配细节。
+        /// </summary>
+        public bool TrySelectLocalPlayerRole(PlayerRole localPlayerRole)
+        {
+            if (!_isInitialized)
+            {
+                return false;
+            }
+
+            return TryAssign(
+                localPlayerRole,
+                _localCommandSource,
+                _companionCommandSource);
         }
 
         /// <summary>

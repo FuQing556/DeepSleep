@@ -1,30 +1,100 @@
 # DeepSleep 当前交接说明
 
-> 交接时间：2026-09-05（Asia/Shanghai）  
+> **2026-09-08 当前入口：`docs/23_ImplementationReviewAndNextSteps.md`。请先完整阅读该文件。**
+> 下方 2026-09-06 内容保留作历史记录，其中“激光无法发射”“生命、敌人尚未实现”“下一步重做输入”等结论均已过期。不得据此修改当前工程。当前代码、配置和用户最新验收优先。
+
+> 最后更新：2026-09-06（Asia/Shanghai）  
 > 当前工程：`D:\Unity Work\DeepSleep_Unity6`  
-> 用途：新 Codex 窗口的第一读取入口。本文件记录实际工作区状态；如与旧文档冲突，以本文件和当前权威文档为准。
+> Unity：`6000.6.0f1`  
+> 当前场景：`Assets/Scenes/Gameplay_Prototype.unity`  
+> 用途：接手者的第一读取入口。本文件记录本次中断时的实际状态；与旧交接内容冲突时，以本页顶部的 2026-09-06 状态、当前工程事实及权威文档为准。
 
-## 1. 新窗口第一条指令
-
-把本文件和 `CHAT_DECISIONS_EXPORT_20260905.md` 一起附加到新线程，然后发送：
+## 0. 给接手 AI 的最短指令
 
 ```text
-当前工作目录是 D:\Unity Work\DeepSleep_Unity6。
-先完整读取 docs/HANDOFF_CURRENT.md、docs/CHAT_DECISIONS_EXPORT_20260905.md、
-docs/agent.md、docs/DesignSpec_v5.md 和交接文件列出的当前权威文档。
-先只读核对工程与 git status，不修改任何文件，不重复已经完成的程序集、输入、移动和 Prefab 步骤。
-先测试普通沙箱能否读取 ProjectSettings/ProjectVersion.txt，再汇报当前进度和唯一下一小步。
+工作目录是 D:\Unity Work\DeepSleep_Unity6。
+先完整读取 docs/HANDOFF_CURRENT.md 与 docs/agent.md；再只读查看 git status。
+不要重做程序集、输入、移动、双角色控制分配、背景、DeepSeek 普攻或 Harness 激光已有代码。
+当前首要故障是 Harness 激光新增字段尚未完成 Prefab 装配；先向用户讲清当前链路和一个设计问题，得到确认后每次只修一个可验收切片。
+禁止直接提交整个脏工作区，禁止手改 Unity YAML，禁止猜测 Inspector 引用，禁止用拉伸 Sprite 或 LineRenderer 实现正式激光。
 ```
 
-## 2. 用户与 Agent 的职责边界
+## 1. 最新合作方式（覆盖旧交接中的“用户操作全部 Unity”）
 
-- 用户执行所有 Unity Editor 操作：场景、GameObject、Prefab、组件、Inspector、Input Actions、Project Settings、导入设置、Test Runner 和 Play Mode 验收。
-- Agent 负责 C#、测试、配置结构、设计文档、素材生成和逐步配置说明。
-- 未经用户针对具体文件授权，Agent 不直接改 `*.unity`、`*.prefab`、`*.asset`、`*.meta`、`*.inputactions`、`*.asmdef`、`ProjectSettings/*` 或 `Packages/manifest.json`。
-- 禁止运行时代码隐式装配：不用 `AddComponent`、`RequireComponent`、Find、Resources 路径或名称猜测。
-- 禁止玩法数据硬编码；速度、伤害、冷却、边界、滚动速度、Prefab 和 LayerMask 等进入显式配置。
-- 每轮只推进一个可验证小步。Agent 写完后给 Unity 中文界面路径、Inspector 字段和验收方法，等待用户确认。
-- 沟通直接、高效；不要反复解释已经确认的基础内容，不要擅自引申法律问题。
+- Agent 已可通过 MCP 操作 Unity；以后由 Agent 完成代码、素材、Prefab/场景/Inspector 配置和测试，用户不再充当机械搬运工。
+- 主目标是让用户真正理解项目每个重要结构、数据流和取舍；次目标才是交付完整闭环游戏。
+- 每次只推进一个小而完整、可以在 Play Mode 验收的切片。
+- 实现前应先询问用户的设计判断；随后解释专业做法、优缺点和推荐结论。关键事实不确定时必须问，禁止猜。
+- 用户会关注具体碰撞体、数值、节点层级和代码职责，不能用“已经能跑”代替解释。
+- 沟通必须及时：几十秒内发现根因就先汇报，不得为了所谓完整审计连续读取大量无关文件、文档或 MCP 数据。
+- 禁止运行时代码隐式装配：不用 `AddComponent`、`RequireComponent`、`Find`、`Resources.Load` 或名称猜测。
+- 禁止硬编码玩法数据；速度、伤害、冷却、边界、滚动速度、Prefab 和 LayerMask 等进入显式配置。
+- Unity 资源必须通过 Unity/MCP 正常编辑并保存；不要直接手改 `*.unity`、`*.prefab`、`*.asset`、`*.meta`、`*.inputactions` 或 `*.asmdef` 的 YAML。
+
+## 2. 2026-09-06 中断点：Harness 终端激光
+
+### 2.1 已存在的完整代码边界
+
+- 输入层：`UnityInputCommandSource` 把鼠标位置和左键转换为 `PlayerCommand.Aim` 与 `ConfirmAim`。
+- 控制归属：场景中 `PlayerControlAssignment._initialLocalPlayerRole = Harness (1)`，因此当前本地输入确实分配给 Harness，不是“控制错角色”。
+- 玩法入口：`HarnessTerminalLaserController` 负责选目标、校准时序、朝向决策和创建一次开火请求；它不渲染也不扣血。
+- 时序：`HarnessTerminalLaserCycle` 目前为 `Ready -> Calibrating -> Cooldown`。
+- 几何：`HarnessTerminalLaserSnapshotFactory` 在校准完成时，根据同一个 `LaserOrigin`、方向、逻辑战斗区域和配置冻结 `BeamFireSnapshot`；束宽、长度、伤害和未来多束都位于快照中。
+- 表现：`HarnessTerminalLaserPresenter` 分发给瞄准线/锁定环、炮口与束体、角色姿态三个独立视图。
+- 束体：`BeamTiledMeshView2D` 已采用动态四边形网格，沿局部 X 轴重复 UV；这符合项目禁令，不得退回 Sprite 非等比拉伸或 LineRenderer。
+- 姿态：`HarnessLaserPoseView2D` 的代码已实现“新状态当帧立即显示，旧状态复制到唯一 Ghost 后淡出”的正确语义。
+- 素材已存在：Harness 待机图、激光动作图、炮口、锁定环、束身、命中、过载层与外框素材均已进入工程或生产目录。
+
+### 2.2 已确认的装配故障（不是推测）
+
+当前 `Assets/_Project/Prefabs/Players/PF_Player_Harness.prefab` 落后于新增脚本字段：
+
+1. `HarnessTerminalLaserController._facingController` 未序列化配置，且 Prefab 根节点没有 `PlayerFacingController2D`。控制器会在 `Awake()` 校验失败后禁用；这直接解释“点击敌人后不转身、也不发射”。
+2. `AimGuide` 与 `BeamLane_0` 上的 `BeamTiledMeshView2D._sortingReferenceRenderer` 均未配置。即使控制器恢复，两条动态网格视图也会在 `Awake()` 校验失败后禁用。
+3. `HarnessTerminalLaserPresenter._poseView._ghostRenderer` 未配置，Prefab 也没有 Ghost 子节点。表现器会校验失败并禁用，单残影无法工作。
+4. `LaserOrigin` 已存在，位于 `MovementTiltRoot` 下，本地位置约 `(1.08, -0.08, 0)`；但 Harness 目前没有独立 `FacingRoot`。若只翻角色贴图而不镜像发射点，背向开火会从错误一侧出现。因此不能只补一个组件引用，必须先确定正确节点层级。
+5. 代码搜索确认：目前只有表现层订阅 `HarnessTerminalLaserController.FireRequested`，尚无伤害执行器。修复上述装配后可以出现激光，但仍不会扣血，后续需要独立的束线伤害解析器消费同一份 `BeamFireSnapshot`。
+
+### 2.3 当前配置数值
+
+- 校准时间 `0.2s`
+- 开火冷却 `1.25s`
+- 点选半径 `0.8u`
+- 最大锁定距离 `20u`
+- 目标层为第 8 层（`m_Bits: 256`，当前敌人层）
+- 基础束宽 `0.28u`
+- 主目标伤害 `2.5`
+- 沿线其他敌人伤害倍率 `0.4`
+- 当前 1 条基础束线
+- 束体表现总时长约 `0.26s`（淡入 `0.025s`、保持 `0.075s`、淡出 `0.16s`）
+- 炮口世界直径 `0.52u`
+
+### 2.4 下一步不要直接开工，先讨论的一个设计分叉
+
+需要用户决定终端激光的方向更新规则。推荐方案是：
+
+- 点中目标后进入校准，校准期间细线、炮口、角色朝向持续跟随该目标；目标跨过角色时，`FacingRoot` 与 `LaserOrigin` 一起翻转。
+- 校准完成的那个固定模拟刻冻结开火快照；束体出现后的约 `0.26s` 不再追踪目标，即使目标继续移动也不弯折。
+
+优点：瞄准反馈自然，最终伤害与视觉严格同源，容易进行网络同步，也避免持续束体在目标高速穿越角色时突然甩尾。缺点：开火后目标可能离开束线，这是低频预判攻击应承担的操作结果。
+
+备选方案是束体显示期间持续跟踪目标；观感更“黏”，但会让判定时点、贯穿路径、网络回放和升级后的多束同步复杂很多，不建议用于这个瞬发点杀普攻。
+
+用户确认前，不要修改 Prefab 或代码。
+
+### 2.5 MCP 已知问题
+
+- Unity MCP 的层级、Prefab 信息、场景查询等接口可用。
+- 不要调用 `mcpforunity://scene/gameobject/{instanceID}/components`：当前 MCP 包在 Unity 6.6 上会进入 `UnityEditor.EditorUtility.InstanceIDToObject`，抛出 `NotImplementedException`。这是 MCP 兼容问题，不是项目组件损坏。
+- 组件详情可通过 Prefab API、Inspector/MCP 其他编辑接口和只读资源文件核对；不要反复触发上述已知错误。
+- 本轮该错误只写入了 Console，没有修改工程。
+
+### 2.6 Git 与工作区警告
+
+- 工作区存在大量已修改和未跟踪文件，其中包括场景、两个玩家 Prefab、输入、Harness 激光代码/素材/配置、MCP 包和设计文档。
+- 这些是连续开发中的有效内容，归用户所有；不要 reset、checkout、clean 或整批覆盖。
+- 本轮审计没有修改工程文件；本次仅更新本交接文档。
+- 下一位 AI 在提交前必须先按系统边界审查 diff，不能因为“要备份”就盲目 `git add .`。
 
 ## 3. 产品与玩法已锁定方向
 

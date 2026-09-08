@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9294dde336d8a8d419523fe5a7fcb40e, type: 3}
+  m_Name: CFG_EN_DataCrawlerSnake_Projectile_Default
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Projectiles.EnemyProjectileConfig
+  _speed: 5.5
+  _lifetimeSeconds: 4
+  _damage: 1
+  _collisionLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  _initialPoolSize: 12
+  _maximumPoolSize: 32

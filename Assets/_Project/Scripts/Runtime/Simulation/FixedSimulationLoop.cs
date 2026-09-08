@@ -1,4 +1,5 @@
 using DeepSleep.Runtime.Players.Commands;
+using DeepSleep.Runtime.Players.Revive;
 using UnityEngine;
 
 namespace DeepSleep.Runtime.Simulation
@@ -9,6 +10,7 @@ namespace DeepSleep.Runtime.Simulation
     public sealed class FixedSimulationLoop : MonoBehaviour
     {
         [SerializeField] private PlayerCommandDispatcher[] playerDispatchers;
+        [SerializeField] private PlayerReviveCoordinator2D[] reviveCoordinators;
 
         private uint currentTick;
         private bool isInitialized;
@@ -41,6 +43,23 @@ namespace DeepSleep.Runtime.Simulation
                 return;
             }
 
+            int coordinatorCount = reviveCoordinators?.Length ?? 0;
+
+            for (int index = 0; index < coordinatorCount; index++)
+            {
+                if (reviveCoordinators[index] != null)
+                {
+                    continue;
+                }
+
+                Debug.LogError(
+                    $"[{nameof(FixedSimulationLoop)}] " +
+                    $"第 {index} 个复活协调器为空。",
+                    this);
+                enabled = false;
+                return;
+            }
+
             isInitialized = true;
         }
 
@@ -61,6 +80,13 @@ namespace DeepSleep.Runtime.Simulation
             for (int index = 0; index < playerDispatchers.Length; index++)
             {
                 playerDispatchers[index].Simulate(currentTick, deltaTime);
+            }
+
+            int coordinatorCount = reviveCoordinators?.Length ?? 0;
+
+            for (int index = 0; index < coordinatorCount; index++)
+            {
+                reviveCoordinators[index].Simulate(deltaTime);
             }
         }
     }

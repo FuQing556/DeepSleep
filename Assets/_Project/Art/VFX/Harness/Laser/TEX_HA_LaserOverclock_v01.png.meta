@@ -1,0 +1,626 @@
+fileFormatVersion: 2
+guid: 2eab303d3581dc640831d7eb171ae6f1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -9198099687605181616
+    second: TEX_HA_LaserOverclock_v01_0
+  - first:
+      213: -4145675440091558884
+    second: TEX_HA_LaserOverclock_v01_1
+  - first:
+      213: -7494066765390745686
+    second: TEX_HA_LaserOverclock_v01_2
+  - first:
+      213: -6085608286420665406
+    second: TEX_HA_LaserOverclock_v01_3
+  - first:
+      213: -4480982308140933682
+    second: TEX_HA_LaserOverclock_v01_4
+  - first:
+      213: -5933401405710099648
+    second: TEX_HA_LaserOverclock_v01_5
+  - first:
+      213: 1914481162139971111
+    second: TEX_HA_LaserOverclock_v01_6
+  - first:
+      213: -1077213617071439287
+    second: TEX_HA_LaserOverclock_v01_7
+  - first:
+      213: -8000515574581981091
+    second: TEX_HA_LaserOverclock_v01_8
+  - first:
+      213: -1379316964818147684
+    second: TEX_HA_LaserOverclock_v01_9
+  - first:
+      213: 2538164641447561857
+    second: TEX_HA_LaserOverclock_v01_10
+  - first:
+      213: -8449156899746175125
+    second: TEX_HA_LaserOverclock_v01_11
+  - first:
+      213: 1004241229771479241
+    second: TEX_HA_LaserOverclock_v01_12
+  - first:
+      213: -71242165346121425
+    second: TEX_HA_LaserOverclock_v01_13
+  - first:
+      213: -6174382917925514294
+    second: TEX_HA_LaserOverclock_v01_14
+  - first:
+      213: 7787106998520819865
+    second: TEX_HA_LaserOverclock_v01_15
+  - first:
+      213: -4335767479749203343
+    second: TEX_HA_LaserOverclock_v01_16
+  - first:
+      213: -7451030973042957866
+    second: TEX_HA_LaserOverclock_v01_17
+  - first:
+      213: -1476653058175800869
+    second: TEX_HA_LaserOverclock_v01_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TEX_HA_LaserOverclock_v01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 88
+        width: 894
+        height: 166
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05369a75119c95080800000000000000
+      internalID: -9198099687605181616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserOverclock_v01_1
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 220
+        width: 148
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1c0847e62a9776c0800000000000000
+      internalID: -4145675440091558884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserOverclock_v01_2
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 125
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aafe2dd6bf9bff790800000000000000
+      internalID: -7494066765390745686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserOverclock_v01_3
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 125
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cbf8b5a1839b8ba0800000000000000
+      internalID: -6085608286420665406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserOverclock_v01_4
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 153
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecd137ef45a50d1c0800000000000000
+      internalID: -4480982308140933682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserOverclock_v01_5
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 120
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04b98d6abd258ada0800000000000000
+      internalID: -5933401405710099648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserOverclock_v01_6
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 117
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72ea78e397a919a10800000000000000
+      internalID: 1914481162139971111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserOverclock_v01_7
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 141
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9424e3f2ce7fc01f0800000000000000
+      internalID: -1077213617071439287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserOverclock_v01_8
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 130
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d509f05397578f090800000000000000
+      internalID: -8000515574581981091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserOverclock_v01_9
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 119
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c962857478eabdce0800000000000000
+      internalID: -1379316964818147684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserOverclock_v01_10
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 127
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18a40fa2b4f593320800000000000000
+      internalID: 2538164641447561857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserOverclock_v01_11
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 125
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b67a613b0909eba80800000000000000
+      internalID: -8449156899746175125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserOverclock_v01_12
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 119
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c89459e318cfed00800000000000000
+      internalID: 1004241229771479241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserOverclock_v01_13
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 128
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f29c389c0a5e20ff0800000000000000
+      internalID: -71242165346121425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserOverclock_v01_14
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 110
+        width: 63
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac35fcd037f205aa0800000000000000
+      internalID: -6174382917925514294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserOverclock_v01_15
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 103
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 990bacaae8c511c60800000000000000
+      internalID: 7787106998520819865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserOverclock_v01_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6
+        width: 383
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17aabd4f27244d3c0800000000000000
+      internalID: -4335767479749203343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserOverclock_v01_17
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 2
+        width: 571
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d16759aece989890800000000000000
+      internalID: -7451030973042957866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_HA_LaserOverclock_v01_18
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 9
+        width: 74
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd9efe20edfd18be0800000000000000
+      internalID: -1476653058175800869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TEX_HA_LaserOverclock_v01_0: -9198099687605181616
+      TEX_HA_LaserOverclock_v01_1: -4145675440091558884
+      TEX_HA_LaserOverclock_v01_10: 2538164641447561857
+      TEX_HA_LaserOverclock_v01_11: -8449156899746175125
+      TEX_HA_LaserOverclock_v01_12: 1004241229771479241
+      TEX_HA_LaserOverclock_v01_13: -71242165346121425
+      TEX_HA_LaserOverclock_v01_14: -6174382917925514294
+      TEX_HA_LaserOverclock_v01_15: 7787106998520819865
+      TEX_HA_LaserOverclock_v01_16: -4335767479749203343
+      TEX_HA_LaserOverclock_v01_17: -7451030973042957866
+      TEX_HA_LaserOverclock_v01_18: -1476653058175800869
+      TEX_HA_LaserOverclock_v01_2: -7494066765390745686
+      TEX_HA_LaserOverclock_v01_3: -6085608286420665406
+      TEX_HA_LaserOverclock_v01_4: -4480982308140933682
+      TEX_HA_LaserOverclock_v01_5: -5933401405710099648
+      TEX_HA_LaserOverclock_v01_6: 1914481162139971111
+      TEX_HA_LaserOverclock_v01_7: -1077213617071439287
+      TEX_HA_LaserOverclock_v01_8: -8000515574581981091
+      TEX_HA_LaserOverclock_v01_9: -1379316964818147684
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

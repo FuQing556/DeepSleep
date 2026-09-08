@@ -1,4 +1,5 @@
 using DeepSleep.Runtime.Input.Commands;
+using DeepSleep.Runtime.Players.Actions;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -15,8 +16,12 @@ namespace DeepSleep.Runtime.Players.Commands
         [FormerlySerializedAs("commandConsumerComponents")]
         [SerializeField] private MonoBehaviour[] _commandConsumerComponents;
 
+        [SerializeField] private PlayerActionGate _actionGate;
+        [SerializeField] private MonoBehaviour[] _commandPreprocessorComponents;
+
         private ICommandSource _commandSource;
         private IPlayerCommandConsumer[] _commandConsumers;
+        private IPlayerCommandPreprocessor[] _commandPreprocessors;
         private bool _isInitialized;
 
         public bool HasCommandSource => _commandSource != null;
@@ -24,6 +29,12 @@ namespace DeepSleep.Runtime.Players.Commands
         private void Awake()
         {
             if (!TryResolveCommandConsumers())
+            {
+                enabled = false;
+                return;
+            }
+
+            if (!TryResolveCommandPreprocessors())
             {
                 enabled = false;
                 return;
@@ -89,9 +100,24 @@ namespace DeepSleep.Runtime.Players.Commands
                 return;
             }
 
+            for (int index = 0; index < _commandPreprocessors.Length; index++)
+            {
+                _commandPreprocessors[index].PreprocessCommand(
+                    in command,
+                    deltaTime);
+            }
+
             for (int index = 0; index < _commandConsumers.Length; index++)
             {
-                _commandConsumers[index].ConsumeCommand(
+                IPlayerCommandConsumer consumer = _commandConsumers[index];
+
+                if (consumer is IPlayerActionCommandConsumer actionConsumer &&
+                    _actionGate.IsBlocked(actionConsumer.ActionCategory))
+                {
+                    continue;
+                }
+
+                consumer.ConsumeCommand(
                     in command,
                     deltaTime);
             }
@@ -146,6 +172,40 @@ namespace DeepSleep.Runtime.Players.Commands
                     $"[{nameof(PlayerCommandDispatcher)}] " +
                     $"第 {index} 个命令消费者未实现" +
                     $"{nameof(IPlayerCommandConsumer)}。",
+                    this);
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool TryResolveCommandPreprocessors()
+        {
+            if (_actionGate == null)
+            {
+                Debug.LogError(
+                    $"[{nameof(PlayerCommandDispatcher)}] " +
+                    "未配置玩家行动限制器。",
+                    this);
+                return false;
+            }
+
+            int count = _commandPreprocessorComponents?.Length ?? 0;
+            _commandPreprocessors = new IPlayerCommandPreprocessor[count];
+
+            for (int index = 0; index < count; index++)
+            {
+                if (_commandPreprocessorComponents[index] is
+                    IPlayerCommandPreprocessor resolvedPreprocessor)
+                {
+                    _commandPreprocessors[index] = resolvedPreprocessor;
+                    continue;
+                }
+
+                Debug.LogError(
+                    $"[{nameof(PlayerCommandDispatcher)}] " +
+                    $"第 {index} 个命令前置处理器未实现" +
+                    $"{nameof(IPlayerCommandPreprocessor)}。",
                     this);
                 return false;
             }

@@ -13,6 +13,8 @@ namespace DeepSleep.Runtime.Input.Local
         [Header("连续输入")]
         [SerializeField] private InputActionReference moveAction;
         [SerializeField] private InputActionReference aimAction;
+        [SerializeField] private Camera aimCamera;
+        [SerializeField] private float aimWorldPlaneZ;
 
         [Header("按钮输入")]
         [SerializeField] private InputActionReference primarySkillAction;
@@ -113,19 +115,25 @@ namespace DeepSleep.Runtime.Input.Local
 
         private AimIntent ReadAimIntent()
         {
-            if (Screen.width <= 0 || Screen.height <= 0)
+            if (aimCamera == null)
             {
                 return new AimIntent(AimReference.None, Vector2.zero);
             }
 
             Vector2 screenPosition = aimAction.action.ReadValue<Vector2>();
-            Vector2 normalizedPosition = new Vector2(
-                screenPosition.x / Screen.width,
-                screenPosition.y / Screen.height);
+            Ray aimRay = aimCamera.ScreenPointToRay(screenPosition);
+            Plane gameplayPlane = new Plane(
+                Vector3.forward,
+                new Vector3(0f, 0f, aimWorldPlaneZ));
+
+            if (!gameplayPlane.Raycast(aimRay, out float enter))
+            {
+                return new AimIntent(AimReference.None, Vector2.zero);
+            }
 
             return new AimIntent(
-                AimReference.NormalizedScreenPosition,
-                normalizedPosition);
+                AimReference.WorldPosition,
+                aimRay.GetPoint(enter));
         }
 
         private bool HasAllActionReferences()
@@ -133,6 +141,7 @@ namespace DeepSleep.Runtime.Input.Local
             bool isValid = true;
             isValid &= HasAction(moveAction, nameof(moveAction));
             isValid &= HasAction(aimAction, nameof(aimAction));
+            isValid &= HasAimCamera();
             isValid &= HasAction(primarySkillAction, nameof(primarySkillAction));
             isValid &= HasAction(secondarySkillAction, nameof(secondarySkillAction));
             isValid &= HasAction(confirmAimAction, nameof(confirmAimAction));
@@ -140,6 +149,19 @@ namespace DeepSleep.Runtime.Input.Local
             isValid &= HasAction(reconnectAction, nameof(reconnectAction));
             isValid &= HasAction(pauseAction, nameof(pauseAction));
             return isValid;
+        }
+
+        private bool HasAimCamera()
+        {
+            if (aimCamera != null)
+            {
+                return true;
+            }
+
+            Debug.LogError(
+                $"[{nameof(UnityInputCommandSource)}] 未配置瞄准摄像机。",
+                this);
+            return false;
         }
 
         private bool HasAction(InputActionReference actionReference, string fieldName)

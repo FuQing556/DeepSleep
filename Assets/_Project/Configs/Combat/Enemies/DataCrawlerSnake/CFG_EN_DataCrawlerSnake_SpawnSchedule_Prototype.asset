@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de375941c59338b4a8416083a948fc5b, type: 3}
+  m_Name: CFG_EN_DataCrawlerSnake_SpawnSchedule_Prototype
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Enemies.EnemySpawnScheduleConfig
+  _initialDelaySeconds: 2.5
+  _minimumIntervalSeconds: 4.5
+  _maximumIntervalSeconds: 6.5
+  _maximumAliveCount: 3
+  _horizontalSpawnMargin: 1
+  _verticalPadding: 0.65
+  _randomSeed: 240813

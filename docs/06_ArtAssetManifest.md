@@ -60,7 +60,7 @@ BG_<Depth>_<Variant>.png
 
 “主体尺寸”不含头发飘带和 VFX，但含主要轮廓。若导出主体超差 ±8%，必须返工或更新 Prefab/Collider 验收，不准随手改 Transform Scale 掩盖。
 
-## 4. 玩家 DeepSeek 鲸鱼娘
+## 4. 玩家 DeepSeek 蓝白虎鲸娘
 
 目录：`Assets/_Project/Art/Characters/DeepSeek/`
 
@@ -99,7 +99,7 @@ BG_<Depth>_<Variant>.png
 | CHR_DS_MuzzleFlash | 128×128 | 发射闪光单图，以缩放/Alpha 做短促脉冲 |
 | CHR_DS_Shadow | 192×64 | 仅菜单/落地演出使用 |
 
-## 4B. 玩家 DeepSeek Harness 黑鲸鱼娘
+## 4B. 玩家 DeepSeek Harness 黑红虎鲸娘
 
 目录：`Assets/_Project/Art/Characters/Harness/`
 
@@ -109,24 +109,28 @@ BG_<Depth>_<Variant>.png
 - 黑色长发、红眼、细框眼镜、黑色鲸鳍耳、粗大黑鲸尾、黑白女仆裙、白围裙、红花/蝴蝶结和红裙边。
 - 黑色连续面积不超过 70%；鲸尾腹面、围裙和袖口负责分层。眼镜反光不能遮住双眼。
 - 飞行不加鸟翼；状态灯、任务队列卡与终端执行环体现 Harness，而非胸口贴 Logo。
+- `SPR_HA_IdleFly_v03.png` 是 Harness 后续动作和专属特效的最高视觉母版；新增素材必须复制其脸型、头身、发型、眼镜、服装分块、尾巴形状和线稿质感。官方黑色鲸鱼图标只解释梗与配色，不得据此重新设计人物或另造写实鲸鱼。
 
 ### 4B.2 状态图交付
 
-每个状态独立一张 320×320 透明 PNG，与 DeepSeek 使用相同身体 Pivot。最初可玩版只要求 `IdleFly`、`TapRise`、`Fall`，攻击图在 Harness 选区玩法落地时再做。
+每个状态独立透明 PNG，与 DeepSeek 使用相同身体 Pivot 和游戏内视觉尺度。角色生产源保留 1280×1280，Unity 中通过相同 PPU/Transform 尺度对齐，不在导入前破坏性降采样。
 
 | Asset ID | 状态 | 主图姿态 | Unity 表现 |
 |---|---|---|---|
 | CHR_HA_IdleFly | 中性飞行 | 悬浮、冷静、状态灯亮 | 低幅悬浮与状态灯呼吸 |
 | CHR_HA_TapRise | 点按上升 | 鳍耳下压、围裙与黑尾受气流托起 | 短上冲与轻微上仰 |
 | CHR_HA_Fall | 松开下落 | 发梢上飘、鲸尾下垂 | 随 Y 速度下俯 |
-| CHR_HA_Aim | 手动瞄准 | 单手展开红黑选区 | 选区环独立跟随触点/鼠标 |
+| CHR_HA_LaserFire | 终端激光开火 | 前倾飞行、双手压住终端、头发与虎鲸尾向后拖 | 替换待机 Sprite，束身从独立发射点生成；不得把激光烘焙进人物图 |
+| CHR_HA_Aim | 领域瞄准内盘 | 正面飞行、双腿离地、尾巴受气流托起，双手在右眼前比出取景框 | 人物与暗色终端背景合成在圆形内盘；圆盘外透明，科技环另行分层 |
 | CHR_HA_Execute | 执行攻击 | 推眼镜并确认 | 0.28s 执行环收束后单次爆发 |
 | CHR_HA_Insufficient | 能量不足 | 状态灯灰、略嫌弃账单 | 账单弹出和能量条抖动独立 |
 | CHR_HA_Hurt | 受击 | 红灯告警、眼镜轻歪 | 红白闪与短抖动 |
 | CHR_HA_Death | 失败 | 任务队列熄灭 | 整体旋转下坠 |
 | CHR_HA_Victory | 胜利 | 完成打勾、疲惫微笑 | 打勾 VFX 与轻弹跳 |
 
-独立部件：`CHR_HA_Portrait_Normal`、`CHR_HA_TargetReticle`、`CHR_HA_ExecuteRing`、`CHR_HA_BillingCard`、`CHR_HA_StatusLight`。选区与执行环必须透明底独立导出，不能烘焙在角色主图中。
+独立部件：`CHR_HA_Portrait_Normal`、`CHR_HA_TargetReticle`、`CHR_HA_ExecuteRingInner`、`CHR_HA_ExecuteRingOuter`、`CHR_HA_BillingCard`、`CHR_HA_StatusLight`。领域人物与内圈终端背景允许合成，但两层旋转外圈、激光和命中特效必须干净透明并独立导出。
+
+Harness 战斗素材按完整依赖组生产：`CHR_HA_LaserAim` 是透明飞行指向姿势，`CHR_HA_LaserFire` 是前倾双手压终端的开火姿势；`CHR_HA_FieldAimDisc` 是“飞行取景姿势 + 暗色终端背景”的圆形合成图；`VFX_HA_RingInner` 与 `VFX_HA_RingOuter` 是反向旋转的透明外圈；`VFX_HA_LaserBeamBody`、`VFX_HA_LaserMuzzle`、`VFX_HA_LaserHit` 与 `TEX_HA_LaserOverclock` 组成透明贯屏激光组；`VFX_HA_OrcaTailProjection` 是严格复用现有角色尾部形状的高价值清算投影。取消写实完整鲸鱼 `VFX_HA_WhaleFall`。瞄准细线、圆环旋转、电磁扩散、数据碎片吸附和淡出由运行时驱动并与这些位图组合。
 
 ## 5. Gemini Boss
 
@@ -253,8 +257,20 @@ Opus 采用用户参考中的橙发 Claude 系宽松锚点：橙色长发、黑/
 | VFX_Boss_Defeat | 768×768 | 终局像素星爆源图；ParticleSystem 驱动 |
 | VFX_Pickup_Rice | 128×128 | 米饭飞向 HUD；曲线路径与缩放由代码驱动 |
 | VFX_Pickup_Token | 96×96 | Token 吸收；曲线路径与缩放由代码驱动 |
-| VFX_HA_TargetReticle | 512×512 | 黑红虚线选区；旋转/呼吸，合法白边、非法灰边 |
-| VFX_HA_ExecuteRing | 512×512 | 0.28 秒内缩放收束并一次结算伤害 |
+| VFX_DS_TargetReticle_v01 | 1254×1254 | 已接入；蓝白检索角标与米粒轨迹，中心透明，运行时旋转/呼吸；不参与索敌与伤害 |
+| VFX_DS_RiceHit_v01 | 1254×1254 | 已接入；每枚饭团成功造成伤害后各播放一次，运行时旋转/缩放/淡出；响应“玩家产生的战斗特效倍率” |
+| VFX_HA_TargetReticle | 512×512 | 黑红虚线选区；透明底，旋转/呼吸，合法白边、非法灰边 |
+| VFX_HA_FieldAimDisc | 768×768 | 圆形内盘合成图；飞行 Harness 取景姿势 + 暗色终端背景，圆盘外 Alpha=0 |
+| VFX_HA_RingInner | 768×768 | 内层透明科技环；与外环反向旋转，不能带方形底色 |
+| VFX_HA_RingOuter | 896×896 | 外层透明科技环；收束时加速缩放，不能带方形底色 |
+| VFX_HA_ExecutePulse | 768×768 | 黑红 EMP 单图；缩放、扭曲和 Alpha 承担清弹结算，不烘焙人物 |
+| VFX_HA_LaserGuide | 程序化线段 | Harness到点杀目标的细瞄准线；低透明度校准，禁止与敌方红色危险线混淆 |
+| VFX_HA_LaserBeamBody | 1024×128 | 无起止端帽、左右无缝的透明白芯黑红束身；在动态四边形网格上沿局部 X 重复采样，长度、宽度和方向均由开火快照驱动，禁止整图非等比拉伸 |
+| VFX_HA_LaserMuzzle | 192×192 | 终端/指向手处的透明起始闪光，与光束同帧出现 |
+| VFX_HA_LaserHit | 192×192 | 每个沿线敌人的透明终端命中闪光；不能只在锁定目标播放 |
+| TEX_HA_LaserOverclock | 1024×256 | 中央留空的透明过载碎片层；叠加在束身上下边缘并沿 X 重复，高等级改变滚动速度/密度，不替代基础束身 |
+| TEX_HA_LaserSurgeFrame | 1024×512 | 两条宽幅黑红能量轨组成的透明外框；使用独立、较宽的动态网格包住基础束身，在蓄满/高等级爆发时出现，不参与伤害宽度计算 |
+| VFX_HA_OrcaTailProjection | 1024×1024 | 高价值清算专用；复用现有角色尾部形状的黑红半透明放大投影，不画完整动物 |
 | VFX_GR_HolyFog | 1024×1024 | 圣光/迷雾遮挡块；噪声 UV/Alpha 流动，无色情画面 |
 | VFX_GR_WarningFrame | 512×512 | 洋红预警边框，9-slice 调尺寸并 Alpha 呼吸 |
 
@@ -392,12 +408,12 @@ Known AI-generation fixes:
 - 主色占比：月白 45%、午夜蓝 45%、银 7%、彩虹点缀≤3%。
 - Q 版删减顺序：先删腰间小链→减少裙面碎星→简化袖口；银发、长笛、星月披肩、K 蝴蝶结绝不能删。
 
-### 16.2 DeepSeek Harness 黑鲸鱼娘
+### 16.2 DeepSeek Harness 黑红虎鲸娘
 
-- 形态：与 DeepSeek 鲸鱼娘同族的 2.6 头身黑色终端变体。
+- 形态：与 DeepSeek 蓝白虎鲸娘同族的 2.6 头身黑红终端变体；人物外形以已导入的 `SPR_HA_IdleFly_v03.png` 为准。
 - 头部：黑色长发、呆毛、红眼、细框眼镜、两侧黑色鲸鳍耳；鳍耳外伸且根部位置低于猫耳。
 - 身体：黑白女仆裙与白围裙，黑袖，红花/蝴蝶结和红裙边；黑色不超过连续画面 70%，用白围裙和灰色内衬分层。
-- 尾部：粗大的黑鲸尾，腹面浅灰/白，必须从背后清楚露出，不画成细猫尾。
+- 尾部：粗大的黑红虎鲸娘尾部，腹面浅灰/白；轮廓和比例复制已导入母版，必须从背后清楚露出，不另行推导写实鲸类结构，也不画成细猫尾。
 - 配件：小型终端状态灯、任务队列卡；红色用于等待/告警，不把全身描成红光。
 - 表情：夜班工程师式温柔疲惫、轻微腹黑；眼镜反光不得长期遮眼。
 - Q 版删减顺序：先删裙边刺绣→简化发卷→减少小红饰；鲸鳍耳、鲸尾、眼镜、黑白红色块绝不能删。

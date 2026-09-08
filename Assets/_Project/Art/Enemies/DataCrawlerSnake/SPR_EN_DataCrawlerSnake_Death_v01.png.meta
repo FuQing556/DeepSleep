@@ -1,0 +1,1276 @@
+fileFormatVersion: 2
+guid: e4d9bbc18323b054fb155d57a07f179e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4964253423655183208
+    second: SPR_EN_DataCrawlerSnake_Death_v01_0
+  - first:
+      213: 1826097548014874833
+    second: SPR_EN_DataCrawlerSnake_Death_v01_1
+  - first:
+      213: -4193547439166625330
+    second: SPR_EN_DataCrawlerSnake_Death_v01_2
+  - first:
+      213: 4718156924240190933
+    second: SPR_EN_DataCrawlerSnake_Death_v01_3
+  - first:
+      213: 7999185780036692885
+    second: SPR_EN_DataCrawlerSnake_Death_v01_4
+  - first:
+      213: 2423602185206349596
+    second: SPR_EN_DataCrawlerSnake_Death_v01_5
+  - first:
+      213: -8824449351818779459
+    second: SPR_EN_DataCrawlerSnake_Death_v01_6
+  - first:
+      213: 5713123873515256848
+    second: SPR_EN_DataCrawlerSnake_Death_v01_7
+  - first:
+      213: 2800667268102122814
+    second: SPR_EN_DataCrawlerSnake_Death_v01_8
+  - first:
+      213: 2630548048764316188
+    second: SPR_EN_DataCrawlerSnake_Death_v01_9
+  - first:
+      213: -2494555240055962203
+    second: SPR_EN_DataCrawlerSnake_Death_v01_10
+  - first:
+      213: -8841730300352303357
+    second: SPR_EN_DataCrawlerSnake_Death_v01_11
+  - first:
+      213: -7361035382323873042
+    second: SPR_EN_DataCrawlerSnake_Death_v01_12
+  - first:
+      213: 8519721370431579134
+    second: SPR_EN_DataCrawlerSnake_Death_v01_13
+  - first:
+      213: -3279920420107650594
+    second: SPR_EN_DataCrawlerSnake_Death_v01_14
+  - first:
+      213: 8524600960791183549
+    second: SPR_EN_DataCrawlerSnake_Death_v01_15
+  - first:
+      213: -6508512563370666925
+    second: SPR_EN_DataCrawlerSnake_Death_v01_16
+  - first:
+      213: -8178234723191800154
+    second: SPR_EN_DataCrawlerSnake_Death_v01_17
+  - first:
+      213: 2233728311923155820
+    second: SPR_EN_DataCrawlerSnake_Death_v01_18
+  - first:
+      213: -8771871998342299221
+    second: SPR_EN_DataCrawlerSnake_Death_v01_19
+  - first:
+      213: 3996459380826521816
+    second: SPR_EN_DataCrawlerSnake_Death_v01_20
+  - first:
+      213: 456813174822782950
+    second: SPR_EN_DataCrawlerSnake_Death_v01_21
+  - first:
+      213: -9088933771250587456
+    second: SPR_EN_DataCrawlerSnake_Death_v01_22
+  - first:
+      213: 1406822374981769977
+    second: SPR_EN_DataCrawlerSnake_Death_v01_23
+  - first:
+      213: 3972962485092939064
+    second: SPR_EN_DataCrawlerSnake_Death_v01_24
+  - first:
+      213: 1964003017692175579
+    second: SPR_EN_DataCrawlerSnake_Death_v01_25
+  - first:
+      213: 3040668290173238886
+    second: SPR_EN_DataCrawlerSnake_Death_v01_26
+  - first:
+      213: 7958472939089984441
+    second: SPR_EN_DataCrawlerSnake_Death_v01_27
+  - first:
+      213: -8074870769964627374
+    second: SPR_EN_DataCrawlerSnake_Death_v01_28
+  - first:
+      213: 8268004934899322712
+    second: SPR_EN_DataCrawlerSnake_Death_v01_29
+  - first:
+      213: 8461975466655338173
+    second: SPR_EN_DataCrawlerSnake_Death_v01_30
+  - first:
+      213: -4568460999497695252
+    second: SPR_EN_DataCrawlerSnake_Death_v01_31
+  - first:
+      213: 3206236448568073550
+    second: SPR_EN_DataCrawlerSnake_Death_v01_32
+  - first:
+      213: 3591862662810681356
+    second: SPR_EN_DataCrawlerSnake_Death_v01_33
+  - first:
+      213: -2340046032861767349
+    second: SPR_EN_DataCrawlerSnake_Death_v01_34
+  - first:
+      213: 2371177892879123465
+    second: SPR_EN_DataCrawlerSnake_Death_v01_35
+  - first:
+      213: 2007482174251547309
+    second: SPR_EN_DataCrawlerSnake_Death_v01_36
+  - first:
+      213: -3675529079942749055
+    second: SPR_EN_DataCrawlerSnake_Death_v01_37
+  - first:
+      213: -6740925244752357254
+    second: SPR_EN_DataCrawlerSnake_Death_v01_38
+  - first:
+      213: -2160748801388492841
+    second: SPR_EN_DataCrawlerSnake_Death_v01_39
+  - first:
+      213: -8592232566232559194
+    second: SPR_EN_DataCrawlerSnake_Death_v01_40
+  - first:
+      213: -8518548409320376063
+    second: SPR_EN_DataCrawlerSnake_Death_v01_41
+  - first:
+      213: 4281480065270482899
+    second: SPR_EN_DataCrawlerSnake_Death_v01_42
+  - first:
+      213: -9096199142475740521
+    second: SPR_EN_DataCrawlerSnake_Death_v01_43
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_0
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 1022
+        width: 193
+        height: 155
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89c140c10dd6b1bb0800000000000000
+      internalID: -4964253423655183208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_1
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 889
+        width: 294
+        height: 263
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d073aa7b0a975910800000000000000
+      internalID: 1826097548014874833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_2
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1101
+        width: 51
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec969bb82d68dc5c0800000000000000
+      internalID: -4193547439166625330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_3
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 1034
+        width: 209
+        height: 165
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ddd2e789b24a7140800000000000000
+      internalID: 4718156924240190933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_4
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 1149
+        width: 55
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59b617fd511d20f60800000000000000
+      internalID: 7999185780036692885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_5
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 923
+        width: 101
+        height: 181
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1fb51eb85d52a120800000000000000
+      internalID: 2423602185206349596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_6
+      rect:
+        serializedVersion: 2
+        x: 674
+        y: 604
+        width: 623
+        height: 476
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db46a668112498580800000000000000
+      internalID: -8824449351818779459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_7
+      rect:
+        serializedVersion: 2
+        x: 758
+        y: 1019
+        width: 81
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01c3eaeb4e7194f40800000000000000
+      internalID: 5713123873515256848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_8
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1056
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3d6a41ba08fdd620800000000000000
+      internalID: 2800667268102122814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_9
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 1049
+        width: 52
+        height: 79
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1aa13b5385918420800000000000000
+      internalID: 2630548048764316188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_10
+      rect:
+        serializedVersion: 2
+        x: 586
+        y: 1017
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a500e3d93f816dd0800000000000000
+      internalID: -2494555240055962203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_11
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 955
+        width: 35
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30f61b7232ddb4580800000000000000
+      internalID: -8841730300352303357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_12
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 945
+        width: 47
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeaf089f15958d990800000000000000
+      internalID: -7361035382323873042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 420
+        width: 435
+        height: 524
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef3e0ed62712c3670800000000000000
+      internalID: 8519721370431579134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_14
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 872
+        width: 44
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed9fee371c16b72d0800000000000000
+      internalID: -3279920420107650594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_15
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 845
+        width: 77
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db089e798677d4670800000000000000
+      internalID: 8524600960791183549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_16
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 867
+        width: 25
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 354df14ae4e1da5a0800000000000000
+      internalID: -6508512563370666925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_17
+      rect:
+        serializedVersion: 2
+        x: 562
+        y: 843
+        width: 61
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ae336279d2118e80800000000000000
+      internalID: -8178234723191800154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_18
+      rect:
+        serializedVersion: 2
+        x: 390
+        y: 712
+        width: 212
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c63a9ec901ccffe10800000000000000
+      internalID: 2233728311923155820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_19
+      rect:
+        serializedVersion: 2
+        x: 622
+        y: 792
+        width: 22
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba18c9394ec044680800000000000000
+      internalID: -8771871998342299221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_20
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 741
+        width: 39
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d04179f1a6467730800000000000000
+      internalID: 3996459380826521816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_21
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 433
+        width: 222
+        height: 264
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e7c706892de65600800000000000000
+      internalID: 456813174822782950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_22
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 681
+        width: 18
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c8ae89e3ee9dd180800000000000000
+      internalID: -9088933771250587456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_23
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 31
+        width: 499
+        height: 689
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9fa1cd21f79068310800000000000000
+      internalID: 1406822374981769977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_24
+      rect:
+        serializedVersion: 2
+        x: 912
+        y: 556
+        width: 162
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 835faed945cc22730800000000000000
+      internalID: 3972962485092939064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_25
+      rect:
+        serializedVersion: 2
+        x: 1076
+        y: 556
+        width: 29
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bdc565fb65a814b10800000000000000
+      internalID: 1964003017692175579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_26
+      rect:
+        serializedVersion: 2
+        x: 1154
+        y: 546
+        width: 35
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66ef19323bf923a20800000000000000
+      internalID: 3040668290173238886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_27
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 466
+        width: 94
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bb7409e8fc227e60800000000000000
+      internalID: 7958472939089984441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_28
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 515
+        width: 33
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25ac21531db40ff80800000000000000
+      internalID: -8074870769964627374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_29
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 39
+        width: 338
+        height: 415
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85fc9d9beaaddb270800000000000000
+      internalID: 8268004934899322712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_30
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 403
+        width: 38
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbecf0c7ad9fe6570800000000000000
+      internalID: 8461975466655338173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_31
+      rect:
+        serializedVersion: 2
+        x: 1030
+        y: 438
+        width: 55
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cefb6bafce09990c0800000000000000
+      internalID: -4568460999497695252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_32
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 64
+        width: 221
+        height: 394
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4d5fc60017de7c20800000000000000
+      internalID: 3206236448568073550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_33
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 390
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c00c1d2bf0cd8d130800000000000000
+      internalID: 3591862662810681356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_34
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 244
+        width: 122
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b49563df78c768fd0800000000000000
+      internalID: -2340046032861767349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_35
+      rect:
+        serializedVersion: 2
+        x: 1181
+        y: 397
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 904c1540bbd18e020800000000000000
+      internalID: 2371177892879123465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_36
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 238
+        width: 106
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daa3131c6620cdb10800000000000000
+      internalID: 2007482174251547309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_37
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 353
+        width: 38
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 184e46c86c5edfcc0800000000000000
+      internalID: -3675529079942749055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_38
+      rect:
+        serializedVersion: 2
+        x: 1228
+        y: 280
+        width: 33
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a789211743c6372a0800000000000000
+      internalID: -6740925244752357254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_39
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 275
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d7436cc96a7302e0800000000000000
+      internalID: -2160748801388492841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_40
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 94
+        width: 186
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a15a2e210242c880800000000000000
+      internalID: -8592232566232559194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_41
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 224
+        width: 33
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1097d7cda5908c980800000000000000
+      internalID: -8518548409320376063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_42
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 207
+        width: 66
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d70d536f6fda6b30800000000000000
+      internalID: 4281480065270482899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_DataCrawlerSnake_Death_v01_43
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 64
+        width: 42
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79a458ad21fc3c180800000000000000
+      internalID: -9096199142475740521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SPR_EN_DataCrawlerSnake_Death_v01_0: -4964253423655183208
+      SPR_EN_DataCrawlerSnake_Death_v01_1: 1826097548014874833
+      SPR_EN_DataCrawlerSnake_Death_v01_10: -2494555240055962203
+      SPR_EN_DataCrawlerSnake_Death_v01_11: -8841730300352303357
+      SPR_EN_DataCrawlerSnake_Death_v01_12: -7361035382323873042
+      SPR_EN_DataCrawlerSnake_Death_v01_13: 8519721370431579134
+      SPR_EN_DataCrawlerSnake_Death_v01_14: -3279920420107650594
+      SPR_EN_DataCrawlerSnake_Death_v01_15: 8524600960791183549
+      SPR_EN_DataCrawlerSnake_Death_v01_16: -6508512563370666925
+      SPR_EN_DataCrawlerSnake_Death_v01_17: -8178234723191800154
+      SPR_EN_DataCrawlerSnake_Death_v01_18: 2233728311923155820
+      SPR_EN_DataCrawlerSnake_Death_v01_19: -8771871998342299221
+      SPR_EN_DataCrawlerSnake_Death_v01_2: -4193547439166625330
+      SPR_EN_DataCrawlerSnake_Death_v01_20: 3996459380826521816
+      SPR_EN_DataCrawlerSnake_Death_v01_21: 456813174822782950
+      SPR_EN_DataCrawlerSnake_Death_v01_22: -9088933771250587456
+      SPR_EN_DataCrawlerSnake_Death_v01_23: 1406822374981769977
+      SPR_EN_DataCrawlerSnake_Death_v01_24: 3972962485092939064
+      SPR_EN_DataCrawlerSnake_Death_v01_25: 1964003017692175579
+      SPR_EN_DataCrawlerSnake_Death_v01_26: 3040668290173238886
+      SPR_EN_DataCrawlerSnake_Death_v01_27: 7958472939089984441
+      SPR_EN_DataCrawlerSnake_Death_v01_28: -8074870769964627374
+      SPR_EN_DataCrawlerSnake_Death_v01_29: 8268004934899322712
+      SPR_EN_DataCrawlerSnake_Death_v01_3: 4718156924240190933
+      SPR_EN_DataCrawlerSnake_Death_v01_30: 8461975466655338173
+      SPR_EN_DataCrawlerSnake_Death_v01_31: -4568460999497695252
+      SPR_EN_DataCrawlerSnake_Death_v01_32: 3206236448568073550
+      SPR_EN_DataCrawlerSnake_Death_v01_33: 3591862662810681356
+      SPR_EN_DataCrawlerSnake_Death_v01_34: -2340046032861767349
+      SPR_EN_DataCrawlerSnake_Death_v01_35: 2371177892879123465
+      SPR_EN_DataCrawlerSnake_Death_v01_36: 2007482174251547309
+      SPR_EN_DataCrawlerSnake_Death_v01_37: -3675529079942749055
+      SPR_EN_DataCrawlerSnake_Death_v01_38: -6740925244752357254
+      SPR_EN_DataCrawlerSnake_Death_v01_39: -2160748801388492841
+      SPR_EN_DataCrawlerSnake_Death_v01_4: 7999185780036692885
+      SPR_EN_DataCrawlerSnake_Death_v01_40: -8592232566232559194
+      SPR_EN_DataCrawlerSnake_Death_v01_41: -8518548409320376063
+      SPR_EN_DataCrawlerSnake_Death_v01_42: 4281480065270482899
+      SPR_EN_DataCrawlerSnake_Death_v01_43: -9096199142475740521
+      SPR_EN_DataCrawlerSnake_Death_v01_5: 2423602185206349596
+      SPR_EN_DataCrawlerSnake_Death_v01_6: -8824449351818779459
+      SPR_EN_DataCrawlerSnake_Death_v01_7: 5713123873515256848
+      SPR_EN_DataCrawlerSnake_Death_v01_8: 2800667268102122814
+      SPR_EN_DataCrawlerSnake_Death_v01_9: 2630548048764316188
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

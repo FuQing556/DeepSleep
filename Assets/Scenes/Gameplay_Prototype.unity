@@ -165,6 +165,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Input.Local.UnityInputCommandSource
   moveAction: {fileID: -5439504218549687611, guid: 8e535f38049f9314094c2475aeaf87ac, type: 3}
   aimAction: {fileID: 2513447759734445863, guid: 8e535f38049f9314094c2475aeaf87ac, type: 3}
+  aimCamera: {fileID: 519420031}
+  aimWorldPlaneZ: 0
   primarySkillAction: {fileID: 4384696337534206724, guid: 8e535f38049f9314094c2475aeaf87ac, type: 3}
   secondarySkillAction: {fileID: -3996824281886301498, guid: 8e535f38049f9314094c2475aeaf87ac, type: 3}
   confirmAimAction: {fileID: 2992172407363459614, guid: 8e535f38049f9314094c2475aeaf87ac, type: 3}
@@ -219,6 +221,9 @@ MonoBehaviour:
   playerDispatchers:
   - {fileID: 1608711058}
   - {fileID: 769569894}
+  reviveCoordinators:
+  - {fileID: 1571070260}
+  - {fileID: 1929090245}
 --- !u!114 &461702372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,6 +378,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &596091806
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2509532023061632020, guid: 760d36186e125014aa7fa75d3b6200da, type: 3}
+      propertyPath: m_Name
+      value: PF_EnemyRuntime_DataCrawlerSnake
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938258434097687105, guid: 760d36186e125014aa7fa75d3b6200da, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938258434097687105, guid: 760d36186e125014aa7fa75d3b6200da, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938258434097687105, guid: 760d36186e125014aa7fa75d3b6200da, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938258434097687105, guid: 760d36186e125014aa7fa75d3b6200da, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938258434097687105, guid: 760d36186e125014aa7fa75d3b6200da, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938258434097687105, guid: 760d36186e125014aa7fa75d3b6200da, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938258434097687105, guid: 760d36186e125014aa7fa75d3b6200da, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938258434097687105, guid: 760d36186e125014aa7fa75d3b6200da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938258434097687105, guid: 760d36186e125014aa7fa75d3b6200da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938258434097687105, guid: 760d36186e125014aa7fa75d3b6200da, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 760d36186e125014aa7fa75d3b6200da, type: 3}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +714,68 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f28f78f6415af644a72529c9614ca7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Players.Identity.PlayerActor
+--- !u!1001 &1173827154
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2109708544}
+    m_Modifications:
+    - target: {fileID: 1288936916379884853, guid: ac23a44213c11ac4b9c8c874f98acf65, type: 3}
+      propertyPath: m_Name
+      value: EnemyRuntime_404Window
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272739088127227744, guid: ac23a44213c11ac4b9c8c874f98acf65, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272739088127227744, guid: ac23a44213c11ac4b9c8c874f98acf65, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272739088127227744, guid: ac23a44213c11ac4b9c8c874f98acf65, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272739088127227744, guid: ac23a44213c11ac4b9c8c874f98acf65, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272739088127227744, guid: ac23a44213c11ac4b9c8c874f98acf65, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272739088127227744, guid: ac23a44213c11ac4b9c8c874f98acf65, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272739088127227744, guid: ac23a44213c11ac4b9c8c874f98acf65, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272739088127227744, guid: ac23a44213c11ac4b9c8c874f98acf65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272739088127227744, guid: ac23a44213c11ac4b9c8c874f98acf65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4272739088127227744, guid: ac23a44213c11ac4b9c8c874f98acf65, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ac23a44213c11ac4b9c8c874f98acf65, type: 3}
+--- !u!4 &1173827155 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4272739088127227744, guid: ac23a44213c11ac4b9c8c874f98acf65, type: 3}
+  m_PrefabInstance: {fileID: 1173827154}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1421405759
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,6 +949,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &1571070260 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7361200262563388469, guid: e72882fac3cb68343ae571afc322d91f, type: 3}
+  m_PrefabInstance: {fileID: 769569893}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0751f5914c2c1bc4097949f724302fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Players.Revive.PlayerReviveCoordinator2D
 --- !u!114 &1608711058 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8123551487015862456, guid: 59c4497ffc9193c42846e03a619a6271, type: 3}
@@ -847,6 +982,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f28f78f6415af644a72529c9614ca7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Players.Identity.PlayerActor
+--- !u!114 &1929090245 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 347325722340346962, guid: 59c4497ffc9193c42846e03a619a6271, type: 3}
+  m_PrefabInstance: {fileID: 7104977901317951017}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0751f5914c2c1bc4097949f724302fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Players.Revive.PlayerReviveCoordinator2D
 --- !u!1 &2109708543
 GameObject:
   m_ObjectHideFlags: 0
@@ -877,6 +1023,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1430387768}
+  - {fileID: 1173827155}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &7104977901317951017
@@ -955,3 +1102,4 @@ SceneRoots:
   - {fileID: 7104977901317951017}
   - {fileID: 769569893}
   - {fileID: 2109708544}
+  - {fileID: 596091806}

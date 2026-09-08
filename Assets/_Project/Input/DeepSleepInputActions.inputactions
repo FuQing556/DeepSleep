@@ -90,17 +90,6 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "39163566-37f9-4f3b-bb9e-e8d56cd847f0",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "PrimarySkill",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "a9e6c86d-464e-43dd-bac7-288dc257e3d0",
                     "path": "<Keyboard>/space",
                     "interactions": "",

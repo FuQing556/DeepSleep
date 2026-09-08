@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67b94444c43383c4fb91f197870f6c89, type: 3}
+  m_Name: CFG_HA_TerminalLaserPresentation_Default
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Weapons.Harness.Presentation.HarnessTerminalLaserPresentationConfig
+  _aimGuideWidth: 0.035
+  _aimGuideColor: {r: 1, g: 0.08, b: 0.08, a: 0.32}
+  _aimGuideTextureRepeatWorldLength: 2.25
+  _aimGuideTextureScrollWorldUnitsPerSecond: 1.5
+  _reticleWorldDiameter: 1.5
+  _reticleStartScaleMultiplier: 1.12
+  _reticlePulseScale: 0.12
+  _reticlePulseCyclesPerSecond: 3
+  _reticleRotationDegreesPerSecond: 120
+  _calibratingReticleColor: {r: 1, g: 1, b: 1, a: 0.95}
+  _queuedReticleColor: {r: 1, g: 1, b: 1, a: 0.32}
+  _beamFadeInSeconds: 0.025
+  _beamHoldSeconds: 0.075
+  _beamFadeOutSeconds: 0.16
+  _beamColor: {r: 1, g: 1, b: 1, a: 1}
+  _beamTextureRepeatWorldLength: 2.25
+  _beamTextureScrollWorldUnitsPerSecond: 4
+  _muzzleWorldDiameter: 0.52
+  _muzzleColor: {r: 1, g: 1, b: 1, a: 1}
+  _muzzleChargingStartAlpha: 0.4
+  _muzzleChargingStartScaleMultiplier: 0.65
+  _queuedMuzzleAlpha: 0.2
+  _queuedMuzzleScaleMultiplier: 0.5
+  _hitEffectDurationSeconds: 0.18
+  _hitEffectMinimumWorldDiameter: 0.42
+  _hitEffectBeamWidthMultiplier: 2.2
+  _hitEffectStartScaleMultiplier: 0.45
+  _hitEffectEndScaleMultiplier: 1.25
+  _hitEffectFadeStart01: 0.28
+  _hitEffectMinimumRotationDegrees: 35
+  _hitEffectMaximumRotationDegrees: 85
+  _hitEffectColor: {r: 1, g: 1, b: 1, a: 1}
+  _hitEffectPoolPrewarmCount: 8
+  _firePoseHoldSeconds: 0.18
+  _poseGhostFadeSeconds: 0.32
+  _poseGhostStartAlpha: 0.38

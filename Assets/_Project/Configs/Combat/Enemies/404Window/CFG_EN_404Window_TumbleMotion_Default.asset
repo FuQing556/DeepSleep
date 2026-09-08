@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f857a7ecd72f6048b4d8334a00b2ec3, type: 3}
+  m_Name: CFG_EN_404Window_TumbleMotion_Default
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Enemies.EnemyTumbleMotionConfig
+  _minimumTravelSpeed: 2.6
+  _maximumTravelSpeed: 3.4
+  _minimumAngularSpeed: 45
+  _maximumAngularSpeed: 110
+  _despawnMargin: 1

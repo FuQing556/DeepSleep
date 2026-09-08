@@ -1,0 +1,548 @@
+fileFormatVersion: 2
+guid: c57de2cc7cc8e764eafef48d6e3264cc
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4706237894618016360
+    second: VFX_SH_ReviveConvergeRing_v01_0
+  - first:
+      213: -2825511202592034264
+    second: VFX_SH_ReviveConvergeRing_v01_1
+  - first:
+      213: 5537134207864246215
+    second: VFX_SH_ReviveConvergeRing_v01_2
+  - first:
+      213: -492671046995254905
+    second: VFX_SH_ReviveConvergeRing_v01_3
+  - first:
+      213: -3586582027464112475
+    second: VFX_SH_ReviveConvergeRing_v01_4
+  - first:
+      213: -8285762265505067242
+    second: VFX_SH_ReviveConvergeRing_v01_5
+  - first:
+      213: 1128140566585862563
+    second: VFX_SH_ReviveConvergeRing_v01_6
+  - first:
+      213: 2786221652248950392
+    second: VFX_SH_ReviveConvergeRing_v01_7
+  - first:
+      213: 4086548994455263326
+    second: VFX_SH_ReviveConvergeRing_v01_8
+  - first:
+      213: 8489763378228246404
+    second: VFX_SH_ReviveConvergeRing_v01_9
+  - first:
+      213: 124220232066596980
+    second: VFX_SH_ReviveConvergeRing_v01_10
+  - first:
+      213: 5612611590328127776
+    second: VFX_SH_ReviveConvergeRing_v01_11
+  - first:
+      213: 3094828158404742190
+    second: VFX_SH_ReviveConvergeRing_v01_12
+  - first:
+      213: -6798822331041381145
+    second: VFX_SH_ReviveConvergeRing_v01_13
+  - first:
+      213: 5294411013224172341
+    second: VFX_SH_ReviveConvergeRing_v01_14
+  - first:
+      213: -7589574838469594544
+    second: VFX_SH_ReviveConvergeRing_v01_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_SH_ReviveConvergeRing_v01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1252
+        height: 1250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86a60313e6aef4140800000000000000
+      internalID: 4706237894618016360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SH_ReviveConvergeRing_v01_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 982
+        width: 37
+        height: 113
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8227d9c0884c9c8d0800000000000000
+      internalID: -2825511202592034264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SH_ReviveConvergeRing_v01_2
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 1048
+        width: 57
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cf896d993ad7dc40800000000000000
+      internalID: 5537134207864246215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SH_ReviveConvergeRing_v01_3
+      rect:
+        serializedVersion: 2
+        x: 1099
+        y: 1039
+        width: 130
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7816ab40b4ea929f0800000000000000
+      internalID: -492671046995254905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SH_ReviveConvergeRing_v01_4
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 1012
+        width: 22
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a6833706a6e93ec0800000000000000
+      internalID: -3586582027464112475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SH_ReviveConvergeRing_v01_5
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 923
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61f0c3f8e1f030d80800000000000000
+      internalID: -8285762265505067242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SH_ReviveConvergeRing_v01_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 746
+        width: 15
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a9ee004ed5f7af00800000000000000
+      internalID: 1128140566585862563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SH_ReviveConvergeRing_v01_7
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 745
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 876fcc7a4d5aaa620800000000000000
+      internalID: 2786221652248950392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SH_ReviveConvergeRing_v01_8
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 546
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e585cb3b8a656b830800000000000000
+      internalID: 4086548994455263326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SH_ReviveConvergeRing_v01_9
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 190
+        width: 25
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4873a62dfc2b1d570800000000000000
+      internalID: 8489763378228246404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SH_ReviveConvergeRing_v01_10
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 128
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4700f3694a159b100800000000000000
+      internalID: 124220232066596980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SH_ReviveConvergeRing_v01_11
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 6
+        width: 15
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0219fb7218004ed40800000000000000
+      internalID: 5612611590328127776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SH_ReviveConvergeRing_v01_12
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 15
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2c479e10d903fa20800000000000000
+      internalID: 3094828158404742190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SH_ReviveConvergeRing_v01_13
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 13
+        width: 25
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e409439c1bb5a1a0800000000000000
+      internalID: -6798822331041381145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SH_ReviveConvergeRing_v01_14
+      rect:
+        serializedVersion: 2
+        x: 1035
+        y: 11
+        width: 49
+        height: 63
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53b842af3c6897940800000000000000
+      internalID: 5294411013224172341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SH_ReviveConvergeRing_v01_15
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 0
+        width: 79
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 052f6cc45e96ca690800000000000000
+      internalID: -7589574838469594544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_SH_ReviveConvergeRing_v01_0: 4706237894618016360
+      VFX_SH_ReviveConvergeRing_v01_1: -2825511202592034264
+      VFX_SH_ReviveConvergeRing_v01_10: 124220232066596980
+      VFX_SH_ReviveConvergeRing_v01_11: 5612611590328127776
+      VFX_SH_ReviveConvergeRing_v01_12: 3094828158404742190
+      VFX_SH_ReviveConvergeRing_v01_13: -6798822331041381145
+      VFX_SH_ReviveConvergeRing_v01_14: 5294411013224172341
+      VFX_SH_ReviveConvergeRing_v01_15: -7589574838469594544
+      VFX_SH_ReviveConvergeRing_v01_2: 5537134207864246215
+      VFX_SH_ReviveConvergeRing_v01_3: -492671046995254905
+      VFX_SH_ReviveConvergeRing_v01_4: -3586582027464112475
+      VFX_SH_ReviveConvergeRing_v01_5: -8285762265505067242
+      VFX_SH_ReviveConvergeRing_v01_6: 1128140566585862563
+      VFX_SH_ReviveConvergeRing_v01_7: 2786221652248950392
+      VFX_SH_ReviveConvergeRing_v01_8: 4086548994455263326
+      VFX_SH_ReviveConvergeRing_v01_9: 8489763378228246404
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
