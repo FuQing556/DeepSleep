@@ -11,7 +11,7 @@ using UnityEngine;
 namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek.Guard
 {
     /// <summary>接收DS技能命令，维护共享六次护航，并在玩家扣血前作出拦截裁决。</summary>
-    public sealed class DeepSeekRiceGuardController : MonoBehaviour,
+    public sealed partial class DeepSeekRiceGuardController : MonoBehaviour,
         IPlayerActionCommandConsumer, IFixedSimulationStep,
         IPlayerDamageInterceptor
     {
@@ -35,12 +35,12 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek.Guard
         private bool _isInitialized;
 
         public PlayerActionBlock ActionCategory => PlayerActionBlock.ActiveCombat;
-        public bool IsActive => _state?.IsActive == true;
-        public bool IsWarning => _state?.IsWarning == true;
+        public bool IsActive => _replica ? _replicaActive : _state?.IsActive == true;
+        public bool IsWarning => _replica ? _replicaWarning : _state?.IsWarning == true;
         public int Capacity => _config != null ? _config.Charges : 0;
-        public int RemainingCharges => _state?.RemainingCharges ?? 0;
-        public double RemainingSeconds => _state?.RemainingSeconds ?? 0;
-        public double CooldownRemaining => _state?.CooldownRemaining ?? 0;
+        public int RemainingCharges => _replica ? _replicaCharges : _state?.RemainingCharges ?? 0;
+        public double RemainingSeconds => _replica ? _replicaSeconds : _state?.RemainingSeconds ?? 0;
+        public double CooldownRemaining => _replica ? _replicaCooldown : _state?.CooldownRemaining ?? 0;
         public float Radius => _config != null ? _config.Radius : 0f;
 
         public event Action Activated;

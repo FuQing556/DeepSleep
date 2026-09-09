@@ -19,6 +19,7 @@ namespace DeepSleep.Runtime.Combat.Projectiles
         private bool _isRented;
 
         public bool IsRented => _isRented;
+        public uint SpawnGeneration { get; private set; }
 
         private void Awake()
         {
@@ -89,6 +90,7 @@ namespace DeepSleep.Runtime.Combat.Projectiles
             _damageAmount = damageAmount;
             _damageSource = damageSource;
             _isRented = true;
+            SpawnGeneration++;
 
             float rotationDegrees = Mathf.Atan2(
                 direction.y,

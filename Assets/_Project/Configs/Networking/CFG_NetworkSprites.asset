@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40f714fd04a756648b9b61347c586765, type: 3}
+  m_Name: CFG_NetworkSprites
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Networking.NetworkSpriteCatalog
+  Entries:
+  - Id: 2441138196
+    Sprite: {fileID: 21300000, guid: d78fa206351cf9243b7a56216e710c4e, type: 3}
+  - Id: 3607629562
+    Sprite: {fileID: 21300000, guid: 029e724a7167c8a4baa09ff54559f7b4, type: 3}
+  - Id: 907384188
+    Sprite: {fileID: 21300000, guid: 95d55fedc3e0b4c41a7a12e75dbd2879, type: 3}
+  - Id: 648109967
+    Sprite: {fileID: 21300000, guid: c532329b8a8719e44b96dec02e453c60, type: 3}
+  - Id: 2478125320
+    Sprite: {fileID: 21300000, guid: 196cdf5b48121da41a623fc3117d64a2, type: 3}
+  - Id: 426041656
+    Sprite: {fileID: 21300000, guid: 534a84eb6a0acc34bafdde9a32bbed55, type: 3}
+  - Id: 4014513690
+    Sprite: {fileID: 21300000, guid: 564250c1b39377f4d96f9f625c650edc, type: 3}
+  - Id: 1431622460
+    Sprite: {fileID: 21300000, guid: f4f4dda098d67f0499871416d852225b, type: 3}
+  - Id: 3740422818
+    Sprite: {fileID: 21300000, guid: 89a7618210594394cb96adfaa7ce42db, type: 3}
+  - Id: 1179288679
+    Sprite: {fileID: 21300000, guid: 37f64160fdfbbad41bff5119545e9658, type: 3}
+  - Id: 2495922703
+    Sprite: {fileID: 21300000, guid: 25e5b2d7cd2262242befcc3b173a3e24, type: 3}
+  - Id: 3858256100
+    Sprite: {fileID: 21300000, guid: 52c6e4459c9ad7c4699ad5df766d8725, type: 3}
+  - Id: 3351375353
+    Sprite: {fileID: 21300000, guid: 4edce75fc276c32458c21bf3252c234d, type: 3}
+  - Id: 115793255
+    Sprite: {fileID: 21300000, guid: ebd00977d8ecd3a40b0dd313af4d9e7c, type: 3}
+  - Id: 3103214951
+    Sprite: {fileID: 21300000, guid: d7c57e0dcb19d5a4f99693854187b7a3, type: 3}
+  - Id: 1129854361
+    Sprite: {fileID: 8302537673190600827, guid: 9936fa146f77e1f4da36e136f955e529, type: 3}
+  - Id: 700889123
+    Sprite: {fileID: 21300000, guid: e4d9bbc18323b054fb155d57a07f179e, type: 3}
+  - Id: 816260908
+    Sprite: {fileID: 21300000, guid: 082db52e4b62a6e43b7461cf3de885d2, type: 3}
+  - Id: 1191389443
+    Sprite: {fileID: 21300000, guid: ec55c4e7b7fc1164d92fda8b5e6f9a9c, type: 3}
+  - Id: 2229449092
+    Sprite: {fileID: 21300000, guid: 08c47caa3a7373740b19811b2b400f2d, type: 3}
+  - Id: 1382855345
+    Sprite: {fileID: 21300000, guid: 4380ec05c17fd1342a20937c20cb5811, type: 3}
+  - Id: 3241531305
+    Sprite: {fileID: 21300000, guid: 7a6c866775270d946824204dd54f4888, type: 3}
+  - Id: 3138900501
+    Sprite: {fileID: 21300000, guid: 17c10b4fe0dea3346ade8e727a8c8943, type: 3}
+  - Id: 3818708410
+    Sprite: {fileID: 21300000, guid: 59c64eaa519c4e449b13eb75f6647cfb, type: 3}
+  - Id: 733046396
+    Sprite: {fileID: 21300000, guid: bedc6a430bd4e174e858514bcfecc2c6, type: 3}
+  - Id: 2325974926
+    Sprite: {fileID: 21300000, guid: a063c2f828bbe174a899f28e5f53c640, type: 3}
+  - Id: 1674054209
+    Sprite: {fileID: 21300000, guid: 359aa937c35e155498dc475884d9031c, type: 3}
+  - Id: 2251895691
+    Sprite: {fileID: 21300000, guid: b0c6335c751436d4396f3292a5572264, type: 3}
+  - Id: 466590848
+    Sprite: {fileID: 21300000, guid: 058030502e7c22b43ae07a79967d3162, type: 3}
+  - Id: 1881285349
+    Sprite: {fileID: 21300000, guid: 1330b4df9d7807b42a23ba95c6979cda, type: 3}
+  - Id: 2333453607
+    Sprite: {fileID: 21300000, guid: 40770aa0ddaa074449e983977321445b, type: 3}
+  - Id: 2280814373
+    Sprite: {fileID: 21300000, guid: c04b4b45a4ede0742960640e04785924, type: 3}
+  - Id: 2163991671
+    Sprite: {fileID: 21300000, guid: e548ceba5f51dcf4ca7be19d9381bbee, type: 3}
+  - Id: 1132802170
+    Sprite: {fileID: 21300000, guid: 657b5c6aa22ceac4aa39529bbeec150f, type: 3}
+  - Id: 1639497529
+    Sprite: {fileID: 21300000, guid: 75dbb6b85b7ec9d4f9f00f1af683dd8a, type: 3}
+  - Id: 245343066
+    Sprite: {fileID: 21300000, guid: c57de2cc7cc8e764eafef48d6e3264cc, type: 3}
+  - Id: 1583368413
+    Sprite: {fileID: 1788594074, guid: ced0ffb71bd22394baefd14030b772ce, type: 3}
+  - Id: 4139360141
+    Sprite: {fileID: -1005614904, guid: ced0ffb71bd22394baefd14030b772ce, type: 3}
+  - Id: 1721009547
+    Sprite: {fileID: -1567597842, guid: ced0ffb71bd22394baefd14030b772ce, type: 3}
+  - Id: 3516847865
+    Sprite: {fileID: -1268756851, guid: ced0ffb71bd22394baefd14030b772ce, type: 3}

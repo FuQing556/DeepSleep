@@ -24,6 +24,7 @@ namespace DeepSleep.Runtime.Combat.Projectiles
 
         public int TotalCount => _allProjectiles.Count;
         public int AvailableCount => _available.Count;
+        public IReadOnlyList<RiceProjectile> Instances => _allProjectiles;
 
         private void Awake()
         {

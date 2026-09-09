@@ -23,6 +23,7 @@ namespace DeepSleep.Runtime.Combat.Projectiles
 
         public int TotalCount => _all.Count;
         public int ActiveCount => _all.Count - _available.Count;
+        public IReadOnlyList<EnemyProjectile2D> Instances => _all;
 
         private void Awake()
         {

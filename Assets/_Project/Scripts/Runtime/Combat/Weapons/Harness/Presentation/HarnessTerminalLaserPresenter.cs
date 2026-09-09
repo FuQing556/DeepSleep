@@ -9,6 +9,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
     /// </summary>
     public sealed class HarnessTerminalLaserPresenter : MonoBehaviour
     {
+        public bool CharacterPoseExternallyDriven { get; set; }
         [Header("数据源")]
         [SerializeField] private HarnessTerminalLaserController _controller;
         [SerializeField] private PlayerFacingController2D _facingController;
@@ -31,7 +32,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
             _poseOverridden = value;
             if (value)
             {
-                _poseView.Release();
+                if (!CharacterPoseExternallyDriven) _poseView.Release();
                 _targetingView.Hide();
                 _shotView.HideMuzzleIfIdle();
             }
@@ -62,7 +63,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
 
             _controller.FireRequested += OnFireRequested;
             _controller.TargetChanged += OnTargetChanged;
-            _poseView.SetAiming(
+            if (!CharacterPoseExternallyDriven) _poseView.SetAiming(
                 _controller.HasAimPoint,
                 _config);
         }
@@ -83,7 +84,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
             }
 
             UpdateTargetingView();
-            _poseView.Tick(
+            if (!CharacterPoseExternallyDriven) _poseView.Tick(
                 Time.deltaTime,
                 _controller.HasAimPoint,
                 _config);
@@ -110,7 +111,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
             }
 
             _shotView.Play(request, this);
-            _poseView.HoldFirePose(
+            if (!CharacterPoseExternallyDriven) _poseView.HoldFirePose(
                 _config.FirePoseHoldSeconds,
                 _config);
         }
@@ -118,7 +119,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
         private void OnTargetChanged(DamageHitbox2D target)
         {
             if (_poseOverridden) return;
-            _poseView.SetAiming(
+            if (!CharacterPoseExternallyDriven) _poseView.SetAiming(
                 _controller.HasAimPoint,
                 _config);
         }

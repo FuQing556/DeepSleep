@@ -22,17 +22,27 @@ namespace DeepSleep.Runtime.Players.Revive
         private bool _isInitialized;
         private PlayerReviveActionChannel _activeChannel;
         private float _elapsedReviveSeconds;
+        private bool _replica, _replicaReviving;
+        private float _replicaProgress;
 
         public event System.Action<float> ProgressChanged;
         public event System.Action<PlayerActor> ReviveCompleted;
 
-        public float Progress01 => _config == null
+        public float Progress01 => _replica ? _replicaProgress : _config == null
             ? 0f
             : Mathf.Clamp01(
                 _elapsedReviveSeconds / _config.ReviveDurationSeconds);
 
         public bool IsReviving =>
-            _activeChannel != null && _activeChannel.IsChanneling;
+            _replica ? _replicaReviving : _activeChannel != null && _activeChannel.IsChanneling;
+
+        /// <summary>客人只显示主机进度，不调用复活或恢复生命。</summary>
+        public void ApplyReplicaProgress(bool reviving, float progress)
+        {
+            if (enabled) return;
+            _replica = true; _replicaReviving = reviving; _replicaProgress = Mathf.Clamp01(progress);
+            ProgressChanged?.Invoke(_replicaProgress);
+        }
 
         private void Awake()
         {

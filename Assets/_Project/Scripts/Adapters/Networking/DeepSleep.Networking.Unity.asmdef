@@ -1,0 +1,1 @@
+{"name":"DeepSleep.Networking.Unity","rootNamespace":"DeepSleep.Adapters.Networking","references":["DeepSleep.Runtime","Unity.Netcode.Runtime","Unity.Networking.Transport","Unity.Collections","Unity.RenderPipelines.Universal.Runtime","Unity.RenderPipelines.Core.Runtime"],"autoReferenced":true}

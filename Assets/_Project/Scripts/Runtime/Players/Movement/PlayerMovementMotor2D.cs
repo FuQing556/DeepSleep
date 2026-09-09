@@ -47,79 +47,18 @@ namespace DeepSleep.Runtime.Players.Movement
                 return;
             }
 
-            Vector2 normalizedIntent = Vector2.ClampMagnitude(moveIntent, 1f);
-            Vector2 targetVelocity = normalizedIntent * config.MaximumSpeed;
-            float changeRate = normalizedIntent.sqrMagnitude > 0f
-                ? config.Acceleration
-                : config.Deceleration;
-
-            Vector2 velocity = Vector2.MoveTowards(
-                body.linearVelocity,
-                targetVelocity,
-                changeRate * deltaTime);
-
-            KeepInsideMovementBounds(ref velocity, deltaTime);
+            Vector2 position = body.position;
+            Vector2 velocity = body.linearVelocity;
+            Bounds bounds = bodyCollider.bounds;
+            PlayerMovementStep.Calculate(ref position, ref velocity, moveIntent, config,
+                bounds.extents, (Vector2)bounds.center - position, deltaTime);
+            if (position != body.position) body.position = position;
             body.linearVelocity = velocity;
         }
 
         public void ConsumeCommand(in PlayerCommand command, float deltaTime)
         {
             Simulate(command.Move, deltaTime);
-        }
-
-        private void KeepInsideMovementBounds(ref Vector2 velocity, float deltaTime)
-        {
-            Bounds colliderBounds = bodyCollider.bounds;
-            Vector2 bodyPosition = body.position;
-            Vector2 colliderCenterOffset =
-                (Vector2)colliderBounds.center - bodyPosition;
-            Vector2 colliderExtents = colliderBounds.extents;
-
-            Rect allowedArea = config.MovementBounds;
-            Vector2 minimumBodyPosition =
-                allowedArea.min + colliderExtents - colliderCenterOffset;
-            Vector2 maximumBodyPosition =
-                allowedArea.max - colliderExtents - colliderCenterOffset;
-
-            Vector2 correctedPosition = new Vector2(
-                Mathf.Clamp(
-                    bodyPosition.x,
-                    minimumBodyPosition.x,
-                    maximumBodyPosition.x),
-                Mathf.Clamp(
-                    bodyPosition.y,
-                    minimumBodyPosition.y,
-                    maximumBodyPosition.y));
-
-            if (correctedPosition != bodyPosition)
-            {
-                body.position = correctedPosition;
-                bodyPosition = correctedPosition;
-            }
-
-            Vector2 predictedPosition = bodyPosition + velocity * deltaTime;
-
-            if (predictedPosition.x < minimumBodyPosition.x)
-            {
-                velocity.x =
-                    (minimumBodyPosition.x - bodyPosition.x) / deltaTime;
-            }
-            else if (predictedPosition.x > maximumBodyPosition.x)
-            {
-                velocity.x =
-                    (maximumBodyPosition.x - bodyPosition.x) / deltaTime;
-            }
-
-            if (predictedPosition.y < minimumBodyPosition.y)
-            {
-                velocity.y =
-                    (minimumBodyPosition.y - bodyPosition.y) / deltaTime;
-            }
-            else if (predictedPosition.y > maximumBodyPosition.y)
-            {
-                velocity.y =
-                    (maximumBodyPosition.y - bodyPosition.y) / deltaTime;
-            }
         }
 
         private bool TryValidateConfiguration()

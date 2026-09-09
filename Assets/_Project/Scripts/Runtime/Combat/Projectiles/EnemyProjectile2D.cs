@@ -20,6 +20,7 @@ namespace DeepSleep.Runtime.Combat.Projectiles
         private ulong _attackId;
 
         public bool IsRented { get; private set; }
+        public uint SpawnGeneration { get; private set; }
 
         public bool TryClear()
         {
@@ -124,6 +125,7 @@ namespace DeepSleep.Runtime.Combat.Projectiles
             _remainingLifetimeSeconds = config.LifetimeSeconds;
             _attackId = DamageAttackIdAllocator.Next();
             IsRented = true;
+            SpawnGeneration++;
 
             direction.Normalize();
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;

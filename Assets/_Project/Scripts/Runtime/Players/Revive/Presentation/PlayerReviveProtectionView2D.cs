@@ -11,6 +11,8 @@ namespace DeepSleep.Runtime.Players.Revive.Presentation
         [SerializeField] private SpriteRenderer _shield;
         [SerializeField] private Vector2 _offset;
         [SerializeField, Range(0, 1)] private float _opacity = 0.3f;
+        private bool _remote, _remoteProtected;
+        public void ApplyReplicaProtection(bool value) { _remote = true; _remoteProtected = value; }
 
         private void Awake()
         {
@@ -21,7 +23,7 @@ namespace DeepSleep.Runtime.Players.Revive.Presentation
 
         private void LateUpdate()
         {
-            _shield.enabled = _receiver.IsReviveProtected;
+            _shield.enabled = _remote ? _remoteProtected : _receiver.IsReviveProtected;
             if (!_shield.enabled) return;
             transform.position = _followTarget.position + (Vector3)_offset;
             var color = _shield.color;

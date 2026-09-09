@@ -8,6 +8,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
     /// <summary>取得角色姿态的明确所有权；剑独立于人物贴图，三个动作不拉伸变形。</summary>
     public sealed class HarnessMeleePresenter2D : MonoBehaviour
     {
+        public bool CharacterPoseExternallyDriven { get; set; }
         [SerializeField] private HarnessMeleeController _controller;
         [SerializeField] private HarnessMeleeDamageExecutor2D _damage;
         [SerializeField] private HarnessTerminalLaserPresenter _laserView;
@@ -130,6 +131,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
 
         private void ChangePose(Sprite sprite, float scale, Vector2 offset)
         {
+            if (CharacterPoseExternallyDriven) return;
             if (_character.sprite == sprite) return;
             _ghost.Capture(_character, _ghostRenderer, Config.GhostAlpha, Config.GhostSeconds);
             _character.sprite = sprite;
@@ -138,6 +140,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
 
         private void ApplyPoseLayout(float scale, Vector2 offset)
         {
+            if (CharacterPoseExternallyDriven) return;
             _character.transform.localScale = new Vector3(_baseScale.x * scale, _baseScale.y * scale, _baseScale.z);
             _character.transform.localPosition = _basePosition + (Vector3)offset;
         }

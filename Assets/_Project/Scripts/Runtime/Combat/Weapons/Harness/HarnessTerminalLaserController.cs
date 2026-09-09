@@ -15,7 +15,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
     /// 把 Harness 的手动目标命令驱动为一次终端激光开火请求。
     /// 本组件不做命中查询、不扣血，也不创建任何视觉对象。
     /// </summary>
-    public sealed class HarnessTerminalLaserController :
+    public sealed partial class HarnessTerminalLaserController :
         MonoBehaviour,
         IPlayerActionCommandConsumer,
         IPlayerReviveStartBlocker
@@ -53,9 +53,9 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
         public event Action<HarnessTerminalLaserState> StateChanged;
         public event Action<DamageHitbox2D> TargetChanged;
 
-        public HarnessTerminalLaserState State => _cycle.State;
-        public float RemainingStateSeconds => _cycle.RemainingSeconds;
-        public float StateProgress01 => _cycle.PhaseProgress01;
+        public HarnessTerminalLaserState State => _replica ? _replicaState : _cycle.State;
+        public float RemainingStateSeconds => _replica ? _replicaSeconds : _cycle.RemainingSeconds;
+        public float StateProgress01 => _replica ? _replicaProgress : _cycle.PhaseProgress01;
         public DamageHitbox2D SelectedTarget => _selectedTargetHitbox;
         public bool HasAimPoint => _hasAimPoint;
         public Vector2 BeamOriginPosition => _beamOrigin != null

@@ -10,7 +10,7 @@ using UnityEngine;
 namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
 {
     /// <summary>命令决定意图；固定模拟刻推进近战时钟、轨迹与伤害。表现不负责扣血。</summary>
-    public sealed class HarnessMeleeController : MonoBehaviour, IPlayerActionCommandConsumer,
+    public sealed partial class HarnessMeleeController : MonoBehaviour, IPlayerActionCommandConsumer,
         IFixedSimulationStep, IPlayerReviveStartBlocker
     {
         [SerializeField] private HarnessMeleeConfig _config;
@@ -42,6 +42,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
         public event Action SwingStarted;
         public event Action<HarnessMeleeAttackConfig, Vector2, float> WaveRequested;
         public event Action SwingFinished;
+        public uint SwingSequence { get; private set; }
 
         private void Awake()
         {
@@ -120,6 +121,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
             _elapsed = 0;
             _comboIdleSeconds = 0;
             IsSwinging = true;
+            SwingSequence++;
             _damage.BeginSwing();
             SwingStarted?.Invoke();
             // 先截取旧动作和旧朝向，再让新姿态转身。

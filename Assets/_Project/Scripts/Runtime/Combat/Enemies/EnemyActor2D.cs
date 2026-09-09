@@ -23,6 +23,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
             DespawnRequested;
 
         public HealthComponent Health => _health;
+        public uint SpawnGeneration { get; private set; }
 
         private void Awake()
         {
@@ -80,6 +81,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
             }
 
             _despawnRequested = false;
+            SpawnGeneration++;
             _health.ResetToMaximum();
             _motor.Begin(spawnPosition, in variation);
         }

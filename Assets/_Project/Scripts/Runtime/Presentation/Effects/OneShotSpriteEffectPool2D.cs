@@ -20,6 +20,8 @@ namespace DeepSleep.Runtime.Presentation.Effects
 
         public int TotalCount => _all.Count;
         public int ActiveCount => _all.Count - _available.Count;
+        /// <summary>表现事件观测口；网络只发送播放事件，不逐粒同步特效。</summary>
+        public event System.Action<Vector2, float> Played;
 
         private void Awake()
         {
@@ -87,6 +89,7 @@ namespace DeepSleep.Runtime.Presentation.Effects
                 baseRotationDegrees,
                 rotationMagnitude * rotationDirection,
                 _config);
+            Played?.Invoke(position, baseRotationDegrees);
             return true;
         }
 

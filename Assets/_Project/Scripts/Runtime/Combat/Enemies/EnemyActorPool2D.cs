@@ -29,6 +29,8 @@ namespace DeepSleep.Runtime.Combat.Enemies
         public int TotalCount => _allActors.Count;
         public int ActiveCount => _rented.Count;
         public int AvailableCount => _available.Count;
+        /// <summary>只读观测口，供网络权威适配器缓存实体；不暴露租借/回收权限。</summary>
+        public IReadOnlyList<EnemyActor2D> Instances => _allActors;
 
         private void Awake()
         {
