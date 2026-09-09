@@ -1,0 +1,35 @@
+if (!UnityEditor.EditorApplication.isPlaying || !UnityEditor.EditorApplication.isPaused) throw new System.Exception("Paused Play required");
+var g = GameObject.Find("PF_Player_Harness_Graybox");
+var c = g.GetComponent<DeepSleep.Runtime.Combat.Weapons.Harness.Melee.HarnessMeleeController>();
+var p = g.GetComponent<DeepSleep.Runtime.Combat.Weapons.Harness.Melee.HarnessMeleePresenter2D>();
+var d = g.GetComponent<DeepSleep.Runtime.Combat.Weapons.Harness.Melee.HarnessMeleeDamageExecutor2D>();
+var flags = System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic;
+System.Action<object,string,object[]> call = (o,n,args) => o.GetType().GetMethod(n, flags).Invoke(o,args);
+System.Action<object,string,object> set = (o,n,v) => o.GetType().GetField(n, flags).SetValue(o,v);
+System.Func<int,int,Vector2,object> command = (skill,attack,aim) => new DeepSleep.Runtime.Input.Commands.PlayerCommand(
+1,1,Vector2.zero,new DeepSleep.Runtime.Input.Commands.AimIntent(DeepSleep.Runtime.Input.Commands.AimReference.Direction,aim),
+(DeepSleep.Runtime.Input.Commands.CommandButtonState)skill,0,(DeepSleep.Runtime.Input.Commands.CommandButtonState)attack,0,0,0);
+var sword = (SpriteRenderer)p.GetType().GetField("_sword",flags).GetValue(p);
+var character = (SpriteRenderer)p.GetType().GetField("_character",flags).GetValue(p);
+var waves = ( DeepSleep.Runtime.Combat.Weapons.Harness.Melee.MeleeWaveView2D[])p.GetType().GetField("_waves",flags).GetValue(p);
+
+var sb=new System.Text.StringBuilder();
+System.Action<bool,string> check=(ok,msg)=>{if(!ok)throw new System.Exception(msg);sb.AppendLine("PASS "+msg);};
+System.Action reset=()=>{foreach(var w in waves) w.Clear();call(c,"EndMode",new object[0]);set(c,"_cooldown",0f);call(c,"ConsumeCommand",new object[]{command(1,0,Vector2.right),0f});};
+System.Action<float> press=(dt)=>{call(c,"ConsumeCommand",new object[]{command(0,2,Vector2.right),dt});c.Simulate(dt);};
+System.Action finish=()=>c.Simulate(c.Attack.SwingSeconds);
+reset();check(c.Attack==c.Config.Attacks[0],"enter starts Down");finish();c.Simulate(.6f);press(.02f);check(c.Attack==c.Config.Attacks[1],"0.62s continues Up");
+finish();c.Simulate(.81f);press(.02f);check(c.Attack==c.Config.Attacks[0],"0.83s resets Down");
+reset();finish();c.Simulate(c.Config.ComboResetSeconds);press(0);check(c.Attack==c.Config.Attacks[1],"exact window boundary still continues");
+reset();finish();c.Simulate(c.Config.ComboResetSeconds);c.Simulate(.001f);press(0);check(c.Attack==c.Config.Attacks[0],"past boundary resets");
+reset();c.Simulate(.49f);c.Simulate(.02f);c.Simulate(.6f);press(.02f);check(c.Attack==c.Config.Attacks[1],"swing time excluded from reset window");
+reset();
+for(int n=1;n<=6;n++){finish();press(.1f);check(c.Attack==c.Config.Attacks[n%3],"held cycle step "+n);}
+call(c,"ConsumeCommand",new object[]{command(1,0,Vector2.right),0f});finish();check(!c.IsMelee,"manual exit finishes current swing");
+check((int)c.GetType().GetField("_nextAttack",flags).GetValue(c)==0,"manual exit clears combo");
+reset();finish();c.Simulate(.6f);c.Simulate(0);press(.02f);check(c.Attack==c.Config.Attacks[1],"zero simulation time does not expire window");
+var debugType=typeof(DeepSleep.Editor.Diagnostics.HarnessMeleeGeometryChecks).Assembly.GetType("DeepSleep.Editor.Debugging.GameplayDebugMenu");
+debugType.GetMethod("DownHarness",System.Reflection.BindingFlags.Static|System.Reflection.BindingFlags.NonPublic).Invoke(null,null);
+check(!c.enabled&&!c.IsMelee,"real downed path disables melee");
+check((int)c.GetType().GetField("_nextAttack",flags).GetValue(c)==0,"downed clears combo");
+return sb.ToString();

@@ -16,51 +16,46 @@ MonoBehaviour:
   CharacterScale: 0.94
   CharacterOffset: {x: -0.02, y: 0.015}
   WaveSprite: {fileID: 21300000, guid: 657b5c6aa22ceac4aa39529bbeec150f, type: 3}
-  GrowFraction: 0.3
-  ShrinkFraction: 0.3
-  MinimumSwordScale: 0.02
   SwingOffset: {x: 0, y: 0}
+  MotionKeys:
+  - Time: 0
+    Hilt: {x: -0.45, y: -0.02}
+    Angle: -105
+    Scale: 0.12
+  - Time: 0.26
+    Hilt: {x: -0.3, y: -0.14}
+    Angle: -92
+    Scale: 0.35
+  - Time: 0.47
+    Hilt: {x: -0.2, y: -0.22}
+    Angle: -50
+    Scale: 0.8
+  - Time: 0.65
+    Hilt: {x: 0.05, y: -0.56}
+    Angle: 5
+    Scale: 1
+  - Time: 0.82
+    Hilt: {x: 0.752392, y: -0.893274}
+    Angle: 67.32853
+    Scale: 1
+  - Time: 1
+    Hilt: {x: 1.05, y: 0.03}
+    Angle: 110
+    Scale: 0.5
   SwingSeconds: 0.5
   RecoverySeconds: 0.08
-  Travel:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 3
-      outSlope: 3
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  StartAngle: -30
-  EndAngle: 14
-  OrbitHeight: 1
-  GripRadius: 0
-  SwordLength: 1.7
+  FollowThroughSeconds: 0.075
+  FollowThroughDrift: {x: 0.02, y: 0.13}
+  FollowThroughEndScale: 0.2
+  SwordLength: 1.9
   BladeWidth: 0.16
   BladeDamage: 2
   WaveDamage: 3
-  WaveOffset: {x: 0.014018297, y: -0.20400181}
-  WaveRotation: 100
-  WaveFlipX: 1
-  WaveFlipY: 0
-  WaveAttachPoint: {x: -0.18, y: 0.2}
-  WaveTipProgress: 1
-  WaveWidth: 3
+  WaveOffset: {x: 1, y: 0.23}
+  WaveRotation: -55
+  WaveFlipX: 0
+  WaveFlipY: 1
+  WaveWidth: 3.55
   WavePolygon:
   - {x: 0.2, y: 0.46}
   - {x: 0.34, y: 0.23}

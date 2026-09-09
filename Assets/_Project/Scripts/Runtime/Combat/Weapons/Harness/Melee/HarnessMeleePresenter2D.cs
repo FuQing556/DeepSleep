@@ -19,6 +19,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
         private readonly SpritePoseGhost2D _ghost = new();
         private Vector3 _baseScale, _basePosition;
         private float _visualSwingElapsed;
+        private float _followThroughElapsed = float.PositiveInfinity;
         private HarnessMeleeConfig Config => _controller.Config;
 
         private void OnEnable()
@@ -40,16 +41,19 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
             foreach (var wave in _waves) wave.Clear();
         }
 
-        private void LateUpdate()
+        private void LateUpdate() => AdvancePresentation(Time.deltaTime);
+
+        private void AdvancePresentation(float deltaTime)
         {
-            _ghost.Tick(Time.deltaTime);
+            _ghost.Tick(deltaTime);
             if (!_controller.IsMelee) return;
             _sword.enabled = true;
             _sword.sprite = Config.SwordSprite;
+            _sword.color = Color.white;
             if (_controller.IsSwinging)
             {
                 // 独立的连续表现时钟，消除固定刻在短缩放阶段的跳帧。
-                _visualSwingElapsed += Time.deltaTime;
+                _visualSwingElapsed += deltaTime;
                 float visualProgress = Mathf.Clamp01(_visualSwingElapsed / _controller.Attack.SwingSeconds);
                 ApplyPoseLayout(_controller.Attack.CharacterScale, _controller.Attack.CharacterOffset);
                 MeleeSwordGeometry2D.Evaluate(_controller.Attack, _controller.GripPosition,
@@ -60,6 +64,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
             else
             {
                 ApplyPoseLayout(Config.IdlePoseScale, Config.IdlePoseOffset);
+                if (DrawFollowThrough(deltaTime)) return;
                 Vector2 offset = Config.IdleSwordOffset;
                 offset.x *= _facing.Forward.x;
                 offset.y += Mathf.Sin(Time.time * Mathf.PI * 2 * Config.FloatFrequency) * Config.FloatAmplitude;
@@ -69,6 +74,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
 
         private void OnModeChanged(bool active)
         {
+            _followThroughElapsed = float.PositiveInfinity;
             if (active)
             {
                 _baseScale = _character.transform.localScale;
@@ -87,16 +93,40 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
         private void OnSwingStarted()
         {
             _visualSwingElapsed = 0f;
+            _followThroughElapsed = float.PositiveInfinity;
             ChangePose(_controller.Attack.CharacterPose,
                 _controller.Attack.CharacterScale, _controller.Attack.CharacterOffset);
             _sword.sprite = Config.SwordSprite;
             _sword.enabled = true;
+            _sword.color = Color.white;
             MeleeSwordGeometry2D.Evaluate(_controller.Attack, _controller.GripPosition,
                 _controller.AimDegrees, 0f, out Vector2 hilt, out Vector2 tip);
             Vector2 direction = tip - hilt;
             SetSword(hilt, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg, direction.magnitude);
         }
-        private void OnSwingFinished() => ChangePose(Config.IdlePose, Config.IdlePoseScale, Config.IdlePoseOffset);
+        private void OnSwingFinished()
+        {
+            _followThroughElapsed = 0;
+            ChangePose(Config.IdlePose, Config.IdlePoseScale, Config.IdlePoseOffset);
+        }
+
+        private bool DrawFollowThrough(float deltaTime)
+        {
+            var attack = _controller.Attack;
+            if (attack == null || attack.FollowThroughSeconds <= 0 ||
+                _followThroughElapsed >= attack.FollowThroughSeconds) return false;
+            float t = Mathf.Clamp01(_followThroughElapsed / attack.FollowThroughSeconds);
+            _followThroughElapsed += deltaTime;
+            MeleeSwordGeometry2D.Evaluate(attack, _controller.GripPosition,
+                _controller.AimDegrees, 1, out Vector2 hilt, out Vector2 tip);
+            Vector2 blade = tip - hilt;
+            hilt += MeleeSwordGeometry2D.AimVector(attack.FollowThroughDrift * t, _controller.AimDegrees);
+            float fade = Mathf.SmoothStep(0, 1, t);
+            SetSword(hilt, Mathf.Atan2(blade.y, blade.x) * Mathf.Rad2Deg,
+                blade.magnitude * Mathf.Lerp(1, attack.FollowThroughEndScale, fade));
+            _sword.color = new Color(1, 1, 1, 1 - fade);
+            return true;
+        }
 
         private void ChangePose(Sprite sprite, float scale, Vector2 offset)
         {
@@ -138,6 +168,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
             _controller.WaveRequested -= OnWave;
             if (_damage != null) _damage.HitConfirmed -= OnHit;
             _ghost.Clear();
+            _followThroughElapsed = float.PositiveInfinity;
             if (_sword != null) _sword.enabled = false;
             if (_laserView != null) _laserView.SetPoseOverride(false);
             if (_waves != null) foreach (var wave in _waves) if (wave != null) wave.Clear();

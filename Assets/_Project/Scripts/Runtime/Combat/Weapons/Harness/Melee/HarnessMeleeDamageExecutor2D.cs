@@ -36,32 +36,39 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
         public void Sweep(HarnessMeleeAttackConfig attack, Vector2 previousOrigin,
             Vector2 origin, float aim, float previousProgress, float progress)
         {
-            // 以最大半径×角距离估算弧长，不能只看两端直线距离（大角度会漏检）。
-            float angularTravel = Mathf.Abs(attack.EndAngle - attack.StartAngle) * Mathf.Deg2Rad *
-                Mathf.Abs(attack.Travel.Evaluate(progress) - attack.Travel.Evaluate(previousProgress));
-            // 扁椭圆方向归一化后，横斩的实际转角可能比参数角更快。
-            float orbitHeight = Mathf.Max(.01f, attack.OrbitHeight);
-            float angularBound = Mathf.Max(orbitHeight, 1f / orbitHeight);
-            float distance = Vector2.Distance(previousOrigin, origin) +
-                angularTravel * angularBound * attack.SwordLength +
-                attack.SwordLength * Mathf.Abs(MeleeSwordGeometry2D.SizeAt(attack, progress) -
-                    MeleeSwordGeometry2D.SizeAt(attack, previousProgress));
-            int samples = Mathf.Max(1, Mathf.CeilToInt(distance / Mathf.Max(0.01f, _config.SweepSampleDistance)));
             ContactFilter2D filter = CreateFilter(_config.EnemyLayers.value | _config.ClearableProjectileLayers.value);
-            for (int i = 0; i <= samples; i++)
+            QueryBlade(attack, previousOrigin, aim, previousProgress, filter);
+            SweepInterval(attack, previousOrigin, origin, aim, previousProgress, progress, filter, 0);
+        }
+
+        private void SweepInterval(HarnessMeleeAttackConfig attack, Vector2 fromOrigin, Vector2 toOrigin,
+            float aim, float from, float to, ContactFilter2D filter, int depth)
+        {
+            float distance = Vector2.Distance(fromOrigin, toOrigin) +
+                MeleeSwordGeometry2D.SweepDistanceBound(attack, from, to);
+            // 对时间区间递归细分：加速段自动加密，不能用平均速度均匀取几个点。
+            if (distance > Mathf.Max(.01f, _config.SweepSampleDistance) && depth < 14)
             {
-                float t = (float)i / samples;
-                float p = Mathf.Lerp(previousProgress, progress, t);
-                MeleeSwordGeometry2D.Evaluate(attack, Vector2.Lerp(previousOrigin, origin, t),
-                    aim, p, out Vector2 hilt, out Vector2 tip);
-                Vector2 direction = tip - hilt;
-                float width = attack.BladeWidth * MeleeSwordGeometry2D.SizeAt(attack, p);
-                Physics2D.OverlapCapsule((hilt + tip) * 0.5f,
-                    new Vector2(direction.magnitude + width, width), CapsuleDirection2D.Horizontal,
-                    Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg, filter, _candidates);
-                ApplyDamage(_bladeVictims, attack.BladeDamage, hilt, direction.normalized, false);
-                ClearProjectiles();
+                float middle = (from + to) * .5f;
+                Vector2 middleOrigin = (fromOrigin + toOrigin) * .5f;
+                SweepInterval(attack, fromOrigin, middleOrigin, aim, from, middle, filter, depth + 1);
+                SweepInterval(attack, middleOrigin, toOrigin, aim, middle, to, filter, depth + 1);
+                return;
             }
+            QueryBlade(attack, toOrigin, aim, to, filter);
+        }
+
+        private void QueryBlade(HarnessMeleeAttackConfig attack, Vector2 origin, float aim, float progress,
+            ContactFilter2D filter)
+        {
+            MeleeSwordGeometry2D.Evaluate(attack, origin, aim, progress, out Vector2 hilt, out Vector2 tip);
+            Vector2 direction = tip - hilt;
+            float width = attack.BladeWidth * MeleeSwordGeometry2D.SizeAt(attack, progress);
+            Physics2D.OverlapCapsule((hilt + tip) * 0.5f,
+                new Vector2(direction.magnitude + width, width), CapsuleDirection2D.Horizontal,
+                Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg, filter, _candidates);
+            ApplyDamage(_bladeVictims, attack.BladeDamage, hilt, direction.normalized, false);
+            ClearProjectiles();
         }
 
         public void Burst(HarnessMeleeAttackConfig attack, Vector2 origin, float aim)

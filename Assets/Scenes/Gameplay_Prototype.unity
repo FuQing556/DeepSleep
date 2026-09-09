@@ -247,7 +247,7 @@ MonoBehaviour:
   _harnessActor: {fileID: 769569895}
   _localCommandSourceComponent: {fileID: 398080360}
   _companionCommandSourceComponent: {fileID: 0}
-  _initialLocalPlayerRole: 1
+  _initialLocalPlayerRole: 0
 --- !u!114 &468253772 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 548840676240059590, guid: 760d36186e125014aa7fa75d3b6200da, type: 3}

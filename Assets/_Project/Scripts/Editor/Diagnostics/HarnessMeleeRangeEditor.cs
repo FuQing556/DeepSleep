@@ -26,6 +26,7 @@ namespace DeepSleep.Editor.Diagnostics
                 EditorGUILayout.LabelField("待机与测试", EditorStyles.boldLabel);
                 Field(settings, "DurationSeconds", "技能持续（秒）");
                 Field(settings, "CooldownSeconds", "退出后冷却（秒）");
+                Field(settings, "ComboResetSeconds", "收刀后连段重置（秒）");
                 Field(settings, "IdlePoseScale", "持剑待机：人物大小");
                 Field(settings, "IdlePoseOffset", "持剑待机：人物偏移");
                 Field(settings, "IdleSwordLength", "待机小剑长度");
@@ -40,18 +41,19 @@ namespace DeepSleep.Editor.Diagnostics
                 Field(attack, "CharacterOffset", "人物偏移");
                 Field(attack, "SwordLength", "大剑长度（剑柄到剑尖）");
                 Field(attack, "SwingSeconds", "挥剑总时长（秒）");
-                Field(attack, "GrowFraction", "长大占比（0.3即30%）");
-                Field(attack, "ShrinkFraction", "缩小占比（0.3即30%）");
+                Field(attack, "MotionKeys", "自由挥剑关键姿势（时间/剑柄/角度/大小）");
+                Field(attack, "SwingOffset", "整套剑运动偏移");
+                Field(attack, "FollowThroughSeconds", "收势淡出（仅表现，秒）");
+                Field(attack, "FollowThroughDrift", "收势剑柄漂移");
                 Field(attack, "WaveWidth", "剑气大小");
                 Field(attack, "WaveRotation", "剑气倾斜角度");
-                Field(attack, "WaveOffset", "剑气额外偏移");
-                Field(attack, "WaveAttachPoint", "剑气图内：贴住剑尖的点");
+                Field(attack, "WaveOffset", "剑气中心相对发射口位置");
                 Field(attack, "WaveFlipX", "剑气左右翻转");
                 Field(attack, "WaveFlipY", "剑气上下翻转");
                 attack.ApplyModifiedProperties();
                 if (GUILayout.Button("打开完整招式配置")) Selection.activeObject = attack.targetObject;
             }
-            EditorGUILayout.HelpBox("只需选 HS 根节点，在这里调。人物大小不会改变碰撞体。黄色点是激光口/剑柄，青色是挥剑路径，红色是剑气判定。配置是资产，Play 中修改也会保留。", MessageType.Info);
+            EditorGUILayout.HelpBox("黄色点是发射口（坐标基准）。关键姿势独立控制剑柄、角度、大小；剑气不会牵引剑尖。青色是刀刃运动，红色是剑气判定。人物大小不改变碰撞体。配置是资产，Play中修改也会保留。", MessageType.Info);
             if (GUI.changed) SceneView.RepaintAll();
         }
 
@@ -67,7 +69,7 @@ namespace DeepSleep.Editor.Diagnostics
             float aim = controller.IsSwinging ? controller.AimDegrees : 0;
             Handles.color = Color.yellow;
             Handles.DrawWireDisc(origin, Vector3.forward, .055f);
-            Handles.Label(origin, "剑柄 = LaserOrigin");
+            Handles.Label(origin, "轨迹基准 = LaserOrigin（剑柄可移动）");
             Handles.color = Color.cyan;
             Vector2 previousTip = origin;
             for (int i = 0; i <= 30; i++)

@@ -17,10 +17,11 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
         [SerializeField] private HarnessTerminalLaserController _laser;
         [SerializeField] private PlayerFacingController2D _facing;
         [SerializeField] private HarnessMeleeDamageExecutor2D _damage;
-        [SerializeField, Tooltip("与激光 LaserOrigin 共用的剑柄锚点，不挂在角色图片下面。")]
+        [SerializeField, Tooltip("与激光 LaserOrigin 共用的轨迹基准，剑柄在其周围运动；不挂在角色图片下面。")]
         private Transform _swordGrip;
         private float _modeRemaining, _cooldown, _elapsed, _recovery;
         private int _nextAttack;
+        private double _comboIdleSeconds;
         private bool _held, _commandReceived;
         private bool _exitRequested;
         private AimIntent _aim;
@@ -88,6 +89,9 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
                 else if (_modeRemaining <= 0 || _exitRequested) EndMode();
                 else
                 {
+                    // 只累计收刀后的模拟时间，松键或暂停不会提前消耗接招窗口。
+                    _comboIdleSeconds += dt;
+                    if (_comboIdleSeconds > _config.ComboResetSeconds) _nextAttack = 0;
                     _recovery = Mathf.Max(0, _recovery - dt);
                     if (_held && _commandReceived && _recovery <= 0) StartSwing(ReadAim());
                 }
@@ -114,6 +118,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
             _nextAttack = (_nextAttack + 1) % _config.Attacks.Length;
             AimDegrees = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             _elapsed = 0;
+            _comboIdleSeconds = 0;
             IsSwinging = true;
             _damage.BeginSwing();
             SwingStarted?.Invoke();
@@ -132,6 +137,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
             _previousOrigin = origin;
             if (_elapsed < Attack.SwingSeconds) return;
             IsSwinging = false;
+            _comboIdleSeconds = 0;
             _recovery = Attack.RecoverySeconds;
             if (_modeRemaining > 0 && !_exitRequested) SwingFinished?.Invoke();
             // 最后一刀即使跨过技能到期也完整结算，之后不再起新刀。
@@ -145,6 +151,8 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
             if (!IsMelee) return;
             IsMelee = IsSwinging = false;
             _exitRequested = false;
+            _nextAttack = 0;
+            _comboIdleSeconds = 0;
             _cooldown = _config.CooldownSeconds;
             _laser.SetInputSuppressed(false);
             ModeChanged?.Invoke(false);

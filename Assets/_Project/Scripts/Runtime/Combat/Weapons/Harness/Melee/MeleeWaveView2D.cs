@@ -24,10 +24,12 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
             Render();
         }
 
-        private void LateUpdate()
+        private void LateUpdate() => AdvancePresentation(Time.deltaTime);
+
+        private void AdvancePresentation(float deltaTime)
         {
             if (!IsPlaying) return;
-            _elapsed += Time.deltaTime;
+            _elapsed += deltaTime;
             if (_elapsed >= _duration) { Clear(); return; }
             Render();
         }

@@ -25,6 +25,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6ac1cd842a3878a47af3368a075f767f, type: 2}
   DurationSeconds: 10000
   CooldownSeconds: 8
+  ComboResetSeconds: 0.8
   EnemyLayers:
     serializedVersion: 2
     m_Bits: 256
@@ -33,9 +34,9 @@ MonoBehaviour:
     m_Bits: 512
   SweepSampleDistance: 0.06
   IdleSwordLength: 0.6
-  IdleSwordOffset: {x: -0.8433106, y: 0}
+  IdleSwordOffset: {x: -0.6, y: 0}
   FloatAmplitude: 0.055
   FloatFrequency: 0.8
   GhostAlpha: 0.55
   GhostSeconds: 0.35
-  WaveFadeSeconds: 0.45
+  WaveFadeSeconds: 0.63
