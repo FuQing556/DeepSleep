@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 2178837183969408201}
   - component: {fileID: 7492615675911042318}
   - component: {fileID: 7371300677300139396}
+  - component: {fileID: 7065325669200358386}
   m_Layer: 9
   m_Name: PF_Projectile_EN_DataCrawlerSnake
   m_TagString: Untagged
@@ -205,3 +206,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Projectiles.EnemyProjectile2D
   _body: {fileID: 2178837183969408201}
   _bodyCollider: {fileID: 7492615675911042318}
+  _canBeCleared: 1
+--- !u!114 &7065325669200358386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3957656873460287633}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae52681bd4aff142be775f3af5c1776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Perception.CombatPerceptionBody2D
+  Shape: {fileID: 7492615675911042318}
+  Body: {fileID: 2178837183969408201}
+  Enemy: {fileID: 0}
+  Hitbox: {fileID: 0}
+  Projectile: {fileID: 7371300677300139396}
+  SnakeAttack: {fileID: 0}
+  TargetValue: 1

@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 4953515953279521410}
   - component: {fileID: 6318783156667337981}
   - component: {fileID: 5185804655785360705}
+  - component: {fileID: 663350291462543242}
   m_Layer: 8
   m_Name: PF_Enemy_404Window
   m_TagString: Untagged
@@ -305,6 +306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Enemies.EnemyActor2D
   _health: {fileID: 881515945175910510}
   _motor: {fileID: 4953515953279521410}
+  _simulationStepComponents: []
 --- !u!114 &5185804655785360705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -321,3 +323,22 @@ MonoBehaviour:
   _actor: {fileID: 6318783156667337981}
   _motor: {fileID: 4953515953279521410}
   _config: {fileID: 11400000, guid: 8ab2deab853f1b84989c5b32f2678abc, type: 2}
+--- !u!114 &663350291462543242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6834286351092699918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae52681bd4aff142be775f3af5c1776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Perception.CombatPerceptionBody2D
+  Shape: {fileID: 7140865274713578848}
+  Body: {fileID: 4755678291941203239}
+  Enemy: {fileID: 6318783156667337981}
+  Hitbox: {fileID: 3118622395198804797}
+  Projectile: {fileID: 0}
+  SnakeAttack: {fileID: 0}
+  TargetValue: 1

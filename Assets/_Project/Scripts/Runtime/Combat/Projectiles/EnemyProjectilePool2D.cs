@@ -14,6 +14,7 @@ namespace DeepSleep.Runtime.Combat.Projectiles
         [SerializeField] private Transform _poolRoot;
         [SerializeField] private EnemyProjectileConfig _config;
         [SerializeField] private OneShotSpriteEffectPool2D _impactEffectPool;
+        [SerializeField] private DeepSleep.Runtime.Combat.Perception.CombatPerceptionRegistry2D _perceptionRegistry;
 
         private readonly Stack<EnemyProjectile2D> _available = new();
         private readonly List<EnemyProjectile2D> _all = new();
@@ -181,6 +182,12 @@ namespace DeepSleep.Runtime.Combat.Projectiles
             projectile.name =
                 $"{_projectilePrefab.name}_Pooled_{_all.Count:00}";
             projectile.PrepareForPool();
+            if (_perceptionRegistry != null)
+            {
+                if (projectile.TryGetComponent<DeepSleep.Runtime.Combat.Perception.CombatPerceptionBody2D>(out var perception))
+                    perception.Register(_perceptionRegistry);
+                else Debug.LogError("[ProjectilePool] 已启用感知，但预制体缺少 CombatPerceptionBody2D。", this);
+            }
             _all.Add(projectile);
             return projectile;
         }

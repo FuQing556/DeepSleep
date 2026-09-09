@@ -175,6 +175,7 @@ GameObject:
   - component: {fileID: 1092343744440009580}
   - component: {fileID: 8043110479268437187}
   - component: {fileID: 411019885693401954}
+  - component: {fileID: 1254038373532291417}
   m_Layer: 8
   m_Name: PF_Enemy_DataCrawlerSnake
   m_TagString: Untagged
@@ -385,6 +386,25 @@ MonoBehaviour:
   _subjectRenderer: {fileID: 1307340880685219348}
   _ghostRenderer: {fileID: 1307607284327468571}
   _config: {fileID: 11400000, guid: 3a85e03527bfc8e46b4b37077f21ca35, type: 2}
+--- !u!114 &1254038373532291417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7057389204017958058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae52681bd4aff142be775f3af5c1776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Perception.CombatPerceptionBody2D
+  Shape: {fileID: 1659569945403644716}
+  Body: {fileID: 6458680272167309182}
+  Enemy: {fileID: 3247942948499192296}
+  Hitbox: {fileID: 7394597421940234154}
+  Projectile: {fileID: 0}
+  SnakeAttack: {fileID: 8043110479268437187}
+  TargetValue: 3
 --- !u!1 &8536400386373258105
 GameObject:
   m_ObjectHideFlags: 0

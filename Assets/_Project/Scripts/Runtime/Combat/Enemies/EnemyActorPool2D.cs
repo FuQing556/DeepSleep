@@ -15,6 +15,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
         [SerializeField] private Transform _poolRoot;
         [SerializeField] private EnemyPoolConfig _config;
         [SerializeField] private EnemyActorRuntimeBinder2D _runtimeBinder;
+        [SerializeField] private DeepSleep.Runtime.Combat.Perception.CombatPerceptionRegistry2D _perceptionRegistry;
 
         private readonly Stack<EnemyActor2D> _available = new();
         private readonly List<EnemyActor2D> _allActors = new();
@@ -169,6 +170,13 @@ namespace DeepSleep.Runtime.Combat.Enemies
         {
             EnemyActor2D actor = Instantiate(_enemyPrefab, _poolRoot);
             actor.name = $"{_enemyPrefab.name}_Pooled_{_allActors.Count:00}";
+            // 仅实例创建时缓存已在预制体明确装配的适配器，热路径不查组件。
+            if (_perceptionRegistry != null)
+            {
+                if (actor.TryGetComponent<DeepSleep.Runtime.Combat.Perception.CombatPerceptionBody2D>(out var perception))
+                    perception.Register(_perceptionRegistry);
+                else Debug.LogError("[EnemyPool] 已启用感知，但预制体缺少 CombatPerceptionBody2D。", this);
+            }
 
             if (_runtimeBinder != null &&
                 !_runtimeBinder.TryBind(actor, out string reason))
