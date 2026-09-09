@@ -16,6 +16,7 @@ namespace DeepSleep.Runtime.Players.Health
         [SerializeField] private PlayerDamageResponseConfig _config;
 
         private float _remainingInvulnerabilitySeconds;
+        private bool _isReviveProtection;
         private bool _isInitialized;
         private readonly List<IPlayerDamageInterceptor> _damageInterceptors = new(2);
 
@@ -28,6 +29,7 @@ namespace DeepSleep.Runtime.Players.Health
             _remainingInvulnerabilitySeconds > 0f;
         public float RemainingInvulnerabilitySeconds =>
             _remainingInvulnerabilitySeconds;
+        public bool IsReviveProtected => IsInvulnerable && _isReviveProtection;
         public bool CanReceiveDamage =>
             _isInitialized &&
             isActiveAndEnabled &&
@@ -62,6 +64,7 @@ namespace DeepSleep.Runtime.Players.Health
 
             if (!IsInvulnerable)
             {
+                _isReviveProtection = false;
                 InvulnerabilityEnded?.Invoke(this);
             }
         }
@@ -83,6 +86,7 @@ namespace DeepSleep.Runtime.Players.Health
 
             _remainingInvulnerabilitySeconds =
                 _config.InvulnerabilityDurationSeconds;
+            _isReviveProtection = false;
             DamageAccepted?.Invoke(this, damage);
             return true;
         }
@@ -106,6 +110,7 @@ namespace DeepSleep.Runtime.Players.Health
         public void ResetDamageGate()
         {
             _remainingInvulnerabilitySeconds = 0f;
+            _isReviveProtection = false;
         }
 
         public void BeginInvulnerability(float durationSeconds)
@@ -118,6 +123,7 @@ namespace DeepSleep.Runtime.Players.Health
             _remainingInvulnerabilitySeconds = Mathf.Max(
                 _remainingInvulnerabilitySeconds,
                 durationSeconds);
+            _isReviveProtection = true;
         }
 
         public bool TryValidateConfiguration(out string reason)

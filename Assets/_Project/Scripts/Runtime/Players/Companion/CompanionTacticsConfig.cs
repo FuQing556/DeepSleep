@@ -36,6 +36,8 @@ namespace DeepSleep.Runtime.Players.Companion
         [Min(1)] public int MeleeClusterCount;
         public float MeleeIdleExitSeconds;
         public float SkillRetrySeconds;
+        [Min(0), Tooltip("HS冷却结束后，额外等待多久再开始下一轮点选。只影响人机。")]
+        public float HarnessAimRestSeconds;
 
         public bool IsValid => QueryCapacity > 0 && DecisionInterval > 0 &&
             PerceptionLayers.value != 0 && PerceptionRadius > 0 && PredictionSeconds > 0 &&

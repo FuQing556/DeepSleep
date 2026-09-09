@@ -21,6 +21,7 @@ namespace DeepSleep.Runtime.Players.Companion
         private CombatPerceptionBody2D _lastTarget;
         private float _retryRemaining;
         private float _meleeIdle;
+        private float _harnessAimRest;
 
         public bool IsValid => Config != null && (Role == PlayerRole.DeepSeek
             ? DeepSeekTarget != null && Guard != null : Laser != null && Melee != null);
@@ -30,6 +31,7 @@ namespace DeepSleep.Runtime.Players.Companion
             _lastTarget = null;
             _retryRemaining = 0f;
             _meleeIdle = 0f;
+            _harnessAimRest = Config.HarnessAimRestSeconds;
         }
 
         public void Build(CompanionBattleSensor2D sensor, Vector2 position, bool rescue,
@@ -83,12 +85,20 @@ namespace DeepSleep.Runtime.Players.Companion
                 PressSkill(ref skill);
                 return;
             }
-            if (rescue || !hasTarget)
+            if (rescue)
             {
-                if (Laser.SelectedTarget != null) cancel = CommandButtonState.Pressed;
+                if (Laser.HasAimPoint) cancel = CommandButtonState.Pressed;
+                _harnessAimRest = Config.HarnessAimRestSeconds;
+                return;
             }
-            // 蓄力期间锁定承诺，不为更高一点的评分重启蓄力。冷却中允许预选下一目标。
-            else if (Laser.State != HarnessTerminalLaserState.Calibrating && Laser.SelectedTarget != target.Hitbox)
+            // 已承诺的瞄准即使目标死亡也完成；冷却中不预选，让待机姿态确实有停留。
+            if (Laser.State != HarnessTerminalLaserState.Ready)
+            {
+                _harnessAimRest = Config.HarnessAimRestSeconds;
+                return;
+            }
+            _harnessAimRest = Mathf.Max(0f, _harnessAimRest - deltaTime);
+            if (hasTarget && !Laser.HasAimPoint && _harnessAimRest <= 0f)
                 attack = CommandButtonState.Pressed;
         }
 

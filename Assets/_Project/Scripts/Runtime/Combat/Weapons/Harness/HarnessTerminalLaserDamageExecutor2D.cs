@@ -59,8 +59,9 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                 return;
             }
 
-            request.PrimaryTarget.TryGetReceiver(
-                out IDamageReceiver primaryReceiver);
+            IDamageReceiver primaryReceiver = null;
+            if (request.PrimaryTarget != null)
+                request.PrimaryTarget.TryGetReceiver(out primaryReceiver);
 
             BeamFireSnapshot snapshot = request.BeamSnapshot;
 

@@ -47,3 +47,6 @@ sysinfo.txt
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# 本地美术处理脚本缓存
+__pycache__/

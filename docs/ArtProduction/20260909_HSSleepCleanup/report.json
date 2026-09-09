@@ -1,0 +1,30 @@
+{
+  "source_sha256": "ebb75c3c9421d250ea9ae048308f3d896f0c538c7f062344c03a6183e33bc7d8",
+  "roi": [
+    345,
+    78,
+    490,
+    200
+  ],
+  "seed": [
+    420,
+    120
+  ],
+  "removed_pixels": 6307,
+  "changed_pixels": 6686,
+  "size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "visible_bbox": [
+    107,
+    80,
+    1079,
+    1165
+  ],
+  "transparent_pixels": 1025109,
+  "partial_alpha_pixels": 379,
+  "opaque_pixels": 547028,
+  "clear_corners": true
+}

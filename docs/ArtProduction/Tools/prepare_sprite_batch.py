@@ -7,7 +7,7 @@ import json
 from pathlib import Path
 
 from PIL import Image
-from sprite_matte import connected_neutral, green_screen, black_emission, report, preview
+from sprite_matte import connected_neutral, green_screen, magenta_screen, black_emission, report, preview
 
 
 def run(recipe_path):
@@ -27,6 +27,8 @@ def run(recipe_path):
             result = connected_neutral(image, **parameters)
         elif mode == 'green':
             result = green_screen(image, **parameters)
+        elif mode == 'magenta':
+            result = magenta_screen(image, **parameters)
         elif mode == 'emission':
             result = black_emission(image, **parameters)
         elif mode == 'alpha':

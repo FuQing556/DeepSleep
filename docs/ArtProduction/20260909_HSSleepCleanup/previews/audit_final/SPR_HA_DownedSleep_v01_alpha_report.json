@@ -1,0 +1,109 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20260909_HSSleepCleanup\\ready\\SPR_HA_DownedSleep_v01.png",
+  "source_sha256": "cc70021990d0b983fbe231a6d5a6167568224c30789607ea11b2366915c18db4",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 1025109,
+  "partial_alpha_pixels": 379,
+  "opaque_pixels": 547028,
+  "visible_bbox_alpha_gt_0": [
+    107,
+    80,
+    1079,
+    1165
+  ],
+  "visible_bbox_alpha_gt_8": [
+    107,
+    80,
+    1079,
+    1165
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [
+    {
+      "role": "keep",
+      "xy": [
+        480,
+        120
+      ],
+      "rgba": [
+        35,
+        34,
+        42,
+        255
+      ],
+      "passed": true
+    },
+    {
+      "role": "keep",
+      "xy": [
+        450,
+        85
+      ],
+      "rgba": [
+        39,
+        37,
+        42,
+        255
+      ],
+      "passed": true
+    },
+    {
+      "role": "keep",
+      "xy": [
+        355,
+        155
+      ],
+      "rgba": [
+        38,
+        37,
+        42,
+        255
+      ],
+      "passed": true
+    },
+    {
+      "role": "keep",
+      "xy": [
+        420,
+        190
+      ],
+      "rgba": [
+        215,
+        203,
+        215,
+        255
+      ],
+      "passed": true
+    },
+    {
+      "role": "clear",
+      "xy": [
+        420,
+        120
+      ],
+      "rgba": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "passed": true
+    }
+  ],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

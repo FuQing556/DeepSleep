@@ -12,6 +12,11 @@ namespace DeepSleep.Runtime.Combat.Damage
         private IDamageReceiver _receiver;
         private bool _isInitialized;
 
+        /// <summary>停用/入池前通知锁定方释放对象引用；已承诺的攻击可保留瞄准位置。</summary>
+        public event System.Action<DamageHitbox2D> BecameUnavailable;
+
+        private void OnDisable() => BecameUnavailable?.Invoke(this);
+
         public bool IsActiveTarget =>
             _isInitialized && isActiveAndEnabled && _receiver != null;
 

@@ -40,3 +40,4 @@ MonoBehaviour:
   MeleeClusterCount: 2
   MeleeIdleExitSeconds: 1.5
   SkillRetrySeconds: 0.5
+  HarnessAimRestSeconds: 0.25

@@ -30,6 +30,9 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
         private Predicate<Collider2D> _targetEligibility;
         private Collider2D _selectedTargetCollider;
         private DamageHitbox2D _selectedTargetHitbox;
+        private bool _hasAimPoint;
+        private Vector2 _lastKnownTargetPosition;
+        private Vector2 _lastAimDirection;
         private uint _nextFireSequence;
         private bool _isInitialized;
         private bool _inputSuppressed;
@@ -54,6 +57,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
         public float RemainingStateSeconds => _cycle.RemainingSeconds;
         public float StateProgress01 => _cycle.PhaseProgress01;
         public DamageHitbox2D SelectedTarget => _selectedTargetHitbox;
+        public bool HasAimPoint => _hasAimPoint;
         public Vector2 BeamOriginPosition => _beamOrigin != null
             ? _beamOrigin.position
             : transform.position;
@@ -105,8 +109,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
         }
 
         /// <summary>
-        /// 供同伴 AI 和未来的确定性网络回放直接提交已选碰撞体。
-        /// 真人点选仍通过 PlayerCommand 进入。
+        /// 将点选结果提交给本轮瞄准。真人/AI的输入统一通过PlayerCommand进入。
         /// </summary>
         public bool TrySelectTarget(Collider2D target)
         {
@@ -145,14 +148,13 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
         public bool TryGetSelectedTargetPosition(
             out Vector2 targetPosition)
         {
-            if (!_isInitialized ||
-                !IsSelectableDamageTarget(_selectedTargetCollider))
+            if (!_isInitialized || !_hasAimPoint)
             {
                 targetPosition = default;
                 return false;
             }
 
-            targetPosition = _selectedTargetCollider.bounds.center;
+            targetPosition = _lastKnownTargetPosition;
             return true;
         }
 
@@ -193,12 +195,13 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
 
         private void AdvanceCycle(float deltaTime)
         {
+            UpdateTrackedAimPoint();
             HarnessTerminalLaserState previousState = _cycle.State;
             _cycle.Advance(deltaTime);
             PublishStateChange(previousState);
 
             if (_cycle.State == HarnessTerminalLaserState.Ready &&
-                IsSelectableDamageTarget(_selectedTargetCollider))
+                _hasAimPoint)
             {
                 previousState = _cycle.State;
                 _cycle.TryStartOrRestartCalibration(
@@ -211,7 +214,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                 return;
             }
 
-            if (!IsSelectableDamageTarget(_selectedTargetCollider))
+            if (!_hasAimPoint)
             {
                 CancelSelection();
                 return;
@@ -226,9 +229,9 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
         private void TryRequestFire()
         {
             Vector2 sourceOrigin = _beamOrigin.position;
-            Vector2 targetPosition =
-                _selectedTargetCollider.bounds.center;
+            Vector2 targetPosition = _lastKnownTargetPosition;
             Vector2 aimDirection = targetPosition - sourceOrigin;
+            if (aimDirection.sqrMagnitude <= 0.000001f) aimDirection = _lastAimDirection;
 
             if (!HarnessTerminalLaserSnapshotFactory.TryCreate(
                     _nextFireSequence,
@@ -269,10 +272,18 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
         private void SetSelectedTarget(Collider2D target)
         {
             target.TryGetComponent(out DamageHitbox2D hitbox);
-            bool changed = _selectedTargetHitbox != hitbox;
+            bool changed = _selectedTargetHitbox != hitbox || !_hasAimPoint;
+
+            if (_selectedTargetHitbox != null)
+                _selectedTargetHitbox.BecameUnavailable -= OnTargetUnavailable;
 
             _selectedTargetCollider = target;
             _selectedTargetHitbox = hitbox;
+            _selectedTargetHitbox.BecameUnavailable += OnTargetUnavailable;
+            _hasAimPoint = true;
+            _lastKnownTargetPosition = target.bounds.center;
+            _lastAimDirection = (_lastKnownTargetPosition - BeamOriginPosition).normalized;
+            if (_lastAimDirection.sqrMagnitude <= 0.000001f) _lastAimDirection = _facingController.Forward;
 
             if (changed)
             {
@@ -291,14 +302,40 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
 
         private void ClearSelectedTarget()
         {
-            bool changed = _selectedTargetHitbox != null;
+            bool changed = _hasAimPoint;
+            if (_selectedTargetHitbox != null)
+                _selectedTargetHitbox.BecameUnavailable -= OnTargetUnavailable;
             _selectedTargetCollider = null;
             _selectedTargetHitbox = null;
+            _hasAimPoint = false;
 
             if (changed)
             {
                 TargetChanged?.Invoke(null);
             }
+        }
+
+        private void UpdateTrackedAimPoint()
+        {
+            if (!_hasAimPoint || _selectedTargetHitbox == null) return;
+            if (!IsSelectableDamageTarget(_selectedTargetCollider))
+            {
+                OnTargetUnavailable(_selectedTargetHitbox);
+                return;
+            }
+            _lastKnownTargetPosition = _selectedTargetCollider.bounds.center;
+            Vector2 direction = _lastKnownTargetPosition - BeamOriginPosition;
+            if (direction.sqrMagnitude > 0.000001f) _lastAimDirection = direction.normalized;
+        }
+
+        private void OnTargetUnavailable(DamageHitbox2D target)
+        {
+            if (_selectedTargetHitbox != target) return;
+            target.BecameUnavailable -= OnTargetUnavailable;
+            // 保存本轮瞄准点；立即放开入池对象，防止它再次生成后把激光拉去新位置。
+            _selectedTargetCollider = null;
+            _selectedTargetHitbox = null;
+            TargetChanged?.Invoke(null);
         }
 
         private bool IsSelectableDamageTarget(Collider2D target)

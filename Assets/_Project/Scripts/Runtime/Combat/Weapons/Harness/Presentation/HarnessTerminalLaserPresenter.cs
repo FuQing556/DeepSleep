@@ -63,7 +63,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
             _controller.FireRequested += OnFireRequested;
             _controller.TargetChanged += OnTargetChanged;
             _poseView.SetAiming(
-                _controller.SelectedTarget != null,
+                _controller.HasAimPoint,
                 _config);
         }
 
@@ -77,7 +77,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
             bool shotFinished = _shotView.Tick(Time.deltaTime, _config);
             if (_poseOverridden) return;
 
-            if (shotFinished && _controller.SelectedTarget == null)
+            if (shotFinished && !_controller.HasAimPoint)
             {
                 _facingController.ResetToInitialDirection();
             }
@@ -85,7 +85,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
             UpdateTargetingView();
             _poseView.Tick(
                 Time.deltaTime,
-                _controller.SelectedTarget != null,
+                _controller.HasAimPoint,
                 _config);
         }
 
@@ -119,7 +119,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
         {
             if (_poseOverridden) return;
             _poseView.SetAiming(
-                target != null,
+                _controller.HasAimPoint,
                 _config);
         }
 

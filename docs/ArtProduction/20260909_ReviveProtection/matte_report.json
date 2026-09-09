@@ -1,0 +1,27 @@
+[
+  {
+    "source": "raw/ReviveProtection_v01.png",
+    "output": "ready/ICO_SH_ReviveProtection_v01.png",
+    "source_sha256": "f5d194013b40115c2eb93b08af82e9778587519ae257adad0f013adccd797150",
+    "method": "magenta",
+    "parameters": {
+      "cutoff": 3,
+      "backdrop_tolerance": 60
+    },
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      118,
+      72,
+      1147,
+      1173
+    ],
+    "transparent_pixels": 776970,
+    "partial_alpha_pixels": 71371,
+    "opaque_pixels": 724175,
+    "clear_corners": true
+  }
+]

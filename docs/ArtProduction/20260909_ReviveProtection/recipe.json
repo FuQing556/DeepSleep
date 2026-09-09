@@ -1,0 +1,5 @@
+{
+  "assets": [
+    {"source": "raw/ReviveProtection_v01.png", "output": "ready/ICO_SH_ReviveProtection_v01.png", "method": "magenta", "parameters": {"cutoff": 3, "backdrop_tolerance": 60}}
+  ]
+}

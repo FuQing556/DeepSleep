@@ -105,6 +105,24 @@ def black_emission(image, cutoff=3):
     return Image.fromarray(out)
 
 
+def magenta_screen(image, cutoff=3, backdrop_tolerance=16):
+    """Unmix saturated magenta for cyan/blue/white artwork, preserving soft blue edges.
+
+    Not suitable for subjects containing pink/purple. Foreground is assumed to
+    have no joint red+blue excess over green; this is a per-asset assumption.
+    """
+    rgba = np.asarray(image.convert('RGBA'), dtype=np.float32) / 255
+    rgb = rgba[:, :, :3]
+    excess = np.clip(np.minimum(rgb[:, :, 0], rgb[:, :, 2]) - rgb[:, :, 1], 0, 1)
+    alpha = 1 - excess
+    foreground = (rgb - excess[:, :, None] * np.array([1, 0, 1])) / np.maximum(alpha[:, :, None], 1/255)
+    result = np.dstack((np.clip(foreground, 0, 1), alpha * rgba[:, :, 3]))
+    out = np.round(result * 255).astype(np.uint8)
+    background = (rgb[:, :, 1] < backdrop_tolerance / 255) & (np.minimum(rgb[:, :, 0], rgb[:, :, 2]) > 0.90)
+    out[background | (out[:, :, 3] <= cutoff)] = 0
+    return Image.fromarray(out)
+
+
 def report(image):
     alpha = np.asarray(image.getchannel('A'))
     return {

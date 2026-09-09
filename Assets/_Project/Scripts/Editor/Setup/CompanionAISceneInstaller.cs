@@ -151,6 +151,7 @@ namespace DeepSleep.Editor.Setup
             c.RescueDangerLimit = 0.35f; c.EmergencyDanger = 0.65f; c.LowHealthFraction = 0.35f;
             c.GuardDangerThreshold = 0.35f; c.MeleeEnterRange = 3f; c.MeleeAttackRange = 4f;
             c.MeleeClusterCount = 2; c.MeleeIdleExitSeconds = 1.5f; c.SkillRetrySeconds = 0.5f;
+            c.HarnessAimRestSeconds = 0.25f;
         }
 
         private static T Ensure<T>(GameObject go) where T : Component =>

@@ -1,0 +1,69 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20260909_HSSleepCleanup\\ready\\SPR_HA_DownedSleep_v01.png",
+  "source_sha256": "cc70021990d0b983fbe231a6d5a6167568224c30789607ea11b2366915c18db4",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 1025109,
+  "partial_alpha_pixels": 379,
+  "opaque_pixels": 547028,
+  "visible_bbox_alpha_gt_0": [
+    107,
+    80,
+    1079,
+    1165
+  ],
+  "visible_bbox_alpha_gt_8": [
+    107,
+    80,
+    1079,
+    1165
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [
+    {
+      "role": "keep",
+      "xy": [
+        465,
+        110
+      ],
+      "rgba": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "passed": false
+    },
+    {
+      "role": "clear",
+      "xy": [
+        420,
+        120
+      ],
+      "rgba": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "passed": true
+    }
+  ],
+  "automatic_failures": [
+    "keep point failed at 465,110"
+  ],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

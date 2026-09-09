@@ -29,7 +29,6 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
 
         public bool IsValid =>
             Source != null &&
-            PrimaryTarget != null &&
             BeamSnapshot != null &&
             BeamSnapshot.IsValid;
     }
