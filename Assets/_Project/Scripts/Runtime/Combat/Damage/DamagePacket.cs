@@ -12,7 +12,10 @@ namespace DeepSleep.Runtime.Combat.Damage
             float amount,
             Vector2 hitPoint,
             Vector2 direction,
-            GameObject source)
+            GameObject source,
+            ulong attackId = 0,
+            DamageInterceptionPolicy interceptionPolicy =
+                DamageInterceptionPolicy.Unspecified)
         {
             Amount = amount;
             HitPoint = hitPoint;
@@ -20,12 +23,16 @@ namespace DeepSleep.Runtime.Combat.Damage
                 ? direction.normalized
                 : Vector2.zero;
             Source = source;
+            AttackId = attackId;
+            InterceptionPolicy = interceptionPolicy;
         }
 
         public float Amount { get; }
         public Vector2 HitPoint { get; }
         public Vector2 Direction { get; }
         public GameObject Source { get; }
+        public ulong AttackId { get; }
+        public DamageInterceptionPolicy InterceptionPolicy { get; }
 
         public bool IsValid => Amount > 0f;
     }

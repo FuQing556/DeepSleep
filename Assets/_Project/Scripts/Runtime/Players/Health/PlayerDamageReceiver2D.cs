@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using DeepSleep.Runtime.Combat.Damage;
 using DeepSleep.Runtime.Combat.Health;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace DeepSleep.Runtime.Players.Health
 
         private float _remainingInvulnerabilitySeconds;
         private bool _isInitialized;
+        private readonly List<IPlayerDamageInterceptor> _damageInterceptors = new(2);
 
         public event Action<PlayerDamageReceiver2D, DamagePacket>
             DamageAccepted;
@@ -66,16 +68,36 @@ namespace DeepSleep.Runtime.Players.Health
 
         public bool TryReceiveDamage(in DamagePacket damage)
         {
-            if (!CanReceiveDamage || !damage.IsValid ||
-                !_health.TryReceiveDamage(in damage))
+            if (!CanReceiveDamage || !damage.IsValid)
             {
                 return false;
             }
+
+            for (int index = 0; index < _damageInterceptors.Count; index++)
+            {
+                if (_damageInterceptors[index].TryIntercept(this, in damage))
+                    return true;
+            }
+
+            if (!_health.TryReceiveDamage(in damage)) return false;
 
             _remainingInvulnerabilitySeconds =
                 _config.InvulnerabilityDurationSeconds;
             DamageAccepted?.Invoke(this, damage);
             return true;
+        }
+
+        public bool RegisterDamageInterceptor(IPlayerDamageInterceptor interceptor)
+        {
+            if (interceptor == null || _damageInterceptors.Contains(interceptor))
+                return false;
+            _damageInterceptors.Add(interceptor);
+            return true;
+        }
+
+        public void UnregisterDamageInterceptor(IPlayerDamageInterceptor interceptor)
+        {
+            if (interceptor != null) _damageInterceptors.Remove(interceptor);
         }
 
         /// <summary>

@@ -16,6 +16,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
         [SerializeField] private EnemyContactDamageConfig _config;
 
         private bool _hasImpacted;
+        private ulong _attackId;
 
         public event Action<EnemyContactAttack2D, Vector2> ImpactOccurred;
 
@@ -34,6 +35,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
         private void OnEnable()
         {
             _hasImpacted = false;
+            _attackId = DamageAttackIdAllocator.Next();
         }
 
         private void OnTriggerEnter2D(Collider2D other)
@@ -56,7 +58,9 @@ namespace DeepSleep.Runtime.Combat.Enemies
                 _config.DamageAmount,
                 hitPoint,
                 _motor.TravelDirection,
-                gameObject);
+                gameObject,
+                _attackId,
+                DamageInterceptionPolicy.Blockable);
             hitbox.TryReceiveDamage(in damage);
 
             ImpactOccurred?.Invoke(this, hitPoint);

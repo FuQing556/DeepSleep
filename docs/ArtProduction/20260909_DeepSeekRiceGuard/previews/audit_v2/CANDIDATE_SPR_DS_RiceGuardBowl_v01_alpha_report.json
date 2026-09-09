@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20260909_DeepSeekRiceGuard\\ready\\CANDIDATE_SPR_DS_RiceGuardBowl_v01.png",
+  "source_sha256": "4965920f788842e2af6d3c530b16aa6e0aa1b53a9556b234608267029f8e91f3",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 1022293,
+  "partial_alpha_pixels": 9644,
+  "opaque_pixels": 540579,
+  "visible_bbox_alpha_gt_0": [
+    168,
+    222,
+    1115,
+    1047
+  ],
+  "visible_bbox_alpha_gt_8": [
+    168,
+    222,
+    1115,
+    1047
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

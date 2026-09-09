@@ -1,0 +1,28 @@
+{
+  "assets": [
+    {
+      "source": "raw/VFX_DS_RiceGuardCircle_v01_generated.png",
+      "output": "ready/VFX_DS_RiceGuardCircle_v01.png",
+      "method": "neutral",
+      "parameters": {
+        "minimum": 75,
+        "maximum": 248,
+        "chroma": 14,
+        "seeds": [[627, 627]],
+        "edge_dematte": true
+      }
+    },
+    {
+      "source": "raw/SPR_DS_RiceGuardBowlBroken_v01_generated.png",
+      "output": "ready/SPR_DS_RiceGuardBowlBroken_v01.png",
+      "method": "neutral",
+      "parameters": {
+        "minimum": 75,
+        "maximum": 248,
+        "chroma": 14,
+        "seeds": [],
+        "edge_dematte": true
+      }
+    }
+  ]
+}

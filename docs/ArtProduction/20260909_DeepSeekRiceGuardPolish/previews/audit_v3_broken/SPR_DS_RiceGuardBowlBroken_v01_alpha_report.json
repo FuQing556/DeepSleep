@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20260909_DeepSeekRiceGuardPolish\\ready\\SPR_DS_RiceGuardBowlBroken_v01.png",
+  "source_sha256": "303f11387f1b6c992082dfad36bae62af5634c57d83822d6def2a060196bf181",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 987324,
+  "partial_alpha_pixels": 75532,
+  "opaque_pixels": 509660,
+  "visible_bbox_alpha_gt_0": [
+    99,
+    150,
+    1148,
+    1099
+  ],
+  "visible_bbox_alpha_gt_8": [
+    99,
+    150,
+    1148,
+    1099
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

@@ -1,0 +1,81 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20260909_DeepSeekRiceGuard\\ready\\CANDIDATE_SPR_DS_RiceGuardBowl_v02.png",
+  "source_sha256": "7f16e14bb587b03ad1fd50bbbcabfcd6c10625c46facdfc6986cfbbf42bc3aab",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 1010495,
+  "partial_alpha_pixels": 61123,
+  "opaque_pixels": 500898,
+  "visible_bbox_alpha_gt_0": [
+    165,
+    218,
+    1116,
+    1047
+  ],
+  "visible_bbox_alpha_gt_8": [
+    166,
+    219,
+    1116,
+    1047
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [
+    {
+      "role": "keep",
+      "xy": [
+        627,
+        700
+      ],
+      "rgba": [
+        38,
+        61,
+        94,
+        255
+      ],
+      "passed": true
+    },
+    {
+      "role": "keep",
+      "xy": [
+        627,
+        350
+      ],
+      "rgba": [
+        247,
+        217,
+        194,
+        255
+      ],
+      "passed": true
+    },
+    {
+      "role": "clear",
+      "xy": [
+        20,
+        20
+      ],
+      "rgba": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "passed": true
+    }
+  ],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

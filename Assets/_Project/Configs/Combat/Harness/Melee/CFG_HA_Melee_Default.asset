@@ -23,7 +23,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 02dde419aaa8b8049bf35bfa58a756cb, type: 2}
   - {fileID: 11400000, guid: 077168d95c57b3242a8c6bea569f108c, type: 2}
   - {fileID: 11400000, guid: 6ac1cd842a3878a47af3368a075f767f, type: 2}
-  DurationSeconds: 10000
+  DurationSeconds: 16
   CooldownSeconds: 8
   ComboResetSeconds: 0.8
   EnemyLayers:

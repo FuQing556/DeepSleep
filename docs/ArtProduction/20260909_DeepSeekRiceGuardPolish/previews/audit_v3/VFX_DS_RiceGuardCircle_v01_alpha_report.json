@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20260909_DeepSeekRiceGuardPolish\\ready\\VFX_DS_RiceGuardCircle_v01.png",
+  "source_sha256": "1c01b40501f09756ade8adb4023d23022bfba72024af5b444305823c0fd15094",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 1001701,
+  "partial_alpha_pixels": 17712,
+  "opaque_pixels": 553103,
+  "visible_bbox_alpha_gt_0": [
+    11,
+    0,
+    1245,
+    1240
+  ],
+  "visible_bbox_alpha_gt_8": [
+    11,
+    0,
+    1245,
+    1240
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

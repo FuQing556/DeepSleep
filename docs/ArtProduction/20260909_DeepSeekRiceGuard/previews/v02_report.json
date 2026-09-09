@@ -1,0 +1,23 @@
+{
+  "size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "visible_bbox": [
+    165,
+    218,
+    1116,
+    1047
+  ],
+  "transparent_pixels": 1010495,
+  "partial_alpha_pixels": 61123,
+  "opaque_pixels": 500898,
+  "clear_corners": true,
+  "source_sha256": "3c6be2672a1dc7de0178a140dc087006bf65b541ff9b54b4e4baf8031d36ede9",
+  "output": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20260909_DeepSeekRiceGuard\\ready\\CANDIDATE_SPR_DS_RiceGuardBowl_v02.png",
+  "method": "Bounded opaque bowl; exterior blue chroma emission.",
+  "limitation": "Exterior glow approximately reconstructed, not original alpha.",
+  "unity_imported": false,
+  "user_approved": false
+}

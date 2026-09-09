@@ -2,6 +2,8 @@ using DeepSleep.Runtime.Combat.Damage;
 using DeepSleep.Runtime.Combat.Enemies;
 using DeepSleep.Runtime.Combat.Health;
 using DeepSleep.Runtime.Combat.Projectiles;
+using DeepSleep.Runtime.Combat.Weapons.DeepSeek.Guard;
+using DeepSleep.Runtime.Players.Health;
 using DeepSleep.Runtime.Players.Identity;
 using DeepSleep.Runtime.Players.LifeCycle;
 using UnityEditor;
@@ -24,6 +26,10 @@ namespace DeepSleep.Editor.Debugging
             "DeepSleep/调试/玩家/击倒 DeepSeek";
         private const string DownHarnessPath =
             "DeepSleep/调试/玩家/击倒 Harness";
+        private const string ActivateRiceGuardPath =
+            "DeepSleep/调试/玩家/展开 DS 米饭护航";
+        private const string ConsumeRiceGuardPath =
+            "DeepSleep/调试/玩家/让 DS 护航承受一次攻击";
 
         [MenuItem(StopSpawningPath, priority = 0)]
         private static void StopAllSpawning()
@@ -96,11 +102,59 @@ namespace DeepSleep.Editor.Debugging
             DownPlayer(PlayerRole.Harness);
         }
 
+        [MenuItem(ActivateRiceGuardPath, priority = 22)]
+        private static void ActivateRiceGuard()
+        {
+            DeepSeekRiceGuardController controller =
+                Object.FindAnyObjectByType<DeepSeekRiceGuardController>(
+                    FindObjectsInactive.Include);
+            if (controller == null)
+            {
+                Debug.LogWarning("[DeepSleep 调试] 当前场景没有DS米饭护航控制器。");
+                return;
+            }
+
+            Debug.Log(
+                $"[DeepSleep 调试] 展开DS米饭护航：{controller.TryActivate()}。",
+                controller);
+        }
+
+        [MenuItem(ConsumeRiceGuardPath, priority = 23)]
+        private static void ConsumeRiceGuard()
+        {
+            DeepSeekRiceGuardController controller =
+                Object.FindAnyObjectByType<DeepSeekRiceGuardController>(
+                    FindObjectsInactive.Exclude);
+            PlayerDamageReceiver2D receiver = controller != null
+                ? controller.GetComponent<PlayerDamageReceiver2D>()
+                : null;
+            if (controller == null || receiver == null || !controller.IsActive)
+            {
+                Debug.LogWarning("[DeepSleep 调试] DS护航未展开或受伤入口未装配。");
+                return;
+            }
+
+            DamagePacket damage = new DamagePacket(
+                1f,
+                receiver.transform.position,
+                Vector2.right,
+                null,
+                DamageAttackIdAllocator.Next(),
+                DamageInterceptionPolicy.Blockable);
+            bool accepted = receiver.TryReceiveDamage(in damage);
+            Debug.Log(
+                $"[DeepSleep 调试] 护航承受攻击：{accepted}，" +
+                $"剩余 {controller.RemainingCharges} 碗。",
+                controller);
+        }
+
         [MenuItem(StopSpawningPath, true)]
         [MenuItem(StartSpawningPath, true)]
         [MenuItem(ClearEnemiesPath, true)]
         [MenuItem(DownDeepSeekPath, true)]
         [MenuItem(DownHarnessPath, true)]
+        [MenuItem(ActivateRiceGuardPath, true)]
+        [MenuItem(ConsumeRiceGuardPath, true)]
         private static bool ValidatePlayModeCommand()
         {
             return EditorApplication.isPlaying;

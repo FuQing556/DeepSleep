@@ -1,0 +1,42 @@
+[
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20260909_DeepSeekRiceGuardPolish\\raw\\VFX_DS_RiceGuardCircle_v02_green.png",
+    "source_sha256": "280751a019292f6103cd52cea573ef6ca60a85c11e244682bb53a748a672605e",
+    "output": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20260909_DeepSeekRiceGuardPolish\\ready\\VFX_DS_RiceGuardCircle_v02.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      19,
+      10,
+      1235,
+      1228
+    ],
+    "transparent_pixels": 1017100,
+    "partial_alpha_pixels": 42814,
+    "opaque_pixels": 512602,
+    "clear_corners": true
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20260909_DeepSeekRiceGuardPolish\\raw\\SPR_DS_RiceGuardBowlBroken_v02_green.png",
+    "source_sha256": "4f6c07401add6a05c36843e8251efb4bba11380badcc5da0532e275696c55103",
+    "output": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20260909_DeepSeekRiceGuardPolish\\ready\\SPR_DS_RiceGuardBowlBroken_v02.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      102,
+      150,
+      1149,
+      1098
+    ],
+    "transparent_pixels": 938374,
+    "partial_alpha_pixels": 98476,
+    "opaque_pixels": 535666,
+    "clear_corners": true
+  }
+]

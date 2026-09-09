@@ -17,6 +17,7 @@ namespace DeepSleep.Runtime.Combat.Projectiles
         private GameObject _damageSource;
         private float _damage;
         private float _remainingLifetimeSeconds;
+        private ulong _attackId;
 
         public bool IsRented { get; private set; }
 
@@ -70,7 +71,9 @@ namespace DeepSleep.Runtime.Combat.Projectiles
                 _damage,
                 hitPoint,
                 direction,
-                _damageSource);
+                _damageSource,
+                _attackId,
+                DamageInterceptionPolicy.Blockable);
             hitbox.TryReceiveDamage(in packet);
             _ownerPool.NotifyImpact(hitPoint, transform.eulerAngles.z);
             ReleaseToPool();
@@ -100,6 +103,7 @@ namespace DeepSleep.Runtime.Combat.Projectiles
             _ownerPool = null;
             _damageSource = null;
             _remainingLifetimeSeconds = 0f;
+            _attackId = 0;
             _body.linearVelocity = Vector2.zero;
             _body.angularVelocity = 0f;
             _bodyCollider.enabled = false;
@@ -118,6 +122,7 @@ namespace DeepSleep.Runtime.Combat.Projectiles
             _damageSource = damageSource;
             _damage = config.Damage;
             _remainingLifetimeSeconds = config.LifetimeSeconds;
+            _attackId = DamageAttackIdAllocator.Next();
             IsRented = true;
 
             direction.Normalize();
@@ -139,6 +144,7 @@ namespace DeepSleep.Runtime.Combat.Projectiles
             IsRented = false;
             _damageSource = null;
             _remainingLifetimeSeconds = 0f;
+            _attackId = 0;
             _body.linearVelocity = Vector2.zero;
             _body.angularVelocity = 0f;
             _bodyCollider.enabled = false;
