@@ -7,6 +7,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
     {
         Defeated = 0,
         ContactImpact = 1,
-        ExitedPlayfield = 2
+        ExitedPlayfield = 2,
+        RunReset = 3
     }
 }

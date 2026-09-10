@@ -8,6 +8,8 @@ using DeepSleep.Runtime.Players.Orientation;
 using DeepSleep.Runtime.Players.Revive;
 using DeepSleep.Runtime.World.Playfield;
 using UnityEngine;
+using DeepSleep.Runtime.Progression.Upgrades;
+using DeepSleep.Runtime.Players.Identity;
 
 namespace DeepSleep.Runtime.Combat.Weapons.Harness
 {
@@ -24,6 +26,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
         [SerializeField] private PlayerFacingController2D _facingController;
         [SerializeField] private CombatPlayfieldConfig _playfield;
         [SerializeField] private HarnessTerminalLaserConfig _config;
+        [SerializeField] private PlayerUpgradeRuntimeState _upgradeState;
 
         private readonly HarnessTerminalLaserCycle _cycle = new();
         private ManualTargetFinder2D _targetFinder;
@@ -239,6 +242,8 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                     aimDirection,
                     _playfield,
                     _config,
+                    GetUpgradeMultiplier(UpgradeEffectKind.WeaponDamage),
+                    GetUpgradeMultiplier(UpgradeEffectKind.BeamWidth),
                     out var snapshot,
                     out string reason))
             {
@@ -265,8 +270,17 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
             ClearSelectedTarget();
 
             HarnessTerminalLaserState previousState = _cycle.State;
-            _cycle.TryEnterCooldown(_config.FireCooldownSeconds);
+            _cycle.TryEnterCooldown(
+                _config.FireCooldownSeconds /
+                GetUpgradeMultiplier(UpgradeEffectKind.AttackRate));
             PublishStateChange(previousState);
+        }
+
+        private float GetUpgradeMultiplier(UpgradeEffectKind effect)
+        {
+            return _upgradeState != null
+                ? _upgradeState.GetMultiplier(PlayerRole.Harness, effect)
+                : 1f;
         }
 
         private void SetSelectedTarget(Collider2D target)

@@ -21,6 +21,12 @@ namespace DeepSleep.Runtime.Players.Movement
         public PlayerActionBlock ActionCategory =>
             PlayerActionBlock.Movement;
 
+        public Vector2 Velocity =>
+            body != null ? body.linearVelocity : Vector2.zero;
+
+        public float MaximumSpeed =>
+            config != null ? config.MaximumSpeed : 0f;
+
         private void Awake()
         {
             if (!TryValidateConfiguration())

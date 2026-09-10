@@ -4,13 +4,15 @@ using DeepSleep.Runtime.Input.Commands;
 using DeepSleep.Runtime.Players.Commands;
 using DeepSleep.Runtime.Players.Actions;
 using DeepSleep.Runtime.Players.Orientation;
+using DeepSleep.Runtime.Players.Identity;
+using DeepSleep.Runtime.Progression.Upgrades;
 using UnityEngine;
 
 namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek
 {
     /// <summary>
     /// DeepSeek 的基础自动饭团火力。
-    /// 有可见目标时瞄准最近目标，否则向角色前方射击。
+    /// 只有存在有效目标时才发射；没有目标时保留立即开火能力。
     /// </summary>
     public sealed class DeepSeekRiceAutoShooter :
         MonoBehaviour,
@@ -22,6 +24,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek
         [SerializeField] private PlayerFacingController2D _facingController;
         [SerializeField]
         private DeepSeekManualTargetController _manualTargetController;
+        [SerializeField] private PlayerUpgradeRuntimeState _upgradeState;
 
         private NearestVisibleTargetFinder2D _targetFinder;
         private float _remainingShotCooldown;
@@ -82,22 +85,33 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek
                     direction,
                     out targetPosition);
 
-            if (foundTarget)
+            if (!foundTarget)
             {
-                Vector2 targetDirection = targetPosition - origin;
+                return;
+            }
 
-                if (targetDirection.sqrMagnitude > 0f)
-                {
-                    direction = targetDirection.normalized;
-                }
+            Vector2 targetDirection = targetPosition - origin;
+
+            if (targetDirection.sqrMagnitude > 0f)
+            {
+                direction = targetDirection.normalized;
             }
 
             _projectilePool.TryRent(
                 origin,
                 direction,
                 gameObject,
+                GetUpgradeMultiplier(UpgradeEffectKind.WeaponDamage),
                 out _);
-            _remainingShotCooldown = _config.ShotIntervalSeconds;
+            _remainingShotCooldown = _config.ShotIntervalSeconds /
+                GetUpgradeMultiplier(UpgradeEffectKind.AttackRate);
+        }
+
+        private float GetUpgradeMultiplier(UpgradeEffectKind effect)
+        {
+            return _upgradeState != null
+                ? _upgradeState.GetMultiplier(PlayerRole.DeepSeek, effect)
+                : 1f;
         }
 
         private bool TryValidateConfiguration(out string reason)

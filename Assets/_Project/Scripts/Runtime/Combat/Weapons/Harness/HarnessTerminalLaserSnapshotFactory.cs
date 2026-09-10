@@ -16,6 +16,8 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
             Vector2 aimDirection,
             CombatPlayfieldConfig playfield,
             HarnessTerminalLaserConfig config,
+            float damageMultiplier,
+            float widthMultiplier,
             out BeamFireSnapshot snapshot,
             out string reason)
         {
@@ -43,7 +45,8 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                 return false;
             }
 
-            if (aimDirection.sqrMagnitude <= 0f)
+            if (aimDirection.sqrMagnitude <= 0f ||
+                damageMultiplier <= 0f || widthMultiplier <= 0f)
             {
                 reason = "瞄准方向不能为空。";
                 return false;
@@ -64,7 +67,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                     normalizedAimDirection,
                     definition.AngleOffsetDegrees);
 
-                if (!playfield.TryGetRayExitDistance(
+                if (!playfield.TryGetRayExitDistanceAfterIntersection(
                         laneOrigin,
                         laneDirection,
                         out float laneLength))
@@ -75,15 +78,16 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                 }
 
                 float primaryDamage =
-                    config.PrimaryTargetDamage *
+                    config.PrimaryTargetDamage * damageMultiplier *
                     definition.DamageMultiplier;
 
                 lanes[index] = new BeamLaneSnapshot(
                     index,
                     laneOrigin,
                     laneDirection,
-                    laneLength,
-                    config.BaseBeamWidth * definition.WidthMultiplier,
+                    laneLength * config.BeamLengthMultiplier,
+                    config.BaseBeamWidth * widthMultiplier *
+                    definition.WidthMultiplier,
                     primaryDamage,
                     primaryDamage * config.PiercingDamageMultiplier);
             }

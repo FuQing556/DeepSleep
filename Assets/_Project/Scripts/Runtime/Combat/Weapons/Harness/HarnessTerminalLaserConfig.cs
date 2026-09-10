@@ -26,6 +26,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
 
         [Header("束线与伤害")]
         [SerializeField, Min(0.01f)] private float _baseBeamWidth;
+        [SerializeField, Min(1f)] private float _beamLengthMultiplier = 1.5f;
         [SerializeField, Min(0.01f)] private float _primaryTargetDamage;
         [SerializeField, Range(0.01f, 1f)]
         private float _piercingDamageMultiplier;
@@ -44,6 +45,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
         public int MaximumTargetCandidates => _maximumTargetCandidates;
         public LayerMask TargetLayers => _targetLayers;
         public float BaseBeamWidth => _baseBeamWidth;
+        public float BeamLengthMultiplier => _beamLengthMultiplier;
         public float PrimaryTargetDamage => _primaryTargetDamage;
         public float PiercingDamageMultiplier =>
             _piercingDamageMultiplier;
@@ -87,11 +89,12 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
             }
 
             if (_baseBeamWidth <= 0f ||
+                _beamLengthMultiplier < 1f ||
                 _primaryTargetDamage <= 0f ||
                 _piercingDamageMultiplier <= 0f ||
                 _piercingDamageMultiplier > 1f)
             {
-                reason = "束宽和伤害必须大于 0，贯穿伤害倍率必须位于 0 到 1 之间。";
+                reason = "束宽和伤害必须大于 0，长度倍率不得小于 1，贯穿伤害倍率必须位于 0 到 1 之间。";
                 return false;
             }
 

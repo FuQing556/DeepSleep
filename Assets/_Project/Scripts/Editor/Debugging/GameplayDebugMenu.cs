@@ -6,6 +6,9 @@ using DeepSleep.Runtime.Combat.Weapons.DeepSeek.Guard;
 using DeepSleep.Runtime.Players.Health;
 using DeepSleep.Runtime.Players.Identity;
 using DeepSleep.Runtime.Players.LifeCycle;
+using DeepSleep.Runtime.Progression.Economy;
+using DeepSleep.Runtime.Progression.Run;
+using DeepSleep.Runtime.World.Nodes;
 using UnityEditor;
 using UnityEngine;
 
@@ -30,6 +33,18 @@ namespace DeepSleep.Editor.Debugging
             "DeepSleep/调试/玩家/展开 DS 米饭护航";
         private const string ConsumeRiceGuardPath =
             "DeepSleep/调试/玩家/让 DS 护航承受一次攻击";
+        private const string EnterRestNodePath =
+            "DeepSleep/调试/节点/进入休息节点";
+        private const string ReturnToCombatPath =
+            "DeepSleep/调试/节点/返回战斗";
+        private const string GrantTokenPath =
+            "DeepSleep/调试/经济/DS 与 HS 各增加 50 Token";
+        private const string CompleteSegmentPath =
+            "DeepSleep/调试/章节/完成任务并结束倒计时";
+        private const string FailSegmentPath =
+            "DeepSleep/调试/章节/任务不足并结束倒计时";
+        private const string CompletePrototypePath =
+            "DeepSleep/调试/章节/直接完成三段原型";
 
         [MenuItem(StopSpawningPath, priority = 0)]
         private static void StopAllSpawning()
@@ -148,6 +163,77 @@ namespace DeepSleep.Editor.Debugging
                 controller);
         }
 
+        [MenuItem(EnterRestNodePath, priority = 40)]
+        private static void EnterRestNode()
+        {
+            RestNodePrototypeController2D controller =
+                Object.FindAnyObjectByType<RestNodePrototypeController2D>(
+                    FindObjectsInactive.Include);
+            bool accepted = controller != null &&
+                controller.BeginNodeTransition();
+            Debug.Log(
+                $"[DeepSleep 调试] 请求进入休息节点：{accepted}。",
+                controller);
+        }
+
+        [MenuItem(ReturnToCombatPath, priority = 41)]
+        private static void ReturnToCombat()
+        {
+            RestNodePrototypeController2D controller =
+                Object.FindAnyObjectByType<RestNodePrototypeController2D>(
+                    FindObjectsInactive.Include);
+            bool accepted = controller != null &&
+                controller.ReturnToCombat();
+            Debug.Log(
+                $"[DeepSleep 调试] 请求返回战斗：{accepted}。",
+                controller);
+        }
+
+        [MenuItem(GrantTokenPath, priority = 50)]
+        private static void GrantToken()
+        {
+            TokenWallet wallet = Object.FindAnyObjectByType<TokenWallet>(
+                FindObjectsInactive.Include);
+            if (wallet == null)
+            {
+                Debug.LogWarning("[DeepSleep 调试] 当前场景没有 Token 钱包。");
+                return;
+            }
+            wallet.CreditRole(PlayerRole.DeepSeek, 50);
+            wallet.CreditRole(PlayerRole.Harness, 50);
+            Debug.Log(
+                $"[DeepSleep 调试] DS Token：{wallet.DeepSeekBalance}，" +
+                $"HS Token：{wallet.HarnessBalance}。",
+                wallet);
+        }
+
+        [MenuItem(CompleteSegmentPath, priority = 60)]
+        private static void CompleteSegment()
+        {
+            ChapterRunController controller =
+                Object.FindAnyObjectByType<ChapterRunController>(
+                    FindObjectsInactive.Include);
+            controller?.CompleteObjectiveAndExpireForDevelopment();
+        }
+
+        [MenuItem(FailSegmentPath, priority = 61)]
+        private static void FailSegment()
+        {
+            ChapterRunController controller =
+                Object.FindAnyObjectByType<ChapterRunController>(
+                    FindObjectsInactive.Include);
+            controller?.FailObjectiveForDevelopment();
+        }
+
+        [MenuItem(CompletePrototypePath, priority = 62)]
+        private static void CompletePrototype()
+        {
+            ChapterRunController controller =
+                Object.FindAnyObjectByType<ChapterRunController>(
+                    FindObjectsInactive.Include);
+            controller?.CompletePrototypeForDevelopment();
+        }
+
         [MenuItem(StopSpawningPath, true)]
         [MenuItem(StartSpawningPath, true)]
         [MenuItem(ClearEnemiesPath, true)]
@@ -155,6 +241,12 @@ namespace DeepSleep.Editor.Debugging
         [MenuItem(DownHarnessPath, true)]
         [MenuItem(ActivateRiceGuardPath, true)]
         [MenuItem(ConsumeRiceGuardPath, true)]
+        [MenuItem(EnterRestNodePath, true)]
+        [MenuItem(ReturnToCombatPath, true)]
+        [MenuItem(GrantTokenPath, true)]
+        [MenuItem(CompleteSegmentPath, true)]
+        [MenuItem(FailSegmentPath, true)]
+        [MenuItem(CompletePrototypePath, true)]
         private static bool ValidatePlayModeCommand()
         {
             return EditorApplication.isPlaying;

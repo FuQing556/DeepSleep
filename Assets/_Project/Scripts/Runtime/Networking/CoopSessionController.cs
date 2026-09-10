@@ -43,6 +43,16 @@ namespace DeepSleep.Runtime.Networking
         public bool GuestReady => _guestReady;
         public bool LocalAi => (IsAuthority ? _hostControl : _guestControl) != SlotControl.Human;
         public SlotControl GuestControl => _guestControl;
+        public SlotControl GetRoleControl(PlayerRole role)
+        {
+            return role == HostRole ? _hostControl : _guestControl;
+        }
+
+        public bool IsRoleDisconnected(PlayerRole role)
+        {
+            return Phase == SessionPhase.Playing &&
+                GetRoleControl(role) == SlotControl.DisconnectedAi;
+        }
         public uint LastGuestCommand => _remote?.LastConsumedSequence ?? 0;
         public void SetDevelopmentInput(ICommandSource source)
         { if (Debug.isDebugBuild) _input = source ?? _input; }
@@ -54,6 +64,7 @@ namespace DeepSleep.Runtime.Networking
         public event Action SessionClosed;
         public event Action PlayingStarted;
         public event Action<byte, BinaryReader> AuthorityMessage;
+        public event Action<byte, BinaryReader> PeerMessage;
         public event Action PeerJoined;
         public event Action<PlayerCommand> LocalCommandSent;
 
@@ -229,8 +240,11 @@ namespace DeepSleep.Runtime.Networking
                 byte kind = r.ReadByte();
                 if (kind >= 32)
                 {
-                    if (!IsAuthority && AuthorityMessage != null)
-                        foreach (Action<byte, BinaryReader> handler in AuthorityMessage.GetInvocationList())
+                    Action<byte, BinaryReader> handlers = IsAuthority
+                        ? PeerMessage
+                        : AuthorityMessage;
+                    if (handlers != null)
+                        foreach (Action<byte, BinaryReader> handler in handlers.GetInvocationList())
                         { stream.Position = 1; handler(kind, r); }
                     return;
                 }
@@ -282,6 +296,17 @@ namespace DeepSleep.Runtime.Networking
             if (!IsAuthority || !_hasPeer || kind < 32) return;
             using var stream = new MemoryStream(); using var w = new BinaryWriter(stream);
             w.Write(kind); write(w); _transport.Send(_peer, stream.ToArray(), reliable);
+        }
+
+        public void SendToAuthority(
+            byte kind,
+            Action<BinaryWriter> write,
+            bool reliable)
+        {
+            if (IsAuthority || !_hasPeer || kind < 32) return;
+            using var stream = new MemoryStream(); using var w = new BinaryWriter(stream);
+            w.Write(kind); write?.Invoke(w);
+            _transport.Send(0, stream.ToArray(), reliable);
         }
     }
 }

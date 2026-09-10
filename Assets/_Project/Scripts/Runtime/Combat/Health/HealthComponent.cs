@@ -108,5 +108,17 @@ namespace DeepSleep.Runtime.Combat.Health
             _currentHealth = MaximumHealth;
             HealthChanged?.Invoke(this);
         }
+
+        public bool RestoreCheckpointHealth(float health)
+        {
+            if (!_isInitialized || health <= 0f)
+            {
+                return false;
+            }
+
+            _currentHealth = Mathf.Clamp(health, 0.01f, MaximumHealth);
+            HealthChanged?.Invoke(this);
+            return true;
+        }
     }
 }

@@ -22,6 +22,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   _baseBeamWidth: 0.28
+  _beamLengthMultiplier: 1.5
   _primaryTargetDamage: 2.5
   _piercingDamageMultiplier: 1
   _baseLanes:

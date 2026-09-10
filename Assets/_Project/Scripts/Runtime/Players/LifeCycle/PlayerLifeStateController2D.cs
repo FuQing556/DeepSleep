@@ -6,6 +6,18 @@ using UnityEngine;
 
 namespace DeepSleep.Runtime.Players.LifeCycle
 {
+    public readonly struct PlayerLifeCheckpoint
+    {
+        public PlayerLifeCheckpoint(Vector2 position, float health)
+        {
+            Position = position;
+            Health = health;
+        }
+
+        public Vector2 Position { get; }
+        public float Health { get; }
+    }
+
     /// <summary>
     /// 将生命耗尽转换为玩家宕机状态，同时保留玩家根对象与稳定身份。
     /// 热重连负责如何离开 Downed，后续通过独立系统接入。
@@ -30,6 +42,10 @@ namespace DeepSleep.Runtime.Players.LifeCycle
 
         public float MaximumHealth => _health != null
             ? _health.MaximumHealth
+            : 0f;
+
+        public float CurrentHealth => _health != null
+            ? _health.CurrentHealth
             : 0f;
 
         private void Awake()
@@ -134,6 +150,74 @@ namespace DeepSleep.Runtime.Players.LifeCycle
             _damageHitbox.enabled = true;
             StateChanged?.Invoke(this, State);
             return true;
+        }
+
+        public void RestoreAtCheckpoint(
+            Vector2 worldPosition,
+            bool restoreToMaximum,
+            float downedReviveFraction,
+            float invulnerabilitySeconds)
+        {
+            if (!_isInitialized)
+            {
+                return;
+            }
+
+            _body.position = worldPosition;
+            transform.position = new Vector3(
+                worldPosition.x,
+                worldPosition.y,
+                transform.position.z);
+            _body.linearVelocity = Vector2.zero;
+            _body.angularVelocity = 0f;
+
+            if (State == PlayerLifeState.Downed)
+            {
+                float health = restoreToMaximum
+                    ? MaximumHealth
+                    : Mathf.Max(1f, MaximumHealth *
+                        Mathf.Clamp01(downedReviveFraction));
+                TryRevive(health, Mathf.Max(0.01f, invulnerabilitySeconds));
+            }
+            else if (restoreToMaximum)
+            {
+                _health.ResetToMaximum();
+                _damageReceiver.ResetDamageGate();
+            }
+        }
+
+        public PlayerLifeCheckpoint CaptureCheckpoint()
+        {
+            return new PlayerLifeCheckpoint(_body.position, CurrentHealth);
+        }
+
+        public void RestoreCheckpoint(
+            in PlayerLifeCheckpoint checkpoint,
+            float invulnerabilitySeconds)
+        {
+            if (!_isInitialized)
+            {
+                return;
+            }
+
+            _body.position = checkpoint.Position;
+            transform.position = new Vector3(
+                checkpoint.Position.x,
+                checkpoint.Position.y,
+                transform.position.z);
+            _body.linearVelocity = Vector2.zero;
+            _body.angularVelocity = 0f;
+
+            float health = Mathf.Max(0.01f, checkpoint.Health);
+            if (State == PlayerLifeState.Downed)
+            {
+                TryRevive(health, Mathf.Max(0.01f, invulnerabilitySeconds));
+            }
+            else
+            {
+                _health.RestoreCheckpointHealth(health);
+                _damageReceiver.ResetDamageGate();
+            }
         }
 
         private void OnHealthDepleted(HealthComponent health)

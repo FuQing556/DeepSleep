@@ -66,11 +66,13 @@ namespace DeepSleep.Runtime.Combat.Projectiles
             Vector2 position,
             Vector2 direction,
             GameObject damageSource,
+            float damageMultiplier,
             out RiceProjectile projectile)
         {
             projectile = null;
 
-            if (!_isInitialized || direction.sqrMagnitude <= 0f)
+            if (!_isInitialized || direction.sqrMagnitude <= 0f ||
+                damageMultiplier <= 0f)
             {
                 return false;
             }
@@ -97,7 +99,7 @@ namespace DeepSleep.Runtime.Combat.Projectiles
                 _config.ProjectileSpeed,
                 _config.ProjectileLifetimeSeconds,
                 _config.ProjectileCollisionLayers,
-                _config.DamagePerProjectile,
+                _config.DamagePerProjectile * damageMultiplier,
                 damageSource);
 
             return true;

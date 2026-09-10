@@ -53,6 +53,40 @@ namespace DeepSleep.Runtime.World.Playfield
                    distance > DirectionEpsilon;
         }
 
+        /// <summary>
+        /// 允许表现节点（例如角色前置炮口）短暂位于逻辑区域外。
+        /// 射线必须实际穿过区域，返回从原始起点到远端边界的距离。
+        /// </summary>
+        public static bool TryGetRayExitDistanceAfterIntersection(
+            Rect bounds,
+            Vector2 origin,
+            Vector2 direction,
+            out float distance)
+        {
+            distance = 0f;
+            if (bounds.width <= 0f || bounds.height <= 0f ||
+                !IsFinite(origin) || !IsFinite(direction) ||
+                direction.sqrMagnitude <= DirectionEpsilon)
+            {
+                return false;
+            }
+
+            Vector2 normalized = direction.normalized;
+            float enter = 0f;
+            float exit = float.PositiveInfinity;
+            if (!ClipAxis(origin.x, normalized.x, bounds.xMin, bounds.xMax,
+                    ref enter, ref exit) ||
+                !ClipAxis(origin.y, normalized.y, bounds.yMin, bounds.yMax,
+                    ref enter, ref exit) ||
+                exit <= DirectionEpsilon || enter > exit)
+            {
+                return false;
+            }
+
+            distance = exit;
+            return !float.IsNaN(distance) && !float.IsInfinity(distance);
+        }
+
         private static float GetAxisExitDistance(
             float origin,
             float direction,
@@ -70,6 +104,32 @@ namespace DeepSleep.Runtime.World.Playfield
             }
 
             return float.PositiveInfinity;
+        }
+
+        private static bool ClipAxis(
+            float origin,
+            float direction,
+            float minimum,
+            float maximum,
+            ref float enter,
+            ref float exit)
+        {
+            if (Mathf.Abs(direction) <= DirectionEpsilon)
+            {
+                return origin >= minimum - DirectionEpsilon &&
+                    origin <= maximum + DirectionEpsilon;
+            }
+
+            float first = (minimum - origin) / direction;
+            float second = (maximum - origin) / direction;
+            if (first > second)
+            {
+                (first, second) = (second, first);
+            }
+
+            enter = Mathf.Max(enter, first);
+            exit = Mathf.Min(exit, second);
+            return enter <= exit;
         }
 
         private static bool IsFinite(Vector2 value)

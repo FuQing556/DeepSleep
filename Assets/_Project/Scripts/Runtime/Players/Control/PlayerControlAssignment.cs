@@ -22,6 +22,8 @@ namespace DeepSleep.Runtime.Players.Control
 
         public PlayerRole CurrentLocalPlayerRole { get; private set; }
 
+        public PlayerActor CurrentLocalPlayerActor { get; private set; }
+
         private void Awake()
         {
             if (!TryValidateConfiguration(out string reason))
@@ -127,6 +129,7 @@ namespace DeepSleep.Runtime.Players.Control
             }
 
             CurrentLocalPlayerRole = localPlayerRole;
+            CurrentLocalPlayerActor = localActor;
             return true;
         }
 

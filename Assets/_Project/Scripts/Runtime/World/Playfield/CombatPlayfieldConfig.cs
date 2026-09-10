@@ -27,6 +27,18 @@ namespace DeepSleep.Runtime.World.Playfield
                 out distance);
         }
 
+        public bool TryGetRayExitDistanceAfterIntersection(
+            Vector2 origin,
+            Vector2 direction,
+            out float distance)
+        {
+            return CombatPlayfieldMath.TryGetRayExitDistanceAfterIntersection(
+                _worldBounds,
+                origin,
+                direction,
+                out distance);
+        }
+
         public bool TryValidate(out string reason)
         {
             if (_worldBounds.width <= 0f ||
