@@ -15,13 +15,19 @@ namespace DeepSleep.Runtime.Combat.Enemies
         [SerializeField] private CombatPlayfieldConfig _playfield;
         [SerializeField] private EnemySpawnMotionConfig _motionConfig;
         [SerializeField] private EnemySpawnScheduleConfig _schedule;
+        [SerializeField] private EnemySpawnChannelDefinition _channel;
         [SerializeField] private bool _autoStart = true;
 
         private System.Random _random;
         private float _remainingSeconds;
         private bool _isRunning;
+        private bool _runtimeEnabled = true;
+        private float _runtimeInitialDelaySeconds;
+        private float _runtimeIntervalMultiplier = 1f;
+        private int _runtimeMaximumAliveCount;
 
         public bool IsRunning => _isRunning;
+        public EnemySpawnChannelDefinition Channel => _channel;
 
         private void Awake()
         {
@@ -35,6 +41,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
             }
 
             _random = new System.Random(_schedule.RandomSeed);
+            ResetRuntimeTuning();
         }
 
         private void Start()
@@ -55,14 +62,15 @@ namespace DeepSleep.Runtime.Combat.Enemies
             _remainingSeconds -= deltaTime;
 
             if (_remainingSeconds > 0f ||
-                _pool.ActiveCount >= _schedule.MaximumAliveCount)
+                _pool.ActiveCount >= _runtimeMaximumAliveCount)
             {
                 return;
             }
 
             if (TrySpawnNow())
             {
-                _remainingSeconds = _schedule.SampleInterval(_random);
+                _remainingSeconds = _schedule.SampleInterval(_random) *
+                    _runtimeIntervalMultiplier;
             }
         }
 
@@ -73,8 +81,8 @@ namespace DeepSleep.Runtime.Combat.Enemies
                 return;
             }
 
-            _isRunning = true;
-            _remainingSeconds = _schedule.InitialDelaySeconds;
+            _isRunning = _runtimeEnabled;
+            _remainingSeconds = _runtimeInitialDelaySeconds;
         }
 
         public void Stop()
@@ -82,10 +90,39 @@ namespace DeepSleep.Runtime.Combat.Enemies
             _isRunning = false;
         }
 
+        public void ApplyRuntimeTuning(
+            bool enabledForSegment,
+            float initialDelaySeconds,
+            float intervalMultiplier,
+            int maximumAliveCount)
+        {
+            _runtimeEnabled = enabledForSegment;
+            _runtimeInitialDelaySeconds = Mathf.Max(0f, initialDelaySeconds);
+            _runtimeIntervalMultiplier = Mathf.Max(0.05f, intervalMultiplier);
+            _runtimeMaximumAliveCount = Mathf.Max(1, maximumAliveCount);
+            if (_runtimeEnabled)
+            {
+                _isRunning = true;
+                _remainingSeconds = _runtimeInitialDelaySeconds;
+            }
+            else
+            {
+                Stop();
+            }
+        }
+
+        private void ResetRuntimeTuning()
+        {
+            _runtimeEnabled = true;
+            _runtimeInitialDelaySeconds = _schedule.InitialDelaySeconds;
+            _runtimeIntervalMultiplier = 1f;
+            _runtimeMaximumAliveCount = _schedule.MaximumAliveCount;
+        }
+
         public bool TrySpawnNow()
         {
             if (_random == null ||
-                _pool.ActiveCount >= _schedule.MaximumAliveCount)
+                _pool.ActiveCount >= _runtimeMaximumAliveCount)
             {
                 return false;
             }
@@ -150,6 +187,12 @@ namespace DeepSleep.Runtime.Combat.Enemies
             if (_schedule == null)
             {
                 reason = "未配置刷怪日程。";
+                return false;
+            }
+
+            if (_channel == null)
+            {
+                reason = "未配置刷怪频道身份。";
                 return false;
             }
 

@@ -21,6 +21,12 @@ namespace DeepSleep.Editor.Setup
             "Assets/_Project/Configs/Progression";
         private const string ConfigPath = ConfigFolder +
             "/CFG_ChapterRun_Prototype.asset";
+        private const string ChannelFolder =
+            "Assets/_Project/Configs/Combat/Enemies/SpawnChannels";
+        private const string WindowChannelPath = ChannelFolder +
+            "/CFG_EN_SpawnChannel_404Window.asset";
+        private const string SnakeChannelPath = ChannelFolder +
+            "/CFG_EN_SpawnChannel_DataCrawlerSnake.asset";
 
         [MenuItem("DeepSleep/设置/装配章节循环与失败检查点")]
         public static void Install()
@@ -51,6 +57,8 @@ namespace DeepSleep.Editor.Setup
                 One<OpeningCharacterSelectionController>());
             SetReference(controller, "_session", One<CoopSessionController>());
             SetReference(controller, "_hud", hud);
+            SetArray(controller, "_spawnDirectors",
+                All<EnemySpawnDirector2D>().ToArray());
             SetArray(controller, "_enemyPools",
                 All<EnemyActorPool2D>().ToArray());
 
@@ -74,15 +82,17 @@ namespace DeepSleep.Editor.Setup
             SetReference(controller, "_deepSeekLife", deepSeek);
             SetReference(controller, "_harnessLife", harness);
 
+            UpgradePrototypeSettlement();
+
             EditorSceneManager.MarkSceneDirty(node.gameObject.scene);
             EditorSceneManager.SaveScene(node.gameObject.scene);
             AssetDatabase.SaveAssets();
             Debug.Log(
-                "[ChapterRun] 已装配 60 秒战斗、10 杀任务、" +
-                "10 秒单人数据丢失、2 秒全队失败与节点检查点回滚。");
+                "[ChapterRun] 已装配三段差异化战斗、" +
+                "失败检查点与原型结算。");
         }
 
-        [MenuItem("DeepSleep/设置/升级三段原型结算页")]
+        [MenuItem("DeepSleep/设置/升级三段差异化原型")]
         public static void UpgradePrototypeSettlement()
         {
             if (Application.isPlaying)
@@ -91,24 +101,171 @@ namespace DeepSleep.Editor.Setup
             }
 
             ChapterRunConfig config = LoadOrCreateConfig();
-            SerializedObject configObject = new SerializedObject(config);
-            configObject.FindProperty("_combatSegmentCount").intValue = 3;
-            configObject.ApplyModifiedPropertiesWithoutUndo();
+            EnemySpawnChannelDefinition windowChannel = LoadOrCreateChannel(
+                WindowChannelPath,
+                "404 漂流窗口");
+            EnemySpawnChannelDefinition snakeChannel = LoadOrCreateChannel(
+                SnakeChannelPath,
+                "数据爬虫机械蛇");
+            ConfigurePrototypeSegments(config, windowChannel, snakeChannel);
+
+            List<EnemySpawnDirector2D> directors = All<EnemySpawnDirector2D>();
+            for (int index = 0; index < directors.Count; index++)
+            {
+                SerializedObject directorObject =
+                    new SerializedObject(directors[index]);
+                SerializedProperty schedule =
+                    directorObject.FindProperty("_schedule");
+                string schedulePath = schedule.objectReferenceValue == null
+                    ? string.Empty
+                    : AssetDatabase.GetAssetPath(schedule.objectReferenceValue);
+                EnemySpawnChannelDefinition channel =
+                    schedulePath.Contains("DataCrawlerSnake")
+                        ? snakeChannel
+                        : schedulePath.Contains("404Window")
+                            ? windowChannel
+                            : null;
+                if (channel == null)
+                {
+                    throw new InvalidOperationException(
+                        $"无法识别刷怪器 {directors[index].name} 的频道。");
+                }
+                directorObject.FindProperty("_channel").objectReferenceValue =
+                    channel;
+                directorObject.ApplyModifiedPropertiesWithoutUndo();
+            }
+
+            ChapterRunController controller = One<ChapterRunController>();
+            SetArray(controller, "_spawnDirectors", directors.ToArray());
 
             ChapterRunHudView hud = One<ChapterRunHudView>();
             Transform existing = FindChild(hud.transform.parent,
                 "ChapterSettlementPanel");
-            if (existing != null)
+            if (existing == null)
             {
-                Undo.DestroyObjectImmediate(existing.gameObject);
+                BuildSettlementPanel(hud, hud.transform.parent as RectTransform);
             }
-
-            BuildSettlementPanel(hud, hud.transform.parent as RectTransform);
             EditorSceneManager.MarkSceneDirty(hud.gameObject.scene);
             EditorSceneManager.SaveScene(hud.gameObject.scene);
             EditorUtility.SetDirty(config);
             AssetDatabase.SaveAssets();
-            Debug.Log("[ChapterRun] 已升级为三段原型闭环并装配结算页。");
+            Debug.Log(
+                "[ChapterRun] 已配置：漂流碎屑 → 爬虫接入 → 数据拥塞。");
+        }
+
+        private static EnemySpawnChannelDefinition LoadOrCreateChannel(
+            string path,
+            string displayName)
+        {
+            EnsureFolder(ChannelFolder);
+            EnemySpawnChannelDefinition channel =
+                AssetDatabase.LoadAssetAtPath<EnemySpawnChannelDefinition>(path);
+            if (channel == null)
+            {
+                channel = ScriptableObject.CreateInstance<
+                    EnemySpawnChannelDefinition>();
+                AssetDatabase.CreateAsset(channel, path);
+            }
+
+            SerializedObject serialized = new SerializedObject(channel);
+            serialized.FindProperty("_displayName").stringValue = displayName;
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+            EditorUtility.SetDirty(channel);
+            return channel;
+        }
+
+        private static void ConfigurePrototypeSegments(
+            ChapterRunConfig config,
+            EnemySpawnChannelDefinition windowChannel,
+            EnemySpawnChannelDefinition snakeChannel)
+        {
+            SerializedObject serialized = new SerializedObject(config);
+            SerializedProperty segments = serialized.FindProperty("_segments");
+            segments.arraySize = 3;
+            ConfigureSegment(
+                segments.GetArrayElementAtIndex(0),
+                "漂流碎屑", 45f, 10,
+                windowChannel, true, 0.8f, 1.15f, 5,
+                snakeChannel, false, 0f, 1f, 1);
+            ConfigureSegment(
+                segments.GetArrayElementAtIndex(1),
+                "爬虫接入", 55f, 12,
+                windowChannel, true, 0.8f, 2.2f, 3,
+                snakeChannel, true, 2.5f, 1f, 3);
+            ConfigureSegment(
+                segments.GetArrayElementAtIndex(2),
+                "数据拥塞", 60f, 16,
+                windowChannel, true, 0.35f, 0.85f, 7,
+                snakeChannel, true, 1.5f, 0.75f, 4);
+            serialized.ApplyModifiedPropertiesWithoutUndo();
+            EditorUtility.SetDirty(config);
+        }
+
+        private static void ConfigureSegment(
+            SerializedProperty segment,
+            string displayName,
+            float duration,
+            int defeats,
+            EnemySpawnChannelDefinition firstChannel,
+            bool firstEnabled,
+            float firstDelay,
+            float firstIntervalMultiplier,
+            int firstMaximumAlive,
+            EnemySpawnChannelDefinition secondChannel,
+            bool secondEnabled,
+            float secondDelay,
+            float secondIntervalMultiplier,
+            int secondMaximumAlive)
+        {
+            segment.FindPropertyRelative("_displayName").stringValue = displayName;
+            segment.FindPropertyRelative("_durationSeconds").floatValue = duration;
+            segment.FindPropertyRelative("_requiredDefeats").intValue = defeats;
+            SerializedProperty rules = segment.FindPropertyRelative("_spawnRules");
+            rules.arraySize = 2;
+            ConfigureRule(
+                rules.GetArrayElementAtIndex(0),
+                firstChannel,
+                firstEnabled,
+                firstDelay,
+                firstIntervalMultiplier,
+                firstMaximumAlive);
+            ConfigureRule(
+                rules.GetArrayElementAtIndex(1),
+                secondChannel,
+                secondEnabled,
+                secondDelay,
+                secondIntervalMultiplier,
+                secondMaximumAlive);
+        }
+
+        private static void ConfigureRule(
+            SerializedProperty rule,
+            EnemySpawnChannelDefinition channel,
+            bool enabled,
+            float delay,
+            float intervalMultiplier,
+            int maximumAlive)
+        {
+            rule.FindPropertyRelative("_channel").objectReferenceValue = channel;
+            rule.FindPropertyRelative("_enabled").boolValue = enabled;
+            rule.FindPropertyRelative("_initialDelaySeconds").floatValue = delay;
+            rule.FindPropertyRelative("_intervalMultiplier").floatValue =
+                intervalMultiplier;
+            rule.FindPropertyRelative("_maximumAliveCount").intValue =
+                maximumAlive;
+        }
+
+        private static void EnsureFolder(string path)
+        {
+            if (AssetDatabase.IsValidFolder(path))
+            {
+                return;
+            }
+
+            string parent = path.Substring(0, path.LastIndexOf('/'));
+            string name = path.Substring(path.LastIndexOf('/') + 1);
+            EnsureFolder(parent);
+            AssetDatabase.CreateFolder(parent, name);
         }
 
         private static ChapterRunConfig LoadOrCreateConfig()
@@ -238,7 +395,7 @@ namespace DeepSleep.Editor.Setup
             buttonLabel.fontSize = 24;
             buttonLabel.alignment = TextAnchor.MiddleCenter;
             buttonLabel.color = Color.white;
-            buttonLabel.text = "返回开局";
+            buttonLabel.text = "返回关卡选择";
             buttonLabel.raycastTarget = false;
 
             SetReference(view, "_settlementPanel", group);

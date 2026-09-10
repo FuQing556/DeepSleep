@@ -4,6 +4,7 @@ using DeepSleep.Runtime.Combat.Enemies;
 using DeepSleep.Runtime.Networking;
 using DeepSleep.Runtime.Players.Identity;
 using DeepSleep.Runtime.Players.LifeCycle;
+using DeepSleep.Runtime.Progression.Meta;
 using DeepSleep.Runtime.Progression.Upgrades;
 using DeepSleep.Runtime.UI.CharacterSelection;
 using DeepSleep.Runtime.World.Nodes;
@@ -46,8 +47,11 @@ namespace DeepSleep.Runtime.Progression.Run
         [SerializeField] private CoopSessionController _session;
         [SerializeField] private PlayerLifeStateController2D _deepSeekLife;
         [SerializeField] private PlayerLifeStateController2D _harnessLife;
+        [SerializeField] private EnemySpawnDirector2D[] _spawnDirectors;
         [SerializeField] private EnemyActorPool2D[] _enemyPools;
         [SerializeField] private ChapterRunHudView _hud;
+        [SerializeField] private LocalPlayerProfileStore _profile;
+        [SerializeField] private MetaLevelDefinition _level;
 
         private float _remainingCombatSeconds;
         private float _deepSeekDownedSeconds;
@@ -61,6 +65,10 @@ namespace DeepSleep.Runtime.Progression.Run
         private int _segmentNumber = 1;
         private bool _hasRestNodeCheckpoint;
         private bool _isInitialized;
+        private bool _metaRewardGranted;
+        private int _awardedVouchers;
+        private bool _wasFirstClear;
+        private string _rewardMessage;
         private PlayerLifeCheckpoint _deepSeekCheckpoint;
         private PlayerLifeCheckpoint _harnessCheckpoint;
 
@@ -71,14 +79,17 @@ namespace DeepSleep.Runtime.Progression.Run
         public int Defeats => _defeats;
         public float RemainingCombatSeconds => _remainingCombatSeconds;
 
+        private ChapterCombatSegmentDefinition CurrentSegment =>
+            _config.GetSegment(_segmentNumber);
+
         public void CompleteObjectiveAndExpireForDevelopment()
         {
             if (!Debug.isDebugBuild || Phase != ChapterRunPhase.Combat)
             {
                 return;
             }
-            _totalDefeats += Mathf.Max(0, _config.RequiredDefeats - _defeats);
-            _defeats = _config.RequiredDefeats;
+            _totalDefeats += Mathf.Max(0, CurrentSegment.RequiredDefeats - _defeats);
+            _defeats = CurrentSegment.RequiredDefeats;
             _remainingCombatSeconds = 0f;
         }
 
@@ -99,7 +110,7 @@ namespace DeepSleep.Runtime.Progression.Run
             {
                 return;
             }
-            _defeats = Mathf.Min(_defeats, _config.RequiredDefeats - 1);
+            _defeats = Mathf.Min(_defeats, CurrentSegment.RequiredDefeats - 1);
             _remainingCombatSeconds = 0f;
         }
 
@@ -117,7 +128,7 @@ namespace DeepSleep.Runtime.Progression.Run
             }
 
             _isInitialized = true;
-            _remainingCombatSeconds = _config.CombatDurationSeconds;
+            _remainingCombatSeconds = _config.GetSegment(1).DurationSeconds;
             Render();
         }
 
@@ -229,7 +240,7 @@ namespace DeepSleep.Runtime.Progression.Run
                 return;
             }
 
-            if (_defeats < _config.RequiredDefeats)
+            if (_defeats < CurrentSegment.RequiredDefeats)
             {
                 BeginDefeat(ChapterFailureReason.ObjectiveIncomplete);
             }
@@ -375,9 +386,10 @@ namespace DeepSleep.Runtime.Progression.Run
 
         private void StartCombatSegment()
         {
+            ApplyCurrentSegmentTuning();
             Phase = ChapterRunPhase.Combat;
             FailureReason = ChapterFailureReason.None;
-            _remainingCombatSeconds = _config.CombatDurationSeconds;
+            _remainingCombatSeconds = CurrentSegment.DurationSeconds;
             _defeats = 0;
             _deepSeekDownedSeconds = 0f;
             _harnessDownedSeconds = 0f;
@@ -386,11 +398,38 @@ namespace DeepSleep.Runtime.Progression.Run
             BroadcastState();
         }
 
+        private void ApplyCurrentSegmentTuning()
+        {
+            ChapterCombatSegmentDefinition segment = CurrentSegment;
+            for (int index = 0; index < _spawnDirectors.Length; index++)
+            {
+                EnemySpawnDirector2D director = _spawnDirectors[index];
+                if (director == null)
+                {
+                    continue;
+                }
+
+                if (segment.TryGetRule(director.Channel, out SegmentSpawnRule rule))
+                {
+                    director.ApplyRuntimeTuning(
+                        rule.Enabled,
+                        rule.InitialDelaySeconds,
+                        rule.IntervalMultiplier,
+                        rule.MaximumAliveCount);
+                }
+                else
+                {
+                    director.Stop();
+                }
+            }
+        }
+
         private void CompleteChapter()
         {
             Phase = ChapterRunPhase.Complete;
             FailureReason = ChapterFailureReason.None;
             _upgradeController.SettleFinalBattle();
+            GrantMetaRewardOnce();
             _restNode.SuspendCombatForSettlement();
             Time.timeScale = 0f;
             BroadcastState();
@@ -404,7 +443,23 @@ namespace DeepSleep.Runtime.Progression.Run
             }
 
             Time.timeScale = 1f;
+            OpeningFrontEnd.ReturnToLevelSelectionAfterReload();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        private void GrantMetaRewardOnce()
+        {
+            if (_metaRewardGranted) return;
+
+            _metaRewardGranted = true;
+            if (!_profile.TryAwardCompletion(
+                    _level,
+                    out _awardedVouchers,
+                    out _wasFirstClear,
+                    out _rewardMessage))
+            {
+                _awardedVouchers = 0;
+            }
         }
 
         private void CapturePlayerCheckpoint()
@@ -473,7 +528,12 @@ namespace DeepSleep.Runtime.Progression.Run
             return "原型演练完成\n\n" +
                 $"战斗段  {_config.CombatSegmentCount}/{_config.CombatSegmentCount}\n" +
                 $"累计击败  {_totalDefeats}\n" +
-                $"战斗用时  {minutes:00}:{seconds:00}";
+                $"战斗用时  {minutes:00}:{seconds:00}\n\n" +
+                (_awardedVouchers > 0
+                    ? $"{(_wasFirstClear ? "首次" : "重复")}通关：" +
+                      $"鲸元券 +{_awardedVouchers}\n" +
+                      $"当前持有  {_profile.WhaleVoucherBalance}"
+                    : _rewardMessage);
         }
 
         private string BuildHudText()
@@ -489,7 +549,8 @@ namespace DeepSleep.Runtime.Progression.Run
 
             string text = $"第 {_segmentNumber} 段  " +
                 $"剩余 {Mathf.CeilToInt(_remainingCombatSeconds)} 秒  " +
-                $"击败 {_defeats}/{_config.RequiredDefeats}";
+                $"{CurrentSegment.DisplayName}  " +
+                $"击败 {_defeats}/{CurrentSegment.RequiredDefeats}";
             if (_teamDownedSeconds > 0f)
                 text += $"\n全队宕机：{Remaining(_config.TeamDownedTimeoutSeconds, _teamDownedSeconds):0.0}s";
             else if (_deepSeekDownedSeconds > 0f)
@@ -545,6 +606,7 @@ namespace DeepSleep.Runtime.Progression.Run
                 return;
             }
             ChapterRunPhase previousPhase = Phase;
+            int previousSegment = _segmentNumber;
             Phase = (ChapterRunPhase)reader.ReadByte();
             FailureReason = (ChapterFailureReason)reader.ReadByte();
             _segmentNumber = reader.ReadInt32();
@@ -555,9 +617,16 @@ namespace DeepSleep.Runtime.Progression.Run
             _teamDownedSeconds = reader.ReadSingle();
             _totalDefeats = reader.ReadInt32();
             _totalCombatSeconds = reader.ReadSingle();
+            if (Phase == ChapterRunPhase.Combat &&
+                (previousPhase != ChapterRunPhase.Combat ||
+                 previousSegment != _segmentNumber))
+            {
+                ApplyCurrentSegmentTuning();
+            }
             if (previousPhase != ChapterRunPhase.Complete &&
                 Phase == ChapterRunPhase.Complete)
             {
+                GrantMetaRewardOnce();
                 _restNode.SuspendCombatForSettlement();
                 Time.timeScale = 0f;
             }
@@ -579,10 +648,63 @@ namespace DeepSleep.Runtime.Progression.Run
             if (_restNode == null || _upgradeController == null ||
                 _selection == null || _deepSeekLife == null ||
                 _harnessLife == null || _hud == null ||
+                _profile == null || _level == null ||
+                _spawnDirectors == null || _spawnDirectors.Length == 0 ||
                 _enemyPools == null || _enemyPools.Length == 0)
             {
-                reason = "节点、强化、选角、两名玩家、敌人池和 HUD 必须完整配置。";
+                reason = "节点、强化、选角、两名玩家、刷怪器、敌人池和 HUD 必须完整配置。";
                 return false;
+            }
+            if (!_level.TryValidate(out reason))
+            {
+                reason = "局外关卡配置无效：" + reason;
+                return false;
+            }
+            for (int index = 0; index < _spawnDirectors.Length; index++)
+            {
+                EnemySpawnDirector2D director = _spawnDirectors[index];
+                if (director == null || director.Channel == null)
+                {
+                    reason = $"第 {index + 1} 个刷怪器或其频道为空。";
+                    return false;
+                }
+                for (int other = 0; other < index; other++)
+                {
+                    if (_spawnDirectors[other].Channel == director.Channel)
+                    {
+                        reason = $"刷怪频道 {director.Channel.DisplayName} 被多个刷怪器重复使用。";
+                        return false;
+                    }
+                }
+            }
+            for (int segmentIndex = 1;
+                 segmentIndex <= _config.CombatSegmentCount;
+                 segmentIndex++)
+            {
+                SegmentSpawnRule[] rules =
+                    _config.GetSegment(segmentIndex).SpawnRules;
+                for (int ruleIndex = 0; ruleIndex < rules.Length; ruleIndex++)
+                {
+                    if (!rules[ruleIndex].Enabled)
+                    {
+                        continue;
+                    }
+
+                    bool found = false;
+                    for (int directorIndex = 0;
+                         directorIndex < _spawnDirectors.Length;
+                         directorIndex++)
+                    {
+                        found |= _spawnDirectors[directorIndex].Channel ==
+                            rules[ruleIndex].Channel;
+                    }
+                    if (!found)
+                    {
+                        reason = $"第 {segmentIndex} 段启用了没有场景刷怪器的频道 " +
+                            $"{rules[ruleIndex].Channel.DisplayName}。";
+                        return false;
+                    }
+                }
             }
             reason = string.Empty;
             return true;

@@ -12,9 +12,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ee4d1544306a147a7c662d44648ddd, type: 3}
   m_Name: CFG_ChapterRun_Prototype
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Run.ChapterRunConfig
-  _combatDurationSeconds: 60
-  _requiredDefeats: 10
-  _combatSegmentCount: 3
+  _segments:
+  - _displayName: "\u6F02\u6D41\u788E\u5C51"
+    _durationSeconds: 45
+    _requiredDefeats: 10
+    _spawnRules:
+    - _channel: {fileID: 11400000, guid: a815017bee6cbbd4087e12e8b402ef6d, type: 2}
+      _enabled: 1
+      _initialDelaySeconds: 0.8
+      _intervalMultiplier: 1.15
+      _maximumAliveCount: 5
+    - _channel: {fileID: 11400000, guid: 25500160a77fbed47ae3a9f44bd4833c, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 0
+      _intervalMultiplier: 1
+      _maximumAliveCount: 1
+  - _displayName: "\u722C\u866B\u63A5\u5165"
+    _durationSeconds: 55
+    _requiredDefeats: 12
+    _spawnRules:
+    - _channel: {fileID: 11400000, guid: a815017bee6cbbd4087e12e8b402ef6d, type: 2}
+      _enabled: 1
+      _initialDelaySeconds: 0.8
+      _intervalMultiplier: 2.2
+      _maximumAliveCount: 3
+    - _channel: {fileID: 11400000, guid: 25500160a77fbed47ae3a9f44bd4833c, type: 2}
+      _enabled: 1
+      _initialDelaySeconds: 2.5
+      _intervalMultiplier: 1
+      _maximumAliveCount: 3
+  - _displayName: "\u6570\u636E\u62E5\u585E"
+    _durationSeconds: 60
+    _requiredDefeats: 16
+    _spawnRules:
+    - _channel: {fileID: 11400000, guid: a815017bee6cbbd4087e12e8b402ef6d, type: 2}
+      _enabled: 1
+      _initialDelaySeconds: 0.35
+      _intervalMultiplier: 0.85
+      _maximumAliveCount: 7
+    - _channel: {fileID: 11400000, guid: 25500160a77fbed47ae3a9f44bd4833c, type: 2}
+      _enabled: 1
+      _initialDelaySeconds: 1.5
+      _intervalMultiplier: 0.75
+      _maximumAliveCount: 4
   _singleDownedTimeoutSeconds: 10
   _teamDownedTimeoutSeconds: 2
   _defeatPresentationSeconds: 2
