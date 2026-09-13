@@ -1,4 +1,5 @@
 using DeepSleep.Runtime.Combat.Damage;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace DeepSleep.Runtime.Combat.Projectiles
@@ -17,6 +18,12 @@ namespace DeepSleep.Runtime.Combat.Projectiles
         private float _damageAmount;
         private float _remainingLifetimeSeconds;
         private bool _isRented;
+        private bool _impactConsumed;
+        private float _splashRadius;
+        private float _splashDamageRatio;
+        private LayerMask _splashLayers;
+        private readonly List<Collider2D> _splashCandidates = new(32);
+        private readonly HashSet<IDamageReceiver> _splashReceivers = new();
 
         public bool IsRented => _isRented;
         public uint SpawnGeneration { get; private set; }
@@ -50,12 +57,14 @@ namespace DeepSleep.Runtime.Combat.Projectiles
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!_isRented ||
+            if (!_isRented || _impactConsumed ||
                 (_collisionLayers.value & (1 << other.gameObject.layer)) == 0)
             {
                 return;
             }
 
+            _impactConsumed = true;
+            _bodyCollider.enabled = false;
             ApplyDamageIfPossible(other);
             ReleaseToPool();
         }
@@ -82,7 +91,10 @@ namespace DeepSleep.Runtime.Combat.Projectiles
             float lifetimeSeconds,
             LayerMask collisionLayers,
             float damageAmount,
-            GameObject damageSource)
+            GameObject damageSource,
+            float splashRadius,
+            float splashDamageRatio,
+            LayerMask splashLayers)
         {
             _ownerPool = ownerPool;
             _collisionLayers = collisionLayers;
@@ -90,6 +102,10 @@ namespace DeepSleep.Runtime.Combat.Projectiles
             _damageAmount = damageAmount;
             _damageSource = damageSource;
             _isRented = true;
+            _impactConsumed = false;
+            _splashRadius = splashRadius;
+            _splashDamageRatio = splashDamageRatio;
+            _splashLayers = splashLayers;
             SpawnGeneration++;
 
             float rotationDegrees = Mathf.Atan2(
@@ -110,6 +126,9 @@ namespace DeepSleep.Runtime.Combat.Projectiles
 
         internal void OnReturn()
         {
+            _splashRadius = 0f;
+            _splashCandidates.Clear();
+            _splashReceivers.Clear();
             _isRented = false;
             _remainingLifetimeSeconds = 0f;
             _collisionLayers = default;
@@ -149,17 +168,48 @@ namespace DeepSleep.Runtime.Combat.Projectiles
                 direction,
                 _damageSource);
 
+            // 在直击可能令敌人回池前冻结爆心及候选，按接收者去重。
+            _splashReceivers.Clear();
+            if (hitbox.TryGetReceiver(out var directReceiver))
+                _splashReceivers.Add(directReceiver);
+            if (_splashRadius > 0f)
+                Physics2D.OverlapCircle(hitPoint, _splashRadius,
+                    new ContactFilter2D { useLayerMask = true, layerMask = _splashLayers, useTriggers = true },
+                    _splashCandidates);
+
             if (!hitbox.TryReceiveDamage(in damage))
             {
                 return;
             }
+
+            hitbox.ApplyHitMotion(HitMotionKind.DeepSeekSlow);
 
             _ownerPool?.NotifyHitConfirmed(
                 new RiceProjectileHitConfirmed(
                     hitbox,
                     hitPoint,
                     direction,
-                    _damageAmount));
+                    damage.Amount));
+
+            if (_splashRadius <= 0f) return;
+            _ownerPool?.NotifySplash(hitPoint, direction);
+            foreach (var candidate in _splashCandidates)
+            {
+                if (candidate == null || !candidate.TryGetComponent(out DamageHitbox2D splashHit) ||
+                    !splashHit.CanReceiveDamage || !splashHit.TryGetReceiver(out var receiver) ||
+                    !_splashReceivers.Add(receiver)) continue;
+                Vector2 point = candidate.ClosestPoint(hitPoint);
+                Vector2 outward = (Vector2)candidate.bounds.center - hitPoint;
+                if (outward.sqrMagnitude < 0.0001f) outward = direction;
+                var splashDamage = new DamagePacket(_damageAmount * _splashDamageRatio,
+                    point, outward.normalized, _damageSource);
+                if (splashHit.TryReceiveDamage(in splashDamage))
+                {
+                    splashHit.ApplyHitMotion(HitMotionKind.DeepSeekSlow);
+                    _ownerPool?.NotifyHitConfirmed(new RiceProjectileHitConfirmed(
+                        splashHit, point, outward.normalized, splashDamage.Amount));
+                }
+            }
         }
     }
 }

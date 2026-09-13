@@ -39,6 +39,15 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
         private uint _nextFireSequence;
         private bool _isInitialized;
         private bool _inputSuppressed;
+        private int _burstRemaining;
+        private float _burstWait;
+        private bool _burstActive;
+        private int _burstPorts, _burstChain;
+        private float _burstDamageMultiplier, _burstWidthMultiplier;
+        public HarnessTerminalLaserConfig Config => _config;
+        public PlayerUpgradeRuntimeState Upgrades => _upgradeState;
+        public int AdditionalPorts => Mathf.FloorToInt(GetUpgradeBonus(UpgradeEffectKind.ProjectileCount));
+        public int ChainLevel => Mathf.Clamp(Mathf.FloorToInt(GetUpgradeBonus(UpgradeEffectKind.ChainLevel)), 0, 2);
 
         public void SetInputSuppressed(bool suppressed)
         {
@@ -50,7 +59,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
             PlayerActionBlock.ActiveCombat;
 
         public bool BlocksReviveStart =>
-            State == HarnessTerminalLaserState.Calibrating;
+            State == HarnessTerminalLaserState.Calibrating || _burstActive;
 
         public event Action<HarnessTerminalLaserFireRequest> FireRequested;
         public event Action<HarnessTerminalLaserState> StateChanged;
@@ -116,7 +125,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
         /// </summary>
         public bool TrySelectTarget(Collider2D target)
         {
-            if (!_isInitialized || _inputSuppressed || !IsSelectableDamageTarget(target))
+            if (!_isInitialized || _inputSuppressed || _burstActive || !IsSelectableDamageTarget(target))
             {
                 return false;
             }
@@ -142,8 +151,13 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                 return;
             }
 
+            bool wasBurst = _burstActive;
+            _burstActive = false;
+            _burstRemaining = 0;
+            _burstWait = 0f;
             ClearSelectedTarget();
             HarnessTerminalLaserState previousState = _cycle.State;
+            if (wasBurst) _cycle.TryEnterCooldown(_config.FireCooldownSeconds);
             _cycle.TryCancelCalibration();
             PublishStateChange(previousState);
         }
@@ -199,6 +213,12 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
         private void AdvanceCycle(float deltaTime)
         {
             UpdateTrackedAimPoint();
+            if (_burstActive)
+            {
+                _burstWait -= deltaTime;
+                if (_burstWait <= 0f) TryRequestFire();
+                return;
+            }
             HarnessTerminalLaserState previousState = _cycle.State;
             _cycle.Advance(deltaTime);
             PublishStateChange(previousState);
@@ -231,6 +251,15 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
 
         private void TryRequestFire()
         {
+            if (!_burstActive)
+            {
+                _burstActive = true;
+                _burstRemaining = 1 + Mathf.FloorToInt(GetUpgradeBonus(UpgradeEffectKind.BurstCount));
+                _burstPorts = AdditionalPorts;
+                _burstChain = ChainLevel;
+                _burstDamageMultiplier = (_config.PrimaryTargetDamage + GetUpgradeBonus(UpgradeEffectKind.WeaponDamage)) / _config.PrimaryTargetDamage;
+                _burstWidthMultiplier = GetUpgradeMultiplier(UpgradeEffectKind.BeamWidth);
+            }
             Vector2 sourceOrigin = _beamOrigin.position;
             Vector2 targetPosition = _lastKnownTargetPosition;
             Vector2 aimDirection = targetPosition - sourceOrigin;
@@ -242,10 +271,10 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                     aimDirection,
                     _playfield,
                     _config,
-                    GetUpgradeMultiplier(UpgradeEffectKind.WeaponDamage),
-                    GetUpgradeMultiplier(UpgradeEffectKind.BeamWidth),
+                    _burstDamageMultiplier,
+                    _burstWidthMultiplier,
                     out var snapshot,
-                    out string reason))
+                    out string reason, _burstPorts, targetPosition, _burstChain + 1))
             {
                 Debug.LogError(
                     $"[{nameof(HarnessTerminalLaserController)}] " +
@@ -255,6 +284,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                 return;
             }
 
+            snapshot = HarnessLaserChainBuilder.Expand(snapshot, _burstChain, _config);
             var request = new HarnessTerminalLaserFireRequest(
                 gameObject,
                 _selectedTargetHitbox,
@@ -267,6 +297,18 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
             }
 
             FireRequested?.Invoke(request);
+            _burstRemaining--;
+            if (_burstRemaining > 0)
+            {
+                _burstWait += _config.BurstInterval;
+                if (_selectedTargetHitbox == null && _targetFinder.TryFindNearPoint(
+                        targetPosition, sourceOrigin, _config.MaximumLockDistance, _config.MaximumLockDistance,
+                        _targetEligibility, out Collider2D replacement))
+                    SetSelectedTarget(replacement);
+                return;
+            }
+            _burstActive = false;
+            _burstWait = 0f;
             ClearSelectedTarget();
 
             HarnessTerminalLaserState previousState = _cycle.State;
@@ -282,6 +324,8 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                 ? _upgradeState.GetMultiplier(PlayerRole.Harness, effect)
                 : 1f;
         }
+        private float GetUpgradeBonus(UpgradeEffectKind effect) => _upgradeState != null
+            ? _upgradeState.GetAdditiveValue(PlayerRole.Harness, effect) : 0f;
 
         private void SetSelectedTarget(Collider2D target)
         {
@@ -389,6 +433,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
 
         private void OnDisable()
         {
+            _burstActive = false; _burstRemaining = 0; _burstWait = 0f;
             if (!_isInitialized)
             {
                 return;

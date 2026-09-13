@@ -68,3 +68,4 @@ MonoBehaviour:
   - {x: 0.02, y: -0.28}
   - {x: 0.21, y: -0.12}
   - {x: 0.27, y: 0.16}
+  EchoAngleStep: 6

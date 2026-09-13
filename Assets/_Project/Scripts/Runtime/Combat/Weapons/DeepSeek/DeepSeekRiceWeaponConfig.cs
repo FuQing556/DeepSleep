@@ -16,6 +16,15 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek
         [SerializeField, Min(0.01f)] private float _projectileSpeed;
         [SerializeField, Min(0.01f)] private float _projectileLifetimeSeconds;
         [SerializeField, Min(0.01f)] private float _damagePerProjectile;
+        [SerializeField, Range(0f, 180f)] private float _fanDegrees = 60f;
+        [SerializeField, Range(0f, 30f)] private float _correctionDegrees = 8f;
+        public float FanDegrees => _fanDegrees;
+        public float CorrectionDegrees => _correctionDegrees;
+        [Header("溅射（需强化解锁）")]
+        [SerializeField, Min(0.01f)] private float _splashRadius = 1.2f;
+        [SerializeField, Range(0.01f, 1f)] private float _splashDamageRatio = 0.5f;
+        public float SplashRadius => _splashRadius;
+        public float SplashDamageRatio => _splashDamageRatio;
 
         [Header("索敌")]
         [SerializeField, Min(0.01f)] private float _targetSearchRadius;
@@ -47,6 +56,10 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek
 
         public bool TryValidate(out string reason)
         {
+            if (_splashRadius <= 0f || _splashDamageRatio <= 0f || _splashDamageRatio > 1f)
+            { reason = "溅射半径和伤害比例无效。"; return false; }
+            if (_fanDegrees < 0f || _fanDegrees > 180f || _correctionDegrees < 0f || _correctionDegrees > 30f)
+            { reason = "扇形角度或弹道校准角度无效。"; return false; }
             if (_shotsPerSecond <= 0f)
             {
                 reason = "每秒发射数必须大于 0。";

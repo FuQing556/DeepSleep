@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\Assets\\_Project\\Art\\UI\\DamageNumbers\\Harness\\SPR_HS_DamageDigit_6_v01.png",
+  "source_sha256": "fedccb1683e7e5276b1f636f3a080deb8ed72f49a798cba50ee7b3a092b2e791",
+  "mode": "RGBA",
+  "size": [
+    293,
+    360
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 56030,
+  "partial_alpha_pixels": 8208,
+  "opaque_pixels": 41242,
+  "visible_bbox_alpha_gt_0": [
+    4,
+    28,
+    289,
+    338
+  ],
+  "visible_bbox_alpha_gt_8": [
+    4,
+    29,
+    289,
+    338
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

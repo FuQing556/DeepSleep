@@ -12,6 +12,9 @@ namespace DeepSleep.Runtime.Progression.Run
         [SerializeField, Min(0f)] private float _initialDelaySeconds = 0.8f;
         [SerializeField, Min(0.05f)] private float _intervalMultiplier = 1f;
         [SerializeField, Min(1)] private int _maximumAliveCount = 6;
+        [SerializeField, Min(0), Tooltip("0沿用敌人基础生命；正数为本段出生生命。")]
+        private int _spawnHealth;
+        public int SpawnHealth => _spawnHealth;
 
         public EnemySpawnChannelDefinition Channel => _channel;
         public bool Enabled => _enabled;

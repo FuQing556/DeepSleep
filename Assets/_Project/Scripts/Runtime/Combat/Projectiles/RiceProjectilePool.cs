@@ -21,6 +21,8 @@ namespace DeepSleep.Runtime.Combat.Projectiles
         private bool _hasReportedExhaustion;
 
         public event Action<RiceProjectileHitConfirmed> HitConfirmed;
+        public event Action<Vector2, Vector2> SplashConfirmed;
+        internal void NotifySplash(Vector2 point, Vector2 direction) => SplashConfirmed?.Invoke(point, direction);
 
         public int TotalCount => _allProjectiles.Count;
         public int AvailableCount => _available.Count;
@@ -67,7 +69,8 @@ namespace DeepSleep.Runtime.Combat.Projectiles
             Vector2 direction,
             GameObject damageSource,
             float damageMultiplier,
-            out RiceProjectile projectile)
+            out RiceProjectile projectile,
+            bool splashEnabled = false)
         {
             projectile = null;
 
@@ -100,7 +103,10 @@ namespace DeepSleep.Runtime.Combat.Projectiles
                 _config.ProjectileLifetimeSeconds,
                 _config.ProjectileCollisionLayers,
                 _config.DamagePerProjectile * damageMultiplier,
-                damageSource);
+                damageSource,
+                splashEnabled ? _config.SplashRadius : 0f,
+                _config.SplashDamageRatio,
+                _config.TargetLayers);
 
             return true;
         }

@@ -113,8 +113,8 @@ namespace DeepSleep.Editor.Networking
             var manager = root.AddComponent<NetworkManager>(); var transport = root.AddComponent<UnityTransport>();
             var adapter = root.AddComponent<NgoTransportAdapter>(); var session = root.AddComponent<CoopSessionController>();
             var config = ScriptableObject.CreateInstance<NetworkTuningConfig>();
-            config.Port = 7777; config.ProtocolVersion = 1; config.ClientVersion = "0.1.0";
-            config.ContentVersion = "20260909-network-1"; config.SnapshotRate = 20;
+            config.Port = 7777; config.ProtocolVersion = 2; config.ClientVersion = "0.1.0";
+            config.ContentVersion = "20260913-combat-upgrades-2"; config.SnapshotRate = 20;
             config.InputTimeout = 0.35f; config.ConnectionTimeout = 12;
             config.MaximumQueuedCommands = 32; config.MaximumMessageBytes = 16384; config.RemoteInterpolationSpeed = 20;
             EnsureFolder("Assets/_Project/Configs/Networking");

@@ -23,13 +23,20 @@ MonoBehaviour:
     m_Bits: 256
   _baseBeamWidth: 0.28
   _beamLengthMultiplier: 1.5
-  _primaryTargetDamage: 2.5
+  _primaryTargetDamage: 3
   _piercingDamageMultiplier: 1
   _baseLanes:
   - _angleOffsetDegrees: 0
     _lateralOffset: 0
     _widthMultiplier: 1
     _damageMultiplier: 1
+  _portSpacing: 0.75
+  _burstInterval: 0.18
+  _chainRadii:
+  - 2.5
+  - 2
+  _chainDamageRatio: 0.5
+  _maximumChainBeams: 128
   _budgetRefundPerHit: 0
   _budgetRefundOnPrimaryKill: 0
   _maximumBudgetRefundPerShot: 0

@@ -29,6 +29,12 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
         [Range(0, 1)] public float GhostAlpha = 0.4f;
         [Min(0.01f)] public float GhostSeconds = 0.16f;
         [Min(0.01f)] public float WaveFadeSeconds = 0.35f;
+        [Min(.01f)] public float BaseRangeScale = 1.15f;
+        [Min(0f)] public float RangePerChainRank = .15f;
+        [Min(0f)] public float SpeedPerBurstRank = .15f;
+        [Min(.01f)] public float EchoInterval = .10f;
+        [Range(0f, 1f)] public float EchoDamageRatio = .5f;
+        [Min(0f)] public float EchoOffsetSwordFraction = .12f;
 
         public bool IsValid => IdlePose != null && RangedPose != null && SwordSprite != null &&
             Attacks != null && Attacks.Length == 3 &&

@@ -25,6 +25,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
         private float _runtimeInitialDelaySeconds;
         private float _runtimeIntervalMultiplier = 1f;
         private int _runtimeMaximumAliveCount;
+        private int _runtimeSpawnHealth;
 
         public bool IsRunning => _isRunning;
         public EnemySpawnChannelDefinition Channel => _channel;
@@ -94,9 +95,10 @@ namespace DeepSleep.Runtime.Combat.Enemies
             bool enabledForSegment,
             float initialDelaySeconds,
             float intervalMultiplier,
-            int maximumAliveCount)
+            int maximumAliveCount, int spawnHealth = 0)
         {
             _runtimeEnabled = enabledForSegment;
+            _runtimeSpawnHealth = Mathf.Max(0, spawnHealth);
             _runtimeInitialDelaySeconds = Mathf.Max(0f, initialDelaySeconds);
             _runtimeIntervalMultiplier = Mathf.Max(0.05f, intervalMultiplier);
             _runtimeMaximumAliveCount = Mathf.Max(1, maximumAliveCount);
@@ -140,10 +142,19 @@ namespace DeepSleep.Runtime.Combat.Enemies
             EnemySpawnVariation2D variation =
                 _motionConfig.SampleVariation(_random, Vector2.left);
 
-            return _pool.TryRent(
+            bool spawned = _pool.TryRent(
                 spawnPosition,
                 in variation,
-                out _);
+                out var actor);
+            if (spawned)
+            {
+                // 池化重生先还原上一段的运行期加值，再应用本段数值。
+                actor.Health.SetMaximumHealthBonus(0f);
+                if (_runtimeSpawnHealth > 0)
+                    actor.Health.SetMaximumHealthBonus(Mathf.Max(0, _runtimeSpawnHealth - actor.Health.MaximumHealth));
+                actor.Health.ResetToMaximum();
+            }
+            return spawned;
         }
 
         public bool TryValidateConfiguration(out string reason)

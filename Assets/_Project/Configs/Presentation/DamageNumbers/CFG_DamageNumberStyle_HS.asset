@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b3e67be398349d499198d47c5c795a5, type: 3}
+  m_Name: CFG_DamageNumberStyle_HS
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Presentation.DamageNumbers.DamageNumberStyleConfig
+  _digits:
+  - {fileID: 21300000, guid: 476dfd01a48622545b08f678bfcb67cf, type: 3}
+  - {fileID: 21300000, guid: b66b494847051d14b82dafc0d7c9ec5a, type: 3}
+  - {fileID: 21300000, guid: eac067fea5a94a8498a27e698e240aae, type: 3}
+  - {fileID: 21300000, guid: 45d1effb2f4248d4ba90fe8de678af28, type: 3}
+  - {fileID: 21300000, guid: 6f08e2b403ebb2e4f9916a2db82b5ed9, type: 3}
+  - {fileID: 21300000, guid: 21ff4de8bbc180e4fa287a887be5157f, type: 3}
+  - {fileID: 21300000, guid: b1feb7940b1f8aa448d2ea216dec86d8, type: 3}
+  - {fileID: 21300000, guid: 87d9dd32efeb99b4398996664add14fb, type: 3}
+  - {fileID: 21300000, guid: 9f5995a92e252ce4eaf1ab243e3e75e1, type: 3}
+  - {fileID: 21300000, guid: 96011fbac348e2c4d9653ab5a391f22c, type: 3}
+  _decimalPoint: {fileID: 21300000, guid: 58484b2c6164a4746825ece9f4b55c2f, type: 3}
+  _glyphHeightPixels: 71
+  _glyphSpacingPixels: -12
+  _visualScale: 1.1
+  _displayScale: 1.1
+  _decimalScale: 2
+  _decimalSpacingPixels: 0
+  _decimalBaselineFromTop01: 0.8590909
+  _durationSeconds: 0.68
+  _fadeStart01: 0.44
+  _screenOffset: {x: 0, y: 24}
+  _horizontalScatterPixels: 9
+  _risePixels: 58
+  _rotationRangeDegrees: {x: -4, y: 4}
+  _startScale: 0.72
+  _peakScale: 1.12
+  _endScale: 0.94
+  _peakTime01: 0.15

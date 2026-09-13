@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\Assets\\_Project\\Art\\UI\\DamageNumbers\\DeepSeek\\SPR_DS_DamageDigit_8_v01.png",
+  "source_sha256": "cd68a31e9eef9042178d8d50d43ef3b9ea433341d7c114b5d0f958a87b83e6b1",
+  "mode": "RGBA",
+  "size": [
+    354,
+    440
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 94122,
+  "partial_alpha_pixels": 5257,
+  "opaque_pixels": 56381,
+  "visible_bbox_alpha_gt_0": [
+    4,
+    90,
+    350,
+    418
+  ],
+  "visible_bbox_alpha_gt_8": [
+    4,
+    90,
+    350,
+    418
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

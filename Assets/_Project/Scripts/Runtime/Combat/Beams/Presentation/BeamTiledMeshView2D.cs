@@ -19,6 +19,22 @@ namespace DeepSleep.Runtime.Combat.Beams.Presentation
         [Header("排序来源")]
         [SerializeField] private Renderer _sortingReferenceRenderer;
         [SerializeField] private int _orderOffset;
+        [SerializeField] private BeamTiledMeshView2D[] _additionalLayers = new BeamTiledMeshView2D[0];
+        [SerializeField, Min(0.01f)] private float _secondLayerWidth = 1.15f;
+        [SerializeField, Min(0.01f)] private float _thirdLayerWidth = 1.4f;
+
+        public void ShowLayered(DeepSleep.Runtime.Combat.Beams.BeamLaneSnapshot lane,
+            float repeatLength, float offset, Color color)
+        {
+            Show(lane.Origin, lane.Direction, lane.Length, lane.Width, repeatLength, offset, color);
+            for (int i = 0; i < _additionalLayers.Length; i++)
+            {
+                if (i + 1 < lane.VisualLayers)
+                    _additionalLayers[i].Show(lane.Origin, lane.Direction, lane.Length,
+                        lane.Width * (i == 0 ? _secondLayerWidth : _thirdLayerWidth), repeatLength, offset, color);
+                else _additionalLayers[i].Hide();
+            }
+        }
 
         private readonly Vector3[] _vertices = new Vector3[4];
         private readonly Vector2[] _uv = new Vector2[4];
@@ -115,6 +131,7 @@ namespace DeepSleep.Runtime.Combat.Beams.Presentation
 
         public void Hide()
         {
+            foreach (var layer in _additionalLayers) if (layer != null) layer.Hide();
             if (_meshRenderer != null)
             {
                 _meshRenderer.enabled = false;

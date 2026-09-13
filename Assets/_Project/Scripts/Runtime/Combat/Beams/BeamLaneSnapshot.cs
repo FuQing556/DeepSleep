@@ -15,7 +15,10 @@ namespace DeepSleep.Runtime.Combat.Beams
             float length,
             float width,
             float primaryTargetDamage,
-            float piercingDamage)
+            float piercingDamage,
+            int visualLayers = 1,
+            bool isBranch = false,
+            DeepSleep.Runtime.Combat.Damage.IDamageReceiver branchSource = null)
         {
             LaneIndex = laneIndex;
             Origin = origin;
@@ -24,6 +27,9 @@ namespace DeepSleep.Runtime.Combat.Beams
             Width = width;
             PrimaryTargetDamage = primaryTargetDamage;
             PiercingDamage = piercingDamage;
+            VisualLayers = Mathf.Clamp(visualLayers, 1, 3);
+            IsBranch = isBranch;
+            BranchSource = branchSource;
         }
 
         public int LaneIndex { get; }
@@ -33,6 +39,9 @@ namespace DeepSleep.Runtime.Combat.Beams
         public float Width { get; }
         public float PrimaryTargetDamage { get; }
         public float PiercingDamage { get; }
+        public int VisualLayers { get; }
+        public bool IsBranch { get; }
+        public DeepSleep.Runtime.Combat.Damage.IDamageReceiver BranchSource { get; }
 
         public Vector2 End => Origin + Direction * Length;
 

@@ -25,17 +25,28 @@ namespace DeepSleep.Runtime.Progression.Upgrades
         AttackRate,
         BeamWidth,
         ProjectileCount,
-        MaximumHealth
+        MaximumHealth,
+        BurstCount,
+        ChainLevel,
+        TargetCorrection,
+        RiceSplash
     }
 
     public enum UpgradeCardId : byte
     {
         DataCompression = 1,
         RuntimeOverclock = 2,
+        FaultToleranceExpansion = 3,
         GiantRiceBall = 10,
         RiceStorm = 11,
         TerminalAmplifier = 20,
-        CoolingCircuit = 21
+        CoolingCircuit = 21,
+        RiceFan = 12,
+        RiceGuidance = 13,
+        TerminalArray = 22,
+        TerminalBurst = 23,
+        TerminalChain = 24,
+        RiceSplash = 14
     }
 
     [Serializable]

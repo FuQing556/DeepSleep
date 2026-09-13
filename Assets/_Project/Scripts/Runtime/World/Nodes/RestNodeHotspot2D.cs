@@ -74,6 +74,17 @@ namespace DeepSleep.Runtime.World.Nodes
                  actor.Definition.Role == _requiredRole);
         }
 
+        public bool ContainsActorPosition(PlayerActor actor)
+        {
+            if (actor == null || !isActiveAndEnabled) return false;
+            var box = GetComponent<BoxCollider2D>();
+            if (box == null || !box.enabled) return false;
+            Vector2 point = transform.InverseTransformPoint(actor.transform.position);
+            Vector2 half = box.size * .5f;
+            point -= box.offset;
+            return Mathf.Abs(point.x) <= half.x && Mathf.Abs(point.y) <= half.y;
+        }
+
         private void OnTriggerEnter2D(Collider2D other)
         {
             PlayerActor actor = other != null

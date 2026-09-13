@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 338487157761470478bac865dc01eaa7, type: 3}
   m_Name: CFG_EN_404Window_Pool_Default
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Enemies.EnemyPoolConfig
-  _initialCapacity: 6
-  _maximumCapacity: 12
+  _initialCapacity: 16
+  _maximumCapacity: 48

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9d3bd0204d2234bb7af54735526d6a, type: 3}
+  m_Name: CFG_META_Achievement_FirstMerit
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Meta.AchievementDefinition
+  _achievementId: first_merit
+  _displayName: "\u4E00\u70B9\u529F\u5FB7"
+  _description: "\u9996\u6B21\u8D2D\u4E70\u4EFB\u610F\u529F\u5FB7\u3002"
+  _hidden: 0
+  _triggerId: product_purchased
+  _targetCount: 1
+  _icon: {fileID: 0}

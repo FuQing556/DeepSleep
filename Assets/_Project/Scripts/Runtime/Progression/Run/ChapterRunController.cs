@@ -1,5 +1,7 @@
 using System;
 using System.IO;
+using System.Collections;
+using DeepSleep.Runtime.AppFlow;
 using DeepSleep.Runtime.Combat.Enemies;
 using DeepSleep.Runtime.Networking;
 using DeepSleep.Runtime.Players.Identity;
@@ -9,7 +11,6 @@ using DeepSleep.Runtime.Progression.Upgrades;
 using DeepSleep.Runtime.UI.CharacterSelection;
 using DeepSleep.Runtime.World.Nodes;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace DeepSleep.Runtime.Progression.Run
 {
@@ -64,11 +65,13 @@ namespace DeepSleep.Runtime.Progression.Run
         private float _totalCombatSeconds;
         private int _segmentNumber = 1;
         private bool _hasRestNodeCheckpoint;
+        private bool _retryCurrentSegmentFromCheckpoint;
         private bool _isInitialized;
         private bool _metaRewardGranted;
         private int _awardedVouchers;
         private bool _wasFirstClear;
         private string _rewardMessage;
+        private bool _anyPlayerDowned;
         private PlayerLifeCheckpoint _deepSeekCheckpoint;
         private PlayerLifeCheckpoint _harnessCheckpoint;
 
@@ -120,6 +123,10 @@ namespace DeepSleep.Runtime.Progression.Run
 
         private void Awake()
         {
+            if (_profile == null && GameAppRoot.Instance != null)
+            {
+                _profile = GameAppRoot.Instance.Profile;
+            }
             if (!TryValidateConfiguration(out string reason))
             {
                 Debug.LogError($"[{nameof(ChapterRunController)}] {reason}", this);
@@ -261,6 +268,7 @@ namespace DeepSleep.Runtime.Progression.Run
                 _deepSeekLife.State == PlayerLifeState.Downed;
             bool harnessDowned =
                 _harnessLife.State == PlayerLifeState.Downed;
+            _anyPlayerDowned |= deepSeekDowned || harnessDowned;
             _deepSeekDownedSeconds = deepSeekDowned
                 ? _deepSeekDownedSeconds + deltaTime
                 : 0f;
@@ -317,9 +325,14 @@ namespace DeepSleep.Runtime.Progression.Run
             RestorePlayersFromCheckpoint();
             if (_hasRestNodeCheckpoint)
             {
+                _retryCurrentSegmentFromCheckpoint = true;
                 if (_restNode.RestoreCheckpointNode())
                 {
                     Phase = ChapterRunPhase.Node;
+                }
+                else
+                {
+                    _retryCurrentSegmentFromCheckpoint = false;
                 }
             }
             else if (_restNode.RestartCombatFromCheckpoint())
@@ -357,7 +370,14 @@ namespace DeepSleep.Runtime.Progression.Run
             else if (state == RestNodeState.Combat &&
                      Phase == ChapterRunPhase.Node)
             {
-                _segmentNumber++;
+                if (_retryCurrentSegmentFromCheckpoint)
+                {
+                    _retryCurrentSegmentFromCheckpoint = false;
+                }
+                else
+                {
+                    _segmentNumber++;
+                }
                 StartCombatSegment();
             }
             BroadcastState();
@@ -415,7 +435,7 @@ namespace DeepSleep.Runtime.Progression.Run
                         rule.Enabled,
                         rule.InitialDelaySeconds,
                         rule.IntervalMultiplier,
-                        rule.MaximumAliveCount);
+                        rule.MaximumAliveCount, rule.SpawnHealth);
                 }
                 else
                 {
@@ -437,14 +457,20 @@ namespace DeepSleep.Runtime.Progression.Run
 
         private void ReturnToOpening()
         {
+            StartCoroutine(ReturnToMenuRoutine());
+        }
+
+        private IEnumerator ReturnToMenuRoutine()
+        {
             if (_session != null && _session.Phase != SessionPhase.Offline)
             {
                 _session.Leave();
+                Destroy(_session.gameObject);
             }
-
             Time.timeScale = 1f;
-            OpeningFrontEnd.ReturnToLevelSelectionAfterReload();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            yield return null;
+            GameAppRoot.Instance.SceneRouter.LoadMainMenu(
+                MainMenuPage.LevelSelection);
         }
 
         private void GrantMetaRewardOnce()
@@ -459,7 +485,13 @@ namespace DeepSleep.Runtime.Progression.Run
                     out _rewardMessage))
             {
                 _awardedVouchers = 0;
+                return;
             }
+            GameAppRoot.Instance.Achievements.Report(
+                AchievementTriggerIds.LevelCleared);
+            if (!_anyPlayerDowned)
+                GameAppRoot.Instance.Achievements.Report(
+                    AchievementTriggerIds.FlawlessLevelCleared);
         }
 
         private void CapturePlayerCheckpoint()
@@ -593,6 +625,7 @@ namespace DeepSleep.Runtime.Progression.Run
                     writer.Write(_deepSeekDownedSeconds);
                     writer.Write(_harnessDownedSeconds);
                     writer.Write(_teamDownedSeconds);
+                    writer.Write(_anyPlayerDowned);
                     writer.Write(_totalDefeats);
                     writer.Write(_totalCombatSeconds);
                 },
@@ -615,6 +648,7 @@ namespace DeepSleep.Runtime.Progression.Run
             _deepSeekDownedSeconds = reader.ReadSingle();
             _harnessDownedSeconds = reader.ReadSingle();
             _teamDownedSeconds = reader.ReadSingle();
+            _anyPlayerDowned = reader.ReadBoolean();
             _totalDefeats = reader.ReadInt32();
             _totalCombatSeconds = reader.ReadSingle();
             if (Phase == ChapterRunPhase.Combat &&

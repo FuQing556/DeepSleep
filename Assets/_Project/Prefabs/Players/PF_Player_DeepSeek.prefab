@@ -389,6 +389,53 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1201399377587484745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5605453745119350285
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6557105772143363435}
+  - component: {fileID: 8540192352075557833}
+  m_Layer: 0
+  m_Name: RiceSplashEffectPoolRoot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6557105772143363435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5605453745119350285}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2284403947702677328}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8540192352075557833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5605453745119350285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b5856bb3cbba4449bad95e133bbd25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Presentation.Effects.OneShotSpriteEffectPool2D
+  _effectPrefab: {fileID: 2162417637270015387, guid: 2ea268f8334dae04aa2d796b4ffb4808, type: 3}
+  _poolRoot: {fileID: 6557105772143363435}
+  _config: {fileID: 11400000, guid: 6ae006e2ca7534849b6bd51284f00e67, type: 2}
 --- !u!1 &5984395588267491120
 GameObject:
   m_ObjectHideFlags: 0
@@ -449,6 +496,7 @@ Transform:
   - {fileID: 6068298637908057380}
   - {fileID: 2237392141359192130}
   - {fileID: 8701939746733040466}
+  - {fileID: 6557105772143363435}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &3974650380107878940
@@ -581,6 +629,7 @@ MonoBehaviour:
   _body: {fileID: 3974650380107878940}
   _motorConfig: {fileID: 11400000, guid: 3ae7ed534f7592b4d93283616e93bdff, type: 2}
   _tiltConfig: {fileID: 11400000, guid: 8824a79b72b63a543beaa197c08fe628, type: 2}
+  _facing: {fileID: 743145706331720249}
 --- !u!114 &6171731543135821010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -613,6 +662,7 @@ MonoBehaviour:
   _config: {fileID: 11400000, guid: 2c560e20f6abd3446a3d4be6fa0802f1, type: 2}
   _facingController: {fileID: 743145706331720249}
   _manualTargetController: {fileID: 8050636606256239688}
+  _upgradeState: {fileID: 0}
 --- !u!114 &743145706331720249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -682,6 +732,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Damage.DamageHitbox2D
   _receiverComponent: {fileID: 1429621406014940267}
+  _hitMotionReceiverComponent: {fileID: 0}
 --- !u!114 &6701128718704048838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -862,6 +913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Weapons.DeepSeek.Presentation.DeepSeekRiceHitEffectPresenter2D
   _projectilePool: {fileID: 6171731543135821010}
   _effectPool: {fileID: 6500143950426790836}
+  _splashEffectPool: {fileID: 8540192352075557833}
 --- !u!1 &6680308529502464940
 GameObject:
   m_ObjectHideFlags: 0

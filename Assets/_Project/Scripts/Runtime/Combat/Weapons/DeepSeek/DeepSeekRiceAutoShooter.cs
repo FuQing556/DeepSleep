@@ -29,6 +29,8 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek
         private NearestVisibleTargetFinder2D _targetFinder;
         private float _remainingShotCooldown;
         private bool _isInitialized;
+        private readonly System.Collections.Generic.List<Collider2D> _fanTargets = new(32);
+        private readonly System.Collections.Generic.HashSet<DeepSleep.Runtime.Combat.Damage.IDamageReceiver> _assignedTargets = new();
 
         public PlayerActionBlock ActionCategory =>
             PlayerActionBlock.AutomaticCombat;
@@ -97,12 +99,21 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek
                 direction = targetDirection.normalized;
             }
 
-            _projectilePool.TryRent(
-                origin,
-                direction,
-                gameObject,
-                GetUpgradeMultiplier(UpgradeEffectKind.WeaponDamage),
-                out _);
+            int count = 1 + Mathf.FloorToInt(GetBonus(UpgradeEffectKind.ProjectileCount));
+            bool correct = GetBonus(UpgradeEffectKind.TargetCorrection) > 0f;
+            _assignedTargets.Clear();
+            if (correct)
+                Physics2D.OverlapCircle(origin, _config.TargetSearchRadius,
+                    new ContactFilter2D { useLayerMask = true, layerMask = _config.TargetLayers, useTriggers = true }, _fanTargets);
+            float damageMultiplier = (_config.DamagePerProjectile + GetBonus(UpgradeEffectKind.WeaponDamage)) / _config.DamagePerProjectile;
+            for (int i = 0; i < count; i++)
+            {
+                float angle = count == 1 ? 0f : _config.FanDegrees * ((i + .5f) / count - .5f);
+                Vector2 lane = Quaternion.Euler(0f, 0f, angle) * direction;
+                if (correct) lane = CorrectLane(origin, lane);
+                _projectilePool.TryRent(origin, lane, gameObject, damageMultiplier, out _,
+                    GetBonus(UpgradeEffectKind.RiceSplash) > 0f);
+            }
             _remainingShotCooldown = _config.ShotIntervalSeconds /
                 GetUpgradeMultiplier(UpgradeEffectKind.AttackRate);
         }
@@ -112,6 +123,27 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek
             return _upgradeState != null
                 ? _upgradeState.GetMultiplier(PlayerRole.DeepSeek, effect)
                 : 1f;
+        }
+
+        private float GetBonus(UpgradeEffectKind effect) => _upgradeState != null
+            ? _upgradeState.GetAdditiveValue(PlayerRole.DeepSeek, effect) : 0f;
+
+        private Vector2 CorrectLane(Vector2 origin, Vector2 lane)
+        {
+            float best = float.PositiveInfinity;
+            Vector2 result = lane;
+            DeepSleep.Runtime.Combat.Damage.IDamageReceiver chosen = null;
+            foreach (var candidate in _fanTargets)
+            {
+                if (candidate == null || !candidate.TryGetComponent(out DeepSleep.Runtime.Combat.Damage.DamageHitbox2D hit) ||
+                    !hit.CanReceiveDamage || !hit.TryGetReceiver(out var receiver) || _assignedTargets.Contains(receiver)) continue;
+                Vector2 offset = (Vector2)candidate.bounds.center - origin;
+                if (Vector2.Angle(lane, offset) > _config.CorrectionDegrees || offset.sqrMagnitude >= best) continue;
+                if (Physics2D.Linecast(origin, candidate.bounds.center, _config.ObstacleLayers).collider != null) continue;
+                best = offset.sqrMagnitude; result = offset.normalized; chosen = receiver;
+            }
+            if (chosen != null) _assignedTargets.Add(chosen);
+            return result;
         }
 
         private bool TryValidateConfiguration(out string reason)

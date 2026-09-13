@@ -69,7 +69,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
                 Vector2 offset = Config.IdleSwordOffset;
                 offset.x *= _facing.Forward.x;
                 offset.y += Mathf.Sin(Time.time * Mathf.PI * 2 * Config.FloatFrequency) * Config.FloatAmplitude;
-                SetSword(_controller.GripPosition + offset, Config.IdleSwordAngle, Config.IdleSwordLength);
+                SetSword(_controller.GripPosition + offset * _controller.RangeScale, Config.IdleSwordAngle, Config.IdleSwordLength * _controller.RangeScale);
             }
         }
 
@@ -133,7 +133,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
         {
             if (CharacterPoseExternallyDriven) return;
             if (_character.sprite == sprite) return;
-            _ghost.Capture(_character, _ghostRenderer, Config.GhostAlpha, Config.GhostSeconds);
+            _ghost.Capture(_character, _ghostRenderer, Config.GhostAlpha, Config.GhostSeconds / _controller.SpeedScale);
             _character.sprite = sprite;
             ApplyPoseLayout(scale, offset);
         }
@@ -155,7 +155,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
         private void OnWave(HarnessMeleeAttackConfig attack, Vector2 origin, float aim)
         {
             foreach (MeleeWaveView2D wave in _waves)
-                if (!wave.IsPlaying) { wave.Play(attack, origin, aim, Config.WaveFadeSeconds); return; }
+                if (!wave.IsPlaying) { wave.Play(attack, origin, aim, Config.WaveFadeSeconds / attack.RuntimeTimeScale); return; }
             Debug.LogWarning("[HarnessMelee] 剑气视图池耗尽，请增加预装配槽位。伤害已正常结算。", this);
         }
 

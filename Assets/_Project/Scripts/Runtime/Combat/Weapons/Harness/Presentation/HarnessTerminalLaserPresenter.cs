@@ -150,7 +150,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
                     beamOrigin,
                     targetPosition - beamOrigin,
                     _controller.StateProgress01,
-                    _config);
+                    _config, 1 + _controller.AdditionalPorts, _controller.Config.PortSpacing);
             }
             else if (_controller.State ==
                      HarnessTerminalLaserState.Cooldown)
@@ -158,7 +158,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
                 _shotView.ShowQueuedMuzzle(
                     beamOrigin,
                     targetPosition - beamOrigin,
-                    _config);
+                    _config, 1 + _controller.AdditionalPorts, _controller.Config.PortSpacing);
             }
             else
             {

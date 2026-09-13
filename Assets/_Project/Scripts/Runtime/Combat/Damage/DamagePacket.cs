@@ -17,7 +17,7 @@ namespace DeepSleep.Runtime.Combat.Damage
             DamageInterceptionPolicy interceptionPolicy =
                 DamageInterceptionPolicy.Unspecified)
         {
-            Amount = amount;
+            Amount = Quantize(amount);
             HitPoint = hitPoint;
             Direction = direction.sqrMagnitude > 0f
                 ? direction.normalized
@@ -35,5 +35,9 @@ namespace DeepSleep.Runtime.Combat.Damage
         public DamageInterceptionPolicy InterceptionPolicy { get; }
 
         public bool IsValid => Amount > 0f;
+
+        public static float Quantize(float amount) =>
+            float.IsNaN(amount) || float.IsInfinity(amount) || amount <= 0f
+                ? 0f : Mathf.Max(1f, Mathf.Floor(amount));
     }
 }

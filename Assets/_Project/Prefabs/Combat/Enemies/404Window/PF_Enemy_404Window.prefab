@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 6318783156667337981}
   - component: {fileID: 5185804655785360705}
   - component: {fileID: 663350291462543242}
+  - component: {fileID: 5079914290804012003}
   m_Layer: 8
   m_Name: PF_Enemy_404Window
   m_TagString: Untagged
@@ -277,6 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Damage.DamageHitbox2D
   _receiverComponent: {fileID: 881515945175910510}
+  _hitMotionReceiverComponent: {fileID: 5079914290804012003}
 --- !u!114 &4953515953279521410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +308,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Enemies.EnemyActor2D
   _health: {fileID: 881515945175910510}
   _motor: {fileID: 4953515953279521410}
+  _hitMotion: {fileID: 5079914290804012003}
   _simulationStepComponents: []
 --- !u!114 &5185804655785360705
 MonoBehaviour:
@@ -342,3 +345,16 @@ MonoBehaviour:
   Projectile: {fileID: 0}
   SnakeAttack: {fileID: 0}
   TargetValue: 1
+--- !u!114 &5079914290804012003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6834286351092699918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7393024e759a86d4da5474b0ea776f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Enemies.EnemyHitMotionController2D
+  _config: {fileID: 11400000, guid: b6be45c6337caaf47aa122be9d829415, type: 2}

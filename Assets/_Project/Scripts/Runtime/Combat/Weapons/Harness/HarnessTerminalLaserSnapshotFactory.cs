@@ -19,7 +19,10 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
             float damageMultiplier,
             float widthMultiplier,
             out BeamFireSnapshot snapshot,
-            out string reason)
+            out string reason,
+            int additionalPorts = 0,
+            Vector2? convergencePoint = null,
+            int visualLayers = 1)
         {
             snapshot = null;
 
@@ -45,7 +48,12 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                 return false;
             }
 
-            if (aimDirection.sqrMagnitude <= 0f ||
+            if (!IsFinite(sourceOrigin.x) || !IsFinite(sourceOrigin.y) ||
+                !IsFinite(aimDirection.x) || !IsFinite(aimDirection.y) ||
+                !IsFinite(damageMultiplier) || !IsFinite(widthMultiplier) ||
+                (convergencePoint.HasValue && (!IsFinite(convergencePoint.Value.x) || !IsFinite(convergencePoint.Value.y))) ||
+                additionalPorts < 0 || additionalPorts > 127 - config.BaseLaneCount ||
+                aimDirection.sqrMagnitude <= 0f ||
                 damageMultiplier <= 0f || widthMultiplier <= 0f)
             {
                 reason = "瞄准方向不能为空。";
@@ -56,25 +64,31 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
             Vector2 lateralAxis = new Vector2(
                 -normalizedAimDirection.y,
                 normalizedAimDirection.x);
-            var lanes = new BeamLaneSnapshot[config.BaseLaneCount];
+            var lanes = new BeamLaneSnapshot[config.BaseLaneCount + additionalPorts];
 
             for (int index = 0; index < lanes.Length; index++)
             {
-                BeamLaneDefinition definition = config.GetBaseLane(index);
+                BeamLaneDefinition definition = config.GetBaseLane(Mathf.Min(index, config.BaseLaneCount - 1));
                 Vector2 laneOrigin =
-                    sourceOrigin + lateralAxis * definition.LateralOffset;
+                    sourceOrigin + lateralAxis * (additionalPorts > 0
+                        ? (index - (lanes.Length - 1) * .5f) * config.PortSpacing
+                        : definition.LateralOffset);
                 Vector2 laneDirection = Rotate(
                     normalizedAimDirection,
                     definition.AngleOffsetDegrees);
+                if (convergencePoint.HasValue && (convergencePoint.Value - laneOrigin).sqrMagnitude > .000001f)
+                    laneDirection = (convergencePoint.Value - laneOrigin).normalized;
 
                 if (!playfield.TryGetRayExitDistanceAfterIntersection(
                         laneOrigin,
                         laneDirection,
                         out float laneLength))
                 {
-                    reason =
-                        $"束线 {index} 的起点不在逻辑区域内，或无法与区域边界相交。";
-                    return false;
+                    // Front/extra muzzles can legitimately sit beyond a movement boundary.
+                    // An outward or parallel shot has no rectangle intersection, but is still
+                    // a valid finite shot. Keep its real origin/direction for both VFX and hits.
+                    // Use the playfield diagonal as its range, without moving any boundary.
+                    laneLength = playfield.WorldBounds.size.magnitude;
                 }
 
                 float primaryDamage =
@@ -89,7 +103,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                     config.BaseBeamWidth * widthMultiplier *
                     definition.WidthMultiplier,
                     primaryDamage,
-                    primaryDamage * config.PiercingDamageMultiplier);
+                    primaryDamage * config.PiercingDamageMultiplier, visualLayers);
             }
 
             snapshot = new BeamFireSnapshot(
@@ -122,5 +136,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                 direction.x * cosine - direction.y * sine,
                 direction.x * sine + direction.y * cosine).normalized;
         }
+
+        private static bool IsFinite(float value) => !float.IsNaN(value) && !float.IsInfinity(value);
     }
 }

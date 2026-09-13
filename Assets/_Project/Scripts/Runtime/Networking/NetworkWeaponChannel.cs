@@ -50,6 +50,8 @@ namespace DeepSleep.Runtime.Networking
                 w.Write(Melee.IsMelee); w.Write(Melee.IsSwinging); w.Write(Melee.SwingSequence);
                 w.Write(Melee.Attack == null ? 0 : Catalog.GetId(Melee.Attack.CharacterPose));
                 w.Write(Melee.Progress); w.Write(Melee.AimDegrees); w.Write(Melee.ModeRemaining); w.Write(Melee.CooldownRemaining);
+                w.Write(Melee.Attack != null ? Melee.Attack.RuntimeRangeScale : Melee.RangeScale);
+                w.Write(Melee.Attack != null ? Melee.Attack.RuntimeTimeScale : Melee.SpeedScale);
                 w.Write(Guard.IsActive); w.Write(Guard.IsWarning); w.Write(Guard.RemainingCharges);
                 w.Write((float)Guard.RemainingSeconds); w.Write((float)Guard.CooldownRemaining);
             }, true);
@@ -59,21 +61,16 @@ namespace DeepSleep.Runtime.Networking
             if (!Session.IsAuthority || request == null || !request.IsValid) return;
             Session.SendAuthority(LASER, w =>
             {
-                w.Write(++_eventSequence); var b = request.BeamSnapshot;
-                w.Write(b.Sequence); Vec(w, b.SourceOrigin); Vec(w, b.AimDirection); w.Write(b.TargetLayers.value);
-                Vec(w, request.PrimaryTargetPosition); w.Write((byte)b.LaneCount);
-                for (int i = 0; i < b.LaneCount; i++)
-                {
-                    var lane = b.GetLane(i); w.Write(lane.LaneIndex); Vec(w, lane.Origin); Vec(w, lane.Direction);
-                    w.Write(lane.Length); w.Write(lane.Width); w.Write(lane.PrimaryTargetDamage); w.Write(lane.PiercingDamage);
-                }
+                w.Write(++_eventSequence); Vec(w, request.PrimaryTargetPosition);
+                NetworkBeamSnapshotCodec.Write(w, request.BeamSnapshot);
             }, true);
         }
         private void Wave(HarnessMeleeAttackConfig attack, Vector2 origin, float angle)
         {
             if (!Session.IsAuthority) return;
             Session.SendAuthority(WAVE, w => { w.Write(++_eventSequence); w.Write(Catalog.GetId(attack.CharacterPose));
-                Vec(w, origin); w.Write(angle); }, true);
+                Vec(w, origin); w.Write(angle); w.Write((byte)attack.RuntimeEchoIndex);
+                w.Write(attack.RuntimeRangeScale); w.Write(attack.RuntimeTimeScale); }, true);
         }
         private void Block(PlayerDamageReceiver2D target, DamagePacket packet, int remaining)
         {
@@ -92,10 +89,11 @@ namespace DeepSleep.Runtime.Networking
                 bool aiming = r.ReadBoolean(); Vector2 target = Vec(r);
                 bool melee = r.ReadBoolean(), swinging = r.ReadBoolean(); uint swing = r.ReadUInt32(), poseId = r.ReadUInt32();
                 float swingProgress = r.ReadSingle(), aim = r.ReadSingle(), duration = r.ReadSingle(), cooldown = r.ReadSingle();
+                float range = r.ReadSingle(), speed = r.ReadSingle();
                 bool active = r.ReadBoolean(), warning = r.ReadBoolean(); int charges = r.ReadInt32();
                 float guardSeconds = r.ReadSingle(), guardCooldown = r.ReadSingle();
                 Laser.ApplyReplicaState(state, seconds, progress, aiming, target);
-                Melee.ApplyReplicaState(melee, swinging, swing, ResolveAttack(poseId), swingProgress, aim, duration, cooldown);
+                Melee.ApplyReplicaState(melee, swinging, swing, ResolveAttack(poseId), swingProgress, aim, duration, cooldown, range, speed);
                 Guard.ApplyReplicaState(active, warning, charges, guardSeconds, guardCooldown);
                 _hasState = true; _lastState = seq; return;
             }
@@ -103,16 +101,13 @@ namespace DeepSleep.Runtime.Networking
             switch (kind)
             {
                 case LASER:
-                    uint shot = r.ReadUInt32(); Vector2 origin = Vec(r), direction = Vec(r); int layers = r.ReadInt32();
-                    Vector2 primary = Vec(r); int count = r.ReadByte(); if (count < 1 || count > 32) return;
-                    var lanes = new BeamLaneSnapshot[count];
-                    for (int i = 0; i < count; i++) lanes[i] = new BeamLaneSnapshot(r.ReadInt32(), Vec(r), Vec(r),
-                        r.ReadSingle(), r.ReadSingle(), r.ReadSingle(), r.ReadSingle());
+                    Vector2 primary = Vec(r); var snapshot = NetworkBeamSnapshotCodec.Read(r);
                     Laser.PresentReplicaFire(new HarnessTerminalLaserFireRequest(Laser.gameObject, null, primary,
-                        new BeamFireSnapshot(shot, origin, direction, layers, lanes))); break;
+                        snapshot)); break;
                 case WAVE:
                     var attack = ResolveAttack(r.ReadUInt32()); Vector2 waveOrigin = Vec(r); float angle = r.ReadSingle();
-                    Melee.PresentReplicaWave(attack, waveOrigin, angle); break;
+                    int echo = r.ReadByte(); float waveRange = r.ReadSingle(), waveSpeed = r.ReadSingle();
+                    Melee.PresentReplicaWave(attack, waveOrigin, angle, echo, waveRange, waveSpeed); break;
                 case BLOCK:
                     var packet = new DamagePacket(r.ReadSingle(), Vec(r), Vec(r), null); int remaining = r.ReadInt32();
                     Guard.PresentReplicaBlock(packet, remaining); break;

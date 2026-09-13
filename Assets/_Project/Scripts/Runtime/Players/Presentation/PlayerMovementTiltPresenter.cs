@@ -1,4 +1,5 @@
 using DeepSleep.Runtime.Players.Movement;
+using DeepSleep.Runtime.Players.Orientation;
 using UnityEngine;
 
 namespace DeepSleep.Runtime.Players.Presentation
@@ -12,6 +13,7 @@ namespace DeepSleep.Runtime.Players.Presentation
         [SerializeField] private Rigidbody2D _body;
         [SerializeField] private PlayerMotorConfig _motorConfig;
         [SerializeField] private PlayerMovementTiltConfig _tiltConfig;
+        [SerializeField] private PlayerFacingController2D _facing;
 
         private Quaternion _baseLocalRotation;
         private float _currentTiltDegrees;
@@ -40,14 +42,18 @@ namespace DeepSleep.Runtime.Players.Presentation
                 return;
             }
 
-            float normalizedHorizontalSpeed = Mathf.Clamp(
-                _body.linearVelocity.x / _motorConfig.MaximumSpeed,
+            float forwardSpeed = Vector2.Dot(
+                _body.linearVelocity,
+                _facing.Forward);
+            float normalizedForwardSpeed = Mathf.Clamp(
+                forwardSpeed / _motorConfig.MaximumSpeed,
                 -1f,
                 1f);
 
-            // 向右飞行时顺时针前倾，向左飞行时逆时针后仰。
+            // 倾斜节点位于朝向节点内部。沿当前朝向移动始终前倾，
+            // 逆着当前朝向移动则后仰；父节点翻转会自动镜像旋转。
             float targetTiltDegrees =
-                -normalizedHorizontalSpeed * _tiltConfig.MaximumTiltDegrees;
+                -normalizedForwardSpeed * _tiltConfig.MaximumTiltDegrees;
 
             float rotationSpeed = Mathf.Approximately(
                 targetTiltDegrees,
@@ -104,6 +110,12 @@ namespace DeepSleep.Runtime.Players.Presentation
             if (_tiltConfig == null)
             {
                 reason = "未配置移动倾斜参数。";
+                return false;
+            }
+
+            if (_facing == null)
+            {
+                reason = "未配置角色朝向控制器。";
                 return false;
             }
 

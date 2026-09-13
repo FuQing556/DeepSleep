@@ -20,7 +20,10 @@ namespace DeepSleep.Runtime.Combat.Enemies.DataCrawlerSnake
 
         private float _absoluteVisualScaleX;
         private float _absoluteMuzzleOffsetX;
+        private bool _isAiming;
         private bool _isInitialized;
+
+        public bool IsAiming => _isAiming;
 
         private void Awake()
         {
@@ -85,6 +88,7 @@ namespace DeepSleep.Runtime.Combat.Enemies.DataCrawlerSnake
                 return;
             }
 
+            _isAiming = isAiming;
             _poseTransition.TransitionTo(
                 isAiming ? _aimSprite : _idleSprite);
             _muzzleView.SetActive(isAiming);

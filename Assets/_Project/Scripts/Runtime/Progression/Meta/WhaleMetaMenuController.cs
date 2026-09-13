@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DeepSleep.Runtime.AppFlow;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +23,10 @@ namespace DeepSleep.Runtime.Progression.Meta
 
         private void Awake()
         {
+            if (_profile == null && GameAppRoot.Instance != null)
+            {
+                _profile = GameAppRoot.Instance.Profile;
+            }
             if (_products == null || _cardPrefab == null)
             {
                 enabled = false;
@@ -48,8 +53,11 @@ namespace DeepSleep.Runtime.Progression.Meta
 
         private void Buy(ShopProductDefinition product)
         {
-            _profile.TryPurchase(product, out string message);
+            bool purchased = _profile.TryPurchase(product, out string message);
             if (_feedback != null) _feedback.text = message;
+            if (purchased)
+                GameAppRoot.Instance.Achievements.Report(
+                    AchievementTriggerIds.ProductPurchased);
             Render();
         }
 

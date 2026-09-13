@@ -7,6 +7,8 @@ using DeepSleep.Runtime.Networking;
 using DeepSleep.Runtime.Progression.Upgrades;
 using DeepSleep.Runtime.Players.Control;
 using DeepSleep.Runtime.Players.Identity;
+using DeepSleep.Runtime.Players.Movement;
+using DeepSleep.Runtime.Players.Orientation;
 using DeepSleep.Runtime.World.Scrolling;
 using UnityEngine;
 using UnityEngine.UI;
@@ -59,6 +61,12 @@ namespace DeepSleep.Runtime.World.Nodes
         [SerializeField] private RestNodeHotspot2D[] _hotspots;
         [SerializeField] private RestNodeUpgradeController _upgradeController;
 
+        [Header("节点移动朝向")]
+        [SerializeField] private PlayerMovementMotor2D _deepSeekMovement;
+        [SerializeField] private PlayerFacingController2D _deepSeekFacing;
+        [SerializeField] private PlayerMovementMotor2D _harnessMovement;
+        [SerializeField] private PlayerFacingController2D _harnessFacing;
+
         private readonly List<SpriteRenderer> _cloudRenderers = new();
         private readonly List<Color> _cloudBaseColors = new();
         private readonly Dictionary<RestNodeHotspot2D,
@@ -73,6 +81,7 @@ namespace DeepSleep.Runtime.World.Nodes
 
         public RestNodeState State { get; private set; }
         public event Action<RestNodeState> StateChanged;
+        public event Action CombatSuspended;
 
         private bool IsOnline =>
             _session != null && _session.Phase == SessionPhase.Playing;
@@ -161,6 +170,7 @@ namespace DeepSleep.Runtime.World.Nodes
                     break;
 
                 case RestNodeState.Open:
+                    RefreshSpatialOccupancy();
                     RefreshAutomatedPortalReady();
                     RefreshNearestPrompt();
                     TryCompletePortalDeparture();
@@ -178,6 +188,12 @@ namespace DeepSleep.Runtime.World.Nodes
                         BroadcastState(RestNodeState.Combat);
                     }
                     break;
+            }
+
+            if (UsesMovementFacing(State))
+            {
+                ApplyMovementFacing(_deepSeekMovement, _deepSeekFacing);
+                ApplyMovementFacing(_harnessMovement, _harnessFacing);
             }
         }
 
@@ -231,6 +247,7 @@ namespace DeepSleep.Runtime.World.Nodes
 
         private void SuspendCombatWorld()
         {
+            CombatSuspended?.Invoke();
 
             _scrollingCloudLayer.SetScrollMultiplier(0f);
             for (int index = 0; index < _spawnDirectors.Length; index++)
@@ -367,6 +384,15 @@ namespace DeepSleep.Runtime.World.Nodes
                 return false;
             }
 
+            if (_deepSeekMovement == null ||
+                _deepSeekFacing == null ||
+                _harnessMovement == null ||
+                _harnessFacing == null)
+            {
+                reason = "未完整配置两名角色的节点移动与朝向组件。";
+                return false;
+            }
+
             if (_spawnDirectors == null || _spawnDirectors.Length == 0 ||
                 _enemyPools == null || _enemyPools.Length == 0)
             {
@@ -406,6 +432,7 @@ namespace DeepSleep.Runtime.World.Nodes
             switch (state)
             {
                 case RestNodeState.Combat:
+                    RestoreCombatFacing();
                     _upgradeController.EndNode();
                     ResetNodeInteraction();
                     SetHotspotsActive(false);
@@ -460,6 +487,34 @@ namespace DeepSleep.Runtime.World.Nodes
             }
 
             StateChanged?.Invoke(State);
+        }
+
+        private void RestoreCombatFacing()
+        {
+            _deepSeekFacing.SetDirection(FacingDirection.Right);
+            _harnessFacing.SetDirection(FacingDirection.Right);
+        }
+
+        private static bool UsesMovementFacing(RestNodeState state)
+        {
+            return state == RestNodeState.Revealing ||
+                   state == RestNodeState.Open ||
+                   state == RestNodeState.Departing;
+        }
+
+        private static void ApplyMovementFacing(
+            PlayerMovementMotor2D movement,
+            PlayerFacingController2D facing)
+        {
+            float horizontalVelocity = movement.Velocity.x;
+            if (Mathf.Approximately(horizontalVelocity, 0f))
+            {
+                return;
+            }
+
+            facing.SetDirection(horizontalVelocity < 0f
+                ? FacingDirection.Left
+                : FacingDirection.Right);
         }
 
         private bool AreEnemiesCleared()
@@ -587,6 +642,29 @@ namespace DeepSleep.Runtime.World.Nodes
             }
         }
 
+        // 客户端 Rigidbody2D.simulated=false，不会触发 Enter/Exit；托管切换、
+        // 节点显隐及网络位置同步也不能依赖历史触发次数。节点只查两个角色根点。
+        // 不开启客户机物理，不改现有碰撞体参数，不把托管等同于放弃交互权限。
+        private void RefreshSpatialOccupancy()
+        {
+            var ds = _deepSeekMovement.GetComponentInParent<PlayerActor>();
+            var hs = _harnessMovement.GetComponentInParent<PlayerActor>();
+            foreach (var hotspot in _hotspots)
+            {
+                if (hotspot == null) continue;
+                if (!_overlaps.TryGetValue(hotspot, out var occupants))
+                {
+                    occupants = new Dictionary<PlayerActor, int>();
+                    _overlaps.Add(hotspot, occupants);
+                }
+                occupants.Clear();
+                if (hotspot.ContainsActorPosition(ds)) occupants[ds] = 1;
+                if (hotspot.ContainsActorPosition(hs)) occupants[hs] = 1;
+            }
+            if (ds != null && !IsRoleInsidePortal(PlayerRole.DeepSeek)) CancelPortalReadyForActor(ds);
+            if (hs != null && !IsRoleInsidePortal(PlayerRole.Harness)) CancelPortalReadyForActor(hs);
+        }
+
         private void SetActionButtonActive(bool active)
         {
             _actionButton.gameObject.SetActive(active);
@@ -609,6 +687,8 @@ namespace DeepSleep.Runtime.World.Nodes
 
         private void ActivateNearestHotspot()
         {
+            RefreshSpatialOccupancy();
+            RefreshNearestPrompt();
             PlayerActor actor = _controlAssignment.CurrentLocalPlayerActor;
             RestNodeHotspot2D hotspot = _nearestLocalHotspot;
             if (State != RestNodeState.Open ||

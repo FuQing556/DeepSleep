@@ -32,5 +32,10 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
         [Min(0.01f)] public float WaveWidth = 3f;
         [Tooltip("剑气图中归一化坐标，以中心为原点，宽度为1。纵坐标也按宽度计。可按实际亮弧修订。")]
         public Vector2[] WavePolygon;
+        [Tooltip("每道残响沿本招收势方向增加的角度；上挑、下劈、横斩分别调参。")]
+        public float EchoAngleStep = 6f;
+        [System.NonSerialized] public float RuntimeTimeScale = 1f;
+        [System.NonSerialized] public float RuntimeRangeScale = 1f;
+        [System.NonSerialized] public int RuntimeEchoIndex;
     }
 }

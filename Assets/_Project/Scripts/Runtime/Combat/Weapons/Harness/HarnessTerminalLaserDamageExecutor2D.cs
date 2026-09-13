@@ -92,6 +92,8 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                 {
                     continue;
                 }
+                if (lane.BranchSource != null && hit.Hitbox.TryGetReceiver(out var receiver) &&
+                    ReferenceEquals(receiver, lane.BranchSource)) continue;
 
                 float amount = hit.IsPrimaryTarget
                     ? lane.PrimaryTargetDamage
@@ -107,6 +109,8 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                     continue;
                 }
 
+                hit.Hitbox.ApplyHitMotion(HitMotionKind.HarnessStop);
+
                 HitConfirmed?.Invoke(
                     new HarnessTerminalLaserHitConfirmed(
                         lane.LaneIndex,
@@ -114,7 +118,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                         hit.HitPoint,
                         lane.Direction,
                         lane.Width,
-                        amount,
+                        damage.Amount,
                         hit.IsPrimaryTarget));
             }
         }

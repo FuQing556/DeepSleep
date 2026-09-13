@@ -18,5 +18,5 @@ MonoBehaviour:
   _collisionLayers:
     serializedVersion: 2
     m_Bits: 64
-  _initialPoolSize: 12
-  _maximumPoolSize: 32
+  _initialPoolSize: 24
+  _maximumPoolSize: 96

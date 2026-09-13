@@ -20,13 +20,15 @@ MonoBehaviour:
     - _channel: {fileID: 11400000, guid: a815017bee6cbbd4087e12e8b402ef6d, type: 2}
       _enabled: 1
       _initialDelaySeconds: 0.8
-      _intervalMultiplier: 1.15
-      _maximumAliveCount: 5
+      _intervalMultiplier: 0.575
+      _maximumAliveCount: 10
+      _spawnHealth: 5
     - _channel: {fileID: 11400000, guid: 25500160a77fbed47ae3a9f44bd4833c, type: 2}
       _enabled: 0
       _initialDelaySeconds: 0
       _intervalMultiplier: 1
       _maximumAliveCount: 1
+      _spawnHealth: 9
   - _displayName: "\u722C\u866B\u63A5\u5165"
     _durationSeconds: 55
     _requiredDefeats: 12
@@ -34,13 +36,15 @@ MonoBehaviour:
     - _channel: {fileID: 11400000, guid: a815017bee6cbbd4087e12e8b402ef6d, type: 2}
       _enabled: 1
       _initialDelaySeconds: 0.8
-      _intervalMultiplier: 2.2
-      _maximumAliveCount: 3
+      _intervalMultiplier: 0.55
+      _maximumAliveCount: 12
+      _spawnHealth: 6
     - _channel: {fileID: 11400000, guid: 25500160a77fbed47ae3a9f44bd4833c, type: 2}
       _enabled: 1
       _initialDelaySeconds: 2.5
-      _intervalMultiplier: 1
-      _maximumAliveCount: 3
+      _intervalMultiplier: 0.25
+      _maximumAliveCount: 12
+      _spawnHealth: 9
   - _displayName: "\u6570\u636E\u62E5\u585E"
     _durationSeconds: 60
     _requiredDefeats: 16
@@ -48,13 +52,15 @@ MonoBehaviour:
     - _channel: {fileID: 11400000, guid: a815017bee6cbbd4087e12e8b402ef6d, type: 2}
       _enabled: 1
       _initialDelaySeconds: 0.35
-      _intervalMultiplier: 0.85
-      _maximumAliveCount: 7
+      _intervalMultiplier: 0.14166667
+      _maximumAliveCount: 42
+      _spawnHealth: 8
     - _channel: {fileID: 11400000, guid: 25500160a77fbed47ae3a9f44bd4833c, type: 2}
       _enabled: 1
       _initialDelaySeconds: 1.5
-      _intervalMultiplier: 0.75
-      _maximumAliveCount: 4
+      _intervalMultiplier: 0.125
+      _maximumAliveCount: 24
+      _spawnHealth: 12
   _singleDownedTimeoutSeconds: 10
   _teamDownedTimeoutSeconds: 2
   _defeatPresentationSeconds: 2

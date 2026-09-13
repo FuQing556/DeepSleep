@@ -19,6 +19,15 @@ namespace DeepSleep.Runtime.Progression.Meta
         public int whaleVoucherBalance;
         public List<OwnedProductRecord> ownedProducts = new();
         public List<string> clearedLevels = new();
+        public List<string> unlockedAchievements = new();
+        public List<AchievementProgressRecord> achievementProgress = new();
+    }
+
+    [Serializable]
+    internal sealed class AchievementProgressRecord
+    {
+        public string triggerId;
+        public int count;
     }
 
     /// <summary>
@@ -28,7 +37,7 @@ namespace DeepSleep.Runtime.Progression.Meta
     [DefaultExecutionOrder(-300)]
     public sealed class LocalPlayerProfileStore : MonoBehaviour
     {
-        public const int CurrentVersion = 1;
+        public const int CurrentVersion = 2;
         private const string FileName = "profile.json";
         private const string BackupFileName = "profile.backup.json";
 
@@ -55,6 +64,101 @@ namespace DeepSleep.Runtime.Progression.Meta
         {
             return !string.IsNullOrWhiteSpace(levelId) &&
                 _data.clearedLevels.Contains(levelId);
+        }
+
+        public bool IsAchievementUnlocked(string achievementId) =>
+            !string.IsNullOrWhiteSpace(achievementId) &&
+            _data.unlockedAchievements.Contains(achievementId);
+
+        public int GetAchievementProgress(string triggerId)
+        {
+            AchievementProgressRecord record = FindAchievementProgress(
+                triggerId);
+            return record?.count ?? 0;
+        }
+
+        public bool TryRecordAchievementEvent(
+            string triggerId,
+            int amount,
+            AchievementDefinition[] definitions,
+            out AchievementDefinition[] unlocked,
+            out string message)
+        {
+            unlocked = Array.Empty<AchievementDefinition>();
+            if (string.IsNullOrWhiteSpace(triggerId) || amount <= 0 ||
+                definitions == null)
+            {
+                message = "成就事件无效。";
+                return false;
+            }
+
+            int maximumTarget = 0;
+            for (int index = 0; index < definitions.Length; index++)
+            {
+                AchievementDefinition definition = definitions[index];
+                if (definition != null && definition.TriggerId == triggerId)
+                    maximumTarget = Mathf.Max(
+                        maximumTarget, definition.TargetCount);
+            }
+            if (maximumTarget == 0)
+            {
+                message = "没有成就监听事件：" + triggerId;
+                return false;
+            }
+
+            LocalPlayerProfileData before = Clone(_data);
+            AchievementProgressRecord progress =
+                FindAchievementProgress(triggerId);
+            if (progress == null)
+            {
+                progress = new AchievementProgressRecord
+                {
+                    triggerId = triggerId,
+                    count = 0
+                };
+                _data.achievementProgress.Add(progress);
+            }
+            bool allMatchingUnlocked = true;
+            for (int index = 0; index < definitions.Length; index++)
+            {
+                AchievementDefinition definition = definitions[index];
+                if (definition != null && definition.TriggerId == triggerId &&
+                    !IsAchievementUnlocked(definition.AchievementId))
+                {
+                    allMatchingUnlocked = false;
+                    break;
+                }
+            }
+            if (progress.count >= maximumTarget && allMatchingUnlocked)
+            {
+                message = string.Empty;
+                return true;
+            }
+            progress.count = amount >= maximumTarget - progress.count
+                ? maximumTarget
+                : progress.count + amount;
+
+            var newlyUnlocked = new List<AchievementDefinition>();
+            for (int index = 0; index < definitions.Length; index++)
+            {
+                AchievementDefinition definition = definitions[index];
+                if (definition == null || definition.TriggerId != triggerId ||
+                    progress.count < definition.TargetCount ||
+                    IsAchievementUnlocked(definition.AchievementId))
+                    continue;
+                _data.unlockedAchievements.Add(definition.AchievementId);
+                newlyUnlocked.Add(definition);
+            }
+
+            if (!TrySave(_data, out message))
+            {
+                _data = before;
+                return false;
+            }
+            unlocked = newlyUnlocked.ToArray();
+            Changed?.Invoke();
+            message = string.Empty;
+            return true;
         }
 
         public bool TryPurchase(
@@ -251,6 +355,16 @@ namespace DeepSleep.Runtime.Progression.Meta
             return null;
         }
 
+        private AchievementProgressRecord FindAchievementProgress(
+            string triggerId)
+        {
+            if (string.IsNullOrWhiteSpace(triggerId)) return null;
+            for (int index = 0; index < _data.achievementProgress.Count; index++)
+                if (_data.achievementProgress[index].triggerId == triggerId)
+                    return _data.achievementProgress[index];
+            return null;
+        }
+
         private static bool TryNormalize(LocalPlayerProfileData data)
         {
             if (data == null || data.version > CurrentVersion ||
@@ -262,6 +376,9 @@ namespace DeepSleep.Runtime.Progression.Meta
             data.version = CurrentVersion;
             data.ownedProducts ??= new List<OwnedProductRecord>();
             data.clearedLevels ??= new List<string>();
+            data.unlockedAchievements ??= new List<string>();
+            data.achievementProgress ??=
+                new List<AchievementProgressRecord>();
             var productIds = new HashSet<string>();
             for (int index = data.ownedProducts.Count - 1; index >= 0; index--)
             {
@@ -280,6 +397,24 @@ namespace DeepSleep.Runtime.Progression.Meta
                 {
                     data.clearedLevels.RemoveAt(index);
                 }
+            }
+            var achievementIds = new HashSet<string>();
+            for (int index = data.unlockedAchievements.Count - 1;
+                 index >= 0; index--)
+            {
+                string id = data.unlockedAchievements[index];
+                if (string.IsNullOrWhiteSpace(id) || !achievementIds.Add(id))
+                    data.unlockedAchievements.RemoveAt(index);
+            }
+            var triggerIds = new HashSet<string>();
+            for (int index = data.achievementProgress.Count - 1;
+                 index >= 0; index--)
+            {
+                AchievementProgressRecord record =
+                    data.achievementProgress[index];
+                if (record == null || string.IsNullOrWhiteSpace(record.triggerId) ||
+                    record.count <= 0 || !triggerIds.Add(record.triggerId))
+                    data.achievementProgress.RemoveAt(index);
             }
             return true;
         }

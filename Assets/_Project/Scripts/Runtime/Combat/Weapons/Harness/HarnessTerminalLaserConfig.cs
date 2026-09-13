@@ -31,6 +31,16 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
         [SerializeField, Range(0.01f, 1f)]
         private float _piercingDamageMultiplier;
         [SerializeField] private BeamLaneDefinition[] _baseLanes;
+        [SerializeField, Min(0f)] private float _portSpacing = .75f;
+        [SerializeField, Min(.01f)] private float _burstInterval = .18f;
+        [SerializeField] private float[] _chainRadii = { 2.5f, 2f };
+        [SerializeField, Range(.01f, 1f)] private float _chainDamageRatio = .5f;
+        [SerializeField, Min(1)] private int _maximumChainBeams = 128;
+        public float PortSpacing => _portSpacing;
+        public float BurstInterval => _burstInterval;
+        public float ChainDamageRatio => _chainDamageRatio;
+        public int MaximumChainBeams => Mathf.Clamp(_maximumChainBeams, 3, 128);
+        public float ChainRadius(int depth) => _chainRadii[Mathf.Clamp(depth - 1, 0, _chainRadii.Length - 1)];
 
         [Header("预算回收")]
         [SerializeField, Min(0f)] private float _budgetRefundPerHit;
@@ -63,6 +73,9 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
 
         public bool TryValidate(out string reason)
         {
+            if (_chainRadii == null || _chainRadii.Length != 2 || _chainRadii[0] <= 0f || _chainRadii[1] <= 0f ||
+                _portSpacing < 0f || _burstInterval <= 0f || _chainDamageRatio <= 0f || _chainDamageRatio > 1f)
+            { reason = "炮口间距、连射间隔、两级连锁半径或伤害比例无效。"; return false; }
             if (_calibrationSeconds < 0f ||
                 _fireCooldownSeconds <= 0f)
             {

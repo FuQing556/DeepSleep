@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20260913_DSRiceSplash\\ready\\VFX_DS_RiceSplash_v01.png",
+  "source_sha256": "2ebe1c7fbf781a6eae9d6a4587242454a926314a4142e515759e2df353dcd04e",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 895916,
+  "partial_alpha_pixels": 116539,
+  "opaque_pixels": 560061,
+  "visible_bbox_alpha_gt_0": [
+    97,
+    87,
+    1156,
+    1125
+  ],
+  "visible_bbox_alpha_gt_8": [
+    97,
+    87,
+    1156,
+    1125
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

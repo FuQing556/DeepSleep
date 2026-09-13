@@ -1,0 +1,28 @@
+[
+  {
+    "source": "raw/VFX_DS_RiceSplash_v01_green.png",
+    "output": "ready/VFX_DS_RiceSplash_v01.png",
+    "source_sha256": "2fb3e4bde186fca0f5f4890dccb3f1b1217fb0e5cec71f08d3d33768a193796c",
+    "method": "green",
+    "parameters": {
+      "cutoff": 3,
+      "backdrop_tolerance": 26,
+      "emission_edges": false
+    },
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      97,
+      87,
+      1156,
+      1125
+    ],
+    "transparent_pixels": 895916,
+    "partial_alpha_pixels": 116539,
+    "opaque_pixels": 560061,
+    "clear_corners": true
+  }
+]

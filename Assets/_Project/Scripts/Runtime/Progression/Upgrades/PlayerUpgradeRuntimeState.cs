@@ -109,6 +109,35 @@ namespace DeepSleep.Runtime.Progression.Upgrades
             return Mathf.Max(0.01f, 1f + additiveBonus);
         }
 
+        /// <summary>
+        /// 取得不依赖基础值的同类加法。最大生命使用它按“每级+1”结算，
+        /// 避免用百分比制造难以阅读的小数血量。
+        /// </summary>
+        public float GetAdditiveValue(
+            PlayerRole role,
+            UpgradeEffectKind effect)
+        {
+            if (_catalog == null)
+            {
+                return 0f;
+            }
+
+            float value = 0f;
+            IReadOnlyList<UpgradeDefinition> definitions =
+                _catalog.Definitions;
+            for (int index = 0; index < definitions.Count; index++)
+            {
+                UpgradeDefinition definition = definitions[index];
+                if (definition.Effect == effect && definition.Supports(role))
+                {
+                    value += GetRank(role, definition.Id) *
+                        definition.EffectPerRank;
+                }
+            }
+
+            return Mathf.Max(0f, value);
+        }
+
         public void SetRankFromAuthority(
             PlayerRole role,
             UpgradeCardId id,

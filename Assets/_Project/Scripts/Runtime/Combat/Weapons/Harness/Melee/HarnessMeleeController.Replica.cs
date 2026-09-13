@@ -6,21 +6,23 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
     {
         /// <summary>镜像只触发表现事件；不执行 Sweep/Burst，不修改原始配置。</summary>
         public void ApplyReplicaState(bool melee, bool swinging, uint sequence, HarnessMeleeAttackConfig attack,
-            float progress, float aim, float remaining, float cooldown)
+            float progress, float aim, float remaining, float cooldown, float range = 1f, float speed = 1f)
         {
             if (enabled || (swinging && attack == null)) return;
             bool modeChanged = IsMelee != melee, start = swinging && (!IsSwinging || SwingSequence != sequence);
             bool finish = IsSwinging && !swinging;
-            IsMelee = melee; IsSwinging = swinging; SwingSequence = sequence; Attack = attack;
-            AimDegrees = aim; _elapsed = attack != null ? progress * attack.SwingSeconds : 0;
+            IsMelee = melee; IsSwinging = swinging; SwingSequence = sequence;
+            Attack = PrepareAttack(attack, 0, range, speed);
+            AimDegrees = aim; _elapsed = Attack != null ? progress * Attack.SwingSeconds : 0;
             _modeRemaining = remaining; _cooldown = cooldown;
             if (modeChanged) ModeChanged?.Invoke(melee);
             if (start) SwingStarted?.Invoke();
             if (finish && melee) SwingFinished?.Invoke();
         }
-        public void PresentReplicaWave(HarnessMeleeAttackConfig attack, Vector2 origin, float angle)
+        public void PresentReplicaWave(HarnessMeleeAttackConfig attack, Vector2 origin, float angle,
+            int echo = 0, float range = 1f, float speed = 1f)
         {
-            if (!enabled && attack != null) WaveRequested?.Invoke(attack, origin, angle);
+            if (!enabled && attack != null) WaveRequested?.Invoke(PrepareAttack(attack, echo, range, speed), origin, angle);
         }
     }
 }

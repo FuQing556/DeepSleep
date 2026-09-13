@@ -20,6 +20,8 @@ namespace DeepSleep.Runtime.Input.Touch
         private AimIntent _aim;
         private CommandButtonState _skill, _secondary, _attack, _cancel;
         public bool TouchEnabled => ForceTouchForTesting || Application.isMobilePlatform;
+        public bool UiBlocked { get; private set; }
+        public void SetUiBlocked(bool value) { if (UiBlocked != value) Clear(); UiBlocked = value; }
         private void Awake()
         {
             _desktop = DesktopInput as ICommandSource;
@@ -44,7 +46,18 @@ namespace DeepSleep.Runtime.Input.Touch
         private void Clear() { _move = Vector2.zero; _skill = _secondary = _attack = _cancel = 0; }
         public bool TryGetCommand(uint tick, out PlayerCommand command)
         {
-            if (!TouchEnabled) return _desktop.TryGetCommand(tick, out command);
+            if (!TouchEnabled)
+            {
+                bool available = _desktop.TryGetCommand(tick, out command);
+                if (UiBlocked) command = new PlayerCommand(command.Sequence, tick, Vector2.zero, default, 0, 0, 0, 0, 0, 0);
+                return available;
+            }
+            if (UiBlocked)
+            {
+                Clear();
+                command = new PlayerCommand(++_sequence, tick, Vector2.zero, default, 0, 0, 0, 0, 0, 0);
+                return true;
+            }
             command = new PlayerCommand(++_sequence, tick, _move, _aim, _skill, _secondary, _attack, _cancel, 0, 0);
             _skill &= CommandButtonState.Held; _secondary &= CommandButtonState.Held;
             _attack &= CommandButtonState.Held; _cancel &= CommandButtonState.Held;

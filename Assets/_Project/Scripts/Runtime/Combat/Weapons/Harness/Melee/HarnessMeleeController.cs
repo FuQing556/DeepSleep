@@ -26,6 +26,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
         private bool _exitRequested;
         private AimIntent _aim;
         private Vector2 _previousOrigin;
+        private HarnessMeleeAttackConfig _sourceAttack;
         public bool IsMelee { get; private set; }
         public bool IsSwinging { get; private set; }
         public bool BlocksReviveStart => IsSwinging;
@@ -82,6 +83,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
         public void Simulate(float deltaTime)
         {
             float dt = Mathf.Max(0f, deltaTime);
+            AdvanceEchoes(dt);
             _cooldown = Mathf.Max(0, _cooldown - dt);
             if (IsMelee)
             {
@@ -115,7 +117,8 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
 
         private void StartSwing(Vector2 direction)
         {
-            Attack = _config.Attacks[_nextAttack];
+            _sourceAttack = _config.Attacks[_nextAttack];
+            Attack = PrepareAttack(_sourceAttack);
             _nextAttack = (_nextAttack + 1) % _config.Attacks.Length;
             AimDegrees = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
             _elapsed = 0;
@@ -145,6 +148,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
             // 最后一刀即使跨过技能到期也完整结算，之后不再起新刀。
             _damage.Burst(Attack, origin, AimDegrees);
             WaveRequested?.Invoke(Attack, origin, AimDegrees);
+            QueueEchoes(_sourceAttack, origin, AimDegrees);
             if (_modeRemaining <= 0 || _exitRequested) EndMode();
         }
 
@@ -162,6 +166,12 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
 
         private void OnDisable()
         {
+            CancelCombatSequence();
+        }
+
+        public void CancelCombatSequence()
+        {
+            _pendingEchoes.Clear();
             _held = _commandReceived = false;
             EndMode();
         }

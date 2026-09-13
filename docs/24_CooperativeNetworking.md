@@ -8,7 +8,11 @@
 
 启动显示独立的主菜单界面：Single Player → 选角色 → 战斗；Online Co-op → 创建/加入私人房间 → 双方 Ready → 战斗。当前仍预载同一玩法场景，以不透明背景和暂停门隔离菜单，不是已经完成独立场景加载框架。大厅未开始时隐藏战斗 HUD 和触控操作，战斗后中央顶部 Session 可打开会话面板并返回主菜单。
 
-`OpeningFrontEnd` 只管理界面路由，订阅选角和会话事件，不负责网络模拟；`CoopSessionMenu` 负责房间按钮；`CoopSessionController` 保留会话权威。建房失败不再提前完成选角。场景通过 `OpeningFrontEndSetup` 显式装配，没有运行时补组件，未修改用户碰撞体。
+`MainMenuController` 负责主菜单页面路由；进入玩法场景后，
+`GameplayEntryFlow` 只管理选角/房间到战斗的入口；`CoopSessionMenu` 负责房间按钮；
+`CoopSessionController` 保留会话权威。建房失败不再提前完成选角。
+场景通过 `AppSceneArchitectureInstaller` 显式装配，没有运行时补组件，
+未修改用户碰撞体。
 
 Android 仅允许左右横屏，关闭 Portrait 和 PortraitUpsideDown。已验证编辑器主菜单暂停、单人选择后 HUD/战斗恢复、HS 建房暂停及 DS 建房后离开返回主菜单，Console 无错误。截图在 `ImplementationEvidence/20260909_FrontEnd`。实际手机布局/触控及跨设备连接仍待用户真机验收。
 

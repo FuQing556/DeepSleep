@@ -12,6 +12,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek.Presentation
     {
         [SerializeField] private RiceProjectilePool _projectilePool;
         [SerializeField] private OneShotSpriteEffectPool2D _effectPool;
+        [SerializeField] private OneShotSpriteEffectPool2D _splashEffectPool;
 
         private bool _isInitialized;
 
@@ -35,6 +36,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek.Presentation
             if (_isInitialized)
             {
                 _projectilePool.HitConfirmed += OnHitConfirmed;
+                _projectilePool.SplashConfirmed += OnSplashConfirmed;
             }
         }
 
@@ -43,6 +45,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek.Presentation
             if (_isInitialized && _projectilePool != null)
             {
                 _projectilePool.HitConfirmed -= OnHitConfirmed;
+                _projectilePool.SplashConfirmed -= OnSplashConfirmed;
             }
         }
 
@@ -60,7 +63,18 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek.Presentation
                 return false;
             }
 
-            return _effectPool.TryValidateConfiguration(out reason);
+            if (!_effectPool.TryValidateConfiguration(out reason)) return false;
+            if (_splashEffectPool == null)
+            {
+                reason = "未配置饭团溅射特效池。";
+                return false;
+            }
+            return _splashEffectPool.TryValidateConfiguration(out reason);
+        }
+
+        private void OnSplashConfirmed(Vector2 point, Vector2 direction)
+        {
+            _splashEffectPool?.TryPlay(point, WorldSpriteGeometry2D.DirectionToAngle(direction));
         }
 
         private void OnHitConfirmed(RiceProjectileHitConfirmed hit)

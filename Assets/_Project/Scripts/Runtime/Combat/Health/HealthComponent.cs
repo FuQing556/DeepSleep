@@ -12,6 +12,7 @@ namespace DeepSleep.Runtime.Combat.Health
         [SerializeField] private HealthConfig _config;
 
         private float _currentHealth;
+        private float _maximumHealthBonus;
         private bool _isInitialized;
 
         public event Action<HealthComponent> HealthChanged;
@@ -19,7 +20,10 @@ namespace DeepSleep.Runtime.Combat.Health
 
         public float CurrentHealth => _currentHealth;
         public float MaximumHealth =>
-            _config != null ? _config.MaximumHealth : 0f;
+            _config != null
+                ? Mathf.Max(1f, Mathf.Floor(
+                    _config.MaximumHealth + _maximumHealthBonus))
+                : 0f;
         public bool IsDepleted => _currentHealth <= 0f;
         public bool CanReceiveDamage =>
             _isInitialized && isActiveAndEnabled && !IsDepleted;
@@ -69,7 +73,7 @@ namespace DeepSleep.Runtime.Combat.Health
 
         public bool TryRestore(float amount)
         {
-            if (!_isInitialized || IsDepleted || amount <= 0f ||
+            if (!_isInitialized || IsDepleted || amount < 1f ||
                 _currentHealth >= MaximumHealth)
             {
                 return false;
@@ -77,7 +81,7 @@ namespace DeepSleep.Runtime.Combat.Health
 
             _currentHealth = Mathf.Min(
                 MaximumHealth,
-                _currentHealth + amount);
+                _currentHealth + Mathf.Floor(amount));
             HealthChanged?.Invoke(this);
             return true;
         }
@@ -93,7 +97,7 @@ namespace DeepSleep.Runtime.Combat.Health
                 return false;
             }
 
-            _currentHealth = Mathf.Min(MaximumHealth, health);
+            _currentHealth = Mathf.Min(MaximumHealth, Mathf.Max(1f, Mathf.Floor(health)));
             HealthChanged?.Invoke(this);
             return true;
         }
@@ -109,6 +113,33 @@ namespace DeepSleep.Runtime.Combat.Health
             HealthChanged?.Invoke(this);
         }
 
+        /// <summary>
+        /// 上限增加多少，存活角色补多少；倒地不复活。回滚随后恢复快照生命。
+        /// </summary>
+        public void SetMaximumHealthBonus(float bonus)
+        {
+            float normalizedBonus = Mathf.Max(0f, Mathf.Floor(bonus));
+            if (Mathf.Approximately(
+                    normalizedBonus, _maximumHealthBonus))
+            {
+                return;
+            }
+
+            float previousMaximum = MaximumHealth;
+            bool wasDepleted = IsDepleted;
+            _maximumHealthBonus = normalizedBonus;
+
+            if (!_isInitialized)
+            {
+                return;
+            }
+
+            _currentHealth = wasDepleted
+                ? 0f
+                : Mathf.Clamp(_currentHealth + MaximumHealth - previousMaximum, 1f, MaximumHealth);
+            HealthChanged?.Invoke(this);
+        }
+
         public bool RestoreCheckpointHealth(float health)
         {
             if (!_isInitialized || health <= 0f)
@@ -116,7 +147,7 @@ namespace DeepSleep.Runtime.Combat.Health
                 return false;
             }
 
-            _currentHealth = Mathf.Clamp(health, 0.01f, MaximumHealth);
+            _currentHealth = Mathf.Clamp(Mathf.Floor(health), 1f, MaximumHealth);
             HealthChanged?.Invoke(this);
             return true;
         }

@@ -32,6 +32,10 @@ namespace DeepSleep.Runtime.Networking
         private ICommandSource _boundHost, _boundGuest;
         public bool AutoTakeoverOnFocusLoss = true;
         private bool _previousBackground;
+        private bool _soloAi;
+        public bool IsSoloPlaying => Phase == SessionPhase.Offline && Selection != null && Selection.IsSelectionComplete &&
+            AppFlow.GameAppRoot.Instance != null && AppFlow.GameAppRoot.Instance.LaunchContext.Mode == AppFlow.GameLaunchMode.Solo;
+        public bool CanControlLocally => IsSoloPlaying || Phase == SessionPhase.Playing;
 
         public SessionPhase Phase { get; private set; }
         public bool IsAuthority => _transport != null && _transport.IsServer;
@@ -41,10 +45,12 @@ namespace DeepSleep.Runtime.Networking
         public bool LocalReady => IsAuthority ? _hostReady : _guestReady;
         public bool HostReady => _hostReady;
         public bool GuestReady => _guestReady;
-        public bool LocalAi => (IsAuthority ? _hostControl : _guestControl) != SlotControl.Human;
+        public bool LocalAi => IsSoloPlaying ? _soloAi : (IsAuthority ? _hostControl : _guestControl) != SlotControl.Human;
         public SlotControl GuestControl => _guestControl;
         public SlotControl GetRoleControl(PlayerRole role)
         {
+            if (IsSoloPlaying)
+                return role == Assignment.CurrentLocalPlayerRole && !_soloAi ? SlotControl.Human : SlotControl.VoluntaryAi;
             return role == HostRole ? _hostControl : _guestControl;
         }
 
@@ -163,6 +169,17 @@ namespace DeepSleep.Runtime.Networking
 
         public void SetLocalAi(bool value)
         {
+            if (IsSoloPlaying)
+            {
+                if (_soloAi == value) return;
+                var brain = Assignment.CurrentLocalPlayerRole == PlayerRole.DeepSeek ? DeepSeekAi : HarnessAi;
+                brain.ReleaseControl();
+                if (value) brain.ResetIntent();
+                if (Assignment.CurrentLocalPlayerActor.CommandDispatcher.TryBindCommandSource(value ? brain : _input))
+                    _soloAi = value;
+                Changed?.Invoke();
+                return;
+            }
             if (Phase != SessionPhase.Playing) return;
             if (IsAuthority)
             {
@@ -210,13 +227,15 @@ namespace DeepSleep.Runtime.Networking
         private void OnApplicationPause(bool paused)
         {
             // 客人进入后台前请求托管；若请求未到达，断线事件仍兜底接管。
-            if (paused && AutoTakeoverOnFocusLoss && Phase == SessionPhase.Playing) SetLocalAi(true);
+            if (paused && AutoTakeoverOnFocusLoss && CanControlLocally) SetLocalAi(true);
         }
         private void OnApplicationFocus(bool focused)
-        { if (!focused && AutoTakeoverOnFocusLoss && Phase == SessionPhase.Playing) SetLocalAi(true); }
+        { if (!focused && AutoTakeoverOnFocusLoss && CanControlLocally) SetLocalAi(true); }
 
         public void Leave()
         {
+            if (IsSoloPlaying) { SetLocalAi(false); LocalRole = Assignment.CurrentLocalPlayerRole; }
+            _soloAi = false;
             Phase = SessionPhase.Offline; _transport.Stop(); _hasPeer = false; _remote.Clear();
             SessionClosed?.Invoke(); Assignment.TrySelectLocalPlayerRole(LocalRole);
             Time.timeScale = 1; Status = "Offline"; Changed?.Invoke();

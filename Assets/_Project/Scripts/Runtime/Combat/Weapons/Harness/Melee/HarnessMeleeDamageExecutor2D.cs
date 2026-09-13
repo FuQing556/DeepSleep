@@ -15,6 +15,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
         private readonly HashSet<IDamageReceiver> _bladeVictims = new();
         private readonly HashSet<IDamageReceiver> _waveVictims = new();
         public event Action<Vector2, float> HitConfirmed;
+        public event Action<HarnessMeleeDamageHitConfirmed> DamageConfirmed;
         public int BladeHits { get; private set; }
         public int WaveHits { get; private set; }
         public int ClearedProjectiles { get; private set; }
@@ -71,8 +72,9 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
             ClearProjectiles();
         }
 
-        public void Burst(HarnessMeleeAttackConfig attack, Vector2 origin, float aim)
+        public void Burst(HarnessMeleeAttackConfig attack, Vector2 origin, float aim, bool clearProjectiles = true)
         {
+            _waveVictims.Clear();
             Transform queryTransform = _waveQuery.transform;
             queryTransform.SetPositionAndRotation(MeleeSwordGeometry2D.WavePosition(attack, origin, aim),
                 Quaternion.Euler(0, 0, MeleeSwordGeometry2D.WaveAngle(attack, aim)));
@@ -88,8 +90,11 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
                 Physics2D.OverlapCollider(_waveQuery, CreateFilter(_config.EnemyLayers), _candidates);
                 ApplyDamage(_waveVictims, attack.WaveDamage, origin,
                     MeleeSwordGeometry2D.Rotate(Vector2.right, aim), true);
-                Physics2D.OverlapCollider(_waveQuery, CreateFilter(_config.ClearableProjectileLayers), _candidates);
-                ClearProjectiles();
+                if (clearProjectiles)
+                {
+                    Physics2D.OverlapCollider(_waveQuery, CreateFilter(_config.ClearableProjectileLayers), _candidates);
+                    ClearProjectiles();
+                }
             }
             finally { _waveQuery.enabled = false; }
         }
@@ -106,8 +111,11 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
                 Vector2 point = candidate.ClosestPoint(origin);
                 var packet = new DamagePacket(amount, point, direction, gameObject);
                 if (!hitbox.TryReceiveDamage(packet)) continue;
+                hitbox.ApplyHitMotion(HitMotionKind.HarnessStop);
                 if (wave) WaveHits++; else BladeHits++;
                 HitConfirmed?.Invoke(point, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+                DamageConfirmed?.Invoke(new HarnessMeleeDamageHitConfirmed(
+                    point, direction, packet.Amount, wave));
             }
         }
 

@@ -13,6 +13,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
     {
         [SerializeField] private HealthComponent _health;
         [SerializeField] private EnemyMotor2D _motor;
+        [SerializeField] private EnemyHitMotionController2D _hitMotion;
         [SerializeField] private MonoBehaviour[] _simulationStepComponents;
         private IFixedSimulationStep[] _simulationSteps;
 
@@ -82,6 +83,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
 
             _despawnRequested = false;
             SpawnGeneration++;
+            _hitMotion.ResetState();
             _health.ResetToMaximum();
             _motor.Begin(spawnPosition, in variation);
         }
@@ -103,6 +105,18 @@ namespace DeepSleep.Runtime.Combat.Enemies
             if (_health == null)
             {
                 reason = "未配置生命组件。";
+                return false;
+            }
+
+            if (_hitMotion == null)
+            {
+                reason = "未配置受击运动反馈组件。";
+                return false;
+            }
+
+            if (!_hitMotion.TryValidateConfiguration(out reason))
+            {
+                reason = $"受击运动反馈组件无效：{reason}";
                 return false;
             }
 
@@ -143,7 +157,13 @@ namespace DeepSleep.Runtime.Combat.Enemies
                     _simulationSteps[index].Simulate(deltaTime);
                 }
             }
-            if (!_despawnRequested) _motor.Simulate(deltaTime);
+            if (!_despawnRequested)
+            {
+                float movementTimeScale = _hitMotion.MovementTimeScale;
+                _motor.Simulate(
+                    deltaTime * movementTimeScale);
+                _hitMotion.Simulate(deltaTime);
+            }
         }
 
         private void OnExitedPlayfield(EnemyMotor2D motor)
