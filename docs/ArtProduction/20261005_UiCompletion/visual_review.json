@@ -1,0 +1,96 @@
+{
+  "reviewer": "completion_alpha agent",
+  "user_individual_asset_approval": false,
+  "unity_scene_verification": "Root agent owns Unity integration; this review covers PNG artwork only.",
+  "method": "Viewed raw images, then white/dark/sky composites. Buffs also viewed at exact 40px on all three backgrounds. No RGB/alpha cleanup, recoloring, or source image resampling.",
+  "reviewed": {
+    "SPR_UI_DS_TitleLogo.png": {
+      "result": "Suitable for Unity integration review",
+      "observations": "Reads DeepSleep, including all four e glyphs, both p descenders and capital S. No clipped letters. D whale-tail ornament, final rice-grain flourish and white interiors retained. Transparent counters; no opaque plate or checkerboard. Dark and sky backgrounds show clean white/blue lettering.",
+      "limitations": "Final menu size/readability must be inspected in Unity; decorative logo is not substitute for accessible text naming."
+    },
+    "SPR_UI_HA_TitleLogo.png": {
+      "result": "Suitable for Unity integration review",
+      "observations": "Reads DeepSleep, all letters complete. Dark left ornament and red flower remain intact. No clipped p descenders or S loop. Native transparent counters; no baked checkerboard or background plate.",
+      "limitations": "Dark ornamental silhouette is subtle on dark backgrounds; cream lettering remains legible. Final menu layout pending Unity."
+    },
+    "BG_UI_DS_MainMenu.png": {
+      "result": "Suitable for static menu integration review",
+      "observations": "Opaque blue cloud-sea panorama, quiet left/central upper region, brighter right horizon. No text, figures, or alpha holes. Canvas unchanged.",
+      "limitations": "Decorative menu background only, not seamless world-scroll art. Use aspect-preserving cover/crop; check ultrawide and 16:9 framing."
+    },
+    "BG_UI_HA_MainMenu.png": {
+      "result": "Suitable for static menu integration review",
+      "observations": "Opaque charcoal/cream/red cloud-sea panorama with low corner foliage and bright right clouds. No text, figures, or alpha holes. Canvas unchanged.",
+      "limitations": "Decorative menu background only, not seamless world-scroll art. Use aspect-preserving cover/crop; check ultrawide and 16:9 framing."
+    },
+    "ICO_BUFF_FaultToleranceExpansion.png": {
+      "result": "Suitable for Unity integration review",
+      "observations": "40px heart shape and support brackets recognizable. Native soft green glow preserved. No checkerboard or dark residue. White foreground stays intact.",
+      "limitations": "Light green/cream contrast is lower on pure white; dark/sky HUD backing improves reading. Fine facets disappear at 40px as expected."
+    },
+    "ICO_BUFF_DataCompression.png": {
+      "selected_source": "raw/ICO_BUFF_DataCompression_v2.png",
+      "result": "Suitable for Unity integration review",
+      "observations": "Elongated white rice-grain energy projectile, blue-white trail, ring and inward-corner symbols. No triangular nori rice ball. At 40px ring distinguishes it from RiceStorm.",
+      "limitations": "Corner arrows become small at 40px; do not rely on them alone without label/tooltip. Native blue glow preserved."
+    },
+    "ICO_BUFF_RiceFan.png": {
+      "selected_source": "raw/ICO_BUFF_RiceFan_v2.png",
+      "result": "Suitable for Unity integration review",
+      "observations": "Three white rice-grain energy projectiles with blue-white fan trails remain distinct at 40px. No triangular nori rice ball. Transparent spaces between all three trajectories.",
+      "limitations": "Native blue glow preserved; no threshold cleanup."
+    },
+    "ICO_BUFF_RiceStorm.png": {
+      "selected_source": "raw/ICO_BUFF_RiceStorm_v2.png",
+      "result": "Suitable for Unity integration review",
+      "observations": "Single white rice-grain energy projectile with long blue-white speed trails. No triangular nori rice ball. At 40px long diagonal silhouette reads separately from ringed DataCompression.",
+      "limitations": "Slender shape has less filled area than the heart icon; use same square canvas, do not nonuniformly stretch."
+    },
+    "ICO_BUFF_RiceGuidance.png": {
+      "result": "Suitable for Unity integration review",
+      "observations": "Three target reticles with white rice grains, connected by a blue-white trajectory. Transparent gaps preserved. At 40px triple-reticle silhouette remains recognizable on all three backgrounds.",
+      "limitations": "Small target interior decorations are not readable at 40px; retain the hover/detail label."
+    },
+    "ICO_BUFF_RiceSplash.png": {
+      "result": "Suitable for Unity integration review",
+      "observations": "Five white rice grains arranged radially around a blue-white impact star. It occupies less canvas than the other icons, but exact 40px preview still clearly shows the five-grain radial burst (roughly 26px visible diameter). No cleanup or scale adjustment was needed.",
+      "limitations": "Optical weight is smaller than RiceGuard/TerminalArray. Inspect final HUD before deciding whether a configured uniform visual scale is appropriate; source canvas stays unchanged."
+    },
+    "ICO_BUFF_RiceGuard.png": {
+      "result": "Suitable for Unity integration review",
+      "observations": "Full bowl of separate white rice grains, dark/gold bowl, two blue defensive arcs. At 40px bowl and shield-like arcs are clear. Dark bowl is retained, not incorrectly keyed away.",
+      "limitations": "Individual rice grains merge into a white mound at 40px, as expected; bowl/arc silhouette carries the icon."
+    },
+    "ICO_BUFF_QuantumSword.png": {
+      "result": "Suitable for Unity integration review",
+      "observations": "Black-red sword with white energy core and sweeping red arc. Native glow and dark hilt retained. Sword tip and hilt are fully inside canvas. 40px diagonal sword silhouette is distinct.",
+      "limitations": "Fine blade/hilt facets disappear at 40px; long thin silhouette has less filled area than terminal icons."
+    },
+    "ICO_BUFF_TerminalAmplifier.png": {
+      "result": "Suitable for Unity integration review",
+      "observations": "Single black-red terminal emitter and broad red-white beam. Dark body and white core intact. At 40px broad beam distinguishes it from TerminalBurst.",
+      "limitations": "Tiny expansion chevrons are secondary; retain text labels for exact effect semantics."
+    },
+    "ICO_BUFF_TerminalArray.png": {
+      "result": "Suitable for Unity integration review",
+      "observations": "Three separate black-red terminals and three beams converging at a bright point. Transparent gaps and three-emitter count preserved, including at 40px.",
+      "limitations": "The image communicates multi-emitter array rather than exact combat beam geometry."
+    },
+    "ICO_BUFF_TerminalBurst.png": {
+      "result": "Suitable for Unity integration review",
+      "observations": "Single terminal and three separated red-white pulses on a diagonal trajectory. 40px pulse grouping stays distinguishable from broad TerminalAmplifier beam. Native red glow preserved.",
+      "limitations": "Slim pulse train is lower visual weight than amplifier; no nonuniform stretching or canvas crop applied."
+    },
+    "ICO_BUFF_TerminalChain.png": {
+      "result": "Suitable for Unity integration review",
+      "observations": "Large black-red terminal links to two red crystal nodes. At 40px branching links and two node bodies are clear. Dark terminal geometry remains intact on white, dark, and sky backgrounds.",
+      "limitations": "Fine crystal textures disappear at 40px; branching silhouette remains the cue."
+    }
+  },
+  "rejected_raw_only": {
+    "ICO_BUFF_DataCompression.png": "User rejected triangular nori rice-ball motif. Replaced by v2 source, never copied to ready or Assets.",
+    "ICO_BUFF_RiceFan.png": "User rejected triangular nori rice-ball motif. Replaced by v2 source, never copied to ready or Assets.",
+    "ICO_BUFF_RiceStorm.png": "User rejected triangular nori rice-ball motif. Replaced by v2 source, never copied to ready or Assets."
+  }
+}

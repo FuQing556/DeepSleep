@@ -1,0 +1,18 @@
+{
+  "asset_count": 14,
+  "method": "Native RGBA retained; independently cropped alpha>1 bounds plus 16 pixels after root approval; no color key, resampling, repainting, or internal pixel changes.",
+  "source_hash_verification": "PASS: all 14 raw source SHA256 values unchanged",
+  "retained_rgba_verification": "PASS: all 14 ready images byte-identical to their source crop regions",
+  "discarded_nonzero_pixels_total": 13948,
+  "maximum_discarded_alpha": 1,
+  "visual_review": "White, dark, and sky previews reviewed. No opaque/chessboard center residue, clipped solid artwork, or missing glow observed. Dedicated button/panel/circle layers remain independent.",
+  "frame_interior": "All measured interior areas contain only alpha 0/1; tiny alpha=1 dots are intentionally preserved inside crop regions. They are not claimed to be mathematically fully transparent.",
+  "blocking_findings": [],
+  "integration_limitations": [
+    "Nine-slice borders are initial art-reviewed source-pixel values including transparent padding; final uGUI scale/overlap must be verified in game.",
+    "Use each layer optical inset from production_crop_manifest.json for registration; equal outer RectTransforms alone do not align glow and base geometry.",
+    "Button borders should retain a stable target height and stretch primarily horizontally; large panels use PanelFrame.",
+    "Circle and ornament images require Simple with preserveAspect; do not nonuniformly stretch them.",
+    "Unity import and final game visual approval are outside this audit."
+  ]
+}

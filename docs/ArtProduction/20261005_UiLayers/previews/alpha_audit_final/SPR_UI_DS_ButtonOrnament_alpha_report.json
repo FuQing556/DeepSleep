@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_DS_ButtonOrnament.png",
+  "source_sha256": "310a4bdf82929e3260d12699e8115c939e78b9136a3bfcc83a32f5a339944394",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 1157265,
+  "partial_alpha_pixels": 414263,
+  "opaque_pixels": 988,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    51,
+    1238,
+    1182
+  ],
+  "visible_bbox_alpha_gt_8": [
+    116,
+    290,
+    1139,
+    904
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_DS_ButtonGlow.png",
+  "source_sha256": "cedf9087936c41fe0fd2b325a6c4ee6402636b2b388b24e7f1368f4541017dad",
+  "mode": "RGBA",
+  "size": [
+    1536,
+    1024
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    251
+  ],
+  "transparent_pixels": 1234354,
+  "partial_alpha_pixels": 338510,
+  "opaque_pixels": 0,
+  "visible_bbox_alpha_gt_0": [
+    43,
+    135,
+    1500,
+    928
+  ],
+  "visible_bbox_alpha_gt_8": [
+    58,
+    319,
+    1478,
+    696
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

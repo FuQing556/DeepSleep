@@ -1,0 +1,1250 @@
+fileFormatVersion: 2
+guid: 4c69cdd61905bf547bb16d70582e2dd2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7903681248657659483
+    second: ICO_BUFF_RiceFan_0
+  - first:
+      213: -472923198900281215
+    second: ICO_BUFF_RiceFan_1
+  - first:
+      213: 6198136862623540792
+    second: ICO_BUFF_RiceFan_2
+  - first:
+      213: -2251114278672070776
+    second: ICO_BUFF_RiceFan_3
+  - first:
+      213: 3004260662310836179
+    second: ICO_BUFF_RiceFan_4
+  - first:
+      213: -4829284107806195398
+    second: ICO_BUFF_RiceFan_5
+  - first:
+      213: -2360296829911174530
+    second: ICO_BUFF_RiceFan_6
+  - first:
+      213: 6954167385593859273
+    second: ICO_BUFF_RiceFan_7
+  - first:
+      213: 4413629947580415262
+    second: ICO_BUFF_RiceFan_8
+  - first:
+      213: -3857085097267792305
+    second: ICO_BUFF_RiceFan_9
+  - first:
+      213: -8938707917531598626
+    second: ICO_BUFF_RiceFan_10
+  - first:
+      213: -823166658605687984
+    second: ICO_BUFF_RiceFan_11
+  - first:
+      213: -4101956381792147336
+    second: ICO_BUFF_RiceFan_12
+  - first:
+      213: 5111477805858790674
+    second: ICO_BUFF_RiceFan_13
+  - first:
+      213: -4937274701094401440
+    second: ICO_BUFF_RiceFan_14
+  - first:
+      213: -4585161128994416735
+    second: ICO_BUFF_RiceFan_15
+  - first:
+      213: -8113228076761692532
+    second: ICO_BUFF_RiceFan_16
+  - first:
+      213: -8589667142509097747
+    second: ICO_BUFF_RiceFan_17
+  - first:
+      213: -8751656835607674610
+    second: ICO_BUFF_RiceFan_18
+  - first:
+      213: 8882780898855133163
+    second: ICO_BUFF_RiceFan_19
+  - first:
+      213: 6421682587674416195
+    second: ICO_BUFF_RiceFan_20
+  - first:
+      213: -7272270341693653678
+    second: ICO_BUFF_RiceFan_21
+  - first:
+      213: 2720806344255211302
+    second: ICO_BUFF_RiceFan_22
+  - first:
+      213: 7469943789089182385
+    second: ICO_BUFF_RiceFan_23
+  - first:
+      213: -2892455596581812519
+    second: ICO_BUFF_RiceFan_24
+  - first:
+      213: 3344515051165923042
+    second: ICO_BUFF_RiceFan_25
+  - first:
+      213: 568925588383933727
+    second: ICO_BUFF_RiceFan_26
+  - first:
+      213: 3695266510270136754
+    second: ICO_BUFF_RiceFan_27
+  - first:
+      213: 5970926165297633761
+    second: ICO_BUFF_RiceFan_28
+  - first:
+      213: 5670069163630072992
+    second: ICO_BUFF_RiceFan_29
+  - first:
+      213: -4067173643689320725
+    second: ICO_BUFF_RiceFan_30
+  - first:
+      213: 337011052367623406
+    second: ICO_BUFF_RiceFan_31
+  - first:
+      213: -3088941733409998447
+    second: ICO_BUFF_RiceFan_32
+  - first:
+      213: 6803039867182739684
+    second: ICO_BUFF_RiceFan_33
+  - first:
+      213: 3751468992471132316
+    second: ICO_BUFF_RiceFan_34
+  - first:
+      213: -471626403066633448
+    second: ICO_BUFF_RiceFan_35
+  - first:
+      213: -6885833679058334115
+    second: ICO_BUFF_RiceFan_36
+  - first:
+      213: 2057487693535239503
+    second: ICO_BUFF_RiceFan_37
+  - first:
+      213: 4780144806533112637
+    second: ICO_BUFF_RiceFan_38
+  - first:
+      213: -6495040981621795115
+    second: ICO_BUFF_RiceFan_39
+  - first:
+      213: -7594058117956122378
+    second: ICO_BUFF_RiceFan_40
+  - first:
+      213: -105758671553170441
+    second: ICO_BUFF_RiceFan_41
+  - first:
+      213: 2984563710528121962
+    second: ICO_BUFF_RiceFan_42
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 31
+        width: 1213
+        height: 1203
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a928d3a7cb705290800000000000000
+      internalID: -7903681248657659483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_1
+      rect:
+        serializedVersion: 2
+        x: 573
+        y: 1196
+        width: 105
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 180e1833bd6df69f0800000000000000
+      internalID: -472923198900281215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_2
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 1169
+        width: 58
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8362eed23a4340650800000000000000
+      internalID: 6198136862623540792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_3
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 1156
+        width: 32
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88701fe8d7f62c0e0800000000000000
+      internalID: -2251114278672070776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_4
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 1126
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d797b5b72741b920800000000000000
+      internalID: 3004260662310836179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_5
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 1125
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a31c5cac0bfeafcb0800000000000000
+      internalID: -4829284107806195398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_6
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 1112
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e72f9a0e98a8e3fd0800000000000000
+      internalID: -2360296829911174530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_7
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 983
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9cccde6746a228060800000000000000
+      internalID: 6954167385593859273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_8
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 1016
+        width: 28
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1d7e8b8d0d504d30800000000000000
+      internalID: 4413629947580415262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_9
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 998
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4676ec2a81e87ac0800000000000000
+      internalID: -3857085097267792305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_10
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 978
+        width: 51
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed0be80228453f380800000000000000
+      internalID: -8938707917531598626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_11
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 883
+        width: 45
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05bdcda09468394f0800000000000000
+      internalID: -823166658605687984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_12
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 937
+        width: 19
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 878e123676ce217c0800000000000000
+      internalID: -4101956381792147336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_13
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 567
+        width: 70
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21d918f8bfd9fe640800000000000000
+      internalID: 5111477805858790674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_14
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 664
+        width: 21
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06aceb271d64b7bb0800000000000000
+      internalID: -4937274701094401440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_15
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 648
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a7db541f3c3e50c0800000000000000
+      internalID: -4585161128994416735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_16
+      rect:
+        serializedVersion: 2
+        x: 60
+        y: 593
+        width: 48
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c86c4e6cc06086f80800000000000000
+      internalID: -8113228076761692532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_17
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 632
+        width: 33
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dec86ef6e3f5bc880800000000000000
+      internalID: -8589667142509097747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 594
+        width: 13
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e014c7de97edb8680800000000000000
+      internalID: -8751656835607674610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_19
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 594
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bef92ed1a2af54b70800000000000000
+      internalID: 8882780898855133163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_20
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 598
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34415aa3a466e1950800000000000000
+      internalID: 6421682587674416195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_21
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 596
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25dbdb487a4b31b90800000000000000
+      internalID: -7272270341693653678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_22
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 591
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62706f364fe32c520800000000000000
+      internalID: 2720806344255211302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_23
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 546
+        width: 33
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b2dbc87c429aa760800000000000000
+      internalID: 7469943789089182385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_24
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 580
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d68625b5feebd7d0800000000000000
+      internalID: -2892455596581812519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_25
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 554
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e631b218ba1a6e20800000000000000
+      internalID: 3344515051165923042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_26
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 535
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f15214feeca35e700800000000000000
+      internalID: 568925588383933727
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_27
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 497
+        width: 16
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b18c0f0059384330800000000000000
+      internalID: 3695266510270136754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_28
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 508
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e996a646bdfcd250800000000000000
+      internalID: 5970926165297633761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_29
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 144
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a4111eecd120be40800000000000000
+      internalID: 5670069163630072992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_30
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 150
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bee1110be1f7e87c0800000000000000
+      internalID: -4067173643689320725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_31
+      rect:
+        serializedVersion: 2
+        x: 770
+        y: 114
+        width: 25
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee4b0cd34cd4da400800000000000000
+      internalID: 337011052367623406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_32
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 132
+        width: 14
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 199b7300cdfd125d0800000000000000
+      internalID: -3088941733409998447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_33
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 111
+        width: 13
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e07f3417b0496e50800000000000000
+      internalID: 6803039867182739684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_34
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 119
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c98622a2c25ef0430800000000000000
+      internalID: 3751468992471132316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_35
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 97
+        width: 10
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 813a48209427479f0800000000000000
+      internalID: -471626403066633448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_36
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 99
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5e8e4960ca9070a0800000000000000
+      internalID: -6885833679058334115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_37
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 61
+        width: 54
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4dd7eef72aad8c10800000000000000
+      internalID: 2057487693535239503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_38
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 82
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d33a550106c765240800000000000000
+      internalID: 4780144806533112637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_39
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 73
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d614d0b3aafcd5a0800000000000000
+      internalID: -6495040981621795115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_40
+      rect:
+        serializedVersion: 2
+        x: 547
+        y: 47
+        width: 15
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f8cd83706c7c9690800000000000000
+      internalID: -7594058117956122378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_41
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 47
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f3f72e6c05488ef0800000000000000
+      internalID: -105758671553170441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceFan_42
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 47
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6cec8fb1ec4b6920800000000000000
+      internalID: 2984563710528121962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ICO_BUFF_RiceFan_0: -7903681248657659483
+      ICO_BUFF_RiceFan_1: -472923198900281215
+      ICO_BUFF_RiceFan_10: -8938707917531598626
+      ICO_BUFF_RiceFan_11: -823166658605687984
+      ICO_BUFF_RiceFan_12: -4101956381792147336
+      ICO_BUFF_RiceFan_13: 5111477805858790674
+      ICO_BUFF_RiceFan_14: -4937274701094401440
+      ICO_BUFF_RiceFan_15: -4585161128994416735
+      ICO_BUFF_RiceFan_16: -8113228076761692532
+      ICO_BUFF_RiceFan_17: -8589667142509097747
+      ICO_BUFF_RiceFan_18: -8751656835607674610
+      ICO_BUFF_RiceFan_19: 8882780898855133163
+      ICO_BUFF_RiceFan_2: 6198136862623540792
+      ICO_BUFF_RiceFan_20: 6421682587674416195
+      ICO_BUFF_RiceFan_21: -7272270341693653678
+      ICO_BUFF_RiceFan_22: 2720806344255211302
+      ICO_BUFF_RiceFan_23: 7469943789089182385
+      ICO_BUFF_RiceFan_24: -2892455596581812519
+      ICO_BUFF_RiceFan_25: 3344515051165923042
+      ICO_BUFF_RiceFan_26: 568925588383933727
+      ICO_BUFF_RiceFan_27: 3695266510270136754
+      ICO_BUFF_RiceFan_28: 5970926165297633761
+      ICO_BUFF_RiceFan_29: 5670069163630072992
+      ICO_BUFF_RiceFan_3: -2251114278672070776
+      ICO_BUFF_RiceFan_30: -4067173643689320725
+      ICO_BUFF_RiceFan_31: 337011052367623406
+      ICO_BUFF_RiceFan_32: -3088941733409998447
+      ICO_BUFF_RiceFan_33: 6803039867182739684
+      ICO_BUFF_RiceFan_34: 3751468992471132316
+      ICO_BUFF_RiceFan_35: -471626403066633448
+      ICO_BUFF_RiceFan_36: -6885833679058334115
+      ICO_BUFF_RiceFan_37: 2057487693535239503
+      ICO_BUFF_RiceFan_38: 4780144806533112637
+      ICO_BUFF_RiceFan_39: -6495040981621795115
+      ICO_BUFF_RiceFan_4: 3004260662310836179
+      ICO_BUFF_RiceFan_40: -7594058117956122378
+      ICO_BUFF_RiceFan_41: -105758671553170441
+      ICO_BUFF_RiceFan_42: 2984563710528121962
+      ICO_BUFF_RiceFan_5: -4829284107806195398
+      ICO_BUFF_RiceFan_6: -2360296829911174530
+      ICO_BUFF_RiceFan_7: 6954167385593859273
+      ICO_BUFF_RiceFan_8: 4413629947580415262
+      ICO_BUFF_RiceFan_9: -3857085097267792305
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

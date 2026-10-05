@@ -1,0 +1,1055 @@
+{
+  "batch": "20261005_UiCompletion",
+  "method": "Native alpha preserved. Only titles crop alpha>1 bounding box plus 16px; all retained RGBA bytes unchanged.",
+  "user_individual_asset_approval": false,
+  "unity_imported_by_this_script": false,
+  "rejected_sources": [
+    {
+      "file": "ICO_BUFF_DataCompression.png",
+      "sha256": "f585a7073ac2f1359f450811ce74365402b6899d62a40030f233e690e24296f6",
+      "reason": "User rejected triangular nori rice-ball representation; not the project rice-grain projectile.",
+      "retained_raw_only": true
+    },
+    {
+      "file": "ICO_BUFF_RiceFan.png",
+      "sha256": "fe36fe733b1a9e1e0043736563ade31739427ae4b5d73b32780ad68e79c5d1f5",
+      "reason": "User rejected triangular nori rice-ball representation; not the project rice-grain projectile.",
+      "retained_raw_only": true
+    },
+    {
+      "file": "ICO_BUFF_RiceStorm.png",
+      "sha256": "99e6754614f5195f4c9aec5a3956c9060ae4511a8e630f502f0701de3f27f9e1",
+      "reason": "User rejected triangular nori rice-ball representation; not the project rice-grain projectile.",
+      "retained_raw_only": true
+    }
+  ],
+  "assets": {
+    "SPR_UI_DS_TitleLogo.png": {
+      "selected_source": "raw/SPR_UI_DS_TitleLogo.png",
+      "source_sha256": "63ec6d9c63d4d6444cef46ea8052b9c17f1389bb506b8f8af92612b72c745d5e",
+      "source_size": [
+        2172,
+        724
+      ],
+      "ready": "ready/SPR_UI_DS_TitleLogo.png",
+      "ready_sha256": "cfee4d2020d4e888ea82f473927f6df6957b8e5f0052bc4b035583564d3ed054",
+      "ready_size": [
+        2094,
+        618
+      ],
+      "crop_box_in_source": [
+        33,
+        27,
+        2127,
+        645
+      ],
+      "removed_nonzero_alpha1_pixels": 140,
+      "retained_rgba_unchanged": true,
+      "alpha": {
+        "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\SPR_UI_DS_TitleLogo.png",
+        "source_sha256": "cfee4d2020d4e888ea82f473927f6df6957b8e5f0052bc4b035583564d3ed054",
+        "mode": "RGBA",
+        "size": [
+          2094,
+          618
+        ],
+        "has_alpha": true,
+        "alpha_min_max": [
+          0,
+          255
+        ],
+        "transparent_pixels": 802205,
+        "partial_alpha_pixels": 488529,
+        "opaque_pixels": 3358,
+        "visible_bbox_alpha_gt_0": [
+          13,
+          0,
+          2079,
+          609
+        ],
+        "visible_bbox_alpha_gt_8": [
+          18,
+          18,
+          2076,
+          600
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checked_points": [],
+        "automatic_failures": [],
+        "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+      },
+      "production_path": "D:\\Unity Work\\DeepSleep_Unity6\\Assets\\_Project\\Art\\UI\\Themes\\DeepSeek\\SPR_UI_DS_TitleLogo.png",
+      "copied_to_assets": true,
+      "unity_imported": false,
+      "visual_review": "See visual_review.json for explicit inspected assets. Automatic alpha tests are not art approval."
+    },
+    "SPR_UI_HA_TitleLogo.png": {
+      "selected_source": "raw/SPR_UI_HA_TitleLogo.png",
+      "source_sha256": "f0540567d6e820500d69ba65c8e5dee32e36de5d5b435e4394022d505da5c751",
+      "source_size": [
+        2172,
+        724
+      ],
+      "ready": "ready/SPR_UI_HA_TitleLogo.png",
+      "ready_sha256": "ec06619bc2d83230c3893194e78c85b6f07bb5bd852d9f1b4c017a751aeac5a6",
+      "ready_size": [
+        2157,
+        559
+      ],
+      "crop_box_in_source": [
+        13,
+        74,
+        2170,
+        633
+      ],
+      "removed_nonzero_alpha1_pixels": 61,
+      "retained_rgba_unchanged": true,
+      "alpha": {
+        "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\SPR_UI_HA_TitleLogo.png",
+        "source_sha256": "ec06619bc2d83230c3893194e78c85b6f07bb5bd852d9f1b4c017a751aeac5a6",
+        "mode": "RGBA",
+        "size": [
+          2157,
+          559
+        ],
+        "has_alpha": true,
+        "alpha_min_max": [
+          0,
+          255
+        ],
+        "transparent_pixels": 702773,
+        "partial_alpha_pixels": 500094,
+        "opaque_pixels": 2896,
+        "visible_bbox_alpha_gt_0": [
+          14,
+          15,
+          2143,
+          559
+        ],
+        "visible_bbox_alpha_gt_8": [
+          18,
+          18,
+          2139,
+          540
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checked_points": [],
+        "automatic_failures": [],
+        "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+      },
+      "production_path": "D:\\Unity Work\\DeepSleep_Unity6\\Assets\\_Project\\Art\\UI\\Themes\\Harness\\SPR_UI_HA_TitleLogo.png",
+      "copied_to_assets": true,
+      "unity_imported": false,
+      "visual_review": "See visual_review.json for explicit inspected assets. Automatic alpha tests are not art approval."
+    },
+    "BG_UI_DS_MainMenu.png": {
+      "selected_source": "raw/BG_UI_DS_MainMenu.png",
+      "source_sha256": "62dd638944e04c9d2c8af20a8df6437a3c75defaa892145b9312e16997c87fe0",
+      "source_size": [
+        1942,
+        809
+      ],
+      "ready": "ready/BG_UI_DS_MainMenu.png",
+      "ready_sha256": "62dd638944e04c9d2c8af20a8df6437a3c75defaa892145b9312e16997c87fe0",
+      "ready_size": [
+        1942,
+        809
+      ],
+      "crop_box_in_source": [
+        0,
+        0,
+        1942,
+        809
+      ],
+      "removed_nonzero_alpha1_pixels": 0,
+      "retained_rgba_unchanged": true,
+      "alpha": {
+        "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\BG_UI_DS_MainMenu.png",
+        "source_sha256": "62dd638944e04c9d2c8af20a8df6437a3c75defaa892145b9312e16997c87fe0",
+        "mode": "RGB",
+        "size": [
+          1942,
+          809
+        ],
+        "has_alpha": false,
+        "alpha_min_max": [
+          255,
+          255
+        ],
+        "transparent_pixels": 0,
+        "partial_alpha_pixels": 0,
+        "opaque_pixels": 1571078,
+        "visible_bbox_alpha_gt_0": [
+          0,
+          0,
+          1942,
+          809
+        ],
+        "visible_bbox_alpha_gt_8": [
+          0,
+          0,
+          1942,
+          809
+        ],
+        "corner_alpha": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "checked_points": [],
+        "automatic_failures": [],
+        "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+      },
+      "production_path": "D:\\Unity Work\\DeepSleep_Unity6\\Assets\\_Project\\Art\\UI\\Themes\\DeepSeek\\BG_UI_DS_MainMenu.png",
+      "copied_to_assets": true,
+      "unity_imported": false,
+      "visual_review": "See visual_review.json for explicit inspected assets. Automatic alpha tests are not art approval."
+    },
+    "BG_UI_HA_MainMenu.png": {
+      "selected_source": "raw/BG_UI_HA_MainMenu.png",
+      "source_sha256": "1fdeea849cd6da51688a2c9810a3f93df5835a5483ecee4a767952007af74300",
+      "source_size": [
+        1942,
+        809
+      ],
+      "ready": "ready/BG_UI_HA_MainMenu.png",
+      "ready_sha256": "1fdeea849cd6da51688a2c9810a3f93df5835a5483ecee4a767952007af74300",
+      "ready_size": [
+        1942,
+        809
+      ],
+      "crop_box_in_source": [
+        0,
+        0,
+        1942,
+        809
+      ],
+      "removed_nonzero_alpha1_pixels": 0,
+      "retained_rgba_unchanged": true,
+      "alpha": {
+        "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\BG_UI_HA_MainMenu.png",
+        "source_sha256": "1fdeea849cd6da51688a2c9810a3f93df5835a5483ecee4a767952007af74300",
+        "mode": "RGB",
+        "size": [
+          1942,
+          809
+        ],
+        "has_alpha": false,
+        "alpha_min_max": [
+          255,
+          255
+        ],
+        "transparent_pixels": 0,
+        "partial_alpha_pixels": 0,
+        "opaque_pixels": 1571078,
+        "visible_bbox_alpha_gt_0": [
+          0,
+          0,
+          1942,
+          809
+        ],
+        "visible_bbox_alpha_gt_8": [
+          0,
+          0,
+          1942,
+          809
+        ],
+        "corner_alpha": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "checked_points": [],
+        "automatic_failures": [],
+        "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+      },
+      "production_path": "D:\\Unity Work\\DeepSleep_Unity6\\Assets\\_Project\\Art\\UI\\Themes\\Harness\\BG_UI_HA_MainMenu.png",
+      "copied_to_assets": true,
+      "unity_imported": false,
+      "visual_review": "See visual_review.json for explicit inspected assets. Automatic alpha tests are not art approval."
+    },
+    "ICO_BUFF_FaultToleranceExpansion.png": {
+      "selected_source": "raw/ICO_BUFF_FaultToleranceExpansion.png",
+      "source_sha256": "862371fa705f707be76ff4f24d12cc6373b54824e222fe9f82f1a3c25cd995a8",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "ready": "ready/ICO_BUFF_FaultToleranceExpansion.png",
+      "ready_sha256": "862371fa705f707be76ff4f24d12cc6373b54824e222fe9f82f1a3c25cd995a8",
+      "ready_size": [
+        1254,
+        1254
+      ],
+      "crop_box_in_source": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "removed_nonzero_alpha1_pixels": 0,
+      "retained_rgba_unchanged": true,
+      "alpha": {
+        "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_FaultToleranceExpansion.png",
+        "source_sha256": "862371fa705f707be76ff4f24d12cc6373b54824e222fe9f82f1a3c25cd995a8",
+        "mode": "RGBA",
+        "size": [
+          1254,
+          1254
+        ],
+        "has_alpha": true,
+        "alpha_min_max": [
+          0,
+          255
+        ],
+        "transparent_pixels": 847659,
+        "partial_alpha_pixels": 724683,
+        "opaque_pixels": 174,
+        "visible_bbox_alpha_gt_0": [
+          0,
+          21,
+          1238,
+          1254
+        ],
+        "visible_bbox_alpha_gt_8": [
+          29,
+          81,
+          1226,
+          1020
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checked_points": [],
+        "automatic_failures": [],
+        "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+      },
+      "production_path": "D:\\Unity Work\\DeepSleep_Unity6\\Assets\\_Project\\Art\\UI\\Buffs\\ICO_BUFF_FaultToleranceExpansion.png",
+      "copied_to_assets": true,
+      "unity_imported": false,
+      "visual_review": "See visual_review.json for explicit inspected assets. Automatic alpha tests are not art approval."
+    },
+    "ICO_BUFF_DataCompression.png": {
+      "selected_source": "raw/ICO_BUFF_DataCompression_v2.png",
+      "source_sha256": "d573de6b946b959ec559a08c2ae7eace6e81baae721c2a401ba5f1e4caabf71d",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "ready": "ready/ICO_BUFF_DataCompression.png",
+      "ready_sha256": "d573de6b946b959ec559a08c2ae7eace6e81baae721c2a401ba5f1e4caabf71d",
+      "ready_size": [
+        1254,
+        1254
+      ],
+      "crop_box_in_source": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "removed_nonzero_alpha1_pixels": 0,
+      "retained_rgba_unchanged": true,
+      "alpha": {
+        "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_DataCompression.png",
+        "source_sha256": "d573de6b946b959ec559a08c2ae7eace6e81baae721c2a401ba5f1e4caabf71d",
+        "mode": "RGBA",
+        "size": [
+          1254,
+          1254
+        ],
+        "has_alpha": true,
+        "alpha_min_max": [
+          0,
+          254
+        ],
+        "transparent_pixels": 966474,
+        "partial_alpha_pixels": 606042,
+        "opaque_pixels": 0,
+        "visible_bbox_alpha_gt_0": [
+          0,
+          31,
+          1248,
+          1214
+        ],
+        "visible_bbox_alpha_gt_8": [
+          123,
+          157,
+          1187,
+          998
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checked_points": [],
+        "automatic_failures": [],
+        "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+      },
+      "production_path": "D:\\Unity Work\\DeepSleep_Unity6\\Assets\\_Project\\Art\\UI\\Buffs\\ICO_BUFF_DataCompression.png",
+      "copied_to_assets": true,
+      "unity_imported": false,
+      "visual_review": "See visual_review.json for explicit inspected assets. Automatic alpha tests are not art approval."
+    },
+    "ICO_BUFF_RiceFan.png": {
+      "selected_source": "raw/ICO_BUFF_RiceFan_v2.png",
+      "source_sha256": "2378148f583834424c75d2ba1e241b662a382bbfc5fbfd4c2ebde3eac6d3cbb6",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "ready": "ready/ICO_BUFF_RiceFan.png",
+      "ready_sha256": "2378148f583834424c75d2ba1e241b662a382bbfc5fbfd4c2ebde3eac6d3cbb6",
+      "ready_size": [
+        1254,
+        1254
+      ],
+      "crop_box_in_source": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "removed_nonzero_alpha1_pixels": 0,
+      "retained_rgba_unchanged": true,
+      "alpha": {
+        "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_RiceFan.png",
+        "source_sha256": "2378148f583834424c75d2ba1e241b662a382bbfc5fbfd4c2ebde3eac6d3cbb6",
+        "mode": "RGBA",
+        "size": [
+          1254,
+          1254
+        ],
+        "has_alpha": true,
+        "alpha_min_max": [
+          0,
+          254
+        ],
+        "transparent_pixels": 1110277,
+        "partial_alpha_pixels": 462239,
+        "opaque_pixels": 0,
+        "visible_bbox_alpha_gt_0": [
+          0,
+          9,
+          1236,
+          1222
+        ],
+        "visible_bbox_alpha_gt_8": [
+          116,
+          136,
+          1138,
+          1086
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checked_points": [],
+        "automatic_failures": [],
+        "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+      },
+      "production_path": "D:\\Unity Work\\DeepSleep_Unity6\\Assets\\_Project\\Art\\UI\\Buffs\\ICO_BUFF_RiceFan.png",
+      "copied_to_assets": true,
+      "unity_imported": false,
+      "visual_review": "See visual_review.json for explicit inspected assets. Automatic alpha tests are not art approval."
+    },
+    "ICO_BUFF_RiceStorm.png": {
+      "selected_source": "raw/ICO_BUFF_RiceStorm_v2.png",
+      "source_sha256": "a0b1fef311443458c12e625beb843e466048eef18c0b60b8d99bc6e969bc237b",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "ready": "ready/ICO_BUFF_RiceStorm.png",
+      "ready_sha256": "a0b1fef311443458c12e625beb843e466048eef18c0b60b8d99bc6e969bc237b",
+      "ready_size": [
+        1254,
+        1254
+      ],
+      "crop_box_in_source": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "removed_nonzero_alpha1_pixels": 0,
+      "retained_rgba_unchanged": true,
+      "alpha": {
+        "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_RiceStorm.png",
+        "source_sha256": "a0b1fef311443458c12e625beb843e466048eef18c0b60b8d99bc6e969bc237b",
+        "mode": "RGBA",
+        "size": [
+          1254,
+          1254
+        ],
+        "has_alpha": true,
+        "alpha_min_max": [
+          0,
+          255
+        ],
+        "transparent_pixels": 1225428,
+        "partial_alpha_pixels": 347082,
+        "opaque_pixels": 6,
+        "visible_bbox_alpha_gt_0": [
+          0,
+          32,
+          1236,
+          1214
+        ],
+        "visible_bbox_alpha_gt_8": [
+          73,
+          263,
+          1181,
+          979
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checked_points": [],
+        "automatic_failures": [],
+        "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+      },
+      "production_path": "D:\\Unity Work\\DeepSleep_Unity6\\Assets\\_Project\\Art\\UI\\Buffs\\ICO_BUFF_RiceStorm.png",
+      "copied_to_assets": true,
+      "unity_imported": false,
+      "visual_review": "See visual_review.json for explicit inspected assets. Automatic alpha tests are not art approval."
+    },
+    "ICO_BUFF_RiceGuidance.png": {
+      "selected_source": "raw/ICO_BUFF_RiceGuidance.png",
+      "source_sha256": "791b673a05fceceb4d5483bad7bad5b5035f5d3ced326ccfa68e806d5aba0be8",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "ready": "ready/ICO_BUFF_RiceGuidance.png",
+      "ready_sha256": "791b673a05fceceb4d5483bad7bad5b5035f5d3ced326ccfa68e806d5aba0be8",
+      "ready_size": [
+        1254,
+        1254
+      ],
+      "crop_box_in_source": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "removed_nonzero_alpha1_pixels": 0,
+      "retained_rgba_unchanged": true,
+      "alpha": {
+        "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_RiceGuidance.png",
+        "source_sha256": "791b673a05fceceb4d5483bad7bad5b5035f5d3ced326ccfa68e806d5aba0be8",
+        "mode": "RGBA",
+        "size": [
+          1254,
+          1254
+        ],
+        "has_alpha": true,
+        "alpha_min_max": [
+          0,
+          254
+        ],
+        "transparent_pixels": 995929,
+        "partial_alpha_pixels": 576587,
+        "opaque_pixels": 0,
+        "visible_bbox_alpha_gt_0": [
+          0,
+          20,
+          1238,
+          1254
+        ],
+        "visible_bbox_alpha_gt_8": [
+          36,
+          26,
+          1219,
+          1233
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checked_points": [],
+        "automatic_failures": [],
+        "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+      },
+      "production_path": "D:\\Unity Work\\DeepSleep_Unity6\\Assets\\_Project\\Art\\UI\\Buffs\\ICO_BUFF_RiceGuidance.png",
+      "copied_to_assets": true,
+      "unity_imported": false,
+      "visual_review": "See visual_review.json for explicit inspected assets. Automatic alpha tests are not art approval."
+    },
+    "ICO_BUFF_RiceSplash.png": {
+      "selected_source": "raw/ICO_BUFF_RiceSplash.png",
+      "source_sha256": "f8b3f61a746b003811133a8815abdb83fd27feafd61cc0357231b25a1e41757a",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "ready": "ready/ICO_BUFF_RiceSplash.png",
+      "ready_sha256": "f8b3f61a746b003811133a8815abdb83fd27feafd61cc0357231b25a1e41757a",
+      "ready_size": [
+        1254,
+        1254
+      ],
+      "crop_box_in_source": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "removed_nonzero_alpha1_pixels": 0,
+      "retained_rgba_unchanged": true,
+      "alpha": {
+        "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_RiceSplash.png",
+        "source_sha256": "f8b3f61a746b003811133a8815abdb83fd27feafd61cc0357231b25a1e41757a",
+        "mode": "RGBA",
+        "size": [
+          1254,
+          1254
+        ],
+        "has_alpha": true,
+        "alpha_min_max": [
+          0,
+          255
+        ],
+        "transparent_pixels": 1099810,
+        "partial_alpha_pixels": 472437,
+        "opaque_pixels": 269,
+        "visible_bbox_alpha_gt_0": [
+          0,
+          226,
+          1216,
+          1230
+        ],
+        "visible_bbox_alpha_gt_8": [
+          233,
+          227,
+          1022,
+          1043
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checked_points": [],
+        "automatic_failures": [],
+        "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+      },
+      "production_path": "D:\\Unity Work\\DeepSleep_Unity6\\Assets\\_Project\\Art\\UI\\Buffs\\ICO_BUFF_RiceSplash.png",
+      "copied_to_assets": true,
+      "unity_imported": false,
+      "visual_review": "See visual_review.json for explicit inspected assets. Automatic alpha tests are not art approval."
+    },
+    "ICO_BUFF_RiceGuard.png": {
+      "selected_source": "raw/ICO_BUFF_RiceGuard.png",
+      "source_sha256": "5267a9fe217dede86655dd8338d030ea5d1cb83b0c1bd1933c46db7ff2fe599b",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "ready": "ready/ICO_BUFF_RiceGuard.png",
+      "ready_sha256": "5267a9fe217dede86655dd8338d030ea5d1cb83b0c1bd1933c46db7ff2fe599b",
+      "ready_size": [
+        1254,
+        1254
+      ],
+      "crop_box_in_source": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "removed_nonzero_alpha1_pixels": 0,
+      "retained_rgba_unchanged": true,
+      "alpha": {
+        "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_RiceGuard.png",
+        "source_sha256": "5267a9fe217dede86655dd8338d030ea5d1cb83b0c1bd1933c46db7ff2fe599b",
+        "mode": "RGBA",
+        "size": [
+          1254,
+          1254
+        ],
+        "has_alpha": true,
+        "alpha_min_max": [
+          0,
+          255
+        ],
+        "transparent_pixels": 944660,
+        "partial_alpha_pixels": 627028,
+        "opaque_pixels": 828,
+        "visible_bbox_alpha_gt_0": [
+          91,
+          21,
+          1198,
+          1254
+        ],
+        "visible_bbox_alpha_gt_8": [
+          122,
+          222,
+          1133,
+          1087
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checked_points": [],
+        "automatic_failures": [],
+        "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+      },
+      "production_path": "D:\\Unity Work\\DeepSleep_Unity6\\Assets\\_Project\\Art\\UI\\Buffs\\ICO_BUFF_RiceGuard.png",
+      "copied_to_assets": true,
+      "unity_imported": false,
+      "visual_review": "See visual_review.json for explicit inspected assets. Automatic alpha tests are not art approval."
+    },
+    "ICO_BUFF_QuantumSword.png": {
+      "selected_source": "raw/ICO_BUFF_QuantumSword.png",
+      "source_sha256": "40cd96d496d7308f801d296104e96fb3c89e5adbdefc5c5403b66ce973032a8d",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "ready": "ready/ICO_BUFF_QuantumSword.png",
+      "ready_sha256": "40cd96d496d7308f801d296104e96fb3c89e5adbdefc5c5403b66ce973032a8d",
+      "ready_size": [
+        1254,
+        1254
+      ],
+      "crop_box_in_source": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "removed_nonzero_alpha1_pixels": 0,
+      "retained_rgba_unchanged": true,
+      "alpha": {
+        "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_QuantumSword.png",
+        "source_sha256": "40cd96d496d7308f801d296104e96fb3c89e5adbdefc5c5403b66ce973032a8d",
+        "mode": "RGBA",
+        "size": [
+          1254,
+          1254
+        ],
+        "has_alpha": true,
+        "alpha_min_max": [
+          0,
+          255
+        ],
+        "transparent_pixels": 1143418,
+        "partial_alpha_pixels": 428848,
+        "opaque_pixels": 250,
+        "visible_bbox_alpha_gt_0": [
+          25,
+          23,
+          1216,
+          1246
+        ],
+        "visible_bbox_alpha_gt_8": [
+          66,
+          51,
+          1202,
+          1167
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checked_points": [],
+        "automatic_failures": [],
+        "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+      },
+      "production_path": "D:\\Unity Work\\DeepSleep_Unity6\\Assets\\_Project\\Art\\UI\\Buffs\\ICO_BUFF_QuantumSword.png",
+      "copied_to_assets": true,
+      "unity_imported": false,
+      "visual_review": "See visual_review.json for explicit inspected assets. Automatic alpha tests are not art approval."
+    },
+    "ICO_BUFF_TerminalAmplifier.png": {
+      "selected_source": "raw/ICO_BUFF_TerminalAmplifier.png",
+      "source_sha256": "6af3c97c0186dba77e3d87fafc250f2e9c6b1e931344b1ccad7e14658ebde9d8",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "ready": "ready/ICO_BUFF_TerminalAmplifier.png",
+      "ready_sha256": "6af3c97c0186dba77e3d87fafc250f2e9c6b1e931344b1ccad7e14658ebde9d8",
+      "ready_size": [
+        1254,
+        1254
+      ],
+      "crop_box_in_source": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "removed_nonzero_alpha1_pixels": 0,
+      "retained_rgba_unchanged": true,
+      "alpha": {
+        "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_TerminalAmplifier.png",
+        "source_sha256": "6af3c97c0186dba77e3d87fafc250f2e9c6b1e931344b1ccad7e14658ebde9d8",
+        "mode": "RGBA",
+        "size": [
+          1254,
+          1254
+        ],
+        "has_alpha": true,
+        "alpha_min_max": [
+          0,
+          255
+        ],
+        "transparent_pixels": 1042056,
+        "partial_alpha_pixels": 530108,
+        "opaque_pixels": 352,
+        "visible_bbox_alpha_gt_0": [
+          0,
+          48,
+          1208,
+          1254
+        ],
+        "visible_bbox_alpha_gt_8": [
+          124,
+          119,
+          1182,
+          1147
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checked_points": [],
+        "automatic_failures": [],
+        "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+      },
+      "production_path": "D:\\Unity Work\\DeepSleep_Unity6\\Assets\\_Project\\Art\\UI\\Buffs\\ICO_BUFF_TerminalAmplifier.png",
+      "copied_to_assets": true,
+      "unity_imported": false,
+      "visual_review": "See visual_review.json for explicit inspected assets. Automatic alpha tests are not art approval."
+    },
+    "ICO_BUFF_TerminalArray.png": {
+      "selected_source": "raw/ICO_BUFF_TerminalArray.png",
+      "source_sha256": "6d13245fe6ba407e106c3851a57b93c63bcc2b2519002bab8c5e2979b1933816",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "ready": "ready/ICO_BUFF_TerminalArray.png",
+      "ready_sha256": "6d13245fe6ba407e106c3851a57b93c63bcc2b2519002bab8c5e2979b1933816",
+      "ready_size": [
+        1254,
+        1254
+      ],
+      "crop_box_in_source": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "removed_nonzero_alpha1_pixels": 0,
+      "retained_rgba_unchanged": true,
+      "alpha": {
+        "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_TerminalArray.png",
+        "source_sha256": "6d13245fe6ba407e106c3851a57b93c63bcc2b2519002bab8c5e2979b1933816",
+        "mode": "RGBA",
+        "size": [
+          1254,
+          1254
+        ],
+        "has_alpha": true,
+        "alpha_min_max": [
+          0,
+          255
+        ],
+        "transparent_pixels": 975970,
+        "partial_alpha_pixels": 596364,
+        "opaque_pixels": 182,
+        "visible_bbox_alpha_gt_0": [
+          24,
+          9,
+          1220,
+          1254
+        ],
+        "visible_bbox_alpha_gt_8": [
+          52,
+          43,
+          1203,
+          1141
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checked_points": [],
+        "automatic_failures": [],
+        "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+      },
+      "production_path": "D:\\Unity Work\\DeepSleep_Unity6\\Assets\\_Project\\Art\\UI\\Buffs\\ICO_BUFF_TerminalArray.png",
+      "copied_to_assets": true,
+      "unity_imported": false,
+      "visual_review": "See visual_review.json for explicit inspected assets. Automatic alpha tests are not art approval."
+    },
+    "ICO_BUFF_TerminalBurst.png": {
+      "selected_source": "raw/ICO_BUFF_TerminalBurst.png",
+      "source_sha256": "529968f49c06ef45d15dc6dd8024edeb74b00ecd32947a27d7d335a5f31caa65",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "ready": "ready/ICO_BUFF_TerminalBurst.png",
+      "ready_sha256": "529968f49c06ef45d15dc6dd8024edeb74b00ecd32947a27d7d335a5f31caa65",
+      "ready_size": [
+        1254,
+        1254
+      ],
+      "crop_box_in_source": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "removed_nonzero_alpha1_pixels": 0,
+      "retained_rgba_unchanged": true,
+      "alpha": {
+        "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_TerminalBurst.png",
+        "source_sha256": "529968f49c06ef45d15dc6dd8024edeb74b00ecd32947a27d7d335a5f31caa65",
+        "mode": "RGBA",
+        "size": [
+          1254,
+          1254
+        ],
+        "has_alpha": true,
+        "alpha_min_max": [
+          0,
+          255
+        ],
+        "transparent_pixels": 1314474,
+        "partial_alpha_pixels": 257574,
+        "opaque_pixels": 468,
+        "visible_bbox_alpha_gt_0": [
+          47,
+          53,
+          1218,
+          1222
+        ],
+        "visible_bbox_alpha_gt_8": [
+          127,
+          159,
+          1161,
+          1141
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checked_points": [],
+        "automatic_failures": [],
+        "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+      },
+      "production_path": "D:\\Unity Work\\DeepSleep_Unity6\\Assets\\_Project\\Art\\UI\\Buffs\\ICO_BUFF_TerminalBurst.png",
+      "copied_to_assets": true,
+      "unity_imported": false,
+      "visual_review": "See visual_review.json for explicit inspected assets. Automatic alpha tests are not art approval."
+    },
+    "ICO_BUFF_TerminalChain.png": {
+      "selected_source": "raw/ICO_BUFF_TerminalChain.png",
+      "source_sha256": "e2635d3138d10b7c049206ff0803d657bd08f388257a3fdc30c4555157e8f70c",
+      "source_size": [
+        1254,
+        1254
+      ],
+      "ready": "ready/ICO_BUFF_TerminalChain.png",
+      "ready_sha256": "e2635d3138d10b7c049206ff0803d657bd08f388257a3fdc30c4555157e8f70c",
+      "ready_size": [
+        1254,
+        1254
+      ],
+      "crop_box_in_source": [
+        0,
+        0,
+        1254,
+        1254
+      ],
+      "removed_nonzero_alpha1_pixels": 0,
+      "retained_rgba_unchanged": true,
+      "alpha": {
+        "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_TerminalChain.png",
+        "source_sha256": "e2635d3138d10b7c049206ff0803d657bd08f388257a3fdc30c4555157e8f70c",
+        "mode": "RGBA",
+        "size": [
+          1254,
+          1254
+        ],
+        "has_alpha": true,
+        "alpha_min_max": [
+          0,
+          255
+        ],
+        "transparent_pixels": 1069097,
+        "partial_alpha_pixels": 502781,
+        "opaque_pixels": 638,
+        "visible_bbox_alpha_gt_0": [
+          27,
+          23,
+          1214,
+          1220
+        ],
+        "visible_bbox_alpha_gt_8": [
+          132,
+          85,
+          1113,
+          1166
+        ],
+        "corner_alpha": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "checked_points": [],
+        "automatic_failures": [],
+        "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+      },
+      "production_path": "D:\\Unity Work\\DeepSleep_Unity6\\Assets\\_Project\\Art\\UI\\Buffs\\ICO_BUFF_TerminalChain.png",
+      "copied_to_assets": true,
+      "unity_imported": false,
+      "visual_review": "See visual_review.json for explicit inspected assets. Automatic alpha tests are not art approval."
+    }
+  },
+  "formal_asset_count": 16,
+  "formal_buff_count": 12,
+  "all_recorded_raw_hashes_unchanged": true
+}

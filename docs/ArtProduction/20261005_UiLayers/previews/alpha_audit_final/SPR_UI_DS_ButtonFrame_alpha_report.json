@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_DS_ButtonFrame.png",
+  "source_sha256": "339d5b0fbb0a92c9fc462bd171cfd5e8eba38b7a3d856af048da6b1159e0def5",
+  "mode": "RGBA",
+  "size": [
+    2172,
+    724
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 1350260,
+  "partial_alpha_pixels": 221753,
+  "opaque_pixels": 515,
+  "visible_bbox_alpha_gt_0": [
+    89,
+    29,
+    2065,
+    682
+  ],
+  "visible_bbox_alpha_gt_8": [
+    110,
+    174,
+    2063,
+    539
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

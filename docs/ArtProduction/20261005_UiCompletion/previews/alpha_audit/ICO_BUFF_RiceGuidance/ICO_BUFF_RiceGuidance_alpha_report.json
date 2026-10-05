@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_RiceGuidance.png",
+  "source_sha256": "791b673a05fceceb4d5483bad7bad5b5035f5d3ced326ccfa68e806d5aba0be8",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    254
+  ],
+  "transparent_pixels": 995929,
+  "partial_alpha_pixels": 576587,
+  "opaque_pixels": 0,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    20,
+    1238,
+    1254
+  ],
+  "visible_bbox_alpha_gt_8": [
+    36,
+    26,
+    1219,
+    1233
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

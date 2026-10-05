@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\BG_UI_DS_MainMenu.png",
+  "source_sha256": "62dd638944e04c9d2c8af20a8df6437a3c75defaa892145b9312e16997c87fe0",
+  "mode": "RGB",
+  "size": [
+    1942,
+    809
+  ],
+  "has_alpha": false,
+  "alpha_min_max": [
+    255,
+    255
+  ],
+  "transparent_pixels": 0,
+  "partial_alpha_pixels": 0,
+  "opaque_pixels": 1571078,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    0,
+    1942,
+    809
+  ],
+  "visible_bbox_alpha_gt_8": [
+    0,
+    0,
+    1942,
+    809
+  ],
+  "corner_alpha": [
+    255,
+    255,
+    255,
+    255
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

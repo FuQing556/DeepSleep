@@ -13,6 +13,7 @@ namespace DeepSleep.Runtime.Progression.Upgrades
         [SerializeField] private Button[] _cardButtons;
         [SerializeField] private Text[] _cardTitles;
         [SerializeField] private Text[] _cardDescriptions;
+        [SerializeField] private Image[] _cardIcons;
         [SerializeField] private Button _refreshButton;
         [SerializeField] private Text _refreshLabel;
         [SerializeField] private Button _closeButton;
@@ -26,6 +27,19 @@ namespace DeepSleep.Runtime.Progression.Upgrades
 
         private void Awake()
         {
+            if (_cardIcons == null || _cardButtons == null || _cardIcons.Length != _cardButtons.Length)
+            {
+                Debug.LogError("[RestNodeUpgradePanelView] 每张强化卡必须显式绑定生图 Image。", this);
+                enabled = false;
+                return;
+            }
+            for (int index = 0; index < _cardIcons.Length; index++)
+                if (_cardIcons[index] == null)
+                {
+                    Debug.LogError($"[RestNodeUpgradePanelView] _cardIcons[{index}] 缺失。", this);
+                    enabled = false;
+                    return;
+                }
             for (int index = 0; index < _cardButtons.Length; index++)
             {
                 int captured = index;
@@ -68,6 +82,10 @@ namespace DeepSleep.Runtime.Progression.Upgrades
                 }
 
                 UpgradeDefinition definition = offers[index];
+                _cardIcons[index].sprite = definition.Icon;
+                _cardIcons[index].enabled = definition.Icon != null;
+                if (definition.Icon == null)
+                    Debug.LogError($"[RestNodeUpgradePanelView] 强化 {definition.Id} 未配置 Icon。", this);
                 int currentRank = rankReader(definition.Id);
                 int tokenCost = definition.GetTokenCost(currentRank);
                 _cardTitles[index].text =

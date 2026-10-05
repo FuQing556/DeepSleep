@@ -1,0 +1,626 @@
+fileFormatVersion: 2
+guid: cbf413fe1ee974f4c8f546c1f5a9481a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8373277196643283318
+    second: ICO_BUFF_DataCompression_0
+  - first:
+      213: -3241070293271007848
+    second: ICO_BUFF_DataCompression_1
+  - first:
+      213: -4771668995064092558
+    second: ICO_BUFF_DataCompression_2
+  - first:
+      213: -6343583316831787147
+    second: ICO_BUFF_DataCompression_3
+  - first:
+      213: 1623886346380360858
+    second: ICO_BUFF_DataCompression_4
+  - first:
+      213: 2298211767323731944
+    second: ICO_BUFF_DataCompression_5
+  - first:
+      213: -4027260629392382229
+    second: ICO_BUFF_DataCompression_6
+  - first:
+      213: -5171339906176765039
+    second: ICO_BUFF_DataCompression_7
+  - first:
+      213: -4373708026359091905
+    second: ICO_BUFF_DataCompression_8
+  - first:
+      213: -6400390849973916863
+    second: ICO_BUFF_DataCompression_9
+  - first:
+      213: -8651827386559346076
+    second: ICO_BUFF_DataCompression_10
+  - first:
+      213: -6156686050240689155
+    second: ICO_BUFF_DataCompression_11
+  - first:
+      213: 5108606006681020983
+    second: ICO_BUFF_DataCompression_12
+  - first:
+      213: 7956791127550002276
+    second: ICO_BUFF_DataCompression_13
+  - first:
+      213: -970902648765531247
+    second: ICO_BUFF_DataCompression_14
+  - first:
+      213: 4832367292307671311
+    second: ICO_BUFF_DataCompression_15
+  - first:
+      213: -8030100119420720678
+    second: ICO_BUFF_DataCompression_16
+  - first:
+      213: -5555495842208882735
+    second: ICO_BUFF_DataCompression_17
+  - first:
+      213: -7966872284598512985
+    second: ICO_BUFF_DataCompression_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ICO_BUFF_DataCompression_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 39
+        width: 1249
+        height: 1185
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6713dcf2f3bd33470800000000000000
+      internalID: 8373277196643283318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_DataCompression_1
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 1126
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89da28d7db76503d0800000000000000
+      internalID: -3241070293271007848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_DataCompression_2
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 1106
+        width: 59
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 278a5739450a7cdb0800000000000000
+      internalID: -4771668995064092558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_DataCompression_3
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 1132
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 577a525459017f7a0800000000000000
+      internalID: -6343583316831787147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_DataCompression_4
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 1100
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9cbb9f3704398610800000000000000
+      internalID: 1623886346380360858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_DataCompression_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 329
+        width: 77
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e724f90d63e4ef10800000000000000
+      internalID: 2298211767323731944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_DataCompression_6
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 385
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be6a62f7bcb4c18c0800000000000000
+      internalID: -4027260629392382229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_DataCompression_7
+      rect:
+        serializedVersion: 2
+        x: 581
+        y: 188
+        width: 17
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 193388711c5bb38b0800000000000000
+      internalID: -5171339906176765039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_DataCompression_8
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 194
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3d679119b77d43c0800000000000000
+      internalID: -4373708026359091905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_DataCompression_9
+      rect:
+        serializedVersion: 2
+        x: 593
+        y: 178
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14be4a3ce6e3d27a0800000000000000
+      internalID: -6400390849973916863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_DataCompression_10
+      rect:
+        serializedVersion: 2
+        x: 663
+        y: 174
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46a422ec4d88ee780800000000000000
+      internalID: -8651827386559346076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_DataCompression_11
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 176
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfb0dc528ae0f8aa0800000000000000
+      internalID: -6156686050240689155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_DataCompression_12
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 174
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73a26a5b81a65e640800000000000000
+      internalID: 5108606006681020983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_DataCompression_13
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 160
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4640995af533c6e60800000000000000
+      internalID: 7956791127550002276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_DataCompression_14
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 157
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19b38dc5f29a682f0800000000000000
+      internalID: -970902648765531247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_DataCompression_15
+      rect:
+        serializedVersion: 2
+        x: 1087
+        y: 148
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f09073a0374001340800000000000000
+      internalID: 4832367292307671311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_DataCompression_16
+      rect:
+        serializedVersion: 2
+        x: 772
+        y: 144
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad92b179c7a5f8090800000000000000
+      internalID: -8030100119420720678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_DataCompression_17
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 111
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dfdafd37f9e6e2b0800000000000000
+      internalID: -5555495842208882735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_DataCompression_18
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 119
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a2d9911edbff6190800000000000000
+      internalID: -7966872284598512985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ICO_BUFF_DataCompression_0: 8373277196643283318
+      ICO_BUFF_DataCompression_1: -3241070293271007848
+      ICO_BUFF_DataCompression_10: -8651827386559346076
+      ICO_BUFF_DataCompression_11: -6156686050240689155
+      ICO_BUFF_DataCompression_12: 5108606006681020983
+      ICO_BUFF_DataCompression_13: 7956791127550002276
+      ICO_BUFF_DataCompression_14: -970902648765531247
+      ICO_BUFF_DataCompression_15: 4832367292307671311
+      ICO_BUFF_DataCompression_16: -8030100119420720678
+      ICO_BUFF_DataCompression_17: -5555495842208882735
+      ICO_BUFF_DataCompression_18: -7966872284598512985
+      ICO_BUFF_DataCompression_2: -4771668995064092558
+      ICO_BUFF_DataCompression_3: -6343583316831787147
+      ICO_BUFF_DataCompression_4: 1623886346380360858
+      ICO_BUFF_DataCompression_5: 2298211767323731944
+      ICO_BUFF_DataCompression_6: -4027260629392382229
+      ICO_BUFF_DataCompression_7: -5171339906176765039
+      ICO_BUFF_DataCompression_8: -4373708026359091905
+      ICO_BUFF_DataCompression_9: -6400390849973916863
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

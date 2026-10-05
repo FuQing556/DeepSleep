@@ -1,0 +1,2256 @@
+[
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_DS_ButtonBase.png",
+    "source_sha256": "2506919df76244ac863dc0d578f1978fe8c8982245ee5d14b546bc741d22435d",
+    "mode": "RGBA",
+    "size": [
+      1536,
+      1024
+    ],
+    "has_alpha": true,
+    "alpha_min_max": [
+      0,
+      254
+    ],
+    "transparent_pixels": 1164642,
+    "partial_alpha_pixels": 408222,
+    "opaque_pixels": 0,
+    "visible_bbox_alpha_gt_0": [
+      0,
+      36,
+      1436,
+      954
+    ],
+    "visible_bbox_alpha_gt_8": [
+      121,
+      359,
+      1415,
+      665
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "checked_points": [],
+    "automatic_failures": [],
+    "visual_review": "Pending human/agent inspection; automatic measurements alone are not approval",
+    "bounds_at_threshold": {
+      "0": [
+        0,
+        36,
+        1436,
+        954
+      ],
+      "1": [
+        119,
+        356,
+        1417,
+        671
+      ],
+      "2": [
+        120,
+        357,
+        1417,
+        669
+      ],
+      "4": [
+        121,
+        358,
+        1417,
+        667
+      ],
+      "8": [
+        121,
+        359,
+        1415,
+        665
+      ],
+      "16": [
+        121,
+        359,
+        1415,
+        665
+      ],
+      "32": [
+        121,
+        360,
+        1415,
+        665
+      ],
+      "64": [
+        122,
+        360,
+        1415,
+        664
+      ],
+      "128": [
+        122,
+        360,
+        1414,
+        664
+      ],
+      "250": [
+        123,
+        361,
+        1414,
+        663
+      ]
+    },
+    "alpha_one_pixels": 15074,
+    "lossless_crop_rect_exclusive": [
+      0,
+      34,
+      1438,
+      956
+    ],
+    "central_40_percent": {
+      "rect_exclusive": [
+        460,
+        307,
+        1075,
+        716
+      ],
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "nonzero_pixels": 194699,
+      "over_8_pixels": 187812,
+      "over_64_pixels": 186960,
+      "total_pixels": 251535
+    },
+    "center_rgba": [
+      15,
+      60,
+      138,
+      253
+    ],
+    "optional_production_crop_rect_exclusive": [
+      103,
+      340,
+      1433,
+      687
+    ],
+    "optional_crop_nonzero_pixels_discarded": 7123,
+    "optional_crop_max_discarded_alpha": 1,
+    "optional_crop_requires_explicit_acceptance": true,
+    "production_crop_accepted_by_root": true,
+    "visible_shape_interior": {
+      "rect_exclusive": [
+        379,
+        450,
+        1157,
+        576
+      ],
+      "alpha_extrema": [
+        253,
+        254
+      ],
+      "nonzero_pixels": 98028,
+      "over_one_pixels": 98028
+    },
+    "suggested_border_left_bottom_right_top": [
+      200,
+      92,
+      200,
+      92
+    ],
+    "source_pixel_changes": "none",
+    "unity_imported": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_DS_ButtonFrame.png",
+    "source_sha256": "339d5b0fbb0a92c9fc462bd171cfd5e8eba38b7a3d856af048da6b1159e0def5",
+    "mode": "RGBA",
+    "size": [
+      2172,
+      724
+    ],
+    "has_alpha": true,
+    "alpha_min_max": [
+      0,
+      255
+    ],
+    "transparent_pixels": 1350260,
+    "partial_alpha_pixels": 221753,
+    "opaque_pixels": 515,
+    "visible_bbox_alpha_gt_0": [
+      89,
+      29,
+      2065,
+      682
+    ],
+    "visible_bbox_alpha_gt_8": [
+      110,
+      174,
+      2063,
+      539
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "checked_points": [],
+    "automatic_failures": [],
+    "visual_review": "Pending human/agent inspection; automatic measurements alone are not approval",
+    "bounds_at_threshold": {
+      "0": [
+        89,
+        29,
+        2065,
+        682
+      ],
+      "1": [
+        107,
+        172,
+        2065,
+        547
+      ],
+      "2": [
+        108,
+        172,
+        2064,
+        545
+      ],
+      "4": [
+        110,
+        174,
+        2063,
+        541
+      ],
+      "8": [
+        110,
+        174,
+        2063,
+        539
+      ],
+      "16": [
+        110,
+        174,
+        2062,
+        538
+      ],
+      "32": [
+        110,
+        175,
+        2062,
+        537
+      ],
+      "64": [
+        110,
+        175,
+        2062,
+        537
+      ],
+      "128": [
+        111,
+        175,
+        2062,
+        537
+      ],
+      "250": [
+        112,
+        177,
+        2061,
+        534
+      ]
+    },
+    "alpha_one_pixels": 17008,
+    "lossless_crop_rect_exclusive": [
+      87,
+      27,
+      2067,
+      684
+    ],
+    "central_40_percent": {
+      "rect_exclusive": [
+        651,
+        217,
+        1520,
+        506
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nonzero_pixels": 7950,
+      "over_8_pixels": 6952,
+      "over_64_pixels": 6083,
+      "total_pixels": 251141
+    },
+    "center_rgba": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "optional_production_crop_rect_exclusive": [
+      91,
+      156,
+      2081,
+      563
+    ],
+    "optional_crop_nonzero_pixels_discarded": 60,
+    "optional_crop_max_discarded_alpha": 1,
+    "optional_crop_requires_explicit_acceptance": true,
+    "production_crop_accepted_by_root": true,
+    "visible_shape_interior": {
+      "rect_exclusive": [
+        499,
+        284,
+        1673,
+        434
+      ],
+      "alpha_extrema": [
+        0,
+        1
+      ],
+      "nonzero_pixels": 20,
+      "over_one_pixels": 0
+    },
+    "suggested_border_left_bottom_right_top": [
+      250,
+      95,
+      250,
+      95
+    ],
+    "source_pixel_changes": "none",
+    "unity_imported": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_DS_ButtonGlow.png",
+    "source_sha256": "cedf9087936c41fe0fd2b325a6c4ee6402636b2b388b24e7f1368f4541017dad",
+    "mode": "RGBA",
+    "size": [
+      1536,
+      1024
+    ],
+    "has_alpha": true,
+    "alpha_min_max": [
+      0,
+      251
+    ],
+    "transparent_pixels": 1234354,
+    "partial_alpha_pixels": 338510,
+    "opaque_pixels": 0,
+    "visible_bbox_alpha_gt_0": [
+      43,
+      135,
+      1500,
+      928
+    ],
+    "visible_bbox_alpha_gt_8": [
+      58,
+      319,
+      1478,
+      696
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "checked_points": [],
+    "automatic_failures": [],
+    "visual_review": "Pending human/agent inspection; automatic measurements alone are not approval",
+    "bounds_at_threshold": {
+      "0": [
+        43,
+        135,
+        1500,
+        928
+      ],
+      "1": [
+        49,
+        309,
+        1487,
+        704
+      ],
+      "2": [
+        51,
+        312,
+        1485,
+        703
+      ],
+      "4": [
+        55,
+        315,
+        1482,
+        700
+      ],
+      "8": [
+        58,
+        319,
+        1478,
+        696
+      ],
+      "16": [
+        63,
+        324,
+        1473,
+        690
+      ],
+      "32": [
+        70,
+        331,
+        1467,
+        684
+      ],
+      "64": [
+        79,
+        340,
+        1458,
+        674
+      ],
+      "128": [
+        90,
+        349,
+        1447,
+        664
+      ],
+      "250": [
+        114,
+        369,
+        1388,
+        645
+      ]
+    },
+    "alpha_one_pixels": 27735,
+    "lossless_crop_rect_exclusive": [
+      41,
+      133,
+      1502,
+      930
+    ],
+    "central_40_percent": {
+      "rect_exclusive": [
+        460,
+        307,
+        1075,
+        716
+      ],
+      "alpha_extrema": [
+        0,
+        251
+      ],
+      "nonzero_pixels": 137045,
+      "over_8_pixels": 107391,
+      "over_64_pixels": 52316,
+      "total_pixels": 251535
+    },
+    "center_rgba": [
+      50,
+      86,
+      125,
+      0
+    ],
+    "optional_production_crop_rect_exclusive": [
+      33,
+      293,
+      1503,
+      720
+    ],
+    "optional_crop_nonzero_pixels_discarded": 3853,
+    "optional_crop_max_discarded_alpha": 1,
+    "optional_crop_requires_explicit_acceptance": true,
+    "production_crop_accepted_by_root": true,
+    "visible_shape_interior": {
+      "rect_exclusive": [
+        337,
+        428,
+        1199,
+        586
+      ],
+      "alpha_extrema": [
+        0,
+        1
+      ],
+      "nonzero_pixels": 3049,
+      "over_one_pixels": 0
+    },
+    "suggested_border_left_bottom_right_top": [
+      180,
+      160,
+      180,
+      160
+    ],
+    "source_pixel_changes": "none",
+    "unity_imported": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_DS_ButtonOrnament.png",
+    "source_sha256": "310a4bdf82929e3260d12699e8115c939e78b9136a3bfcc83a32f5a339944394",
+    "mode": "RGBA",
+    "size": [
+      1254,
+      1254
+    ],
+    "has_alpha": true,
+    "alpha_min_max": [
+      0,
+      255
+    ],
+    "transparent_pixels": 1157265,
+    "partial_alpha_pixels": 414263,
+    "opaque_pixels": 988,
+    "visible_bbox_alpha_gt_0": [
+      0,
+      51,
+      1238,
+      1182
+    ],
+    "visible_bbox_alpha_gt_8": [
+      116,
+      290,
+      1139,
+      904
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "checked_points": [],
+    "automatic_failures": [],
+    "visual_review": "Pending human/agent inspection; automatic measurements alone are not approval",
+    "bounds_at_threshold": {
+      "0": [
+        0,
+        51,
+        1238,
+        1182
+      ],
+      "1": [
+        87,
+        268,
+        1169,
+        936
+      ],
+      "2": [
+        95,
+        278,
+        1160,
+        925
+      ],
+      "4": [
+        105,
+        288,
+        1146,
+        910
+      ],
+      "8": [
+        116,
+        290,
+        1139,
+        904
+      ],
+      "16": [
+        120,
+        292,
+        1134,
+        902
+      ],
+      "32": [
+        120,
+        293,
+        1134,
+        902
+      ],
+      "64": [
+        121,
+        293,
+        1133,
+        901
+      ],
+      "128": [
+        121,
+        293,
+        1133,
+        901
+      ],
+      "250": [
+        122,
+        295,
+        1132,
+        900
+      ]
+    },
+    "alpha_one_pixels": 39502,
+    "lossless_crop_rect_exclusive": [
+      0,
+      49,
+      1240,
+      1184
+    ],
+    "central_40_percent": {
+      "rect_exclusive": [
+        376,
+        376,
+        877,
+        877
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nonzero_pixels": 236751,
+      "over_8_pixels": 169097,
+      "over_64_pixels": 150804,
+      "total_pixels": 251001
+    },
+    "center_rgba": [
+      235,
+      250,
+      253,
+      253
+    ],
+    "optional_production_crop_rect_exclusive": [
+      71,
+      252,
+      1185,
+      952
+    ],
+    "optional_crop_nonzero_pixels_discarded": 1825,
+    "optional_crop_max_discarded_alpha": 1,
+    "optional_crop_requires_explicit_acceptance": true,
+    "production_crop_accepted_by_root": true,
+    "visible_shape_interior": {
+      "rect_exclusive": [
+        303,
+        468,
+        953,
+        736
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nonzero_pixels": 164234,
+      "over_one_pixels": 157322
+    },
+    "suggested_border_left_bottom_right_top": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "source_pixel_changes": "none",
+    "unity_imported": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_DS_CircleBase.png",
+    "source_sha256": "dee1555e4a3a7dea45630028653734ba966838eb5c271bb121f75cb6a3da7f4a",
+    "mode": "RGBA",
+    "size": [
+      1254,
+      1254
+    ],
+    "has_alpha": true,
+    "alpha_min_max": [
+      0,
+      255
+    ],
+    "transparent_pixels": 684819,
+    "partial_alpha_pixels": 886125,
+    "opaque_pixels": 1572,
+    "visible_bbox_alpha_gt_0": [
+      0,
+      41,
+      1164,
+      1254
+    ],
+    "visible_bbox_alpha_gt_8": [
+      94,
+      100,
+      1158,
+      1153
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "checked_points": [],
+    "automatic_failures": [],
+    "visual_review": "Pending human/agent inspection; automatic measurements alone are not approval",
+    "bounds_at_threshold": {
+      "0": [
+        0,
+        41,
+        1164,
+        1254
+      ],
+      "1": [
+        92,
+        97,
+        1160,
+        1156
+      ],
+      "2": [
+        92,
+        98,
+        1160,
+        1155
+      ],
+      "4": [
+        92,
+        98,
+        1160,
+        1155
+      ],
+      "8": [
+        94,
+        100,
+        1158,
+        1153
+      ],
+      "16": [
+        94,
+        100,
+        1158,
+        1153
+      ],
+      "32": [
+        94,
+        100,
+        1158,
+        1153
+      ],
+      "64": [
+        95,
+        100,
+        1158,
+        1153
+      ],
+      "128": [
+        95,
+        100,
+        1157,
+        1152
+      ],
+      "250": [
+        96,
+        101,
+        1157,
+        1151
+      ]
+    },
+    "alpha_one_pixels": 3049,
+    "lossless_crop_rect_exclusive": [
+      0,
+      39,
+      1166,
+      1254
+    ],
+    "central_40_percent": {
+      "rect_exclusive": [
+        376,
+        376,
+        877,
+        877
+      ],
+      "alpha_extrema": [
+        253,
+        254
+      ],
+      "nonzero_pixels": 251001,
+      "over_8_pixels": 251001,
+      "over_64_pixels": 251001,
+      "total_pixels": 251001
+    },
+    "center_rgba": [
+      6,
+      49,
+      124,
+      253
+    ],
+    "optional_production_crop_rect_exclusive": [
+      76,
+      81,
+      1176,
+      1172
+    ],
+    "optional_crop_nonzero_pixels_discarded": 13,
+    "optional_crop_max_discarded_alpha": 1,
+    "optional_crop_requires_explicit_acceptance": true,
+    "production_crop_accepted_by_root": true,
+    "visible_shape_interior": {
+      "rect_exclusive": [
+        306,
+        415,
+        946,
+        838
+      ],
+      "alpha_extrema": [
+        253,
+        254
+      ],
+      "nonzero_pixels": 270720,
+      "over_one_pixels": 270720
+    },
+    "suggested_border_left_bottom_right_top": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "source_pixel_changes": "none",
+    "unity_imported": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_DS_CircleFrame.png",
+    "source_sha256": "47cd40ce7b97a1d79e2b7a9039386780e648f19fbb9e9ff66495854c1050be00",
+    "mode": "RGBA",
+    "size": [
+      1254,
+      1254
+    ],
+    "has_alpha": true,
+    "alpha_min_max": [
+      0,
+      255
+    ],
+    "transparent_pixels": 1294481,
+    "partial_alpha_pixels": 275784,
+    "opaque_pixels": 2251,
+    "visible_bbox_alpha_gt_0": [
+      33,
+      39,
+      1226,
+      1230
+    ],
+    "visible_bbox_alpha_gt_8": [
+      56,
+      56,
+      1198,
+      1171
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "checked_points": [],
+    "automatic_failures": [],
+    "visual_review": "Pending human/agent inspection; automatic measurements alone are not approval",
+    "bounds_at_threshold": {
+      "0": [
+        33,
+        39,
+        1226,
+        1230
+      ],
+      "1": [
+        54,
+        54,
+        1200,
+        1173
+      ],
+      "2": [
+        54,
+        55,
+        1200,
+        1173
+      ],
+      "4": [
+        56,
+        56,
+        1200,
+        1173
+      ],
+      "8": [
+        56,
+        56,
+        1198,
+        1171
+      ],
+      "16": [
+        56,
+        57,
+        1198,
+        1171
+      ],
+      "32": [
+        57,
+        57,
+        1198,
+        1171
+      ],
+      "64": [
+        57,
+        57,
+        1198,
+        1171
+      ],
+      "128": [
+        57,
+        57,
+        1198,
+        1170
+      ],
+      "250": [
+        59,
+        58,
+        1197,
+        1169
+      ]
+    },
+    "alpha_one_pixels": 8335,
+    "lossless_crop_rect_exclusive": [
+      31,
+      37,
+      1228,
+      1232
+    ],
+    "central_40_percent": {
+      "rect_exclusive": [
+        376,
+        376,
+        877,
+        877
+      ],
+      "alpha_extrema": [
+        0,
+        1
+      ],
+      "nonzero_pixels": 568,
+      "over_8_pixels": 0,
+      "over_64_pixels": 0,
+      "total_pixels": 251001
+    },
+    "center_rgba": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "optional_production_crop_rect_exclusive": [
+      38,
+      38,
+      1216,
+      1189
+    ],
+    "optional_crop_nonzero_pixels_discarded": 47,
+    "optional_crop_max_discarded_alpha": 1,
+    "optional_crop_requires_explicit_acceptance": true,
+    "production_crop_accepted_by_root": true,
+    "visible_shape_interior": {
+      "rect_exclusive": [
+        283,
+        390,
+        971,
+        837
+      ],
+      "alpha_extrema": [
+        0,
+        1
+      ],
+      "nonzero_pixels": 827,
+      "over_one_pixels": 0
+    },
+    "suggested_border_left_bottom_right_top": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "source_pixel_changes": "none",
+    "unity_imported": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_DS_PanelFrame.png",
+    "source_sha256": "62c2afb6d042be194c6d3000e1089c8e9f91962fe89160fa31bcdf469efa7378",
+    "mode": "RGBA",
+    "size": [
+      1254,
+      1254
+    ],
+    "has_alpha": true,
+    "alpha_min_max": [
+      0,
+      255
+    ],
+    "transparent_pixels": 1158467,
+    "partial_alpha_pixels": 413804,
+    "opaque_pixels": 245,
+    "visible_bbox_alpha_gt_0": [
+      0,
+      8,
+      1253,
+      1254
+    ],
+    "visible_bbox_alpha_gt_8": [
+      33,
+      34,
+      1222,
+      1206
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "checked_points": [],
+    "automatic_failures": [],
+    "visual_review": "Pending human/agent inspection; automatic measurements alone are not approval",
+    "bounds_at_threshold": {
+      "0": [
+        0,
+        8,
+        1253,
+        1254
+      ],
+      "1": [
+        19,
+        15,
+        1238,
+        1228
+      ],
+      "2": [
+        25,
+        23,
+        1234,
+        1222
+      ],
+      "4": [
+        30,
+        31,
+        1226,
+        1210
+      ],
+      "8": [
+        33,
+        34,
+        1222,
+        1206
+      ],
+      "16": [
+        34,
+        35,
+        1220,
+        1204
+      ],
+      "32": [
+        35,
+        36,
+        1220,
+        1204
+      ],
+      "64": [
+        35,
+        36,
+        1219,
+        1203
+      ],
+      "128": [
+        36,
+        37,
+        1219,
+        1203
+      ],
+      "250": [
+        52,
+        44,
+        1208,
+        1202
+      ]
+    },
+    "alpha_one_pixels": 108648,
+    "lossless_crop_rect_exclusive": [
+      0,
+      6,
+      1254,
+      1254
+    ],
+    "central_40_percent": {
+      "rect_exclusive": [
+        376,
+        376,
+        877,
+        877
+      ],
+      "alpha_extrema": [
+        0,
+        1
+      ],
+      "nonzero_pixels": 8,
+      "over_8_pixels": 0,
+      "over_64_pixels": 0,
+      "total_pixels": 251001
+    },
+    "center_rgba": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "optional_production_crop_rect_exclusive": [
+      3,
+      0,
+      1254,
+      1244
+    ],
+    "optional_crop_nonzero_pixels_discarded": 100,
+    "optional_crop_max_discarded_alpha": 1,
+    "optional_crop_requires_explicit_acceptance": true,
+    "production_crop_accepted_by_root": true,
+    "visible_shape_interior": {
+      "rect_exclusive": [
+        263,
+        379,
+        994,
+        864
+      ],
+      "alpha_extrema": [
+        0,
+        1
+      ],
+      "nonzero_pixels": 593,
+      "over_one_pixels": 0
+    },
+    "suggested_border_left_bottom_right_top": [
+      250,
+      250,
+      250,
+      250
+    ],
+    "source_pixel_changes": "none",
+    "unity_imported": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_HA_ButtonBase.png",
+    "source_sha256": "6cc0291ed5bd2defad2a47cf2eedc387583707f9247d66cae618ab6f2fdadae0",
+    "mode": "RGBA",
+    "size": [
+      1536,
+      1024
+    ],
+    "has_alpha": true,
+    "alpha_min_max": [
+      0,
+      254
+    ],
+    "transparent_pixels": 1110600,
+    "partial_alpha_pixels": 462264,
+    "opaque_pixels": 0,
+    "visible_bbox_alpha_gt_0": [
+      89,
+      179,
+      1441,
+      798
+    ],
+    "visible_bbox_alpha_gt_8": [
+      99,
+      341,
+      1438,
+      683
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "checked_points": [],
+    "automatic_failures": [],
+    "visual_review": "Pending human/agent inspection; automatic measurements alone are not approval",
+    "bounds_at_threshold": {
+      "0": [
+        89,
+        179,
+        1441,
+        798
+      ],
+      "1": [
+        98,
+        338,
+        1439,
+        686
+      ],
+      "2": [
+        98,
+        339,
+        1439,
+        685
+      ],
+      "4": [
+        98,
+        340,
+        1438,
+        685
+      ],
+      "8": [
+        99,
+        341,
+        1438,
+        683
+      ],
+      "16": [
+        99,
+        342,
+        1437,
+        683
+      ],
+      "32": [
+        100,
+        342,
+        1437,
+        683
+      ],
+      "64": [
+        100,
+        342,
+        1437,
+        683
+      ],
+      "128": [
+        100,
+        342,
+        1436,
+        682
+      ],
+      "250": [
+        103,
+        344,
+        1435,
+        681
+      ]
+    },
+    "alpha_one_pixels": 4458,
+    "lossless_crop_rect_exclusive": [
+      87,
+      177,
+      1443,
+      800
+    ],
+    "central_40_percent": {
+      "rect_exclusive": [
+        460,
+        307,
+        1075,
+        716
+      ],
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "nonzero_pixels": 214259,
+      "over_8_pixels": 209741,
+      "over_64_pixels": 209100,
+      "total_pixels": 251535
+    },
+    "center_rgba": [
+      26,
+      24,
+      27,
+      253
+    ],
+    "optional_production_crop_rect_exclusive": [
+      82,
+      322,
+      1455,
+      702
+    ],
+    "optional_crop_nonzero_pixels_discarded": 117,
+    "optional_crop_max_discarded_alpha": 1,
+    "optional_crop_requires_explicit_acceptance": true,
+    "production_crop_accepted_by_root": true,
+    "visible_shape_interior": {
+      "rect_exclusive": [
+        366,
+        442,
+        1171,
+        582
+      ],
+      "alpha_extrema": [
+        252,
+        254
+      ],
+      "nonzero_pixels": 112700,
+      "over_one_pixels": 112700
+    },
+    "suggested_border_left_bottom_right_top": [
+      180,
+      100,
+      180,
+      100
+    ],
+    "source_pixel_changes": "none",
+    "unity_imported": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_HA_ButtonFrame.png",
+    "source_sha256": "e754f3c9c3f6ffa8ee1ed1cf705c63779eba195a386f2d91638745c4b84e45e6",
+    "mode": "RGBA",
+    "size": [
+      1997,
+      788
+    ],
+    "has_alpha": true,
+    "alpha_min_max": [
+      0,
+      255
+    ],
+    "transparent_pixels": 1327316,
+    "partial_alpha_pixels": 246143,
+    "opaque_pixels": 177,
+    "visible_bbox_alpha_gt_0": [
+      0,
+      71,
+      1919,
+      764
+    ],
+    "visible_bbox_alpha_gt_8": [
+      88,
+      196,
+      1912,
+      586
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "checked_points": [],
+    "automatic_failures": [],
+    "visual_review": "Pending human/agent inspection; automatic measurements alone are not approval",
+    "bounds_at_threshold": {
+      "0": [
+        0,
+        71,
+        1919,
+        764
+      ],
+      "1": [
+        84,
+        194,
+        1916,
+        587
+      ],
+      "2": [
+        85,
+        195,
+        1915,
+        587
+      ],
+      "4": [
+        86,
+        195,
+        1913,
+        586
+      ],
+      "8": [
+        88,
+        196,
+        1912,
+        586
+      ],
+      "16": [
+        88,
+        196,
+        1910,
+        586
+      ],
+      "32": [
+        88,
+        197,
+        1910,
+        585
+      ],
+      "64": [
+        88,
+        197,
+        1909,
+        585
+      ],
+      "128": [
+        89,
+        197,
+        1909,
+        585
+      ],
+      "250": [
+        90,
+        200,
+        1908,
+        582
+      ]
+    },
+    "alpha_one_pixels": 15847,
+    "lossless_crop_rect_exclusive": [
+      0,
+      69,
+      1921,
+      766
+    ],
+    "central_40_percent": {
+      "rect_exclusive": [
+        599,
+        236,
+        1397,
+        551
+      ],
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "nonzero_pixels": 50629,
+      "over_8_pixels": 43083,
+      "over_64_pixels": 41496,
+      "total_pixels": 251370
+    },
+    "center_rgba": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "optional_production_crop_rect_exclusive": [
+      68,
+      178,
+      1932,
+      603
+    ],
+    "optional_crop_nonzero_pixels_discarded": 265,
+    "optional_crop_max_discarded_alpha": 1,
+    "optional_crop_requires_explicit_acceptance": true,
+    "production_crop_accepted_by_root": true,
+    "visible_shape_interior": {
+      "rect_exclusive": [
+        450,
+        312,
+        1550,
+        469
+      ],
+      "alpha_extrema": [
+        0,
+        1
+      ],
+      "nonzero_pixels": 194,
+      "over_one_pixels": 0
+    },
+    "suggested_border_left_bottom_right_top": [
+      200,
+      100,
+      200,
+      100
+    ],
+    "source_pixel_changes": "none",
+    "unity_imported": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_HA_ButtonGlow.png",
+    "source_sha256": "aedcb9e2fd5a9262e965c144eae39bfab347d15c2f70b58e364424f7fda8d6dd",
+    "mode": "RGBA",
+    "size": [
+      1536,
+      1024
+    ],
+    "has_alpha": true,
+    "alpha_min_max": [
+      0,
+      252
+    ],
+    "transparent_pixels": 1335165,
+    "partial_alpha_pixels": 237699,
+    "opaque_pixels": 0,
+    "visible_bbox_alpha_gt_0": [
+      71,
+      229,
+      1466,
+      968
+    ],
+    "visible_bbox_alpha_gt_8": [
+      82,
+      316,
+      1456,
+      676
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "checked_points": [],
+    "automatic_failures": [],
+    "visual_review": "Pending human/agent inspection; automatic measurements alone are not approval",
+    "bounds_at_threshold": {
+      "0": [
+        71,
+        229,
+        1466,
+        968
+      ],
+      "1": [
+        75,
+        306,
+        1463,
+        686
+      ],
+      "2": [
+        77,
+        308,
+        1461,
+        684
+      ],
+      "4": [
+        79,
+        313,
+        1460,
+        680
+      ],
+      "8": [
+        82,
+        316,
+        1456,
+        676
+      ],
+      "16": [
+        87,
+        320,
+        1453,
+        672
+      ],
+      "32": [
+        92,
+        324,
+        1446,
+        668
+      ],
+      "64": [
+        96,
+        331,
+        1440,
+        660
+      ],
+      "128": [
+        100,
+        336,
+        1436,
+        655
+      ],
+      "250": [
+        647,
+        650,
+        661,
+        651
+      ]
+    },
+    "alpha_one_pixels": 20119,
+    "lossless_crop_rect_exclusive": [
+      69,
+      227,
+      1468,
+      970
+    ],
+    "central_40_percent": {
+      "rect_exclusive": [
+        460,
+        307,
+        1075,
+        716
+      ],
+      "alpha_extrema": [
+        0,
+        252
+      ],
+      "nonzero_pixels": 93343,
+      "over_8_pixels": 66010,
+      "over_64_pixels": 30038,
+      "total_pixels": 251535
+    },
+    "center_rgba": [
+      51,
+      18,
+      17,
+      0
+    ],
+    "optional_production_crop_rect_exclusive": [
+      59,
+      290,
+      1479,
+      702
+    ],
+    "optional_crop_nonzero_pixels_discarded": 23,
+    "optional_crop_max_discarded_alpha": 1,
+    "optional_crop_requires_explicit_acceptance": true,
+    "production_crop_accepted_by_root": true,
+    "visible_shape_interior": {
+      "rect_exclusive": [
+        353,
+        420,
+        1185,
+        572
+      ],
+      "alpha_extrema": [
+        0,
+        1
+      ],
+      "nonzero_pixels": 2,
+      "over_one_pixels": 0
+    },
+    "suggested_border_left_bottom_right_top": [
+      160,
+      140,
+      160,
+      140
+    ],
+    "source_pixel_changes": "none",
+    "unity_imported": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_HA_ButtonOrnament.png",
+    "source_sha256": "9ef8f8460095f944b38de7bc20a66e0568f25df3142db16170f78453db884cad",
+    "mode": "RGBA",
+    "size": [
+      1254,
+      1254
+    ],
+    "has_alpha": true,
+    "alpha_min_max": [
+      0,
+      255
+    ],
+    "transparent_pixels": 1353439,
+    "partial_alpha_pixels": 217795,
+    "opaque_pixels": 1282,
+    "visible_bbox_alpha_gt_0": [
+      19,
+      53,
+      1214,
+      1182
+    ],
+    "visible_bbox_alpha_gt_8": [
+      42,
+      384,
+      1211,
+      846
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "checked_points": [],
+    "automatic_failures": [],
+    "visual_review": "Pending human/agent inspection; automatic measurements alone are not approval",
+    "bounds_at_threshold": {
+      "0": [
+        19,
+        53,
+        1214,
+        1182
+      ],
+      "1": [
+        40,
+        384,
+        1213,
+        846
+      ],
+      "2": [
+        40,
+        384,
+        1213,
+        846
+      ],
+      "4": [
+        40,
+        384,
+        1213,
+        846
+      ],
+      "8": [
+        42,
+        384,
+        1211,
+        846
+      ],
+      "16": [
+        42,
+        385,
+        1211,
+        846
+      ],
+      "32": [
+        42,
+        385,
+        1211,
+        845
+      ],
+      "64": [
+        42,
+        385,
+        1211,
+        845
+      ],
+      "128": [
+        43,
+        385,
+        1211,
+        845
+      ],
+      "250": [
+        47,
+        401,
+        1208,
+        835
+      ]
+    },
+    "alpha_one_pixels": 3193,
+    "lossless_crop_rect_exclusive": [
+      17,
+      51,
+      1216,
+      1184
+    ],
+    "central_40_percent": {
+      "rect_exclusive": [
+        376,
+        376,
+        877,
+        877
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nonzero_pixels": 137243,
+      "over_8_pixels": 134202,
+      "over_64_pixels": 133401,
+      "total_pixels": 251001
+    },
+    "center_rgba": [
+      252,
+      252,
+      252,
+      253
+    ],
+    "optional_production_crop_rect_exclusive": [
+      24,
+      368,
+      1229,
+      862
+    ],
+    "optional_crop_nonzero_pixels_discarded": 168,
+    "optional_crop_max_discarded_alpha": 1,
+    "optional_crop_requires_explicit_acceptance": true,
+    "production_crop_accepted_by_root": true,
+    "visible_shape_interior": {
+      "rect_exclusive": [
+        275,
+        523,
+        978,
+        707
+      ],
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "nonzero_pixels": 112239,
+      "over_one_pixels": 111592
+    },
+    "suggested_border_left_bottom_right_top": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "source_pixel_changes": "none",
+    "unity_imported": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_HA_CircleBase.png",
+    "source_sha256": "bad87bf5155b010b99eab491f7277c85a754c9323591143c91bf1921bdbf61c5",
+    "mode": "RGBA",
+    "size": [
+      1254,
+      1254
+    ],
+    "has_alpha": true,
+    "alpha_min_max": [
+      0,
+      255
+    ],
+    "transparent_pixels": 681487,
+    "partial_alpha_pixels": 890070,
+    "opaque_pixels": 959,
+    "visible_bbox_alpha_gt_0": [
+      68,
+      48,
+      1161,
+      1254
+    ],
+    "visible_bbox_alpha_gt_8": [
+      94,
+      97,
+      1159,
+      1156
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "checked_points": [],
+    "automatic_failures": [],
+    "visual_review": "Pending human/agent inspection; automatic measurements alone are not approval",
+    "bounds_at_threshold": {
+      "0": [
+        68,
+        48,
+        1161,
+        1254
+      ],
+      "1": [
+        92,
+        95,
+        1161,
+        1158
+      ],
+      "2": [
+        92,
+        95,
+        1161,
+        1158
+      ],
+      "4": [
+        92,
+        96,
+        1161,
+        1158
+      ],
+      "8": [
+        94,
+        97,
+        1159,
+        1156
+      ],
+      "16": [
+        94,
+        97,
+        1159,
+        1156
+      ],
+      "32": [
+        94,
+        98,
+        1159,
+        1156
+      ],
+      "64": [
+        95,
+        98,
+        1158,
+        1156
+      ],
+      "128": [
+        95,
+        98,
+        1158,
+        1155
+      ],
+      "250": [
+        96,
+        99,
+        1157,
+        1154
+      ]
+    },
+    "alpha_one_pixels": 2485,
+    "lossless_crop_rect_exclusive": [
+      66,
+      46,
+      1163,
+      1254
+    ],
+    "central_40_percent": {
+      "rect_exclusive": [
+        376,
+        376,
+        877,
+        877
+      ],
+      "alpha_extrema": [
+        252,
+        254
+      ],
+      "nonzero_pixels": 251001,
+      "over_8_pixels": 251001,
+      "over_64_pixels": 251001,
+      "total_pixels": 251001
+    },
+    "center_rgba": [
+      31,
+      30,
+      31,
+      253
+    ],
+    "optional_production_crop_rect_exclusive": [
+      76,
+      79,
+      1177,
+      1174
+    ],
+    "optional_crop_nonzero_pixels_discarded": 350,
+    "optional_crop_max_discarded_alpha": 1,
+    "optional_crop_requires_explicit_acceptance": true,
+    "production_crop_accepted_by_root": true,
+    "visible_shape_interior": {
+      "rect_exclusive": [
+        306,
+        414,
+        947,
+        839
+      ],
+      "alpha_extrema": [
+        252,
+        254
+      ],
+      "nonzero_pixels": 272425,
+      "over_one_pixels": 272425
+    },
+    "suggested_border_left_bottom_right_top": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "source_pixel_changes": "none",
+    "unity_imported": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_HA_CircleFrame.png",
+    "source_sha256": "ced9e362d57889f8788c4a774f531a332895e7f816a89c6d1a9ffb37f331de02",
+    "mode": "RGBA",
+    "size": [
+      1254,
+      1254
+    ],
+    "has_alpha": true,
+    "alpha_min_max": [
+      0,
+      255
+    ],
+    "transparent_pixels": 1343732,
+    "partial_alpha_pixels": 226808,
+    "opaque_pixels": 1976,
+    "visible_bbox_alpha_gt_0": [
+      27,
+      21,
+      1227,
+      1210
+    ],
+    "visible_bbox_alpha_gt_8": [
+      29,
+      29,
+      1225,
+      1207
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "checked_points": [],
+    "automatic_failures": [],
+    "visual_review": "Pending human/agent inspection; automatic measurements alone are not approval",
+    "bounds_at_threshold": {
+      "0": [
+        27,
+        21,
+        1227,
+        1210
+      ],
+      "1": [
+        29,
+        27,
+        1227,
+        1209
+      ],
+      "2": [
+        29,
+        29,
+        1227,
+        1207
+      ],
+      "4": [
+        29,
+        29,
+        1225,
+        1207
+      ],
+      "8": [
+        29,
+        29,
+        1225,
+        1207
+      ],
+      "16": [
+        29,
+        29,
+        1225,
+        1207
+      ],
+      "32": [
+        29,
+        29,
+        1225,
+        1207
+      ],
+      "64": [
+        30,
+        30,
+        1225,
+        1206
+      ],
+      "128": [
+        30,
+        30,
+        1224,
+        1206
+      ],
+      "250": [
+        38,
+        45,
+        1221,
+        1202
+      ]
+    },
+    "alpha_one_pixels": 6625,
+    "lossless_crop_rect_exclusive": [
+      25,
+      19,
+      1229,
+      1212
+    ],
+    "central_40_percent": {
+      "rect_exclusive": [
+        376,
+        376,
+        877,
+        877
+      ],
+      "alpha_extrema": [
+        0,
+        1
+      ],
+      "nonzero_pixels": 4,
+      "over_8_pixels": 0,
+      "over_64_pixels": 0,
+      "total_pixels": 251001
+    },
+    "center_rgba": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "optional_production_crop_rect_exclusive": [
+      13,
+      11,
+      1243,
+      1225
+    ],
+    "optional_crop_nonzero_pixels_discarded": 0,
+    "optional_crop_max_discarded_alpha": 0,
+    "optional_crop_requires_explicit_acceptance": true,
+    "production_crop_accepted_by_root": true,
+    "visible_shape_interior": {
+      "rect_exclusive": [
+        269,
+        382,
+        987,
+        854
+      ],
+      "alpha_extrema": [
+        0,
+        1
+      ],
+      "nonzero_pixels": 27,
+      "over_one_pixels": 0
+    },
+    "suggested_border_left_bottom_right_top": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "source_pixel_changes": "none",
+    "unity_imported": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_HA_PanelFrame.png",
+    "source_sha256": "103561b01347b8baa182ed25de500e071b108616c871b508f51b7d697606ee46",
+    "mode": "RGBA",
+    "size": [
+      1254,
+      1254
+    ],
+    "has_alpha": true,
+    "alpha_min_max": [
+      0,
+      255
+    ],
+    "transparent_pixels": 1390574,
+    "partial_alpha_pixels": 180481,
+    "opaque_pixels": 1461,
+    "visible_bbox_alpha_gt_0": [
+      78,
+      52,
+      1175,
+      1163
+    ],
+    "visible_bbox_alpha_gt_8": [
+      82,
+      91,
+      1173,
+      1161
+    ],
+    "corner_alpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "checked_points": [],
+    "automatic_failures": [],
+    "visual_review": "Pending human/agent inspection; automatic measurements alone are not approval",
+    "bounds_at_threshold": {
+      "0": [
+        78,
+        52,
+        1175,
+        1163
+      ],
+      "1": [
+        80,
+        88,
+        1175,
+        1163
+      ],
+      "2": [
+        80,
+        89,
+        1175,
+        1163
+      ],
+      "4": [
+        80,
+        89,
+        1174,
+        1163
+      ],
+      "8": [
+        82,
+        91,
+        1173,
+        1161
+      ],
+      "16": [
+        82,
+        91,
+        1172,
+        1161
+      ],
+      "32": [
+        82,
+        91,
+        1172,
+        1161
+      ],
+      "64": [
+        83,
+        91,
+        1172,
+        1161
+      ],
+      "128": [
+        83,
+        92,
+        1172,
+        1160
+      ],
+      "250": [
+        84,
+        93,
+        1171,
+        1159
+      ]
+    },
+    "alpha_one_pixels": 10261,
+    "lossless_crop_rect_exclusive": [
+      76,
+      50,
+      1177,
+      1165
+    ],
+    "central_40_percent": {
+      "rect_exclusive": [
+        376,
+        376,
+        877,
+        877
+      ],
+      "alpha_extrema": [
+        0,
+        1
+      ],
+      "nonzero_pixels": 105,
+      "over_8_pixels": 0,
+      "over_64_pixels": 0,
+      "total_pixels": 251001
+    },
+    "center_rgba": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "optional_production_crop_rect_exclusive": [
+      64,
+      72,
+      1191,
+      1179
+    ],
+    "optional_crop_nonzero_pixels_discarded": 4,
+    "optional_crop_max_discarded_alpha": 1,
+    "optional_crop_requires_explicit_acceptance": true,
+    "production_crop_accepted_by_root": true,
+    "visible_shape_interior": {
+      "rect_exclusive": [
+        299,
+        410,
+        956,
+        840
+      ],
+      "alpha_extrema": [
+        0,
+        1
+      ],
+      "nonzero_pixels": 111,
+      "over_one_pixels": 0
+    },
+    "suggested_border_left_bottom_right_top": [
+      200,
+      200,
+      200,
+      200
+    ],
+    "source_pixel_changes": "none",
+    "unity_imported": false
+  }
+]

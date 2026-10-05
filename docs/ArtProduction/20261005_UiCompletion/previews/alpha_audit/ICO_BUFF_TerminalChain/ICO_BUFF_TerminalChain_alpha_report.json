@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_TerminalChain.png",
+  "source_sha256": "e2635d3138d10b7c049206ff0803d657bd08f388257a3fdc30c4555157e8f70c",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 1069097,
+  "partial_alpha_pixels": 502781,
+  "opaque_pixels": 638,
+  "visible_bbox_alpha_gt_0": [
+    27,
+    23,
+    1214,
+    1220
+  ],
+  "visible_bbox_alpha_gt_8": [
+    132,
+    85,
+    1113,
+    1166
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

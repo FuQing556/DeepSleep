@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_FaultToleranceExpansion.png",
+  "source_sha256": "862371fa705f707be76ff4f24d12cc6373b54824e222fe9f82f1a3c25cd995a8",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 847659,
+  "partial_alpha_pixels": 724683,
+  "opaque_pixels": 174,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    21,
+    1238,
+    1254
+  ],
+  "visible_bbox_alpha_gt_8": [
+    29,
+    81,
+    1226,
+    1020
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

@@ -15,7 +15,7 @@ MonoBehaviour:
   Port: 7777
   ProtocolVersion: 4
   ClientVersion: 0.1.0
-  ContentVersion: 20261005-rooftop-node-1
+  ContentVersion: 20261005-wave4-3
   SnapshotRate: 20
   InputTimeout: 0.35
   ConnectionTimeout: 12

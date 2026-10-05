@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_DataCompression.png",
+  "source_sha256": "d573de6b946b959ec559a08c2ae7eace6e81baae721c2a401ba5f1e4caabf71d",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    254
+  ],
+  "transparent_pixels": 966474,
+  "partial_alpha_pixels": 606042,
+  "opaque_pixels": 0,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    31,
+    1248,
+    1214
+  ],
+  "visible_bbox_alpha_gt_8": [
+    123,
+    157,
+    1187,
+    998
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

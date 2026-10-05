@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_DS_PanelFrame.png",
+  "source_sha256": "62c2afb6d042be194c6d3000e1089c8e9f91962fe89160fa31bcdf469efa7378",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 1158467,
+  "partial_alpha_pixels": 413804,
+  "opaque_pixels": 245,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    8,
+    1253,
+    1254
+  ],
+  "visible_bbox_alpha_gt_8": [
+    33,
+    34,
+    1222,
+    1206
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

@@ -25,7 +25,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
         private float _runtimeInitialDelaySeconds;
         private float _runtimeIntervalMultiplier = 1f;
         private int _runtimeMaximumAliveCount;
-        private int _runtimeSpawnHealth;
+        private float _runtimeHealthMultiplier = 1f;
         private int _encounterMaximumAliveCount;
 
         public int EffectiveMaximumAliveCount => _encounterMaximumAliveCount > 0
@@ -104,10 +104,10 @@ namespace DeepSleep.Runtime.Combat.Enemies
             bool enabledForSegment,
             float initialDelaySeconds,
             float intervalMultiplier,
-            int maximumAliveCount, int spawnHealth = 0)
+            int maximumAliveCount, float healthMultiplier = 1f)
         {
             _runtimeEnabled = enabledForSegment;
-            _runtimeSpawnHealth = Mathf.Max(0, spawnHealth);
+            _runtimeHealthMultiplier = Mathf.Max(1f, healthMultiplier);
             _runtimeInitialDelaySeconds = Mathf.Max(0f, initialDelaySeconds);
             _runtimeIntervalMultiplier = Mathf.Max(0.05f, intervalMultiplier);
             _runtimeMaximumAliveCount = Mathf.Max(1, maximumAliveCount);
@@ -127,6 +127,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
             _runtimeEnabled = true;
             _runtimeInitialDelaySeconds = _schedule.InitialDelaySeconds;
             _runtimeIntervalMultiplier = 1f;
+            _runtimeHealthMultiplier = 1f;
             _runtimeMaximumAliveCount = _schedule.MaximumAliveCount;
         }
 
@@ -157,10 +158,11 @@ namespace DeepSleep.Runtime.Combat.Enemies
                 out var actor);
             if (spawned)
             {
-                // 池化重生先还原上一段的运行期加值，再应用本段数值。
+                // 每次从基础生命计算，不能把池化实体上一段的倍率叠乘进来。
                 actor.Health.SetMaximumHealthBonus(0f);
-                if (_runtimeSpawnHealth > 0)
-                    actor.Health.SetMaximumHealthBonus(Mathf.Max(0, _runtimeSpawnHealth - actor.Health.MaximumHealth));
+                float baseHealth = actor.Health.MaximumHealth;
+                actor.Health.SetMaximumHealthBonus(
+                    baseHealth * _runtimeHealthMultiplier - baseHealth);
                 actor.Health.ResetToMaximum();
             }
             return spawned;

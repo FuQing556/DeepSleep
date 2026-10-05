@@ -3,6 +3,7 @@ using DeepSleep.Runtime.AppFlow;
 using DeepSleep.Runtime.Players.Control;
 using DeepSleep.Runtime.Players.Identity;
 using DeepSleep.Runtime.Progression.Run;
+using DeepSleep.Runtime.UI.Common;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -129,9 +130,15 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
             return true;
         }
 
-        private void SelectDeepSeek() => TrySelect(PlayerRole.DeepSeek);
+        private void SelectDeepSeek() => SelectLocally(PlayerRole.DeepSeek);
 
-        private void SelectHarness() => TrySelect(PlayerRole.Harness);
+        private void SelectHarness() => SelectLocally(PlayerRole.Harness);
+
+        private void SelectLocally(PlayerRole role)
+        {
+            // 公用 TrySelect 也会接收联机自动分配；只有真人按钮成功才保存界面偏好。
+            if (TrySelect(role)) UiThemePreferences.SetFromLocalSelection(role);
+        }
 
         private void RestoreTimeScale()
         {

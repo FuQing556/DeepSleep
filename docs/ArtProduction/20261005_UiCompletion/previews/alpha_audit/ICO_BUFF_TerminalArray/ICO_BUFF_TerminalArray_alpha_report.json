@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_TerminalArray.png",
+  "source_sha256": "6d13245fe6ba407e106c3851a57b93c63bcc2b2519002bab8c5e2979b1933816",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 975970,
+  "partial_alpha_pixels": 596364,
+  "opaque_pixels": 182,
+  "visible_bbox_alpha_gt_0": [
+    24,
+    9,
+    1220,
+    1254
+  ],
+  "visible_bbox_alpha_gt_8": [
+    52,
+    43,
+    1203,
+    1141
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

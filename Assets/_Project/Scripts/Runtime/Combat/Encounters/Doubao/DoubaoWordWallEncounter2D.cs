@@ -46,6 +46,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Doubao
         private float _firstWaveArrivalSeconds;
         private DoubaoMazeRoute _mazeRoute;
         private int _mazeRow;
+        private float _bossHealthMultiplier = 1f;
 
         public event Action<DoubaoWordWallEncounter2D> Completed;
         public DoubaoEncounterState State { get; private set; } =
@@ -91,9 +92,10 @@ namespace DeepSleep.Runtime.Combat.Encounters.Doubao
             if (_isInitialized) ResetEncounter();
         }
 
-        public void BeginEncounter()
+        public void BeginEncounter(float bossHealthMultiplier = 1f)
         {
             if (!_isInitialized || State != DoubaoEncounterState.Idle) return;
+            _bossHealthMultiplier = Mathf.Max(1f, bossHealthMultiplier);
             _random = new System.Random(_deterministicSeed);
             _elapsed = 0f;
             _nextGroupSeconds = _config.InitialDelaySeconds;
@@ -119,7 +121,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Doubao
             if (State == DoubaoEncounterState.Prelude &&
                 _elapsed >= Mathf.Max(_config.BossRevealSeconds, _firstWaveArrivalSeconds))
             {
-                _boss.Activate(_bossAnchor.position, _config.BossMaximumHealth);
+                _boss.Activate(_bossAnchor.position, _config.BossMaximumHealth * _bossHealthMultiplier);
                 State = DoubaoEncounterState.Active;
             }
 
@@ -162,6 +164,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Doubao
             _boss.ResetEncounter();
             _elapsed = 0f;
             _nextGroupSeconds = 0f;
+            _bossHealthMultiplier = 1f;
             State = DoubaoEncounterState.Idle;
         }
 
@@ -337,6 +340,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Doubao
 
         private void OnBossDefeated(DoubaoBoss2D boss)
         {
+            if (State != DoubaoEncounterState.Active) return;
             State = DoubaoEncounterState.Complete;
             for (int index = _active.Count - 1; index >= 0; index--)
             {

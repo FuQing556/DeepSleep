@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_DS_CircleFrame.png",
+  "source_sha256": "47cd40ce7b97a1d79e2b7a9039386780e648f19fbb9e9ff66495854c1050be00",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 1294481,
+  "partial_alpha_pixels": 275784,
+  "opaque_pixels": 2251,
+  "visible_bbox_alpha_gt_0": [
+    33,
+    39,
+    1226,
+    1230
+  ],
+  "visible_bbox_alpha_gt_8": [
+    56,
+    56,
+    1198,
+    1171
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

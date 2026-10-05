@@ -1,0 +1,79 @@
+2026-10-05 — 用户指定数值验证
+
+范围：DS 普通米粒弹基础伤害 2；两关三波基础 HP × 1/1.5/2（向下取整）；World01 豆包每波一次，击败奖励 100 Token。
+其他数值未改。Token 沿用本段共同收益、DS/HS 各得全额、失败检查点回滚和主机同步。
+
+方法与边界：
+1. 在 Unity 6000.6.0f1 Play 中使用隔离档案；受控注入章节波次，调用真实生成器/对象池，顺序 1→2→3→2→1，检查 HP 不叠加。
+2. 真实池中 DS 弹体命中 404，生命 5→3；不是只检查配置字段。
+3. 豆包由 driver 逐步 Simulate 到本体显形，使用真实伤害击杀。检查三波、重复死亡、重复结算、失败重试、强制清场、非主机不计奖和钱包序列化。
+4. 完整回归另跑项目已有 ChapterFlowLifecycleChecks.Start()，覆盖两关节点、购买、失败重试及 16 站进出场景流程。
+5. 无手机实机、无双设备网络；受控波次检查不等于自然通关或整体平衡验收。没有出包。
+6. 测试结束恢复隔离档案并核对主档/备份 SHA256，退出 Play；不保存已有未保存的 Boot 编辑。
+
+World01 数值结果：
+World01_EarlyInternet: 79 assertions passed.
+wave 1 CFG_EN_SpawnChannel_404Window HP=5
+wave 2 CFG_EN_SpawnChannel_404Window HP=7
+wave 2 CFG_EN_SpawnChannel_DataCrawlerSnake HP=12
+wave 3 CFG_EN_SpawnChannel_404Window HP=10
+wave 3 CFG_EN_SpawnChannel_DataCrawlerSnake HP=16
+wave 2 CFG_EN_SpawnChannel_404Window HP=7
+wave 2 CFG_EN_SpawnChannel_DataCrawlerSnake HP=12
+wave 1 CFG_EN_SpawnChannel_404Window HP=5
+DS actual pooled projectile hit: 5 -> 3
+Doubao wave 1: HP=45, reveal=15.00004, reward 100 once; both balances +100
+Doubao wave 2: HP=67, reveal=15.00004, reward 100 once; both balances +100
+Doubao wave 3: HP=90, reveal=15.00004, reward 100 once; both balances +100
+Doubao wave 3: HP=90, reveal=15.00004, reward 100 once; both balances +100
+Rollback/retry, forced-stop no reward, guest authority guard, wallet serialization passed.
+
+原型数值结果：
+Gameplay_Prototype: 35 assertions passed.
+wave 1 CFG_EN_SpawnChannel_404Window HP=5
+wave 2 CFG_EN_SpawnChannel_404Window HP=7
+wave 2 CFG_EN_SpawnChannel_DataCrawlerSnake HP=12
+wave 3 CFG_EN_SpawnChannel_404Window HP=10
+wave 3 CFG_EN_SpawnChannel_DataCrawlerSnake HP=16
+wave 2 CFG_EN_SpawnChannel_404Window HP=7
+wave 2 CFG_EN_SpawnChannel_DataCrawlerSnake HP=12
+wave 1 CFG_EN_SpawnChannel_404Window HP=5
+DS actual pooled projectile hit: 5 -> 3
+
+已有完整流程回归结果：
+PASSED chapter flow in both scenes; returned to MainMenu; profile/backup unchanged.
+Gameplay_Prototype: initialized start gate skips static content revalidation but rejects captured level-ID mismatch.
+Gameplay_Prototype: connecting guest cannot author; replica chapter/node order and duplicate states preserve wallet/shop.
+Gameplay_Prototype: first failure retries segment 1 and rolls back earnings/HP.
+Gameplay_Prototype: clearing stops spawns but preserves life-failure rules.
+Gameplay_Prototype: residual enemy stays damageable/rewarded; clear reclaims projectiles and opens node once.
+Gameplay_Prototype: real portal readiness departs once; purchases/refresh/HP checkpoint committed.
+Gameplay_Prototype: segment 2 failure restores shop/wallet/exact HP; retry departure stays segment 2.
+Gameplay_Prototype: repeated forced stop clears all pools without rewards.
+World01_EarlyInternet: initialized start gate skips static content revalidation but rejects captured level-ID mismatch.
+World01_EarlyInternet: connecting guest cannot author; replica chapter/node order and duplicate states preserve wallet/shop.
+World01_EarlyInternet: first failure retries segment 1 and rolls back earnings/HP.
+World01_EarlyInternet: clearing stops spawns but preserves life-failure rules.
+World01_EarlyInternet: residual enemy stays damageable/rewarded; clear reclaims projectiles and opens node once.
+World01_EarlyInternet: real portal readiness departs once; purchases/refresh/HP checkpoint committed.
+World01_EarlyInternet: segment 2 failure restores shop/wallet/exact HP; retry departure stays segment 2.
+World01_EarlyInternet: repeated forced stop clears all pools plus live Doubao/bubbles without rewards.
+PASSED 16 lifecycle stations; local host/connecting only, not dual-device or relay acceptance.
+1. Initial menu cleanup: session/manager/registered=0/0/0
+2. World solo selection: session/manager/registered=1/1/1
+3. Selection back button: session/manager/registered=0/0/0
+4. World solo re-entry: session/manager/registered=1/1/1
+5. Chapter return after solo selection: session/manager/registered=0/0/0
+6. World before direct switch: session/manager/registered=1/1/1
+7. Direct StartLevel World -> Prototype: session/manager/registered=1/1/1
+8. Prototype menu return: session/manager/registered=0/0/0
+9. Online selection: session/manager/registered=1/1/1
+10. Start local DS host: session/manager/registered=1/1/1
+11. Online menu Leave: session/manager/registered=0/0/0
+12. Online re-entry after shutdown: session/manager/registered=1/1/1
+13. Rebind same port as HS host: session/manager/registered=1/1/1
+14. Host direct Router return: session/manager/registered=0/0/0
+15. Client selection: session/manager/registered=1/1/1
+16. Exit while loopback client is connecting: session/manager/registered=0/0/0
+
+Profile isolation: original reference/JSON restored; main SHA256=D860EFE4C3A403669DE5336BEFC2FC376B8BC2749F23B0D3D70555FDC957DDB2; backup SHA256=468D93D13E141E30F698CE13AC657E64FFE21D6A5CE1BE35A60C02882A4477BE.

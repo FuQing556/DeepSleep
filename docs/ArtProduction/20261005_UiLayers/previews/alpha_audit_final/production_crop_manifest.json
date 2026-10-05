@@ -1,0 +1,842 @@
+[
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_DS_ButtonBase.png",
+    "source_sha256": "2506919df76244ac863dc0d578f1978fe8c8982245ee5d14b546bc741d22435d",
+    "output": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\ready\\SPR_UI_DS_ButtonBase.png",
+    "output_sha256": "e42c51ee1db3525187ae6becfa461e9243f52cb7b9f369b92919ace9e0a33885",
+    "original_size": [
+      1536,
+      1024
+    ],
+    "output_size": [
+      1330,
+      347
+    ],
+    "crop_rect_source_xyxy_exclusive": [
+      103,
+      340,
+      1433,
+      687
+    ],
+    "crop_offset_source_xy": [
+      103,
+      340
+    ],
+    "method": "Crop alpha>1 bbox plus 16 px padding, preserving all retained RGB and alpha; no resampling or color key",
+    "discarded_nonzero_pixels": 7123,
+    "discarded_max_alpha": 1,
+    "retained_pixel_changes": 0,
+    "optical_inset_ltrb_px_at_alpha64": [
+      19,
+      20,
+      18,
+      23
+    ],
+    "suggested_border_lbrt_px": [
+      200,
+      92,
+      200,
+      92
+    ],
+    "image_type": "Sliced",
+    "integration_note": "Border units are source pixels including transparent padding. Button frame/base/glow align by optical bounds; use dedicated PanelFrame for tall panels. Circle/ornament must remain proportional.",
+    "unity_imported": true,
+    "production_asset": "Assets/_Project/Art/UI/Themes/DeepSeek/SPR_UI_DS_ButtonBase.png",
+    "unity_import_settings": {
+      "texture_type": "Sprite",
+      "sprite_mode": "Single",
+      "sprite_mesh_type": "FullRect",
+      "pixels_per_unit": 100,
+      "alpha_source": "FromInput",
+      "alpha_is_transparency": true,
+      "mipmaps": false,
+      "filter": "Bilinear",
+      "wrap": "Clamp",
+      "compression": "Uncompressed",
+      "max_texture_size": 2048,
+      "sprite_border": "Applied exactly from suggested_border_lbrt_px"
+    },
+    "user_accepted_style_direction": true,
+    "user_accepted_each_final_asset": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_DS_ButtonFrame.png",
+    "source_sha256": "339d5b0fbb0a92c9fc462bd171cfd5e8eba38b7a3d856af048da6b1159e0def5",
+    "output": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\ready\\SPR_UI_DS_ButtonFrame.png",
+    "output_sha256": "75d9921bb63c8f3353140462e9157e147df921729e3d53617231830c24dd33dc",
+    "original_size": [
+      2172,
+      724
+    ],
+    "output_size": [
+      1990,
+      407
+    ],
+    "crop_rect_source_xyxy_exclusive": [
+      91,
+      156,
+      2081,
+      563
+    ],
+    "crop_offset_source_xy": [
+      91,
+      156
+    ],
+    "method": "Crop alpha>1 bbox plus 16 px padding, preserving all retained RGB and alpha; no resampling or color key",
+    "discarded_nonzero_pixels": 60,
+    "discarded_max_alpha": 1,
+    "retained_pixel_changes": 0,
+    "optical_inset_ltrb_px_at_alpha64": [
+      19,
+      19,
+      19,
+      26
+    ],
+    "suggested_border_lbrt_px": [
+      250,
+      95,
+      250,
+      95
+    ],
+    "image_type": "Sliced",
+    "integration_note": "Border units are source pixels including transparent padding. Button frame/base/glow align by optical bounds; use dedicated PanelFrame for tall panels. Circle/ornament must remain proportional.",
+    "unity_imported": true,
+    "production_asset": "Assets/_Project/Art/UI/Themes/DeepSeek/SPR_UI_DS_ButtonFrame.png",
+    "unity_import_settings": {
+      "texture_type": "Sprite",
+      "sprite_mode": "Single",
+      "sprite_mesh_type": "FullRect",
+      "pixels_per_unit": 100,
+      "alpha_source": "FromInput",
+      "alpha_is_transparency": true,
+      "mipmaps": false,
+      "filter": "Bilinear",
+      "wrap": "Clamp",
+      "compression": "Uncompressed",
+      "max_texture_size": 2048,
+      "sprite_border": "Applied exactly from suggested_border_lbrt_px"
+    },
+    "user_accepted_style_direction": true,
+    "user_accepted_each_final_asset": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_DS_ButtonGlow.png",
+    "source_sha256": "cedf9087936c41fe0fd2b325a6c4ee6402636b2b388b24e7f1368f4541017dad",
+    "output": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\ready\\SPR_UI_DS_ButtonGlow.png",
+    "output_sha256": "97920abd9f0b3d0e9a61e107f674adb141007f07847820318ff6679a75ec3548",
+    "original_size": [
+      1536,
+      1024
+    ],
+    "output_size": [
+      1470,
+      427
+    ],
+    "crop_rect_source_xyxy_exclusive": [
+      33,
+      293,
+      1503,
+      720
+    ],
+    "crop_offset_source_xy": [
+      33,
+      293
+    ],
+    "method": "Crop alpha>1 bbox plus 16 px padding, preserving all retained RGB and alpha; no resampling or color key",
+    "discarded_nonzero_pixels": 3853,
+    "discarded_max_alpha": 1,
+    "retained_pixel_changes": 0,
+    "optical_inset_ltrb_px_at_alpha64": [
+      46,
+      47,
+      45,
+      46
+    ],
+    "suggested_border_lbrt_px": [
+      180,
+      160,
+      180,
+      160
+    ],
+    "image_type": "Sliced",
+    "integration_note": "Border units are source pixels including transparent padding. Button frame/base/glow align by optical bounds; use dedicated PanelFrame for tall panels. Circle/ornament must remain proportional.",
+    "unity_imported": true,
+    "production_asset": "Assets/_Project/Art/UI/Themes/DeepSeek/SPR_UI_DS_ButtonGlow.png",
+    "unity_import_settings": {
+      "texture_type": "Sprite",
+      "sprite_mode": "Single",
+      "sprite_mesh_type": "FullRect",
+      "pixels_per_unit": 100,
+      "alpha_source": "FromInput",
+      "alpha_is_transparency": true,
+      "mipmaps": false,
+      "filter": "Bilinear",
+      "wrap": "Clamp",
+      "compression": "Uncompressed",
+      "max_texture_size": 2048,
+      "sprite_border": "Applied exactly from suggested_border_lbrt_px"
+    },
+    "user_accepted_style_direction": true,
+    "user_accepted_each_final_asset": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_DS_ButtonOrnament.png",
+    "source_sha256": "310a4bdf82929e3260d12699e8115c939e78b9136a3bfcc83a32f5a339944394",
+    "output": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\ready\\SPR_UI_DS_ButtonOrnament.png",
+    "output_sha256": "086ec80ef17d1e6e3d07e9a237f454db5df47bba51ad53ee6b873c604aebbc7f",
+    "original_size": [
+      1254,
+      1254
+    ],
+    "output_size": [
+      1114,
+      700
+    ],
+    "crop_rect_source_xyxy_exclusive": [
+      71,
+      252,
+      1185,
+      952
+    ],
+    "crop_offset_source_xy": [
+      71,
+      252
+    ],
+    "method": "Crop alpha>1 bbox plus 16 px padding, preserving all retained RGB and alpha; no resampling or color key",
+    "discarded_nonzero_pixels": 1825,
+    "discarded_max_alpha": 1,
+    "retained_pixel_changes": 0,
+    "optical_inset_ltrb_px_at_alpha64": [
+      50,
+      41,
+      52,
+      51
+    ],
+    "suggested_border_lbrt_px": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "image_type": "Simple preserveAspect",
+    "integration_note": "Border units are source pixels including transparent padding. Button frame/base/glow align by optical bounds; use dedicated PanelFrame for tall panels. Circle/ornament must remain proportional.",
+    "unity_imported": true,
+    "production_asset": "Assets/_Project/Art/UI/Themes/DeepSeek/SPR_UI_DS_ButtonOrnament.png",
+    "unity_import_settings": {
+      "texture_type": "Sprite",
+      "sprite_mode": "Single",
+      "sprite_mesh_type": "FullRect",
+      "pixels_per_unit": 100,
+      "alpha_source": "FromInput",
+      "alpha_is_transparency": true,
+      "mipmaps": false,
+      "filter": "Bilinear",
+      "wrap": "Clamp",
+      "compression": "Uncompressed",
+      "max_texture_size": 2048,
+      "sprite_border": "Applied exactly from suggested_border_lbrt_px"
+    },
+    "user_accepted_style_direction": true,
+    "user_accepted_each_final_asset": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_DS_CircleBase.png",
+    "source_sha256": "dee1555e4a3a7dea45630028653734ba966838eb5c271bb121f75cb6a3da7f4a",
+    "output": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\ready\\SPR_UI_DS_CircleBase.png",
+    "output_sha256": "0819677c97a9d84a89ce095410bd7f453f32af4fabc232aa4bfe6184738f4dea",
+    "original_size": [
+      1254,
+      1254
+    ],
+    "output_size": [
+      1100,
+      1091
+    ],
+    "crop_rect_source_xyxy_exclusive": [
+      76,
+      81,
+      1176,
+      1172
+    ],
+    "crop_offset_source_xy": [
+      76,
+      81
+    ],
+    "method": "Crop alpha>1 bbox plus 16 px padding, preserving all retained RGB and alpha; no resampling or color key",
+    "discarded_nonzero_pixels": 13,
+    "discarded_max_alpha": 1,
+    "retained_pixel_changes": 0,
+    "optical_inset_ltrb_px_at_alpha64": [
+      19,
+      19,
+      18,
+      19
+    ],
+    "suggested_border_lbrt_px": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "image_type": "Simple preserveAspect",
+    "integration_note": "Border units are source pixels including transparent padding. Button frame/base/glow align by optical bounds; use dedicated PanelFrame for tall panels. Circle/ornament must remain proportional.",
+    "unity_imported": true,
+    "production_asset": "Assets/_Project/Art/UI/Themes/DeepSeek/SPR_UI_DS_CircleBase.png",
+    "unity_import_settings": {
+      "texture_type": "Sprite",
+      "sprite_mode": "Single",
+      "sprite_mesh_type": "FullRect",
+      "pixels_per_unit": 100,
+      "alpha_source": "FromInput",
+      "alpha_is_transparency": true,
+      "mipmaps": false,
+      "filter": "Bilinear",
+      "wrap": "Clamp",
+      "compression": "Uncompressed",
+      "max_texture_size": 2048,
+      "sprite_border": "Applied exactly from suggested_border_lbrt_px"
+    },
+    "user_accepted_style_direction": true,
+    "user_accepted_each_final_asset": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_DS_CircleFrame.png",
+    "source_sha256": "47cd40ce7b97a1d79e2b7a9039386780e648f19fbb9e9ff66495854c1050be00",
+    "output": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\ready\\SPR_UI_DS_CircleFrame.png",
+    "output_sha256": "5f1e4db2ca4e3aab21910e35c1e2cd4f780745599cc5ba7874f646eff7f7a2bd",
+    "original_size": [
+      1254,
+      1254
+    ],
+    "output_size": [
+      1178,
+      1151
+    ],
+    "crop_rect_source_xyxy_exclusive": [
+      38,
+      38,
+      1216,
+      1189
+    ],
+    "crop_offset_source_xy": [
+      38,
+      38
+    ],
+    "method": "Crop alpha>1 bbox plus 16 px padding, preserving all retained RGB and alpha; no resampling or color key",
+    "discarded_nonzero_pixels": 47,
+    "discarded_max_alpha": 1,
+    "retained_pixel_changes": 0,
+    "optical_inset_ltrb_px_at_alpha64": [
+      19,
+      19,
+      18,
+      18
+    ],
+    "suggested_border_lbrt_px": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "image_type": "Simple preserveAspect",
+    "integration_note": "Border units are source pixels including transparent padding. Button frame/base/glow align by optical bounds; use dedicated PanelFrame for tall panels. Circle/ornament must remain proportional.",
+    "unity_imported": true,
+    "production_asset": "Assets/_Project/Art/UI/Themes/DeepSeek/SPR_UI_DS_CircleFrame.png",
+    "unity_import_settings": {
+      "texture_type": "Sprite",
+      "sprite_mode": "Single",
+      "sprite_mesh_type": "FullRect",
+      "pixels_per_unit": 100,
+      "alpha_source": "FromInput",
+      "alpha_is_transparency": true,
+      "mipmaps": false,
+      "filter": "Bilinear",
+      "wrap": "Clamp",
+      "compression": "Uncompressed",
+      "max_texture_size": 2048,
+      "sprite_border": "Applied exactly from suggested_border_lbrt_px"
+    },
+    "user_accepted_style_direction": true,
+    "user_accepted_each_final_asset": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_DS_PanelFrame.png",
+    "source_sha256": "62c2afb6d042be194c6d3000e1089c8e9f91962fe89160fa31bcdf469efa7378",
+    "output": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\ready\\SPR_UI_DS_PanelFrame.png",
+    "output_sha256": "310fe96e5744ceb56b595343e7dc79a982d1d666a5558dcffa9cebe0028e5e95",
+    "original_size": [
+      1254,
+      1254
+    ],
+    "output_size": [
+      1251,
+      1244
+    ],
+    "crop_rect_source_xyxy_exclusive": [
+      3,
+      0,
+      1254,
+      1244
+    ],
+    "crop_offset_source_xy": [
+      3,
+      0
+    ],
+    "method": "Crop alpha>1 bbox plus 16 px padding, preserving all retained RGB and alpha; no resampling or color key",
+    "discarded_nonzero_pixels": 100,
+    "discarded_max_alpha": 1,
+    "retained_pixel_changes": 0,
+    "optical_inset_ltrb_px_at_alpha64": [
+      32,
+      36,
+      35,
+      41
+    ],
+    "suggested_border_lbrt_px": [
+      250,
+      250,
+      250,
+      250
+    ],
+    "image_type": "Sliced",
+    "integration_note": "Border units are source pixels including transparent padding. Button frame/base/glow align by optical bounds; use dedicated PanelFrame for tall panels. Circle/ornament must remain proportional.",
+    "unity_imported": true,
+    "production_asset": "Assets/_Project/Art/UI/Themes/DeepSeek/SPR_UI_DS_PanelFrame.png",
+    "unity_import_settings": {
+      "texture_type": "Sprite",
+      "sprite_mode": "Single",
+      "sprite_mesh_type": "FullRect",
+      "pixels_per_unit": 100,
+      "alpha_source": "FromInput",
+      "alpha_is_transparency": true,
+      "mipmaps": false,
+      "filter": "Bilinear",
+      "wrap": "Clamp",
+      "compression": "Uncompressed",
+      "max_texture_size": 2048,
+      "sprite_border": "Applied exactly from suggested_border_lbrt_px"
+    },
+    "user_accepted_style_direction": true,
+    "user_accepted_each_final_asset": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_HA_ButtonBase.png",
+    "source_sha256": "6cc0291ed5bd2defad2a47cf2eedc387583707f9247d66cae618ab6f2fdadae0",
+    "output": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\ready\\SPR_UI_HA_ButtonBase.png",
+    "output_sha256": "226e71c89edf39f4ec0d575e4ea3f04daf5efd1535de1800a0889b17881dd57b",
+    "original_size": [
+      1536,
+      1024
+    ],
+    "output_size": [
+      1373,
+      380
+    ],
+    "crop_rect_source_xyxy_exclusive": [
+      82,
+      322,
+      1455,
+      702
+    ],
+    "crop_offset_source_xy": [
+      82,
+      322
+    ],
+    "method": "Crop alpha>1 bbox plus 16 px padding, preserving all retained RGB and alpha; no resampling or color key",
+    "discarded_nonzero_pixels": 117,
+    "discarded_max_alpha": 1,
+    "retained_pixel_changes": 0,
+    "optical_inset_ltrb_px_at_alpha64": [
+      18,
+      20,
+      18,
+      19
+    ],
+    "suggested_border_lbrt_px": [
+      180,
+      100,
+      180,
+      100
+    ],
+    "image_type": "Sliced",
+    "integration_note": "Border units are source pixels including transparent padding. Button frame/base/glow align by optical bounds; use dedicated PanelFrame for tall panels. Circle/ornament must remain proportional.",
+    "unity_imported": true,
+    "production_asset": "Assets/_Project/Art/UI/Themes/Harness/SPR_UI_HA_ButtonBase.png",
+    "unity_import_settings": {
+      "texture_type": "Sprite",
+      "sprite_mode": "Single",
+      "sprite_mesh_type": "FullRect",
+      "pixels_per_unit": 100,
+      "alpha_source": "FromInput",
+      "alpha_is_transparency": true,
+      "mipmaps": false,
+      "filter": "Bilinear",
+      "wrap": "Clamp",
+      "compression": "Uncompressed",
+      "max_texture_size": 2048,
+      "sprite_border": "Applied exactly from suggested_border_lbrt_px"
+    },
+    "user_accepted_style_direction": true,
+    "user_accepted_each_final_asset": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_HA_ButtonFrame.png",
+    "source_sha256": "e754f3c9c3f6ffa8ee1ed1cf705c63779eba195a386f2d91638745c4b84e45e6",
+    "output": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\ready\\SPR_UI_HA_ButtonFrame.png",
+    "output_sha256": "110623736285ed6075451cb456ef336fd7c1e9ce0496d89ce8d66babcca6ea54",
+    "original_size": [
+      1997,
+      788
+    ],
+    "output_size": [
+      1864,
+      425
+    ],
+    "crop_rect_source_xyxy_exclusive": [
+      68,
+      178,
+      1932,
+      603
+    ],
+    "crop_offset_source_xy": [
+      68,
+      178
+    ],
+    "method": "Crop alpha>1 bbox plus 16 px padding, preserving all retained RGB and alpha; no resampling or color key",
+    "discarded_nonzero_pixels": 265,
+    "discarded_max_alpha": 1,
+    "retained_pixel_changes": 0,
+    "optical_inset_ltrb_px_at_alpha64": [
+      20,
+      19,
+      23,
+      18
+    ],
+    "suggested_border_lbrt_px": [
+      200,
+      100,
+      200,
+      100
+    ],
+    "image_type": "Sliced",
+    "integration_note": "Border units are source pixels including transparent padding. Button frame/base/glow align by optical bounds; use dedicated PanelFrame for tall panels. Circle/ornament must remain proportional.",
+    "unity_imported": true,
+    "production_asset": "Assets/_Project/Art/UI/Themes/Harness/SPR_UI_HA_ButtonFrame.png",
+    "unity_import_settings": {
+      "texture_type": "Sprite",
+      "sprite_mode": "Single",
+      "sprite_mesh_type": "FullRect",
+      "pixels_per_unit": 100,
+      "alpha_source": "FromInput",
+      "alpha_is_transparency": true,
+      "mipmaps": false,
+      "filter": "Bilinear",
+      "wrap": "Clamp",
+      "compression": "Uncompressed",
+      "max_texture_size": 2048,
+      "sprite_border": "Applied exactly from suggested_border_lbrt_px"
+    },
+    "user_accepted_style_direction": true,
+    "user_accepted_each_final_asset": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_HA_ButtonGlow.png",
+    "source_sha256": "aedcb9e2fd5a9262e965c144eae39bfab347d15c2f70b58e364424f7fda8d6dd",
+    "output": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\ready\\SPR_UI_HA_ButtonGlow.png",
+    "output_sha256": "568af355111a323fbf549cf6de54d477f55d152cf29bf27064ad898692b8fde9",
+    "original_size": [
+      1536,
+      1024
+    ],
+    "output_size": [
+      1420,
+      412
+    ],
+    "crop_rect_source_xyxy_exclusive": [
+      59,
+      290,
+      1479,
+      702
+    ],
+    "crop_offset_source_xy": [
+      59,
+      290
+    ],
+    "method": "Crop alpha>1 bbox plus 16 px padding, preserving all retained RGB and alpha; no resampling or color key",
+    "discarded_nonzero_pixels": 23,
+    "discarded_max_alpha": 1,
+    "retained_pixel_changes": 0,
+    "optical_inset_ltrb_px_at_alpha64": [
+      37,
+      41,
+      39,
+      42
+    ],
+    "suggested_border_lbrt_px": [
+      160,
+      140,
+      160,
+      140
+    ],
+    "image_type": "Sliced",
+    "integration_note": "Border units are source pixels including transparent padding. Button frame/base/glow align by optical bounds; use dedicated PanelFrame for tall panels. Circle/ornament must remain proportional.",
+    "unity_imported": true,
+    "production_asset": "Assets/_Project/Art/UI/Themes/Harness/SPR_UI_HA_ButtonGlow.png",
+    "unity_import_settings": {
+      "texture_type": "Sprite",
+      "sprite_mode": "Single",
+      "sprite_mesh_type": "FullRect",
+      "pixels_per_unit": 100,
+      "alpha_source": "FromInput",
+      "alpha_is_transparency": true,
+      "mipmaps": false,
+      "filter": "Bilinear",
+      "wrap": "Clamp",
+      "compression": "Uncompressed",
+      "max_texture_size": 2048,
+      "sprite_border": "Applied exactly from suggested_border_lbrt_px"
+    },
+    "user_accepted_style_direction": true,
+    "user_accepted_each_final_asset": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_HA_ButtonOrnament.png",
+    "source_sha256": "9ef8f8460095f944b38de7bc20a66e0568f25df3142db16170f78453db884cad",
+    "output": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\ready\\SPR_UI_HA_ButtonOrnament.png",
+    "output_sha256": "9fe5b9826303fa5fd4f885142117bf1fea2746f04bd6fec87b850a01178b22ca",
+    "original_size": [
+      1254,
+      1254
+    ],
+    "output_size": [
+      1205,
+      494
+    ],
+    "crop_rect_source_xyxy_exclusive": [
+      24,
+      368,
+      1229,
+      862
+    ],
+    "crop_offset_source_xy": [
+      24,
+      368
+    ],
+    "method": "Crop alpha>1 bbox plus 16 px padding, preserving all retained RGB and alpha; no resampling or color key",
+    "discarded_nonzero_pixels": 168,
+    "discarded_max_alpha": 1,
+    "retained_pixel_changes": 0,
+    "optical_inset_ltrb_px_at_alpha64": [
+      18,
+      17,
+      18,
+      17
+    ],
+    "suggested_border_lbrt_px": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "image_type": "Simple preserveAspect",
+    "integration_note": "Border units are source pixels including transparent padding. Button frame/base/glow align by optical bounds; use dedicated PanelFrame for tall panels. Circle/ornament must remain proportional.",
+    "unity_imported": true,
+    "production_asset": "Assets/_Project/Art/UI/Themes/Harness/SPR_UI_HA_ButtonOrnament.png",
+    "unity_import_settings": {
+      "texture_type": "Sprite",
+      "sprite_mode": "Single",
+      "sprite_mesh_type": "FullRect",
+      "pixels_per_unit": 100,
+      "alpha_source": "FromInput",
+      "alpha_is_transparency": true,
+      "mipmaps": false,
+      "filter": "Bilinear",
+      "wrap": "Clamp",
+      "compression": "Uncompressed",
+      "max_texture_size": 2048,
+      "sprite_border": "Applied exactly from suggested_border_lbrt_px"
+    },
+    "user_accepted_style_direction": true,
+    "user_accepted_each_final_asset": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_HA_CircleBase.png",
+    "source_sha256": "bad87bf5155b010b99eab491f7277c85a754c9323591143c91bf1921bdbf61c5",
+    "output": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\ready\\SPR_UI_HA_CircleBase.png",
+    "output_sha256": "43f4d309e1985259664395203548c4a0a62db8b57d655d601bc5d1c8f5c4a660",
+    "original_size": [
+      1254,
+      1254
+    ],
+    "output_size": [
+      1101,
+      1095
+    ],
+    "crop_rect_source_xyxy_exclusive": [
+      76,
+      79,
+      1177,
+      1174
+    ],
+    "crop_offset_source_xy": [
+      76,
+      79
+    ],
+    "method": "Crop alpha>1 bbox plus 16 px padding, preserving all retained RGB and alpha; no resampling or color key",
+    "discarded_nonzero_pixels": 350,
+    "discarded_max_alpha": 1,
+    "retained_pixel_changes": 0,
+    "optical_inset_ltrb_px_at_alpha64": [
+      19,
+      19,
+      19,
+      18
+    ],
+    "suggested_border_lbrt_px": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "image_type": "Simple preserveAspect",
+    "integration_note": "Border units are source pixels including transparent padding. Button frame/base/glow align by optical bounds; use dedicated PanelFrame for tall panels. Circle/ornament must remain proportional.",
+    "unity_imported": true,
+    "production_asset": "Assets/_Project/Art/UI/Themes/Harness/SPR_UI_HA_CircleBase.png",
+    "unity_import_settings": {
+      "texture_type": "Sprite",
+      "sprite_mode": "Single",
+      "sprite_mesh_type": "FullRect",
+      "pixels_per_unit": 100,
+      "alpha_source": "FromInput",
+      "alpha_is_transparency": true,
+      "mipmaps": false,
+      "filter": "Bilinear",
+      "wrap": "Clamp",
+      "compression": "Uncompressed",
+      "max_texture_size": 2048,
+      "sprite_border": "Applied exactly from suggested_border_lbrt_px"
+    },
+    "user_accepted_style_direction": true,
+    "user_accepted_each_final_asset": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_HA_CircleFrame.png",
+    "source_sha256": "ced9e362d57889f8788c4a774f531a332895e7f816a89c6d1a9ffb37f331de02",
+    "output": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\ready\\SPR_UI_HA_CircleFrame.png",
+    "output_sha256": "9160393f9665e22bf987948f54d2783c439dec160b632af04812adf88de1b7c8",
+    "original_size": [
+      1254,
+      1254
+    ],
+    "output_size": [
+      1230,
+      1214
+    ],
+    "crop_rect_source_xyxy_exclusive": [
+      13,
+      11,
+      1243,
+      1225
+    ],
+    "crop_offset_source_xy": [
+      13,
+      11
+    ],
+    "method": "Crop alpha>1 bbox plus 16 px padding, preserving all retained RGB and alpha; no resampling or color key",
+    "discarded_nonzero_pixels": 0,
+    "discarded_max_alpha": 0,
+    "retained_pixel_changes": 0,
+    "optical_inset_ltrb_px_at_alpha64": [
+      17,
+      19,
+      18,
+      19
+    ],
+    "suggested_border_lbrt_px": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "image_type": "Simple preserveAspect",
+    "integration_note": "Border units are source pixels including transparent padding. Button frame/base/glow align by optical bounds; use dedicated PanelFrame for tall panels. Circle/ornament must remain proportional.",
+    "unity_imported": true,
+    "production_asset": "Assets/_Project/Art/UI/Themes/Harness/SPR_UI_HA_CircleFrame.png",
+    "unity_import_settings": {
+      "texture_type": "Sprite",
+      "sprite_mode": "Single",
+      "sprite_mesh_type": "FullRect",
+      "pixels_per_unit": 100,
+      "alpha_source": "FromInput",
+      "alpha_is_transparency": true,
+      "mipmaps": false,
+      "filter": "Bilinear",
+      "wrap": "Clamp",
+      "compression": "Uncompressed",
+      "max_texture_size": 2048,
+      "sprite_border": "Applied exactly from suggested_border_lbrt_px"
+    },
+    "user_accepted_style_direction": true,
+    "user_accepted_each_final_asset": false
+  },
+  {
+    "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_HA_PanelFrame.png",
+    "source_sha256": "103561b01347b8baa182ed25de500e071b108616c871b508f51b7d697606ee46",
+    "output": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\ready\\SPR_UI_HA_PanelFrame.png",
+    "output_sha256": "1781eda0e5cb0ff1b75305f497c99f293bd17a91fcfdfe1a75f14358ee5ea3a2",
+    "original_size": [
+      1254,
+      1254
+    ],
+    "output_size": [
+      1127,
+      1107
+    ],
+    "crop_rect_source_xyxy_exclusive": [
+      64,
+      72,
+      1191,
+      1179
+    ],
+    "crop_offset_source_xy": [
+      64,
+      72
+    ],
+    "method": "Crop alpha>1 bbox plus 16 px padding, preserving all retained RGB and alpha; no resampling or color key",
+    "discarded_nonzero_pixels": 4,
+    "discarded_max_alpha": 1,
+    "retained_pixel_changes": 0,
+    "optical_inset_ltrb_px_at_alpha64": [
+      19,
+      19,
+      19,
+      18
+    ],
+    "suggested_border_lbrt_px": [
+      200,
+      200,
+      200,
+      200
+    ],
+    "image_type": "Sliced",
+    "integration_note": "Border units are source pixels including transparent padding. Button frame/base/glow align by optical bounds; use dedicated PanelFrame for tall panels. Circle/ornament must remain proportional.",
+    "unity_imported": true,
+    "production_asset": "Assets/_Project/Art/UI/Themes/Harness/SPR_UI_HA_PanelFrame.png",
+    "unity_import_settings": {
+      "texture_type": "Sprite",
+      "sprite_mode": "Single",
+      "sprite_mesh_type": "FullRect",
+      "pixels_per_unit": 100,
+      "alpha_source": "FromInput",
+      "alpha_is_transparency": true,
+      "mipmaps": false,
+      "filter": "Bilinear",
+      "wrap": "Clamp",
+      "compression": "Uncompressed",
+      "max_texture_size": 2048,
+      "sprite_border": "Applied exactly from suggested_border_lbrt_px"
+    },
+    "user_accepted_style_direction": true,
+    "user_accepted_each_final_asset": false
+  }
+]

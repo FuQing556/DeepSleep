@@ -171,7 +171,7 @@ namespace DeepSleep.Editor.Setup
                 new Vector2(0, 70), new Vector2(920, 250));
             Label("天空测试场", levelCard, new Vector2(0, 70),
                 new Vector2(820, 55), 36);
-            Label("三段战斗原型 · 首通 10 / 重复 5 鲸元券",
+            Label("四段战斗原型 · 首通 10 / 重复 5 鲸元券",
                 levelCard, new Vector2(0, 15),
                 new Vector2(820, 45), 23);
             Button prototype = Button("进入关卡", levelCard,

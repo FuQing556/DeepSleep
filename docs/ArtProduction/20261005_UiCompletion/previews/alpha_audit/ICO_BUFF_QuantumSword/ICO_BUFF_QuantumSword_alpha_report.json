@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_QuantumSword.png",
+  "source_sha256": "40cd96d496d7308f801d296104e96fb3c89e5adbdefc5c5403b66ce973032a8d",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 1143418,
+  "partial_alpha_pixels": 428848,
+  "opaque_pixels": 250,
+  "visible_bbox_alpha_gt_0": [
+    25,
+    23,
+    1216,
+    1246
+  ],
+  "visible_bbox_alpha_gt_8": [
+    66,
+    51,
+    1202,
+    1167
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

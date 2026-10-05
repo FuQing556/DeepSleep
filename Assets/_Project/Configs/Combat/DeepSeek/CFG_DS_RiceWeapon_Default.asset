@@ -33,4 +33,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 34048
   _initialPoolSize: 24
-  _maximumPoolSize: 96
+  _maximumPoolSize: 128

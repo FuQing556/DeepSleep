@@ -12,9 +12,6 @@ namespace DeepSleep.Runtime.Progression.Run
         [SerializeField, Min(0f)] private float _initialDelaySeconds = 0.8f;
         [SerializeField, Min(0.05f)] private float _intervalMultiplier = 1f;
         [SerializeField, Min(1)] private int _maximumAliveCount = 6;
-        [SerializeField, Min(0), Tooltip("0沿用敌人基础生命；正数为本段出生生命。")]
-        private int _spawnHealth;
-        public int SpawnHealth => _spawnHealth;
 
         public EnemySpawnChannelDefinition Channel => _channel;
         public bool Enabled => _enabled;
@@ -47,6 +44,8 @@ namespace DeepSleep.Runtime.Progression.Run
         [SerializeField] private string _displayName = "未命名战斗段";
         [SerializeField, Min(1f)] private float _durationSeconds = 60f;
         [SerializeField, Min(1)] private int _requiredDefeats = 10;
+        [SerializeField, Min(1f), Tooltip("相对敌人基础生命的倍率；生命沿用整数向下取整。")]
+        private float _enemyHealthMultiplier = 1f;
         [SerializeField] private SegmentSpawnRule[] _spawnRules;
 
         public string DisplayName => string.IsNullOrWhiteSpace(_displayName)
@@ -54,6 +53,7 @@ namespace DeepSleep.Runtime.Progression.Run
             : _displayName;
         public float DurationSeconds => _durationSeconds;
         public int RequiredDefeats => _requiredDefeats;
+        public float EnemyHealthMultiplier => _enemyHealthMultiplier;
         public SegmentSpawnRule[] SpawnRules => _spawnRules;
 
         public bool TryGetRule(
@@ -82,6 +82,12 @@ namespace DeepSleep.Runtime.Progression.Run
             if (_durationSeconds <= 0f || _requiredDefeats <= 0)
             {
                 reason = $"{DisplayName} 的时长与目标必须为正数。";
+                return false;
+            }
+            if (_enemyHealthMultiplier < 1f || float.IsNaN(_enemyHealthMultiplier) ||
+                float.IsInfinity(_enemyHealthMultiplier))
+            {
+                reason = $"{DisplayName} 的敌人生命倍率必须为不小于 1 的有限数。";
                 return false;
             }
             if (_spawnRules == null || _spawnRules.Length == 0)

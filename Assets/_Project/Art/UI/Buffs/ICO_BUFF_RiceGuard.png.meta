@@ -1,0 +1,418 @@
+fileFormatVersion: 2
+guid: 196fc154818211d4e8ca0f3ae95a14e8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8698258858384606283
+    second: ICO_BUFF_RiceGuard_0
+  - first:
+      213: 768130623791559091
+    second: ICO_BUFF_RiceGuard_1
+  - first:
+      213: 8687431366014799171
+    second: ICO_BUFF_RiceGuard_2
+  - first:
+      213: -7345761803680972134
+    second: ICO_BUFF_RiceGuard_3
+  - first:
+      213: -7121482240105752948
+    second: ICO_BUFF_RiceGuard_4
+  - first:
+      213: -2472673699071591172
+    second: ICO_BUFF_RiceGuard_5
+  - first:
+      213: -7349031789941379488
+    second: ICO_BUFF_RiceGuard_6
+  - first:
+      213: -7788232419169198864
+    second: ICO_BUFF_RiceGuard_7
+  - first:
+      213: 1152123585732854040
+    second: ICO_BUFF_RiceGuard_8
+  - first:
+      213: 3934439968372353851
+    second: ICO_BUFF_RiceGuard_9
+  - first:
+      213: -3594772351521809659
+    second: ICO_BUFF_RiceGuard_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceGuard_0
+      rect:
+        serializedVersion: 2
+        x: 90
+        y: 0
+        width: 1105
+        height: 1234
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b44c86aa85c66b870800000000000000
+      internalID: 8698258858384606283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceGuard_1
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 1078
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b1f13c8bb2f8aa00800000000000000
+      internalID: 768130623791559091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceGuard_2
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 1052
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34d06e5acc4ff8870800000000000000
+      internalID: 8687431366014799171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceGuard_3
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 931
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9286fe1f8c9e0a90800000000000000
+      internalID: -7345761803680972134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceGuard_4
+      rect:
+        serializedVersion: 2
+        x: 1165
+        y: 923
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c865e3442a96b2d90800000000000000
+      internalID: -7121482240105752948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceGuard_5
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 917
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfcf2691f5c4fadd0800000000000000
+      internalID: -2472673699071591172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceGuard_6
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 853
+        width: 27
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06ead7d168ef20a90800000000000000
+      internalID: -7349031789941379488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceGuard_7
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 882
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0fc1d3be0e3aae390800000000000000
+      internalID: -7788232419169198864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceGuard_8
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 345
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 811c4f80c4a2dff00800000000000000
+      internalID: 1152123585732854040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceGuard_9
+      rect:
+        serializedVersion: 2
+        x: 532
+        y: 38
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3beee04e40f99630800000000000000
+      internalID: 3934439968372353851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ICO_BUFF_RiceGuard_10
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 44
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50b952b979dcc1ec0800000000000000
+      internalID: -3594772351521809659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ICO_BUFF_RiceGuard_0: 8698258858384606283
+      ICO_BUFF_RiceGuard_1: 768130623791559091
+      ICO_BUFF_RiceGuard_10: -3594772351521809659
+      ICO_BUFF_RiceGuard_2: 8687431366014799171
+      ICO_BUFF_RiceGuard_3: -7345761803680972134
+      ICO_BUFF_RiceGuard_4: -7121482240105752948
+      ICO_BUFF_RiceGuard_5: -2472673699071591172
+      ICO_BUFF_RiceGuard_6: -7349031789941379488
+      ICO_BUFF_RiceGuard_7: -7788232419169198864
+      ICO_BUFF_RiceGuard_8: 1152123585732854040
+      ICO_BUFF_RiceGuard_9: 3934439968372353851
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

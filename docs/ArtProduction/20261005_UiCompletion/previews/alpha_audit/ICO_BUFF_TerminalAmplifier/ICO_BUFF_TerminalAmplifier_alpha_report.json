@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_TerminalAmplifier.png",
+  "source_sha256": "6af3c97c0186dba77e3d87fafc250f2e9c6b1e931344b1ccad7e14658ebde9d8",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 1042056,
+  "partial_alpha_pixels": 530108,
+  "opaque_pixels": 352,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    48,
+    1208,
+    1254
+  ],
+  "visible_bbox_alpha_gt_8": [
+    124,
+    119,
+    1182,
+    1147
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

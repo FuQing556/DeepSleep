@@ -2,9 +2,9 @@
 
 核对日期：2026-10-05。本文描述当前工作树的实际结构，供项目维护和后续内容开发查阅；不是未来架构的完成声明。已有共用底座，不是每关各写一套。用户确认后，本批已统一装配规则、删除 Chapter 镜像敌人数组并精简完整校验链；两关已装配并重新验证。部分控制器职责仍偏重，本批没有拆分，也不把它作为下一次内容任务的隐藏前置。
 
-## 代码量及统计范围
+## UI 改版前的代码量审计快照
 
-统计 `Assets/_Project/Scripts` 下全部 C# 的物理行，包含注释和空行；不含 Unity/第三方包、Library、生成的工程文件、美术/场景 YAML、文档及独立 Relay Python 服务。文件多、行数多本身不等于冗余，以下数字不能当作有效逻辑行或运行开销。
+以下为 2026-10-05 底层精简完成、UI 改版之前的统计快照，不是后续工作树实时计数。统计 `Assets/_Project/Scripts` 下全部 C# 的物理行，包含注释和空行；不含 Unity/第三方包、Library、生成的工程文件、美术/场景 YAML、文档及独立 Relay Python 服务。文件多、行数多本身不等于冗余，以下数字不能当作有效逻辑行或运行开销。
 
 | 部分 | 当前文件数 | 当前行数 | v1.1.2 基线行数 | 是否进入 Player 编译 |
 |---|---:|---:|---:|---|
@@ -57,6 +57,9 @@ PROJECT_STRUCTURE.md            当前结构、定位入口和精简建议
 | 工作 | 当前入口 | 状态及责任边界 |
 |---|---|---|
 | 启动、退出、换场景 | `AppFlow/GameAppRoot`、`GameSceneRouter`、`GameLaunchContext` | AppRoot 保留档案/路由等应用服务；玩家、敌人不是常驻应用数据 |
+| uGUI 主题与生成美术 | `UI/Common/UiThemePreferences`、`UiThemePalette`、`UiThemeView` | 本机选择记忆、显式 Sprite/文字配色资产、绑定应用。14 张通用透明层及本批各 2 张标题/主页背景；背景等比铺满裁切，标题等比显示。无逐帧主题扫描，不管理玩法或页面路由；旧 `UiSurfaceGraphic` 只为迁移类型兼容保留，正式场景/Prefab 已无实例 |
+| uGUI 轻动效 | `UI/Common/UiButtonMotion`、`UiPanelMotion` | 显式引用视觉子根/高光/CanvasGroup；unscaled 时间驱动按压、回弹、选中呼吸、禁用淡化和面板淡入；不修改原控件热区或业务事件，无运行时补组件 |
+| 局内强化/临时状态图标 | `UI/Combat/PlayerUpgradeHudView`、`PlayerCombatHudView`、`Progression/Upgrades/UpgradeDefinition`、`RestNodeUpgradePanelView` | 10 个目录 Icon 共用于商店和已获强化栏；`PlayerUpgradeRuntimeState.Changed → PlayerUpgradeHudView` 事件驱动图标/等级，无 Update 或运行时装配。主动护航/光剑及保护图标消费既有 HUD 快照，不另造计时器或同步协议 |
 | 描述一关 | `Progression/Meta/MetaLevelDefinition` | 关卡身份、场景、奖励，引用本关 RunConfig 和 ContentManifest |
 | 什么怪及何时出现 | `Progression/Levels/LevelContentManifest`、`Run/ChapterRunConfig` | 清单登记普通怪模块；战斗段配置控制频道启用和节奏；不是任意任务编辑器 |
 | 本场景接到哪些实例 | `Progression/Levels/LevelSceneBindings` | 显式敌人和服务绑定；不自行开战、不运行模拟 |
@@ -70,6 +73,8 @@ PROJECT_STRUCTURE.md            当前结构、定位入口和精简建议
 | 豆包 | `Combat/Encounters/Doubao/`、`Run/DoubaoChapterEncounterDriver2D` | 可选遭遇模块，驱动把它接入指定章节段；不是所有关卡都必须启用 |
 
 定位原则：改怪物行为先看 Combat；改出场时机先看本关配置；改胜负/重试先看 Chapter；改节点视觉先看 Node/Presentation；改联机事实复制看对应 Channel，不把所有修改继续塞进 Chapter 或 Session。
+
+双主题用于 Boot、MainMenu、两关及两个动态卡片 Prefab，不是黄昏专用。`Editor/Setup/UiLayeredArtworkInstaller.Install(6, 6)` 是通用分层显式装配/校准入口；旧 `UiThemeInstaller.Install()` 已停用。补全批次通过 `UiMenuArtworkInstaller.Install()` 绑定两套主页标题/背景、补齐黄昏关卡入口装饰，通过 `UiBuffArtworkInstaller.Install()` 在两关接入 10 种强化和 2 种技能图标、DS 6 / HS 5 个预装配已获槽，保留数值和按钮热区。`Configs/Presentation/UI/` 引用主题美术，`CFG_UpgradeCatalog_Default` 的 Icon 引用语义图标，图标不随页面主题混换角色含义。米粒类参考实际弹体/命中/护航素材；三张海苔饭团错误稿未入 Assets。源图、提示词和选源记录在 `docs/ArtProduction/20261005_UiLayers/` 与 `20261005_UiCompletion/`。本批导入和两关装配完成，Console 无错误；4819 条绑定/属性断言、两关各 50 条注入式 UI 状态断言通过，未验证真实购买或联机。安装器仅拒绝两目标场景的未保存编辑，其他场景保持原样。详情见 [应用场景架构](docs/25_AppSceneArchitecture.md) 与 [本批验证记录](docs/ImplementationEvidence/20261005_UiCompletion/README.md)。
 
 ## 第一关与第二关如何共用
 

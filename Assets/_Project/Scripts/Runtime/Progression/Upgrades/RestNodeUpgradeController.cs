@@ -330,7 +330,8 @@ namespace DeepSleep.Runtime.Progression.Upgrades
         {
             OfferState state = GetOffer(role);
             if (!_nodeActive || !Contains(state, id) ||
-                !_runtimeState.Catalog.TryGet(id, out UpgradeDefinition definition))
+                !_runtimeState.Catalog.TryGet(id, out UpgradeDefinition definition) ||
+                !IsOfferUnlocked(role, id))
             {
                 return;
             }
@@ -367,12 +368,19 @@ namespace DeepSleep.Runtime.Progression.Upgrades
             return _panel.IsOpen && _panel.Role == role;
         }
 
+        private bool IsOfferUnlocked(PlayerRole role, UpgradeCardId id)
+        {
+            return id != UpgradeCardId.RiceGuidance ||
+                _runtimeState.GetRank(role, UpgradeCardId.RiceFan) >= 1;
+        }
+
         private void GenerateOffers(PlayerRole role, OfferState state)
         {
             _runtimeState.Catalog.GetEligible(role, _candidates);
             for (int index = _candidates.Count - 1; index >= 0; index--)
             {
-                if (_runtimeState.IsMaximumRank(role, _candidates[index].Id))
+                if (_runtimeState.IsMaximumRank(role, _candidates[index].Id) ||
+                    !IsOfferUnlocked(role, _candidates[index].Id))
                 {
                     _candidates.RemoveAt(index);
                 }

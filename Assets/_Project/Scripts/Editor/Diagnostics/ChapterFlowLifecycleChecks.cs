@@ -25,7 +25,7 @@ using UnityEngine.SceneManagement;
 namespace DeepSleep.Editor.Diagnostics
 {
     /// <summary>
-    /// 实际 Play/Router/选角/伤害/节点回归；最后回菜单，不触发最终通关。
+    /// 实际 Play/Router/选角/伤害/节点回归；最终结算跳过永久奖励落盘，最后回菜单。
     /// 仅推进场景实例计时器。成就使用临时内存档案的已完成分支，绝不改存档路径或资产。
     /// </summary>
     public static class ChapterFlowLifecycleChecks
@@ -268,7 +268,102 @@ namespace DeepSleep.Editor.Diagnostics
                         "Forced stop did not synchronously reset Doubao and bubbles.");
                     Passed(level, "repeated forced stop clears all pools" + (encounter == null ? "" : " plus live Doubao/bubbles") + " without rewards");
                 }
+                yield return Route(router, level);
+                yield return CheckFourWaveFlow(level);
                 yield return Route(router, null);
+            }
+        }
+
+        private static IEnumerator CheckFourWaveFlow(MetaLevelDefinition level)
+        {
+            var config = level.ChapterRunConfig;
+            Require(config.CombatSegmentCount == 4, "Four-wave fixture requires exactly four waves.");
+            var chapter = One<ChapterRunController>();
+            var session = chapter.LevelBindings.Session;
+            var node = chapter.LevelBindings.RestNode;
+            var world = chapter.CombatWorld;
+            var wallet = One<TokenWallet>();
+            var upgrades = One<RestNodeUpgradeController>();
+            var ranks = One<PlayerUpgradeRuntimeState>();
+            // Scene instance only: exercise final Token settlement without writing completion vouchers to the user's profile.
+            Set(chapter, "_metaRewardGranted", true);
+            Require(session.Selection.TrySelect(PlayerRole.DeepSeek), "Four-wave selection failed.");
+            using (new IdleControls(session))
+            {
+                yield return Until(() => chapter.Phase == ChapterRunPhase.Combat, "four-wave combat start");
+                for (int wave = 1; wave <= 4; wave++)
+                {
+                    Status = level.SceneName + ": sequential wave " + wave;
+                    DelaySpawns(world);
+                    Require(chapter.SegmentNumber == wave, "Sequential flow skipped a wave.");
+                    var segment = config.GetSegment(wave);
+                    if (wave == 4)
+                    {
+                        Require(Near(segment.EnemyHealthMultiplier, 3f) && Near(segment.DurationSeconds, 65f) &&
+                            segment.RequiredDefeats == 22, "Wave 4 HP/time/kill target differs from approved values.");
+                        foreach (var entry in world.Bindings.Enemies)
+                        {
+                            Require(segment.TryGetRule(entry.Director.Channel, out var rule), "Missing wave 4 spawn rule.");
+                            Require(config.GetSegment(3).TryGetRule(entry.Director.Channel, out var previous), "Missing wave 3 spawn rule.");
+                            Require(rule.Enabled && Near(rule.IntervalMultiplier, previous.IntervalMultiplier * .8f) &&
+                                rule.MaximumAliveCount == previous.MaximumAliveCount && Near(rule.InitialDelaySeconds, previous.InitialDelaySeconds),
+                                "Wave 4 spawn progression changed delay/cap or has wrong frequency.");
+                            Require(Near(Get<float>(entry.Director, "_runtimeHealthMultiplier"), 3f) &&
+                                Near(Get<float>(entry.Director, "_runtimeIntervalMultiplier"), rule.IntervalMultiplier) &&
+                                Get<int>(entry.Director, "_runtimeMaximumAliveCount") == rule.MaximumAliveCount,
+                                "Wave 4 runtime tuning differs from config.");
+                            entry.Pool.DespawnAll(EnemyDespawnReason.RunReset);
+                            Require(entry.Director.TrySpawnNow(), "Wave 4 actual spawn failed.");
+                            float baseHp = Get<EnemyActor2D>(entry.Pool, "_enemyPrefab").Health.MaximumHealth;
+                            foreach (var actor in entry.Pool.Instances)
+                                if (actor.gameObject.activeSelf)
+                                    Require(Near(actor.Health.MaximumHealth, Mathf.Floor(baseHp * 3f)) &&
+                                        Near(actor.Health.CurrentHealth, actor.Health.MaximumHealth), "Wave 4 spawned HP is incorrect.");
+                            entry.Pool.DespawnAll(EnemyDespawnReason.RunReset);
+                        }
+                        var checkpoint = wallet.CaptureSnapshot();
+                        string shop = ShopSignature(upgrades), rankState = RankSignature(ranks);
+                        CompleteAdditionalObjectives(chapter, session.DeepSeek.gameObject, true);
+                        wallet.RecordBattleReward(17);
+                        chapter.FailObjectiveForDevelopment();
+                        yield return Until(() => chapter.Phase == ChapterRunPhase.Defeat, "wave 4 failure");
+                        AdvanceDefeat(chapter, level);
+                        yield return Until(() => chapter.Phase == ChapterRunPhase.Node && node.State == RestNodeState.Open, "wave 4 checkpoint node");
+                        Require(chapter.SegmentNumber == 4 && ShopSignature(upgrades) == shop && RankSignature(ranks) == rankState,
+                            "Wave 4 failure lost third-node shop/rank checkpoint.");
+                        AssertWallet(wallet, checkpoint, true);
+                        yield return Depart(node, session, chapter, 4);
+                        DelaySpawns(world);
+                        AssertWallet(wallet, checkpoint, false);
+                        Require(Near(chapter.CurrentEnemyHealthMultiplier, 3f), "Retry lost wave 4 health multiplier.");
+                        Passed(level, "wave 4 real enemy HP/config verified; failure rolls back earnings/shop/ranks; retry stays wave 4");
+                    }
+                    CompleteAdditionalObjectives(chapter, session.DeepSeek.gameObject, true);
+                    var beforeClear = wallet.CaptureSnapshot();
+                    chapter.CompleteObjectiveAndExpireForDevelopment();
+                    if (wave < 4)
+                    {
+                        yield return Until(() => chapter.Phase == ChapterRunPhase.Node, "wave " + wave + " clear -> node");
+                        Set(node, "_revealElapsed", Get<float>(node, "_cloudFadeSeconds"));
+                        yield return Until(() => node.State == RestNodeState.Open, "wave " + wave + " node open");
+                        Require(wallet.IsBattleSettled && wallet.DeepSeekBalance == beforeClear.DeepSeekBalance + beforeClear.BattleEarned &&
+                            wallet.HarnessBalance == beforeClear.HarnessBalance + beforeClear.BattleEarned, "Node reward settlement incorrect.");
+                        yield return Depart(node, session, chapter, wave + 1);
+                        Passed(level, "wave " + wave + " -> rest shop -> wave " + (wave + 1) + " via actual portal");
+                    }
+                    else
+                    {
+                        yield return Until(() => chapter.Phase == ChapterRunPhase.Complete, "wave 4 final completion");
+                        Require(chapter.SegmentNumber == 4 && wallet.IsBattleSettled &&
+                            wallet.DeepSeekBalance == beforeClear.DeepSeekBalance + beforeClear.BattleEarned &&
+                            wallet.HarnessBalance == beforeClear.HarnessBalance + beforeClear.BattleEarned, "Final wave did not settle once.");
+                        var settled = wallet.CaptureSnapshot();
+                        upgrades.SettleFinalBattle();
+                        AssertWallet(wallet, settled, true);
+                        AssertStopped(world);
+                        Passed(level, "wave 4 final completion/Token settlement is idempotent; permanent voucher write intentionally skipped");
+                    }
+                }
             }
         }
 
@@ -318,7 +413,7 @@ namespace DeepSleep.Editor.Diagnostics
             Require(chapter.SegmentNumber == expectedSegment, "Departure advanced wrong number of segments.");
         }
 
-        private static void CompleteAdditionalObjectives(ChapterRunController chapter, GameObject source)
+        private static void CompleteAdditionalObjectives(ChapterRunController chapter, GameObject source, bool verifyScalingAndReward = false)
         {
             foreach (var component in Get<MonoBehaviour[]>(chapter, "_additionalObjectiveComponents"))
             {
@@ -326,11 +421,22 @@ namespace DeepSleep.Editor.Diagnostics
                 if (!objective.IsRequiredForSegment(chapter.SegmentNumber) || objective.IsComplete) continue;
                 Require(component is DoubaoChapterEncounterDriver2D, "Fixture needs an explicit completion path for this objective.");
                 var encounter = Get<DoubaoWordWallEncounter2D>(component, "_encounter");
-                encounter.BeginEncounter();
-                for (int step = 0; step < 1200 && !encounter.Boss.IsActive; step++) encounter.Simulate(.05f);
+                var driver = (DoubaoChapterEncounterDriver2D)component;
+                for (int step = 0; step < 1200 && !encounter.Boss.IsActive; step++) driver.Simulate(.05f);
+                var wallet = One<TokenWallet>();
+                int earned = wallet.BattleEarned;
+                if (verifyScalingAndReward)
+                    Require(Near(encounter.Boss.CurrentHealth, Mathf.Floor(45f * chapter.CurrentEnemyHealthMultiplier)), "Doubao spawned HP does not match wave scaling.");
                 Require(encounter.Boss.TryReceiveDamage(new DamagePacket(encounter.Boss.CurrentHealth + 1f,
                     encounter.Boss.transform.position, Vector2.left, source)) && objective.IsComplete,
                     "Actual Doubao defeat did not complete the required objective.");
+                if (verifyScalingAndReward)
+                {
+                    Require(wallet.BattleEarned == earned + 100, "Doubao reward must be exactly 100 shared Token.");
+                    driver.Simulate(.05f);
+                    Require(objective.IsComplete && wallet.BattleEarned == earned + 100 && !encounter.Boss.IsActive,
+                        "Completed Doubao encounter restarted or rewarded twice.");
+                }
             }
         }
 

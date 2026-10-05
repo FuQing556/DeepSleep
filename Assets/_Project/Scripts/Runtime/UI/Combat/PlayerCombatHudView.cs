@@ -13,6 +13,7 @@ namespace DeepSleep.Runtime.UI.Combat
         public Text Header, HealthLabel, StatusLabel, SkillLabel, WeaponLabel;
         public RectTransform HealthFill;
         public Image ProtectionIcon;
+        public Image ActiveSkillIcon;
         [Header("可替换文案")]
         public string CharacterName, LocalSuffix, CompanionSuffix, HpFormat, AliveText, DownedText,
             RevivingFormat, ProtectionFormat, HitProtectionFormat, SkillName, WeaponName,
@@ -25,7 +26,8 @@ namespace DeepSleep.Runtime.UI.Combat
         {
             _source = SourceComponent as IPlayerCombatHudSource;
             if (_source == null || Selection == null || Panel == null || Header == null || HealthLabel == null ||
-                StatusLabel == null || SkillLabel == null || WeaponLabel == null || HealthFill == null || ProtectionIcon == null)
+                StatusLabel == null || SkillLabel == null || WeaponLabel == null || HealthFill == null ||
+                ProtectionIcon == null || ActiveSkillIcon == null || ActiveSkillIcon.sprite == null)
             {
                 Debug.LogError("[CombatHUD] 只读数据源和视图引用必须完整装配。", this);
                 enabled = false;
@@ -55,8 +57,10 @@ namespace DeepSleep.Runtime.UI.Combat
                 StatusLabel.text = s.Downed ? s.BeingRevived ? string.Format(RevivingFormat, s.ReviveProgress * 100) : DownedText :
                     s.ProtectionSeconds > 0 ? string.Format(s.ReviveProtection ? ProtectionFormat : HitProtectionFormat,
                         Tenth(s.ProtectionSeconds) * 0.1f) : AliveText;
-                ProtectionIcon.enabled = !s.Downed && s.ReviveProtection;
+                ProtectionIcon.enabled = !s.Downed && s.ProtectionSeconds > 0;
             }
+            if (!_hasLast || s.SkillPhase != _last.SkillPhase || s.Downed != _last.Downed)
+                ActiveSkillIcon.enabled = !s.Downed && s.SkillPhase == HudActionPhase.Active;
             if (!_hasLast || s.SkillPhase != _last.SkillPhase || s.Charges != _last.Charges ||
                 Tenth(s.SkillSeconds) != Tenth(_last.SkillSeconds))
             {

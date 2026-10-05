@@ -1,0 +1,87 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "key": "RiceGuidance",
+      "filename": "ICO_BUFF_RiceGuidance.png",
+      "transparent": true,
+      "refs": [
+        "D:/Unity Work/DeepSleep_Unity6/Assets/_Project/Art/VFX/DeepSeek/Targeting/VFX_DS_TargetReticle_v01.png",
+        "D:/Unity Work/DeepSleep_Unity6/Assets/_Project/Art/Combat/Projectiles/DeepSeek/SPR_DS_RiceProjectile_v01.png"
+      ],
+      "prompt": "Use case: stylized-concept. Generate one polished game HUD buff icon, square and actually transparent. Required visual identity comes directly from the attached existing production assets. Keep their cel-painted shading, white cores and deep indigo outlines; simplify into a compact clean silhouette readable at 40 pixels with 10 percent margin. No text, frame, background, characters, onigiri, seaweed or triangular cooked food. Image 1 is the existing blue-white target reticle, image 2 the actual smooth white rice-grain energy projectile. Show three simple small blue target brackets arranged in a triangle, each holding one smooth white grain target dot, two short curved blue guidance links from a bottom origin. Multi-target calibration, with the original reticle design simplified, not an unrelated radar.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-7effdf67-46d0-476f-838a-46e1e779dd39.png"
+    },
+    {
+      "key": "RiceSplash",
+      "filename": "ICO_BUFF_RiceSplash.png",
+      "transparent": true,
+      "refs": [
+        "D:/Unity Work/DeepSleep_Unity6/Assets/_Project/Art/VFX/DeepSeek/Rice/VFX_DS_RiceSplash_v01.png",
+        "D:/Unity Work/DeepSleep_Unity6/Assets/_Project/Art/Combat/Projectiles/DeepSeek/SPR_DS_RiceProjectile_v01.png"
+      ],
+      "prompt": "Use case: stylized-concept. Generate one polished game HUD buff icon, square and actually transparent. Required visual identity comes directly from the attached existing production assets. Keep their cel-painted shading, white cores and deep indigo outlines; simplify into a compact clean silhouette readable at 40 pixels with 10 percent margin. No text, frame, background, characters, onigiri, seaweed or triangular cooked food. Image 1 is the exact existing rice splash effect to turn into a buff icon. Retain the recognizable white smooth grains and cyan-blue circular impact. Simplify to one compact bright center, five large smooth grains radiating outward, one short azure shock ring; reduce tiny particles and long spikes so the large grain silhouettes read clearly at small UI scale.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-0f2c6e0f-11b1-4b77-9ab7-8bb210ff6239.png"
+    },
+    {
+      "key": "RiceGuard",
+      "filename": "ICO_BUFF_RiceGuard.png",
+      "transparent": true,
+      "refs": [
+        "D:/Unity Work/DeepSleep_Unity6/Assets/_Project/Art/VFX/DeepSeek/RiceGuard/SPR_DS_RiceGuardBowl_v01.png"
+      ],
+      "prompt": "Use case: stylized-concept. Generate one polished game HUD buff icon, square and actually transparent. Required visual identity comes directly from the attached existing production assets. Keep their cel-painted shading, white cores and deep indigo outlines; simplify into a compact clean silhouette readable at 40 pixels with 10 percent margin. No text, frame, background, characters, onigiri, seaweed or triangular cooked food. Use the exact existing navy-black rice bowl with gold rim and triangular gold band from reference, filled with white oval rice grains. A simplified compact version of this bowl is protected by two gentle blue curved halo arcs behind it, the arcs visually suggest shelter but do not cover the rice. Keep recognizable bowl identity and rice mound, no triangular seaweed rice balls.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-13e6a6ff-1096-4f10-99f1-0ac982c04db9.png"
+    },
+    {
+      "key": "QuantumSword",
+      "filename": "ICO_BUFF_QuantumSword.png",
+      "transparent": true,
+      "refs": [
+        "D:/Unity Work/DeepSleep_Unity6/Assets/_Project/Art/VFX/Harness/Melee/VFX_HA_QuantumSword_v01.png"
+      ],
+      "prompt": "Use case: stylized-concept. One transparent square HUD icon derived directly from this existing Harness quantum sword. Preserve black angular hilt, central red-white diamond core, thin bright ivory beam core and crimson technological edges. Show one complete compact sword diagonally from lower-left to upper-right, clearly readable at 40 pixels, with one restrained curved red slash behind. Simplify detail, retain the weapon identity. Safe margins, no characters, no text, no frame or square tile, genuine transparent background.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-c563b721-1b2b-40e8-a2a9-f3f156ec7482.png"
+    },
+    {
+      "key": "TerminalAmplifier",
+      "filename": "ICO_BUFF_TerminalAmplifier.png",
+      "transparent": true,
+      "refs": [
+        "D:/Unity Work/DeepSleep_Unity6/Assets/_Project/Art/VFX/Harness/Laser/VFX_HA_LaserMuzzle_v01.png"
+      ],
+      "prompt": "Use case: stylized-concept. One square transparent buff icon for the actual DeepSleep game HUD. The reference is the current Harness laser emitter: preserve its chunky angular black casing, crimson crystal edges, red light and bright ivory core; simplify this existing technology into a clean compact HUD silhouette readable at 40px. Safe margin around entire icon. No letters, numbers, frames, decorative spikes, characters, guns, smoke or background. Show ONE emitter at lower-left, a LARGE ruby core and ONE thick short crimson laser blast toward upper-right, bright white beam core. A pair of restrained inward angular energy marks conveys concentrated power. Emphasize one stronger beam, not multiple shots.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-5ebab142-579e-4778-a52b-cfd297abaa04.png"
+    },
+    {
+      "key": "TerminalArray",
+      "filename": "ICO_BUFF_TerminalArray.png",
+      "transparent": true,
+      "refs": [
+        "D:/Unity Work/DeepSleep_Unity6/Assets/_Project/Art/VFX/Harness/Laser/VFX_HA_LaserMuzzle_v01.png"
+      ],
+      "prompt": "Use case: stylized-concept. One square transparent buff icon for the actual DeepSleep game HUD. The reference is the current Harness laser emitter: preserve its chunky angular black casing, crimson crystal edges, red light and bright ivory core; simplify this existing technology into a clean compact HUD silhouette readable at 40px. Safe margin around entire icon. No letters, numbers, frames, decorative spikes, characters, guns, smoke or background. Show THREE small distinct copies of the black-red emitter in a shallow arc across the lower half, each sends one slim crimson-white ray toward a shared upper focal point. Clear separation between exactly three emitters. This is multiple terminals simultaneously firing, not a gun magazine or one beam.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-433b0d8a-17da-49b8-aacc-b528a278404c.png"
+    },
+    {
+      "key": "TerminalBurst",
+      "filename": "ICO_BUFF_TerminalBurst.png",
+      "transparent": true,
+      "refs": [
+        "D:/Unity Work/DeepSleep_Unity6/Assets/_Project/Art/VFX/Harness/Laser/VFX_HA_LaserMuzzle_v01.png"
+      ],
+      "prompt": "Use case: stylized-concept. One square transparent buff icon for the actual DeepSleep game HUD. The reference is the current Harness laser emitter: preserve its chunky angular black casing, crimson crystal edges, red light and bright ivory core; simplify this existing technology into a clean compact HUD silhouette readable at 40px. Safe margin around entire icon. No letters, numbers, frames, decorative spikes, characters, guns, smoke or background. Show ONE black-red emitter at lower-left firing THREE separated short glowing red-white pulse segments sequentially along the SAME diagonal line toward upper-right. Clear transparent gaps between the three pulses express rapid repeat shots. No fan spread, no multiple emitters, retain thick visible black casing.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-e4efda3b-c99c-4690-87e9-aafbd7ad04aa.png"
+    },
+    {
+      "key": "TerminalChain",
+      "filename": "ICO_BUFF_TerminalChain.png",
+      "transparent": true,
+      "refs": [
+        "D:/Unity Work/DeepSleep_Unity6/Assets/_Project/Art/VFX/Harness/Laser/VFX_HA_LaserMuzzle_v01.png"
+      ],
+      "prompt": "Use case: stylized-concept. One square transparent buff icon for the actual DeepSleep game HUD. The reference is the current Harness laser emitter: preserve its chunky angular black casing, crimson crystal edges, red light and bright ivory core; simplify this existing technology into a clean compact HUD silhouette readable at 40px. Safe margin around entire icon. No letters, numbers, frames, decorative spikes, characters, guns, smoke or background. A primary angular black-ruby energy node at left branches into TWO smaller ruby diamond nodes at upper-right and lower-right, linked by two short bent red-white laser paths. The root node shares the reference emitter casing design. A branching chain reaction silhouette, clean three-node diagram rendered as physical cel-painted crystals, not text or a complex network.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-afc76349-6d32-4c9d-b533-b37c313206f4.png"
+    }
+  ]
+}

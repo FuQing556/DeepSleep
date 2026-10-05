@@ -55,6 +55,7 @@ namespace DeepSleep.Runtime.Progression.Upgrades
         [SerializeField] private UpgradeCardId _id;
         [SerializeField] private string _displayName;
         [SerializeField, TextArea] private string _description;
+        [SerializeField] private Sprite _icon;
         [SerializeField] private PlayerRoleMask _eligibleRoles;
         [SerializeField] private UpgradeOwnershipScope _ownershipScope;
         [SerializeField, Min(1)] private int _maximumRank = 5;
@@ -66,6 +67,8 @@ namespace DeepSleep.Runtime.Progression.Upgrades
         public UpgradeCardId Id => _id;
         public string DisplayName => _displayName;
         public string Description => _description;
+        /// <summary>商店与局内已获强化共用的生图图标；等级由文字叠加。</summary>
+        public Sprite Icon => _icon;
         public UpgradeOwnershipScope OwnershipScope => _ownershipScope;
         public int MaximumRank => _maximumRank;
         public int BaseTokenCost => _baseTokenCost;

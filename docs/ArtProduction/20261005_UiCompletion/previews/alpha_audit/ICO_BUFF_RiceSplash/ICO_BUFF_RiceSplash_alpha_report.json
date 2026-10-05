@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_RiceSplash.png",
+  "source_sha256": "f8b3f61a746b003811133a8815abdb83fd27feafd61cc0357231b25a1e41757a",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 1099810,
+  "partial_alpha_pixels": 472437,
+  "opaque_pixels": 269,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    226,
+    1216,
+    1230
+  ],
+  "visible_bbox_alpha_gt_8": [
+    233,
+    227,
+    1022,
+    1043
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

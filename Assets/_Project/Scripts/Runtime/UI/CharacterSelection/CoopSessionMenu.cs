@@ -2,6 +2,7 @@ using DeepSleep.Runtime.Networking;
 using DeepSleep.Runtime.AppFlow;
 using DeepSleep.Runtime.Input.Touch;
 using DeepSleep.Runtime.Players.Identity;
+using DeepSleep.Runtime.UI.Common;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -134,8 +135,13 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
             if (!Transitioning) Time.timeScale = _previousTimeScale;
         }
         private void Configure() => Relay?.SelectRelay(_relay, RelayEndpoint.text.Trim(), Address.text.Trim());
-        private void CreateDs() { Configure(); Session.Create(PlayerRole.DeepSeek); }
-        private void CreateHs() { Configure(); Session.Create(PlayerRole.Harness); }
+        private void CreateDs() => CreateLocally(PlayerRole.DeepSeek);
+        private void CreateHs() => CreateLocally(PlayerRole.Harness);
+        private void CreateLocally(PlayerRole role)
+        {
+            Configure();
+            if (Session.Create(role)) UiThemePreferences.SetFromLocalSelection(role);
+        }
         private void Join()
         {
             if (string.IsNullOrWhiteSpace(Address.text)) { AddressHint.text = _relay ? "请输入房间码" : "请输入房主的局域网 IPv4 地址"; return; }

@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\SPR_UI_HA_TitleLogo.png",
+  "source_sha256": "ec06619bc2d83230c3893194e78c85b6f07bb5bd852d9f1b4c017a751aeac5a6",
+  "mode": "RGBA",
+  "size": [
+    2157,
+    559
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 702773,
+  "partial_alpha_pixels": 500094,
+  "opaque_pixels": 2896,
+  "visible_bbox_alpha_gt_0": [
+    14,
+    15,
+    2143,
+    559
+  ],
+  "visible_bbox_alpha_gt_8": [
+    18,
+    18,
+    2139,
+    540
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

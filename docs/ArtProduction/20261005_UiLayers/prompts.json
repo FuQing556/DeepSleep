@@ -1,0 +1,119 @@
+{
+  "date": "2026-10-05",
+  "tool": "built-in image_gen; transparent_background=true",
+  "scope": "Two approved themes, separately generated source layers for uGUI. No baked text or gameplay art changes.",
+  "assets": [
+    {
+      "code": "DS",
+      "theme": "DeepSeek",
+      "part": "ButtonBase",
+      "reference": "D:/Unity Work/DeepSleep_Unity6/docs/ArtProduction/20261005_UiArtDirection/raw/UI_DS_Dialog_Concept_v01.png",
+      "prompt": "Use case: stylized-concept. Production raster game UI sprite, ONE independent layer only. Reference image is the approved DeepSeek dialog STYLE REFERENCE. Produce ONLY a blank button's filled inner BASE PLATE, not the entire dialog, not a screenshot, not the decorative frame. calm deep ocean blue glass/enamel, faint azure inner reflections, delicate water-current shading, hand-painted anime UI finish. Flat straight-on orthographic 2D. Wide horizontal softly rounded rectangular plate with straight parallel top and bottom edges and rounded corners, NOT a stretched oval. Roughly 4:1 visible shape, centered in a 1536x1024 transparent canvas, visible rectangle approximately x128..1408 and y352..672. The filled interior is calm, near-opaque, low contrast, with continuous quiet gradients and extremely subtle texture suitable for 9-slice stretching. NO frame, NO bright border, NO trim, NO ornament, NO text, NO buttons within the plate, NO symbols, NO stars, NO cast shadow. Clean antialiased edge. Every pixel outside this one plate genuinely transparent; no backdrop, no fake checkerboard. This base will be stacked under separately generated frame and ornament layers in Unity uGUI; do not bake those layers into it.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-8e80deff-cd46-4413-913f-53823e8f13ac.png"
+    },
+    {
+      "code": "DS",
+      "theme": "DeepSeek",
+      "part": "ButtonOrnament",
+      "reference": "D:/Unity Work/DeepSleep_Unity6/docs/ArtProduction/20261005_UiArtDirection/raw/UI_DS_Dialog_Concept_v01.png",
+      "prompt": "Use case: stylized-concept. Production raster game UI sprite, ONE independent small ornamental emblem. Reference is approved DeepSeek UI STYLE ONLY; do not reproduce its dialog or buttons. A compact graceful ivory rice-grain trifoil with two tiny blue flowing fin-curves, inset pearl details, ocean-blue rim and restrained pale blue glint. Match the approved hand-painted anime UI craftsmanship, clean readable silhouette at 24-40 pixels. Centered 512x512 transparent canvas with generous margins. Small unified symmetrical badge, no long border, no text, no plate, no background, no character, no big bloom cloud. Actual transparent alpha around the entire design. This sits at a button edge or panel header as an independently animated layer. Comfortable, delicate, not gaudy and not heavy armor.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-cfe8a963-b0d9-4ce5-b962-c9f816ac99b7.png"
+    },
+    {
+      "code": "HA",
+      "theme": "Harness",
+      "part": "ButtonBase",
+      "reference": "D:/Unity Work/DeepSleep_Unity6/docs/ArtProduction/20261005_UiArtDirection/raw/UI_HA_Dialog_Concept_v01.png",
+      "prompt": "Use case: stylized-concept. Production raster game UI sprite, ONE independent layer only. Reference image is the approved Harness dialog STYLE REFERENCE. Produce ONLY a blank button's filled inner BASE PLATE, not the entire dialog, not a screenshot, not the decorative frame. dark charcoal smoke-glass/enamel, subtle muted burgundy inner reflections, fine satin shading, hand-painted anime UI finish. Flat straight-on orthographic 2D. Wide horizontal softly rounded rectangular plate with straight parallel top and bottom edges and rounded corners, NOT a stretched oval. Roughly 4:1 visible shape, centered in a 1536x1024 transparent canvas, visible rectangle approximately x128..1408 and y352..672. The filled interior is calm, near-opaque, low contrast, with continuous quiet gradients and extremely subtle texture suitable for 9-slice stretching. NO frame, NO bright border, NO trim, NO ornament, NO text, NO buttons within the plate, NO symbols, NO stars, NO cast shadow. Clean antialiased edge. Every pixel outside this one plate genuinely transparent; no backdrop, no fake checkerboard. This base will be stacked under separately generated frame and ornament layers in Unity uGUI; do not bake those layers into it.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-c1ab38e6-bcde-4bc5-be65-753bb69c30c0.png"
+    },
+    {
+      "code": "HA",
+      "theme": "Harness",
+      "part": "ButtonOrnament",
+      "reference": "D:/Unity Work/DeepSleep_Unity6/docs/ArtProduction/20261005_UiArtDirection/raw/UI_HA_Dialog_Concept_v01.png",
+      "prompt": "Use case: stylized-concept. Production raster game UI sprite, ONE independent small ornamental emblem. Reference is approved Harness UI STYLE ONLY; do not reproduce its dialog or buttons. A compact refined crimson five-petal flower jewel with a pearl center and two small ivory-on-charcoal curved ribbon/fin accents, delicate red stitching; no thorns or projecting crystal spikes. Match the approved hand-painted anime UI craftsmanship, clean readable silhouette at 24-40 pixels. Centered 512x512 transparent canvas with generous margins. Small unified symmetrical badge, no long border, no text, no plate, no background, no character, no big bloom cloud. Actual transparent alpha around the entire design. This sits at a button edge or panel header as an independently animated layer. Comfortable, delicate, not gaudy and not heavy armor.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-b2cc917a-d4fa-4ef2-bd79-18726df8eb4d.png"
+    },
+    {
+      "code": "DS",
+      "theme": "DeepSeek",
+      "part": "ButtonFrame",
+      "reference": "D:/Unity Work/DeepSleep_Unity6/docs/ArtProduction/20261005_UiArtDirection/raw/UI_DS_Dialog_Concept_v01.png",
+      "prompt": "Use case: stylized-concept. One independent production UI BUTTON FRAME sprite. Use the supplied approved DeepSeek dialog for style only. Draw ONLY a HOLLOW horizontal rounded rectangular frame: a fine ivory/silver double rim with ocean-blue enamel inset, restrained pale azure highlights, tiny inward-curving water/fin motifs only at the two ends. The ENTIRE large center opening must be genuinely alpha-transparent, as must the exterior. No solid/dark/blue interior plate. No buttons inside, no emblem in the middle, no letters, no logo. Front-view flat 2D hand-painted anime game UI with delicate layered craftsmanship; visually comfortable, not thick armor or a toy. Canvas1536x1024, frame's outer boundary approximately x128..1408, y352..672 (4:1 aspect); straight parallel top/bottom edges, modest rounded corners, not an oval. Frame thickness about16-24 pixels, ends may be a little thicker. Long edges are simple and continuous for Unity 9-slice, local ornament confined within 96 pixels of each end. No ornaments protruding far outside the rectangle. Actual transparent PNG cutout with clean antialiasing, no cast shadow, no colored presentation backdrop, no checkerboard. This is ONE layer to stack on a separately generated base plate.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-93f785f2-2329-442c-9e50-78f2dc090258.png"
+    },
+    {
+      "code": "DS",
+      "theme": "DeepSeek",
+      "part": "ButtonGlow",
+      "reference": "D:/Unity Work/DeepSleep_Unity6/docs/ArtProduction/20261005_UiArtDirection/raw/UI_DS_Dialog_Concept_v01.png",
+      "prompt": "Use case: stylized-concept. One transparent game UI HIGHLIGHT/SELECTION LIGHT overlay sprite for the approved DeepSeek visual theme. Only a very thin pale azure/pearl-white luminous rounded rectangular rim and soft narrow halo. Transparent empty center and transparent outside. No solid button, no metal, no ornaments, no text, no flare spikes. Straight-on 2D. Match wide 4:1 button geometry: on 1536x1024 canvas, nominal outer edge x128..1408,y352..672, modest rounded corners, long top/bottom straight and evenly lit. A little brighter along the upper edge, gentle enough for a slowly breathing focus outline. Designed as independent additive-looking but straight-alpha uGUI Image overlay, not a light painted on black background. Produce real graded alpha, background truly transparent, no checkerboard, no opaque black.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-ca7ea43d-2ca5-446c-ac67-d75ca4cd9844.png"
+    },
+    {
+      "code": "DS",
+      "theme": "DeepSeek",
+      "part": "PanelFrame",
+      "reference": "D:/Unity Work/DeepSleep_Unity6/docs/ArtProduction/20261005_UiArtDirection/raw/UI_DS_Dialog_Concept_v01.png",
+      "prompt": "Use case: stylized-concept. One standalone HOLLOW menu PANEL BORDER sprite for DeepSeek, faithful to the approved dialog art STYLE. Extract/reinterpret its delicate nested border, NOT its complete dialog. a fine ivory/silver double rim with ocean-blue enamel inset, restrained pale azure highlights, tiny inward-curving water/fin motifs only at the two ends. Near-square frame centered on a1024x1024 transparent canvas, outside edge x80..944,y80..944. Entire interior truly transparent. Four corners with very small elegant curved blue and ivory fin/wave accents contained in the corner120x120 areas. Top/bottom/left/right long edges otherwise simple, thin, continuous, no central crest. Designed for nine-slice: corners never stretched, long edges stretched between corners; no focal details on long edges and no decoration in center. Fine painted bevels, restrained layered structure, not thick rococo, no spikes, comfortable readability. NO background fill, NO inner panels, NO buttons, NO text, NO top-center ornament. Front view flat2D. Real transparent alpha inside and outside, no fake checkerboard or backdrop.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-f686fafc-b770-4d3c-8b27-54a2e897a4b6.png"
+    },
+    {
+      "code": "HA",
+      "theme": "Harness",
+      "part": "ButtonFrame",
+      "reference": "D:/Unity Work/DeepSleep_Unity6/docs/ArtProduction/20261005_UiArtDirection/raw/UI_HA_Dialog_Concept_v01.png",
+      "prompt": "Use case: stylized-concept. One independent production UI BUTTON FRAME sprite. Use the supplied approved Harness dialog for style only. Draw ONLY a HOLLOW horizontal rounded rectangular frame: a fine warm ivory/silver double rim with charcoal enamel inset and a thin burgundy-red inlay, tiny soft curved ribbon/fin details only at the ends, no spikes. The ENTIRE large center opening must be genuinely alpha-transparent, as must the exterior. No solid/dark/blue interior plate. No buttons inside, no emblem in the middle, no letters, no logo. Front-view flat 2D hand-painted anime game UI with delicate layered craftsmanship; visually comfortable, not thick armor or a toy. Canvas1536x1024, frame's outer boundary approximately x128..1408, y352..672 (4:1 aspect); straight parallel top/bottom edges, modest rounded corners, not an oval. Frame thickness about16-24 pixels, ends may be a little thicker. Long edges are simple and continuous for Unity 9-slice, local ornament confined within 96 pixels of each end. No ornaments protruding far outside the rectangle. Actual transparent PNG cutout with clean antialiasing, no cast shadow, no colored presentation backdrop, no checkerboard. This is ONE layer to stack on a separately generated base plate.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-bf412ea5-3f63-4eff-993c-a4d5a692c086.png"
+    },
+    {
+      "code": "HA",
+      "theme": "Harness",
+      "part": "ButtonGlow",
+      "reference": "D:/Unity Work/DeepSleep_Unity6/docs/ArtProduction/20261005_UiArtDirection/raw/UI_HA_Dialog_Concept_v01.png",
+      "prompt": "Use case: stylized-concept. One transparent game UI HIGHLIGHT/SELECTION LIGHT overlay sprite for the approved Harness visual theme. Only a very thin muted ruby/ivory luminous rounded rectangular rim and soft narrow halo. Transparent empty center and transparent outside. No solid button, no metal, no ornaments, no text, no flare spikes. Straight-on 2D. Match wide 4:1 button geometry: on 1536x1024 canvas, nominal outer edge x128..1408,y352..672, modest rounded corners, long top/bottom straight and evenly lit. A little brighter along the upper edge, gentle enough for a slowly breathing focus outline. Designed as independent additive-looking but straight-alpha uGUI Image overlay, not a light painted on black background. Produce real graded alpha, background truly transparent, no checkerboard, no opaque black.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-9549f36e-a457-4f8c-8f28-b9a7d4e50307.png"
+    },
+    {
+      "code": "HA",
+      "theme": "Harness",
+      "part": "PanelFrame",
+      "reference": "D:/Unity Work/DeepSleep_Unity6/docs/ArtProduction/20261005_UiArtDirection/raw/UI_HA_Dialog_Concept_v01.png",
+      "prompt": "Use case: stylized-concept. One standalone HOLLOW menu PANEL BORDER sprite for Harness, faithful to the approved dialog art STYLE. Extract/reinterpret its delicate nested border, NOT its complete dialog. a fine warm ivory/silver double rim with charcoal enamel inset and a thin burgundy-red inlay, tiny soft curved ribbon/fin details only at the ends, no spikes. Near-square frame centered on a1024x1024 transparent canvas, outside edge x80..944,y80..944. Entire interior truly transparent. Four corners with very small elegant curved ivory and charcoal ribbon with tiny red crystal inlay accents contained in the corner120x120 areas. Top/bottom/left/right long edges otherwise simple, thin, continuous, no central crest. Designed for nine-slice: corners never stretched, long edges stretched between corners; no focal details on long edges and no decoration in center. Fine painted bevels, restrained layered structure, not thick rococo, no spikes, comfortable readability. NO background fill, NO inner panels, NO buttons, NO text, NO top-center ornament. Front view flat2D. Real transparent alpha inside and outside, no fake checkerboard or backdrop.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-c5844435-8512-4f7c-847e-84d74d59b2b7.png"
+    },
+    {
+      "code": "DS",
+      "theme": "DeepSeek",
+      "part": "CircleBase",
+      "reference": "D:/Unity Work/DeepSleep_Unity6/docs/ArtProduction/20261005_UiArtDirection/raw/UI_DS_Dialog_Concept_v01.png",
+      "prompt": "Use case: stylized-concept. ONE independent circular game UI BASE PLATE sprite for the DeepSeek theme. Use approved dialog as PALETTE AND CRAFTSMANSHIP reference only, not composition. Precisely circular flat 2D front view, centered on1024x1024 canvas, radius350px, generous transparent margins. Filled deep blue ocean glass/enamel disc with extremely quiet subtle shading; no rim, no trim, no patterns, no symbols, no lettering. A smooth solid near-opaque blank disc only. Comfortable anime game UI, clean fine outlined hand-painted finish. No perspective, no sphere, no spherical gloss, no dome, no character. Real transparent alpha outside, no backdrop, no fake checkerboard, no cast shadow or bloom cloud. This layer is used for touch joystick/buttons and will stack with a separately generated matching ring.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-e6b35612-f3eb-4c01-8ded-ef06331c7c6c.png"
+    },
+    {
+      "code": "DS",
+      "theme": "DeepSeek",
+      "part": "CircleFrame",
+      "reference": "D:/Unity Work/DeepSleep_Unity6/docs/ArtProduction/20261005_UiArtDirection/raw/UI_DS_Dialog_Concept_v01.png",
+      "prompt": "Use case: stylized-concept. ONE independent circular game UI HOLLOW FRAME RING sprite for the DeepSeek theme. Use approved dialog as PALETTE AND CRAFTSMANSHIP reference only, not composition. Precisely circular flat 2D front view, centered on1024x1024 canvas, radius350px, generous transparent margins. Entire center opening transparent, exterior transparent. Thin nested ivory and azure enamel ring, about20px thick, delicate smooth highlights and subtle 4 cardinal inlaid rice-grain pearl details that do not protrude. No fill at all. No spines, no huge ornament, no crest, no text. Comfortable anime game UI, clean fine outlined hand-painted finish. No perspective, no sphere, no spherical gloss, no dome, no character. Real transparent alpha outside, no backdrop, no fake checkerboard, no cast shadow or bloom cloud. This layer is used for touch joystick/buttons and will stack with a separately generated matching base plate.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-6ef477ce-2f93-437e-8819-52a30d41609d.png"
+    },
+    {
+      "code": "HA",
+      "theme": "Harness",
+      "part": "CircleBase",
+      "reference": "D:/Unity Work/DeepSleep_Unity6/docs/ArtProduction/20261005_UiArtDirection/raw/UI_HA_Dialog_Concept_v01.png",
+      "prompt": "Use case: stylized-concept. ONE independent circular game UI BASE PLATE sprite for the Harness theme. Use approved dialog as PALETTE AND CRAFTSMANSHIP reference only, not composition. Precisely circular flat 2D front view, centered on1024x1024 canvas, radius350px, generous transparent margins. Filled dark charcoal smoke-glass with barely visible wine-red reflected light disc with extremely quiet subtle shading; no rim, no trim, no patterns, no symbols, no lettering. A smooth solid near-opaque blank disc only. Comfortable anime game UI, clean fine outlined hand-painted finish. No perspective, no sphere, no spherical gloss, no dome, no character. Real transparent alpha outside, no backdrop, no fake checkerboard, no cast shadow or bloom cloud. This layer is used for touch joystick/buttons and will stack with a separately generated matching ring.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-68c231c5-f03e-4289-a644-5c83c4e584a9.png"
+    },
+    {
+      "code": "HA",
+      "theme": "Harness",
+      "part": "CircleFrame",
+      "reference": "D:/Unity Work/DeepSleep_Unity6/docs/ArtProduction/20261005_UiArtDirection/raw/UI_HA_Dialog_Concept_v01.png",
+      "prompt": "Use case: stylized-concept. ONE independent circular game UI HOLLOW FRAME RING sprite for the Harness theme. Use approved dialog as PALETTE AND CRAFTSMANSHIP reference only, not composition. Precisely circular flat 2D front view, centered on1024x1024 canvas, radius350px, generous transparent margins. Entire center opening transparent, exterior transparent. Thin nested ivory and charcoal with a fine muted red inset ring, about20px thick, delicate smooth highlights and subtle 4 cardinal inlaid tiny red gemstone details that do not protrude. No fill at all. No spines, no huge ornament, no crest, no text. Comfortable anime game UI, clean fine outlined hand-painted finish. No perspective, no sphere, no spherical gloss, no dome, no character. Real transparent alpha outside, no backdrop, no fake checkerboard, no cast shadow or bloom cloud. This layer is used for touch joystick/buttons and will stack with a separately generated matching base plate.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-1a6339d2-3b7c-4ffd-a511-5bd8780b26cb.png"
+    }
+  ]
+}

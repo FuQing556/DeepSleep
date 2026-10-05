@@ -8,6 +8,7 @@ using DeepSleep.Runtime.Combat.Weapons.Harness;
 using DeepSleep.Runtime.Networking;
 using DeepSleep.Runtime.Presentation;
 using DeepSleep.Runtime.Progression.Run;
+using DeepSleep.Runtime.Progression.Economy;
 using DeepSleep.Runtime.Simulation;
 using DeepSleep.Runtime.World.Playfield;
 using UnityEditor;
@@ -410,7 +411,11 @@ namespace DeepSleep.Editor.Setup
             driverSerialized.FindProperty("_chapterRun").objectReferenceValue = chapter;
             driverSerialized.FindProperty("_encounter").objectReferenceValue = encounter;
             driverSerialized.FindProperty("_session").objectReferenceValue = session;
-            driverSerialized.FindProperty("_segmentNumber").intValue = 1;
+            SerializedProperty segments = driverSerialized.FindProperty("_segmentNumbers");
+            segments.arraySize = 4;
+            for (int i = 0; i < segments.arraySize; i++) segments.GetArrayElementAtIndex(i).intValue = i + 1;
+            driverSerialized.FindProperty("_rewards").objectReferenceValue = FindInScene<EnemyTokenRewardController>(scene);
+            driverSerialized.FindProperty("_tokenReward").intValue = 100;
             driverSerialized.ApplyModifiedPropertiesWithoutUndo();
 
             DoubaoEncounterNetworkChannel network = root.AddComponent<DoubaoEncounterNetworkChannel>();

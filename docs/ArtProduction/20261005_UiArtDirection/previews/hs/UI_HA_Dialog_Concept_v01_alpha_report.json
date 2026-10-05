@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiArtDirection\\raw\\UI_HA_Dialog_Concept_v01.png",
+  "source_sha256": "ab06d27fe143f8b84abc8c26ea28cb827c5f993e9140a74ceaf781c89700bc63",
+  "mode": "RGBA",
+  "size": [
+    1536,
+    1024
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    254
+  ],
+  "transparent_pixels": 503275,
+  "partial_alpha_pixels": 1069589,
+  "opaque_pixels": 0,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    2,
+    1518,
+    1024
+  ],
+  "visible_bbox_alpha_gt_8": [
+    33,
+    71,
+    1503,
+    895
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    1,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

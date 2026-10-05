@@ -102,6 +102,7 @@ namespace DeepSleep.Runtime.Progression.Run
         public OpeningCharacterSelectionController Selection => _selection;
         public LevelSceneBindings LevelBindings => _levelBindings;
         public ChapterCombatWorld2D CombatWorld => _combatWorld;
+        public float CurrentEnemyHealthMultiplier => CurrentSegment.EnemyHealthMultiplier;
 
         private ChapterCombatSegmentDefinition CurrentSegment =>
             _runConfig.GetSegment(_segmentNumber);
@@ -514,7 +515,7 @@ namespace DeepSleep.Runtime.Progression.Run
                         rule.Enabled,
                         rule.InitialDelaySeconds,
                         rule.IntervalMultiplier,
-                        rule.MaximumAliveCount, rule.SpawnHealth);
+                        rule.MaximumAliveCount, segment.EnemyHealthMultiplier);
                 }
                 else
                 {

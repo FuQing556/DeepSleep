@@ -1,0 +1,67 @@
+{
+  "tool": "built-in image_gen",
+  "assets": [
+    {
+      "key": "DS_Title",
+      "transparent": true,
+      "refs": [
+        "D:/Unity Work/DeepSleep_Unity6/docs/ArtProduction/20261005_UiArtDirection/raw/UI_DS_Dialog_Concept_v01.png"
+      ],
+      "prompt": "Use case: logo-brand. Production asset: one finished transparent game title wordmark for the existing game DeepSleep. The reference is ONLY palette/material/style inspiration, do not reproduce its panel. Exact text, and ONLY text: \"DeepSleep\" (D e e p S l e e p, capital D and S). A graceful highly legible premium anime adventure game logotype, luminous pearly white letter faces with gentle blue lower shading, subtle ink-blue keyline, delicate silver bevel. Refined and compact, not a generic typeset label. One small curling blue orca-tail / flowing water flourish integrated beside the initial D, and a tiny three-rice-grain detail under the final letters; decorations secondary to lettering. Wide horizontal composition about 3:1, word fills most of canvas with safe transparent margin, no subtitle, no frame, no characters, no background, no checkerboard, no heavy neon bloom. Title will display about 540x145 pixels above blue UI buttons, so all nine letters must be unmistakable. Actual RGBA transparent background.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-e399c49e-6c80-4f83-bc11-62c7cfb7650b.png",
+      "filename": "SPR_UI_DS_TitleLogo.png"
+    },
+    {
+      "key": "HA_Title",
+      "transparent": true,
+      "refs": [
+        "D:/Unity Work/DeepSleep_Unity6/docs/ArtProduction/20261005_UiArtDirection/raw/UI_HA_Dialog_Concept_v01.png"
+      ],
+      "prompt": "Use case: logo-brand. Production asset: one finished transparent game title wordmark for the existing game DeepSleep. Reference is ONLY palette/material/style inspiration, do not reproduce its panel. Exact text, and ONLY text: \"DeepSleep\" (D e e p S l e e p, capital D and S). Graceful highly legible premium anime adventure game logotype, pearly warm ivory letter faces with delicate silver bevel, charcoal keyline and restrained wine-red lower reflection. Refined soft serif lettering, elegant rather than gothic spikes. One compact black-and-white orca tail / flowing ribbon flourish integrated beside initial D, tiny muted red five-petal flower under final letters. Wide horizontal composition about 3:1, word fills most of canvas with safe transparent margin. No subtitle, no frame, no characters, no background or checkerboard, no red neon glare. Title will display about 540x145 pixels. Actual RGBA transparent background.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-dcd61333-9158-4949-814b-5524ef9eb8ff.png",
+      "filename": "SPR_UI_HA_TitleLogo.png"
+    },
+    {
+      "key": "DS_Background",
+      "transparent": false,
+      "prompt": "Use case: stylized-concept. Production illustration: background ONLY for a premium 2D anime cooperative adventure game main menu, not a UI mockup. Very wide cinematic panorama, about 2.4:1 landscape. No text, logos, lettering, buttons, frames, people, characters, buildings or interface. The menu overlays a logo and buttons across the LEFT middle area and a large existing character on the RIGHT middle area; keep both zones quiet, soft and lower-contrast. Detail belongs to the outer corners, upper sky and lowest edge. Dreamlike clouds merging with a calm distant sea, gentle fine painterly cel-anime finish, believable coherent horizon, elegant atmospheric depth, no photorealism, no noisy particles, no harsh lens flare. Safe composition under center crop from extra-wide 24:9 to 16:9: essential atmosphere in center, only dispensable clouds on sides. This is a static full-bleed backdrop, not a seamless loop. DeepSeek blue-white theme: deep velvet midnight-blue sky, silver-blue billowing clouds at lower corners, broad calm blue cloud-sea, a pale small crescent moon high in the sky near upper center, a handful of tiny stars. Gradual softly luminous distant horizon toward far right, but still dim enough behind the character. A thin azure aurora-like mist near top edge, not neon stripes. Quiet tender dream mood; tasteful cool blues, pearl whites, no saturated cyan glare. Fill whole canvas without borders.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-18958706-3427-4f82-a486-303e335ccb1d.png",
+      "filename": "BG_UI_DS_MainMenu.png"
+    },
+    {
+      "key": "HA_Background",
+      "transparent": false,
+      "prompt": "Use case: stylized-concept. Production illustration: background ONLY for a premium 2D anime cooperative adventure game main menu, not a UI mockup. Very wide cinematic panorama, about 2.4:1 landscape. No text, logos, lettering, buttons, frames, people, characters, buildings or interface. The menu overlays a logo and buttons across the LEFT middle area and a large existing character on the RIGHT middle area; keep both zones quiet, soft and lower-contrast. Detail belongs to the outer corners, upper sky and lowest edge. Dreamlike clouds merging with a calm distant sea, gentle fine painterly cel-anime finish, believable coherent horizon, elegant atmospheric depth, no photorealism, no noisy particles, no harsh lens flare. Safe composition under center crop from extra-wide 24:9 to 16:9: essential atmosphere in center, only dispensable clouds on sides. This is a static full-bleed backdrop, not a seamless loop. Harness charcoal/ivory/muted crimson theme: charcoal-violet dusk sky, soft smoky silver cloud-sea, a faint warm ivory crescent moon high near upper center, restrained wine-red reflection along distant horizon, tiny isolated red petal-like lights at outer lower corners only. Soft ivory atmosphere behind right-side character for separation, not a bright spotlight. Refined contemplative dream mood, not horror, no blood, no fire, no spikes, no apocalyptic ruins, no neon. Fill whole canvas without borders.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-82c12121-692f-49ab-b7db-c1c18055304a.png",
+      "filename": "BG_UI_HA_MainMenu.png"
+    },
+    {
+      "key": "FaultToleranceExpansion",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. A single production buff icon for a polished anime 2D game HUD and upgrade cards. Genuinely transparent RGBA background. Square composition, centered bold compact silhouette occupying 78% of canvas with clear margins. Clean cel-painted shading, chunky readable shapes, dark ink-blue rim and a small soft glow, not intricate miniature scenery. Legible at 40 pixels. No letters, numbers, words, border, card, square tile, characters, checkerboard or background. Subject: a warm pearl-white and pale mint heart-shaped life crystal held between two small silver expansion brackets opening outwards. One clear heart, a tiny upward light spark implies expanded vitality. Neutral shared buff for both characters. Soft mint/ivory, not a medical red cross.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-5fe852bf-a53c-470b-b650-6af9a2ac60bd.png",
+      "filename": "ICO_BUFF_FaultToleranceExpansion.png"
+    },
+    {
+      "key": "DataCompression",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. A single production buff icon for a polished anime 2D game HUD and upgrade cards. Genuinely transparent RGBA background. Square composition, centered bold compact silhouette occupying 78% of canvas with clear margins. Clean cel-painted shading, chunky readable shapes, dark ink-blue rim and a small soft glow, not intricate miniature scenery. Legible at 40 pixels. No letters, numbers, words, border, card, square tile, characters, checkerboard or background. Subject: ONE large plump triangular Japanese rice ball, creamy ivory grains, small navy nori patch, a concentrated bright blue inner aura and two small inward blue arrows emphasize increased power. Use DeepSeek blue-white rice style. No plate, no bowl. Strong simple iconic outline.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-7d51a60b-876c-41bf-9353-b9a7a04a6179.png",
+      "filename": "ICO_BUFF_DataCompression.png"
+    },
+    {
+      "key": "RiceFan",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. A single production buff icon for a polished anime 2D game HUD and upgrade cards. Genuinely transparent RGBA background. Square composition, centered bold compact silhouette occupying 78% of canvas with clear margins. Clean cel-painted shading, chunky readable shapes, dark ink-blue rim and a small soft glow, not intricate miniature scenery. Legible at 40 pixels. No letters, numbers, words, border, card, square tile, characters, checkerboard or background. Subject: THREE plump white rice-ball projectiles with tiny navy nori patches, fanning outward from a shared origin: upper-left, straight-up, upper-right. Three short smooth blue curved trails clearly form a fan. DeepSeek blue-white palette. The three rice balls are separate, not a bowl of rice.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-a248e514-ca6e-42a2-8008-388a13acd976.png",
+      "filename": "ICO_BUFF_RiceFan.png"
+    },
+    {
+      "key": "RiceStorm",
+      "transparent": true,
+      "prompt": "Use case: stylized-concept. A single production buff icon for a polished anime 2D game HUD and upgrade cards. Genuinely transparent RGBA background. Square composition, centered bold compact silhouette occupying 78% of canvas with clear margins. Clean cel-painted shading, chunky readable shapes, dark ink-blue rim and a small soft glow, not intricate miniature scenery. Legible at 40 pixels. No letters, numbers, words, border, card, square tile, characters, checkerboard or background. Subject: ONE plump white rice-ball projectile with a navy nori patch moving diagonally up-right, three bold flowing azure speed streaks sweeping behind to lower-left, tiny silver spark on leading edge. DeepSeek blue-white palette. Emphasize rapid motion, no explosion, no extra rice balls.",
+      "source": "C:\\Users\\Administrator\\.codex\\generated_images\\01a09de0-b0b2-7ac0-8982-9b5e3fda84af\\exec-f828b1e3-a1b8-4658-8f31-32828b5e3e94.png",
+      "filename": "ICO_BUFF_RiceStorm.png"
+    }
+  ]
+}

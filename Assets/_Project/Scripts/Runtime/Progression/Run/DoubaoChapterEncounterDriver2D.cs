@@ -1,6 +1,7 @@
 using DeepSleep.Runtime.Combat.Encounters.Doubao;
 using DeepSleep.Runtime.Combat.Enemies;
 using DeepSleep.Runtime.Networking;
+using DeepSleep.Runtime.Progression.Economy;
 using DeepSleep.Runtime.Simulation;
 using UnityEngine;
 
@@ -16,7 +17,9 @@ namespace DeepSleep.Runtime.Progression.Run
         [SerializeField] private ChapterRunController _chapterRun;
         [SerializeField] private DoubaoWordWallEncounter2D _encounter;
         [SerializeField] private CoopSessionController _session;
-        [SerializeField, Min(1)] private int _segmentNumber;
+        [SerializeField] private int[] _segmentNumbers = System.Array.Empty<int>();
+        [SerializeField] private EnemyTokenRewardController _rewards;
+        [SerializeField, Min(0)] private int _tokenReward;
         [SerializeField] private EnemySpawnDirector2D[] _spawnDirectors = System.Array.Empty<EnemySpawnDirector2D>();
         [SerializeField, Min(1)] private int _bossMaximumAlivePerChannel = 3;
 
@@ -32,22 +35,35 @@ namespace DeepSleep.Runtime.Progression.Run
 
         private void Awake()
         {
-            if (_chapterRun == null || _encounter == null || _segmentNumber < 1)
+            if (_chapterRun == null || _encounter == null || _rewards == null ||
+                _segmentNumbers == null || _segmentNumbers.Length == 0 || _tokenReward < 0 ||
+                System.Array.Exists(_segmentNumbers, number => number < 1))
             {
-                Debug.LogError($"[{nameof(DoubaoChapterEncounterDriver2D)}] 必须配置章节控制器、豆包遭遇和有效战斗段。", this);
+                Debug.LogError($"[{nameof(DoubaoChapterEncounterDriver2D)}] 必须配置章节、遭遇、奖励入口和有效战斗段。", this);
                 enabled = false;
             }
         }
 
         public bool IsRequiredForSegment(int segmentNumber) =>
-            segmentNumber == _segmentNumber;
+            _segmentNumbers != null && System.Array.IndexOf(_segmentNumbers, segmentNumber) >= 0;
+
+        private void OnEnable()
+        {
+            if (_encounter != null) _encounter.Completed += OnEncounterCompleted;
+        }
+
+        private void OnEncounterCompleted(DoubaoWordWallEncounter2D encounter)
+        {
+            if (CanAuthor && !_combatStopped && _chapterRun.Phase == ChapterRunPhase.Combat &&
+                IsRequiredForSegment(_chapterRun.SegmentNumber))
+                _rewards.RecordEncounterReward(_tokenReward);
+        }
 
         public void ResetForSegment(int segmentNumber)
         {
             _combatStopped = false;
             SetSpawnCap(false);
-            if (segmentNumber == _segmentNumber)
-                _encounter.ResetEncounter();
+            _encounter.ResetEncounter();
         }
 
         public void StopCombat(ChapterCombatStopReason reason)
@@ -64,19 +80,23 @@ namespace DeepSleep.Runtime.Progression.Run
             if (!CanAuthor) { SetSpawnCap(false); return; }
 
             if (_combatStopped || _chapterRun.Phase != ChapterRunPhase.Combat ||
-                _chapterRun.SegmentNumber != _segmentNumber)
+                !IsRequiredForSegment(_chapterRun.SegmentNumber))
             {
                 SetSpawnCap(false);
                 return;
             }
 
             if (_encounter.State == DoubaoEncounterState.Idle)
-                _encounter.BeginEncounter();
+                _encounter.BeginEncounter(_chapterRun.CurrentEnemyHealthMultiplier);
             _encounter.Simulate(deltaTime);
             SetSpawnCap(_encounter.State == DoubaoEncounterState.Active);
         }
 
-        private void OnDisable() => SetSpawnCap(false);
+        private void OnDisable()
+        {
+            if (_encounter != null) _encounter.Completed -= OnEncounterCompleted;
+            SetSpawnCap(false);
+        }
 
         private void SetSpawnCap(bool active)
         {

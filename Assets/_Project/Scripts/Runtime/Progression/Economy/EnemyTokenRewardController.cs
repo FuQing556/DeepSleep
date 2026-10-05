@@ -94,6 +94,14 @@ namespace DeepSleep.Runtime.Progression.Economy
             return 5;
         }
 
+        /// <summary>特殊遭遇沿用普通击杀的本段收益、主机权限和余额同步，不另建结算渠道。</summary>
+        public void RecordEncounterReward(int amount)
+        {
+            if (!CanReward || amount <= 0) return;
+            _wallet.RecordBattleReward(amount);
+            BroadcastBalance();
+        }
+
         public void BroadcastBalance()
         {
             if (IsOnline && _session.IsAuthority)

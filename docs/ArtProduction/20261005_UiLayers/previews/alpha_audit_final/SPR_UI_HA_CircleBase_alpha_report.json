@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiLayers\\raw\\SPR_UI_HA_CircleBase.png",
+  "source_sha256": "bad87bf5155b010b99eab491f7277c85a754c9323591143c91bf1921bdbf61c5",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 681487,
+  "partial_alpha_pixels": 890070,
+  "opaque_pixels": 959,
+  "visible_bbox_alpha_gt_0": [
+    68,
+    48,
+    1161,
+    1254
+  ],
+  "visible_bbox_alpha_gt_8": [
+    94,
+    97,
+    1159,
+    1156
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

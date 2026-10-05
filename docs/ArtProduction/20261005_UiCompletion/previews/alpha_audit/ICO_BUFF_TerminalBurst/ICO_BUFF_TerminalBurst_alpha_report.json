@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_TerminalBurst.png",
+  "source_sha256": "529968f49c06ef45d15dc6dd8024edeb74b00ecd32947a27d7d335a5f31caa65",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 1314474,
+  "partial_alpha_pixels": 257574,
+  "opaque_pixels": 468,
+  "visible_bbox_alpha_gt_0": [
+    47,
+    53,
+    1218,
+    1222
+  ],
+  "visible_bbox_alpha_gt_8": [
+    127,
+    159,
+    1161,
+    1141
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

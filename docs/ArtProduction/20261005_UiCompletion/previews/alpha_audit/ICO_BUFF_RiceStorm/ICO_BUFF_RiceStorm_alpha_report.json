@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261005_UiCompletion\\ready\\ICO_BUFF_RiceStorm.png",
+  "source_sha256": "a0b1fef311443458c12e625beb843e466048eef18c0b60b8d99bc6e969bc237b",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 1225428,
+  "partial_alpha_pixels": 347082,
+  "opaque_pixels": 6,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    32,
+    1236,
+    1214
+  ],
+  "visible_bbox_alpha_gt_8": [
+    73,
+    263,
+    1181,
+    979
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

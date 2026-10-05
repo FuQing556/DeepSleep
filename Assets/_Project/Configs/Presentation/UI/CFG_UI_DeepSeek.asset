@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b86b845bec0e69e4992299380acb9042, type: 3}
+  m_Name: CFG_UI_DeepSeek
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.UI.Common.UiThemePalette
+  Background: {r: 0.0627451, g: 0.11764706, b: 0.1882353, a: 1}
+  Panel: {r: 0.13725491, g: 0.24705882, b: 0.34509805, a: 1}
+  PanelBottom: {r: 0.09019608, g: 0.16862746, b: 0.25490198, a: 1}
+  Raised: {r: 0.21176471, g: 0.36862746, b: 0.47058824, a: 1}
+  RaisedBottom: {r: 0.15294118, g: 0.27058825, b: 0.37254903, a: 1}
+  Border: {r: 0.52156866, g: 0.6745098, b: 0.7647059, a: 0.42}
+  Text: {r: 0.93333334, g: 0.96862745, b: 0.9882353, a: 1}
+  MutedText: {r: 0.6784314, g: 0.77254903, b: 0.8392157, a: 1}
+  Accent: {r: 0.2627451, g: 0.5254902, b: 0.6666667, a: 1}
+  AccentSoft: {r: 0.62352943, g: 0.8666667, b: 0.9490196, a: 1}
+  OnAccent: {r: 1, g: 1, b: 1, a: 1}
+  Portrait: {fileID: 21300000, guid: 95d55fedc3e0b4c41a7a12e75dbd2879, type: 3}
+  CornerRadius: 20
+  ButtonBase: {fileID: 21300000, guid: 943229ccc3dc40c48a50293f3a0b74c2, type: 3}
+  ButtonFrame: {fileID: 21300000, guid: 38462fc64edcae140bbf840f860010ac, type: 3}
+  ButtonOrnament: {fileID: 21300000, guid: 1e8207f0df8ca58408c2ce4b0fa4937a, type: 3}
+  ButtonGlow: {fileID: 21300000, guid: 334f86c4c6d2323448e7e063ee0316d6, type: 3}
+  PanelFrame: {fileID: 21300000, guid: bc9c1d86bf9a1a8489193f34f5353062, type: 3}
+  CircleBase: {fileID: 21300000, guid: 9dfd0ab256d347b48b8ecb22abaa2145, type: 3}
+  CircleFrame: {fileID: 21300000, guid: 08bd5b7f3c9d9dc49b99182629694a5d, type: 3}
+  TitleLogo: {fileID: 21300000, guid: 5cb17ed5834fcbd44b30685531eced51, type: 3}
+  MenuBackground: {fileID: 21300000, guid: 9190ddb62fad5804cb1b394574597d81, type: 3}

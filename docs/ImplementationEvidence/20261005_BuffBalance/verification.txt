@@ -1,0 +1,67 @@
+2026-10-05 Buff 价格、攻速、校准前置验证
+
+范围：10 种卡的最终递增报价、DS每级+50%基础攻速、HS每级+30%近战动作速度；Guidance前置RiceFan>=1。DS基础伤害1，其余Buff效果不变。
+DS弹体池容量128（预热24），网络内容版本20261005-buff-balance-2；未修改协议结构。
+
+测试环境/边界：Unity6000.6.0f1 Editor Play，由Boot真实Router进入两关的离线选角阶段。使用现有ProfileIsolation隔离存档；短期注入商店报价槽/余额和等级，调用真实购买入口、UI、生成器及动作方法；结束恢复状态。不是自然游玩、手机帧率或双设备联机验收。
+World01_EarlyInternet：同一受控测试470项断言通过。完整相同测试体保存在checks.cs.txt；原型关原始输出如下。
+单个受控调用内测试115个同时存活弹体并全部回收，证明容量足够，不声称证明真实持续战斗性能。DS射速检查实际射击后冷却值，不把配置射速说成含模拟量化的实测吞吐量。
+
+Gameplay_Prototype: 470 assertions passed.
+Guidance gate: 64 rolls locked; injected purchase rejected; fan purchase unlocks; max rank excluded; checkpoint rollback relocks.
+生命扩容: 20/30/40/50/60; UI and actual spending verified.
+饭团增幅: 50/75/100/125/150; UI and actual spending verified.
+终端增幅: 25/40/55/70/85; UI and actual spending verified.
+饭团扇阵: 50/75/100/125; UI and actual spending verified.
+饭团加速: 30/45/60/75; UI and actual spending verified.
+多目标校准: 20; UI and actual spending verified.
+终端阵列: 70/105; UI and actual spending verified.
+终端连射: 60/90; UI and actual spending verified.
+递归连锁: 55/85; UI and actual spending verified.
+饭团溅射: 60; UI and actual spending verified.
+DS real shooter cooldown ranks 0..4: 3/4.5/6/7.5/9 shots per second; projectile damage1.
+Full fan fires5; 115 simultaneous projectiles rented/reclaimed without exhaustion (cap128).
+HS melee ranks0..2: speed1/1.3/1.6; all3 swing/recovery timings verified; skill duration16/cooldown8 unchanged.
+
+单独调用现有 ChapterFlowLifecycleChecks.Start() 的完整流程结果：
+False
+PASSED chapter flow in both scenes; returned to MainMenu; profile/backup unchanged.
+PASSED chapter flow in both scenes; returned to MainMenu; profile/backup unchanged.
+Gameplay_Prototype: initialized start gate skips static content revalidation but rejects captured level-ID mismatch.
+Gameplay_Prototype: connecting guest cannot author; replica chapter/node order and duplicate states preserve wallet/shop.
+Gameplay_Prototype: first failure retries segment 1 and rolls back earnings/HP.
+Gameplay_Prototype: clearing stops spawns but preserves life-failure rules.
+Gameplay_Prototype: residual enemy stays damageable/rewarded; clear reclaims projectiles and opens node once.
+Gameplay_Prototype: real portal readiness departs once; purchases/refresh/HP checkpoint committed.
+Gameplay_Prototype: segment 2 failure restores shop/wallet/exact HP; retry departure stays segment 2.
+Gameplay_Prototype: repeated forced stop clears all pools without rewards.
+World01_EarlyInternet: initialized start gate skips static content revalidation but rejects captured level-ID mismatch.
+World01_EarlyInternet: connecting guest cannot author; replica chapter/node order and duplicate states preserve wallet/shop.
+World01_EarlyInternet: first failure retries segment 1 and rolls back earnings/HP.
+World01_EarlyInternet: clearing stops spawns but preserves life-failure rules.
+World01_EarlyInternet: residual enemy stays damageable/rewarded; clear reclaims projectiles and opens node once.
+World01_EarlyInternet: real portal readiness departs once; purchases/refresh/HP checkpoint committed.
+World01_EarlyInternet: segment 2 failure restores shop/wallet/exact HP; retry departure stays segment 2.
+World01_EarlyInternet: repeated forced stop clears all pools plus live Doubao/bubbles without rewards.
+PASSED 16 lifecycle stations; local host/connecting only, not dual-device or relay acceptance.
+1. Initial menu cleanup: session/manager/registered=0/0/0
+2. World solo selection: session/manager/registered=1/1/1
+3. Selection back button: session/manager/registered=0/0/0
+4. World solo re-entry: session/manager/registered=1/1/1
+5. Chapter return after solo selection: session/manager/registered=0/0/0
+6. World before direct switch: session/manager/registered=1/1/1
+7. Direct StartLevel World -> Prototype: session/manager/registered=1/1/1
+8. Prototype menu return: session/manager/registered=0/0/0
+9. Online selection: session/manager/registered=1/1/1
+10. Start local DS host: session/manager/registered=1/1/1
+11. Online menu Leave: session/manager/registered=0/0/0
+12. Online re-entry after shutdown: session/manager/registered=1/1/1
+13. Rebind same port as HS host: session/manager/registered=1/1/1
+14. Host direct Router return: session/manager/registered=0/0/0
+15. Client selection: session/manager/registered=1/1/1
+16. Exit while loopback client is connecting: session/manager/registered=0/0/0
+
+Profile isolation: original reference/JSON restored; main SHA256=5507742696367CAFDA3B864AF13F7E080F6D9C1E9B6732B967A26FA7FBB41DBE; backup SHA256=D860EFE4C3A403669DE5336BEFC2FC376B8BC2749F23B0D3D70555FDC957DDB2.
+
+受控测试后和完整回归后均执行隔离档案RestoreAndVerify，原内存数据/主存档/备份校验通过；退出Play，不保存或丢弃已有Boot未保存编辑。
+未构建、未提交、未推送。
