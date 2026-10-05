@@ -7,7 +7,7 @@ namespace DeepSleep.Runtime.Combat.Health
     /// <summary>
     /// 保存一个实体的运行时生命状态，不决定死亡动画、掉落或回收策略。
     /// </summary>
-    public sealed class HealthComponent : MonoBehaviour, IDamageReceiver
+    public sealed class HealthComponent : MonoBehaviour, IDamageReceiver, IDamageFeedbackSource
     {
         [SerializeField] private HealthConfig _config;
 
@@ -17,6 +17,8 @@ namespace DeepSleep.Runtime.Combat.Health
 
         public event Action<HealthComponent> HealthChanged;
         public event Action<HealthComponent> Depleted;
+        public event Action<DamagePacket> DamageAccepted;
+        public event Action FeedbackReset;
 
         public float CurrentHealth => _currentHealth;
         public float MaximumHealth =>
@@ -25,6 +27,7 @@ namespace DeepSleep.Runtime.Combat.Health
                     _config.MaximumHealth + _maximumHealthBonus))
                 : 0f;
         public bool IsDepleted => _currentHealth <= 0f;
+        public bool LastDamageSuppressesKillReward { get; private set; }
         public bool CanReceiveDamage =>
             _isInitialized && isActiveAndEnabled && !IsDepleted;
 
@@ -61,7 +64,9 @@ namespace DeepSleep.Runtime.Combat.Health
                 return false;
             }
 
+            LastDamageSuppressesKillReward = damage.SuppressKillReward;
             HealthChanged?.Invoke(this);
+            DamageAccepted?.Invoke(damage);
 
             if (IsDepleted)
             {
@@ -98,6 +103,7 @@ namespace DeepSleep.Runtime.Combat.Health
             }
 
             _currentHealth = Mathf.Min(MaximumHealth, Mathf.Max(1f, Mathf.Floor(health)));
+            FeedbackReset?.Invoke();
             HealthChanged?.Invoke(this);
             return true;
         }
@@ -110,6 +116,8 @@ namespace DeepSleep.Runtime.Combat.Health
             }
 
             _currentHealth = MaximumHealth;
+            LastDamageSuppressesKillReward = false;
+            FeedbackReset?.Invoke();
             HealthChanged?.Invoke(this);
         }
 
@@ -148,6 +156,7 @@ namespace DeepSleep.Runtime.Combat.Health
             }
 
             _currentHealth = Mathf.Clamp(Mathf.Floor(health), 1f, MaximumHealth);
+            FeedbackReset?.Invoke();
             HealthChanged?.Invoke(this);
             return true;
         }

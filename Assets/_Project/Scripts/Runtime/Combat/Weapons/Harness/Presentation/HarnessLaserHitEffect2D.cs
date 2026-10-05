@@ -22,6 +22,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
         private float _worldDiameter;
         private float _rotationDeltaDegrees;
         private float _elapsedSeconds;
+        private DeepSleep.Runtime.Presentation.PresentationLifetime _lifetime;
         private bool _isPlaying;
 
         public event Action<HarnessLaserHitEffect2D> Finished;
@@ -43,7 +44,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
                 return;
             }
 
-            _elapsedSeconds += Mathf.Max(0f, Time.deltaTime);
+            _elapsedSeconds = _lifetime.Advance(Time.frameCount, Time.deltaTime);
             float progress = Mathf.Clamp01(
                 _elapsedSeconds / _config.HitEffectDurationSeconds);
             Render(progress);
@@ -78,6 +79,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
                 width * config.HitEffectBeamWidthMultiplier);
             _rotationDeltaDegrees = rotationDeltaDegrees;
             _elapsedSeconds = 0f;
+            _lifetime.Begin(Time.frameCount);
             _isPlaying = true;
             gameObject.SetActive(true);
             Render(0f);

@@ -1,4 +1,5 @@
 using DeepSleep.Runtime.Input.Commands;
+using DeepSleep.Runtime.World.Cameras;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +15,7 @@ namespace DeepSleep.Runtime.Input.Local
         [SerializeField] private InputActionReference moveAction;
         [SerializeField] private InputActionReference aimAction;
         [SerializeField] private Camera aimCamera;
+        [SerializeField] private CameraHorizontalLookAhead2D _cameraPresentation;
         [SerializeField] private float aimWorldPlaneZ;
 
         [Header("按钮输入")]
@@ -121,7 +123,9 @@ namespace DeepSleep.Runtime.Input.Local
             }
 
             Vector2 screenPosition = aimAction.action.ReadValue<Vector2>();
-            Ray aimRay = aimCamera.ScreenPointToRay(screenPosition);
+            Ray aimRay = _cameraPresentation != null
+                ? _cameraPresentation.ScreenPointToStableRay(aimCamera, screenPosition)
+                : aimCamera.ScreenPointToRay(screenPosition);
             Plane gameplayPlane = new Plane(
                 Vector3.forward,
                 new Vector3(0f, 0f, aimWorldPlaneZ));

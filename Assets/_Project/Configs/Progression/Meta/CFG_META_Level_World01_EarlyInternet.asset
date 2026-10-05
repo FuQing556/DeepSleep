@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e691dde11a09db44bb8b51d2ed8ec05, type: 3}
+  m_Name: CFG_META_Level_World01_EarlyInternet
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Meta.MetaLevelDefinition
+  _levelId: world01_early_internet
+  _displayName: "\u7B2C\u4E00\u4E16\u754C \xB7 \u9EC4\u660F\u57CE"
+  _sceneName: World01_EarlyInternet
+  _description: "\u4E92\u8054\u7F51\u521D\u751F\u65F6\u4EE3\uFF1A\u7A7F\u8FC7\u9EC4\u660F\u57CE\u5E02\u3001\u8BCD\u5899\u4E0E\u6E38\u8361\u6570\u636E\uFF0C\u8FFD\u4E0A\u85CF\u5728\u9065\u8FDC\u706F\u706B\u91CC\u7684\u5E0C\u671B\u3002"
+  _firstClearVoucherReward: 15
+  _repeatClearVoucherReward: 7
+  _implemented: 1
+  _chapterRunConfig: {fileID: 11400000, guid: 810c4764d5175af4ebc0716a77e9896a, type: 2}
+  _contentManifest: {fileID: 11400000, guid: 3fb12d897738f3741b3feb1bd0e9dacf, type: 2}

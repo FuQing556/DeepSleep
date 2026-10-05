@@ -357,6 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.UI.Common.SafeAreaRectFitter
   _target: {fileID: 388085342}
+  _symmetricInsets: 0
 --- !u!1 &1029703240
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,6 +16,10 @@ MonoBehaviour:
   _projectileSpeed: 13
   _projectileLifetimeSeconds: 2.5
   _damagePerProjectile: 1
+  _fanDegrees: 60
+  _correctionDegrees: 8
+  _splashRadius: 1.2
+  _splashDamageRatio: 0.5
   _targetSearchRadius: 20
   _maximumTargetCandidates: 32
   _minimumForwardDot: 0
@@ -27,6 +31,6 @@ MonoBehaviour:
     m_Bits: 1024
   _projectileCollisionLayers:
     serializedVersion: 2
-    m_Bits: 1280
+    m_Bits: 34048
   _initialPoolSize: 24
   _maximumPoolSize: 96

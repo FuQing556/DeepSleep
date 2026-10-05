@@ -90,9 +90,9 @@ namespace DeepSleep.Runtime.World.Nodes
             PlayerActor actor = other != null
                 ? other.GetComponentInParent<PlayerActor>()
                 : null;
-            if (actor != null)
+            if (actor != null && _owner != null && _owner.isActiveAndEnabled && isActiveAndEnabled)
             {
-                _owner?.NotifyEntered(this, actor);
+                _owner.NotifyEntered(this, actor);
             }
         }
 
@@ -101,9 +101,9 @@ namespace DeepSleep.Runtime.World.Nodes
             PlayerActor actor = other != null
                 ? other.GetComponentInParent<PlayerActor>()
                 : null;
-            if (actor != null)
+            if (actor != null && _owner != null && _owner.isActiveAndEnabled && isActiveAndEnabled)
             {
-                _owner?.NotifyExited(this, actor);
+                _owner.NotifyExited(this, actor);
             }
         }
     }

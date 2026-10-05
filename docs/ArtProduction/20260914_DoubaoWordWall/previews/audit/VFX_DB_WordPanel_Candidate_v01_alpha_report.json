@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20260914_DoubaoWordWall\\raw\\VFX_DB_WordPanel_Candidate_v01.png",
+  "source_sha256": "ebb7ffe8360586725db7b8157a48382acc1ab925a9fa899fefa8d9bdb957d54c",
+  "mode": "RGBA",
+  "size": [
+    2172,
+    724
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 546086,
+  "partial_alpha_pixels": 1023575,
+  "opaque_pixels": 2867,
+  "visible_bbox_alpha_gt_0": [
+    29,
+    70,
+    2140,
+    707
+  ],
+  "visible_bbox_alpha_gt_8": [
+    32,
+    76,
+    2137,
+    618
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

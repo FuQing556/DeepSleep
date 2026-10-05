@@ -1,0 +1,28 @@
+[
+  {
+    "source": "raw/SPR_DB_RooftopExplain_Candidate_v02.png",
+    "output": "ready/SPR_DB_RooftopExplain_v01.png",
+    "source_sha256": "d961172db2e1389cb1e63ae0230d8be1f451bfe0cb0c3fa586d854af466da7e5",
+    "method": "green",
+    "parameters": {
+      "cutoff": 3,
+      "backdrop_tolerance": 28,
+      "emission_edges": false
+    },
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      372,
+      104,
+      901,
+      1186
+    ],
+    "transparent_pixels": 1228506,
+    "partial_alpha_pixels": 6908,
+    "opaque_pixels": 337102,
+    "clear_corners": true
+  }
+]

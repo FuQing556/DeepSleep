@@ -1,0 +1,17 @@
+{
+  "assets": [
+    {
+      "source": "raw/BG_W01_ForegroundCity_Candidate_v01.png",
+      "output": "ready/BG_W01_ForegroundCity_v01.png",
+      "method": "green",
+      "parameters": {
+        "cutoff": 4,
+        "backdrop_tolerance": 30,
+        "emission_edges": false
+      },
+      "validation": {
+        "require_clear_corners": false
+      }
+    }
+  ]
+}

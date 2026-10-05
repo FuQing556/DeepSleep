@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20260914_DoubaoBattleSprite\\ready\\SPR_DB_RooftopExplain_v01.png",
+  "source_sha256": "ecfd5c694377551a73f19e84b863be58e4af6fee27f899bb9024e5b96c8cb7f5",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 1228506,
+  "partial_alpha_pixels": 6908,
+  "opaque_pixels": 337102,
+  "visible_bbox_alpha_gt_0": [
+    372,
+    104,
+    901,
+    1186
+  ],
+  "visible_bbox_alpha_gt_8": [
+    372,
+    104,
+    901,
+    1186
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

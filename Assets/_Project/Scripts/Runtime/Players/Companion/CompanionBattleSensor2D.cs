@@ -7,6 +7,7 @@ namespace DeepSleep.Runtime.Players.Companion
     public sealed class CompanionBattleSensor2D : MonoBehaviour
     {
         public CombatPerceptionRegistry2D Registry;
+        public CompanionObstacleRegistry2D ObstacleRegistry;
         public CompanionTacticsConfig Config;
         private Collider2D[] _colliders;
         private CombatPerceptionBody2D[] _visible;
@@ -16,12 +17,16 @@ namespace DeepSleep.Runtime.Players.Companion
         public CombatPerceptionBody2D Target { get; private set; }
         public float TargetScore { get; private set; }
         public int NearbyCount { get; private set; }
+        public CompanionObstacleSnapshot[] Obstacles { get; private set; }
+        public int ObstacleCount { get; private set; }
+        public bool ObstacleSaturated { get; private set; }
 
         public bool Initialize()
         {
-            if (Registry == null || Config == null || !Config.IsValid) return false;
+            if (Registry == null || ObstacleRegistry == null || Config == null || !Config.IsValid) return false;
             _colliders = new Collider2D[Config.QueryCapacity];
             _visible = new CombatPerceptionBody2D[Config.QueryCapacity];
+            Obstacles = new CompanionObstacleSnapshot[Config.ObstacleCapacity];
             _filter = new ContactFilter2D { useTriggers = true };
             _filter.SetLayerMask(Config.PerceptionLayers);
             return true;
@@ -29,6 +34,9 @@ namespace DeepSleep.Runtime.Players.Companion
 
         public void Refresh(Vector2 position, Vector2 ally)
         {
+            ObstacleCount = ObstacleRegistry.CopyVisible(position, Config.PerceptionRadius,
+                Obstacles, out bool obstacleSaturated);
+            ObstacleSaturated = obstacleSaturated;
             int hits = Physics2D.OverlapCircle(position, Config.PerceptionRadius, _filter, _colliders);
             Saturated = hits == _colliders.Length;
             _count = 0;
@@ -40,10 +48,11 @@ namespace DeepSleep.Runtime.Players.Companion
             {
                 if (!Registry.TryResolve(_colliders[i], out var body) || !body.IsObservable) continue;
                 _visible[_count++] = body;
-                float distance = Vector2.Distance(position, body.Position);
+                Vector2 bodyPosition = body.Position;
+                float distance = Vector2.Distance(position, bodyPosition);
                 if (distance <= Config.NearbyRadius) NearbyCount++;
                 if (!body.IsEnemy || distance > Config.AttackRange) continue;
-                float nearEither = Mathf.Min(distance, Vector2.Distance(ally, body.Position));
+                float nearEither = Mathf.Min(distance, Vector2.Distance(ally, bodyPosition));
                 float wounded = 1f - body.Enemy.Health.CurrentHealth / body.Enemy.Health.MaximumHealth;
                 float score = body.TargetValue + (body.IsCharging ? Config.ChargingBonus : 0f) +
                     Config.NearbyThreatWeight * Mathf.Clamp01(1f - nearEither / Config.NearbyRadius) +
@@ -53,6 +62,9 @@ namespace DeepSleep.Runtime.Players.Companion
                 Target = body;
                 TargetScore = score;
             }
+            for (int i = 0; i < ObstacleCount; i++)
+                if ((Obstacles[i].Center - position).sqrMagnitude <= Config.NearbyRadius * Config.NearbyRadius)
+                    NearbyCount++;
         }
 
         public float Danger(Vector2 position, Vector2 velocity, float ownerRadius)
@@ -62,8 +74,10 @@ namespace DeepSleep.Runtime.Players.Companion
             {
                 var body = _visible[i];
                 if (body == null || !body.IsObservable) continue;
-                danger += CompanionThreatMath.Risk(body.Position - position, body.Velocity - velocity,
-                    body.Radius + ownerRadius + Config.SafetyPadding, Config.PredictionSeconds);
+                // 仅复用本次循环体的 bounds；每次 Danger 仍重新读取活动状态与几何。
+                Bounds bounds = body.Shape.bounds;
+                danger += CompanionThreatMath.Risk((Vector2)bounds.center - position, body.Velocity - velocity,
+                    ((Vector2)bounds.extents).magnitude + ownerRadius + Config.SafetyPadding, Config.PredictionSeconds);
             }
             return danger;
         }
@@ -77,10 +91,20 @@ namespace DeepSleep.Runtime.Players.Companion
             {
                 var body = _visible[i];
                 if (body == null || !body.IsObservable) continue;
-                float distance = (body.Position - position).sqrMagnitude;
+                Vector2 bodyPosition = body.Position;
+                float distance = (bodyPosition - position).sqrMagnitude;
                 if (distance >= best) continue;
                 best = distance;
-                point = body.Position;
+                point = bodyPosition;
+                found = true;
+            }
+            // 拆墙只作为近战威胁方向，不把字泡加入普通武器自动索敌列表。
+            for (int i = 0; i < ObstacleCount; i++)
+            {
+                float distance = (Obstacles[i].Center - position).sqrMagnitude;
+                if (distance >= best) continue;
+                best = distance;
+                point = Obstacles[i].Center;
                 found = true;
             }
             return found;

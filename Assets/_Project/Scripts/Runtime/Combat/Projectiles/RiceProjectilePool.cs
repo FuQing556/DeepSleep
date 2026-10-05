@@ -124,6 +124,20 @@ namespace DeepSleep.Runtime.Combat.Projectiles
             _hasReportedExhaustion = false;
         }
 
+        /// <summary>生命周期清场无命中/溅射地回收全部饭团，防止旧弹进入休息节点或重试段。</summary>
+        public int ReturnAllActive()
+        {
+            int returned = 0;
+            for (int index = 0; index < _allProjectiles.Count; index++)
+            {
+                RiceProjectile projectile = _allProjectiles[index];
+                if (projectile == null || !projectile.IsRented) continue;
+                Return(projectile);
+                returned++;
+            }
+            return returned;
+        }
+
         internal void NotifyHitConfirmed(RiceProjectileHitConfirmed hit)
         {
             if (hit.IsValid)

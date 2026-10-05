@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using DeepSleep.Adapters.Networking;
+using DeepSleep.Editor.Setup;
 using DeepSleep.Runtime.Networking;
 using DeepSleep.Runtime.Players.Companion;
 using DeepSleep.Runtime.Players.Control;
@@ -18,17 +19,19 @@ using Unity.Netcode.Transports.UTP;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace DeepSleep.Editor.Networking
 {
-    /// <summary>本轮经授权的一次性场景装配。只在编辑器显式调用，不自动运行。</summary>
+    /// <summary>Legacy 旧场景初始化，不是新关卡生成器。已登记关卡只转调 LevelSceneInstaller，不重建现役资产。</summary>
     public static class CoopNetworkSceneSetup
     {
         public static string InstallWeapons()
         {
-            if (EditorApplication.isPlaying) throw new InvalidOperationException("Stop Play first");
-            var session = UnityEngine.Object.FindFirstObjectByType<CoopSessionController>();
+            var scene = LegacyScene();
+            if (LevelSceneInstaller.TryApplyRegisteredScene(scene, out string report)) return report;
+            var session = All<CoopSessionController>(scene).Single();
             var channel = session.GetComponent<NetworkWeaponChannel>();
             if (channel == null) channel = session.gameObject.AddComponent<NetworkWeaponChannel>();
             channel.Session = session; channel.Catalog = session.GetComponent<NetworkPlayerSnapshotChannel>().DeepSeek.Sprites;
@@ -37,18 +40,15 @@ namespace DeepSleep.Editor.Networking
             channel.Guard = session.DeepSeek.GetComponent<DeepSleep.Runtime.Combat.Weapons.DeepSeek.Guard.DeepSeekRiceGuardController>();
             channel.LaserView = session.Harness.GetComponent<DeepSleep.Runtime.Combat.Weapons.Harness.Presentation.HarnessTerminalLaserPresenter>();
             channel.MeleeView = session.Harness.GetComponent<DeepSleep.Runtime.Combat.Weapons.Harness.Melee.HarnessMeleePresenter2D>();
-            var presentationTypes = new HashSet<string> { "HarnessTerminalLaserPresenter", "HarnessMeleePresenter2D",
-                "MeleeWaveView2D", "BeamTiledMeshView2D", "DeepSeekRiceGuardOrbitView2D", "DeepSeekRiceGuardCircleView2D",
-                "PlayerReviveHealingParticleView2D", "PlayerReviveConvergeRingView2D", "PlayerReviveProtectionView2D" };
             var gate = session.GetComponent<NetworkAuthorityGate>();
-            gate.AuthorityOnly = gate.AuthorityOnly.Where(b => !presentationTypes.Contains(b.GetType().Name)).ToArray();
+            NetworkAuthorityRules.Apply(gate);
             foreach (var replica in new[] { session.GetComponent<NetworkPlayerSnapshotChannel>().DeepSeek,
                 session.GetComponent<NetworkPlayerSnapshotChannel>().Harness })
             {
                 var pose = new SerializedObject(replica.GetComponent<PlayerDownedVisual2D>());
                 replica.PoseGhostRenderer = (SpriteRenderer)pose.FindProperty("_ghostRenderer").objectReferenceValue;
                 replica.PoseGhostConfig = (PlayerDownedVisualConfig)pose.FindProperty("_config").objectReferenceValue;
-                foreach (var shield in UnityEngine.Object.FindObjectsByType<DeepSleep.Runtime.Players.Revive.Presentation.PlayerReviveProtectionView2D>(FindObjectsSortMode.None))
+                foreach (var shield in All<DeepSleep.Runtime.Players.Revive.Presentation.PlayerReviveProtectionView2D>(scene))
                 {
                     var receiver = new SerializedObject(shield).FindProperty("_receiver").objectReferenceValue;
                     if (receiver == replica.LocalHud.DamageReceiver) replica.ProtectionView = shield;
@@ -61,16 +61,16 @@ namespace DeepSleep.Editor.Networking
         }
         public static string InstallWorld()
         {
-            if (EditorApplication.isPlaying) throw new InvalidOperationException("Stop Play first");
-            var session = UnityEngine.Object.FindFirstObjectByType<CoopSessionController>();
-            if (session.GetComponent<NetworkWorldSnapshotChannel>() != null) return "World already installed";
+            var scene = LegacyScene();
+            if (LevelSceneInstaller.TryApplyRegisteredScene(scene, out string report)) return report;
+            var session = All<CoopSessionController>(scene).Single();
+            if (session.GetComponent<NetworkWorldSnapshotChannel>() != null) return "Legacy world already installed; import the scene through LevelSceneInstaller.";
+            RequireNewAsset("Assets/_Project/Prefabs/Networking/PF_NetworkEntityView.prefab");
             var channel = session.gameObject.AddComponent<NetworkWorldSnapshotChannel>(); channel.Session = session;
             channel.Catalog = session.GetComponent<NetworkPlayerSnapshotChannel>().DeepSeek.Sprites;
-            var pools = UnityEngine.Object.FindObjectsByType<DeepSleep.Runtime.Combat.Enemies.EnemyActorPool2D>(FindObjectsSortMode.None);
-            channel.Windows = pools.Single(p => p.gameObject.name == "EnemyRuntime_404Window");
-            channel.Snakes = pools.Single(p => p != channel.Windows);
+            // EnemyPools is populated only when explicit LevelSceneInstaller import creates the registration.
             channel.Rice = session.DeepSeek.GetComponent<DeepSleep.Runtime.Combat.Projectiles.RiceProjectilePool>();
-            channel.EnemyBullets = UnityEngine.Object.FindFirstObjectByType<DeepSleep.Runtime.Combat.Projectiles.EnemyProjectilePool2D>();
+            channel.EnemyBullets = All<DeepSleep.Runtime.Combat.Projectiles.EnemyProjectilePool2D>(scene).Single();
             channel.MaximumViews = 512;
             channel.ViewRoot = new GameObject("NetworkEntityViews").transform;
             var template = new GameObject("PF_NetworkEntityView");
@@ -88,33 +88,36 @@ namespace DeepSleep.Editor.Networking
             UnityEngine.Object.DestroyImmediate(template);
             ushort id = 100;
             // ID首次装配后保存在场景；不是运行时数组索引。内容版本同时锁定此映射。
-            foreach (var pool in UnityEngine.Object.FindObjectsByType<DeepSleep.Runtime.Presentation.Effects.OneShotSpriteEffectPool2D>(FindObjectsSortMode.None))
+            foreach (var pool in All<DeepSleep.Runtime.Presentation.Effects.OneShotSpriteEffectPool2D>(scene))
             {
                 var effect = pool.gameObject.AddComponent<NetworkEffectEventChannel>();
                 effect.Session = session; effect.Pool = pool; effect.EffectId = id++;
             }
             EditorSceneManager.MarkSceneDirty(session.gameObject.scene);
             EditorSceneManager.SaveScene(session.gameObject.scene); AssetDatabase.SaveAssets();
-            return "World replicas + effect event channels installed";
+            return "Legacy world bootstrap installed; explicitly import with LevelSceneInstaller before Play to bind enemy pools and level identity.";
         }
 
         public static string Install()
         {
-            if (EditorApplication.isPlaying) throw new InvalidOperationException("Stop Play before installation");
-            if (UnityEngine.Object.FindFirstObjectByType<CoopSessionController>() != null)
-                return "Already installed; existing scene left unchanged";
-            var actors = UnityEngine.Object.FindObjectsByType<PlayerActor>(FindObjectsSortMode.None);
-            var assignment = UnityEngine.Object.FindFirstObjectByType<PlayerControlAssignment>();
-            var selection = UnityEngine.Object.FindFirstObjectByType<OpeningCharacterSelectionController>();
-            var router = UnityEngine.Object.FindFirstObjectByType<CompanionCommandRouter>();
+            var scene = LegacyScene();
+            if (LevelSceneInstaller.TryApplyRegisteredScene(scene, out string report)) return report;
+            if (All<CoopSessionController>(scene).Length != 0)
+                return "Legacy session already installed; import the scene through LevelSceneInstaller. Existing scene left unchanged.";
+            RequireNewAsset("Assets/_Project/Configs/Networking/CFG_Network.asset");
+            RequireNewAsset("Assets/_Project/Configs/Networking/CFG_NetworkSprites.asset");
+            var actors = All<PlayerActor>(scene);
+            var assignment = All<PlayerControlAssignment>(scene).Single();
+            var selection = All<OpeningCharacterSelectionController>(scene).Single();
+            var router = All<CompanionCommandRouter>(scene).Single();
             if (actors.Length != 2 || assignment == null || selection == null || router == null)
                 throw new InvalidOperationException("Expected existing two-player gameplay scene");
             var root = new GameObject("NetworkSession"); Undo.RegisterCreatedObjectUndo(root, "Install cooperative networking");
             var manager = root.AddComponent<NetworkManager>(); var transport = root.AddComponent<UnityTransport>();
             var adapter = root.AddComponent<NgoTransportAdapter>(); var session = root.AddComponent<CoopSessionController>();
             var config = ScriptableObject.CreateInstance<NetworkTuningConfig>();
-            config.Port = 7777; config.ProtocolVersion = 2; config.ClientVersion = "0.1.0";
-            config.ContentVersion = "20260913-combat-upgrades-2"; config.SnapshotRate = 20;
+            config.Port = 7777; config.ClientVersion = "0.1.0";
+            NetworkBuildRevision.Apply(config); config.SnapshotRate = 20;
             config.InputTimeout = 0.35f; config.ConnectionTimeout = 12;
             config.MaximumQueuedCommands = 32; config.MaximumMessageBytes = 16384; config.RemoteInterpolationSpeed = 20;
             EnsureFolder("Assets/_Project/Configs/Networking");
@@ -133,24 +136,30 @@ namespace DeepSleep.Editor.Networking
             channel.DeepSeek = AddReplica(session.DeepSeek, session, catalog);
             channel.Harness = AddReplica(session.Harness, session, catalog);
             var gate = root.AddComponent<NetworkAuthorityGate>(); gate.Session = session;
-            var all = UnityEngine.Object.FindObjectsByType<MonoBehaviour>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-            gate.AuthorityOnly = all.Where(IsAuthorityOnly).Cast<Behaviour>().ToArray();
+            gate.AuthorityOnly = All<MonoBehaviour>(scene).Where(NetworkAuthorityRules.IsLegacyAuthorityCandidate).Cast<Behaviour>().ToArray();
             gate.AuthorityBodies = actors.Select(a => a.GetComponent<Rigidbody2D>()).ToArray();
             CreateUi(session);
             EditorUtility.SetDirty(root); EditorSceneManager.MarkSceneDirty(root.scene);
             EditorSceneManager.SaveScene(root.scene); AssetDatabase.SaveAssets();
-            return "Installed session + two replicas + UI; authority-only components: " + gate.AuthorityOnly.Length;
+            return "Legacy session + replicas + UI created; explicit level import is still required. Authority-only components: " + gate.AuthorityOnly.Length;
         }
 
-        private static bool IsAuthorityOnly(MonoBehaviour b)
+        private static Scene LegacyScene()
         {
-            string ns = b.GetType().Namespace ?? "";
-            if (!ns.StartsWith("DeepSleep.Runtime")) return false;
-            if (ns.Contains("Networking") || ns.Contains(".UI.") || ns.Contains(".Input.") ||
-                ns.Contains(".World.") || ns.Contains(".Orientation") || ns.Contains("Presentation.Effects")) return false;
-            if (b is PlayerActor || b is PlayerControlAssignment) return false;
-            // 镜像端暂由显式快照视图驱动；其余本地玩法及姿态写入器均不执行。
-            return true;
+            if (EditorApplication.isPlayingOrWillChangePlaymode) throw new InvalidOperationException("Stop Play before Legacy initialization.");
+            var scene = SceneManager.GetActiveScene();
+            if (!scene.IsValid() || !scene.isLoaded || string.IsNullOrEmpty(scene.path))
+                throw new InvalidOperationException("Select a saved legacy gameplay scene explicitly.");
+            return scene;
+        }
+
+        private static T[] All<T>(Scene scene) where T : Component =>
+            scene.GetRootGameObjects().SelectMany(root => root.GetComponentsInChildren<T>(true)).ToArray();
+
+        private static void RequireNewAsset(string path)
+        {
+            if (AssetDatabase.LoadMainAssetAtPath(path) != null || System.IO.File.Exists(path))
+                throw new InvalidOperationException("Legacy initialization refuses to overwrite " + path + ". Use an existing registered level/template instead.");
         }
 
         private static NetworkPlayerReplica AddReplica(PlayerActor actor, CoopSessionController session, NetworkSpriteCatalog catalog)
@@ -161,7 +170,7 @@ namespace DeepSleep.Editor.Networking
             replica.Visual = (SpriteRenderer)new SerializedObject(actor.GetComponent<PlayerDownedVisual2D>())
                 .FindProperty("_characterRenderer").objectReferenceValue;
             replica.VisualRoot = replica.Visual.transform.parent; replica.Sprites = catalog;
-            replica.LocalHud = UnityEngine.Object.FindObjectsByType<PlayerCombatHudSource>(FindObjectsSortMode.None)
+            replica.LocalHud = All<PlayerCombatHudSource>(actor.gameObject.scene)
                 .Single(h => h.Role == replica.Role);
             var view = replica.LocalHud.GetComponent<PlayerCombatHudView>(); view.SourceComponent = replica;
             EditorUtility.SetDirty(view); return replica;

@@ -26,6 +26,15 @@ namespace DeepSleep.Runtime.Combat.Enemies
         private float _runtimeIntervalMultiplier = 1f;
         private int _runtimeMaximumAliveCount;
         private int _runtimeSpawnHealth;
+        private int _encounterMaximumAliveCount;
+
+        public int EffectiveMaximumAliveCount => _encounterMaximumAliveCount > 0
+            ? Mathf.Min(_runtimeMaximumAliveCount, _encounterMaximumAliveCount)
+            : _runtimeMaximumAliveCount;
+
+        // 独立于章节调参；0 解除限制，不清除场上已生成的敌人。
+        public void SetEncounterMaximumAliveCount(int count) =>
+            _encounterMaximumAliveCount = Mathf.Max(0, count);
 
         public bool IsRunning => _isRunning;
         public EnemySpawnChannelDefinition Channel => _channel;
@@ -63,7 +72,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
             _remainingSeconds -= deltaTime;
 
             if (_remainingSeconds > 0f ||
-                _pool.ActiveCount >= _runtimeMaximumAliveCount)
+                _pool.ActiveCount >= EffectiveMaximumAliveCount)
             {
                 return;
             }
@@ -124,7 +133,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
         public bool TrySpawnNow()
         {
             if (_random == null ||
-                _pool.ActiveCount >= _runtimeMaximumAliveCount)
+                _pool.ActiveCount >= EffectiveMaximumAliveCount)
             {
                 return false;
             }

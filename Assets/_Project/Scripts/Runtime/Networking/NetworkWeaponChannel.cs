@@ -12,7 +12,9 @@ namespace DeepSleep.Runtime.Networking
     /// <summary>技能状态与一次性开火事件分开。束体共用主机的几何快照，客人不会执行伤害查询。</summary>
     public sealed class NetworkWeaponChannel : MonoBehaviour
     {
-        private const byte STATE = 36, LASER = 37, WAVE = 38, BLOCK = 39;
+        private const byte STATE = NetworkMessageCatalog.Authority.WeaponState,
+            LASER = NetworkMessageCatalog.Authority.LaserFire, WAVE = NetworkMessageCatalog.Authority.MeleeWave,
+            BLOCK = NetworkMessageCatalog.Authority.GuardBlock;
         public CoopSessionController Session;
         public NetworkSpriteCatalog Catalog;
         public HarnessTerminalLaserController Laser;

@@ -6,7 +6,13 @@ import hashlib
 import json
 from pathlib import Path
 
-from PIL import Image
+try:
+    from PIL import Image
+except ModuleNotFoundError as exc:
+    raise SystemExit(
+        "Missing image dependencies. Run: "
+        "python -m pip install -r docs/ArtProduction/Tools/requirements.txt"
+    ) from exc
 from sprite_matte import connected_neutral, green_screen, magenta_screen, black_emission, report, preview
 
 
@@ -38,7 +44,10 @@ def run(recipe_path):
         else:
             raise ValueError(f'Unknown matte method: {mode}')
         stats = report(result)
-        if not stats['transparent_pixels'] or not stats['opaque_pixels'] or not stats['clear_corners']:
+        validation = item.get('validation', {})
+        require_clear_corners = validation.get('require_clear_corners', True)
+        if (not stats['transparent_pixels'] or not stats['opaque_pixels'] or
+                (require_clear_corners and not stats['clear_corners'])):
             raise ValueError(f'Invalid empty/opaque cutout: {source}')
         target.parent.mkdir(parents=True, exist_ok=True)
         result.save(target)
@@ -48,7 +57,8 @@ def run(recipe_path):
             preview(result, color).save(preview_root / f'{target.stem}_{label}.jpg', quality=94)
         results.append({'source': item['source'], 'output': item['output'],
                         'source_sha256': hashlib.sha256(source.read_bytes()).hexdigest(),
-                        'method': mode, 'parameters': parameters, **stats})
+                        'method': mode, 'parameters': parameters,
+                        'validation': validation, **stats})
     (root / 'matte_report.json').write_text(json.dumps(results, ensure_ascii=False, indent=2), encoding='utf-8')
     print(json.dumps(results, ensure_ascii=False, indent=2))
 

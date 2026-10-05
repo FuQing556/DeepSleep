@@ -1,0 +1,14 @@
+{
+  "assets": [
+    {
+      "source": "raw/SPR_DB_RooftopExplain_Candidate_v02.png",
+      "output": "ready/SPR_DB_RooftopExplain_v01.png",
+      "method": "green",
+      "parameters": {
+        "cutoff": 3,
+        "backdrop_tolerance": 28,
+        "emission_edges": false
+      }
+    }
+  ]
+}

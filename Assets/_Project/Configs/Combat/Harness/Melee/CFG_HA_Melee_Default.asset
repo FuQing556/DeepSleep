@@ -28,7 +28,7 @@ MonoBehaviour:
   ComboResetSeconds: 0.8
   EnemyLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 33024
   ClearableProjectileLayers:
     serializedVersion: 2
     m_Bits: 512
@@ -40,3 +40,9 @@ MonoBehaviour:
   GhostAlpha: 0.55
   GhostSeconds: 0.35
   WaveFadeSeconds: 0.63
+  BaseRangeScale: 1.15
+  RangePerChainRank: 0.15
+  SpeedPerBurstRank: 0.15
+  EchoInterval: 0.1
+  EchoDamageRatio: 0.5
+  EchoOffsetSwordFraction: 0.12

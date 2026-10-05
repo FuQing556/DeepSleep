@@ -5,7 +5,7 @@ namespace DeepSleep.Runtime.Networking
 {
     public sealed class NetworkPlayerSnapshotChannel : MonoBehaviour
     {
-        private const byte PLAYER_SNAPSHOT = 32;
+        private const byte PLAYER_SNAPSHOT = NetworkMessageCatalog.Authority.PlayerSnapshot;
         public CoopSessionController Session;
         public NetworkPlayerReplica DeepSeek, Harness;
         private float _nextSend;

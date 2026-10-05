@@ -1,4 +1,3 @@
-using System.Collections;
 using DeepSleep.Runtime.Input.Touch;
 using DeepSleep.Runtime.Networking;
 using DeepSleep.Runtime.UI.CharacterSelection;
@@ -33,6 +32,8 @@ namespace DeepSleep.Runtime.AppFlow
 
         private void OnEnable()
         {
+            if (GameAppRoot.Instance != null)
+                GameAppRoot.Instance.SceneRouter.TransitionCompleted += Refresh;
             _session.Changed += Refresh;
             _selection.SelectionConfirmed += OnSelected;
             _backButton.onClick.AddListener(ReturnToModes);
@@ -40,6 +41,8 @@ namespace DeepSleep.Runtime.AppFlow
 
         private void OnDisable()
         {
+            if (GameAppRoot.Instance != null)
+                GameAppRoot.Instance.SceneRouter.TransitionCompleted -= Refresh;
             if (_session != null) _session.Changed -= Refresh;
             if (_selection != null)
                 _selection.SelectionConfirmed -= OnSelected;
@@ -53,6 +56,7 @@ namespace DeepSleep.Runtime.AppFlow
 
         private void Refresh()
         {
+            if (_session == null || (GameAppRoot.Instance != null && GameAppRoot.Instance.SceneRouter.IsTransitioning)) return;
             bool playing = _session.Phase == SessionPhase.Playing ||
                 (_mode == GameLaunchMode.Solo &&
                  _selection.IsSelectionComplete);
@@ -68,16 +72,6 @@ namespace DeepSleep.Runtime.AppFlow
 
         private void ReturnToModes()
         {
-            StartCoroutine(ReturnRoutine());
-        }
-
-        private IEnumerator ReturnRoutine()
-        {
-            if (_session.Phase != SessionPhase.Offline)
-            {
-                _session.Leave();
-            }
-            yield return null;
             GameAppRoot.Instance.SceneRouter.LoadMainMenu(
                 MainMenuPage.ModeSelection);
         }

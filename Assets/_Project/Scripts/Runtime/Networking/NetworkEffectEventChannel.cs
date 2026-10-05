@@ -7,7 +7,7 @@ namespace DeepSleep.Runtime.Networking
     /// <summary>可靠、去重的一次性表现事件。随机旋转/淡出继续在本机对象池执行。</summary>
     public sealed class NetworkEffectEventChannel : MonoBehaviour
     {
-        private const byte EFFECT = 35;
+        private const byte EFFECT = NetworkMessageCatalog.Authority.Effect;
         public CoopSessionController Session;
         public OneShotSpriteEffectPool2D Pool;
         public ushort EffectId;

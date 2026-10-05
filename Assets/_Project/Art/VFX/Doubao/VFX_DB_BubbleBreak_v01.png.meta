@@ -1,0 +1,548 @@
+fileFormatVersion: 2
+guid: 80e2aefb92dbec84eb5a25e097d98f6d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7511235180478519633
+    second: VFX_DB_BubbleBreak_v01_0
+  - first:
+      213: -5596305896237488735
+    second: VFX_DB_BubbleBreak_v01_1
+  - first:
+      213: 6773599451298199260
+    second: VFX_DB_BubbleBreak_v01_2
+  - first:
+      213: 8378873795566169977
+    second: VFX_DB_BubbleBreak_v01_3
+  - first:
+      213: 4873713644114810747
+    second: VFX_DB_BubbleBreak_v01_4
+  - first:
+      213: 2813710730946532733
+    second: VFX_DB_BubbleBreak_v01_5
+  - first:
+      213: 6195212611959896722
+    second: VFX_DB_BubbleBreak_v01_6
+  - first:
+      213: -1810733290996252381
+    second: VFX_DB_BubbleBreak_v01_7
+  - first:
+      213: -3000144462299994409
+    second: VFX_DB_BubbleBreak_v01_8
+  - first:
+      213: 5205294716324474781
+    second: VFX_DB_BubbleBreak_v01_9
+  - first:
+      213: 4436697494214016852
+    second: VFX_DB_BubbleBreak_v01_10
+  - first:
+      213: -5418277272822726958
+    second: VFX_DB_BubbleBreak_v01_11
+  - first:
+      213: 2765675812853686753
+    second: VFX_DB_BubbleBreak_v01_12
+  - first:
+      213: 3932791081452145327
+    second: VFX_DB_BubbleBreak_v01_13
+  - first:
+      213: 5406976798691918582
+    second: VFX_DB_BubbleBreak_v01_14
+  - first:
+      213: -4356446036860434021
+    second: VFX_DB_BubbleBreak_v01_15
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_DB_BubbleBreak_v01_0
+      rect:
+        serializedVersion: 2
+        x: 123
+        y: 593
+        width: 435
+        height: 430
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 159d6d4b9944d3860800000000000000
+      internalID: 7511235180478519633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DB_BubbleBreak_v01_1
+      rect:
+        serializedVersion: 2
+        x: 543
+        y: 711
+        width: 241
+        height: 239
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a52758107de552b0800000000000000
+      internalID: -5596305896237488735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DB_BubbleBreak_v01_2
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 943
+        width: 61
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd6f86910d8a00e50800000000000000
+      internalID: 6773599451298199260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DB_BubbleBreak_v01_3
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 748
+        width: 50
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97fec8ae25db74470800000000000000
+      internalID: 8378873795566169977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DB_BubbleBreak_v01_4
+      rect:
+        serializedVersion: 2
+        x: 788
+        y: 382
+        width: 222
+        height: 452
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b77107ebcb8e2a340800000000000000
+      internalID: 4873713644114810747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DB_BubbleBreak_v01_5
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 621
+        width: 77
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d75d5ca800f4c0720800000000000000
+      internalID: 2813710730946532733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DB_BubbleBreak_v01_6
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 647
+        width: 81
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29ab3e30c01d9f550800000000000000
+      internalID: 6195212611959896722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DB_BubbleBreak_v01_7
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 388
+        width: 46
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 321c13f5aabfed6e0800000000000000
+      internalID: -1810733290996252381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DB_BubbleBreak_v01_8
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 343
+        width: 196
+        height: 267
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d6e0c9c1885d56d0800000000000000
+      internalID: -3000144462299994409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DB_BubbleBreak_v01_9
+      rect:
+        serializedVersion: 2
+        x: 185
+        y: 49
+        width: 411
+        height: 396
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9fecb537fbec3840800000000000000
+      internalID: 5205294716324474781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DB_BubbleBreak_v01_10
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 115
+        width: 246
+        height: 285
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45ffd764dd0529d30800000000000000
+      internalID: 4436697494214016852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DB_BubbleBreak_v01_11
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 386
+        width: 34
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2de34d217896ec4b0800000000000000
+      internalID: -5418277272822726958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DB_BubbleBreak_v01_12
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 285
+        width: 61
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e1a805af77a16620800000000000000
+      internalID: 2765675812853686753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DB_BubbleBreak_v01_13
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 186
+        width: 72
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: faa87c9d6a4149630800000000000000
+      internalID: 3932791081452145327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DB_BubbleBreak_v01_14
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 199
+        width: 37
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f28fc240c0790b40800000000000000
+      internalID: 5406976798691918582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_DB_BubbleBreak_v01_15
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 30
+        width: 75
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9986c1396bca83c0800000000000000
+      internalID: -4356446036860434021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_DB_BubbleBreak_v01_0: 7511235180478519633
+      VFX_DB_BubbleBreak_v01_1: -5596305896237488735
+      VFX_DB_BubbleBreak_v01_10: 4436697494214016852
+      VFX_DB_BubbleBreak_v01_11: -5418277272822726958
+      VFX_DB_BubbleBreak_v01_12: 2765675812853686753
+      VFX_DB_BubbleBreak_v01_13: 3932791081452145327
+      VFX_DB_BubbleBreak_v01_14: 5406976798691918582
+      VFX_DB_BubbleBreak_v01_15: -4356446036860434021
+      VFX_DB_BubbleBreak_v01_2: 6773599451298199260
+      VFX_DB_BubbleBreak_v01_3: 8378873795566169977
+      VFX_DB_BubbleBreak_v01_4: 4873713644114810747
+      VFX_DB_BubbleBreak_v01_5: 2813710730946532733
+      VFX_DB_BubbleBreak_v01_6: 6195212611959896722
+      VFX_DB_BubbleBreak_v01_7: -1810733290996252381
+      VFX_DB_BubbleBreak_v01_8: -3000144462299994409
+      VFX_DB_BubbleBreak_v01_9: 5205294716324474781
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

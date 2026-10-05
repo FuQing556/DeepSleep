@@ -5,13 +5,16 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using DeepSleep.Runtime.Networking;
+using DeepSleep.Runtime.Progression.Levels;
 using UnityEngine;
 
 namespace DeepSleep.Adapters.Networking
 {
     /// <summary>Windows/Android WSS 转发适配器。Socket 线程不访问场景；事件回到 Update 派发。</summary>
-    public sealed class WebSocketRelayAdapter : MonoBehaviour, ITransportAdapter
+    public sealed class WebSocketRelayAdapter : MonoBehaviour, ITransportAdapter, ITransportLevelScope, ITransportShutdownStatus
     {
+        // 现有 Relay 服务把 version 当作不透明兼容串，限制为 100 字符；本轮不修改或部署服务端。
+        public const int MaximumVersionCharacters = 100;
         public NetworkTuningConfig Config;
         public string Endpoint = "ws://127.0.0.1:8765";
         public string RoomCode = "";
@@ -21,31 +24,50 @@ namespace DeepSleep.Adapters.Networking
         private readonly ConcurrentQueue<byte[]> _outgoing = new();
         private readonly SemaphoreSlim _signal = new(0);
         private string _ticket;
+        private string _encodedLevelId;
         private void Awake() => _ticket = NetworkClientIdentity.LoadOrCreate();
         private int _generation;
         private bool _running;
         public bool IsServer { get; private set; }
         public bool IsConnected { get; private set; }
+        public bool IsShutdownComplete => !_running && !IsConnected;
         public string DisconnectReason { get; private set; }
         public event Action<ulong> Connected;
         public event Action<ulong> Disconnected;
         public event Action<ulong, byte[]> Received;
         [Serializable] private sealed class Hello { public string action, version, room, ticket; }
+        public bool TrySetLevelId(string levelId)
+        {
+            if (!IsShutdownComplete)
+            { DisconnectReason = "Cannot change level scope while relay is active"; return false; }
+            if (!LevelIdentityValidation.TryValidateLevelId(levelId, out string reason))
+            { DisconnectReason = "Unsupported relay level scope: " + reason; return false; }
+            string encoded = Convert.ToBase64String(Encoding.UTF8.GetBytes(levelId));
+            if (Config == null || VersionText(encoded).Length > MaximumVersionCharacters)
+            { DisconnectReason = "Relay version and level scope exceed the 100-character service limit, or config is missing"; return false; }
+            _encodedLevelId = encoded;
+            DisconnectReason = null;
+            return true;
+        }
         public bool StartHost() => Begin(true);
         public bool StartClient(string address) { RoomCode = address.Trim(); return Begin(false); }
         private bool Begin(bool host)
         {
-            if (_running || !Uri.TryCreate(Endpoint, UriKind.Absolute, out var uri) ||
+            if (!enabled || Config == null || !Config.IsValid || string.IsNullOrEmpty(_encodedLevelId) ||
+                VersionText().Length > MaximumVersionCharacters || _running || !Uri.TryCreate(Endpoint, UriKind.Absolute, out var uri) ||
                 (uri.Scheme != "wss" && !(uri.Scheme == "ws" && uri.IsLoopback))) return false;
             if (host && string.IsNullOrWhiteSpace(RoomCode)) RoomCode = Guid.NewGuid().ToString("N").Substring(0,20);
             if (string.IsNullOrWhiteSpace(RoomCode)) return false;
             IsServer = host; IsConnected = false; DisconnectReason = null; _running = true;
             int generation = ++_generation; _socket = new ClientWebSocket(); _cancel = new CancellationTokenSource();
-            string hello = JsonUtility.ToJson(new Hello { action = host ? "host" : "join", room = RoomCode,
-                version = Config.ProtocolVersion + "|" + Config.ClientVersion + "|" + Config.ContentVersion, ticket = _ticket });
+            string hello = HelloText(host);
             _ = Run(_socket, uri, hello, _cancel.Token, generation);
             return true;
         }
+        private string VersionText() => VersionText(_encodedLevelId);
+        private string VersionText(string encoded) => Config.ProtocolVersion + "|" + Config.ClientVersion + "|" + Config.ContentVersion + "|" + encoded;
+        private string HelloText(bool host) => JsonUtility.ToJson(new Hello { action = host ? "host" : "join", room = RoomCode,
+            version = VersionText(), ticket = _ticket });
         private async Task Run(ClientWebSocket socket, Uri uri, string hello, CancellationToken cancel, int generation)
         {
             try

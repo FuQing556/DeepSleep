@@ -73,7 +73,13 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                 }
             }
             if (capped) Debug.LogWarning("[HS连锁] 本次分叉达到配置安全上限，请检查密集场景预算。");
-            return new BeamFireSnapshot(source.Sequence, source.SourceOrigin, source.AimDirection, source.TargetLayers, lanes.ToArray());
+            return new BeamFireSnapshot(
+                source.Sequence,
+                source.SourceOrigin,
+                source.AimDirection,
+                source.TargetLayers,
+                source.DamageLayers,
+                lanes.ToArray());
         }
     }
 }

@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20260914_DoubaoWordWall\\raw\\VFX_DB_WordBubble_Candidate_v02.png",
+  "source_sha256": "49a5b9f24946f3d1efe3b3ee731020bd8c2d82c5cd6d489c110dad15ca45c69b",
+  "mode": "RGBA",
+  "size": [
+    2170,
+    725
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 608912,
+  "partial_alpha_pixels": 962742,
+  "opaque_pixels": 1596,
+  "visible_bbox_alpha_gt_0": [
+    70,
+    82,
+    2106,
+    643
+  ],
+  "visible_bbox_alpha_gt_8": [
+    73,
+    88,
+    2097,
+    636
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

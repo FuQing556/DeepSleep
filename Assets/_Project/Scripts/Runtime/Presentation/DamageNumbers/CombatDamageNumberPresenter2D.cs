@@ -34,6 +34,12 @@ namespace DeepSleep.Runtime.Presentation.DamageNumbers
         private System.Random _visualRandom;
         private bool _isInitialized;
         private bool _reportedExhaustion;
+        public uint RequestedCount { get; private set; }
+        public uint PlayedCount { get; private set; }
+        public uint CapacityDropCount { get; private set; }
+        public uint DisabledDropCount { get; private set; }
+        public uint InvalidDropCount { get; private set; }
+        public int ActiveCount => _all.Count - _available.Count;
 
         private void Awake()
         {
@@ -146,13 +152,22 @@ namespace DeepSleep.Runtime.Presentation.DamageNumbers
         private void OnMeleeHit(HarnessMeleeDamageHitConfirmed hit)
             => TryShow(hit.HitPoint, hit.DamageAmount, _harnessStyle);
 
+        /// <summary>只播放权威命中跳字，不在镜像端重新结算伤害。</summary>
+        public void ShowReplicaDamage(Vector2 position, float amount, bool harness)
+        {
+            TryShow(position, amount, harness ? _harnessStyle : _deepSeekStyle);
+        }
+
         private void TryShow(
             Vector2 worldPosition,
             float amount,
             DamageNumberStyleConfig style)
         {
-            if (!_isInitialized || amount <= 0f || style.DisplayScale <= 0f)
+            RequestedCount++;
+            if (!_isInitialized || !isActiveAndEnabled) { DisabledDropCount++; return; }
+            if (style == null || amount <= 0f || style.DisplayScale <= 0f)
             {
+                InvalidDropCount++;
                 return;
             }
 
@@ -167,6 +182,7 @@ namespace DeepSleep.Runtime.Presentation.DamageNumbers
             }
             else
             {
+                CapacityDropCount++;
                 if (!_reportedExhaustion)
                 {
                     Debug.LogWarning(
@@ -189,6 +205,7 @@ namespace DeepSleep.Runtime.Presentation.DamageNumbers
                 uiCamera,
                 (float)_visualRandom.NextDouble(),
                 (float)_visualRandom.NextDouble());
+            PlayedCount++;
         }
 
         private DamageNumberEntryView CreateEntry()

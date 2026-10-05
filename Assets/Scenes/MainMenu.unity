@@ -718,7 +718,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 189610158}
   m_OnClick:
     m_PersistentCalls:
@@ -1017,6 +1017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.UI.Common.SafeAreaRectFitter
   _target: {fileID: 332613296}
+  _symmetricInsets: 1
 --- !u!1 &388085341
 GameObject:
   m_ObjectHideFlags: 0
@@ -2228,7 +2229,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u540E\u7EED\u5173\u5361 \xB7 \u6682\u672A\u5B9E\u73B0"
+  m_Text: "\u7B2C\u4E00\u4E16\u754C \xB7 \u9EC4\u660F\u57CE"
 --- !u!222 &1140443340
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2479,6 +2480,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.AppFlow.MainMenuController
   _prototypeLevel: {fileID: 11400000, guid: f86c502ea31fd6b4aa502b52374c54a6, type: 2}
+  _world01Level: {fileID: 11400000, guid: 79f10b2babe75a748a39df66aa6c9e1f, type: 2}
   _home: {fileID: 123306421}
   _levelSelection: {fileID: 1808337283}
   _modeSelection: {fileID: 390908786}
@@ -2490,6 +2492,7 @@ MonoBehaviour:
   _inventoryButton: {fileID: 1178764935}
   _achievementsButton: {fileID: 14228540}
   _prototypeButton: {fileID: 1915779162}
+  _world01Button: {fileID: 189610157}
   _soloButton: {fileID: 244898955}
   _onlineButton: {fileID: 1267445273}
   _backButton: {fileID: 168755478}

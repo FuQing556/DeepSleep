@@ -11,7 +11,8 @@ param(
     [int] $Width = 2048,
     [int] $Height = 1080,
     [int] $EdgeBlendPixels = 192,
-    [int] $ExactBandPixels = 16
+    [int] $ExactBandPixels = 16,
+    [switch] $MirrorLoop
 )
 
 $ErrorActionPreference = 'Stop'
@@ -43,7 +44,8 @@ namespace DeepSleep.Art
             int width,
             int height,
             int edgeBlendPixels,
-            int exactBandPixels)
+            int exactBandPixels,
+            bool mirrorLoop)
         {
             if (width <= 0 || height <= 0)
                 throw new ArgumentOutOfRangeException("Output dimensions must be positive.");
@@ -58,8 +60,13 @@ namespace DeepSleep.Art
             using (var source = new Bitmap(inputPath))
             using (var tile = new Bitmap(width, height, PixelFormat.Format24bppRgb))
             {
-                DrawCover(source, tile);
-                BlendHorizontalSeam(tile, edgeBlendPixels, exactBandPixels);
+                if (mirrorLoop)
+                    DrawMirroredLoop(source, tile);
+                else
+                {
+                    DrawCover(source, tile);
+                    BlendHorizontalSeam(tile, edgeBlendPixels, exactBandPixels);
+                }
                 tile.Save(outputPath, ImageFormat.Png);
 
                 using (var preview = new Bitmap(width * 2, height, PixelFormat.Format24bppRgb))
@@ -90,6 +97,37 @@ namespace DeepSleep.Art
                 graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
                 graphics.SmoothingMode = SmoothingMode.HighQuality;
                 graphics.DrawImage(source, drawX, drawY, drawWidth, drawHeight);
+            }
+        }
+
+        private static void DrawMirroredLoop(Bitmap source, Bitmap destination)
+        {
+            var halfWidth = destination.Width / 2;
+            var scale = Math.Max(
+                halfWidth / (double)source.Width,
+                destination.Height / (double)source.Height);
+            var sourceWindowWidth = Math.Min(
+                source.Width,
+                (int)Math.Round(halfWidth / scale));
+            var sourceWindowHeight = Math.Min(
+                source.Height,
+                (int)Math.Round(destination.Height / scale));
+            var sourceX = (source.Width - sourceWindowWidth) / 2;
+            var sourceY = (source.Height - sourceWindowHeight) / 2;
+            var sourceRect = new Rectangle(
+                sourceX, sourceY, sourceWindowWidth, sourceWindowHeight);
+
+            using (var graphics = Graphics.FromImage(destination))
+            {
+                graphics.CompositingMode = CompositingMode.SourceCopy;
+                graphics.CompositingQuality = CompositingQuality.HighQuality;
+                graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                graphics.SmoothingMode = SmoothingMode.HighQuality;
+                graphics.DrawImage(source, new Rectangle(0, 0, halfWidth, destination.Height),
+                    sourceRect, GraphicsUnit.Pixel);
+                graphics.DrawImage(source, new Rectangle(destination.Width, 0, -halfWidth, destination.Height),
+                    sourceRect, GraphicsUnit.Pixel);
             }
         }
 
@@ -164,7 +202,8 @@ $resolvedPreview = [System.IO.Path]::GetFullPath($PreviewPath)
     $Width,
     $Height,
     $EdgeBlendPixels,
-    $ExactBandPixels)
+    $ExactBandPixels,
+    [bool] $MirrorLoop)
 
 Write-Output "Built: $resolvedOutput"
 Write-Output "Preview: $resolvedPreview"

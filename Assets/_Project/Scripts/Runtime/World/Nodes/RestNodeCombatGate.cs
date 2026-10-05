@@ -5,25 +5,31 @@ using UnityEngine;
 
 namespace DeepSleep.Runtime.World.Nodes
 {
-    /// <summary>切段终止待发连射/残响；只锁战斗，不锁节点移动与调查。</summary>
+    /// <summary>由章节生命周期显式控制攻击许可；取消待发连射/残响，不锁移动与调查。</summary>
     public sealed class RestNodeCombatGate : MonoBehaviour
     {
-        [SerializeField] private RestNodePrototypeController2D _node;
         [SerializeField] private HarnessTerminalLaserController _laser;
         [SerializeField] private HarnessMeleeController _melee;
         [SerializeField] private PlayerActionGate[] _players;
+        private bool _hasState;
+        private bool _combatAllowed;
+        public bool CombatAllowed => _hasState && _combatAllowed;
         private void OnEnable()
         {
-            if(_node==null || _laser==null || _melee==null || _players==null || _players.Length!=2)
-            { Debug.LogError("[RestNodeCombatGate] 节点与两角色战斗引用未配置。",this); enabled=false; return; }
-            _node.StateChanged+=OnState;
-            _node.CombatSuspended+=Suspend;
-            OnState(_node.State);
+            if (!TryValidateConfiguration(out string reason))
+            { Debug.LogError("[RestNodeCombatGate] " + reason, this); enabled = false; return; }
+            _hasState = false;
+            SetCombatAllowed(false);
         }
-        private void OnState(RestNodeState state)
+
+        /// <summary>只清除本门自己的限制，不覆盖倒地/其他机制施加的限制。</summary>
+        public void SetCombatAllowed(bool allowed)
         {
-            if(state==RestNodeState.Combat || state==RestNodeState.Clearing)
-            { foreach(var p in _players)p.ClearBlock(this); }
+            if (_hasState && _combatAllowed == allowed) return;
+            _hasState = true;
+            _combatAllowed = allowed;
+            if (allowed)
+            { foreach (var player in _players) player.ClearBlock(this); }
             else Suspend();
         }
         private void Suspend()
@@ -34,8 +40,17 @@ namespace DeepSleep.Runtime.World.Nodes
         }
         private void OnDisable()
         {
-            if(_node!=null){_node.StateChanged-=OnState;_node.CombatSuspended-=Suspend;}
             if(_players!=null)foreach(var p in _players)if(p!=null)p.ClearBlock(this);
+            _hasState = false;
+        }
+
+        public bool TryValidateConfiguration(out string reason)
+        {
+            if (_laser == null || _melee == null || _players == null || _players.Length != 2 ||
+                _players[0] == null || _players[1] == null || _players[0] == _players[1])
+            { reason = "激光、近战与两名不同玩家的战斗门必须完整配置。"; return false; }
+            reason = string.Empty;
+            return true;
         }
     }
 }

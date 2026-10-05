@@ -11,6 +11,7 @@ using DeepSleep.Runtime.World.Nodes;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace DeepSleep.Editor.Setup
@@ -28,13 +29,15 @@ namespace DeepSleep.Editor.Setup
         private const string SnakeChannelPath = ChannelFolder +
             "/CFG_EN_SpawnChannel_DataCrawlerSnake.asset";
 
-        [MenuItem("DeepSleep/设置/装配章节循环与失败检查点")]
+        [MenuItem("DeepSleep/Legacy/装配章节循环与失败检查点")]
         public static void Install()
         {
             if (Application.isPlaying)
             {
                 throw new InvalidOperationException("请在编辑模式装配。");
             }
+            if (LevelSceneInstaller.TryApplyRegisteredScene(SceneManager.GetActiveScene(), out string report))
+            { Debug.Log(report); return; }
 
             RestNodePrototypeController2D node =
                 One<RestNodePrototypeController2D>();
@@ -57,10 +60,6 @@ namespace DeepSleep.Editor.Setup
                 One<OpeningCharacterSelectionController>());
             SetReference(controller, "_session", One<CoopSessionController>());
             SetReference(controller, "_hud", hud);
-            SetArray(controller, "_spawnDirectors",
-                All<EnemySpawnDirector2D>().ToArray());
-            SetArray(controller, "_enemyPools",
-                All<EnemyActorPool2D>().ToArray());
 
             PlayerLifeStateController2D deepSeek = null;
             PlayerLifeStateController2D harness = null;
@@ -92,13 +91,15 @@ namespace DeepSleep.Editor.Setup
                 "失败检查点与原型结算。");
         }
 
-        [MenuItem("DeepSleep/设置/升级三段差异化原型")]
+        [MenuItem("DeepSleep/Legacy/升级旧三段原型（不适用于已登记关卡）")]
         public static void UpgradePrototypeSettlement()
         {
             if (Application.isPlaying)
             {
                 throw new InvalidOperationException("请在编辑模式装配。");
             }
+            if (LevelSceneInstaller.TryApplyRegisteredScene(SceneManager.GetActiveScene(), out string report))
+            { Debug.Log(report); return; }
 
             ChapterRunConfig config = LoadOrCreateConfig();
             EnemySpawnChannelDefinition windowChannel = LoadOrCreateChannel(
@@ -134,9 +135,6 @@ namespace DeepSleep.Editor.Setup
                     channel;
                 directorObject.ApplyModifiedPropertiesWithoutUndo();
             }
-
-            ChapterRunController controller = One<ChapterRunController>();
-            SetArray(controller, "_spawnDirectors", directors.ToArray());
 
             ChapterRunHudView hud = One<ChapterRunHudView>();
             Transform existing = FindChild(hud.transform.parent,
@@ -470,20 +468,5 @@ namespace DeepSleep.Editor.Setup
             serialized.ApplyModifiedProperties();
         }
 
-        private static void SetArray<T>(
-            UnityEngine.Object target,
-            string propertyName,
-            T[] values) where T : UnityEngine.Object
-        {
-            var serialized = new SerializedObject(target);
-            SerializedProperty property = serialized.FindProperty(propertyName);
-            property.arraySize = values.Length;
-            for (int index = 0; index < values.Length; index++)
-            {
-                property.GetArrayElementAtIndex(index).objectReferenceValue =
-                    values[index];
-            }
-            serialized.ApplyModifiedProperties();
-        }
     }
 }

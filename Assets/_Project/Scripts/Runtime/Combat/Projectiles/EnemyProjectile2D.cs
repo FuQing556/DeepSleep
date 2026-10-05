@@ -57,8 +57,21 @@ namespace DeepSleep.Runtime.Combat.Projectiles
         private void OnTriggerEnter2D(Collider2D other)
         {
             if (!IsRented || other == null ||
-                (_collisionLayers.value & (1 << other.gameObject.layer)) == 0 ||
-                !other.TryGetComponent(out DamageHitbox2D hitbox) ||
+                (_collisionLayers.value & (1 << other.gameObject.layer)) == 0)
+            {
+                return;
+            }
+
+            Vector2 hitPoint = other.ClosestPoint(_body.position);
+            if (other.TryGetComponent(out IEnemyProjectileBlocker2D blocker) &&
+                blocker.TryBlockEnemyProjectile(this, hitPoint))
+            {
+                _ownerPool.NotifyImpact(hitPoint, transform.eulerAngles.z);
+                ReleaseToPool();
+                return;
+            }
+
+            if (!other.TryGetComponent(out DamageHitbox2D hitbox) ||
                 !hitbox.IsActiveTarget)
             {
                 return;
@@ -67,7 +80,6 @@ namespace DeepSleep.Runtime.Combat.Projectiles
             Vector2 direction = _body.linearVelocity.sqrMagnitude > 0f
                 ? _body.linearVelocity.normalized
                 : (Vector2)transform.right;
-            Vector2 hitPoint = other.ClosestPoint(_body.position);
             DamagePacket packet = new DamagePacket(
                 _damage,
                 hitPoint,

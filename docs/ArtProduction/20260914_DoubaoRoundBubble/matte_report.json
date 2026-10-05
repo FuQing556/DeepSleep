@@ -1,0 +1,117 @@
+[
+  {
+    "source": "raw/VFX_DB_RoundBubble_v01.png",
+    "output": "ready/VFX_DB_RoundBubble_v01.png",
+    "source_sha256": "40ab8036fe59a28fb509b4f9fc57413ebccd96de1e820de6991d7a25ee332e46",
+    "method": "green",
+    "parameters": {},
+    "validation": {},
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      99,
+      110,
+      1124,
+      1129
+    ],
+    "transparent_pixels": 748437,
+    "partial_alpha_pixels": 3681,
+    "opaque_pixels": 820398,
+    "clear_corners": true
+  },
+  {
+    "source": "raw/SPR_DB_Lecture_v01.png",
+    "output": "ready/SPR_DB_Lecture_v01.png",
+    "source_sha256": "240d8466cd9b54ccd5e3f0b6d1f7114e4d764518be8aa7f0213a19c0ba5b728e",
+    "method": "green",
+    "parameters": {},
+    "validation": {},
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      353,
+      98,
+      898,
+      1199
+    ],
+    "transparent_pixels": 1228228,
+    "partial_alpha_pixels": 7096,
+    "opaque_pixels": 337192,
+    "clear_corners": true
+  },
+  {
+    "source": "raw/SPR_DB_Dejected_v01.png",
+    "output": "ready/SPR_DB_Dejected_v01.png",
+    "source_sha256": "77e7190dece7d8e497232538481af8181cca05e13641bcb7ea8c13f5c9392d3c",
+    "method": "green",
+    "parameters": {},
+    "validation": {},
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      354,
+      93,
+      895,
+      1199
+    ],
+    "transparent_pixels": 1246963,
+    "partial_alpha_pixels": 6128,
+    "opaque_pixels": 319425,
+    "clear_corners": true
+  },
+  {
+    "source": "raw/VFX_DB_BubbleImpact_v01.png",
+    "output": "ready/VFX_DB_BubbleImpact_v01.png",
+    "source_sha256": "fbf30f0674a05b90197944f33724bda08e3cd12d9f1a34af0cc4bfaa1b50386f",
+    "method": "green",
+    "parameters": {},
+    "validation": {},
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      301,
+      241,
+      984,
+      977
+    ],
+    "transparent_pixels": 1335681,
+    "partial_alpha_pixels": 7544,
+    "opaque_pixels": 229291,
+    "clear_corners": true
+  },
+  {
+    "source": "raw/VFX_DB_BubbleBreak_v01.png",
+    "output": "ready/VFX_DB_BubbleBreak_v01.png",
+    "source_sha256": "3974d8665aecd7841ec6744972904c825d52c878c37e19e004a5675ffa723898",
+    "method": "green",
+    "parameters": {},
+    "validation": {},
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      116,
+      115,
+      1154,
+      1108
+    ],
+    "transparent_pixels": 1210609,
+    "partial_alpha_pixels": 10215,
+    "opaque_pixels": 351692,
+    "clear_corners": true
+  }
+]

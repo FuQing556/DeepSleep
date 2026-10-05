@@ -1,5 +1,7 @@
 # 数据驱动战斗段
 
+> 本页只描述现有战斗段子系统，不是完整的单关卡管理架构；示例段数不限制其他关卡。全局内容接入与管理规范见 [35_LevelManagementArchitecture.md](35_LevelManagementArchitecture.md)，其中待建设部分尚未实施。下表为历史配置记录，实际调参以现役资产为准。
+
 局外关卡入口、结算奖励与本地档案见
 [24_MetaProgressionAndLocalSave.md](24_MetaProgressionAndLocalSave.md)。
 

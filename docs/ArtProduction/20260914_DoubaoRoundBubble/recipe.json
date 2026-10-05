@@ -1,0 +1,7 @@
+{"assets":[
+ {"source":"raw/VFX_DB_RoundBubble_v01.png","output":"ready/VFX_DB_RoundBubble_v01.png","method":"green"},
+ {"source":"raw/SPR_DB_Lecture_v01.png","output":"ready/SPR_DB_Lecture_v01.png","method":"green"},
+ {"source":"raw/SPR_DB_Dejected_v01.png","output":"ready/SPR_DB_Dejected_v01.png","method":"green"},
+ {"source":"raw/VFX_DB_BubbleImpact_v01.png","output":"ready/VFX_DB_BubbleImpact_v01.png","method":"green"},
+ {"source":"raw/VFX_DB_BubbleBreak_v01.png","output":"ready/VFX_DB_BubbleBreak_v01.png","method":"green"}
+]}

@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using DeepSleep.Runtime.Combat.Enemies;
-using DeepSleep.Runtime.Combat.Projectiles;
 using DeepSleep.Runtime.Networking;
 using DeepSleep.Runtime.Progression.Upgrades;
 using DeepSleep.Runtime.Players.Control;
@@ -32,24 +30,39 @@ namespace DeepSleep.Runtime.World.Nodes
         MemoryFragment
     }
 
+    /// <summary>节点对移动决策提供的只读门状态；不授予准备、奖励或离场权限。</summary>
+    public readonly struct RestNodePortalGoal
+    {
+        public RestNodePortalGoal(Vector2 destination, bool isInside, bool fullyInside, bool ready)
+        {
+            Destination = destination;
+            IsInside = isInside;
+            FullyInside = fullyInside;
+            Ready = ready;
+        }
+
+        public Vector2 Destination { get; }
+        public bool IsInside { get; }
+        public bool FullyInside { get; }
+        public bool Ready { get; }
+    }
+
     /// <summary>
-    /// 第一版休息节点闭环：停止刷怪、等待敌人自然清空、
-    /// 淡出循环云层，并启用神殿图上的透明交互区域。
+    /// 休息节点表现与交互：章节负责战斗域/检查点，本组件只负责揭示、占用、准备与离开。
     /// </summary>
     public sealed class RestNodePrototypeController2D : MonoBehaviour
     {
-        private const byte NETWORK_STATE = 40;
-        private const byte NETWORK_PORTAL_READY_REQUEST = 41;
+        private const byte NETWORK_STATE = NetworkMessageCatalog.Authority.RestNodeState;
+        private const byte NETWORK_PORTAL_READY_REQUEST = NetworkMessageCatalog.Peer.RestNodeReady;
 
         [Header("战斗与网络")]
         [SerializeField] private CoopSessionController _session;
-        [SerializeField] private EnemySpawnDirector2D[] _spawnDirectors;
-        [SerializeField] private EnemyActorPool2D[] _enemyPools;
-        [SerializeField] private EnemyProjectilePool2D[] _enemyProjectilePools;
 
         [Header("背景揭示")]
         [SerializeField] private LoopingBackgroundLayer2D _scrollingCloudLayer;
         [SerializeField] private Transform _cloudLayerRoot;
+        [Tooltip("不在背景根下、但需要随战斗背景一起淡出的前景。不会移动或禁用其玩法对象。")]
+        [SerializeField] private SpriteRenderer[] _additionalTransitionRenderers = Array.Empty<SpriteRenderer>();
         [SerializeField] private SpriteRenderer _templeRenderer;
         [SerializeField, Min(0.01f)] private float _cloudFadeSeconds = 1.25f;
 
@@ -75,18 +88,22 @@ namespace DeepSleep.Runtime.World.Nodes
         private float _feedbackUntil;
         private Color _templeBaseColor;
         private bool _isInitialized;
+        private bool _presentationSuspended;
         private bool _deepSeekPortalReady;
         private bool _harnessPortalReady;
         private RestNodeHotspot2D _nearestLocalHotspot;
+        private BoxCollider2D[] _portalGoalShapes;
 
         public RestNodeState State { get; private set; }
         public event Action<RestNodeState> StateChanged;
-        public event Action CombatSuspended;
+        /// <summary>真人通过交互或网络请求明确取消准备；通知 AI 撤销跟门意图，不改变准备规则。</summary>
+        public event Action<PlayerRole> PortalReadyCancelled;
 
         private bool IsOnline =>
             _session != null && _session.Phase == SessionPhase.Playing;
 
-        private bool CanDriveState => !IsOnline || _session.IsAuthority;
+        private bool CanDriveState => _session == null || _session.Phase == SessionPhase.Offline ||
+            _session.IsAuthority;
 
         private void Awake()
         {
@@ -100,6 +117,10 @@ namespace DeepSleep.Runtime.World.Nodes
                 return;
             }
 
+            _portalGoalShapes = new BoxCollider2D[_hotspots.Length];
+            for (int index = 0; index < _hotspots.Length; index++)
+                if (_hotspots[index].Kind == RestNodeHotspotKind.ExitPortal)
+                    _portalGoalShapes[index] = _hotspots[index].GetComponent<BoxCollider2D>();
             SetHotspotsActive(false);
             SetPrompt(string.Empty);
             SetActionButtonActive(false);
@@ -127,6 +148,11 @@ namespace DeepSleep.Runtime.World.Nodes
 
         private void OnDisable()
         {
+            // 场景卸载顺序不保证UI晚于触发器；只清逻辑，不在这里反向访问UI/激活热点。
+            _overlaps.Clear();
+            _nearestLocalHotspot = null;
+            _deepSeekPortalReady = _harnessPortalReady = false;
+            _feedbackUntil = 0f;
             if (_session != null)
             {
                 _session.AuthorityMessage -= ReadNetworkState;
@@ -143,23 +169,15 @@ namespace DeepSleep.Runtime.World.Nodes
 
         private void Update()
         {
+            if (!_isInitialized || _presentationSuspended) return;
             switch (State)
             {
-                case RestNodeState.Clearing when CanDriveState:
-                    if (AreEnemiesCleared())
-                    {
-                        ReturnEnemyProjectiles();
-                        ApplyState(RestNodeState.Revealing);
-                        BroadcastState(RestNodeState.Revealing);
-                    }
-                    break;
-
                 case RestNodeState.Revealing:
                     _revealElapsed += Time.deltaTime;
                     float progress = Mathf.Clamp01(
                         _revealElapsed / _cloudFadeSeconds);
                     SetCloudAlpha(1f - progress);
-                    if (progress >= 1f)
+                    if (progress >= 1f && CanDriveState)
                     {
                         ApplyState(RestNodeState.Open);
                         if (CanDriveState)
@@ -199,7 +217,7 @@ namespace DeepSleep.Runtime.World.Nodes
 
         public bool BeginNodeTransition()
         {
-            if (!_isInitialized ||
+            if (!_isInitialized || _presentationSuspended ||
                 State != RestNodeState.Combat ||
                 !CanDriveState)
             {
@@ -211,9 +229,58 @@ namespace DeepSleep.Runtime.World.Nodes
             return true;
         }
 
+        /// <summary>仅由章节在确认战斗域清空后提交；节点不自行扫描或回收敌人。</summary>
+        public bool CompleteClearing()
+        {
+            if (!_isInitialized || _presentationSuspended || !CanDriveState ||
+                State != RestNodeState.Clearing) return false;
+            ApplyState(RestNodeState.Revealing);
+            BroadcastState(State);
+            return true;
+        }
+
+        /// <summary>
+        /// 直接读取当前门几何，不刷新占用、不准备、不离场。body 为空时只读角色根点与准备状态；
+        /// 提供 body 时返回对齐碰撞体中心的根目标，且四个世界 AABB 角点都在门内才算完整进入。
+        /// </summary>
+        public bool TryReadPortalGoal(PlayerActor actor, Collider2D body, out RestNodePortalGoal goal)
+        {
+            goal = default;
+            if (!_isInitialized || !isActiveAndEnabled || State != RestNodeState.Open ||
+                actor == null || actor.Definition == null || _portalGoalShapes == null) return false;
+            for (int index = 0; index < _portalGoalShapes.Length; index++)
+            {
+                BoxCollider2D portal = _portalGoalShapes[index];
+                RestNodeHotspot2D hotspot = _hotspots[index];
+                if (portal == null || !portal.enabled || !hotspot.isActiveAndEnabled || !hotspot.Allows(actor)) continue;
+                Vector2 center = portal.transform.TransformPoint(portal.offset);
+                bool inside = ContainsPortalPoint(portal, actor.transform.position);
+                bool fullyInside = false;
+                if (body != null && body.enabled && body.gameObject.activeInHierarchy)
+                {
+                    Bounds bounds = body.bounds;
+                    center -= (Vector2)(bounds.center - actor.transform.position);
+                    fullyInside = ContainsPortalPoint(portal, new Vector2(bounds.min.x, bounds.min.y)) &&
+                        ContainsPortalPoint(portal, new Vector2(bounds.min.x, bounds.max.y)) &&
+                        ContainsPortalPoint(portal, new Vector2(bounds.max.x, bounds.min.y)) &&
+                        ContainsPortalPoint(portal, new Vector2(bounds.max.x, bounds.max.y));
+                }
+                goal = new RestNodePortalGoal(center, inside, fullyInside, IsPortalReady(actor.Definition.Role));
+                return true;
+            }
+            return false;
+        }
+
+        private static bool ContainsPortalPoint(BoxCollider2D portal, Vector2 worldPoint)
+        {
+            Vector2 point = (Vector2)portal.transform.InverseTransformPoint(worldPoint) - portal.offset;
+            Vector2 half = portal.size * .5f;
+            return Mathf.Abs(point.x) <= half.x && Mathf.Abs(point.y) <= half.y;
+        }
+
         public bool ReturnToCombat()
         {
-            if (!_isInitialized ||
+            if (!_isInitialized || _presentationSuspended ||
                 State != RestNodeState.Open ||
                 !CanDriveState)
             {
@@ -227,12 +294,12 @@ namespace DeepSleep.Runtime.World.Nodes
 
         public void SuspendCombatForFailure()
         {
-            if (!_isInitialized || !CanDriveState)
+            if (!_isInitialized)
             {
                 return;
             }
 
-            SuspendCombatWorld();
+            SetPresentationSuspended(true);
         }
 
         public void SuspendCombatForSettlement()
@@ -242,60 +309,57 @@ namespace DeepSleep.Runtime.World.Nodes
                 return;
             }
 
-            SuspendCombatWorld();
+            SetPresentationSuspended(true);
         }
 
-        private void SuspendCombatWorld()
+        /// <summary>章节/副本只冻结节点表现，不在节点中启停战斗或结算经济。</summary>
+        public void SetPresentationSuspended(bool suspended)
         {
-            CombatSuspended?.Invoke();
+            if (!_isInitialized || _presentationSuspended == suspended) return;
+            _presentationSuspended = suspended;
+            if (suspended)
+            {
+                _scrollingCloudLayer.SetScrollMultiplier(0f);
+                SetHotspotsActive(false);
+                SetPrompt(string.Empty);
+            }
+            else ApplyState(State, true);
+        }
 
-            _scrollingCloudLayer.SetScrollMultiplier(0f);
-            for (int index = 0; index < _spawnDirectors.Length; index++)
+        public bool TryValidateCheckpointRestore(out string reason)
+        {
+            if (!_isInitialized || !isActiveAndEnabled || !CanDriveState)
             {
-                _spawnDirectors[index]?.Stop();
+                reason = "节点未初始化、未启用或本端没有检查点恢复权限。";
+                return false;
             }
-            for (int index = 0; index < _enemyPools.Length; index++)
-            {
-                _enemyPools[index]?.DespawnAll(EnemyDespawnReason.RunReset);
-            }
-            ReturnEnemyProjectiles();
-            SetHotspotsActive(false);
+            return TryValidateConfiguration(out reason);
         }
 
         public bool RestoreCheckpointNode()
         {
-            if (!_isInitialized || !CanDriveState ||
-                !_upgradeController.RestoreProgressCheckpoint(true))
+            if (!TryValidateCheckpointRestore(out _))
             {
                 return false;
             }
 
+            _presentationSuspended = false;
             ResetNodeInteraction();
-            CaptureCloudRenderers();
-            SetCloudAlpha(0f);
-            SetTempleAlpha(1f);
-            _scrollingCloudLayer.SetScrollMultiplier(0f);
-            for (int index = 0; index < _spawnDirectors.Length; index++)
-            {
-                _spawnDirectors[index]?.Stop();
-            }
-            SetHotspotsActive(true);
-            State = RestNodeState.Open;
+            ApplyState(RestNodeState.Open, true);
             SetPrompt("已返回上一休息节点 · 本次战斗收益已回滚");
-            StateChanged?.Invoke(State);
             BroadcastState(State);
             return true;
         }
 
         public bool RestartCombatFromCheckpoint()
         {
-            if (!_isInitialized || !CanDriveState ||
-                !_upgradeController.RestoreProgressCheckpoint(false))
+            if (!TryValidateCheckpointRestore(out _))
             {
                 return false;
             }
 
-            ApplyState(RestNodeState.Combat);
+            _presentationSuspended = false;
+            ApplyState(RestNodeState.Combat, true);
             BroadcastState(RestNodeState.Combat);
             return true;
         }
@@ -304,7 +368,7 @@ namespace DeepSleep.Runtime.World.Nodes
             RestNodeHotspot2D hotspot,
             PlayerActor actor)
         {
-            if (State != RestNodeState.Open ||
+            if (!_isInitialized || !isActiveAndEnabled || State != RestNodeState.Open ||
                 hotspot == null ||
                 actor == null)
             {
@@ -328,7 +392,7 @@ namespace DeepSleep.Runtime.World.Nodes
             RestNodeHotspot2D hotspot,
             PlayerActor actor)
         {
-            if (hotspot == null ||
+            if (!_isInitialized || !isActiveAndEnabled || State != RestNodeState.Open || hotspot == null ||
                 actor == null ||
                 !_overlaps.TryGetValue(
                     hotspot,
@@ -374,6 +438,15 @@ namespace DeepSleep.Runtime.World.Nodes
                 return false;
             }
 
+            foreach (var renderer in _additionalTransitionRenderers)
+            {
+                if (renderer == null || renderer == _templeRenderer)
+                {
+                    reason = "附加淡出层不能为空或包含休息节点自身图片。";
+                    return false;
+                }
+            }
+
             if (_controlAssignment == null ||
                 _promptText == null ||
                 _actionButton == null ||
@@ -390,13 +463,6 @@ namespace DeepSleep.Runtime.World.Nodes
                 _harnessFacing == null)
             {
                 reason = "未完整配置两名角色的节点移动与朝向组件。";
-                return false;
-            }
-
-            if (_spawnDirectors == null || _spawnDirectors.Length == 0 ||
-                _enemyPools == null || _enemyPools.Length == 0)
-            {
-                reason = "至少需要一个刷怪器和一个敌人池。";
                 return false;
             }
 
@@ -426,24 +492,21 @@ namespace DeepSleep.Runtime.World.Nodes
             return true;
         }
 
-        private void ApplyState(RestNodeState state)
+        private void ApplyState(RestNodeState state, bool forcePresentation = false)
         {
+            bool changed = State != state;
+            if (!changed && !forcePresentation) return;
             State = state;
             switch (state)
             {
                 case RestNodeState.Combat:
                     RestoreCombatFacing();
-                    _upgradeController.EndNode();
                     ResetNodeInteraction();
                     SetHotspotsActive(false);
                     CaptureCloudRenderers();
                     SetCloudAlpha(1f);
                     SetTempleAlpha(0f);
                     _scrollingCloudLayer.SetScrollMultiplier(1f);
-                    for (int index = 0; index < _spawnDirectors.Length; index++)
-                    {
-                        _spawnDirectors[index]?.Begin();
-                    }
                     SetPrompt(string.Empty);
                     break;
 
@@ -452,30 +515,29 @@ namespace DeepSleep.Runtime.World.Nodes
                     CaptureCloudRenderers();
                     SetTempleAlpha(1f);
                     _scrollingCloudLayer.SetScrollMultiplier(0f);
-                    for (int index = 0; index < _spawnDirectors.Length; index++)
-                    {
-                        _spawnDirectors[index]?.Stop();
-                    }
                     SetHotspotsActive(false);
                     SetPrompt("已抵达休息节点 · 清理残余威胁");
                     break;
 
                 case RestNodeState.Revealing:
                     _revealElapsed = 0f;
+                    CaptureCloudRenderers();
+                    SetTempleAlpha(1f);
+                    _scrollingCloudLayer.SetScrollMultiplier(0f);
                     SetPrompt("云层正在散开……");
                     break;
 
                 case RestNodeState.Open:
+                    CaptureCloudRenderers();
                     SetCloudAlpha(0f);
                     SetTempleAlpha(1f);
                     SetHotspotsActive(true);
-                    _upgradeController.BeginNode();
+                    _scrollingCloudLayer.SetScrollMultiplier(0f);
                     SetPrompt("休息节点 · 靠近设施进行调查");
                     break;
 
                 case RestNodeState.Departing:
                     _revealElapsed = 0f;
-                    _upgradeController.EndNode();
                     ResetNodeInteraction();
                     SetHotspotsActive(false);
                     CaptureCloudRenderers();
@@ -486,7 +548,12 @@ namespace DeepSleep.Runtime.World.Nodes
                     break;
             }
 
-            StateChanged?.Invoke(State);
+            if (_presentationSuspended)
+            {
+                _scrollingCloudLayer.SetScrollMultiplier(0f);
+                SetHotspotsActive(false);
+            }
+            if (changed) StateChanged?.Invoke(State);
         }
 
         private void RestoreCombatFacing()
@@ -517,35 +584,6 @@ namespace DeepSleep.Runtime.World.Nodes
                 : FacingDirection.Right);
         }
 
-        private bool AreEnemiesCleared()
-        {
-            for (int index = 0; index < _enemyPools.Length; index++)
-            {
-                if (_enemyPools[index] != null &&
-                    _enemyPools[index].ActiveCount > 0)
-                {
-                    return false;
-                }
-            }
-
-            return true;
-        }
-
-        private void ReturnEnemyProjectiles()
-        {
-            if (_enemyProjectilePools == null)
-            {
-                return;
-            }
-
-            for (int index = 0;
-                 index < _enemyProjectilePools.Length;
-                 index++)
-            {
-                _enemyProjectilePools[index]?.ReturnAllActive();
-            }
-        }
-
         private void CaptureCloudRenderers()
         {
             _cloudRenderers.Clear();
@@ -553,6 +591,8 @@ namespace DeepSleep.Runtime.World.Nodes
             _cloudLayerRoot.GetComponentsInChildren(
                 true,
                 _cloudRenderers);
+            foreach (var renderer in _additionalTransitionRenderers)
+                if (!_cloudRenderers.Contains(renderer)) _cloudRenderers.Add(renderer);
             for (int index = 0; index < _cloudRenderers.Count; index++)
             {
                 Color color = _cloudRenderers[index].color;
@@ -603,7 +643,16 @@ namespace DeepSleep.Runtime.World.Nodes
 
         private void RefreshNearestPrompt()
         {
+            if (!_isInitialized || !isActiveAndEnabled || State != RestNodeState.Open ||
+                _controlAssignment == null || _actionButton == null || _actionButtonLabel == null || _promptText == null)
+                return;
             PlayerActor localActor = _controlAssignment.CurrentLocalPlayerActor;
+            if (localActor == null)
+            {
+                _nearestLocalHotspot = null;
+                SetActionButtonActive(false);
+                return;
+            }
             RestNodeHotspot2D nearest = null;
             float nearestDistance = float.PositiveInfinity;
 
@@ -667,7 +716,7 @@ namespace DeepSleep.Runtime.World.Nodes
 
         private void SetActionButtonActive(bool active)
         {
-            _actionButton.gameObject.SetActive(active);
+            if (_actionButton != null) _actionButton.gameObject.SetActive(active);
         }
 
         private string GetActionLabel(RestNodeHotspot2D hotspot)
@@ -736,6 +785,7 @@ namespace DeepSleep.Runtime.World.Nodes
             }
 
             SetPortalReady(role, ready);
+            if (!ready) PortalReadyCancelled?.Invoke(role);
             if (IsOnline)
             {
                 if (_session.IsAuthority)
@@ -935,6 +985,7 @@ namespace DeepSleep.Runtime.World.Nodes
 
         private void SetPrompt(string value)
         {
+            if (_promptText == null) return;
             _promptText.text = value ?? string.Empty;
             _promptText.gameObject.SetActive(
                 !string.IsNullOrEmpty(_promptText.text));
@@ -958,18 +1009,20 @@ namespace DeepSleep.Runtime.World.Nodes
 
         private void ReadNetworkState(byte kind, BinaryReader reader)
         {
-            if (!_isInitialized || kind != NETWORK_STATE)
+            if (!_isInitialized || kind != NETWORK_STATE || !IsOnline || _session.IsAuthority ||
+                !NetworkMessageCatalog.TryValidatePayload(kind,
+                    NetworkMessageCatalog.Direction.AuthorityToPeer, reader, out _))
             {
                 return;
             }
 
             RestNodeState state = (RestNodeState)reader.ReadByte();
-            if (state <= RestNodeState.Departing)
-            {
-                ApplyState(state);
-                _deepSeekPortalReady = reader.ReadBoolean();
-                _harnessPortalReady = reader.ReadBoolean();
-            }
+            bool deepSeekReady = reader.ReadBoolean();
+            bool harnessReady = reader.ReadBoolean();
+            // 完整校验和读取后才提交；截断或伪节点帧不能先切换背景/战斗状态。
+            ApplyState(state);
+            _deepSeekPortalReady = deepSeekReady;
+            _harnessPortalReady = harnessReady;
         }
 
         private void ReadPeerRequest(byte kind, BinaryReader reader)
@@ -978,7 +1031,9 @@ namespace DeepSleep.Runtime.World.Nodes
                 kind != NETWORK_PORTAL_READY_REQUEST ||
                 !IsOnline ||
                 !_session.IsAuthority ||
-                State != RestNodeState.Open)
+                State != RestNodeState.Open ||
+                !NetworkMessageCatalog.TryValidatePayload(kind,
+                    NetworkMessageCatalog.Direction.PeerToAuthority, reader, out _))
             {
                 return;
             }
@@ -991,6 +1046,7 @@ namespace DeepSleep.Runtime.World.Nodes
             SetPortalReady(
                 guestRole,
                 ready && IsRoleInsidePortal(guestRole));
+            if (!ready) PortalReadyCancelled?.Invoke(guestRole);
             BroadcastState(State);
             TryCompletePortalDeparture();
         }

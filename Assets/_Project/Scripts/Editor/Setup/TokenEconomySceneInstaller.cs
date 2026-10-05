@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using DeepSleep.Runtime.Combat.Enemies;
 using DeepSleep.Runtime.Networking;
 using DeepSleep.Runtime.Players.Identity;
 using DeepSleep.Runtime.Progression.Economy;
@@ -9,6 +8,7 @@ using DeepSleep.Runtime.World.Nodes;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace DeepSleep.Editor.Setup
@@ -18,13 +18,15 @@ namespace DeepSleep.Editor.Setup
         private const string CatalogPath =
             "Assets/_Project/Configs/Progression/CFG_UpgradeCatalog_Default.asset";
 
-        [MenuItem("DeepSleep/设置/装配 Token 掉落与商店")]
+        [MenuItem("DeepSleep/Legacy/装配 Token 掉落与商店")]
         public static void Install()
         {
             if (Application.isPlaying)
             {
                 throw new InvalidOperationException("请在编辑模式装配。");
             }
+            if (LevelSceneInstaller.TryApplyRegisteredScene(SceneManager.GetActiveScene(), out string report))
+            { Debug.Log(report); return; }
 
             RestNodePrototypeController2D node = One<RestNodePrototypeController2D>();
             RestNodeUpgradeController shop = One<RestNodeUpgradeController>();
@@ -39,7 +41,7 @@ namespace DeepSleep.Editor.Setup
             SetReference(shop, "_wallet", wallet);
             SetReference(rewards, "_wallet", wallet);
             SetReference(rewards, "_session", One<CoopSessionController>());
-            SetArray(rewards, "_enemyPools", All<EnemyActorPool2D>().ToArray());
+            // 敌池列表只在后续显式 LevelSceneInstaller 导入时从登记表派生。
 
             Canvas canvas = FindNamed<Canvas>("UI_CombatHUD");
             RectTransform safe = FindChild(canvas.transform, "SafeArea")
@@ -58,7 +60,7 @@ namespace DeepSleep.Editor.Setup
             AssetDatabase.SaveAssets();
             Debug.Log(
                 "[TokenEconomy] 已装配共享钱包、击败奖励、联机余额同步、" +
-                "卡片购买与额外刷新消费。掉落权重为 10/25/30/25/10。");
+                "卡片购买与额外刷新消费。请通过 LevelSceneInstaller 显式导入后再运行。");
         }
 
         private static void BuildWalletHud(
@@ -211,20 +213,5 @@ namespace DeepSleep.Editor.Setup
             serialized.ApplyModifiedProperties();
         }
 
-        private static void SetArray<T>(
-            UnityEngine.Object target,
-            string propertyName,
-            T[] values) where T : UnityEngine.Object
-        {
-            var serialized = new SerializedObject(target);
-            SerializedProperty property = serialized.FindProperty(propertyName);
-            property.arraySize = values.Length;
-            for (int index = 0; index < values.Length; index++)
-            {
-                property.GetArrayElementAtIndex(index).objectReferenceValue =
-                    values[index];
-            }
-            serialized.ApplyModifiedProperties();
-        }
     }
 }

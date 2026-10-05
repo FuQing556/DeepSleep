@@ -8,6 +8,7 @@ namespace DeepSleep.Runtime.AppFlow
     public sealed class MainMenuController : MonoBehaviour
     {
         [SerializeField] private MetaLevelDefinition _prototypeLevel;
+        [SerializeField] private MetaLevelDefinition _world01Level;
         [SerializeField] private GameObject _home;
         [SerializeField] private GameObject _levelSelection;
         [SerializeField] private GameObject _modeSelection;
@@ -19,6 +20,7 @@ namespace DeepSleep.Runtime.AppFlow
         [SerializeField] private Button _inventoryButton;
         [SerializeField] private Button _achievementsButton;
         [SerializeField] private Button _prototypeButton;
+        [SerializeField] private Button _world01Button;
         [SerializeField] private Button _soloButton;
         [SerializeField] private Button _onlineButton;
         [SerializeField] private Button _backButton;
@@ -26,6 +28,7 @@ namespace DeepSleep.Runtime.AppFlow
 
         private MainMenuPage _page;
         private GameSceneRouter _router;
+        private MetaLevelDefinition _selectedLevel;
 
         public MainMenuPage CurrentPage => _page;
 
@@ -38,6 +41,7 @@ namespace DeepSleep.Runtime.AppFlow
                 return;
             }
             _router = GameAppRoot.Instance.SceneRouter;
+            _selectedLevel = _prototypeLevel;
             _page = GameAppRoot.Instance.LaunchContext.ReturnPage;
         }
 
@@ -47,7 +51,8 @@ namespace DeepSleep.Runtime.AppFlow
             _shopButton.onClick.AddListener(OpenShop);
             _inventoryButton.onClick.AddListener(OpenInventory);
             _achievementsButton.onClick.AddListener(OpenAchievements);
-            _prototypeButton.onClick.AddListener(OpenModes);
+            _prototypeButton.onClick.AddListener(SelectPrototype);
+            if (_world01Button != null) _world01Button.onClick.AddListener(SelectWorld01);
             _soloButton.onClick.AddListener(StartSolo);
             _onlineButton.onClick.AddListener(StartOnline);
             _backButton.onClick.AddListener(Back);
@@ -60,7 +65,8 @@ namespace DeepSleep.Runtime.AppFlow
             _shopButton.onClick.RemoveListener(OpenShop);
             _inventoryButton.onClick.RemoveListener(OpenInventory);
             _achievementsButton.onClick.RemoveListener(OpenAchievements);
-            _prototypeButton.onClick.RemoveListener(OpenModes);
+            _prototypeButton.onClick.RemoveListener(SelectPrototype);
+            if (_world01Button != null) _world01Button.onClick.RemoveListener(SelectWorld01);
             _soloButton.onClick.RemoveListener(StartSolo);
             _onlineButton.onClick.RemoveListener(StartOnline);
             _backButton.onClick.RemoveListener(Back);
@@ -108,6 +114,18 @@ namespace DeepSleep.Runtime.AppFlow
             Render();
         }
 
+        private void SelectPrototype()
+        {
+            _selectedLevel = _prototypeLevel;
+            OpenModes();
+        }
+
+        private void SelectWorld01()
+        {
+            _selectedLevel = _world01Level;
+            OpenModes();
+        }
+
         public void Back()
         {
             _page = _page == MainMenuPage.ModeSelection
@@ -116,11 +134,11 @@ namespace DeepSleep.Runtime.AppFlow
             Render();
         }
 
-        private void StartSolo() => _router.StartPrototype(
-            _prototypeLevel, GameLaunchMode.Solo);
+        private void StartSolo() => _router.StartLevel(
+            _selectedLevel, GameLaunchMode.Solo);
 
-        private void StartOnline() => _router.StartPrototype(
-            _prototypeLevel, GameLaunchMode.Online);
+        private void StartOnline() => _router.StartLevel(
+            _selectedLevel, GameLaunchMode.Online);
 
         private void Render()
         {

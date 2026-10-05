@@ -24,6 +24,7 @@ namespace DeepSleep.Runtime.Players.Health
             DamageAccepted;
         public event Action<PlayerDamageReceiver2D>
             InvulnerabilityEnded;
+        public event Action FeedbackReset;
 
         public bool IsInvulnerable =>
             _remainingInvulnerabilitySeconds > 0f;
@@ -111,6 +112,7 @@ namespace DeepSleep.Runtime.Players.Health
         {
             _remainingInvulnerabilitySeconds = 0f;
             _isReviveProtection = false;
+            FeedbackReset?.Invoke();
         }
 
         public void BeginInvulnerability(float durationSeconds)
@@ -124,6 +126,7 @@ namespace DeepSleep.Runtime.Players.Health
                 _remainingInvulnerabilitySeconds,
                 durationSeconds);
             _isReviveProtection = true;
+            FeedbackReset?.Invoke();
         }
 
         public bool TryValidateConfiguration(out string reason)

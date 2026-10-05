@@ -61,9 +61,9 @@ namespace DeepSleep.Runtime.Players.Companion
                 return;
             }
 
-            bool threatClose = sensor.TryGetNearestThreat(position, Config.MeleeAttackRange, out Vector2 closePoint);
             if (Melee.IsMelee)
             {
+                bool threatClose = sensor.TryGetNearestThreat(position, Config.MeleeAttackRange, out Vector2 closePoint);
                 bool swing = threatClose && (!rescue || emergency);
                 if (swing)
                 {

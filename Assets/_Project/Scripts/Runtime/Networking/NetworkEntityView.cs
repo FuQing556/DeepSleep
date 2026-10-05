@@ -1,4 +1,5 @@
 using System.IO;
+using DeepSleep.Runtime.Presentation;
 using UnityEngine;
 
 namespace DeepSleep.Runtime.Networking
@@ -8,6 +9,7 @@ namespace DeepSleep.Runtime.Networking
     {
         public SpriteRenderer[] Layers;
         public UnityEngine.Rendering.SortingGroup Group;
+        public SpriteHitFlash2D HitFlash;
         public float InterpolationSpeed { get; set; } = 30f;
         private Vector3[] _positions;
         private Quaternion[] _rotations;
@@ -16,6 +18,7 @@ namespace DeepSleep.Runtime.Networking
         public void Clear()
         {
             _initialized = false;
+            if (HitFlash != null) HitFlash.ResetFeedback();
             if (Group != null) Group.enabled = false;
             foreach (var layer in Layers) layer.enabled = false;
         }
@@ -41,6 +44,9 @@ namespace DeepSleep.Runtime.Networking
                 view.sortingLayerID = layer; view.sortingOrder = order;
             }
             for (int i = count; i < Layers.Length; i++) Layers[i].enabled = false;
+            uint hitSequence = r.ReadUInt32();
+            float hitAge = r.ReadSingle();
+            if (HitFlash != null) HitFlash.ApplyReplica(hitSequence, hitAge);
             _initialized = true;
         }
         private void LateUpdate()

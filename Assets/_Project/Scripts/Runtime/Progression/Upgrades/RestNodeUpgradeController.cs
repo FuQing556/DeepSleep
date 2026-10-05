@@ -15,8 +15,8 @@ namespace DeepSleep.Runtime.Progression.Upgrades
     /// </summary>
     public sealed class RestNodeUpgradeController : MonoBehaviour
     {
-        private const byte NetworkSnapshot = 42;
-        private const byte NetworkRequest = 43;
+        private const byte NetworkSnapshot = NetworkMessageCatalog.Authority.UpgradeSnapshot;
+        private const byte NetworkRequest = NetworkMessageCatalog.Peer.UpgradeRequest;
         private const byte RequestRefresh = 1;
         private const byte RequestSelect = 2;
         private const int OfferCount = 3;
@@ -41,7 +41,8 @@ namespace DeepSleep.Runtime.Progression.Upgrades
 
         private bool IsOnline =>
             _session != null && _session.Phase == SessionPhase.Playing;
-        private bool CanAuthor => !IsOnline || _session.IsAuthority;
+        private bool CanAuthor => _session == null || _session.Phase == SessionPhase.Offline ||
+            _session.IsAuthority;
 
         private void Awake()
         {
@@ -79,7 +80,7 @@ namespace DeepSleep.Runtime.Progression.Upgrades
 
         public void BeginNode()
         {
-            if (!_isInitialized || _nodeActive)
+            if (!_isInitialized || _nodeActive || !CanAuthor)
             {
                 return;
             }
@@ -87,11 +88,6 @@ namespace DeepSleep.Runtime.Progression.Upgrades
             _nodeActive = true;
             _wallet.SettleBattle();
             _panel.Hide();
-            if (!CanAuthor)
-            {
-                return;
-            }
-
             _nodeSerial++;
             ResetOffer(_deepSeek);
             ResetOffer(_harness);
@@ -102,6 +98,7 @@ namespace DeepSleep.Runtime.Progression.Upgrades
 
         public void EndNode()
         {
+            if (!CanAuthor) return;
             if (!_nodeActive)
             {
                 _panel.Hide();
@@ -121,7 +118,7 @@ namespace DeepSleep.Runtime.Progression.Upgrades
         /// </summary>
         public void SettleFinalBattle()
         {
-            if (!_isInitialized)
+            if (!_isInitialized || !CanAuthor)
             {
                 return;
             }
@@ -134,6 +131,7 @@ namespace DeepSleep.Runtime.Progression.Upgrades
 
         public void CaptureProgressCheckpoint()
         {
+            if (!_isInitialized || !CanAuthor) return;
             _checkpoint = new ProgressCheckpoint(
                 _nodeSerial,
                 CaptureOffer(_deepSeek),
@@ -144,7 +142,7 @@ namespace DeepSleep.Runtime.Progression.Upgrades
 
         public bool RestoreProgressCheckpoint(bool activateNode)
         {
-            if (_checkpoint == null)
+            if (!TryValidateCheckpoint(out _))
             {
                 return false;
             }
@@ -163,6 +161,57 @@ namespace DeepSleep.Runtime.Progression.Upgrades
             }
             _panel.Hide();
             BroadcastSnapshot();
+            return true;
+        }
+
+        /// <summary>副本只跟随节点打开交互；钱包和强化内容只读权威快照，不本地结算。</summary>
+        public void SetReplicaNodeActive(bool active)
+        {
+            if (!_isInitialized || CanAuthor || _nodeActive == active) return;
+            _nodeActive = active;
+            if (!active) _panel.Hide();
+        }
+
+        /// <summary>恢复事务提交前的只读检查，不写钱包、卡牌或角色状态。</summary>
+        public bool TryValidateCheckpoint(out string reason)
+        {
+            if (!_isInitialized || !isActiveAndEnabled || !CanAuthor || _checkpoint == null)
+            {
+                reason = "强化检查点不存在、控制器未启用或本端无恢复权限。";
+                return false;
+            }
+            if (!TryValidateConfiguration(out reason)) return false;
+            if (_checkpoint.NodeSerial < 0 || !IsValidOfferCheckpoint(_checkpoint.DeepSeek) ||
+                !IsValidOfferCheckpoint(_checkpoint.Harness) ||
+                _checkpoint.Wallet.DeepSeekBalance < 0 || _checkpoint.Wallet.HarnessBalance < 0 ||
+                _checkpoint.Wallet.BattleEarned < 0 || _checkpoint.Upgrades == null ||
+                !IsValidRanks(_checkpoint.Upgrades.DeepSeek) ||
+                !IsValidRanks(_checkpoint.Upgrades.Harness) ||
+                !IsValidRanks(_checkpoint.Upgrades.Team))
+            {
+                reason = "强化检查点的商店、余额或等级数据无效；已阻止部分恢复。";
+                return false;
+            }
+            reason = string.Empty;
+            return true;
+        }
+
+        private bool IsValidOfferCheckpoint(OfferCheckpoint offer)
+        {
+            if (offer == null || offer.Offers == null || offer.Offers.Length != OfferCount ||
+                offer.RefreshCount < 0 || offer.PurchaseCount < 0) return false;
+            for (int index = 0; index < offer.Offers.Length; index++)
+                if (offer.Offers[index] != default &&
+                    !_runtimeState.Catalog.TryGet(offer.Offers[index], out _)) return false;
+            return true;
+        }
+
+        private bool IsValidRanks(Dictionary<UpgradeCardId, int> ranks)
+        {
+            if (ranks == null) return false;
+            foreach (var pair in ranks)
+                if (!_runtimeState.Catalog.TryGet(pair.Key, out UpgradeDefinition definition) ||
+                    pair.Value < 0 || pair.Value > definition.MaximumRank) return false;
             return true;
         }
 

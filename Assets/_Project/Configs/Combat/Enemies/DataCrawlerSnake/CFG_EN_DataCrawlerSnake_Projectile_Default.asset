@@ -17,6 +17,6 @@ MonoBehaviour:
   _damage: 1
   _collisionLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 32832
   _initialPoolSize: 24
   _maximumPoolSize: 96

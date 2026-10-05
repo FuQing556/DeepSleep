@@ -1,6 +1,8 @@
 using System;
+using DeepSleep.Runtime.AppFlow;
 using DeepSleep.Runtime.Players.Control;
 using DeepSleep.Runtime.Players.Identity;
+using DeepSleep.Runtime.Progression.Run;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +17,7 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
         [SerializeField] private GameObject _menuRoot;
         [SerializeField] private Button _deepSeekButton;
         [SerializeField] private Button _harnessButton;
+        [SerializeField] private ChapterRunController _chapterRun;
 
         private float _timeScaleBeforeSelection;
         private bool _ownsPause;
@@ -34,7 +37,8 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
                 return;
             }
 
-            _timeScaleBeforeSelection = Time.timeScale;
+            // Router 在异步换场景期间持有全局暂停；不能把过渡用的 0 当作开战倍率。
+            _timeScaleBeforeSelection = SceneTransitioning ? 1f : Time.timeScale;
             Time.timeScale = 0f;
             _ownsPause = true;
             _menuRoot.SetActive(true);
@@ -72,16 +76,33 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
 
         public bool TrySelect(PlayerRole role)
         {
-            if (IsSelectionComplete || !_controlAssignment.TrySelectLocalPlayerRole(role))
+            if (SceneTransitioning || IsSelectionComplete)
             {
                 return false;
             }
+            if (!TryValidateLevelStart(out string reason))
+            {
+                Debug.LogError($"[{nameof(OpeningCharacterSelectionController)}] 开战被阻止：{reason}", this);
+                return false;
+            }
+            if (!_controlAssignment.TrySelectLocalPlayerRole(role)) return false;
 
             IsSelectionComplete = true;
             SelectionConfirmed?.Invoke(role);
             RestoreTimeScale();
             _menuRoot.SetActive(false);
             return true;
+        }
+
+        /// <summary>单人选角与联机开战共用的只读门禁；失败不会解除选角暂停。</summary>
+        public bool TryValidateLevelStart(out string reason)
+        {
+            if (_chapterRun == null || _chapterRun.gameObject.scene != gameObject.scene)
+            {
+                reason = "_chapterRun 为空或不属于本关场景，请显式完成关卡装配。";
+                return false;
+            }
+            return _chapterRun.TryValidateLevelStart(out reason);
         }
 
         public bool TryValidateConfiguration(out string reason)
@@ -119,8 +140,12 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
                 return;
             }
 
-            Time.timeScale = _timeScaleBeforeSelection;
             _ownsPause = false;
+            // 旧场景卸载时不能盖掉 Router 的暂停，重新启动没有会话的旧战斗。
+            if (!SceneTransitioning) Time.timeScale = _timeScaleBeforeSelection;
         }
+
+        private static bool SceneTransitioning => GameAppRoot.Instance != null &&
+            GameAppRoot.Instance.SceneRouter.IsTransitioning;
     }
 }

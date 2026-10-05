@@ -72,7 +72,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                 BeamLaneSnapshot lane = snapshot.GetLane(laneIndex);
                 _resolver.Resolve(
                     in lane,
-                    snapshot.TargetLayers,
+                    snapshot.DamageLayers,
                     primaryReceiver,
                     _resolvedHits);
 

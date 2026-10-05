@@ -1,0 +1,87 @@
+[
+  {
+    "file": "SPR_DB_Dejected_v01.png",
+    "source_bbox": [
+      354,
+      93,
+      895,
+      1199
+    ],
+    "canvas": [
+      1280,
+      1280
+    ],
+    "offset": [
+      371,
+      129
+    ]
+  },
+  {
+    "file": "SPR_DB_Lecture_v01.png",
+    "source_bbox": [
+      353,
+      98,
+      898,
+      1199
+    ],
+    "canvas": [
+      1280,
+      1280
+    ],
+    "offset": [
+      368,
+      129
+    ]
+  },
+  {
+    "file": "VFX_DB_BubbleBreak_v01.png",
+    "source_bbox": [
+      116,
+      115,
+      1154,
+      1108
+    ],
+    "canvas": [
+      1054,
+      1054
+    ],
+    "offset": [
+      8,
+      30
+    ]
+  },
+  {
+    "file": "VFX_DB_BubbleImpact_v01.png",
+    "source_bbox": [
+      301,
+      241,
+      984,
+      977
+    ],
+    "canvas": [
+      752,
+      752
+    ],
+    "offset": [
+      34,
+      8
+    ]
+  },
+  {
+    "file": "VFX_DB_RoundBubble_v01.png",
+    "source_bbox": [
+      99,
+      110,
+      1124,
+      1129
+    ],
+    "canvas": [
+      1041,
+      1041
+    ],
+    "offset": [
+      8,
+      11
+    ]
+  }
+]

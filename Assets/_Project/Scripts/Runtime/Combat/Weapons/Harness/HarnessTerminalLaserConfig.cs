@@ -23,6 +23,8 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
         private float _minimumDirectionDot = 0.85f;
         [SerializeField, Min(1)] private int _maximumTargetCandidates;
         [SerializeField] private LayerMask _targetLayers;
+        [Tooltip("可被激光贯穿伤害、但不参与锁定和连锁选点的环境层。")]
+        [SerializeField] private LayerMask _environmentDamageLayers;
 
         [Header("束线与伤害")]
         [SerializeField, Min(0.01f)] private float _baseBeamWidth;
@@ -54,6 +56,8 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
         public float MinimumDirectionDot => _minimumDirectionDot;
         public int MaximumTargetCandidates => _maximumTargetCandidates;
         public LayerMask TargetLayers => _targetLayers;
+        public LayerMask DamageLayers =>
+            _targetLayers.value | _environmentDamageLayers.value;
         public float BaseBeamWidth => _baseBeamWidth;
         public float BeamLengthMultiplier => _beamLengthMultiplier;
         public float PrimaryTargetDamage => _primaryTargetDamage;

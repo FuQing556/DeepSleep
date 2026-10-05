@@ -12,15 +12,18 @@ namespace DeepSleep.Runtime.Combat.Enemies
             EnemyDespawnReason reason,
             Vector2 effectPosition,
             float worldRotationDegrees,
-            Vector2 travelDirection)
+            Vector2 travelDirection,
+            bool suppressKillReward = false)
         {
             Reason = reason;
             EffectPosition = effectPosition;
             WorldRotationDegrees = worldRotationDegrees;
             TravelDirection = travelDirection;
+            SuppressKillReward = suppressKillReward;
         }
 
         public EnemyDespawnReason Reason { get; }
+        public bool SuppressKillReward { get; }
         public Vector2 EffectPosition { get; }
         public float WorldRotationDegrees { get; }
         public Vector2 TravelDirection { get; }

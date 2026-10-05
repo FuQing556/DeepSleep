@@ -1,0 +1,31 @@
+[
+  {
+    "source": "raw/BG_W01_ForegroundCity_Candidate_v01.png",
+    "output": "ready/BG_W01_ForegroundCity_v01.png",
+    "source_sha256": "fb08a039d506b36f046350c20490fa64bccd959295fc9c65ddb08cebceeaaabc",
+    "method": "green",
+    "parameters": {
+      "cutoff": 4,
+      "backdrop_tolerance": 30,
+      "emission_edges": false
+    },
+    "validation": {
+      "require_clear_corners": false
+    },
+    "size": [
+      1672,
+      941
+    ],
+    "mode": "RGBA",
+    "visible_bbox": [
+      0,
+      627,
+      1672,
+      941
+    ],
+    "transparent_pixels": 1243125,
+    "partial_alpha_pixels": 9871,
+    "opaque_pixels": 320356,
+    "clear_corners": false
+  }
+]

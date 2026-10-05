@@ -29,8 +29,7 @@ namespace DeepSleep.Editor.Setup
             });
             EditorUtility.SetDirty(catalog);
             var network = AssetDatabase.LoadAssetAtPath<DeepSleep.Runtime.Networking.NetworkTuningConfig>(root+"Configs/Networking/CFG_Network.asset");
-            network.ProtocolVersion = 2;
-            network.ContentVersion = "20260913-rice-splash-3";
+            DeepSleep.Editor.Networking.NetworkBuildRevision.Apply(network);
             EditorUtility.SetDirty(network);
             SetFloat(root+"Configs/Combat/Harness/CFG_HA_TerminalLaser_Default.asset","_primaryTargetDamage",3f);
             foreach (string action in new[]{"Up","Down","Sweep"})
@@ -78,7 +77,7 @@ namespace DeepSleep.Editor.Setup
             }
             finally { PrefabUtility.UnloadPrefabContents(prefab); }
             AssetDatabase.SaveAssets();
-            return "10张强化卡、HS三层束体模板、基础伤害与网络协议2已更新。";
+            return "10张强化卡、HS三层束体模板、基础伤害与当前网络版本已更新。";
         }
         private static UpgradeDefinition Card(UpgradeCardId id,string name,string description,PlayerRoleMask roles,
             int max,int cost,int step,UpgradeEffectKind effect,float value) =>

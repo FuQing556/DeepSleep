@@ -21,6 +21,9 @@ MonoBehaviour:
   _targetLayers:
     serializedVersion: 2
     m_Bits: 256
+  _environmentDamageLayers:
+    serializedVersion: 2
+    m_Bits: 32768
   _baseBeamWidth: 0.28
   _beamLengthMultiplier: 1.5
   _primaryTargetDamage: 3

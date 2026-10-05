@@ -20,6 +20,10 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
         private readonly List<HarnessLaserHitEffect2D> _all = new();
         private System.Random _visualRandom;
         private bool _isInitialized;
+        public uint RequestedCount { get; private set; }
+        public uint PlayedCount { get; private set; }
+        public uint DisabledDropCount { get; private set; }
+        public int ActiveCount => _all.Count - _available.Count;
 
         private void Awake()
         {
@@ -128,7 +132,8 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
         /// <summary>复用 HS 红晶命中表现，不伪造激光命中事件，也不参与伤害。</summary>
         public void PlayImpact(Vector2 position, Vector2 direction, float width)
         {
-            if (!_isInitialized || !isActiveAndEnabled) return;
+            RequestedCount++;
+            if (!_isInitialized || !isActiveAndEnabled) { DisabledDropCount++; return; }
 
             HarnessLaserHitEffect2D effect = _available.Count > 0
                 ? _available.Pop()
@@ -144,6 +149,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
                 _config,
                 initialRotationOffset,
                 rotationMagnitude * rotationDirection);
+            PlayedCount++;
         }
 
         private HarnessLaserHitEffect2D CreateEffect()

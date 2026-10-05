@@ -1,6 +1,7 @@
 using DeepSleep.Runtime.Input.Commands;
 using DeepSleep.Runtime.Players.Control;
 using DeepSleep.Runtime.Players.Identity;
+using DeepSleep.Runtime.World.Cameras;
 using UnityEngine;
 
 namespace DeepSleep.Runtime.Input.Touch
@@ -11,6 +12,7 @@ namespace DeepSleep.Runtime.Input.Touch
         public MonoBehaviour DesktopInput;
         public GameObject TouchCanvas;
         public Camera AimCamera;
+        [SerializeField] private CameraHorizontalLookAhead2D _cameraPresentation;
         public PlayerControlAssignment Assignment;
         public Transform DeepSeek, Harness;
         public bool ForceTouchForTesting;
@@ -32,8 +34,13 @@ namespace DeepSleep.Runtime.Input.Touch
         public void SetMove(Vector2 value) => _move = Vector2.ClampMagnitude(value, 1);
         public void SetAimScreen(Vector2 screen)
         {
-            Vector3 world = AimCamera.ScreenToWorldPoint(new Vector3(screen.x, screen.y, -AimCamera.transform.position.z));
-            _aim = new AimIntent(AimReference.WorldPosition, world);
+            Ray ray = _cameraPresentation != null
+                ? _cameraPresentation.ScreenPointToStableRay(AimCamera, screen)
+                : AimCamera.ScreenPointToRay(screen);
+            Plane gameplayPlane = new Plane(Vector3.forward, Vector3.zero);
+            _aim = gameplayPlane.Raycast(ray, out float enter)
+                ? new AimIntent(AimReference.WorldPosition, ray.GetPoint(enter))
+                : new AimIntent(AimReference.None, Vector2.zero);
         }
         public void SetAttack(bool down) => SetButton(ref _attack, down);
         public void SetSkill(bool down) => SetButton(ref _skill, down);

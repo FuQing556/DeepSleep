@@ -1,11 +1,13 @@
 using System;
 using System.IO;
 using System.Collections;
+using System.Collections.Generic;
 using DeepSleep.Runtime.AppFlow;
 using DeepSleep.Runtime.Combat.Enemies;
 using DeepSleep.Runtime.Networking;
 using DeepSleep.Runtime.Players.Identity;
 using DeepSleep.Runtime.Players.LifeCycle;
+using DeepSleep.Runtime.Progression.Levels;
 using DeepSleep.Runtime.Progression.Meta;
 using DeepSleep.Runtime.Progression.Upgrades;
 using DeepSleep.Runtime.UI.CharacterSelection;
@@ -38,21 +40,29 @@ namespace DeepSleep.Runtime.Progression.Run
     /// </summary>
     public sealed class ChapterRunController : MonoBehaviour
     {
-        private const byte NetworkRunState = 45;
+        private const byte NetworkRunState = NetworkMessageCatalog.Authority.ChapterState;
         private const float NetworkBroadcastInterval = 0.2f;
 
-        [SerializeField] private ChapterRunConfig _config;
+        [SerializeField] private LevelSceneBindings _levelBindings;
+        // 仅保留为 Editor 装配派生值，禁止成为第二套可编辑关卡定义。
+        [SerializeField, HideInInspector] private ChapterRunConfig _config;
         [SerializeField] private RestNodePrototypeController2D _restNode;
+        [SerializeField] private ChapterCombatWorld2D _combatWorld;
         [SerializeField] private RestNodeUpgradeController _upgradeController;
         [SerializeField] private OpeningCharacterSelectionController _selection;
         [SerializeField] private CoopSessionController _session;
         [SerializeField] private PlayerLifeStateController2D _deepSeekLife;
         [SerializeField] private PlayerLifeStateController2D _harnessLife;
-        [SerializeField] private EnemySpawnDirector2D[] _spawnDirectors;
-        [SerializeField] private EnemyActorPool2D[] _enemyPools;
+        [Tooltip("可选：指定战斗段还必须完成的机制遭遇。")]
+        [SerializeField] private MonoBehaviour[] _additionalObjectiveComponents;
         [SerializeField] private ChapterRunHudView _hud;
         [SerializeField] private LocalPlayerProfileStore _profile;
-        [SerializeField] private MetaLevelDefinition _level;
+        [SerializeField, HideInInspector] private MetaLevelDefinition _level;
+
+        private ChapterRunConfig _runConfig;
+        private MetaLevelDefinition _runLevel;
+        private string _runLevelId;
+        private IReadOnlyList<LevelEnemySceneBinding> _enemies;
 
         private float _remainingCombatSeconds;
         private float _deepSeekDownedSeconds;
@@ -72,8 +82,13 @@ namespace DeepSleep.Runtime.Progression.Run
         private bool _wasFirstClear;
         private string _rewardMessage;
         private bool _anyPlayerDowned;
+        private bool _checkpointRestoreAttempted;
+        private bool _restoringCheckpoint;
+        private bool _sceneExitStarted;
+        private string _checkpointRestoreError;
         private PlayerLifeCheckpoint _deepSeekCheckpoint;
         private PlayerLifeCheckpoint _harnessCheckpoint;
+        private IChapterCombatObjective[] _additionalObjectives;
 
         public ChapterRunPhase Phase { get; private set; } =
             ChapterRunPhase.WaitingForSelection;
@@ -81,9 +96,15 @@ namespace DeepSleep.Runtime.Progression.Run
         public int SegmentNumber => _segmentNumber;
         public int Defeats => _defeats;
         public float RemainingCombatSeconds => _remainingCombatSeconds;
+        /// <summary>仅表示显式配置已通过且本局引用已捕获；不另建开战状态。</summary>
+        public bool IsInitialized => _isInitialized;
+        /// <summary>本关显式选角门，用于验证持久网络根仍属于当前 Gameplay 场景。</summary>
+        public OpeningCharacterSelectionController Selection => _selection;
+        public LevelSceneBindings LevelBindings => _levelBindings;
+        public ChapterCombatWorld2D CombatWorld => _combatWorld;
 
         private ChapterCombatSegmentDefinition CurrentSegment =>
-            _config.GetSegment(_segmentNumber);
+            _runConfig.GetSegment(_segmentNumber);
 
         public void CompleteObjectiveAndExpireForDevelopment()
         {
@@ -103,7 +124,7 @@ namespace DeepSleep.Runtime.Progression.Run
                 return;
             }
 
-            _segmentNumber = _config.CombatSegmentCount;
+            _segmentNumber = _runConfig.CombatSegmentCount;
             CompleteObjectiveAndExpireForDevelopment();
         }
 
@@ -119,7 +140,8 @@ namespace DeepSleep.Runtime.Progression.Run
 
         private bool IsOnline =>
             _session != null && _session.Phase == SessionPhase.Playing;
-        private bool CanAuthor => !IsOnline || _session.IsAuthority;
+        private bool CanAuthor => _session == null || _session.Phase == SessionPhase.Offline ||
+            _session.IsAuthority;
 
         private void Awake()
         {
@@ -134,8 +156,17 @@ namespace DeepSleep.Runtime.Progression.Run
                 return;
             }
 
+            _runLevel = _levelBindings.Level;
+            _runConfig = _runLevel.ChapterRunConfig;
+            _runLevelId = _runLevel.LevelId;
+            _enemies = _levelBindings.Enemies;
             _isInitialized = true;
-            _remainingCombatSeconds = _config.GetSegment(1).DurationSeconds;
+            int objectiveCount = _additionalObjectiveComponents?.Length ?? 0;
+            _additionalObjectives = new IChapterCombatObjective[objectiveCount];
+            for (int index = 0; index < objectiveCount; index++)
+                _additionalObjectives[index] =
+                    (IChapterCombatObjective)_additionalObjectiveComponents[index];
+            _remainingCombatSeconds = _runConfig.GetSegment(1).DurationSeconds;
             Render();
         }
 
@@ -153,6 +184,8 @@ namespace DeepSleep.Runtime.Progression.Run
             {
                 _session.AuthorityMessage += ReadAuthorityState;
                 _session.PeerJoined += BroadcastState;
+                _session.PlayingStarted += RefreshReplicaFlow;
+                _session.SceneExitStarted += OnSceneExitStarted;
             }
             if (_hud != null)
             {
@@ -175,6 +208,8 @@ namespace DeepSleep.Runtime.Progression.Run
             {
                 _session.AuthorityMessage -= ReadAuthorityState;
                 _session.PeerJoined -= BroadcastState;
+                _session.PlayingStarted -= RefreshReplicaFlow;
+                _session.SceneExitStarted -= OnSceneExitStarted;
             }
             if (_hud != null)
             {
@@ -185,17 +220,19 @@ namespace DeepSleep.Runtime.Progression.Run
 
         private void Start()
         {
-            _upgradeController.CaptureProgressCheckpoint();
-            CapturePlayerCheckpoint();
-            if (_selection.IsSelectionComplete)
+            if (!_isInitialized) return;
+            if (CanAuthor)
             {
-                StartCombatSegment();
+                _upgradeController.CaptureProgressCheckpoint();
+                CapturePlayerCheckpoint();
+                if (_selection.IsSelectionComplete) StartCombatSegment();
             }
+            else RefreshReplicaFlow();
         }
 
         private void Update()
         {
-            if (!_isInitialized)
+            if (!_isInitialized || _sceneExitStarted)
             {
                 return;
             }
@@ -227,7 +264,8 @@ namespace DeepSleep.Runtime.Progression.Run
 
         private void SimulateCombat(float deltaTime)
         {
-            if (deltaTime <= 0f || _restNode.State != RestNodeState.Combat)
+            if (deltaTime <= 0f ||
+                (_restNode.State != RestNodeState.Combat && _restNode.State != RestNodeState.Clearing))
             {
                 return;
             }
@@ -238,28 +276,40 @@ namespace DeepSleep.Runtime.Progression.Run
                 return;
             }
 
+            _totalCombatSeconds += deltaTime;
+            if (_restNode.State == RestNodeState.Clearing)
+            {
+                // 清残敌仍是战斗：受击、倒地失败、击败奖励继续生效，段倒计时不再重跑。
+                if (_combatWorld.IsCleared)
+                {
+                    _combatWorld.StopCombat(ChapterCombatStopReason.NaturalClear);
+                    if (_restNode.CompleteClearing())
+                    {
+                        Phase = ChapterRunPhase.Node;
+                        BroadcastState();
+                    }
+                }
+                return;
+            }
+
             _remainingCombatSeconds = Mathf.Max(
                 0f,
                 _remainingCombatSeconds - deltaTime);
-            _totalCombatSeconds += deltaTime;
             if (_remainingCombatSeconds > 0f)
             {
                 return;
             }
 
-            if (_defeats < CurrentSegment.RequiredDefeats)
+            if (_defeats < CurrentSegment.RequiredDefeats ||
+                !AreAdditionalObjectivesComplete())
             {
                 BeginDefeat(ChapterFailureReason.ObjectiveIncomplete);
             }
-            else if (_segmentNumber >= _config.CombatSegmentCount)
+            else if (_segmentNumber >= _runConfig.CombatSegmentCount)
             {
                 CompleteChapter();
             }
-            else if (_restNode.BeginNodeTransition())
-            {
-                Phase = ChapterRunPhase.Node;
-                BroadcastState();
-            }
+            else _restNode.BeginNodeTransition();
         }
 
         private void UpdateDownedTimers(float deltaTime)
@@ -282,17 +332,17 @@ namespace DeepSleep.Runtime.Progression.Run
 
         private bool TryResolveLifeFailure()
         {
-            if (_teamDownedSeconds >= _config.TeamDownedTimeoutSeconds)
+            if (_teamDownedSeconds >= _runConfig.TeamDownedTimeoutSeconds)
             {
                 BeginDefeat(ChapterFailureReason.TeamDowned);
                 return true;
             }
-            if (_deepSeekDownedSeconds >= _config.SingleDownedTimeoutSeconds)
+            if (_deepSeekDownedSeconds >= _runConfig.SingleDownedTimeoutSeconds)
             {
                 BeginDefeat(ChapterFailureReason.DeepSeekLost);
                 return true;
             }
-            if (_harnessDownedSeconds >= _config.SingleDownedTimeoutSeconds)
+            if (_harnessDownedSeconds >= _runConfig.SingleDownedTimeoutSeconds)
             {
                 BeginDefeat(ChapterFailureReason.HarnessLost);
                 return true;
@@ -310,41 +360,58 @@ namespace DeepSleep.Runtime.Progression.Run
             FailureReason = reason;
             Phase = ChapterRunPhase.Defeat;
             _defeatElapsed = 0f;
+            _checkpointRestoreAttempted = false;
+            _checkpointRestoreError = null;
+            _combatWorld.StopCombat(ChapterCombatStopReason.Failure);
             _restNode.SuspendCombatForFailure();
             BroadcastState();
         }
 
         private void SimulateDefeat(float deltaTime)
         {
+            if (_checkpointRestoreAttempted) return;
             _defeatElapsed += Mathf.Max(0f, deltaTime);
-            if (_defeatElapsed < _config.DefeatPresentationSeconds)
+            if (_defeatElapsed < _runConfig.DefeatPresentationSeconds)
             {
                 return;
             }
 
-            RestorePlayersFromCheckpoint();
-            if (_hasRestNodeCheckpoint)
+            _checkpointRestoreAttempted = true;
+            if (!TryValidateCheckpointRestore(out _checkpointRestoreError))
             {
-                _retryCurrentSegmentFromCheckpoint = true;
-                if (_restNode.RestoreCheckpointNode())
+                Debug.LogError($"[{nameof(ChapterRunController)}] 检查点恢复已停止：{_checkpointRestoreError}", this);
+                return;
+            }
+            // 整组只读校验通过后才提交；升级先还原最大生命，再恢复玩家精确生命/位置。
+            _restoringCheckpoint = true;
+            try
+            {
+                if (!_upgradeController.RestoreProgressCheckpoint(_hasRestNodeCheckpoint))
                 {
+                    _checkpointRestoreError = "强化检查点在提交前失效。";
+                    Debug.LogError($"[{nameof(ChapterRunController)}] {_checkpointRestoreError}", this);
+                    return;
+                }
+                RestorePlayersFromCheckpoint();
+                if (_hasRestNodeCheckpoint)
+                {
+                    _retryCurrentSegmentFromCheckpoint = true;
+                    _restNode.RestoreCheckpointNode();
                     Phase = ChapterRunPhase.Node;
                 }
                 else
                 {
-                    _retryCurrentSegmentFromCheckpoint = false;
+                    _restNode.RestartCombatFromCheckpoint();
+                    StartCombatSegment();
                 }
             }
-            else if (_restNode.RestartCombatFromCheckpoint())
-            {
-                StartCombatSegment();
-            }
+            finally { _restoringCheckpoint = false; }
             BroadcastState();
         }
 
         private void OnSelectionConfirmed(PlayerRole role)
         {
-            if (Phase == ChapterRunPhase.WaitingForSelection)
+            if (CanAuthor && !_sceneExitStarted && Phase == ChapterRunPhase.WaitingForSelection)
             {
                 StartCombatSegment();
             }
@@ -354,16 +421,27 @@ namespace DeepSleep.Runtime.Progression.Run
         {
             if (!CanAuthor)
             {
+                RefreshReplicaFlow();
                 return;
             }
+            if (!_isInitialized || _sceneExitStarted || _restoringCheckpoint) return;
 
-            if (state == RestNodeState.Open)
+            if (state == RestNodeState.Clearing && Phase == ChapterRunPhase.Combat)
             {
-                ApplyRestNodeRecovery();
+                _combatWorld.StopSpawning();
+            }
+            else if (state == RestNodeState.Revealing && Phase == ChapterRunPhase.Combat)
+            {
                 Phase = ChapterRunPhase.Node;
             }
-            else if (state == RestNodeState.Departing)
+            else if (state == RestNodeState.Open && Phase == ChapterRunPhase.Node)
             {
+                _upgradeController.BeginNode();
+                ApplyRestNodeRecovery();
+            }
+            else if (state == RestNodeState.Departing && Phase == ChapterRunPhase.Node)
+            {
+                _upgradeController.EndNode();
                 CapturePlayerCheckpoint();
                 _hasRestNodeCheckpoint = true;
             }
@@ -385,7 +463,7 @@ namespace DeepSleep.Runtime.Progression.Run
 
         private void ApplyRestNodeRecovery()
         {
-            RestNodeRecoveryMode mode = _config.RestNodeRecovery;
+            RestNodeRecoveryMode mode = _runConfig.RestNodeRecovery;
             if (mode == RestNodeRecoveryMode.Disabled)
             {
                 return;
@@ -395,17 +473,18 @@ namespace DeepSleep.Runtime.Progression.Run
             _deepSeekLife.RestoreAtCheckpoint(
                 _deepSeekLife.transform.position,
                 full,
-                _config.ReviveOnlyHealthFraction,
-                _config.CheckpointInvulnerabilitySeconds);
+                _runConfig.ReviveOnlyHealthFraction,
+                _runConfig.CheckpointInvulnerabilitySeconds);
             _harnessLife.RestoreAtCheckpoint(
                 _harnessLife.transform.position,
                 full,
-                _config.ReviveOnlyHealthFraction,
-                _config.CheckpointInvulnerabilitySeconds);
+                _runConfig.ReviveOnlyHealthFraction,
+                _runConfig.CheckpointInvulnerabilitySeconds);
         }
 
         private void StartCombatSegment()
         {
+            if (!CanAuthor || _sceneExitStarted) return;
             ApplyCurrentSegmentTuning();
             Phase = ChapterRunPhase.Combat;
             FailureReason = ChapterFailureReason.None;
@@ -415,20 +494,20 @@ namespace DeepSleep.Runtime.Progression.Run
             _harnessDownedSeconds = 0f;
             _teamDownedSeconds = 0f;
             _defeatElapsed = 0f;
+            _checkpointRestoreAttempted = false;
+            _checkpointRestoreError = null;
+            for (int index = 0; index < _additionalObjectives.Length; index++)
+                _additionalObjectives[index].ResetForSegment(_segmentNumber);
+            _combatWorld.ResumeCombat();
             BroadcastState();
         }
 
         private void ApplyCurrentSegmentTuning()
         {
             ChapterCombatSegmentDefinition segment = CurrentSegment;
-            for (int index = 0; index < _spawnDirectors.Length; index++)
+            for (int index = 0; index < _enemies.Count; index++)
             {
-                EnemySpawnDirector2D director = _spawnDirectors[index];
-                if (director == null)
-                {
-                    continue;
-                }
-
+                EnemySpawnDirector2D director = _enemies[index].Director;
                 if (segment.TryGetRule(director.Channel, out SegmentSpawnRule rule))
                 {
                     director.ApplyRuntimeTuning(
@@ -439,7 +518,8 @@ namespace DeepSleep.Runtime.Progression.Run
                 }
                 else
                 {
-                    director.Stop();
+                    // 未登记到当前段的频道不能被战斗域 ResumeCombat/Begin 再次打开。
+                    director.ApplyRuntimeTuning(false, 0f, 1f, 1);
                 }
             }
         }
@@ -448,6 +528,8 @@ namespace DeepSleep.Runtime.Progression.Run
         {
             Phase = ChapterRunPhase.Complete;
             FailureReason = ChapterFailureReason.None;
+            // 最终段沿用原直接结算规则；先结束碰撞/待发攻击与遭遇，再提交本段收益。
+            _combatWorld.StopCombat(ChapterCombatStopReason.Settlement);
             _upgradeController.SettleFinalBattle();
             GrantMetaRewardOnce();
             _restNode.SuspendCombatForSettlement();
@@ -457,18 +539,6 @@ namespace DeepSleep.Runtime.Progression.Run
 
         private void ReturnToOpening()
         {
-            StartCoroutine(ReturnToMenuRoutine());
-        }
-
-        private IEnumerator ReturnToMenuRoutine()
-        {
-            if (_session != null && _session.Phase != SessionPhase.Offline)
-            {
-                _session.Leave();
-                Destroy(_session.gameObject);
-            }
-            Time.timeScale = 1f;
-            yield return null;
             GameAppRoot.Instance.SceneRouter.LoadMainMenu(
                 MainMenuPage.LevelSelection);
         }
@@ -478,8 +548,16 @@ namespace DeepSleep.Runtime.Progression.Run
             if (_metaRewardGranted) return;
 
             _metaRewardGranted = true;
+            if (!TryValidateLevelIdentity(out _rewardMessage) || _runLevel != _levelBindings.Level)
+            {
+                if (string.IsNullOrEmpty(_rewardMessage))
+                    _rewardMessage = "本局关卡定义在运行中发生变化，已阻止通关写入。";
+                Debug.LogError($"[{nameof(ChapterRunController)}] {_rewardMessage}", this);
+                _awardedVouchers = 0;
+                return;
+            }
             if (!_profile.TryAwardCompletion(
-                    _level,
+                    _runLevel,
                     out _awardedVouchers,
                     out _wasFirstClear,
                     out _rewardMessage))
@@ -504,10 +582,65 @@ namespace DeepSleep.Runtime.Progression.Run
         {
             _deepSeekLife.RestoreCheckpoint(
                 _deepSeekCheckpoint,
-                _config.CheckpointInvulnerabilitySeconds);
+                _runConfig.CheckpointInvulnerabilitySeconds);
             _harnessLife.RestoreCheckpoint(
                 _harnessCheckpoint,
-                _config.CheckpointInvulnerabilitySeconds);
+                _runConfig.CheckpointInvulnerabilitySeconds);
+        }
+
+        private bool TryValidateCheckpointRestore(out string reason)
+        {
+            if (!_restNode.TryValidateCheckpointRestore(out reason) ||
+                !_upgradeController.HasCheckpoint || !_upgradeController.TryValidateCheckpoint(out reason))
+            {
+                if (string.IsNullOrEmpty(reason)) reason = "强化检查点不存在。";
+                return false;
+            }
+            if (!TryValidatePlayerCheckpoint(_deepSeekLife, _deepSeekCheckpoint, out reason))
+            {
+                reason = "DS 检查点无效：" + reason;
+                return false;
+            }
+            if (!TryValidatePlayerCheckpoint(_harnessLife, _harnessCheckpoint, out reason))
+            {
+                reason = "HS 检查点无效：" + reason;
+                return false;
+            }
+            return true;
+        }
+
+        private static bool TryValidatePlayerCheckpoint(PlayerLifeStateController2D life,
+            in PlayerLifeCheckpoint checkpoint, out string reason)
+        {
+            if (life == null || !life.isActiveAndEnabled ||
+                !IsFinite(checkpoint.Position.x) || !IsFinite(checkpoint.Position.y) ||
+                !IsFinite(checkpoint.Health) || checkpoint.Health <= 0f)
+            {
+                reason = "生命控制器未启用，或检查点位置/生命不是有效正值。";
+                return false;
+            }
+            return life.TryValidateConfiguration(out reason);
+        }
+
+        private static bool IsFinite(float value) => !float.IsNaN(value) && !float.IsInfinity(value);
+
+        private void OnSceneExitStarted()
+        {
+            if (!_isInitialized || _sceneExitStarted) return;
+            _sceneExitStarted = true;
+            _combatWorld.StopCombat(ChapterCombatStopReason.SceneExit);
+            _restNode.SetPresentationSuspended(true);
+        }
+
+        private void RefreshReplicaFlow()
+        {
+            if (!_isInitialized || CanAuthor || _sceneExitStarted) return;
+            // Chapter/Node 是独立消息：只按两个当前状态的交集放行，任一先到都不能提前开火。
+            bool combatAllowed = Phase == ChapterRunPhase.Combat &&
+                (_restNode.State == RestNodeState.Combat || _restNode.State == RestNodeState.Clearing);
+            _combatWorld.ApplyReplicaCombatAllowed(combatAllowed);
+            _restNode.SetPresentationSuspended(Phase == ChapterRunPhase.Defeat || Phase == ChapterRunPhase.Complete);
+            _upgradeController.SetReplicaNodeActive(Phase == ChapterRunPhase.Node && _restNode.State == RestNodeState.Open);
         }
 
         private void OnEnemyDespawned(EnemyDespawnRequest2D request)
@@ -522,17 +655,18 @@ namespace DeepSleep.Runtime.Progression.Run
 
         private void SubscribeEnemyPools(bool subscribe)
         {
-            if (_enemyPools == null)
+            if (_enemies == null)
             {
                 return;
             }
-            for (int index = 0; index < _enemyPools.Length; index++)
+            for (int index = 0; index < _enemies.Count; index++)
             {
-                if (_enemyPools[index] == null) continue;
+                EnemyActorPool2D pool = _enemies[index].Pool;
+                if (pool == null) continue;
                 if (subscribe)
-                    _enemyPools[index].ActorDespawned += OnEnemyDespawned;
+                    pool.ActorDespawned += OnEnemyDespawned;
                 else
-                    _enemyPools[index].ActorDespawned -= OnEnemyDespawned;
+                    pool.ActorDespawned -= OnEnemyDespawned;
             }
         }
 
@@ -558,7 +692,7 @@ namespace DeepSleep.Runtime.Progression.Run
             int minutes = totalSeconds / 60;
             int seconds = totalSeconds % 60;
             return "原型演练完成\n\n" +
-                $"战斗段  {_config.CombatSegmentCount}/{_config.CombatSegmentCount}\n" +
+                $"战斗段  {_runConfig.CombatSegmentCount}/{_runConfig.CombatSegmentCount}\n" +
                 $"累计击败  {_totalDefeats}\n" +
                 $"战斗用时  {minutes:00}:{seconds:00}\n\n" +
                 (_awardedVouchers > 0
@@ -572,7 +706,8 @@ namespace DeepSleep.Runtime.Progression.Run
         {
             if (Phase == ChapterRunPhase.Defeat)
             {
-                return FailureText(FailureReason) + "\n正在返回检查点……";
+                return FailureText(FailureReason) + (string.IsNullOrEmpty(_checkpointRestoreError)
+                    ? "\n正在返回检查点……" : "\n检查点无效，恢复已停止，请返回关卡选择。");
             }
             if (Phase != ChapterRunPhase.Combat)
             {
@@ -584,16 +719,28 @@ namespace DeepSleep.Runtime.Progression.Run
                 $"{CurrentSegment.DisplayName}  " +
                 $"击败 {_defeats}/{CurrentSegment.RequiredDefeats}";
             if (_teamDownedSeconds > 0f)
-                text += $"\n全队宕机：{Remaining(_config.TeamDownedTimeoutSeconds, _teamDownedSeconds):0.0}s";
+                text += $"\n全队宕机：{Remaining(_runConfig.TeamDownedTimeoutSeconds, _teamDownedSeconds):0.0}s";
             else if (_deepSeekDownedSeconds > 0f)
-                text += $"\nDS 数据丢失倒计时：{Remaining(_config.SingleDownedTimeoutSeconds, _deepSeekDownedSeconds):0.0}s";
+                text += $"\nDS 数据丢失倒计时：{Remaining(_runConfig.SingleDownedTimeoutSeconds, _deepSeekDownedSeconds):0.0}s";
             else if (_harnessDownedSeconds > 0f)
-                text += $"\nHS 数据丢失倒计时：{Remaining(_config.SingleDownedTimeoutSeconds, _harnessDownedSeconds):0.0}s";
+                text += $"\nHS 数据丢失倒计时：{Remaining(_runConfig.SingleDownedTimeoutSeconds, _harnessDownedSeconds):0.0}s";
             return text;
         }
 
         private static float Remaining(float limit, float elapsed) =>
             Mathf.Max(0f, limit - elapsed);
+
+        private bool AreAdditionalObjectivesComplete()
+        {
+            for (int index = 0; index < _additionalObjectives.Length; index++)
+            {
+                IChapterCombatObjective objective = _additionalObjectives[index];
+                if (objective.IsRequiredForSegment(_segmentNumber) &&
+                    !objective.IsComplete)
+                    return false;
+            }
+            return true;
+        }
 
         private static string FailureText(ChapterFailureReason reason)
         {
@@ -639,7 +786,6 @@ namespace DeepSleep.Runtime.Progression.Run
                 return;
             }
             ChapterRunPhase previousPhase = Phase;
-            int previousSegment = _segmentNumber;
             Phase = (ChapterRunPhase)reader.ReadByte();
             FailureReason = (ChapterFailureReason)reader.ReadByte();
             _segmentNumber = reader.ReadInt32();
@@ -651,12 +797,7 @@ namespace DeepSleep.Runtime.Progression.Run
             _anyPlayerDowned = reader.ReadBoolean();
             _totalDefeats = reader.ReadInt32();
             _totalCombatSeconds = reader.ReadSingle();
-            if (Phase == ChapterRunPhase.Combat &&
-                (previousPhase != ChapterRunPhase.Combat ||
-                 previousSegment != _segmentNumber))
-            {
-                ApplyCurrentSegmentTuning();
-            }
+            RefreshReplicaFlow();
             if (previousPhase != ChapterRunPhase.Complete &&
                 Phase == ChapterRunPhase.Complete)
             {
@@ -669,79 +810,83 @@ namespace DeepSleep.Runtime.Progression.Run
 
         public bool TryValidateConfiguration(out string reason)
         {
-            if (_config == null)
+            if (!TryValidateLevelIdentity(out reason)) return false;
+            if (!_levelBindings.TryValidateConfiguration(out reason)) return false;
+            if (_levelBindings.ChapterRun != this || _levelBindings.RestNode != _restNode ||
+                _levelBindings.Session != _session)
             {
-                reason = "未配置章节运行参数。";
+                reason = "_levelBindings 的章节、节点或会话与章节派生接线不一致。";
                 return false;
             }
-            if (!_config.TryValidate(out reason))
-            {
-                reason = "章节运行配置无效：" + reason;
-                return false;
-            }
-            if (_restNode == null || _upgradeController == null ||
+            if (_restNode == null || _combatWorld == null || _upgradeController == null ||
                 _selection == null || _deepSeekLife == null ||
                 _harnessLife == null || _hud == null ||
-                _profile == null || _level == null ||
-                _spawnDirectors == null || _spawnDirectors.Length == 0 ||
-                _enemyPools == null || _enemyPools.Length == 0)
+                _profile == null)
             {
-                reason = "节点、强化、选角、两名玩家、刷怪器、敌人池和 HUD 必须完整配置。";
+                reason = "节点、战斗域、强化、选角、两名玩家、刷怪器、敌人池和 HUD 必须完整配置。";
                 return false;
             }
-            if (!_level.TryValidate(out reason))
+            if (_combatWorld.gameObject.scene != gameObject.scene || _combatWorld.Bindings != _levelBindings)
             {
-                reason = "局外关卡配置无效：" + reason;
+                reason = "战斗域必须属于当前关卡并引用同一份显式 LevelSceneBindings。";
                 return false;
             }
-            for (int index = 0; index < _spawnDirectors.Length; index++)
+            if (!_combatWorld.TryValidateConfiguration(out reason)) return false;
+            int objectiveCount = _additionalObjectiveComponents?.Length ?? 0;
+            for (int index = 0; index < objectiveCount; index++)
             {
-                EnemySpawnDirector2D director = _spawnDirectors[index];
-                if (director == null || director.Channel == null)
+                if (_additionalObjectiveComponents[index] is not IChapterCombatObjective ||
+                    System.Array.IndexOf(_additionalObjectiveComponents, _additionalObjectiveComponents[index]) != index)
                 {
-                    reason = $"第 {index + 1} 个刷怪器或其频道为空。";
+                    reason = $"附加目标 {index + 1} 为空、重复或未实现 IChapterCombatObjective。";
                     return false;
-                }
-                for (int other = 0; other < index; other++)
-                {
-                    if (_spawnDirectors[other].Channel == director.Channel)
-                    {
-                        reason = $"刷怪频道 {director.Channel.DisplayName} 被多个刷怪器重复使用。";
-                        return false;
-                    }
-                }
-            }
-            for (int segmentIndex = 1;
-                 segmentIndex <= _config.CombatSegmentCount;
-                 segmentIndex++)
-            {
-                SegmentSpawnRule[] rules =
-                    _config.GetSegment(segmentIndex).SpawnRules;
-                for (int ruleIndex = 0; ruleIndex < rules.Length; ruleIndex++)
-                {
-                    if (!rules[ruleIndex].Enabled)
-                    {
-                        continue;
-                    }
-
-                    bool found = false;
-                    for (int directorIndex = 0;
-                         directorIndex < _spawnDirectors.Length;
-                         directorIndex++)
-                    {
-                        found |= _spawnDirectors[directorIndex].Channel ==
-                            rules[ruleIndex].Channel;
-                    }
-                    if (!found)
-                    {
-                        reason = $"第 {segmentIndex} 段启用了没有场景刷怪器的频道 " +
-                            $"{rules[ruleIndex].Channel.DisplayName}。";
-                        return false;
-                    }
                 }
             }
             reason = string.Empty;
             return true;
         }
+
+        /// <summary>完整定义已在 Awake 验证；联机/选角边界只检查初始化、退出、身份和网络根归属。</summary>
+        public bool TryValidateLevelStart(out string reason)
+        {
+            if (!Application.isPlaying) return TryValidateConfiguration(out reason);
+            if (!_isInitialized || !isActiveAndEnabled || _sceneExitStarted)
+            {
+                reason = "章节未初始化、已停用或正在退出，不能开战。";
+                return false;
+            }
+            return TryValidateLevelIdentity(out reason) && _levelBindings.TryValidateNetworkOwnership(out reason);
+        }
+
+        /// <summary>验证启动、场景与结算身份；Editor 无启动意图时仅使用显式场景绑定。</summary>
+        public bool TryValidateLevelIdentity(out string reason)
+        {
+            if (_levelBindings == null || _levelBindings.gameObject.scene != gameObject.scene)
+            {
+                reason = "_levelBindings 为空或不属于当前场景，请显式完成关卡登记装配。";
+                return false;
+            }
+            MetaLevelDefinition boundLevel = _levelBindings.Level;
+            MetaLevelDefinition selectedLevel = GameAppRoot.Instance == null ||
+                GameAppRoot.Instance.LaunchContext == null
+                    ? null
+                    : GameAppRoot.Instance.LaunchContext.SelectedLevel;
+            if (!LevelIdentityValidation.TryValidateContext(boundLevel, gameObject.scene.name,
+                    selectedLevel, Application.isPlaying && !Application.isEditor, out reason)) return false;
+            if (_level != boundLevel || _config != boundLevel.ChapterRunConfig)
+            {
+                reason = $"关卡 {boundLevel.LevelId} 的派生 _level/_config 与 _levelBindings 不一致；不会在运行时覆盖错绑引用。";
+                return false;
+            }
+            if (_isInitialized && (_runLevel != boundLevel || _runConfig != boundLevel.ChapterRunConfig ||
+                !string.Equals(_runLevelId, boundLevel.LevelId, StringComparison.Ordinal)))
+            {
+                reason = $"本局关卡 {boundLevel.LevelId} 的定义或流程引用在运行中发生变化。";
+                return false;
+            }
+            reason = string.Empty;
+            return true;
+        }
+
     }
 }

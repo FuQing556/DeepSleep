@@ -11,7 +11,7 @@ namespace DeepSleep.Runtime.Progression.Economy
     /// </summary>
     public sealed class EnemyTokenRewardController : MonoBehaviour
     {
-        private const byte NetworkBalance = 44;
+        private const byte NetworkBalance = NetworkMessageCatalog.Authority.TokenBalance;
 
         [SerializeField] private TokenWallet _wallet;
         [SerializeField] private EnemyActorPool2D[] _enemyPools;
@@ -74,7 +74,7 @@ namespace DeepSleep.Runtime.Progression.Economy
 
         private void OnActorDespawned(EnemyDespawnRequest2D request)
         {
-            if (!CanReward || request.Reason != EnemyDespawnReason.Defeated)
+            if (!CanReward || request.Reason != EnemyDespawnReason.Defeated || request.SuppressKillReward)
             {
                 return;
             }

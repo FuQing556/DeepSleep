@@ -191,7 +191,8 @@ namespace DeepSleep.Runtime.Combat.Enemies
                 reason,
                 effectPosition,
                 transform.eulerAngles.z,
-                _motor.TravelDirection);
+                _motor.TravelDirection,
+                reason == EnemyDespawnReason.Defeated && _health.LastDamageSuppressesKillReward);
             DespawnRequested?.Invoke(this, request);
             return true;
         }

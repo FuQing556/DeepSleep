@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 996a474a0bdeb764990e7be392b2b707, type: 3}
+  m_Name: CFG_DB_WordWall_Default
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Doubao.DoubaoWordWallConfig
+  _initialDelaySeconds: 1
+  _groupIntervalSeconds: 1
+  _bossRevealSeconds: 8
+  _fallSpeed: 0.85
+  _useMaze: 1
+  _mazeColumns: 7
+  _mazeRowPitch: 2.36
+  _mazeSentenceGap: 0.12
+  _mazeHoldRows: 3
+  _mazeRouteRadius: 0.75
+  _groupsPerWave: 4
+  _coverageWidth: 19.2
+  _horizontalJitter: 0
+  _verticalJitter: 0
+  _referenceCharacterSize: {x: 2.45, y: 2.45}
+  _gapCharacterRange: {x: 1, y: 1.5}
+  _blockMaximumHealth: 10
+  _contactDamage: 1
+  _blockHeight: 1.24
+  _spawnTopPadding: 1.6
+  _despawnBottomPadding: 0.6
+  _poolCapacity: 240
+  _phrases:
+  - "\u6700\u76F4\u63A5"
+  - "\u6700\u771F\u76F8"
+  - "\u6700\u900F\u5F7B"
+  - "\u6700\u5C16\u9510"
+  - "\u6700\u6DF1\u523B"
+  - "\u6700\u73B0\u5B9E"
+  - "\u6700\u4E0D\u7ED5\u5F2F"
+  - "\u6700\u4E0D\u515C\u5708\u5B50"
+  - "\u6700\u624E\u5FC3"
+  - "\u6700\u786C\u6838"
+  - "\u6700\u5E72\u8106"
+  - "\u6700\u5229\u843D"
+  - "\u6700\u4E0D\u58A8\u8FF9"
+  - "\u6700\u4E00\u9488\u89C1\u8840"
+  - "\u6700\u5F00\u95E8\u89C1\u5C71"
+  - "\u6700\u4E0D\u94FA\u57AB"
+  - "\u6700\u4E0D\u5BA2\u5957"
+  - "\u6700\u4E0D\u5E9F\u8BDD"
+  - "\u6700\u4E0D\u8D58\u8FF0"
+  - "\u6700\u76F4\u767D"
+  - "\u6700\u5766\u8BDA"
+  - "\u6700\u4E0D\u52A0\u6EE4\u955C"
+  - "\u6700\u6BEB\u65E0\u4FDD\u7559"
+  - "\u6211\u6CA1\u7EF7\u4F4F"
+  _patterns:
+  - _displayName: "\u5706\u5B57\u7EC41"
+    _slots:
+    - _offset: {x: -0.6, y: 0.5}
+      _width: 1.24
+    - _offset: {x: 0.6, y: 0.5}
+      _width: 1.24
+    - _offset: {x: -0.6, y: -0.5}
+      _width: 1.24
+  - _displayName: "\u5706\u5B57\u7EC42"
+    _slots:
+    - _offset: {x: -0.6, y: 0.5}
+      _width: 1.24
+    - _offset: {x: -0.6, y: -0.5}
+      _width: 1.24
+    - _offset: {x: 0.6, y: -0.5}
+      _width: 1.24
+  - _displayName: "\u5706\u5B57\u7EC43"
+    _slots:
+    - _offset: {x: -0.6, y: 0.5}
+      _width: 1.24
+    - _offset: {x: 0.6, y: 0.5}
+      _width: 1.24
+    - _offset: {x: 0.6, y: -0.5}
+      _width: 1.24
+  - _displayName: "\u5706\u5B57\u7EC44"
+    _slots:
+    - _offset: {x: -0.6, y: 0.5}
+      _width: 1.24
+    - _offset: {x: 0.6, y: 0.5}
+      _width: 1.24
+    - _offset: {x: -0.6, y: -0.5}
+      _width: 1.24
+    - _offset: {x: 0.6, y: -0.5}
+      _width: 1.24
+  _bossMaximumHealth: 45

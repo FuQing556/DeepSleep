@@ -18,6 +18,7 @@ namespace DeepSleep.Runtime.Presentation.DamageNumbers
         private Vector2 _randomOffset;
         private float _rotationDegrees;
         private float _elapsedSeconds;
+        private PresentationLifetime _lifetime;
         private bool _isPlaying;
 
         public event Action<DamageNumberEntryView> Finished;
@@ -69,6 +70,7 @@ namespace DeepSleep.Runtime.Presentation.DamageNumbers
                 style.RotationRangeDegrees.y,
                 rotationRandom01);
             _elapsedSeconds = 0f;
+            _lifetime.Begin(Time.frameCount);
             _isPlaying = true;
 
             ConfigureGlyphs(FormatAmount(amount));
@@ -92,7 +94,7 @@ namespace DeepSleep.Runtime.Presentation.DamageNumbers
                 return;
             }
 
-            _elapsedSeconds += Mathf.Max(0f, Time.deltaTime);
+            _elapsedSeconds = _lifetime.Advance(Time.frameCount, Time.deltaTime);
             float progress = Mathf.Clamp01(
                 _elapsedSeconds / _style.DurationSeconds);
             Render(progress);

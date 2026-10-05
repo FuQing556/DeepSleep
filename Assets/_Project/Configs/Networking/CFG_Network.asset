@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: CFG_Network
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Networking.NetworkTuningConfig
   Port: 7777
-  ProtocolVersion: 2
+  ProtocolVersion: 4
   ClientVersion: 0.1.0
-  ContentVersion: 20260913-rice-splash-3
+  ContentVersion: 20261005-rooftop-node-1
   SnapshotRate: 20
   InputTimeout: 0.35
   ConnectionTimeout: 12

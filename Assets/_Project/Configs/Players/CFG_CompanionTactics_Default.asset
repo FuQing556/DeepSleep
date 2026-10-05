@@ -41,3 +41,11 @@ MonoBehaviour:
   MeleeIdleExitSeconds: 1.5
   SkillRetrySeconds: 0.5
   HarnessAimRestSeconds: 0.25
+  ObstacleCapacity: 256
+  NavigationCellSize: 0.36
+  NavigationPadding: 0.06
+  NavigationPredictionSeconds: 1.2
+  NavigationReplanSeconds: 0.35
+  NavigationGoalHysteresis: 0.35
+  NavigationStuckSeconds: 1.2
+  NavigationMaxExpandedNodes: 768

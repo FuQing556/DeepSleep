@@ -6,6 +6,7 @@ namespace DeepSleep.Runtime.UI.Common
     public sealed class SafeAreaRectFitter : MonoBehaviour
     {
         [SerializeField] private RectTransform _target;
+        [SerializeField] private bool _symmetricInsets;
 
         private Rect _lastSafeArea;
         private Vector2Int _lastScreenSize;
@@ -38,6 +39,8 @@ namespace DeepSleep.Runtime.UI.Common
                 return;
             }
 
+            safeArea = CalculateArea(safeArea, screenSize, _symmetricInsets);
+
             _target.anchorMin = new Vector2(
                 safeArea.xMin / screenSize.x,
                 safeArea.yMin / screenSize.y);
@@ -46,8 +49,23 @@ namespace DeepSleep.Runtime.UI.Common
                 safeArea.yMax / screenSize.y);
             _target.offsetMin = Vector2.zero;
             _target.offsetMax = Vector2.zero;
-            _lastSafeArea = safeArea;
+            _lastSafeArea = Screen.safeArea;
             _lastScreenSize = screenSize;
+        }
+
+        /// <summary>居中内容采用左右/上下最大避让；触控按钮保留设备原始安全区域。</summary>
+        public static Rect CalculateArea(Rect safeArea, Vector2Int screen, bool symmetric)
+        {
+            float left = Mathf.Clamp(safeArea.xMin, 0, screen.x);
+            float right = Mathf.Clamp(screen.x - safeArea.xMax, 0, screen.x);
+            float bottom = Mathf.Clamp(safeArea.yMin, 0, screen.y);
+            float top = Mathf.Clamp(screen.y - safeArea.yMax, 0, screen.y);
+            if (symmetric)
+            {
+                left = right = Mathf.Min(Mathf.Max(left, right), screen.x * .5f);
+                bottom = top = Mathf.Min(Mathf.Max(bottom, top), screen.y * .5f);
+            }
+            return Rect.MinMaxRect(left, bottom, screen.x - right, screen.y - top);
         }
     }
 }

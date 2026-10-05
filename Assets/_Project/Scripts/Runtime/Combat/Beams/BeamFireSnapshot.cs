@@ -18,6 +18,17 @@ namespace DeepSleep.Runtime.Combat.Beams
             Vector2 aimDirection,
             LayerMask targetLayers,
             IReadOnlyList<BeamLaneSnapshot> lanes)
+            : this(sequence, sourceOrigin, aimDirection, targetLayers, targetLayers, lanes)
+        {
+        }
+
+        public BeamFireSnapshot(
+            uint sequence,
+            Vector2 sourceOrigin,
+            Vector2 aimDirection,
+            LayerMask targetLayers,
+            LayerMask damageLayers,
+            IReadOnlyList<BeamLaneSnapshot> lanes)
         {
             if (lanes == null)
             {
@@ -28,6 +39,7 @@ namespace DeepSleep.Runtime.Combat.Beams
             SourceOrigin = sourceOrigin;
             AimDirection = aimDirection.normalized;
             TargetLayers = targetLayers;
+            DamageLayers = damageLayers;
             _lanes = new BeamLaneSnapshot[lanes.Count];
 
             for (int index = 0; index < lanes.Count; index++)
@@ -40,6 +52,8 @@ namespace DeepSleep.Runtime.Combat.Beams
         public Vector2 SourceOrigin { get; }
         public Vector2 AimDirection { get; }
         public LayerMask TargetLayers { get; }
+        /// <summary>实际伤害查询层；可额外包含不会参与锁定与连锁选点的环境目标。</summary>
+        public LayerMask DamageLayers { get; }
         public int LaneCount => _lanes.Length;
 
         public BeamLaneSnapshot GetLane(int index)
@@ -58,6 +72,7 @@ namespace DeepSleep.Runtime.Combat.Beams
             {
                 if (AimDirection.sqrMagnitude <= 0f ||
                     TargetLayers.value == 0 ||
+                    DamageLayers.value == 0 ||
                     _lanes.Length == 0)
                 {
                     return false;

@@ -1,4 +1,3 @@
-using System.Collections;
 using DeepSleep.Runtime.Networking;
 using DeepSleep.Runtime.AppFlow;
 using DeepSleep.Runtime.Input.Touch;
@@ -32,11 +31,14 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
         private readonly string[] _roomAddresses = new string[32];
         private bool _wasPlaying, _relay, _manual, _ownsPause, _leaving;
         private float _previousTimeScale;
-        private IRelaySelection Relay => Session.TransportComponent as IRelaySelection;
-        private TouchCommandSource Touch => Session.LocalInput as TouchCommandSource;
-        private bool InGame => Session.CanControlLocally;
+        private IRelaySelection Relay => Session != null ? Session.TransportComponent as IRelaySelection : null;
+        private TouchCommandSource Touch => Session != null ? Session.LocalInput as TouchCommandSource : null;
+        private bool Transitioning => GameAppRoot.Instance != null && GameAppRoot.Instance.SceneRouter.IsTransitioning;
+        private bool InGame => Session != null && !Transitioning && Session.CanControlLocally;
         private void OnEnable()
         {
+            if (GameAppRoot.Instance != null)
+                GameAppRoot.Instance.SceneRouter.TransitionCompleted += Refresh;
             TogglePanel.onClick.AddListener(Toggle);
             HostDs.onClick.AddListener(CreateDs); HostHs.onClick.AddListener(CreateHs);
             JoinButton.onClick.AddListener(Join); ReadyButton.onClick.AddListener(Ready);
@@ -56,21 +58,38 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
         }
         private void OnDisable()
         {
+            if (GameAppRoot.Instance != null)
+                GameAppRoot.Instance.SceneRouter.TransitionCompleted -= Refresh;
             RestorePause(); Touch?.SetUiBlocked(false);
-            TogglePanel.onClick.RemoveListener(Toggle);
-            HostDs.onClick.RemoveListener(CreateDs); HostHs.onClick.RemoveListener(CreateHs);
-            JoinButton.onClick.RemoveListener(Join); ReadyButton.onClick.RemoveListener(Ready);
-            AiButton.onClick.RemoveListener(Ai); LeaveButton.onClick.RemoveListener(RequestLeave);
-            TransportMode.onClick.RemoveListener(SwitchTransport); CopyRoom.onClick.RemoveListener(CopyRoomCode);
-            CloseButton.onClick.RemoveListener(ClosePanel); ScanButton.onClick.RemoveListener(Scan);
-            ManualButton.onClick.RemoveListener(ToggleManual); ConfirmLeave.onClick.RemoveListener(Leave);
-            CancelLeave.onClick.RemoveListener(CancelExit); QuickAi.onClick.RemoveListener(Ai);
-            foreach (var button in RoomButtons) button.onClick.RemoveAllListeners();
-            Session.Changed -= Refresh; Discovery.Changed -= RefreshRooms;
-            Discovery.SetBrowsing(false);
+            if (TogglePanel != null) TogglePanel.onClick.RemoveListener(Toggle);
+            if (HostDs != null) HostDs.onClick.RemoveListener(CreateDs);
+            if (HostHs != null) HostHs.onClick.RemoveListener(CreateHs);
+            if (JoinButton != null) JoinButton.onClick.RemoveListener(Join);
+            if (ReadyButton != null) ReadyButton.onClick.RemoveListener(Ready);
+            if (AiButton != null) AiButton.onClick.RemoveListener(Ai);
+            if (LeaveButton != null) LeaveButton.onClick.RemoveListener(RequestLeave);
+            if (TransportMode != null) TransportMode.onClick.RemoveListener(SwitchTransport);
+            if (CopyRoom != null) CopyRoom.onClick.RemoveListener(CopyRoomCode);
+            if (CloseButton != null) CloseButton.onClick.RemoveListener(ClosePanel);
+            if (ScanButton != null) ScanButton.onClick.RemoveListener(Scan);
+            if (ManualButton != null) ManualButton.onClick.RemoveListener(ToggleManual);
+            if (ConfirmLeave != null) ConfirmLeave.onClick.RemoveListener(Leave);
+            if (CancelLeave != null) CancelLeave.onClick.RemoveListener(CancelExit);
+            if (QuickAi != null) QuickAi.onClick.RemoveListener(Ai);
+            if (RoomButtons != null)
+                foreach (var button in RoomButtons) if (button != null) button.onClick.RemoveAllListeners();
+            if (Session != null) Session.Changed -= Refresh;
+            if (Discovery != null) { Discovery.Changed -= RefreshRooms; Discovery.SetBrowsing(false); }
         }
         private void Update()
         {
+            if (Transitioning || Session == null) return;
+            if (_leaving && GameAppRoot.Instance != null &&
+                !string.IsNullOrEmpty(GameAppRoot.Instance.SceneRouter.LastTransitionError))
+            {
+                _leaving = false;
+                StatusLabel.text = "退出清理失败，当前场景已暂停。可重试离开；详情见日志。";
+            }
             if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame && InGame)
             {
                 if (ConfirmGroup.activeSelf) CancelExit(); else Toggle();
@@ -78,6 +97,7 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
         }
         private void LateUpdate()
         {
+            if (Transitioning || Session == null) return;
             bool blocked = Panel.activeSelf && InGame;
             Touch?.SetUiBlocked(blocked);
             if (Touch != null && InGame)
@@ -96,6 +116,7 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
         public void ClosePanel() => SetPanel(false);
         private void SetPanel(bool open)
         {
+            if (Transitioning || Session == null) return;
             Panel.SetActive(open);
             Touch?.SetUiBlocked(open && InGame);
             if (!open) ConfirmGroup.SetActive(false);
@@ -109,7 +130,8 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
         private void RestorePause()
         {
             if (!_ownsPause) return;
-            _ownsPause = false; Time.timeScale = _previousTimeScale;
+            _ownsPause = false;
+            if (!Transitioning) Time.timeScale = _previousTimeScale;
         }
         private void Configure() => Relay?.SelectRelay(_relay, RelayEndpoint.text.Trim(), Address.text.Trim());
         private void CreateDs() { Configure(); Session.Create(PlayerRole.DeepSeek); }
@@ -147,21 +169,16 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
         private void CancelExit() => ConfirmGroup.SetActive(false);
         private void Leave()
         {
-            if (_leaving) return;
-            _leaving = true; RestorePause(); Touch?.SetUiBlocked(false);
-            Discovery.SetBrowsing(false); Session.Leave();
-            StartCoroutine(ReturnToMenu());
-        }
-        private IEnumerator ReturnToMenu()
-        {
-            yield return null;
-            Destroy(Session.gameObject);
-            yield return null;
+            if (_leaving || Transitioning || GameAppRoot.Instance == null) return;
+            _leaving = true;
+            _ownsPause = false;
+            Touch?.SetUiBlocked(true);
+            if (Discovery != null) Discovery.SetBrowsing(false);
             GameAppRoot.Instance.SceneRouter.LoadMainMenu(MainMenuPage.ModeSelection);
         }
         private void Refresh()
         {
-            if (ConnectGroup == null) return;
+            if (ConnectGroup == null || Session == null || Transitioning) return;
             bool game = InGame;
             bool offline = Session.Phase == SessionPhase.Offline;
             bool disconnected = Session.Phase == SessionPhase.Disconnected;
@@ -208,6 +225,7 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
         }
         private void RefreshRooms()
         {
+            if (Transitioning || Session == null || Discovery == null || DiscoveryLabel == null) return;
             DiscoveryLabel.text = _relay ? "公网模式通过房间码加入，无需在同一局域网。" : Discovery.Status;
             for (int i = 0; i < RoomButtons.Length; i++)
             {

@@ -111,6 +111,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                 sourceOrigin,
                 normalizedAimDirection,
                 config.TargetLayers,
+                config.DamageLayers,
                 lanes);
 
             if (!snapshot.IsValid)

@@ -98,7 +98,7 @@ namespace DeepSleep.Editor.Setup
             EditorSceneManager.SaveScene(scene);
             if (openedScene) EditorSceneManager.CloseScene(scene, true);
             var network = AssetDatabase.LoadAssetAtPath<NetworkTuningConfig>(Root + "Configs/Networking/CFG_Network.asset");
-            network.ContentVersion = "20260913-rice-splash-3";
+            DeepSleep.Editor.Networking.NetworkBuildRevision.Apply(network);
             EditorUtility.SetDirty(network);
             AssetDatabase.SaveAssets();
             return "溅射贴图、Prefab、配置、卡池、DS及场景和网络特效110已装配；HS叠层已收紧。";
