@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using DeepSleep.Runtime.AppFlow;
+using DeepSleep.Runtime.Presentation.Audio;
 using DeepSleep.Runtime.Networking;
 using DeepSleep.Runtime.Progression.Economy;
 using DeepSleep.Runtime.Players.Control;
@@ -16,6 +18,7 @@ namespace DeepSleep.Runtime.Progression.Upgrades
     public sealed class RestNodeUpgradeController : MonoBehaviour
     {
         private const byte NetworkSnapshot = NetworkMessageCatalog.Authority.UpgradeSnapshot;
+        private const byte NetworkResult = NetworkMessageCatalog.Authority.UpgradeResult;
         private const byte NetworkRequest = NetworkMessageCatalog.Peer.UpgradeRequest;
         private const byte RequestRefresh = 1;
         private const byte RequestSelect = 2;
@@ -35,6 +38,8 @@ namespace DeepSleep.Runtime.Progression.Upgrades
         private int _nodeSerial;
         private bool _nodeActive;
         private bool _isInitialized;
+        private uint _resultSequence, _lastResultSequence;
+        private bool _receivedResult;
         private ProgressCheckpoint _checkpoint;
 
         public bool HasCheckpoint => _checkpoint != null;
@@ -65,6 +70,8 @@ namespace DeepSleep.Runtime.Progression.Upgrades
                 _session.AuthorityMessage += ReadAuthorityMessage;
                 _session.PeerMessage += ReadPeerMessage;
                 _session.PeerJoined += OnPeerJoined;
+                _session.SessionOpened += OnSessionOpened;
+                _session.SessionClosed += ResetAudioResults;
             }
         }
 
@@ -75,7 +82,17 @@ namespace DeepSleep.Runtime.Progression.Upgrades
                 _session.AuthorityMessage -= ReadAuthorityMessage;
                 _session.PeerMessage -= ReadPeerMessage;
                 _session.PeerJoined -= OnPeerJoined;
+                _session.SessionOpened -= OnSessionOpened;
+                _session.SessionClosed -= ResetAudioResults;
             }
+        }
+
+        private void OnSessionOpened(bool authority) => ResetAudioResults();
+
+        private void ResetAudioResults()
+        {
+            _resultSequence = _lastResultSequence = 0;
+            _receivedResult = false;
         }
 
         public void BeginNode()
@@ -219,15 +236,19 @@ namespace DeepSleep.Runtime.Progression.Upgrades
         {
             if (!_nodeActive)
             {
+                GameAppRoot.Instance?.Audio?.Play(AudioCue.UiReject);
                 return false;
             }
 
             if (IsOnline && role != _controlAssignment.CurrentLocalPlayerRole)
             {
+                GameAppRoot.Instance?.Audio?.Play(AudioCue.UiReject);
                 return false;
             }
 
+            bool newlyOpened = !IsPanelShowing(role);
             RefreshPanel(role);
+            if (newlyOpened) GameAppRoot.Instance?.Audio?.Play(AudioCue.UiOpen);
             return true;
         }
 
@@ -261,6 +282,7 @@ namespace DeepSleep.Runtime.Progression.Upgrades
             }
 
             _panel.ShowStatus("正在等待主机确认刷新……");
+            GameAppRoot.Instance?.Audio?.Play(AudioCue.UiConfirm);
             _session.SendToAuthority(
                 NetworkRequest,
                 writer =>
@@ -287,6 +309,7 @@ namespace DeepSleep.Runtime.Progression.Upgrades
             }
 
             _panel.ShowStatus("正在等待主机确认选择……");
+            GameAppRoot.Instance?.Audio?.Play(AudioCue.UiConfirm);
             _session.SendToAuthority(
                 NetworkRequest,
                 writer =>
@@ -303,12 +326,14 @@ namespace DeepSleep.Runtime.Progression.Upgrades
             OfferState state = GetOffer(role);
             if (!_nodeActive)
             {
+                PlayLocalResult(role, AudioCue.UiReject);
                 return;
             }
 
             int cost = state.RefreshCount == 0 ? 0 : PaidRefreshCost;
             if (!_wallet.TrySpend(role, cost))
             {
+                PlayLocalResult(role, AudioCue.UiReject);
                 if (IsPanelShowing(role))
                 {
                     _panel.ShowStatus($"TOKEN 不足：再次刷新需要 {cost}");
@@ -318,6 +343,7 @@ namespace DeepSleep.Runtime.Progression.Upgrades
             }
 
             state.RefreshCount++;
+            PlayLocalResult(role, AudioCue.Refresh);
             GenerateOffers(role, state);
             BroadcastSnapshot();
             if (IsPanelShowing(role))
@@ -333,6 +359,7 @@ namespace DeepSleep.Runtime.Progression.Upgrades
                 !_runtimeState.Catalog.TryGet(id, out UpgradeDefinition definition) ||
                 !IsOfferUnlocked(role, id))
             {
+                PlayLocalResult(role, AudioCue.UiReject);
                 return;
             }
 
@@ -340,6 +367,7 @@ namespace DeepSleep.Runtime.Progression.Upgrades
                 _runtimeState.GetRank(role, id));
             if (_wallet.GetBalance(role) < cost)
             {
+                PlayLocalResult(role, AudioCue.UiReject);
                 if (IsPanelShowing(role))
                 {
                     _panel.ShowStatus($"TOKEN 不足：购买需要 {cost}");
@@ -349,12 +377,14 @@ namespace DeepSleep.Runtime.Progression.Upgrades
             }
             if (!_runtimeState.TryApply(role, id))
             {
+                PlayLocalResult(role, AudioCue.UiReject);
                 BroadcastSnapshot();
                 return;
             }
             _wallet.TrySpend(role, cost);
 
             state.PurchaseCount++;
+            PlayLocalResult(role, AudioCue.Upgrade);
             GenerateOffers(role, state);
             BroadcastSnapshot();
             if (IsPanelShowing(role))
@@ -366,6 +396,47 @@ namespace DeepSleep.Runtime.Progression.Upgrades
         private bool IsPanelShowing(PlayerRole role)
         {
             return _panel.IsOpen && _panel.Role == role;
+        }
+
+        private void PlayLocalResult(PlayerRole role, AudioCue cue)
+        {
+            // 本机结果直接播；对方结果只发送明确回执，整份快照与检查点恢复不代表操作成功。
+            if (!IsOnline || role == _controlAssignment.CurrentLocalPlayerRole)
+            {
+                GameAppRoot.Instance?.Audio?.Play(cue);
+                return;
+            }
+            if (!_session.IsAuthority || (byte)role > 1) return;
+            byte result = cue switch
+            {
+                AudioCue.UiReject => 0, AudioCue.Refresh => 1, AudioCue.Upgrade => 2,
+                _ => throw new ArgumentOutOfRangeException(nameof(cue))
+            };
+            _resultSequence = unchecked(_resultSequence + 1);
+            if (_resultSequence == 0) _resultSequence = 1;
+            _session.SendAuthority(NetworkResult, writer =>
+            {
+                writer.Write(_nodeSerial); writer.Write(_resultSequence);
+                writer.Write((byte)role); writer.Write(result);
+            }, reliable: true);
+        }
+
+        private bool TryReadResult(BinaryReader reader, out AudioCue cue)
+        {
+            cue = default;
+            if (!_isInitialized || !IsOnline || _session.IsAuthority || !_nodeActive || _controlAssignment == null ||
+                !NetworkMessageCatalog.TryValidatePayload(NetworkResult,
+                    NetworkMessageCatalog.Direction.AuthorityToPeer, reader, out _)) return false;
+            int nodeSerial = reader.ReadInt32();
+            uint sequence = reader.ReadUInt32();
+            PlayerRole role = (PlayerRole)reader.ReadByte();
+            byte result = reader.ReadByte();
+            if (nodeSerial != _nodeSerial || role != _controlAssignment.CurrentLocalPlayerRole ||
+                (_receivedResult && !RemoteCommandSource.IsNewer(sequence, _lastResultSequence))) return false;
+            _receivedResult = true;
+            _lastResultSequence = sequence;
+            cue = result == 0 ? AudioCue.UiReject : result == 1 ? AudioCue.Refresh : AudioCue.Upgrade;
+            return true;
         }
 
         private bool IsOfferUnlocked(PlayerRole role, UpgradeCardId id)
@@ -438,6 +509,11 @@ namespace DeepSleep.Runtime.Progression.Upgrades
 
         private void ReadAuthorityMessage(byte kind, BinaryReader reader)
         {
+            if (kind == NetworkResult)
+            {
+                if (TryReadResult(reader, out AudioCue cue)) GameAppRoot.Instance?.Audio?.Play(cue);
+                return;
+            }
             if (!_isInitialized || kind != NetworkSnapshot ||
                 !IsOnline || _session.IsAuthority)
             {

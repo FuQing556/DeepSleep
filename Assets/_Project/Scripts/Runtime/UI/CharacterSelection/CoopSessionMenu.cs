@@ -3,6 +3,7 @@ using DeepSleep.Runtime.AppFlow;
 using DeepSleep.Runtime.Input.Touch;
 using DeepSleep.Runtime.Players.Identity;
 using DeepSleep.Runtime.UI.Common;
+using DeepSleep.Runtime.Presentation.Audio;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -27,6 +28,8 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
         public GameObject ConnectGroup, ManualGroup, LobbyGroup, PlayGroup, ConfirmGroup;
         public Button CloseButton, ScanButton, ManualButton, ConfirmLeave, CancelLeave, QuickAi;
         public Text TitleLabel, DiscoveryLabel, PlayHint, QuickAiLabel;
+        public RectTransform MenuCard;
+        public Vector2 LobbyMenuSize, PlayMenuSize;
         public Button[] RoomButtons;
         public Text[] RoomLabels;
         private readonly string[] _roomAddresses = new string[32];
@@ -100,6 +103,7 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
         {
             if (Transitioning || Session == null) return;
             bool blocked = Panel.activeSelf && InGame;
+            GameAppRoot.Instance?.Audio?.SetLocalMenuOpen(blocked);
             Touch?.SetUiBlocked(blocked);
             if (Touch != null && InGame)
                 Touch.TouchCanvas.SetActive(Touch.TouchEnabled && !blocked && !Session.LocalAi);
@@ -113,11 +117,13 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
             _wasPlaying = playing;
             Refresh();
         }
-        public void Toggle() => SetPanel(!Panel.activeSelf);
-        public void ClosePanel() => SetPanel(false);
-        private void SetPanel(bool open)
+        public void Toggle() => SetPanel(!Panel.activeSelf, true);
+        public void ClosePanel() => SetPanel(false, true);
+        private void SetPanel(bool open, bool playFeedback = false)
         {
             if (Transitioning || Session == null) return;
+            if (playFeedback && Panel.activeSelf != open)
+                GameAppRoot.Instance?.Audio?.Play(open ? AudioCue.UiOpen : AudioCue.UiCancel);
             Panel.SetActive(open);
             Touch?.SetUiBlocked(open && InGame);
             if (!open) ConfirmGroup.SetActive(false);
@@ -141,11 +147,18 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
         {
             Configure();
             if (Session.Create(role)) UiThemePreferences.SetFromLocalSelection(role);
+            else GameAppRoot.Instance?.Audio?.Play(AudioCue.UiReject);
         }
         private void Join()
         {
-            if (string.IsNullOrWhiteSpace(Address.text)) { AddressHint.text = _relay ? "请输入房间码" : "请输入房主的局域网 IPv4 地址"; return; }
-            Configure(); Session.Join(Address.text.Trim());
+            if (string.IsNullOrWhiteSpace(Address.text))
+            {
+                AddressHint.text = _relay ? "请输入房间码" : "请输入房主的局域网 IPv4 地址";
+                GameAppRoot.Instance?.Audio?.Play(AudioCue.UiReject);
+                return;
+            }
+            Configure();
+            GameAppRoot.Instance?.Audio?.Play(Session.Join(Address.text.Trim()) ? AudioCue.UiConfirm : AudioCue.UiReject);
         }
         private void JoinDiscovered(int index)
         {
@@ -164,18 +177,28 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
         private void Ai()
         {
             Session.SetLocalAi(!Session.LocalAi);
-            if (Panel.activeSelf && InGame) ClosePanel();
+            // 同一次托管操作只播托管反馈，不叠一声关闭面板。
+            if (Panel.activeSelf && InGame) SetPanel(false);
         }
         private void CopyRoomCode() { if (Relay != null) GUIUtility.systemCopyBuffer = Relay.RoomCode; }
         private void RequestLeave()
         {
-            if (InGame || Session.Phase == SessionPhase.Disconnected) ConfirmGroup.SetActive(true);
+            if (InGame || Session.Phase == SessionPhase.Disconnected)
+            {
+                if (!ConfirmGroup.activeSelf) GameAppRoot.Instance?.Audio?.Play(AudioCue.UiOpen);
+                ConfirmGroup.SetActive(true);
+            }
             else Leave();
         }
-        private void CancelExit() => ConfirmGroup.SetActive(false);
+        private void CancelExit()
+        {
+            if (ConfirmGroup.activeSelf) GameAppRoot.Instance?.Audio?.Play(AudioCue.UiCancel);
+            ConfirmGroup.SetActive(false);
+        }
         private void Leave()
         {
             if (_leaving || Transitioning || GameAppRoot.Instance == null) return;
+            GameAppRoot.Instance.Audio?.Play(AudioCue.UiCancel);
             _leaving = true;
             _ownsPause = false;
             Touch?.SetUiBlocked(true);
@@ -186,6 +209,18 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
         {
             if (ConnectGroup == null || Session == null || Transitioning) return;
             bool game = InGame;
+            if (MenuCard != null)
+            {
+                MenuCard.sizeDelta = game ? PlayMenuSize : LobbyMenuSize;
+                // 对局菜单无需沿用房间列表的大画布；页脚继续保持左右两个明确动作。
+                float width = MenuCard.sizeDelta.x;
+                var closeRect = (RectTransform)CloseButton.transform;
+                var leaveRect = (RectTransform)LeaveButton.transform;
+                closeRect.anchorMin = closeRect.anchorMax = leaveRect.anchorMin = leaveRect.anchorMax = new Vector2(.5f, 0);
+                closeRect.sizeDelta = leaveRect.sizeDelta = new Vector2(width * .42f, 72);
+                closeRect.anchoredPosition = new Vector2(width * .23f, 60);
+                leaveRect.anchoredPosition = new Vector2(-width * .23f, 60);
+            }
             bool offline = Session.Phase == SessionPhase.Offline;
             bool disconnected = Session.Phase == SessionPhase.Disconnected;
             bool canJoin = !game && (offline || disconnected);
@@ -213,8 +248,8 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
             AiLabel.text = Session.LocalAi ? "收回控制" : "开启 AI 托管";
             QuickAiLabel.text = Session.LocalAi ? "收回控制" : "AI 托管";
             PlayHint.text = Session.IsSoloPlaying
-                ? "单人游戏已暂停\nAI 可自动战斗、使用技能和救援；节点选择仍可手动处理。"
-                : "联机进行中，菜单不会暂停队友\n需要离开一会儿时，可开启 AI 托管。";
+                ? "单人游戏已暂停\n可以调整设置，或切换 AI 托管。"
+                : "联机菜单不会暂停队友\n暂时离开时，可开启 AI 托管。";
             if (game) StatusLabel.text = Session.IsSoloPlaying ? "单人游戏  ·  " + (Session.LocalAi ? "AI 托管中" : "手动控制")
                 : "双人联机  ·  " + (Session.IsAuthority ? "房主" : "队友") + "  ·  " + (Session.LocalAi ? "AI 托管中" : "手动控制");
             else if (Session.Phase == SessionPhase.Lobby)

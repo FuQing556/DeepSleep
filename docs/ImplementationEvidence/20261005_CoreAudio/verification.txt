@@ -1,0 +1,97 @@
+2026-10-05 Core audio first-pass integration
+Unity 6000.6.0f1 Windows Editor. No player build/package produced.
+
+Final compilation: Console errors=0.
+AudioPlaybackChecks.RunConfiguration: 297 checks passed, 56 clip bindings.
+AudioEventIntegrationChecks.RunSceneBindings: 172 checks passed (three scenes/two prefabs).
+NetworkProtocolChecks.RunCatalog: 25 directional entries, 1081 assertions, protocol 5.
+NetworkProtocolChecks.RunUpgradeResults: 25 isolated result/sequence/node/role/session checks passed.
+AudioPlaybackChecks.RunPlayback: 64 muted isolated checks passed (24 voice cap, 20+4 reservation, interval, volume, pause, background, fades, cleanup).
+AudioEventIntegrationChecks.RunReplicaReplay: 10 isolated checks passed, including real Read validator/sequence/context/world gates and actual encounter guard with 240 simulated bubble-clear callbacks.
+
+Corrections during verification:
+- Editor component installers used C# ?? on Unity native missing components. Changed to Unity null comparison; reinstalled successfully.
+- Update-only phase observation missed an immediate Complete->route in the accelerated check. Chapter PhaseChanged now drives flow audio.
+- The existing chapter diagnostic depended on the auto-property backing-field name. Updated its fixture to use the real Phase property setter and reran successfully.
+
+Visual check: MainMenu_AudioSettings.png (16:9); MainMenu_AudioSettings_2340x1080.png (19.5:9 simulated GameView). Panel and controls visible/centered with existing generated artwork. Not physical phone/cutout/touch acceptance.
+53 short WAV + 3 ambient WAV; source provenance and waveform checks: docs/AudioProduction/20261005_CoreAudio/manifest.json and SOURCES.md.
+Preview audio is offline arranged material, NOT an in-engine recording. No perceptual-quality claim.
+
+FINAL CONTROLLED FLOW RESULT
+PASSED chapter flow in both scenes; returned to MainMenu; profile/backup unchanged.
+Gameplay_Prototype: initialized start gate skips static content revalidation but rejects captured level-ID mismatch.
+Gameplay_Prototype: connecting guest cannot author; replica chapter/node order and duplicate states preserve wallet/shop.
+Gameplay_Prototype: first failure retries segment 1 and rolls back earnings/HP.
+Gameplay_Prototype: clearing stops spawns but preserves life-failure rules.
+Gameplay_Prototype: residual enemy stays damageable/rewarded; clear reclaims projectiles and opens node once.
+Gameplay_Prototype: real portal readiness departs once; purchases/refresh/HP checkpoint committed.
+Gameplay_Prototype: segment 2 failure restores shop/wallet/exact HP; retry departure stays segment 2.
+Gameplay_Prototype: repeated forced stop clears all pools without rewards.
+Gameplay_Prototype: wave 1 -> rest shop -> wave 2 via actual portal.
+Gameplay_Prototype: wave 2 -> rest shop -> wave 3 via actual portal.
+Gameplay_Prototype: wave 3 -> rest shop -> wave 4 via actual portal.
+Gameplay_Prototype: wave 4 real enemy HP/config verified; failure rolls back earnings/shop/ranks; retry stays wave 4.
+Gameplay_Prototype: wave 4 final completion/Token settlement is idempotent; permanent voucher write intentionally skipped.
+World01_EarlyInternet: initialized start gate skips static content revalidation but rejects captured level-ID mismatch.
+World01_EarlyInternet: connecting guest cannot author; replica chapter/node order and duplicate states preserve wallet/shop.
+World01_EarlyInternet: first failure retries segment 1 and rolls back earnings/HP.
+World01_EarlyInternet: clearing stops spawns but preserves life-failure rules.
+World01_EarlyInternet: residual enemy stays damageable/rewarded; clear reclaims projectiles and opens node once.
+World01_EarlyInternet: real portal readiness departs once; purchases/refresh/HP checkpoint committed.
+World01_EarlyInternet: segment 2 failure restores shop/wallet/exact HP; retry departure stays segment 2.
+World01_EarlyInternet: repeated forced stop clears all pools plus live Doubao/bubbles without rewards.
+World01_EarlyInternet: wave 1 -> rest shop -> wave 2 via actual portal.
+World01_EarlyInternet: wave 2 -> rest shop -> wave 3 via actual portal.
+World01_EarlyInternet: wave 3 -> rest shop -> wave 4 via actual portal.
+World01_EarlyInternet: wave 4 real enemy HP/config verified; failure rolls back earnings/shop/ranks; retry stays wave 4.
+World01_EarlyInternet: wave 4 final completion/Token settlement is idempotent; permanent voucher write intentionally skipped.
+PASSED 16 lifecycle stations; local host/connecting only, not dual-device or relay acceptance.
+1. Initial menu cleanup: session/manager/registered=0/0/0
+2. World solo selection: session/manager/registered=1/1/1
+3. Selection back button: session/manager/registered=0/0/0
+4. World solo re-entry: session/manager/registered=1/1/1
+5. Chapter return after solo selection: session/manager/registered=0/0/0
+6. World before direct switch: session/manager/registered=1/1/1
+7. Direct StartLevel World -> Prototype: session/manager/registered=1/1/1
+8. Prototype menu return: session/manager/registered=0/0/0
+9. Online selection: session/manager/registered=1/1/1
+10. Start local DS host: session/manager/registered=1/1/1
+11. Online menu Leave: session/manager/registered=0/0/0
+12. Online re-entry after shutdown: session/manager/registered=1/1/1
+13. Rebind same port as HS host: session/manager/registered=1/1/1
+14. Host direct Router return: session/manager/registered=0/0/0
+15. Client selection: session/manager/registered=1/1/1
+16. Exit while loopback client is connecting: session/manager/registered=0/0/0
+
+Profile isolation: original reference/JSON restored; main SHA256=5D17F0DBF3777C742DA809453BC6C4A85950CD71724A68C3E73C583A1108DF4C; backup SHA256=954CE0C62B8329FA0018C97646CF068F31BBDBDAB0B207E4105EB060DCA3F9C2.
+
+AUDIO ROUTE OBSERVATION
+NO ERRORS: observed 93 accepted audio cues during actual route.
+Gameplay_Prototype/Defeat=5
+Gameplay_Prototype/Depart=13
+Gameplay_Prototype/DsShot=1
+Gameplay_Prototype/EnemyDefeat=1
+Gameplay_Prototype/NodeOpen=8
+Gameplay_Prototype/PlayerDown=2
+Gameplay_Prototype/Refresh=1
+Gameplay_Prototype/SnakeShot=2
+Gameplay_Prototype/Upgrade=1
+Gameplay_Prototype/Victory=1
+World01_EarlyInternet/Connected=2
+World01_EarlyInternet/Defeat=5
+World01_EarlyInternet/Depart=16
+World01_EarlyInternet/DoubaoDefeat=7
+World01_EarlyInternet/DoubaoReveal=8
+World01_EarlyInternet/DsShot=2
+World01_EarlyInternet/EnemyDefeat=1
+World01_EarlyInternet/NodeOpen=8
+World01_EarlyInternet/PlayerDown=2
+World01_EarlyInternet/Refresh=1
+World01_EarlyInternet/SnakeShot=2
+World01_EarlyInternet/UiCancel=2
+World01_EarlyInternet/Upgrade=1
+World01_EarlyInternet/Victory=1
+Observation only: accepted playback is not listening, mobile, or live host/client verification.
+
+Limits: no live two-device or mobile-speaker test; no natural-play balance test; permanent reward write intentionally skipped by the existing diagnostic; not every weapon/skill event is exercised by the accelerated flow. Use the coverage document for still-unimplemented optional/detailed cues.

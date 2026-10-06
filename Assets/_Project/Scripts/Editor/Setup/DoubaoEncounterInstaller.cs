@@ -180,6 +180,7 @@ namespace DeepSleep.Editor.Setup
             serialized.FindProperty("_label").objectReferenceValue = label;
             serialized.FindProperty("_damageHitbox").objectReferenceValue = hitbox;
             serialized.ApplyModifiedPropertiesWithoutUndo();
+            DoubaoTargetingInstaller.ConfigureBody(root, true);
             GameObject prefab = PrefabUtility.SaveAsPrefabAsset(root, BUBBLE_PREFAB);
             UnityEngine.Object.DestroyImmediate(root);
             return prefab;
@@ -206,6 +207,7 @@ namespace DeepSleep.Editor.Setup
             SerializedObject hitboxSerialized = new SerializedObject(hitbox);
             hitboxSerialized.FindProperty("_receiverComponent").objectReferenceValue = boss;
             hitboxSerialized.ApplyModifiedPropertiesWithoutUndo();
+            DoubaoTargetingInstaller.ConfigureBody(root, false);
             GameObject prefab = PrefabUtility.SaveAsPrefabAsset(root, DOUBAO_PREFAB);
             UnityEngine.Object.DestroyImmediate(root);
             return prefab;
@@ -321,6 +323,9 @@ namespace DeepSleep.Editor.Setup
         private static void ConfigureWeaponLayers()
         {
             int bit = 1 << DESTRUCTIBLE_OBSTACLE_LAYER;
+            AddMask("Assets/_Project/Configs/Combat/DeepSeek/CFG_DS_ManualTargeting_Default.asset", "_targetLayers", bit);
+            AddMask("Assets/_Project/Configs/Combat/Harness/CFG_HA_TerminalLaser_Default.asset", "_targetLayers", bit);
+            AddMask("Assets/_Project/Configs/Players/CFG_CompanionTactics_Default.asset", "PerceptionLayers", bit);
             AddMask("Assets/_Project/Configs/Combat/DeepSeek/CFG_DS_RiceWeapon_Default.asset", "_projectileCollisionLayers", bit);
             AddMask("Assets/_Project/Configs/Combat/Harness/CFG_HA_TerminalLaser_Default.asset", "_environmentDamageLayers", bit);
             AddMask("Assets/_Project/Configs/Combat/Enemies/DataCrawlerSnake/CFG_EN_DataCrawlerSnake_Projectile_Default.asset", "_collisionLayers", bit);
@@ -402,6 +407,8 @@ namespace DeepSleep.Editor.Setup
             encounterSerialized.FindProperty("_bossAnchor").objectReferenceValue = bossAnchor;
             encounterSerialized.FindProperty("_groupCenterAnchor").objectReferenceValue = groupAnchor;
             encounterSerialized.FindProperty("_obstacleRegistry").objectReferenceValue = obstacleRegistry;
+            encounterSerialized.FindProperty("_perceptionRegistry").objectReferenceValue =
+                FindInScene<DeepSleep.Runtime.Combat.Perception.CombatPerceptionRegistry2D>(scene);
             encounterSerialized.FindProperty("_beginOnEnable").boolValue = false;
             encounterSerialized.FindProperty("_deterministicSeed").intValue = 20260914;
             encounterSerialized.ApplyModifiedPropertiesWithoutUndo();

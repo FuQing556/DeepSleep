@@ -4,6 +4,8 @@ using UnityEngine;
 
 namespace DeepSleep.Runtime.Progression.Run
 {
+    public enum ChapterObjectiveMode { AllEnemiesAndEncounters, EnemyChannel, EncountersOnly }
+
     [Serializable]
     public sealed class SegmentSpawnRule
     {
@@ -44,6 +46,9 @@ namespace DeepSleep.Runtime.Progression.Run
         [SerializeField] private string _displayName = "未命名战斗段";
         [SerializeField, Min(1f)] private float _durationSeconds = 60f;
         [SerializeField, Min(1)] private int _requiredDefeats = 10;
+        [SerializeField] private ChapterObjectiveMode _objectiveMode;
+        [SerializeField] private EnemySpawnChannelDefinition _objectiveChannel;
+        [SerializeField] private string _objectiveLabel;
         [SerializeField, Min(1f), Tooltip("相对敌人基础生命的倍率；生命沿用整数向下取整。")]
         private float _enemyHealthMultiplier = 1f;
         [SerializeField] private SegmentSpawnRule[] _spawnRules;
@@ -53,6 +58,11 @@ namespace DeepSleep.Runtime.Progression.Run
             : _displayName;
         public float DurationSeconds => _durationSeconds;
         public int RequiredDefeats => _requiredDefeats;
+        public ChapterObjectiveMode ObjectiveMode => _objectiveMode;
+        public string ObjectiveLabel => string.IsNullOrWhiteSpace(_objectiveLabel) ? "击败" : _objectiveLabel;
+        public bool CountsEnemy(EnemySpawnChannelDefinition channel) =>
+            _objectiveMode == ChapterObjectiveMode.AllEnemiesAndEncounters ||
+            (_objectiveMode == ChapterObjectiveMode.EnemyChannel && channel == _objectiveChannel);
         public float EnemyHealthMultiplier => _enemyHealthMultiplier;
         public SegmentSpawnRule[] SpawnRules => _spawnRules;
 
@@ -79,6 +89,17 @@ namespace DeepSleep.Runtime.Progression.Run
 
         public bool TryValidate(out string reason)
         {
+            if (_objectiveMode == ChapterObjectiveMode.EnemyChannel &&
+                (_objectiveChannel == null || !TryGetRule(_objectiveChannel, out var targetRule) || !targetRule.Enabled))
+            {
+                reason = $"{DisplayName} 的任务频道必须配置且启用刷怪。";
+                return false;
+            }
+            if (_objectiveMode == ChapterObjectiveMode.EncountersOnly && _requiredDefeats != 1)
+            {
+                reason = $"{DisplayName} 的遭遇任务目标须为 1。";
+                return false;
+            }
             if (_durationSeconds <= 0f || _requiredDefeats <= 0)
             {
                 reason = $"{DisplayName} 的时长与目标必须为正数。";

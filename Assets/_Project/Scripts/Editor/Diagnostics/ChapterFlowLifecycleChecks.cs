@@ -496,7 +496,7 @@ namespace DeepSleep.Editor.Diagnostics
         }
 
         private static void ReplicaPhase(ChapterRunController chapter, ChapterRunPhase phase)
-        { Set(chapter, "<Phase>k__BackingField", phase); Invoke(chapter, "RefreshReplicaFlow"); }
+        { typeof(ChapterRunController).GetProperty(nameof(ChapterRunController.Phase)).SetValue(chapter, phase); Invoke(chapter, "RefreshReplicaFlow"); }
 
         private static IEnumerator Route(GameSceneRouter router, MetaLevelDefinition level)
         {

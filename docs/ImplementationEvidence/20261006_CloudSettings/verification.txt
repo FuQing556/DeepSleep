@@ -1,0 +1,44 @@
+Clouds and unified settings — 2026-10-06
+
+Runtime responsibilities:
+DecorativeCloudField: explicit camera/chapter/sprites/18 SpriteRenderer slots; own System.Random.
+CloudPresentationPreferences: local PlayerPrefs density and typed change event, no gameplay/network state.
+AudioSettingsPanel: reused original script identity for common audio/cloud settings; debounced local save.
+PlayerHitFeedbackOptions: existing controls moved into common settings; main menu has no camera reference.
+CoopSessionMenu: compact 1000x800 play menu vs 1600x960 lobby, shared settings entry.
+AudioUiInstaller and CloudPresentationInstaller: explicit import/scene assembly only, no runtime AddComponent.
+
+Defaults (Inspector on DecorativeClouds in both scenes):
+Five Sprites, pool18, density50% => maximum9, at100% maximum18, at0 hidden.
+Three bands repeated by slot: Background/-12..-2; Gameplay/2..10; Gameplay/22..27.
+Player SortingGroups are Gameplay20. Foreground clouds remain below enemy/impact layers.
+Alpha ranges .18-.35 / .20-.40 / .09-.20; widths3-6 /3-6 /4-7 world units.
+Random lifetime18-32s, recycle delay2-7s, fade2s, driftleft .08-.25units/s.
+Random sprite/flip/position/order/alpha/lifetime/velocity. Equally assigned depth slots,
+but visible counts can temporarily differ due to independent fade and refresh timing.
+Combat-only decoration; fades away when leaving combat; follows simulation pause.
+Dusk scene uses a warm renderer tint; source cloud PNGs unchanged.
+No physical components, gameplay random mutation or network messages.
+
+Validated:
+Three scenes: shared settings references and owner, both theme bindings, original hidden buttons retained.
+Two fields:18 prebuilt slots each, no Colliders.
+World01 natural play:9 visible clouds,3 per band, observed screenshot.
+Both fields: five sprites, alpha/order bounds, uniform scale, isolated Unity Random.state.
+Sky150 controlled spawns covered all5 sprites and multiple orders; expired slot released with2-7s delay.
+Density0 hides all;50% renders9 in controlled fixture.
+Actual CloudSlider event changes field; closing settings saves density; reopening reads it.
+Cloud preference key/value restored after test; existing user theme preference was never changed.
+Profile guard restored original reference/JSON; main/backup hashes unchanged:
+5D17F0DBF3777C742DA809453BC6C4A85950CD71724A68C3E73C583A1108DF4C
+954CE0C62B8329FA0018C97646CF068F31BBDBDAB0B207E4105EB060DCA3F9C2
+
+Screenshots are 1280x582 Editor GameView, not physical-device captures.
+mainmenu_final.png: aligned Settings entry before Quit, same ornament/left label/right chevron treatment.
+shared_settings_menu.png: common panel, audio and visual controls.
+clouds_world01.png: natural ongoing combat.
+clouds_sky_preview.png: controlled cloud-age3s at battle start, simulation frozen to inspect art.
+ingame_menu_corrected.png: compact menu after footer anchor correction; same correction committed to source.
+Earlier mainmenu.png/ingame_menu.png/ingame_menu_final.png are intermediate screenshots, not final delivery.
+The first compile found Unity6.6 obsolete GetInstanceID; removed unnecessary instance-seed dependency.
+Final script compilation checked separately. No APK, push, physical device/real network/performance profiling.

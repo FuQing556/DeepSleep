@@ -5,6 +5,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
     [CreateAssetMenu(menuName = "DeepSleep/Combat/Harness/Melee Mode")]
     public sealed class HarnessMeleeConfig : ScriptableObject
     {
+        public LayerMask AttackBlockerLayers;
         public Sprite IdlePose;
         [Min(0.01f)] public float IdlePoseScale = 1f;
         public Vector2 IdlePoseOffset;

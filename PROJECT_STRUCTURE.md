@@ -2,6 +2,8 @@
 
 核对日期：2026-10-05。本文描述当前工作树的实际结构，供项目维护和后续内容开发查阅；不是未来架构的完成声明。已有共用底座，不是每关各写一套。用户确认后，本批已统一装配规则、删除 Chapter 镜像敌人数组并精简完整校验链；两关已装配并重新验证。部分控制器职责仍偏重，本批没有拆分，也不把它作为下一次内容任务的隐藏前置。
 
+音效入口为 [docs/36_AudioDesignAndCoverage.md](docs/36_AudioDesignAndCoverage.md)。2026-10-05 核心首版已接入：`Audio/CFG_GameAudio.asset` 管 42 个 cue、56 个 WAV 和原生 Mixer；Boot 的 `GameAudioService` 管 24+2 声源；每关 `CombatAudioPresenter` 消费实际战斗/可靠网络事件，`SceneAudioPresenter` 管阶段和环境；`UI/Common/UiAudioFeedback` 与 `AudioSettingsPanel` 管操作音和本机音量。两关共用这套实现，不各建一套。Editor 中 `CoreAudioInstaller`、`AudioUiInstaller` 负责显式装配，两个 Audio 检查文件只做诊断，不进包。完整覆盖/待细化项及试听边界见音效文档；没有新增音频中间件、运行时素材搜索或通用事件总线。
+
 ## UI 改版前的代码量审计快照
 
 以下为 2026-10-05 底层精简完成、UI 改版之前的统计快照，不是后续工作树实时计数。统计 `Assets/_Project/Scripts` 下全部 C# 的物理行，包含注释和空行；不含 Unity/第三方包、Library、生成的工程文件、美术/场景 YAML、文档及独立 Relay Python 服务。文件多、行数多本身不等于冗余，以下数字不能当作有效逻辑行或运行开销。
@@ -21,6 +23,8 @@ Editor 中 Diagnostics 为 41 文件、8,112 行，Setup 为 23 文件、5,224 �
 
 ## 目录地图
 
+2026-10-06 新增怪物入口见 [敌人与碰撞调参](docs/37_InternetEnemies.md)：下载怪独立小状态机，360 复用数据蛇追逐，双方继续走共同 EnemyActor/池/生命/掉落/网络镜像。`Combat/Damage/PlayerAttackBlocker2D` 与 `AttackBlockerQuery2D` 是共用实体盾查询，三类玩家攻击接入。`LevelSceneInstaller` 现在也从同一敌人清单派生 `CombatAudioPresenter.EnemyPools`。没有新建关卡专用运行框架。
+
 ```text
 Assets/
 ├─ Scenes/                       Boot、MainMenu、Gameplay_Prototype、World01_EarlyInternet
@@ -34,11 +38,12 @@ Assets/
    │  │  ├─ Combat/              武器、伤害、敌人、弹体、感知、可选遭遇
    │  │  ├─ Progression/         关卡登记、章节流程、经济、强化、永久档案
    │  │  ├─ Networking/          会话、协议、主客权限、状态/表现复制
-   │  │  ├─ Presentation/        受击、跳字、姿态、特效、背景表现
+   │  │  ├─ Presentation/        受击、跳字、姿态、特效、背景、Audio 播放与事件表现
    │  │  ├─ World/               相机、玩法范围、滚动、休息节点
    │  │  └─ UI/                  选角、战斗界面、安全区
    │  ├─ Adapters/Networking/    NGO/LAN、Relay 及传输选择适配
    │  └─ Editor/                装配、迁移、诊断、构建检查，不在游戏中运行
+   ├─ Audio/                     WAV、42-cue 目录和原生 AudioMixer
    ├─ Configs/                   ScriptableObject 调参和关卡定义
    ├─ Prefabs/                   玩家、敌人、弹体和表现的组件组合
    └─ Art/                       正式美术资源

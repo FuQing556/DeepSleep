@@ -209,6 +209,7 @@ GameObject:
   - component: {fileID: 4204920645388667563}
   - component: {fileID: 4490954670644356230}
   - component: {fileID: 9053231519183302064}
+  - component: {fileID: 3407849191866188700}
   m_Layer: 15
   m_Name: PF_DB_WordBubble
   m_TagString: Untagged
@@ -328,3 +329,23 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.42
+--- !u!114 &3407849191866188700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4270893119134907632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae52681bd4aff142be775f3af5c1776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Perception.CombatPerceptionBody2D
+  Shape: {fileID: 9053231519183302064}
+  Body: {fileID: 7578944151976031716}
+  Enemy: {fileID: 0}
+  Hitbox: {fileID: 4490954670644356230}
+  Projectile: {fileID: 0}
+  SnakeAttack: {fileID: 0}
+  TargetValue: 0
+  ThreatTrackedAsObstacle: 1

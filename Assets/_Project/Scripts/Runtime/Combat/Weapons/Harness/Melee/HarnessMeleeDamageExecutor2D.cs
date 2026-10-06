@@ -14,6 +14,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
         private readonly List<Collider2D> _candidates = new(64);
         private readonly HashSet<IDamageReceiver> _bladeVictims = new();
         private readonly HashSet<IDamageReceiver> _waveVictims = new();
+        private readonly AttackBlockerQuery2D _blockers = new();
         public event Action<Vector2, float> HitConfirmed;
         public event Action<HarnessMeleeDamageHitConfirmed> DamageConfirmed;
         public int BladeHits { get; private set; }
@@ -107,6 +108,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
                 if (candidate == null || (_config.EnemyLayers.value & (1 << candidate.gameObject.layer)) == 0 ||
                     !candidate.TryGetComponent(out DamageHitbox2D hitbox) ||
                     !hitbox.CanReceiveDamage || !hitbox.TryGetReceiver(out IDamageReceiver receiver) ||
+                    _blockers.IsBlocked(origin, candidate.ClosestPoint(origin), _config.AttackBlockerLayers) ||
                     !victims.Add(receiver)) continue;
                 Vector2 point = candidate.ClosestPoint(origin);
                 var packet = new DamagePacket(amount, point, direction, gameObject);
@@ -115,7 +117,8 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
                 if (wave) WaveHits++; else BladeHits++;
                 HitConfirmed?.Invoke(point, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
                 DamageConfirmed?.Invoke(new HarnessMeleeDamageHitConfirmed(
-                    point, direction, packet.Amount, wave));
+                    point, direction, packet.Amount, wave,
+                    receiver is DeepSleep.Runtime.Combat.Encounters.Doubao.DoubaoWordWallBlock2D));
             }
         }
 

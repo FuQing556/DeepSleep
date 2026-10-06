@@ -26,6 +26,8 @@ namespace DeepSleep.Runtime.Networking
         private uint _lastReceived;
         private bool _received;
         private bool _subscribed;
+        /// <summary>已校验、已去重的客人受伤事实，供额外表现复用同一消息。</summary>
+        public event System.Action<PlayerRole> HitReceived;
 
         public bool TryValidateConfiguration(out string reason)
         {
@@ -137,6 +139,7 @@ namespace DeepSleep.Runtime.Networking
 
             _received = true;
             _lastReceived = sequence;
+            HitReceived?.Invoke(role);
             (role == PlayerRole.DeepSeek ? DeepSeek : Harness).PlayReplica(direction, protection);
         }
 

@@ -18,14 +18,14 @@ namespace DeepSleep.Editor.Setup
             catalog.SetDefinitions(new[] {
                 Card(UpgradeCardId.FaultToleranceExpansion,"生命扩容","生命上限+1，存活时补1点生命。",PlayerRoleMask.Both,5,20,10,UpgradeEffectKind.MaximumHealth,1),
                 Card(UpgradeCardId.DataCompression,"饭团增幅","每颗饭团伤害+1。",PlayerRoleMask.DeepSeek,5,50,25,UpgradeEffectKind.WeaponDamage,1),
-                Card(UpgradeCardId.TerminalAmplifier,"终端增幅","激光、主剑气伤害+1；每2级刀刃伤害+1。",PlayerRoleMask.Harness,5,25,15,UpgradeEffectKind.WeaponDamage,1),
+                Card(UpgradeCardId.TerminalAmplifier,"终端增幅","激光、主剑气伤害+1；每2级刀刃伤害+1。",PlayerRoleMask.Harness,5,35,20,UpgradeEffectKind.WeaponDamage,1),
                 Card(UpgradeCardId.RiceFan,"饭团扇阵","弹道+1，在前方60度范围内均分，不额外复制锁定弹。",PlayerRoleMask.DeepSeek,4,50,25,UpgradeEffectKind.ProjectileCount,1),
                 Card(UpgradeCardId.RiceStorm,"饭团加速","饭团攻击频率增加基础值的50%。",PlayerRoleMask.DeepSeek,4,30,15,UpgradeEffectKind.AttackRate,.5f),
                 Card(UpgradeCardId.RiceGuidance,"多目标校准","需先获得饭团扇阵。各弹道在8度内校准不同目标；无目标保持原方向。",PlayerRoleMask.DeepSeek,1,20,0,UpgradeEffectKind.TargetCorrection,1),
                 Card(UpgradeCardId.RiceSplash,"饭团溅射","命中时在1.2单位半径内爆炸，周围敌人受50%伤害（向下取整，最低1）；直击目标不重复受伤。",PlayerRoleMask.DeepSeek,1,60,0,UpgradeEffectKind.RiceSplash,1),
-                Card(UpgradeCardId.TerminalArray,"终端阵列","发射装置+1，各束汇聚同一目标并独立贯穿。近战剑气残响+1（50%伤害）。",PlayerRoleMask.Harness,2,70,35,UpgradeEffectKind.ProjectileCount,1),
-                Card(UpgradeCardId.TerminalBurst,"终端连射","每次指令多发1轮完整激光，间隔0.18秒。近战动作速度增加基础值的30%。",PlayerRoleMask.Harness,2,60,30,UpgradeEffectKind.BurstCount,1),
-                Card(UpgradeCardId.TerminalChain,"递归连锁","连锁层级+1，每级伤害减半，仍贯穿。近战剑与剑气范围+15%，角色不变。",PlayerRoleMask.Harness,2,55,30,UpgradeEffectKind.ChainLevel,1)
+                Card(UpgradeCardId.TerminalArray,"终端阵列","发射装置+1，各束汇聚同一目标并独立贯穿。近战剑气残响+1（50%伤害）。",PlayerRoleMask.Harness,2,100,50,UpgradeEffectKind.ProjectileCount,1),
+                Card(UpgradeCardId.TerminalBurst,"终端连射","每次指令多发1轮完整激光，间隔0.18秒。近战动作速度增加基础值的30%。",PlayerRoleMask.Harness,2,90,45,UpgradeEffectKind.BurstCount,1),
+                Card(UpgradeCardId.TerminalChain,"递归连锁","连锁层级+1，每级伤害减半，仍贯穿。近战剑与剑气范围+15%，角色不变。",PlayerRoleMask.Harness,2,75,40,UpgradeEffectKind.ChainLevel,1)
             });
             EditorUtility.SetDirty(catalog);
             var network = AssetDatabase.LoadAssetAtPath<DeepSleep.Runtime.Networking.NetworkTuningConfig>(root+"Configs/Networking/CFG_Network.asset");

@@ -1,0 +1,42 @@
+Mobile UI revision — 2026-10-06
+
+Reference: user-supplied 1280x582 Genshin screenshot. Visible bounds are approximate;
+the source screenshot cannot reveal the game's actual input hit rectangles.
+Joystick center: x 18.2% width, bottom 26.1% height; diameter 21.5% height.
+Primary action center: right 13.4% width, bottom 17.9% height; diameter 15.5% height.
+Secondary: x 77.7%, bottom 15.5%; diameter 11.5% height.
+Cancel: x 87.8%, bottom 34%; diameter 10.5% height.
+HUD sides: 6% width; top: 2.4% height. Preserve existing HUD information.
+Mobile-only rect overrides clamp to Screen.safeArea without adding the insets twice.
+Desktop authored rectangles are retained. No gameplay, balance, networking or artwork pixel edits.
+
+Implementation:
+Runtime/UI/Common/MobileScreenRect.cs (explicit per-control references).
+Editor/Setup/MobileUiLayoutInstaller.cs (both gameplay scenes and MainMenu).
+20 valid mobile bindings across Gameplay_Prototype and World01_EarlyInternet.
+MainMenu previews: equal 568x220 local-unit RectMask2D viewports, EnvelopeParent fit.
+Sky now uses BG_P0_RestNode_DataTemple_v01; dusk retains its river panorama.
+Rendered viewports both 306.09x118.55 px at 1280x582; same top/bottom alignment.
+
+Verification:
+Unity script compilation completed with no compilation errors.
+World01: all 10 control pivots match configured screen fractions (tolerance .002).
+Prototype: all 10 pivots match; all 10 full authored rects restored when preview disabled.
+DS and Harness theme screenshots inspected at 1280x582.
+Screenshots are actual Editor GameView renders with mobile input forced, NOT device captures.
+Battle screenshots freeze simulation at the beginning of wave 1 to compare layout.
+mobile_combat_ds.png
+mobile_combat_hs_theme.png
+mobile_level_select_final.png
+Earlier mobile_level_select.png is a fade-in capture; mobile_level_select-1.png is a
+desktop-restoration intermediate capture. Neither is the delivered selection screenshot.
+An initial diagnostic invoked SendMessage on inactive controls during selection and logged
+"SendMessage LateUpdate has no receiver". Repeated after selection using initialized views;
+the full 10-control position/restoration check passed. No project runtime fix was needed.
+
+Profile guard restored original reference/JSON; main and backup hashes unchanged:
+main 5D17F0DBF3777C742DA809453BC6C4A85950CD71724A68C3E73C583A1108DF4C
+backup 954CE0C62B8329FA0018C97646CF068F31BBDBDAB0B207E4105EB060DCA3F9C2
+Theme preview used Apply only; saved preference was not changed.
+Play stopped, Boot restored, GameView restored to original Free Aspect.
+No APK, Git push, physical-device notch/touch comfort test or real multiplayer test this turn.

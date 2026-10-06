@@ -93,3 +93,13 @@ MonoBehaviour:
     Sprite: {fileID: -1567597842, guid: ced0ffb71bd22394baefd14030b772ce, type: 3}
   - Id: 3516847865
     Sprite: {fileID: -1268756851, guid: ced0ffb71bd22394baefd14030b772ce, type: 3}
+  - Id: 4139360142
+    Sprite: {fileID: 21300000, guid: 08f477d57b81c384b9ea758d3f7b8158, type: 3}
+  - Id: 4139360143
+    Sprite: {fileID: 21300000, guid: 972333f2899173a49b9157c2a2035821, type: 3}
+  - Id: 4139360144
+    Sprite: {fileID: 21300000, guid: b572c1239365cd545beda28da38144eb, type: 3}
+  - Id: 4139360145
+    Sprite: {fileID: 21300000, guid: 1e7d9deb69128d446b48a9f4a9b2fd97, type: 3}
+  - Id: 4139360146
+    Sprite: {fileID: 21300000, guid: 4c43295c77bf48c4a85526c080194466, type: 3}

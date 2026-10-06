@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aecf5346ba425ee408f70b2c9dcd26f9, type: 3}
   m_Name: CFG_HA_Melee_Default
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Weapons.Harness.Melee.HarnessMeleeConfig
+  AttackBlockerLayers:
+    serializedVersion: 2
+    m_Bits: 65536
   IdlePose: {fileID: 21300000, guid: 196cdf5b48121da41a623fc3117d64a2, type: 3}
   IdlePoseScale: 0.95
   IdlePoseOffset: {x: 0.025, y: -0.01}

@@ -16,13 +16,15 @@ namespace DeepSleep.Runtime.Combat.Perception
         public EnemyProjectile2D Projectile;
         public DataCrawlerSnakeAttackController2D SnakeAttack;
         [Min(0)] public float TargetValue;
+        public bool ThreatTrackedAsObstacle;
         private CombatPerceptionRegistry2D _registry;
 
         public bool IsEnemy => Enemy != null;
+        public bool IsAttackTarget => Hitbox != null;
         public bool IsObservable => isActiveAndEnabled && Shape != null && Shape.enabled &&
-            (IsEnemy ? Hitbox != null && Hitbox.CanReceiveDamage : Projectile != null && Projectile.IsRented);
+            (IsAttackTarget ? Hitbox.CanReceiveDamage : Projectile != null && Projectile.IsRented);
         public Vector2 Position => Shape.bounds.center;
-        public Vector2 Velocity => Body.linearVelocity;
+        public Vector2 Velocity => Body != null ? Body.linearVelocity : Vector2.zero;
         public float Radius => ((Vector2)Shape.bounds.extents).magnitude;
         public bool IsCharging => SnakeAttack != null && SnakeAttack.State == DataCrawlerSnakeAttackState.Charging;
 
@@ -30,9 +32,9 @@ namespace DeepSleep.Runtime.Combat.Perception
         {
             if (_registry != null) _registry.Unregister(this);
             _registry = registry;
-            if (Shape == null || Body == null || (Enemy == null && Projectile == null))
+            if (Shape == null || (Hitbox == null && Projectile == null))
             {
-                Debug.LogError("[CombatPerception] 感知对象缺少明确的碰撞体、刚体或对象引用。", this);
+                Debug.LogError("[CombatPerception] 感知对象缺少明确的碰撞体或伤害/投射物引用。", this);
                 return;
             }
             _registry.Register(this);

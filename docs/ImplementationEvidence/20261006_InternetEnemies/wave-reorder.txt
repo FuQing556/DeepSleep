@@ -1,0 +1,12 @@
+2026-10-06 approved wave reorder / World01 only.
+Used existing ChapterRunConfig spawn rules through Unity SerializedObject; no YAML editing, no runtime framework changes.
+Kept 45/55/60/65 seconds; requirements10/12/16/22; HP1/1.5/2/3; all drops, prices, Doubao and Prototype unchanged.
+
+Editor Play: loaded World01 with ProfileIsolation. For each of16 saved rules, called actual director.ApplyRuntimeTuning from that rule and Simulate at0.02s. Removed spawned actors immediately with RunReset (not kills/rewards), to measure supply without living-cap throttling. Asserted disabled rules produce0; first spawn timing within fixed-step tolerance; full supply exceeds requirement. Separately attempted cap+2 immediate spawns and asserted activeCount equals configured cap for every enabled rule, then returned actors normally.
+Results in order404/snake/download/360:
+Wave1 counts53/0/0/3, first0.82/off/off/18.00, total56 requirement10.
+Wave2 counts64/29/0/12, first0.82/5.02/off/1.52, total105 requirement12.
+Wave3 counts180/94/21/8, first0.50/3.02/7.02/1.52, total303 requirement16.
+Wave4 counts217/133/36/7, first0.50/2.52/5.02/1.52, total393 requirement22.
+All checks passed; profile RestoreAndVerify succeeded; exited Play.
+This is not a natural four-wave playthrough, phone test, difficulty or final economy acceptance. Actual kills and income depend on cap occupancy and player behavior. No automatic spatial pairing added: existing random heights and different first-spawn delays only.

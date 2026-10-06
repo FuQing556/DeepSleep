@@ -17,15 +17,18 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
 
         public static BeamFireSnapshot Expand(BeamFireSnapshot source, int level, HarnessTerminalLaserConfig config)
         {
-            if (level <= 0) return source;
+            var blockers = new AttackBlockerQuery2D();
             var lanes = new List<BeamLaneSnapshot>(config.MaximumChainBeams);
             var queue = new Queue<Branch>();
             for (int i = 0; i < source.LaneCount; i++)
             {
-                var lane = source.GetLane(i);
+                var lane = blockers.Clip(source.GetLane(i), config.AttackBlockerLayers);
                 lanes.Add(lane);
-                queue.Enqueue(new Branch { Lane = lane, Ancestors = new HashSet<IDamageReceiver>() });
+                if (level > 0) queue.Enqueue(new Branch { Lane = lane, Ancestors = new HashSet<IDamageReceiver>() });
             }
+            if (level <= 0)
+                return new BeamFireSnapshot(source.Sequence, source.SourceOrigin, source.AimDirection,
+                    source.TargetLayers, source.DamageLayers, lanes);
             var resolver = new BeamHitResolver2D();
             var hits = new List<BeamResolvedHit2D>(32);
             var candidates = new List<Collider2D>(32);
@@ -68,6 +71,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                     float damage = parent.Lane.PrimaryTargetDamage * config.ChainDamageRatio;
                     var child = new BeamLaneSnapshot(lanes.Count, branchOrigin, direction, radius,
                         parent.Lane.Width, damage, damage, level - parent.Depth, true, emitter);
+                    child = blockers.Clip(child, config.AttackBlockerLayers);
                     lanes.Add(child);
                     queue.Enqueue(new Branch { Lane = child, Depth = parent.Depth + 1, Ancestors = ancestors });
                 }

@@ -778,6 +778,7 @@ GameObject:
   - component: {fileID: 5170063408717547488}
   - component: {fileID: 692288881780698563}
   - component: {fileID: 3375218407200224106}
+  - component: {fileID: 1028572327185080010}
   m_Layer: 0
   m_Name: "\u8D2D\u4E70"
   m_TagString: Untagged
@@ -928,6 +929,23 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1028572327185080010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7714976489791290790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cb2ad38863429242865d2564898c0da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.UI.Common.UiAudioFeedback
+  Control: {fileID: 5170063408717547488}
+  PlayClick: 0
+  ClickCue: 1
+  Gain: 1
+  FocusInterval: 0.08
 --- !u!1 &7878029606092518006
 GameObject:
   m_ObjectHideFlags: 0
@@ -1306,6 +1324,8 @@ MonoBehaviour:
   - Target: {fileID: 7728025103658184014}
     Tone: 0
   Portraits: []
+  TitleLogos: []
+  MenuBackgrounds: []
 --- !u!114 &5534515615301624781
 MonoBehaviour:
   m_ObjectHideFlags: 0

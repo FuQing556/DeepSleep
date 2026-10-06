@@ -1,0 +1,18 @@
+Cloud motion revision - 2026-10-06
+
+Scope: shared DecorativeCloudField runtime + ConfigureMotion installer defaults + both gameplay scene configurations. Existing generated sprites reused. No unrelated menu, combat or network changes in this revision.
+
+Both saved scenes: 18 renderer slots, zero child Collider2D; same motion rules, warm tint on World01. Character SortingGroups use Gameplay/20. Back cloud orders 2-10; front orders 22-26 and 27-29. Each triplet therefore has one back/two front slots; simultaneous visible proportions can vary while individual clouds respawn or cross the viewport edge.
+Speed 0.3-0.9 world units/sec; width back 2.6-6.2, front 3-7; alpha back 0.30-0.50, front 0.22-0.38. Respawn delay 2-7 seconds, fade 2 seconds. Right-entry probability 50%; interior spawns choose x inside 5%-95% viewport width. Right-entry lifetime extends through a full traversal; left-of-view sprites recycle. No chapter-phase gate.
+
+Unity Play checks:
+- World01 180 seeded replacement samples: 97 right-edge, 83 interior; 120 front / 60 back; all five sprites selected; speed range sampled 0.3041032-0.8960534.
+- Every right-entry full sprite bound outside actual camera right edge; lifetime sufficient to traverse viewport including sprite width.
+- UnityEngine.Random.state unchanged by cloud sampling.
+- Density zero disables every renderer; restored 50% supports 9 slots.
+- Selection phase renders clouds. Actual World01 gameplay updates moved all 9 initialized clouds leftward.
+- Scene-router transition to Gameplay_Prototype: cloud field present, 9 visible controlled samples, 6 front / 3 back, zero colliders; character sorting groups confirmed.
+- Console errors/warnings: zero at final runtime check.
+- ProfileIsolation RestoreAndVerify invoked successfully; original cloud density restored without saving a new preference; Play stopped.
+
+world01.png: actual Unity Game View at 1280x582, forced touch layout. Controlled preview uses 9 interior clouds at full fade-in, gameplay frozen to inspect composition; not a physical-phone screenshot or a sample of natural spawn occupancy. Harness saved UI theme retained. No APK/build/device acceptance this turn.

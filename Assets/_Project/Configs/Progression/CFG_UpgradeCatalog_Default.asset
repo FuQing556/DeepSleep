@@ -42,8 +42,8 @@ MonoBehaviour:
     _eligibleRoles: 2
     _ownershipScope: 0
     _maximumRank: 5
-    _baseTokenCost: 25
-    _additionalCostPerRank: 15
+    _baseTokenCost: 35
+    _additionalCostPerRank: 20
     _effect: 0
     _effectPerRank: 1
   - _id: 12
@@ -86,8 +86,8 @@ MonoBehaviour:
     _eligibleRoles: 2
     _ownershipScope: 0
     _maximumRank: 2
-    _baseTokenCost: 70
-    _additionalCostPerRank: 35
+    _baseTokenCost: 100
+    _additionalCostPerRank: 50
     _effect: 3
     _effectPerRank: 1
   - _id: 23
@@ -97,8 +97,8 @@ MonoBehaviour:
     _eligibleRoles: 2
     _ownershipScope: 0
     _maximumRank: 2
-    _baseTokenCost: 60
-    _additionalCostPerRank: 30
+    _baseTokenCost: 90
+    _additionalCostPerRank: 45
     _effect: 5
     _effectPerRank: 1
   - _id: 24
@@ -108,8 +108,8 @@ MonoBehaviour:
     _eligibleRoles: 2
     _ownershipScope: 0
     _maximumRank: 2
-    _baseTokenCost: 55
-    _additionalCostPerRank: 30
+    _baseTokenCost: 75
+    _additionalCostPerRank: 40
     _effect: 6
     _effectPerRank: 1
   - _id: 14

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DeepSleep.Runtime.AppFlow;
+using DeepSleep.Runtime.Presentation.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -54,6 +55,7 @@ namespace DeepSleep.Runtime.Progression.Meta
         private void Buy(ShopProductDefinition product)
         {
             bool purchased = _profile.TryPurchase(product, out string message);
+            GameAppRoot.Instance?.Audio?.Play(purchased ? AudioCue.Upgrade : AudioCue.UiReject);
             if (_feedback != null) _feedback.text = message;
             if (purchased)
                 GameAppRoot.Instance.Achievements.Report(

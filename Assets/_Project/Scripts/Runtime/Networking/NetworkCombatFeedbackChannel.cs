@@ -1,6 +1,7 @@
 using System.IO;
 using System.Text;
 using DeepSleep.Runtime.Combat.Projectiles;
+using DeepSleep.Runtime.Combat.Encounters.Doubao;
 using DeepSleep.Runtime.Combat.Weapons.Harness;
 using DeepSleep.Runtime.Combat.Weapons.Harness.Melee;
 using DeepSleep.Runtime.Combat.Weapons.Harness.Presentation;
@@ -13,7 +14,7 @@ namespace DeepSleep.Runtime.Networking
     public sealed class NetworkCombatFeedbackChannel : MonoBehaviour
     {
         private const byte Feedback = NetworkMessageCatalog.Authority.CombatFeedback;
-        private enum Kind : byte { Rice, Laser, MeleeDamage, MeleeImpact }
+        private enum Kind : byte { Rice, Laser, MeleeDamage, MeleeImpact, LaserSurface, MeleeSurfaceImpact }
 
         public CoopSessionController Session;
         public RiceProjectilePool Rice;
@@ -24,6 +25,8 @@ namespace DeepSleep.Runtime.Networking
         private uint _sequence, _lastReceived;
         private bool _received, _subscribed;
         private bool _summaryPending, _diagnosticAuthority;
+        /// <summary>已通过校验及序号去重的客人端激光/近战冲击；不含同次伤害数字消息。</summary>
+        public event System.Action<Vector2> WeaponImpactReceived;
         // 通道计数按 SessionOpened 分段；池计数由 Presenter 自己维护，表示场景实例寿命累计。
         public uint ReceivedCount { get; private set; }
         public uint AcceptedCount { get; private set; }
@@ -49,7 +52,6 @@ namespace DeepSleep.Runtime.Networking
             Rice.HitConfirmed += OnRice;
             Laser.HitConfirmed += OnLaser;
             Melee.DamageConfirmed += OnMeleeDamage;
-            Melee.HitConfirmed += OnMeleeImpact;
             Session.AuthorityMessage += Read;
             Session.SessionOpened += OnOpened;
             Session.SessionClosed += OnClosed;
@@ -63,7 +65,6 @@ namespace DeepSleep.Runtime.Networking
                 Rice.HitConfirmed -= OnRice;
                 Laser.HitConfirmed -= OnLaser;
                 Melee.DamageConfirmed -= OnMeleeDamage;
-                Melee.HitConfirmed -= OnMeleeImpact;
                 Session.AuthorityMessage -= Read;
                 Session.SessionOpened -= OnOpened;
                 Session.SessionClosed -= OnClosed;
@@ -123,12 +124,13 @@ namespace DeepSleep.Runtime.Networking
         private void OnRice(RiceProjectileHitConfirmed hit)
             => Send(Kind.Rice, hit.HitPoint, hit.Direction, hit.DamageAmount, 0f);
         private void OnLaser(HarnessTerminalLaserHitConfirmed hit)
-            => Send(Kind.Laser, hit.HitPoint, hit.Direction, hit.DamageAmount, hit.BeamWidth);
+            => Send(hit.Hitbox != null && hit.Hitbox.TryGetReceiver(out var target) && target is DoubaoWordWallBlock2D
+                ? Kind.LaserSurface : Kind.Laser, hit.HitPoint, hit.Direction, hit.DamageAmount, hit.BeamWidth);
         private void OnMeleeDamage(HarnessMeleeDamageHitConfirmed hit)
-            => Send(Kind.MeleeDamage, hit.HitPoint, hit.Direction, hit.DamageAmount, 0f);
-        private void OnMeleeImpact(Vector2 point, float angle)
-            => Send(Kind.MeleeImpact, point,
-                MeleeSwordGeometry2D.Rotate(Vector2.right, angle), 0f, 0.15f);
+        {
+            Send(Kind.MeleeDamage, hit.HitPoint, hit.Direction, hit.DamageAmount, 0f);
+            Send(hit.IsSurface ? Kind.MeleeSurfaceImpact : Kind.MeleeImpact, hit.HitPoint, hit.Direction, 0f, .15f);
+        }
 
         private void Send(Kind kind, Vector2 point, Vector2 direction, float amount, float width)
         {
@@ -154,17 +156,21 @@ namespace DeepSleep.Runtime.Networking
             Vector2 point = new(reader.ReadSingle(), reader.ReadSingle());
             Vector2 direction = new(reader.ReadSingle(), reader.ReadSingle());
             float amount = reader.ReadSingle(), width = reader.ReadSingle();
-            if (kind > Kind.MeleeImpact || !Finite(point.x) || !Finite(point.y) ||
+            if (kind > Kind.MeleeSurfaceImpact || !Finite(point.x) || !Finite(point.y) ||
                 !Finite(direction.x) || !Finite(direction.y) || !Finite(amount) || !Finite(width) ||
                 amount < 0f || width < 0f) return;
             if (_received && !RemoteCommandSource.IsNewer(sequence, _lastReceived)) { DuplicateDropCount++; return; }
             _received = true; _lastReceived = sequence;
             AcceptedCount++;
             uint numbersBefore = Numbers.PlayedCount, impactsBefore = Impacts.PlayedCount;
-            if (kind != Kind.MeleeImpact)
+            if (kind != Kind.MeleeImpact && kind != Kind.MeleeSurfaceImpact)
                 Numbers.ShowReplicaDamage(point, amount, kind != Kind.Rice);
             if (kind == Kind.Laser || kind == Kind.MeleeImpact)
+                WeaponImpactReceived?.Invoke(point);
+            if (kind == Kind.Laser || kind == Kind.MeleeImpact || kind == Kind.LaserSurface || kind == Kind.MeleeSurfaceImpact)
+            {
                 Impacts.PlayImpact(point, direction, width);
+            }
             if (Numbers.PlayedCount != numbersBefore || Impacts.PlayedCount != impactsBefore) PlayedCount++;
         }
 

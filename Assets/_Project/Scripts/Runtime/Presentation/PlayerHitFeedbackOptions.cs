@@ -24,8 +24,12 @@ namespace DeepSleep.Runtime.Presentation
         {
             float current=ShakeStrength;
             PlayerPrefs.SetFloat(ShakeKey,current<=0f?.65f:current<.9f?1f:0f);PlayerPrefs.Save();
-            CameraFeedback.ShakeStrength=ShakeStrength;
-            if(ShakeStrength<=0)CameraFeedback.ResetHit();
+            // 主菜单也复用设置控件，但该场景没有战斗镜头。
+            if(CameraFeedback!=null)
+            {
+                CameraFeedback.ShakeStrength=ShakeStrength;
+                if(ShakeStrength<=0)CameraFeedback.ResetHit();
+            }
             Refresh();
         }
         private void ToggleFlash()

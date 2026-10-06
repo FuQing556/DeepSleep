@@ -1,0 +1,28 @@
+Scope: World01 first three wave names and directed objectives only.
+Config: CFG_ChapterRun_World01_EarlyInternet, segments 1..3.
+1: 最最最直白 / 击败豆包 1 / 45 seconds / EncountersOnly.
+2: Python烤肉 / 击杀爬虫 10 / 55 seconds / DataCrawlerSnake channel.
+3: 超光速缓存 / 击落迅雷 10 / 60 seconds / Download channel.
+Inspector fields: Objective Mode, Objective Channel, Objective Label, Required Defeats.
+Legacy mode is enum zero; unchanged first-map assets retain prior objective behavior.
+No changes to health, spawning, Token rewards, or end-of-timer completion policy.
+Wave4 remains existing65s/22 generic kills plus encounter, pending future Kimi implementation.
+
+Unity controlled Play checks, isolated profile:
+- Started World01 and selected DS, paused automatic simulation.
+- Set each segment and called existing StartCombatSegment: progress resets to zero.
+- Rented real pooled actors from all four bound enemy pools.
+- ExitedPlayfield did not increment progress; Defeated counted only matching channel.
+- Wave1 ordinary kills did not complete objective.
+- Used existing diagnostic helper to activate and actually damage Doubao to defeat;
+  helper verified scaled HP, exactly100Token reward, no duplicate reward/restart.
+- SimulateCombat updated first-wave HUD progress to1/1.
+- Waves2/3 completed ten matching pooled defeat events; uncompleted optional Doubao
+  did not block AreAdditionalObjectivesComplete.
+- HUD strings: 第1波 剩余45秒 最最最直白 击败豆包1/1;
+  第2波 剩余55秒 Python烤肉 击杀爬虫10/10;
+  第3波 剩余60秒 超光速缓存 击落迅雷10/10.
+- ProfileIsolation.RestoreAndVerify succeeded; left Play; Console errors0.
+
+Not tested: natural full-wave combat/difficulty, physical phone, two network peers.
+No APK build, Git commit or push. Protocol5 unchanged; content20261006-wave-objectives-1.

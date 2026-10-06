@@ -1,0 +1,1271 @@
+{
+  "notes": "OFFLINE audition montage, not a Unity loopback/performance or multiplayer verification. DS 3→9 volleys/s; HS 0.18s burst; melee; block/hurt; grouped bubbles; UI. No per-branch duplication. Runtime mixer may differ.",
+  "normalization_gain": 1.0,
+  "peak_dbfs": -11.881523543994234,
+  "events": [
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 0.3,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 1
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 0.36,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsSplash",
+      "theme": null,
+      "start": 0.39,
+      "gain": 0.4,
+      "pan": 0.16,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 0.6333,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 2
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 0.9667,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 3
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 1.0267,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 1.3,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 1.6333,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 2
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 1.6933,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 1.9667,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 3
+    },
+    {
+      "cue": "DsSplash",
+      "theme": null,
+      "start": 2.0567,
+      "gain": 0.4,
+      "pan": 0.16,
+      "variant": 2
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 2.3,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 1
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 2.36,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 2.6333,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 2
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 2.9667,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 3
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 3.0267,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 3.3,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 3.6333,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 2
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 3.6933,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsSplash",
+      "theme": null,
+      "start": 3.7233,
+      "gain": 0.4,
+      "pan": 0.16,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 3.9667,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 3
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 4.3,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 1
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 4.36,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 4.6333,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 2
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 4.9667,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 3
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 5.0267,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 5.2,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 1
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 5.26,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsSplash",
+      "theme": null,
+      "start": 5.29,
+      "gain": 0.4,
+      "pan": 0.16,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 5.3111,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 2
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 5.4222,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 3
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 5.4822,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 5.5333,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 5.6444,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 2
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 5.7044,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 5.7556,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 3
+    },
+    {
+      "cue": "DsSplash",
+      "theme": null,
+      "start": 5.8456,
+      "gain": 0.4,
+      "pan": 0.16,
+      "variant": 2
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 5.8667,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 1
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 5.9267,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 5.9778,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 2
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 6.0889,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 3
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 6.1489,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 6.2,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 6.3111,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 2
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 6.3711,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsSplash",
+      "theme": null,
+      "start": 6.4011,
+      "gain": 0.4,
+      "pan": 0.16,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 6.4222,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 3
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 6.5333,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 1
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 6.5933,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 6.6444,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 2
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 6.7556,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 3
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 6.8156,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 6.8667,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 1
+    },
+    {
+      "cue": "DsSplash",
+      "theme": null,
+      "start": 6.9567,
+      "gain": 0.4,
+      "pan": 0.16,
+      "variant": 2
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 6.9778,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 2
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 7.0378,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 7.0889,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 3
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 7.2,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 1
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 7.26,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 7.3111,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 2
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 7.4222,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 3
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 7.4822,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsSplash",
+      "theme": null,
+      "start": 7.5122,
+      "gain": 0.4,
+      "pan": 0.16,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 7.5333,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 7.6444,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 2
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 7.7044,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 7.7556,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 3
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 7.8667,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 1
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 7.9267,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 7.9778,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 2
+    },
+    {
+      "cue": "DsSplash",
+      "theme": null,
+      "start": 8.0678,
+      "gain": 0.4,
+      "pan": 0.16,
+      "variant": 2
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 8.0889,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 3
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 8.1489,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 8.2,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 8.3111,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 2
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 8.3711,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 8.4222,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 3
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 8.5333,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 1
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 8.5933,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsSplash",
+      "theme": null,
+      "start": 8.6233,
+      "gain": 0.4,
+      "pan": 0.16,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 8.6444,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 2
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 8.7556,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 3
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 8.8156,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 8.8667,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 8.9778,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 2
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 9.0378,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 9.0889,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 3
+    },
+    {
+      "cue": "DsSplash",
+      "theme": null,
+      "start": 9.1789,
+      "gain": 0.4,
+      "pan": 0.16,
+      "variant": 2
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 9.2,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 1
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 9.26,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 9.3111,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 2
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 9.4222,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 3
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 9.4822,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 9.5333,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 9.6444,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 2
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 9.7044,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsSplash",
+      "theme": null,
+      "start": 9.7344,
+      "gain": 0.4,
+      "pan": 0.16,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 9.7556,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 3
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 9.8667,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 1
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "start": 9.9267,
+      "gain": 0.45,
+      "pan": 0.1,
+      "variant": 1
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "start": 9.9778,
+      "gain": 0.7,
+      "pan": -0.25,
+      "variant": 2
+    },
+    {
+      "cue": "HsCharge",
+      "theme": null,
+      "start": 10.5,
+      "gain": 0.75,
+      "pan": 0.2,
+      "variant": 1
+    },
+    {
+      "cue": "HsFire",
+      "theme": null,
+      "start": 11.0,
+      "gain": 0.64,
+      "pan": 0.2,
+      "variant": 1
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "start": 11.04,
+      "gain": 0.34,
+      "pan": 0,
+      "variant": 1
+    },
+    {
+      "cue": "HsFire",
+      "theme": null,
+      "start": 11.18,
+      "gain": 0.64,
+      "pan": 0.2,
+      "variant": 2
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "start": 11.22,
+      "gain": 0.34,
+      "pan": 0,
+      "variant": 2
+    },
+    {
+      "cue": "HsFire",
+      "theme": null,
+      "start": 11.36,
+      "gain": 0.64,
+      "pan": 0.2,
+      "variant": 3
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "start": 11.4,
+      "gain": 0.34,
+      "pan": 0,
+      "variant": 1
+    },
+    {
+      "cue": "HsFire",
+      "theme": null,
+      "start": 11.54,
+      "gain": 0.64,
+      "pan": 0.2,
+      "variant": 1
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "start": 11.58,
+      "gain": 0.34,
+      "pan": 0,
+      "variant": 2
+    },
+    {
+      "cue": "HsFire",
+      "theme": null,
+      "start": 11.72,
+      "gain": 0.64,
+      "pan": 0.2,
+      "variant": 2
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "start": 11.76,
+      "gain": 0.34,
+      "pan": 0,
+      "variant": 1
+    },
+    {
+      "cue": "HsCharge",
+      "theme": null,
+      "start": 12.7,
+      "gain": 0.75,
+      "pan": 0.2,
+      "variant": 1
+    },
+    {
+      "cue": "HsFire",
+      "theme": null,
+      "start": 13.2,
+      "gain": 0.64,
+      "pan": 0.2,
+      "variant": 1
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "start": 13.24,
+      "gain": 0.34,
+      "pan": 0,
+      "variant": 1
+    },
+    {
+      "cue": "HsFire",
+      "theme": null,
+      "start": 13.38,
+      "gain": 0.64,
+      "pan": 0.2,
+      "variant": 2
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "start": 13.42,
+      "gain": 0.34,
+      "pan": 0,
+      "variant": 2
+    },
+    {
+      "cue": "HsFire",
+      "theme": null,
+      "start": 13.56,
+      "gain": 0.64,
+      "pan": 0.2,
+      "variant": 3
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "start": 13.6,
+      "gain": 0.34,
+      "pan": 0,
+      "variant": 1
+    },
+    {
+      "cue": "HsFire",
+      "theme": null,
+      "start": 13.74,
+      "gain": 0.64,
+      "pan": 0.2,
+      "variant": 1
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "start": 13.78,
+      "gain": 0.34,
+      "pan": 0,
+      "variant": 2
+    },
+    {
+      "cue": "HsFire",
+      "theme": null,
+      "start": 13.92,
+      "gain": 0.64,
+      "pan": 0.2,
+      "variant": 2
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "start": 13.96,
+      "gain": 0.34,
+      "pan": 0,
+      "variant": 1
+    },
+    {
+      "cue": "HsCharge",
+      "theme": null,
+      "start": 14.9,
+      "gain": 0.75,
+      "pan": 0.2,
+      "variant": 1
+    },
+    {
+      "cue": "HsFire",
+      "theme": null,
+      "start": 15.4,
+      "gain": 0.64,
+      "pan": 0.2,
+      "variant": 1
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "start": 15.44,
+      "gain": 0.34,
+      "pan": 0,
+      "variant": 1
+    },
+    {
+      "cue": "HsFire",
+      "theme": null,
+      "start": 15.58,
+      "gain": 0.64,
+      "pan": 0.2,
+      "variant": 2
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "start": 15.62,
+      "gain": 0.34,
+      "pan": 0,
+      "variant": 2
+    },
+    {
+      "cue": "HsFire",
+      "theme": null,
+      "start": 15.76,
+      "gain": 0.64,
+      "pan": 0.2,
+      "variant": 3
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "start": 15.8,
+      "gain": 0.34,
+      "pan": 0,
+      "variant": 1
+    },
+    {
+      "cue": "HsFire",
+      "theme": null,
+      "start": 15.94,
+      "gain": 0.64,
+      "pan": 0.2,
+      "variant": 1
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "start": 15.98,
+      "gain": 0.34,
+      "pan": 0,
+      "variant": 2
+    },
+    {
+      "cue": "HsFire",
+      "theme": null,
+      "start": 16.12,
+      "gain": 0.64,
+      "pan": 0.2,
+      "variant": 2
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "start": 16.16,
+      "gain": 0.34,
+      "pan": 0,
+      "variant": 1
+    },
+    {
+      "cue": "HsSlashUp",
+      "theme": null,
+      "start": 17.3,
+      "gain": 0.7,
+      "pan": 0.18,
+      "variant": 1
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "start": 17.4,
+      "gain": 0.4,
+      "pan": 0,
+      "variant": 1
+    },
+    {
+      "cue": "HsSlashDown",
+      "theme": null,
+      "start": 17.7,
+      "gain": 0.7,
+      "pan": 0.18,
+      "variant": 1
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "start": 17.8,
+      "gain": 0.4,
+      "pan": 0,
+      "variant": 2
+    },
+    {
+      "cue": "HsSlashSweep",
+      "theme": null,
+      "start": 18.15,
+      "gain": 0.7,
+      "pan": 0.18,
+      "variant": 1
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "start": 18.25,
+      "gain": 0.4,
+      "pan": 0,
+      "variant": 1
+    },
+    {
+      "cue": "HsWave",
+      "theme": null,
+      "start": 18.24,
+      "gain": 0.45,
+      "pan": -0.1,
+      "variant": 1
+    },
+    {
+      "cue": "HsSlashUp",
+      "theme": null,
+      "start": 18.8,
+      "gain": 0.7,
+      "pan": 0.18,
+      "variant": 1
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "start": 18.9,
+      "gain": 0.4,
+      "pan": 0,
+      "variant": 2
+    },
+    {
+      "cue": "HsSlashDown",
+      "theme": null,
+      "start": 19.2,
+      "gain": 0.7,
+      "pan": 0.18,
+      "variant": 1
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "start": 19.3,
+      "gain": 0.4,
+      "pan": 0,
+      "variant": 1
+    },
+    {
+      "cue": "HsSlashSweep",
+      "theme": null,
+      "start": 19.65,
+      "gain": 0.7,
+      "pan": 0.18,
+      "variant": 1
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "start": 19.75,
+      "gain": 0.4,
+      "pan": 0,
+      "variant": 2
+    },
+    {
+      "cue": "HsWave",
+      "theme": null,
+      "start": 19.74,
+      "gain": 0.45,
+      "pan": -0.1,
+      "variant": 1
+    },
+    {
+      "cue": "GuardBlock",
+      "theme": null,
+      "start": 20.4,
+      "gain": 0.8,
+      "pan": 0,
+      "variant": 1
+    },
+    {
+      "cue": "PlayerHurtDs",
+      "theme": null,
+      "start": 21.05,
+      "gain": 0.75,
+      "pan": 0,
+      "variant": 1
+    },
+    {
+      "cue": "BubblePop",
+      "theme": null,
+      "start": 21.8,
+      "gain": 0.45,
+      "pan": -0.15,
+      "variant": 1
+    },
+    {
+      "cue": "BubblePop",
+      "theme": null,
+      "start": 21.88,
+      "gain": 0.45,
+      "pan": 0.0,
+      "variant": 2
+    },
+    {
+      "cue": "BubblePop",
+      "theme": null,
+      "start": 22.15,
+      "gain": 0.45,
+      "pan": 0.15,
+      "variant": 3
+    },
+    {
+      "cue": "DoubaoDefeat",
+      "theme": null,
+      "start": 22.7,
+      "gain": 0.8,
+      "pan": 0,
+      "variant": 1
+    },
+    {
+      "cue": "NodeOpen",
+      "theme": null,
+      "start": 23.6,
+      "gain": 0.85,
+      "pan": 0,
+      "variant": 1
+    },
+    {
+      "cue": "UiConfirm",
+      "theme": "DS",
+      "start": 24.6,
+      "gain": 0.85,
+      "pan": 0,
+      "variant": 1
+    },
+    {
+      "cue": "UiConfirm",
+      "theme": "HS",
+      "start": 25.2,
+      "gain": 0.85,
+      "pan": 0,
+      "variant": 1
+    },
+    {
+      "cue": "Upgrade",
+      "theme": null,
+      "start": 25.9,
+      "gain": 0.8,
+      "pan": 0,
+      "variant": 1
+    }
+  ]
+}

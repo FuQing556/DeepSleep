@@ -57,9 +57,10 @@ namespace DeepSleep.Runtime.World.Nodes
             }
 
             BoxCollider2D trigger = GetComponent<BoxCollider2D>();
-            if (trigger == null || !trigger.isTrigger || !trigger.enabled)
+            // enabled 是交互的启停开关；临时禁用不等于装配缺失。
+            if (trigger == null || !trigger.isTrigger)
             {
-                reason = "需要启用的触发型 BoxCollider2D。";
+                reason = "需要触发型 BoxCollider2D。";
                 return false;
             }
 

@@ -199,6 +199,7 @@ GameObject:
   - component: {fileID: 7428641416185638188}
   - component: {fileID: 3103873488588240265}
   - component: {fileID: 7679996102590417487}
+  - component: {fileID: 9220913761285728751}
   m_Layer: 8
   m_Name: PF_EN_Doubao
   m_TagString: Untagged
@@ -401,3 +402,23 @@ MonoBehaviour:
   _tint: {r: 1, g: 0.72, b: 0.65, a: 1}
   _peakAlpha: 0.65
   _reducedAlpha: 0.18
+--- !u!114 &9220913761285728751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5553384162266659459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae52681bd4aff142be775f3af5c1776, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Perception.CombatPerceptionBody2D
+  Shape: {fileID: 4810470492405290755}
+  Body: {fileID: 0}
+  Enemy: {fileID: 0}
+  Hitbox: {fileID: 7428641416185638188}
+  Projectile: {fileID: 0}
+  SnakeAttack: {fileID: 0}
+  TargetValue: 3
+  ThreatTrackedAsObstacle: 0

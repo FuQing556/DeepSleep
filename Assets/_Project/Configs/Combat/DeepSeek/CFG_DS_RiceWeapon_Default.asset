@@ -31,6 +31,6 @@ MonoBehaviour:
     m_Bits: 1024
   _projectileCollisionLayers:
     serializedVersion: 2
-    m_Bits: 34048
+    m_Bits: 99584
   _initialPoolSize: 24
   _maximumPoolSize: 128

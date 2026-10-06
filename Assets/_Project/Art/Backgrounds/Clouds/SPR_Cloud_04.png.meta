@@ -1,0 +1,808 @@
+fileFormatVersion: 2
+guid: 223ab73a0ff37cd489dfc9ecb3f4e3ae
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6691810749055761733
+    second: SPR_Cloud_04_0
+  - first:
+      213: 828368417589883470
+    second: SPR_Cloud_04_1
+  - first:
+      213: -3713655513783530272
+    second: SPR_Cloud_04_2
+  - first:
+      213: 755828408004576205
+    second: SPR_Cloud_04_3
+  - first:
+      213: -540994097152741862
+    second: SPR_Cloud_04_4
+  - first:
+      213: -2551557823166091145
+    second: SPR_Cloud_04_5
+  - first:
+      213: -6440242088463162460
+    second: SPR_Cloud_04_6
+  - first:
+      213: 2384770948109706082
+    second: SPR_Cloud_04_7
+  - first:
+      213: -9068326149260773812
+    second: SPR_Cloud_04_8
+  - first:
+      213: 4638684597117773357
+    second: SPR_Cloud_04_9
+  - first:
+      213: 7567407431948414483
+    second: SPR_Cloud_04_10
+  - first:
+      213: -2239900866470442457
+    second: SPR_Cloud_04_11
+  - first:
+      213: 6633113799800079791
+    second: SPR_Cloud_04_12
+  - first:
+      213: -5795374418421441663
+    second: SPR_Cloud_04_13
+  - first:
+      213: -7097105964801485063
+    second: SPR_Cloud_04_14
+  - first:
+      213: 7370511018546556641
+    second: SPR_Cloud_04_15
+  - first:
+      213: -2994939225913945092
+    second: SPR_Cloud_04_16
+  - first:
+      213: -5046575969659073303
+    second: SPR_Cloud_04_17
+  - first:
+      213: 8581772099819260034
+    second: SPR_Cloud_04_18
+  - first:
+      213: 4779095299583159022
+    second: SPR_Cloud_04_19
+  - first:
+      213: -8429880757679534120
+    second: SPR_Cloud_04_20
+  - first:
+      213: 87338583001004263
+    second: SPR_Cloud_04_21
+  - first:
+      213: -6267191040238994880
+    second: SPR_Cloud_04_22
+  - first:
+      213: -2361637249093307284
+    second: SPR_Cloud_04_23
+  - first:
+      213: 7034254749250083301
+    second: SPR_Cloud_04_24
+  - first:
+      213: 1459616440621793846
+    second: SPR_Cloud_04_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 1024
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPR_Cloud_04_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2155
+        height: 702
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb204661499e123a0800000000000000
+      internalID: -6691810749055761733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_1
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 616
+        width: 112
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e42f899dfa4fe7b00800000000000000
+      internalID: 828368417589883470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_2
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 626
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ec03ca6cf1767cc0800000000000000
+      internalID: -3713655513783530272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_3
+      rect:
+        serializedVersion: 2
+        x: 682
+        y: 610
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc3034abeed3d7a00800000000000000
+      internalID: 755828408004576205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_4
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 584
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1ea0a52cb00e78f0800000000000000
+      internalID: -540994097152741862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_5
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 581
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 770f056bdab079cd0800000000000000
+      internalID: -2551557823166091145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_6
+      rect:
+        serializedVersion: 2
+        x: 1717
+        y: 583
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a322a141f9af96a0800000000000000
+      internalID: -6440242088463162460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_7
+      rect:
+        serializedVersion: 2
+        x: 1719
+        y: 584
+        width: 20
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26320c0da88681120800000000000000
+      internalID: 2384770948109706082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_8
+      rect:
+        serializedVersion: 2
+        x: 1526
+        y: 562
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c46fcedc965d62280800000000000000
+      internalID: -9068326149260773812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_9
+      rect:
+        serializedVersion: 2
+        x: 1726
+        y: 567
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d26e744701bef5040800000000000000
+      internalID: 4638684597117773357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_10
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 224
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31eafeb27f4d40960800000000000000
+      internalID: 7567407431948414483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_11
+      rect:
+        serializedVersion: 2
+        x: 1625
+        y: 103
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72a80f987064ae0e0800000000000000
+      internalID: -2239900866470442457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_12
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 81
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa543df6bdd8d0c50800000000000000
+      internalID: 6633113799800079791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_13
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 79
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18b9a91fba1b29fa0800000000000000
+      internalID: -5795374418421441663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_14
+      rect:
+        serializedVersion: 2
+        x: 1398
+        y: 79
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f693b22ab3028d90800000000000000
+      internalID: -7097105964801485063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_15
+      rect:
+        serializedVersion: 2
+        x: 1438
+        y: 81
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eee19188b0594660800000000000000
+      internalID: 7370511018546556641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_16
+      rect:
+        serializedVersion: 2
+        x: 1327
+        y: 52
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf3148354a6df66d0800000000000000
+      internalID: -2994939225913945092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_17
+      rect:
+        serializedVersion: 2
+        x: 1341
+        y: 60
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ecc27cb4e5f6f9b0800000000000000
+      internalID: -5046575969659073303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_18
+      rect:
+        serializedVersion: 2
+        x: 1353
+        y: 65
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 288c511b144981770800000000000000
+      internalID: 8581772099819260034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_19
+      rect:
+        serializedVersion: 2
+        x: 1373
+        y: 63
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeaa46faad1c25240800000000000000
+      internalID: 4779095299583159022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_20
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 49
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8df4c934d1c030b80800000000000000
+      internalID: -8429880757679534120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_21
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 55
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e8f5fe7af9463100800000000000000
+      internalID: 87338583001004263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_22
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 51
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 04a3b0334f67609a0800000000000000
+      internalID: -6267191040238994880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_23
+      rect:
+        serializedVersion: 2
+        x: 627
+        y: 31
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6476773f67c93fd0800000000000000
+      internalID: -2361637249093307284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_24
+      rect:
+        serializedVersion: 2
+        x: 535
+        y: 7
+        width: 9
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e9d7a4ec61be9160800000000000000
+      internalID: 7034254749250083301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_Cloud_04_25
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 15
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 632059b5b69914410800000000000000
+      internalID: 1459616440621793846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SPR_Cloud_04_0: -6691810749055761733
+      SPR_Cloud_04_1: 828368417589883470
+      SPR_Cloud_04_10: 7567407431948414483
+      SPR_Cloud_04_11: -2239900866470442457
+      SPR_Cloud_04_12: 6633113799800079791
+      SPR_Cloud_04_13: -5795374418421441663
+      SPR_Cloud_04_14: -7097105964801485063
+      SPR_Cloud_04_15: 7370511018546556641
+      SPR_Cloud_04_16: -2994939225913945092
+      SPR_Cloud_04_17: -5046575969659073303
+      SPR_Cloud_04_18: 8581772099819260034
+      SPR_Cloud_04_19: 4779095299583159022
+      SPR_Cloud_04_2: -3713655513783530272
+      SPR_Cloud_04_20: -8429880757679534120
+      SPR_Cloud_04_21: 87338583001004263
+      SPR_Cloud_04_22: -6267191040238994880
+      SPR_Cloud_04_23: -2361637249093307284
+      SPR_Cloud_04_24: 7034254749250083301
+      SPR_Cloud_04_25: 1459616440621793846
+      SPR_Cloud_04_3: 755828408004576205
+      SPR_Cloud_04_4: -540994097152741862
+      SPR_Cloud_04_5: -2551557823166091145
+      SPR_Cloud_04_6: -6440242088463162460
+      SPR_Cloud_04_7: 2384770948109706082
+      SPR_Cloud_04_8: -9068326149260773812
+      SPR_Cloud_04_9: 4638684597117773357
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

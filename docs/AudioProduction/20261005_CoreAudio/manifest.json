@@ -1,0 +1,1868 @@
+{
+  "batch": "20261005_CoreAudio",
+  "status": "first_pass_pending_human_listening",
+  "sample_rate": 44100,
+  "output_subtype": "PCM_24",
+  "source_quality_note": "Kenney Vorbis sources are 44.1kHz; decoding to 24-bit does not restore lost original information.",
+  "sources": {
+    "pluck_001": {
+      "path": "sources/interface/Audio/pluck_001.ogg",
+      "sha256": "be97ec4893a02d6eccfb678daa76c83e34cb2583b834ec2593d2641def739fa4",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.10242630385487528,
+      "trim_samples": [
+        0,
+        3915
+      ]
+    },
+    "footstep_carpet_000": {
+      "path": "sources/impact/Audio/footstep_carpet_000.ogg",
+      "sha256": "b9524658b52a99a20590f8feefc103088637fd13ea8ec35811aee785e1f2f330",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.14478458049886622,
+      "trim_samples": [
+        0,
+        3515
+      ]
+    },
+    "footstep_grass_000": {
+      "path": "sources/impact/Audio/footstep_grass_000.ogg",
+      "sha256": "9d49497777405d78d7cf7f2888e28277f3a23192300cfd1d79d54876b20f479f",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.7775736961451247,
+      "trim_samples": [
+        0,
+        5665
+      ]
+    },
+    "footstep_carpet_001": {
+      "path": "sources/impact/Audio/footstep_carpet_001.ogg",
+      "sha256": "9af3c3f76705107339e72036e4053bdca3eaa50ad31c8c929f42ce8d40e5d781",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.14478458049886622,
+      "trim_samples": [
+        0,
+        4293
+      ]
+    },
+    "footstep_grass_001": {
+      "path": "sources/impact/Audio/footstep_grass_001.ogg",
+      "sha256": "fb28781bd22b2eefdc14077f1adf5c94d7fe9c3a130194633b55f3e0d39d9f04",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.6736054421768708,
+      "trim_samples": [
+        0,
+        6432
+      ]
+    },
+    "footstep_carpet_002": {
+      "path": "sources/impact/Audio/footstep_carpet_002.ogg",
+      "sha256": "9af3c3f76705107339e72036e4053bdca3eaa50ad31c8c929f42ce8d40e5d781",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.14478458049886622,
+      "trim_samples": [
+        0,
+        4293
+      ]
+    },
+    "footstep_grass_002": {
+      "path": "sources/impact/Audio/footstep_grass_002.ogg",
+      "sha256": "73a520139f5be716a403bfe9c80e0e94d1e61d8e9de04a354b336392164b53dc",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.6924489795918367,
+      "trim_samples": [
+        0,
+        6661
+      ]
+    },
+    "impactSoft_medium_000": {
+      "path": "sources/impact/Audio/impactSoft_medium_000.ogg",
+      "sha256": "7d3ba0bb5e60a11b5d3e558c141303dcf494256675fbf753c0d252d2cf0481e3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.11800453514739229,
+      "trim_samples": [
+        0,
+        5204
+      ]
+    },
+    "footstep_snow_000": {
+      "path": "sources/impact/Audio/footstep_snow_000.ogg",
+      "sha256": "c05fa4a9dc9a7aabc04996466fb589537e49af76de9998d8f9e6270ec92dcef7",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.37421768707482994,
+      "trim_samples": [
+        0,
+        7782
+      ]
+    },
+    "impactSoft_medium_001": {
+      "path": "sources/impact/Audio/impactSoft_medium_001.ogg",
+      "sha256": "7642a4fd43e547afe4f7adfadb3dabb681c0ff512f52c1674bae30a726841faf",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.18328798185941042,
+      "trim_samples": [
+        0,
+        8083
+      ]
+    },
+    "footstep_snow_001": {
+      "path": "sources/impact/Audio/footstep_snow_001.ogg",
+      "sha256": "980fb9a1c9227aed7995067b0357f373053337f2416316db8ea0438418542fb4",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.37421768707482994,
+      "trim_samples": [
+        0,
+        8146
+      ]
+    },
+    "footstep_grass_003": {
+      "path": "sources/impact/Audio/footstep_grass_003.ogg",
+      "sha256": "0546e1d8ab2def714425701a18bd34c5ee2794b12e858e5b595aabcf38a34137",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.6693197278911565,
+      "trim_samples": [
+        0,
+        4440
+      ]
+    },
+    "scratch_002": {
+      "path": "sources/interface/Audio/scratch_002.ogg",
+      "sha256": "2b07edafc1f3f49c4813f2b0ae9481c566c1f9962a22d5f5b79da7111e058e56",
+      "sample_rate": 44100,
+      "channels": 1,
+      "decoded_seconds": 0.13931972789115646,
+      "trim_samples": [
+        0,
+        5903
+      ]
+    },
+    "switch_001": {
+      "path": "sources/interface/Audio/switch_001.ogg",
+      "sha256": "3b74efad87f1e69dbd1d05c5ad952ab90859b5a3d11da6ec5bd79b4f03b42afa",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.6176643990929706,
+      "trim_samples": [
+        0,
+        6252
+      ]
+    },
+    "impactMetal_light_001": {
+      "path": "sources/impact/Audio/impactMetal_light_001.ogg",
+      "sha256": "fba69c467ddd85da7b1d82e259f936b876d9ba6a3d6f1b24bdd10468e46bfe08",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.2518367346938776,
+      "trim_samples": [
+        0,
+        7095
+      ]
+    },
+    "impactTin_medium_000": {
+      "path": "sources/impact/Audio/impactTin_medium_000.ogg",
+      "sha256": "f4bbee66ca191ec744b84fc07ac9ed2a6fda955d51cfed8360f12b62815d3cbd",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.15870748299319729,
+      "trim_samples": [
+        0,
+        6999
+      ]
+    },
+    "scratch_001": {
+      "path": "sources/interface/Audio/scratch_001.ogg",
+      "sha256": "5c294d2e1a6b6d07ee2d75b17105a55ad3527e5482dd60652dc49c2ea4c70096",
+      "sample_rate": 44100,
+      "channels": 1,
+      "decoded_seconds": 0.13931972789115646,
+      "trim_samples": [
+        0,
+        5916
+      ]
+    },
+    "impactMetal_light_000": {
+      "path": "sources/impact/Audio/impactMetal_light_000.ogg",
+      "sha256": "33b5e6e37c6e9d54e07bf5a89b12c76e879f40c1ea83cdd82714df1d6f9fec6d",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.35147392290249435,
+      "trim_samples": [
+        0,
+        9142
+      ]
+    },
+    "impactTin_medium_001": {
+      "path": "sources/impact/Audio/impactTin_medium_001.ogg",
+      "sha256": "84253095543c094d83cd749f42ecfbc96e356b60385f18a192c18eafb25b3cc6",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.17430839002267573,
+      "trim_samples": [
+        0,
+        7687
+      ]
+    },
+    "impactTin_medium_002": {
+      "path": "sources/impact/Audio/impactTin_medium_002.ogg",
+      "sha256": "c1d2c4f9910d4529581ae56a9a9a01454c4619fbb7d6da7616221d8ec58cc0c4",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.13378684807256236,
+      "trim_samples": [
+        0,
+        5900
+      ]
+    },
+    "impactMetal_light_002": {
+      "path": "sources/impact/Audio/impactMetal_light_002.ogg",
+      "sha256": "25a96f90a9a1f88a531e824e126f0519504625e5635e65a72e4f31611428db29",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.23578231292517007,
+      "trim_samples": [
+        0,
+        6574
+      ]
+    },
+    "impactMetal_medium_000": {
+      "path": "sources/impact/Audio/impactMetal_medium_000.ogg",
+      "sha256": "a96f879fec0864a8938e0c745b6996a6c5679c16a234ce31a01cc995e8401003",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.2717687074829932,
+      "trim_samples": [
+        0,
+        7677
+      ]
+    },
+    "impactMetal_medium_001": {
+      "path": "sources/impact/Audio/impactMetal_medium_001.ogg",
+      "sha256": "e8a9eaba7c4d27422e4eeb3e6c7100d5d7dc0f83e005efc98c960adcc5265337",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.14344671201814058,
+      "trim_samples": [
+        0,
+        6326
+      ]
+    },
+    "footstep_carpet_003": {
+      "path": "sources/impact/Audio/footstep_carpet_003.ogg",
+      "sha256": "4ae7454338d57c7d102145919ae653c7d010eb542797c4f25a1c7470be3a7e4c",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.14478458049886622,
+      "trim_samples": [
+        0,
+        3320
+      ]
+    },
+    "impactMetal_light_003": {
+      "path": "sources/impact/Audio/impactMetal_light_003.ogg",
+      "sha256": "92d5db6bfc672d9dc1b4f390b2900504f013187fa36335472554fafefa9050b1",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.4820408163265306,
+      "trim_samples": [
+        0,
+        12603
+      ]
+    },
+    "impactSoft_medium_003": {
+      "path": "sources/impact/Audio/impactSoft_medium_003.ogg",
+      "sha256": "5c4a1f35fde7e14046931da7bc3d1b23736541b7190ba107e08a379c4ca43cd6",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.1402267573696145,
+      "trim_samples": [
+        0,
+        6184
+      ]
+    },
+    "footstep_carpet_004": {
+      "path": "sources/impact/Audio/footstep_carpet_004.ogg",
+      "sha256": "4ae7454338d57c7d102145919ae653c7d010eb542797c4f25a1c7470be3a7e4c",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.14478458049886622,
+      "trim_samples": [
+        0,
+        3320
+      ]
+    },
+    "impactSoft_medium_004": {
+      "path": "sources/impact/Audio/impactSoft_medium_004.ogg",
+      "sha256": "b0a4dea90eed47accf50b768beff1166f2f1486fb139e4d025b2427637624bca",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.14714285714285713,
+      "trim_samples": [
+        0,
+        6489
+      ]
+    },
+    "impactMetal_medium_003": {
+      "path": "sources/impact/Audio/impactMetal_medium_003.ogg",
+      "sha256": "2a185e2e57211d02c1bdd33b872d6b6a2fe83e6c14f4e56f426a95e717acf08e",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.25396825396825395,
+      "trim_samples": [
+        0,
+        7203
+      ]
+    },
+    "impactSoft_medium_002": {
+      "path": "sources/impact/Audio/impactSoft_medium_002.ogg",
+      "sha256": "5069e3571a77d7f7aae9ef71d0364aa245fb7d64a7c8cc9956f221d03088c089",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.13519274376417234,
+      "trim_samples": [
+        0,
+        5962
+      ]
+    },
+    "impactPlate_light_001": {
+      "path": "sources/impact/Audio/impactPlate_light_001.ogg",
+      "sha256": "947915c2eb6ac57ee08fd3a48b297fd108d69abc72076e79882c21cad0eef56e",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.6546712018140589,
+      "trim_samples": [
+        0,
+        23244
+      ]
+    },
+    "pluck_002": {
+      "path": "sources/interface/Audio/pluck_002.ogg",
+      "sha256": "c977fe249ff42d1c93a552b33abc13a8399df3879fa510475426e5c4bbac1da9",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.1645578231292517,
+      "trim_samples": [
+        0,
+        5040
+      ]
+    },
+    "footstep_grass_004": {
+      "path": "sources/impact/Audio/footstep_grass_004.ogg",
+      "sha256": "086fd4ab3546a507ea5f5c759a9a10e535c95ade13705c238bc0eeffd7d4e8ba",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.5902267573696145,
+      "trim_samples": [
+        0,
+        5047
+      ]
+    },
+    "click_003": {
+      "path": "sources/interface/Audio/click_003.ogg",
+      "sha256": "2fa929138bc3a0f432696588f66eac94b8f6d463905ec8808c6461ce4b054292",
+      "sample_rate": 44100,
+      "channels": 1,
+      "decoded_seconds": 0.010022675736961452,
+      "trim_samples": [
+        0,
+        442
+      ]
+    },
+    "impactGeneric_light_000": {
+      "path": "sources/impact/Audio/impactGeneric_light_000.ogg",
+      "sha256": "f0e982611e97512fee5f777986b67e8b435434b601f94992ec044f7e89fb5acb",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.13868480725623583,
+      "trim_samples": [
+        0,
+        6059
+      ]
+    },
+    "impactGeneric_light_001": {
+      "path": "sources/impact/Audio/impactGeneric_light_001.ogg",
+      "sha256": "c3cd1c073d186ae8fa35788ba94de581f1826e7427a7bb26490b2695fac18efa",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.11750566893424036,
+      "trim_samples": [
+        0,
+        5182
+      ]
+    },
+    "footstep_snow_002": {
+      "path": "sources/impact/Audio/footstep_snow_002.ogg",
+      "sha256": "db52bafdc66304f3b999f2c29227826c65993916e630ac2ffbca17d07b263178",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.37421768707482994,
+      "trim_samples": [
+        0,
+        8145
+      ]
+    },
+    "impactGeneric_light_002": {
+      "path": "sources/impact/Audio/impactGeneric_light_002.ogg",
+      "sha256": "d0bf60905b59ff630ffe01eb0edeeacd2504eaa8fb6523aeef7d2458b78264d3",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.13959183673469389,
+      "trim_samples": [
+        0,
+        6156
+      ]
+    },
+    "footstep_snow_003": {
+      "path": "sources/impact/Audio/footstep_snow_003.ogg",
+      "sha256": "68272e3f1cabcabd02d328fd344454d7c04cb58b5a86972fcdd858f845e3d007",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.37421768707482994,
+      "trim_samples": [
+        0,
+        7802
+      ]
+    },
+    "footstep_snow_004": {
+      "path": "sources/impact/Audio/footstep_snow_004.ogg",
+      "sha256": "7fe9ce5f5732aaa0a50ef02bb1ac162c27f6bd85214e86aaea6e13e7a41dbc00",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.37421768707482994,
+      "trim_samples": [
+        0,
+        8195
+      ]
+    },
+    "impactWood_light_002": {
+      "path": "sources/impact/Audio/impactWood_light_002.ogg",
+      "sha256": "b183cf7a5bd783817e0e4b82af34ac6658fa1927049089dadc8b15c2ecc771dc",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.2656009070294785,
+      "trim_samples": [
+        0,
+        4783
+      ]
+    },
+    "click_004": {
+      "path": "sources/interface/Audio/click_004.ogg",
+      "sha256": "09e2c1b643b71b9aff9932b4e02d78db116446b9a14b00a5b2a9b28d2668fd8e",
+      "sample_rate": 44100,
+      "channels": 1,
+      "decoded_seconds": 0.010022675736961452,
+      "trim_samples": [
+        0,
+        442
+      ]
+    },
+    "click_005": {
+      "path": "sources/interface/Audio/click_005.ogg",
+      "sha256": "a3ee7ebb036bc3cdc218ae52bb27548c4f49bcf07505274f8b61b1af8236acc2",
+      "sample_rate": 44100,
+      "channels": 1,
+      "decoded_seconds": 0.010022675736961452,
+      "trim_samples": [
+        0,
+        442
+      ]
+    },
+    "impactWood_light_001": {
+      "path": "sources/impact/Audio/impactWood_light_001.ogg",
+      "sha256": "4b76bf3ccc8e60d19188f3165b778a7817786faa6887c55d9049bcbeef3b425f",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.2656009070294785,
+      "trim_samples": [
+        0,
+        4804
+      ]
+    },
+    "impactGlass_light_002": {
+      "path": "sources/impact/Audio/impactGlass_light_002.ogg",
+      "sha256": "710db7451bb7857b9140dfe6afe4621ea2188ad65eda3919c569d1bb285b933d",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.20959183673469386,
+      "trim_samples": [
+        0,
+        6154
+      ]
+    },
+    "switch_002": {
+      "path": "sources/interface/Audio/switch_002.ogg",
+      "sha256": "6fc395be2ad1f99ce318a5d28f98fb76dbeb676d83a0b28239d8c1fb90736180",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.6109523809523809,
+      "trim_samples": [
+        0,
+        6406
+      ]
+    },
+    "impactSoft_heavy_002": {
+      "path": "sources/impact/Audio/impactSoft_heavy_002.ogg",
+      "sha256": "d130ae541951243d3f6ed963d0057450a445ffe117fbf9a084d34eb1635cb563",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.572312925170068,
+      "trim_samples": [
+        0,
+        24253
+      ]
+    },
+    "impactGlass_light_003": {
+      "path": "sources/impact/Audio/impactGlass_light_003.ogg",
+      "sha256": "765290ce32fa108c939a0dbd6fbacbcd05abde622b57b708eb8a64058ef4225a",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.20959183673469386,
+      "trim_samples": [
+        0,
+        5960
+      ]
+    },
+    "impactSoft_heavy_001": {
+      "path": "sources/impact/Audio/impactSoft_heavy_001.ogg",
+      "sha256": "4d0096364ba9e46119d2ff6df493fdc101bd2e1efae061da5e5f77a53b3fdcb6",
+      "sample_rate": 44100,
+      "channels": 2,
+      "decoded_seconds": 0.5720408163265306,
+      "trim_samples": [
+        0,
+        25227
+      ]
+    }
+  },
+  "clips": [
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/DeepSeek/SFX_DsShot_01.wav",
+      "duration_seconds": 0.107982,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -9.266,
+      "rms_dbfs": -27.0,
+      "dc_offset": -9.383916691095612e-05,
+      "energy_above_8khz_fraction": 3.939652090613623e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "pluck_001",
+        "footstep_carpet_000",
+        "footstep_grass_000"
+      ],
+      "recipe": "Soft carpet impulse + muted pluck + short dry-grass grain; lowpass, no reverb.",
+      "sha256": "0ddf1b234b95faaa44d5c21051e650f290c3b930399b4a5f79b332a817a6b0c8",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "variant": 2,
+      "path": "Assets/_Project/Audio/SFX/DeepSeek/SFX_DsShot_02.wav",
+      "duration_seconds": 0.107982,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -10.476,
+      "rms_dbfs": -27.0,
+      "dc_offset": -0.0002334225287695654,
+      "energy_above_8khz_fraction": 1.4396236070948403e-05,
+      "first_last_peak": 0.0,
+      "sources": [
+        "pluck_001",
+        "footstep_carpet_001",
+        "footstep_grass_001"
+      ],
+      "recipe": "Soft carpet impulse + muted pluck + short dry-grass grain; lowpass, no reverb.",
+      "sha256": "a7c5754031d5b4f62bc323997cddc415583668c5d0a64bf82c4592fae3333383",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "DsShot",
+      "theme": null,
+      "variant": 3,
+      "path": "Assets/_Project/Audio/SFX/DeepSeek/SFX_DsShot_03.wav",
+      "duration_seconds": 0.107982,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -10.412,
+      "rms_dbfs": -27.0,
+      "dc_offset": -0.0002342867604228306,
+      "energy_above_8khz_fraction": 1.350344374154757e-05,
+      "first_last_peak": 0.0,
+      "sources": [
+        "pluck_001",
+        "footstep_carpet_002",
+        "footstep_grass_002"
+      ],
+      "recipe": "Soft carpet impulse + muted pluck + short dry-grass grain; lowpass, no reverb.",
+      "sha256": "9aa004c3ca23815dae6a9a948c6d5210e99dd1d164722ae9c5eae4eb00f28445",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/DeepSeek/SFX_DsHit_01.wav",
+      "duration_seconds": 0.09,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -14.599,
+      "rms_dbfs": -28.0,
+      "dc_offset": -0.00011913821499221039,
+      "energy_above_8khz_fraction": 1.0779098166500848e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactSoft_medium_000",
+        "footstep_snow_000"
+      ],
+      "recipe": "Short soft-material contact, dry grain accent.",
+      "sha256": "ecc3bbe5aee5ca94173e8d523de1e4e196ab14de6436fcf3ef99e98b38314b48",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "DsSplash",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/DeepSeek/SFX_DsSplash_01.wav",
+      "duration_seconds": 0.154989,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -13.012,
+      "rms_dbfs": -28.5,
+      "dc_offset": -7.450538759840403e-05,
+      "energy_above_8khz_fraction": 3.327727933540251e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactSoft_medium_000",
+        "footstep_snow_000",
+        "footstep_grass_002"
+      ],
+      "recipe": "One core contact, two quieter staggered particulate layers; no explosion bass.",
+      "sha256": "923f46ef180a3a3cea4719d315d541847e6f41db1af63aa5cd75f58fee5cc56a",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "DsHit",
+      "theme": null,
+      "variant": 2,
+      "path": "Assets/_Project/Audio/SFX/DeepSeek/SFX_DsHit_02.wav",
+      "duration_seconds": 0.09,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -16.789,
+      "rms_dbfs": -28.0,
+      "dc_offset": -0.00011025822105230535,
+      "energy_above_8khz_fraction": 7.72283943491823e-07,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactSoft_medium_001",
+        "footstep_snow_001"
+      ],
+      "recipe": "Short soft-material contact, dry grain accent.",
+      "sha256": "ec81129749295d948ad6e3c0cecfd0618397973d3c142d234aae4a58f2ba7b71",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "DsSplash",
+      "theme": null,
+      "variant": 2,
+      "path": "Assets/_Project/Audio/SFX/DeepSeek/SFX_DsSplash_02.wav",
+      "duration_seconds": 0.154989,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -15.275,
+      "rms_dbfs": -28.5,
+      "dc_offset": -6.814430115253167e-05,
+      "energy_above_8khz_fraction": 2.2674511543937745e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactSoft_medium_001",
+        "footstep_snow_001",
+        "footstep_grass_003"
+      ],
+      "recipe": "One core contact, two quieter staggered particulate layers; no explosion bass.",
+      "sha256": "efdd48bddcd502c1708fa830b80cbc014bbe7ab5e75c95fda8b144c6b4305b68",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "HsCharge",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Harness/SFX_HsCharge_01.wav",
+      "duration_seconds": 0.48,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -16.314,
+      "rms_dbfs": -32.0,
+      "dc_offset": -1.719497479754136e-07,
+      "energy_above_8khz_fraction": 0.00019933128293244813,
+      "first_last_peak": 0.0,
+      "sources": [
+        "scratch_002",
+        "switch_001",
+        "impactMetal_light_001"
+      ],
+      "recipe": "Mechanical latch and sampled friction gathering; finite 480ms, cancel by runtime fade.",
+      "sha256": "3d060fcc15ff3d17b90c94587882f11017ac4816cb38a4066e220778585ac94f",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "HsFire",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Harness/SFX_HsFire_01.wav",
+      "duration_seconds": 0.157982,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -8.907,
+      "rms_dbfs": -25.5,
+      "dc_offset": -0.00025101748551602764,
+      "energy_above_8khz_fraction": 0.0005221161109130731,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactTin_medium_000",
+        "scratch_001",
+        "impactMetal_light_000"
+      ],
+      "recipe": "Compact tin release + narrow sampled air + damped light metal; tail <180ms.",
+      "sha256": "3032e73011006a7380f3d8640345e3d7a16f5bea46cc8cf4514266055a158a6a",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "HsFire",
+      "theme": null,
+      "variant": 2,
+      "path": "Assets/_Project/Audio/SFX/Harness/SFX_HsFire_02.wav",
+      "duration_seconds": 0.157982,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -10.359,
+      "rms_dbfs": -25.5,
+      "dc_offset": -0.0002111307242642331,
+      "energy_above_8khz_fraction": 0.0006448623306222418,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactTin_medium_001",
+        "scratch_001",
+        "impactMetal_light_001"
+      ],
+      "recipe": "Compact tin release + narrow sampled air + damped light metal; tail <180ms.",
+      "sha256": "cb7272803437fbfe8ea95f70327f92943a62514cc8588721a1b8d50daad31851",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "HsFire",
+      "theme": null,
+      "variant": 3,
+      "path": "Assets/_Project/Audio/SFX/Harness/SFX_HsFire_03.wav",
+      "duration_seconds": 0.157982,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -9.134,
+      "rms_dbfs": -25.5,
+      "dc_offset": -0.00024414966619689077,
+      "energy_above_8khz_fraction": 0.0004800064820676435,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactTin_medium_002",
+        "scratch_001",
+        "impactMetal_light_002"
+      ],
+      "recipe": "Compact tin release + narrow sampled air + damped light metal; tail <180ms.",
+      "sha256": "4ae1f5ffd4d2080ebcc79ddbfdfb6fa634416fd9d8d960fc3a957c9f72bca9b3",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Harness/SFX_HsHit_01.wav",
+      "duration_seconds": 0.097982,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -12.255,
+      "rms_dbfs": -27.0,
+      "dc_offset": -7.480353077868745e-05,
+      "energy_above_8khz_fraction": 8.956401037508552e-07,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactMetal_medium_000",
+        "impactSoft_medium_000"
+      ],
+      "recipe": "Damped metal skin and compact soft core; only on actual hit.",
+      "sha256": "5971f11cd6f67c4817ecf1432728004e1c57e3f67f74b6e0c89c2a0e1f8eb1cb",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "HsHit",
+      "theme": null,
+      "variant": 2,
+      "path": "Assets/_Project/Audio/SFX/Harness/SFX_HsHit_02.wav",
+      "duration_seconds": 0.097982,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -13.138,
+      "rms_dbfs": -27.0,
+      "dc_offset": -4.989817587751795e-05,
+      "energy_above_8khz_fraction": 6.889422090455866e-07,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactMetal_medium_001",
+        "impactSoft_medium_001"
+      ],
+      "recipe": "Damped metal skin and compact soft core; only on actual hit.",
+      "sha256": "ae9217c2d8520e817dc24f92c3b729f6b5eef3a10b1d72226164b34f2ada0c4e",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "HsSlashUp",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Harness/SFX_HsSlashUp_01.wav",
+      "duration_seconds": 0.18,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -12.79,
+      "rms_dbfs": -27.0,
+      "dc_offset": -7.243219485165275e-06,
+      "energy_above_8khz_fraction": 0.0019270753604214725,
+      "first_last_peak": 0.0,
+      "sources": [
+        "scratch_001",
+        "footstep_carpet_003",
+        "impactMetal_light_003"
+      ],
+      "recipe": "Sampled cloth onset, granular friction air with peak at 40%, damped handle return; no hit impact.",
+      "sha256": "215a66ded3f19d885c048bbfc39c13bfa6f67ed2c423fa8ac91bc149436f8fee",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "HsSlashDown",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Harness/SFX_HsSlashDown_01.wav",
+      "duration_seconds": 0.194989,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -13.296,
+      "rms_dbfs": -27.0,
+      "dc_offset": -6.263514342559087e-06,
+      "energy_above_8khz_fraction": 0.0008869680879900355,
+      "first_last_peak": 0.0,
+      "sources": [
+        "scratch_001",
+        "footstep_carpet_003",
+        "impactMetal_light_003"
+      ],
+      "recipe": "Sampled cloth onset, granular friction air with peak at 22%, damped handle return; no hit impact.",
+      "sha256": "5ed966e473261dd9c9d78a4b2c77a7725ca2490829ad55d02bc7f04e17c99829",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "HsSlashSweep",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Harness/SFX_HsSlashSweep_01.wav",
+      "duration_seconds": 0.26,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -13.862,
+      "rms_dbfs": -27.0,
+      "dc_offset": -4.314083075864401e-06,
+      "energy_above_8khz_fraction": 0.0011051178410044138,
+      "first_last_peak": 0.0,
+      "sources": [
+        "scratch_001",
+        "footstep_carpet_003",
+        "impactMetal_light_003"
+      ],
+      "recipe": "Sampled cloth onset, granular friction air with peak at 53%, damped handle return; no hit impact.",
+      "sha256": "c956bcb1f82fce4da30368db27f39140a31df65a4d99834fdbfca222a3cb8259",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "HsWave",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Harness/SFX_HsWave_01.wav",
+      "duration_seconds": 0.22,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -18.745,
+      "rms_dbfs": -33.0,
+      "dc_offset": 4.664662962495267e-09,
+      "energy_above_8khz_fraction": 0.0009498220722261496,
+      "first_last_peak": 0.0,
+      "sources": [
+        "scratch_002"
+      ],
+      "recipe": "Subordinate sampled-air tail, no second heavy attack.",
+      "sha256": "0aef8d700f3cc3c9b4da19246aa10a85d58cca8dc485132f0fe412b54bbbd45c",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "PlayerHurtDs",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Players/SFX_PlayerHurtDs_01.wav",
+      "duration_seconds": 0.164989,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -9.829,
+      "rms_dbfs": -23.5,
+      "dc_offset": -9.771757920378094e-05,
+      "energy_above_8khz_fraction": 2.4363868688085887e-07,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactSoft_medium_003",
+        "footstep_carpet_004"
+      ],
+      "recipe": "Actual damage: compact body impact with cloth; HS has a short damped casing layer.",
+      "sha256": "717920c33fbc831e62a5d686ed9e510ec9970253c4106d2cb959e02f04185567",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "PlayerHurtHs",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Players/SFX_PlayerHurtHs_01.wav",
+      "duration_seconds": 0.164989,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -9.567,
+      "rms_dbfs": -23.5,
+      "dc_offset": -9.897149121875526e-05,
+      "energy_above_8khz_fraction": 2.3545325931367544e-07,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactSoft_medium_004",
+        "footstep_carpet_004",
+        "impactMetal_medium_003"
+      ],
+      "recipe": "Actual damage: compact body impact with cloth; HS has a short damped casing layer.",
+      "sha256": "b089896fca68296e4d26b5f33fdedc4b40be40d9a0000d563b87428ee4e75a7c",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "GuardBlock",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/DeepSeek/SFX_GuardBlock_01.wav",
+      "duration_seconds": 0.131995,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -7.592,
+      "rms_dbfs": -25.0,
+      "dc_offset": -0.00018898443081365895,
+      "energy_above_8khz_fraction": 5.179839661493822e-05,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactSoft_medium_002",
+        "impactPlate_light_001",
+        "pluck_002"
+      ],
+      "recipe": "Elastic short plate/soft rebound; distinct from cloth/body hurt.",
+      "sha256": "26144dc527a0cc8e8637acd3424f9cbe322841adf02af189f634dc6630f0cab9",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "GuardStart",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/DeepSeek/SFX_GuardStart_01.wav",
+      "duration_seconds": 0.32,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -10.912,
+      "rms_dbfs": -29.0,
+      "dc_offset": -4.6944884065220906e-07,
+      "energy_above_8khz_fraction": 1.1746568692785303e-05,
+      "first_last_peak": 0.0,
+      "sources": [
+        "footstep_grass_004",
+        "pluck_002",
+        "impactPlate_light_001"
+      ],
+      "recipe": "Short sampled-grain unfurl and light elastic landing, no sustained drone.",
+      "sha256": "23e87e70a720947d3284a729544edb04c8532cd4e4496fb2d4aea8e39d841d1f",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "GuardEnd",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/DeepSeek/SFX_GuardEnd_01.wav",
+      "duration_seconds": 0.16,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -11.196,
+      "rms_dbfs": -32.0,
+      "dc_offset": -3.04013626864355e-05,
+      "energy_above_8khz_fraction": 5.512591286532224e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "footstep_grass_003",
+        "click_003"
+      ],
+      "recipe": "Natural-expiry withdrawal only; forced teardown must remain silent.",
+      "sha256": "673ce63a81cbb8efbd07967d82dd7c2cb7ad771eae804e811b7c2774aad7e437",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "BubblePop",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Enemies/SFX_BubblePop_01.wav",
+      "duration_seconds": 0.09,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -13.568,
+      "rms_dbfs": -30.0,
+      "dc_offset": 8.18202861334764e-06,
+      "energy_above_8khz_fraction": 8.181364649641927e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactGeneric_light_000",
+        "footstep_snow_001"
+      ],
+      "recipe": "Dry film-like short fracture plus tiny particulate air; no water/drop source.",
+      "sha256": "0adfdd4010337e39ec20c173801fd60f8636f046b3c7e556f59ab5e57ab5edf1",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "BubblePop",
+      "theme": null,
+      "variant": 2,
+      "path": "Assets/_Project/Audio/SFX/Enemies/SFX_BubblePop_02.wav",
+      "duration_seconds": 0.09,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -12.284,
+      "rms_dbfs": -30.0,
+      "dc_offset": -3.769773536032037e-05,
+      "energy_above_8khz_fraction": 8.841271316671035e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactGeneric_light_001",
+        "footstep_snow_002"
+      ],
+      "recipe": "Dry film-like short fracture plus tiny particulate air; no water/drop source.",
+      "sha256": "e84d26b8cd747b432e4e4831c94d6dd069ac3f71d1776e091b21dccb7a9f313f",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "BubblePop",
+      "theme": null,
+      "variant": 3,
+      "path": "Assets/_Project/Audio/SFX/Enemies/SFX_BubblePop_03.wav",
+      "duration_seconds": 0.09,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -14.228,
+      "rms_dbfs": -30.0,
+      "dc_offset": 1.7889208704388503e-05,
+      "energy_above_8khz_fraction": 4.488947231027081e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactGeneric_light_002",
+        "footstep_snow_003"
+      ],
+      "recipe": "Dry film-like short fracture plus tiny particulate air; no water/drop source.",
+      "sha256": "842554a25a425c65f299e1b8a4cbd0f414e236c1dec8c781019a3ec914ff928b",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "BubbleImpact",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Enemies/SFX_BubbleImpact_01.wav",
+      "duration_seconds": 0.076984,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -19.104,
+      "rms_dbfs": -31.0,
+      "dc_offset": -9.8342130956742e-05,
+      "energy_above_8khz_fraction": 9.335257341645342e-07,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactSoft_medium_001"
+      ],
+      "recipe": "Muted absorption, not player hurt.",
+      "sha256": "d9a51e00a5696f70d9ea5f57dfa048a4585b339daea22643a4d55670e989bd8c",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "DoubaoReveal",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Enemies/SFX_DoubaoReveal_01.wav",
+      "duration_seconds": 0.44,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -11.465,
+      "rms_dbfs": -28.0,
+      "dc_offset": -4.6526707064492707e-07,
+      "energy_above_8khz_fraction": 1.7822636571122478e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "footstep_carpet_002",
+        "impactSoft_medium_002"
+      ],
+      "recipe": "Cloth-like unfolding and soft landing; no voice or boss-horror drone.",
+      "sha256": "a1ede5c8515eee486326e47775f60b6a6b73b866741c512c58798b1718684d45",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "DoubaoDefeat",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Enemies/SFX_DoubaoDefeat_01.wav",
+      "duration_seconds": 0.62,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -11.748,
+      "rms_dbfs": -29.0,
+      "dc_offset": 6.30678706779938e-08,
+      "energy_above_8khz_fraction": 2.512383998164826e-05,
+      "first_last_peak": 0.0,
+      "sources": [
+        "footstep_grass_003",
+        "footstep_snow_004",
+        "footstep_snow_002"
+      ],
+      "recipe": "One designed collective dissolution, not N simultaneous bubble clips.",
+      "sha256": "08bc38892a9eb59c3fa637840711966fdb638911382f94de780a23c4679c3726",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "EnemyDefeat",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Enemies/SFX_EnemyDefeat_01.wav",
+      "duration_seconds": 0.174989,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -11.204,
+      "rms_dbfs": -30.0,
+      "dc_offset": -7.638973817034128e-05,
+      "energy_above_8khz_fraction": 6.701545033245205e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactWood_light_002",
+        "footstep_snow_003"
+      ],
+      "recipe": "Small casing fragments; defeated-only, no explosion.",
+      "sha256": "74b489e4466003bcb2a3d570a9f1e8d3a8cab90bbf33ac68d4d417bf1017baa2",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "SnakeShot",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Enemies/SFX_SnakeShot_01.wav",
+      "duration_seconds": 0.094989,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -15.605,
+      "rms_dbfs": -31.0,
+      "dc_offset": 2.331472835770053e-05,
+      "energy_above_8khz_fraction": 0.0011861103124269203,
+      "first_last_peak": 0.0,
+      "sources": [
+        "click_004",
+        "scratch_002"
+      ],
+      "recipe": "Small dull mechanical air release.",
+      "sha256": "832bb85e918e379c37c0b434d7c16a30ba8f64f1e92697634e5113c05d7ac4c5",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "UiConfirm",
+      "theme": "DS",
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/UI/SFX_UiConfirm_DS_01.wav",
+      "duration_seconds": 0.094989,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -14.731,
+      "rms_dbfs": -32.0,
+      "dc_offset": 4.5676528635860585e-05,
+      "energy_above_8khz_fraction": 3.640583683625953e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "click_003",
+        "footstep_carpet_001"
+      ],
+      "recipe": "Small tactile click + subordinate short rebound.",
+      "sha256": "467943381701a5e866059397ea7a3a66717541872b2ee543589628e3a10da74b",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "UiFocus",
+      "theme": "DS",
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/UI/SFX_UiFocus_DS_01.wav",
+      "duration_seconds": 0.041995,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -20.026,
+      "rms_dbfs": -39.0,
+      "dc_offset": 9.517105517739712e-05,
+      "energy_above_8khz_fraction": 1.1723260659124526e-05,
+      "first_last_peak": 0.0,
+      "sources": [
+        "click_003"
+      ],
+      "recipe": "Low-level focus tick; runtime rate limited, no touch hover.",
+      "sha256": "ac753420cc1e6d30556bf2ae7af66ccdcb73bf0d8dd9c00ea550503ff5814471",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "UiCancel",
+      "theme": "DS",
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/UI/SFX_UiCancel_DS_01.wav",
+      "duration_seconds": 0.084989,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -13.026,
+      "rms_dbfs": -33.0,
+      "dc_offset": -2.487140540251241e-05,
+      "energy_above_8khz_fraction": 6.939035020953969e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "click_003",
+        "footstep_carpet_001"
+      ],
+      "recipe": "Lower/shorter return of the same tactile family.",
+      "sha256": "baf91647a02d279404cf35c4a134f5ba0b205845ad5d505c6601de923b034d48",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "UiOpen",
+      "theme": "DS",
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/UI/SFX_UiOpen_DS_01.wav",
+      "duration_seconds": 0.16,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -19.728,
+      "rms_dbfs": -34.0,
+      "dc_offset": -2.4069021749336414e-09,
+      "energy_above_8khz_fraction": 0.00015154812192157043,
+      "first_last_peak": 0.0,
+      "sources": [
+        "scratch_001",
+        "click_003",
+        "footstep_carpet_001"
+      ],
+      "recipe": "Brief sampled-material pass and quiet seated latch.",
+      "sha256": "15a1cf0eba7ebf74078e875a0f1b54d824458447b939a949ca722984257a249e",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "UiReject",
+      "theme": "DS",
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/UI/SFX_UiReject_DS_01.wav",
+      "duration_seconds": 0.164989,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -10.105,
+      "rms_dbfs": -31.0,
+      "dc_offset": 8.76849015173976e-06,
+      "energy_above_8khz_fraction": 5.11353107296532e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "click_003",
+        "footstep_carpet_001"
+      ],
+      "recipe": "Two dull contacts, no buzzer or sharp alarm.",
+      "sha256": "56ba115167cc16e3b23fd66f2bfc2aa8d50e134273eb5366e83516a74b5f1078",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "UiConfirm",
+      "theme": "HS",
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/UI/SFX_UiConfirm_HS_01.wav",
+      "duration_seconds": 0.094989,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -12.159,
+      "rms_dbfs": -32.0,
+      "dc_offset": 0.0002269248964063268,
+      "energy_above_8khz_fraction": 1.193322421528909e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "click_005",
+        "impactMetal_light_002"
+      ],
+      "recipe": "Small tactile click + subordinate short rebound.",
+      "sha256": "ae0a884a14b66ace339ba54c2bdd9145462c1c64ae212625a20e86760565194d",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "UiFocus",
+      "theme": "HS",
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/UI/SFX_UiFocus_HS_01.wav",
+      "duration_seconds": 0.041995,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -19.037,
+      "rms_dbfs": -39.0,
+      "dc_offset": 0.0001478957385946528,
+      "energy_above_8khz_fraction": 3.856466101105493e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "click_005"
+      ],
+      "recipe": "Low-level focus tick; runtime rate limited, no touch hover.",
+      "sha256": "d01a37c739ae222d920994344db93637d40831c8737e3386012c097bf8f9497e",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "UiCancel",
+      "theme": "HS",
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/UI/SFX_UiCancel_HS_01.wav",
+      "duration_seconds": 0.084989,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -14.199,
+      "rms_dbfs": -33.0,
+      "dc_offset": 0.00016224274499843197,
+      "energy_above_8khz_fraction": 2.5354241009655317e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "click_005",
+        "impactMetal_light_002"
+      ],
+      "recipe": "Lower/shorter return of the same tactile family.",
+      "sha256": "e62a4513c0a6098be45559a5540e888b7b1daf34f61d7e651b8dec7190e4439a",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "UiOpen",
+      "theme": "HS",
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/UI/SFX_UiOpen_HS_01.wav",
+      "duration_seconds": 0.16,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -17.235,
+      "rms_dbfs": -34.0,
+      "dc_offset": -3.039549595471269e-08,
+      "energy_above_8khz_fraction": 0.0004685582985613203,
+      "first_last_peak": 0.0,
+      "sources": [
+        "scratch_002",
+        "click_005",
+        "impactMetal_light_002"
+      ],
+      "recipe": "Brief sampled-material pass and quiet seated latch.",
+      "sha256": "3b1dbf34fd97a75b79e51be408375cd476d1ec9d33e033dabe5f7f1e88581a12",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "UiReject",
+      "theme": "HS",
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/UI/SFX_UiReject_HS_01.wav",
+      "duration_seconds": 0.164989,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -11.164,
+      "rms_dbfs": -31.0,
+      "dc_offset": 0.0001092076554167855,
+      "energy_above_8khz_fraction": 1.999826484009645e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "click_005",
+        "impactMetal_light_002"
+      ],
+      "recipe": "Two dull contacts, no buzzer or sharp alarm.",
+      "sha256": "0aee290cc890e14fdcc494aa25945aa69bfd199315cedf0b95bae4ef9cf200e6",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "Ready",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Flow/SFX_Ready_01.wav",
+      "duration_seconds": 0.14,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -13.773,
+      "rms_dbfs": -31.0,
+      "dc_offset": -0.00017548444353498926,
+      "energy_above_8khz_fraction": 8.003770064477704e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactWood_light_001",
+        "pluck_002"
+      ],
+      "recipe": "Shared prompt derived from short tactile materials; fixed semantic rhythm, no long reverb.",
+      "sha256": "4acc4d1188d2c9963a7a6785af4e3424059c65003e049e0aa3e337442f53e7fd",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "AiToggle",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Flow/SFX_AiToggle_01.wav",
+      "duration_seconds": 0.114989,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -13.695,
+      "rms_dbfs": -33.0,
+      "dc_offset": 7.607303557992631e-05,
+      "energy_above_8khz_fraction": 4.216788791775872e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "switch_002",
+        "impactWood_light_001"
+      ],
+      "recipe": "Shared prompt derived from short tactile materials; fixed semantic rhythm, no long reverb.",
+      "sha256": "b71ac230abac41c3bb901e29c33fca841cd6fc0b3873682816cfddbe94f9ad16",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "Connected",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Flow/SFX_Connected_01.wav",
+      "duration_seconds": 0.32,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -12.985,
+      "rms_dbfs": -30.0,
+      "dc_offset": -7.363867278181939e-05,
+      "energy_above_8khz_fraction": 1.4449572814282564e-05,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactWood_light_001",
+        "pluck_002",
+        "impactGlass_light_002"
+      ],
+      "recipe": "Shared prompt derived from short tactile materials; fixed semantic rhythm, no long reverb.",
+      "sha256": "c8e0f08c50fbd52e09958f434450086ae5aa171ec90fb9b5d6a982d1a230a143",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "Disconnected",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Flow/SFX_Disconnected_01.wav",
+      "duration_seconds": 0.31,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -11.767,
+      "rms_dbfs": -27.5,
+      "dc_offset": -3.420582947972808e-05,
+      "energy_above_8khz_fraction": 1.7367795144107765e-07,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactSoft_medium_003",
+        "impactWood_light_001"
+      ],
+      "recipe": "Shared prompt derived from short tactile materials; fixed semantic rhythm, no long reverb.",
+      "sha256": "68e6e111f21a365b42a8d15525f5836d865f2908cf39f3fc4387962b32acb421",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "Upgrade",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Flow/SFX_Upgrade_01.wav",
+      "duration_seconds": 0.39,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -10.699,
+      "rms_dbfs": -28.0,
+      "dc_offset": -7.817860728935728e-05,
+      "energy_above_8khz_fraction": 7.09530279321862e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactWood_light_001",
+        "pluck_002",
+        "impactGlass_light_002"
+      ],
+      "recipe": "Shared prompt derived from short tactile materials; fixed semantic rhythm, no long reverb.",
+      "sha256": "186fbb055a1389685293286030784766de7e4c3f4a0af3d49792411db85695ad",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "Refresh",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Flow/SFX_Refresh_01.wav",
+      "duration_seconds": 0.23,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -13.294,
+      "rms_dbfs": -32.0,
+      "dc_offset": -3.772565809408369e-06,
+      "energy_above_8khz_fraction": 2.625653830422982e-05,
+      "first_last_peak": 0.0,
+      "sources": [
+        "footstep_grass_002",
+        "impactWood_light_001"
+      ],
+      "recipe": "Shared prompt derived from short tactile materials; fixed semantic rhythm, no long reverb.",
+      "sha256": "78c9024736e4d6aff20244738934fad9958584325c28c907733216261c92849d",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "NodeOpen",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Flow/SFX_NodeOpen_01.wav",
+      "duration_seconds": 0.73,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -7.46,
+      "rms_dbfs": -30.0,
+      "dc_offset": -8.019053914460851e-08,
+      "energy_above_8khz_fraction": 1.612858350542611e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "footstep_carpet_003",
+        "pluck_002",
+        "impactGlass_light_002"
+      ],
+      "recipe": "Shared prompt derived from short tactile materials; fixed semantic rhythm, no long reverb.",
+      "sha256": "19ad69e2d48cf56f88097ae46efc6461c9a8ae2ecded5af7583849f743feb175",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "Depart",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Flow/SFX_Depart_01.wav",
+      "duration_seconds": 0.59,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -11.448,
+      "rms_dbfs": -28.5,
+      "dc_offset": -6.179968663717954e-07,
+      "energy_above_8khz_fraction": 0.00037303869107127303,
+      "first_last_peak": 0.0,
+      "sources": [
+        "scratch_002",
+        "impactWood_light_001",
+        "impactGlass_light_002"
+      ],
+      "recipe": "Shared prompt derived from short tactile materials; fixed semantic rhythm, no long reverb.",
+      "sha256": "9bac6cb38de59901cd78c581563d28d17f2b29d4eaedeb5b63ec4f2ca5319fa3",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "PlayerDown",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Players/SFX_PlayerDown_01.wav",
+      "duration_seconds": 0.43,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -11.737,
+      "rms_dbfs": -25.0,
+      "dc_offset": -6.183400682185358e-05,
+      "energy_above_8khz_fraction": 9.235352366562406e-08,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactSoft_heavy_002",
+        "footstep_carpet_003"
+      ],
+      "recipe": "Shared prompt derived from short tactile materials; fixed semantic rhythm, no long reverb.",
+      "sha256": "1c3f05f4d02d9f7815172e6f8078548fbbf35c0d5406e840c497a2db600fe7bd",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "ReviveStart",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Players/SFX_ReviveStart_01.wav",
+      "duration_seconds": 0.36,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -12.278,
+      "rms_dbfs": -32.0,
+      "dc_offset": -1.0862766808376217e-07,
+      "energy_above_8khz_fraction": 3.4180094698723144e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "footstep_carpet_003",
+        "pluck_002"
+      ],
+      "recipe": "Shared prompt derived from short tactile materials; fixed semantic rhythm, no long reverb.",
+      "sha256": "0594adb105338c6ccb9fc238c30aee223e8a1f0d1072a3d95c9f3ee663717c6c",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "ReviveDone",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Players/SFX_ReviveDone_01.wav",
+      "duration_seconds": 0.53,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -8.654,
+      "rms_dbfs": -27.0,
+      "dc_offset": 6.568751753727973e-06,
+      "energy_above_8khz_fraction": 1.0987323070194827e-05,
+      "first_last_peak": 0.0,
+      "sources": [
+        "pluck_002",
+        "impactGlass_light_002",
+        "impactGlass_light_003"
+      ],
+      "recipe": "Shared prompt derived from short tactile materials; fixed semantic rhythm, no long reverb.",
+      "sha256": "62acddec137d9a24dcf78514615af0d3552f954cfc1b8e8ce3904c0b9984dc13",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "Victory",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Flow/SFX_Victory_01.wav",
+      "duration_seconds": 1.12,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -6.296,
+      "rms_dbfs": -27.0,
+      "dc_offset": -3.124502958322239e-05,
+      "energy_above_8khz_fraction": 4.502143990911523e-06,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactWood_light_001",
+        "pluck_002",
+        "impactGlass_light_002",
+        "impactGlass_light_003",
+        "footstep_carpet_003"
+      ],
+      "recipe": "Shared prompt derived from short tactile materials; fixed semantic rhythm, no long reverb.",
+      "sha256": "e550797ccb4ad9d63d3799d3f479b168af79cfa5dce81bf2ef373702970a104d",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "Defeat",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/SFX/Flow/SFX_Defeat_01.wav",
+      "duration_seconds": 0.72,
+      "sample_rate": 44100,
+      "channels": 1,
+      "format": "PCM_24",
+      "loop": false,
+      "peak_dbfs": -11.577,
+      "rms_dbfs": -27.5,
+      "dc_offset": -2.9527918342810542e-05,
+      "energy_above_8khz_fraction": 8.953283288313641e-08,
+      "first_last_peak": 0.0,
+      "sources": [
+        "impactSoft_heavy_001",
+        "impactWood_light_001",
+        "footstep_carpet_003"
+      ],
+      "recipe": "Shared prompt derived from short tactile materials; fixed semantic rhythm, no long reverb.",
+      "sha256": "002ff0e5555d032fc5f95269ca50b34970bb2ff49c4350ce0c11e8f8bcee7350",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "AmbienceDusk",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/Ambience/AMB_AmbienceDusk_01.wav",
+      "duration_seconds": 20.0,
+      "sample_rate": 44100,
+      "channels": 2,
+      "format": "PCM_24",
+      "loop": true,
+      "peak_dbfs": -24.115,
+      "rms_dbfs": -39.0,
+      "dc_offset": 1.1619789283763584e-07,
+      "energy_above_8khz_fraction": 1.164638014857507e-08,
+      "first_last_peak": 0.01284087316095004,
+      "sources": [
+        "footstep_grass_001",
+        "footstep_grass_004"
+      ],
+      "recipe": "Synthetic filtered periodic wind with slow modulation; dusk/rest add quiet processed grass-footstep texture. NOT river/city/field recording. Pending ambience replacement/listening approval.",
+      "sha256": "fa761e6092ee95751d501a9ab61436eaab0a6029ae745b88d381381e43508557",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "AmbienceSky",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/Ambience/AMB_AmbienceSky_01.wav",
+      "duration_seconds": 20.0,
+      "sample_rate": 44100,
+      "channels": 2,
+      "format": "PCM_24",
+      "loop": true,
+      "peak_dbfs": -25.924,
+      "rms_dbfs": -40.0,
+      "dc_offset": -1.2474695493531471e-09,
+      "energy_above_8khz_fraction": 1.7389977502412339e-12,
+      "first_last_peak": 0.01645136304777464,
+      "sources": [],
+      "recipe": "Synthetic filtered periodic wind with slow modulation; dusk/rest add quiet processed grass-footstep texture. NOT river/city/field recording. Pending ambience replacement/listening approval.",
+      "sha256": "46ee73240f07c1cc95d25bad44ba71da8d317926e83029a31c5813208a921b94",
+      "status": "first_pass_pending_human_listening"
+    },
+    {
+      "cue": "AmbienceRest",
+      "theme": null,
+      "variant": 1,
+      "path": "Assets/_Project/Audio/Ambience/AMB_AmbienceRest_01.wav",
+      "duration_seconds": 20.0,
+      "sample_rate": 44100,
+      "channels": 2,
+      "format": "PCM_24",
+      "loop": true,
+      "peak_dbfs": -28.009,
+      "rms_dbfs": -42.0,
+      "dc_offset": 2.9444528767177472e-08,
+      "energy_above_8khz_fraction": 1.9709556478073095e-09,
+      "first_last_peak": 0.015005814643737313,
+      "sources": [
+        "footstep_grass_001",
+        "footstep_grass_004"
+      ],
+      "recipe": "Synthetic filtered periodic wind with slow modulation; dusk/rest add quiet processed grass-footstep texture. NOT river/city/field recording. Pending ambience replacement/listening approval.",
+      "sha256": "7f55f8f6e0f50d7a0fd73fa2db5972dcb8c168794bea732ac8079688b9bf4895",
+      "status": "first_pass_pending_human_listening"
+    }
+  ],
+  "total_clips": 56,
+  "assets_total_bytes": 17534446,
+  "validation": {
+    "finite_samples": true,
+    "no_clipping": true,
+    "short_clip_boundaries_zero": true,
+    "listening_approved": false,
+    "in_game_verified": false,
+    "mobile_verified": false
+  }
+}

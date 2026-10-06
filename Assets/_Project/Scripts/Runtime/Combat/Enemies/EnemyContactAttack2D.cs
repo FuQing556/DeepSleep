@@ -40,16 +40,22 @@ namespace DeepSleep.Runtime.Combat.Enemies
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            // 子盾牌的触发不能冒充本体接触。
+            if (other != null && _bodyCollider.Distance(other).isOverlapped) TryImpact(other);
+        }
+
+        public bool TryImpact(Collider2D other)
+        {
             if (_hasImpacted || other == null ||
                 !_config.ContainsLayer(other.gameObject.layer))
             {
-                return;
+                return false;
             }
 
             if (!other.TryGetComponent(out DamageHitbox2D hitbox) ||
                 !hitbox.IsActiveTarget)
             {
-                return;
+                return false;
             }
 
             _hasImpacted = true;
@@ -67,6 +73,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
             _actor.TryRequestDespawn(
                 EnemyDespawnReason.ContactImpact,
                 hitPoint);
+            return true;
         }
 
         public bool TryValidateConfiguration(out string reason)

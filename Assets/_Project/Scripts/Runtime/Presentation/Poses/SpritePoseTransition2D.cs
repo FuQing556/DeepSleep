@@ -96,7 +96,7 @@ namespace DeepSleep.Runtime.Presentation.Poses
             return _config.TryValidate(out reason);
         }
 
-        private void CaptureCurrentPose()
+        public void CaptureCurrentPose()
         {
             _ghost.Capture(_subjectRenderer, _ghostRenderer, _config.StartAlpha, _config.FadeSeconds);
         }

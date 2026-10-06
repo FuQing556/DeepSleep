@@ -1,0 +1,22 @@
+2026-10-06 Doubao / bubble targeting
+
+Causes:
+- CompanionBattleSensor2D accepted only bodies with EnemyActor2D; DoubaoBoss2D is a separate damage receiver and had no registered perception body.
+- Bubble colliders use DestructibleObstacle (15), excluded from DS/HS manual lock masks and AI perception layers.
+
+Fix:
+- Reuse CombatPerceptionBody2D and the existing registry for DamageHitbox targets; ordinary EnemyActor wounded scoring retained. Static target velocity is zero.
+- Explicit adapters on boss and bubble prefabs; encounter registers them at pool initialization. World01 registry reference serialized.
+- Bubble adapters mark ThreatTrackedAsObstacle: attackable, but danger/nearby count remains supplied once by existing obstacle snapshots.
+- DS/HS manual target masks and AI perception layers include layer15. DS passive nearest-forward auto-fire mask is intentionally unchanged.
+- Boss base target value3, bubble0; existing proximity/distance/stickiness scoring applies. No enemy health, damage, drop, movement or spawn changes.
+- Existing encounter installer updated; targeted DoubaoTargetingInstaller can reapply without rebuilding art/encounters.
+
+Controlled Unity Play verification, fresh World01 selection phase at timeScale0:
+- Used real encounter boss and prewarmed pooled bubble, activated one at a time 5 units right of each role.
+- Each role's real sensor selected the target; real combat policy generated ConfirmAim; command consumed by actual DS/HS lock controller, selected position/hitbox checked.
+- Harness Doubao PASS; DeepSeek Doubao PASS; Harness bubble PASS; DeepSeek bubble PASS.
+- Returned bubble / reset boss; sensor discarded unavailable targets; DS/HS released locks (HS retains committed aim point by existing design, not pooled hitbox reference).
+- AI input uses WorldPosition point selection, exercising the same finder/controller entry used by manual taps. Physical touch UI and two-device network execution not tested.
+- Runtime Console warnings/errors: none at final check. A first diagnostic snippet failed C#6 compilation on in-parameter syntax; corrected to ref in tool code and rerun successfully. This was not a game-source compilation failure.
+- ProfileIsolation.RestoreAndVerify completed; Play stopped. No APK, install or push.

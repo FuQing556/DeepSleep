@@ -1,0 +1,31 @@
+{
+  "notes": "Six-second excerpts at 0/7/14s: Dusk, Sky, Rest. One second silence between excerpts, no overlap. Individual 20s loop files are in Assets/_Project/Audio/Ambience; NOT field recordings.",
+  "normalization_gain": 1.0,
+  "peak_dbfs": -24.11450829838628,
+  "events": [
+    {
+      "cue": "AmbienceDusk",
+      "theme": null,
+      "start": 0,
+      "gain": 1,
+      "pan": 0,
+      "variant": 1
+    },
+    {
+      "cue": "AmbienceSky",
+      "theme": null,
+      "start": 7,
+      "gain": 1,
+      "pan": 0,
+      "variant": 1
+    },
+    {
+      "cue": "AmbienceRest",
+      "theme": null,
+      "start": 14,
+      "gain": 1,
+      "pan": 0,
+      "variant": 1
+    }
+  ]
+}

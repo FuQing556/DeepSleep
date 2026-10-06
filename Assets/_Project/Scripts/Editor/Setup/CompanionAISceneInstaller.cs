@@ -111,6 +111,17 @@ namespace DeepSleep.Editor.Setup
             brain.AllyLife = ally.GetComponent<PlayerLifeStateController2D>();
             brain.Revive = actor.GetComponent<PlayerReviveActionChannel>();
             brain.TeamGuard = guard;
+            var reviveData = new SerializedObject(brain.Revive);
+            var blockers = reviveData.FindProperty("_startBlockerComponents");
+            bool registered = false;
+            for (int i = 0; i < blockers.arraySize; i++)
+                registered |= blockers.GetArrayElementAtIndex(i).objectReferenceValue == brain;
+            if (!registered)
+            {
+                int index = blockers.arraySize++;
+                blockers.GetArrayElementAtIndex(index).objectReferenceValue = brain;
+                reviveData.ApplyModifiedPropertiesWithoutUndo();
+            }
             EditorUtility.SetDirty(sensor);
             EditorUtility.SetDirty(combat);
             EditorUtility.SetDirty(brain);

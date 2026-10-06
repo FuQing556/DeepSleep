@@ -34,6 +34,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Doubao
         private Vector2 _size;
         public Vector2 Size => _size;
         public event Action<Vector2, bool> Popped;
+        public event Action<Vector2> Impacted;
         public string Phrase => _phrase ?? string.Empty;
 
         private void Awake()
@@ -93,11 +94,16 @@ namespace DeepSleep.Runtime.Combat.Encounters.Doubao
             if (!CanReceiveDamage || !damage.IsValid) return false;
             _currentHealth = Mathf.Max(0f, _currentHealth - damage.Amount);
             if (_currentHealth <= 0f) { Popped?.Invoke(_body.position, false); RequestReturn(); }
+            else Impacted?.Invoke(damage.HitPoint);
             return true;
         }
 
-        public bool TryBlockEnemyProjectile(EnemyProjectile2D projectile, Vector2 hitPoint) =>
-            _isActive && projectile != null;
+        public bool TryBlockEnemyProjectile(EnemyProjectile2D projectile, Vector2 hitPoint)
+        {
+            if (!_isActive || projectile == null) return false;
+            Impacted?.Invoke(hitPoint);
+            return true;
+        }
 
         public void ReturnToPool()
         {

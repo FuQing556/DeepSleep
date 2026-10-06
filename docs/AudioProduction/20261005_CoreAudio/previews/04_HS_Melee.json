@@ -1,0 +1,39 @@
+{
+  "notes": "Sequential samples, no loudness normalization between cues. See event list for order. Human listening pending.",
+  "normalization_gain": 1.0,
+  "peak_dbfs": -15.800163623961726,
+  "events": [
+    {
+      "cue": "HsSlashUp",
+      "theme": null,
+      "start": 0.3,
+      "gain": 1.0,
+      "pan": 0.0,
+      "variant": 1
+    },
+    {
+      "cue": "HsSlashDown",
+      "theme": null,
+      "start": 1.05,
+      "gain": 1.0,
+      "pan": 0.0,
+      "variant": 1
+    },
+    {
+      "cue": "HsSlashSweep",
+      "theme": null,
+      "start": 1.8,
+      "gain": 1.0,
+      "pan": 0.0,
+      "variant": 1
+    },
+    {
+      "cue": "HsWave",
+      "theme": null,
+      "start": 2.55,
+      "gain": 1.0,
+      "pan": 0.0,
+      "variant": 1
+    }
+  ]
+}

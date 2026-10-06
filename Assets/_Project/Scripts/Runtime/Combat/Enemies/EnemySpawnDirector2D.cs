@@ -6,7 +6,7 @@ using UnityEngine;
 namespace DeepSleep.Runtime.Combat.Enemies
 {
     /// <summary>
-    /// 第一版单敌种刷怪器：在固定逻辑战斗区右侧随机高度生成，
+    /// 单敌种刷怪器：在配置指定的战斗区侧边随机高度生成，
     /// 将随机运动快照交给对象池中的敌人。
     /// </summary>
     public sealed class EnemySpawnDirector2D : MonoBehaviour, IFixedSimulationStep
@@ -149,8 +149,11 @@ namespace DeepSleep.Runtime.Combat.Enemies
             Vector2 spawnPosition = new Vector2(
                 bounds.xMax + _schedule.HorizontalSpawnMargin,
                 spawnY);
+            // 未开启的旧日程不额外抽随机数，保留其他怪物原有随机序列。
+            bool fromLeft = _schedule.SpawnFromBothSides && _random.NextDouble() < .5;
+            if (fromLeft) spawnPosition.x = bounds.xMin - _schedule.HorizontalSpawnMargin;
             EnemySpawnVariation2D variation =
-                _motionConfig.SampleVariation(_random, Vector2.left);
+                _motionConfig.SampleVariation(_random, fromLeft ? Vector2.right : Vector2.left);
 
             bool spawned = _pool.TryRent(
                 spawnPosition,

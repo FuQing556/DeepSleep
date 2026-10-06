@@ -648,3 +648,5 @@ MonoBehaviour:
   - Target: {fileID: 8783094383486642452}
     Tone: 1
   Portraits: []
+  TitleLogos: []
+  MenuBackgrounds: []

@@ -89,9 +89,20 @@ namespace DeepSleep.Runtime.Progression.Run
         private PlayerLifeCheckpoint _deepSeekCheckpoint;
         private PlayerLifeCheckpoint _harnessCheckpoint;
         private IChapterCombatObjective[] _additionalObjectives;
+        private Action<EnemyDespawnRequest2D>[] _enemyDespawnHandlers;
 
-        public ChapterRunPhase Phase { get; private set; } =
-            ChapterRunPhase.WaitingForSelection;
+        private ChapterRunPhase _phase = ChapterRunPhase.WaitingForSelection;
+        public event Action<ChapterRunPhase> PhaseChanged;
+        public ChapterRunPhase Phase
+        {
+            get => _phase;
+            private set
+            {
+                if (_phase == value) return;
+                _phase = value;
+                PhaseChanged?.Invoke(value);
+            }
+        }
         public ChapterFailureReason FailureReason { get; private set; }
         public int SegmentNumber => _segmentNumber;
         public int Defeats => _defeats;
@@ -292,6 +303,9 @@ namespace DeepSleep.Runtime.Progression.Run
                 }
                 return;
             }
+
+            if (CurrentSegment.ObjectiveMode == ChapterObjectiveMode.EncountersOnly)
+                _defeats = AreAdditionalObjectivesComplete() ? 1 : 0;
 
             _remainingCombatSeconds = Mathf.Max(
                 0f,
@@ -644,12 +658,12 @@ namespace DeepSleep.Runtime.Progression.Run
             _upgradeController.SetReplicaNodeActive(Phase == ChapterRunPhase.Node && _restNode.State == RestNodeState.Open);
         }
 
-        private void OnEnemyDespawned(EnemyDespawnRequest2D request)
+        private void OnEnemyDespawned(EnemyDespawnRequest2D request, EnemySpawnChannelDefinition channel)
         {
             if (CanAuthor && Phase == ChapterRunPhase.Combat &&
                 request.Reason == EnemyDespawnReason.Defeated)
             {
-                _defeats++;
+                if (CurrentSegment.CountsEnemy(channel)) _defeats++;
                 _totalDefeats++;
             }
         }
@@ -660,14 +674,23 @@ namespace DeepSleep.Runtime.Progression.Run
             {
                 return;
             }
+            if (_enemyDespawnHandlers == null)
+            {
+                _enemyDespawnHandlers = new Action<EnemyDespawnRequest2D>[_enemies.Count];
+                for (int index = 0; index < _enemies.Count; index++)
+                {
+                    var channel = _enemies[index].Director.Channel;
+                    _enemyDespawnHandlers[index] = request => OnEnemyDespawned(request, channel);
+                }
+            }
             for (int index = 0; index < _enemies.Count; index++)
             {
                 EnemyActorPool2D pool = _enemies[index].Pool;
                 if (pool == null) continue;
                 if (subscribe)
-                    pool.ActorDespawned += OnEnemyDespawned;
+                    pool.ActorDespawned += _enemyDespawnHandlers[index];
                 else
-                    pool.ActorDespawned -= OnEnemyDespawned;
+                    pool.ActorDespawned -= _enemyDespawnHandlers[index];
             }
         }
 
@@ -715,10 +738,10 @@ namespace DeepSleep.Runtime.Progression.Run
                 return string.Empty;
             }
 
-            string text = $"第 {_segmentNumber} 段  " +
+            string text = $"第 {_segmentNumber} 波  " +
                 $"剩余 {Mathf.CeilToInt(_remainingCombatSeconds)} 秒  " +
                 $"{CurrentSegment.DisplayName}  " +
-                $"击败 {_defeats}/{CurrentSegment.RequiredDefeats}";
+                $"{CurrentSegment.ObjectiveLabel} {Mathf.Min(_defeats, CurrentSegment.RequiredDefeats)}/{CurrentSegment.RequiredDefeats}";
             if (_teamDownedSeconds > 0f)
                 text += $"\n全队宕机：{Remaining(_runConfig.TeamDownedTimeoutSeconds, _teamDownedSeconds):0.0}s";
             else if (_deepSeekDownedSeconds > 0f)
@@ -733,14 +756,16 @@ namespace DeepSleep.Runtime.Progression.Run
 
         private bool AreAdditionalObjectivesComplete()
         {
+            if (CurrentSegment.ObjectiveMode == ChapterObjectiveMode.EnemyChannel) return true;
+            bool hasRequiredObjective = false;
             for (int index = 0; index < _additionalObjectives.Length; index++)
             {
                 IChapterCombatObjective objective = _additionalObjectives[index];
-                if (objective.IsRequiredForSegment(_segmentNumber) &&
-                    !objective.IsComplete)
-                    return false;
+                if (!objective.IsRequiredForSegment(_segmentNumber)) continue;
+                hasRequiredObjective = true;
+                if (!objective.IsComplete) return false;
             }
-            return true;
+            return CurrentSegment.ObjectiveMode != ChapterObjectiveMode.EncountersOnly || hasRequiredObjective;
         }
 
         private static string FailureText(ChapterFailureReason reason)

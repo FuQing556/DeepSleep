@@ -32,6 +32,9 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek
         private readonly System.Collections.Generic.List<Collider2D> _fanTargets = new(32);
         private readonly System.Collections.Generic.HashSet<DeepSleep.Runtime.Combat.Damage.IDamageReceiver> _assignedTargets = new();
 
+        /// <summary>一轮至少成功租出一颗饭团后发布一次；扇阵不是多次齐射。</summary>
+        public event System.Action<Vector2> VolleyFired;
+
         public PlayerActionBlock ActionCategory =>
             PlayerActionBlock.AutomaticCombat;
 
@@ -106,14 +109,16 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek
                 Physics2D.OverlapCircle(origin, _config.TargetSearchRadius,
                     new ContactFilter2D { useLayerMask = true, layerMask = _config.TargetLayers, useTriggers = true }, _fanTargets);
             float damageMultiplier = (_config.DamagePerProjectile + GetBonus(UpgradeEffectKind.WeaponDamage)) / _config.DamagePerProjectile;
+            bool fired = false;
             for (int i = 0; i < count; i++)
             {
                 float angle = count == 1 ? 0f : _config.FanDegrees * ((i + .5f) / count - .5f);
                 Vector2 lane = Quaternion.Euler(0f, 0f, angle) * direction;
                 if (correct) lane = CorrectLane(origin, lane);
-                _projectilePool.TryRent(origin, lane, gameObject, damageMultiplier, out _,
+                fired |= _projectilePool.TryRent(origin, lane, gameObject, damageMultiplier, out _,
                     GetBonus(UpgradeEffectKind.RiceSplash) > 0f);
             }
+            if (fired) VolleyFired?.Invoke(origin);
             _remainingShotCooldown = _config.ShotIntervalSeconds /
                 GetUpgradeMultiplier(UpgradeEffectKind.AttackRate);
         }

@@ -12,6 +12,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
         menuName = "DeepSleep/配置/战斗/Harness 终端激光")]
     public sealed class HarnessTerminalLaserConfig : ScriptableObject
     {
+        public LayerMask AttackBlockerLayers;
         [Header("节奏")]
         [SerializeField, Min(0f)] private float _calibrationSeconds;
         [SerializeField, Min(0.01f)] private float _fireCooldownSeconds;

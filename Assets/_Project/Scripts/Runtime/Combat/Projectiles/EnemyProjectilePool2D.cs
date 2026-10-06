@@ -24,6 +24,8 @@ namespace DeepSleep.Runtime.Combat.Projectiles
         public int TotalCount => _all.Count;
         public int ActiveCount => _all.Count - _available.Count;
         public IReadOnlyList<EnemyProjectile2D> Instances => _all;
+        /// <summary>实际成功发射后一次；池耗尽或无效方向不会发布。</summary>
+        public event System.Action<Vector2> ProjectileFired;
 
         private void Awake()
         {
@@ -71,6 +73,7 @@ namespace DeepSleep.Runtime.Combat.Projectiles
             }
 
             projectile.Rent(this, position, direction, damageSource, _config);
+            ProjectileFired?.Invoke(position);
             return true;
         }
 

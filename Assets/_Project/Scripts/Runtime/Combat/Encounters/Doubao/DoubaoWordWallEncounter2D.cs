@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using DeepSleep.Runtime.Combat.Perception;
 using DeepSleep.Runtime.Players.Companion;
 using DeepSleep.Runtime.Simulation;
 using DeepSleep.Runtime.World.Playfield;
@@ -34,6 +35,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Doubao
         [SerializeField] private DeepSleep.Runtime.Presentation.Effects.OneShotSpriteEffectPool2D _impactEffects;
         [SerializeField] private DeepSleep.Runtime.Presentation.Effects.OneShotSpriteEffectPool2D _breakEffects;
         [SerializeField] private CompanionObstacleRegistry2D _obstacleRegistry;
+        [SerializeField] private CombatPerceptionRegistry2D _perceptionRegistry;
 
         private readonly Queue<DoubaoWordWallBlock2D> _available = new();
         private readonly List<DoubaoWordWallBlock2D> _active = new();
@@ -49,6 +51,11 @@ namespace DeepSleep.Runtime.Combat.Encounters.Doubao
         private float _bossHealthMultiplier = 1f;
 
         public event Action<DoubaoWordWallEncounter2D> Completed;
+        public event Action<Vector2> BossRevealed;
+        /// <summary>真实破泡；Boss 击败后的整场清理不逐泡发布。</summary>
+        public event Action<Vector2> BubblePopped;
+        public event Action<Vector2> BubbleImpacted;
+        public event Action<Vector2> FirstGroupAppeared;
         public DoubaoEncounterState State { get; private set; } =
             DoubaoEncounterState.Idle;
         public IReadOnlyList<DoubaoWordWallBlock2D> ActiveBlocks => _active;
@@ -70,10 +77,13 @@ namespace DeepSleep.Runtime.Combat.Encounters.Doubao
                     _blockPoolRoot);
                 block.name = $"DB_WordBubble_{index + 1:00}";
                 block.ReturnToPool();
+                block.GetComponent<CombatPerceptionBody2D>().Register(_perceptionRegistry);
                 block.Popped += OnBlockPopped;
+                block.Impacted += OnBlockImpacted;
                 _available.Enqueue(block);
             }
             _boss.ResetEncounter();
+            _boss.GetComponent<CombatPerceptionBody2D>().Register(_perceptionRegistry);
             _isInitialized = true;
         }
 
@@ -123,6 +133,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Doubao
             {
                 _boss.Activate(_bossAnchor.position, _config.BossMaximumHealth * _bossHealthMultiplier);
                 State = DoubaoEncounterState.Active;
+                BossRevealed?.Invoke(_bossAnchor.position);
             }
 
             // 本体与堤岸平台共用显式场景锚点，不跟屏幕宽高比改变玩法位置。
@@ -199,9 +210,11 @@ namespace DeepSleep.Runtime.Combat.Encounters.Doubao
             }
             if (_blockPrefab == null || _blockPoolRoot == null || _boss == null ||
                 _bossAnchor == null || _groupCenterAnchor == null || _impactEffects == null || _breakEffects == null ||
-                _obstacleRegistry == null)
+                _obstacleRegistry == null || _perceptionRegistry == null ||
+                _blockPrefab.GetComponent<CombatPerceptionBody2D>() == null ||
+                _boss.GetComponent<CombatPerceptionBody2D>() == null)
             {
-                reason = "气泡 Prefab、对象池根、本体、场景锚点、特效池与 AI 障碍登记表必须完整配置。";
+                reason = "气泡 Prefab、对象池根、本体、场景锚点、特效池与 AI 障碍/目标感知必须完整配置。";
                 return false;
             }
             return true;
@@ -322,6 +335,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Doubao
                     _config.ContactDamage,
                     ReturnBlock);
                 _active.Add(block);
+                if (_nextReplicationId == 1) FirstGroupAppeared?.Invoke(position);
                 _obstacleRegistry.Register(block.GetComponent<CircleCollider2D>(),
                     Vector2.down * _config.FallSpeed, block);
             }
@@ -352,7 +366,15 @@ namespace DeepSleep.Runtime.Combat.Encounters.Doubao
 
         private void OnBlockPopped(Vector2 point, bool impact)
         {
+            if (State != DoubaoEncounterState.Complete && State != DoubaoEncounterState.Idle)
+                BubblePopped?.Invoke(point);
             (impact ? _impactEffects : _breakEffects).TryPlay(point, 0f);
+        }
+
+        private void OnBlockImpacted(Vector2 point)
+        {
+            if (State == DoubaoEncounterState.Prelude || State == DoubaoEncounterState.Active)
+                BubbleImpacted?.Invoke(point);
         }
     }
 }

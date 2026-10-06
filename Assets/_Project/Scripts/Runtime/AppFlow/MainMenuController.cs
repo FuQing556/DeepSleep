@@ -1,4 +1,5 @@
 using DeepSleep.Runtime.Progression.Meta;
+using DeepSleep.Runtime.Presentation.Audio;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -84,33 +85,16 @@ namespace DeepSleep.Runtime.AppFlow
 #endif
         }
 
-        public void OpenLevels()
-        {
-            _page = MainMenuPage.LevelSelection;
-            Render();
-        }
+        public void OpenLevels() => ShowPage(MainMenuPage.LevelSelection, AudioCue.UiOpen);
+        public void OpenShop() => ShowPage(MainMenuPage.Shop, AudioCue.UiOpen);
+        public void OpenInventory() => ShowPage(MainMenuPage.Inventory, AudioCue.UiOpen);
+        public void OpenAchievements() => ShowPage(MainMenuPage.Achievements, AudioCue.UiOpen);
+        public void OpenModes() => ShowPage(MainMenuPage.ModeSelection, AudioCue.UiOpen);
 
-        public void OpenShop()
+        private void ShowPage(MainMenuPage page, AudioCue cue)
         {
-            _page = MainMenuPage.Shop;
-            Render();
-        }
-
-        public void OpenInventory()
-        {
-            _page = MainMenuPage.Inventory;
-            Render();
-        }
-
-        public void OpenAchievements()
-        {
-            _page = MainMenuPage.Achievements;
-            Render();
-        }
-
-        public void OpenModes()
-        {
-            _page = MainMenuPage.ModeSelection;
+            if (_page != page) GameAppRoot.Instance?.Audio?.Play(cue);
+            _page = page;
             Render();
         }
 
@@ -128,10 +112,9 @@ namespace DeepSleep.Runtime.AppFlow
 
         public void Back()
         {
-            _page = _page == MainMenuPage.ModeSelection
+            ShowPage(_page == MainMenuPage.ModeSelection
                 ? MainMenuPage.LevelSelection
-                : MainMenuPage.Home;
-            Render();
+                : MainMenuPage.Home, AudioCue.UiCancel);
         }
 
         private void StartSolo() => _router.StartLevel(

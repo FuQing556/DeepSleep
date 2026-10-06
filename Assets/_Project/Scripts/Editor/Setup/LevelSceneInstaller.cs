@@ -364,6 +364,8 @@ namespace DeepSleep.Editor.Setup
             Ref(selection, "_chapterRun", bindings.ChapterRun);
             ArrayRef(bindings.TokenRewards, "_enemyPools", pools);
             ArrayRef(bindings.WorldSnapshot, "EnemyPools", pools);
+            foreach (var audio in all.OfType<DeepSleep.Runtime.Presentation.Audio.CombatAudioPresenter>())
+                ArrayRef(audio, "EnemyPools", pools);
             Ref(bindings.WorldSnapshot, "EnemyBullets", bullets[0]);
             foreach (var pool in pools) Ref(pool, "_perceptionRegistry", bindings.PerceptionRegistry);
             foreach (var pool in bullets) Ref(pool, "_perceptionRegistry", bindings.PerceptionRegistry);

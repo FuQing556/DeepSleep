@@ -18,6 +18,6 @@ MonoBehaviour:
   _minimumDirectionDot: 0.85
   _targetLayers:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 33024
   _facingDeadZone: 0.15
   _returnDelaySeconds: 0.2

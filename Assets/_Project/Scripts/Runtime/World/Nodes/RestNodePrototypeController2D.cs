@@ -765,6 +765,8 @@ namespace DeepSleep.Runtime.World.Nodes
                     break;
 
                 case RestNodeHotspotKind.MemoryFragment:
+                    DeepSleep.Runtime.AppFlow.GameAppRoot.Instance?.Audio?.Play(
+                        DeepSleep.Runtime.Presentation.Audio.AudioCue.UiOpen);
                     ShowFeedback(
                         "读取到一段未整理的数据记忆 · 内容将在关卡阶段接入");
                     break;
@@ -948,7 +950,7 @@ namespace DeepSleep.Runtime.World.Nodes
                    count > 0;
         }
 
-        private bool IsPortalReady(PlayerRole role)
+        public bool IsPortalReady(PlayerRole role)
         {
             return role == PlayerRole.DeepSeek
                 ? _deepSeekPortalReady

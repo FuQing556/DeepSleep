@@ -173,3 +173,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Projectiles.RiceProjectile
   _body: {fileID: 3230449009757340520}
   _bodyCollider: {fileID: 8756073623883804884}
+  _attackBlockerLayers:
+    serializedVersion: 2
+    m_Bits: 65536

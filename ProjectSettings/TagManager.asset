@@ -21,7 +21,7 @@ TagManager:
   - PlayerReviveZone
   - NodeInteraction
   - DestructibleObstacle
-  - 
+  - PlayerAttackBlocker
   - 
   - 
   - 

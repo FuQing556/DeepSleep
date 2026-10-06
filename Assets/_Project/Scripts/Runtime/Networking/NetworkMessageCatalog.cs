@@ -11,8 +11,17 @@ namespace DeepSleep.Runtime.Networking
     /// </summary>
     public static class NetworkMessageCatalog
     {
-        public const ushort ProtocolVersion = 4;
+        public const ushort ProtocolVersion = 5;
         public enum Direction { AuthorityToPeer, PeerToAuthority }
+
+        // 仅补现有表现消息没有的动作边沿；激光/剑波/盾挡/角色受伤仍复用原消息。
+        public enum CombatPresentationKind : byte
+        {
+            ContextStarted, ContextStopped, RiceVolley, RiceDirectHit, RiceSplash,
+            GuardStarted, GuardEnded, SlashDown, SlashUp, SlashSweep, PlayerDown,
+            ReviveStarted, ReviveCancelled, ReviveCompleted, BubblePopped, BossRevealed, BossDefeated,
+            EnemyDefeated, SnakeFired, BubbleImpacted, EncounterStarted
+        }
 
         public static class Authority
         {
@@ -23,6 +32,8 @@ namespace DeepSleep.Runtime.Networking
             public const byte TokenBalance = 44, ChapterState = 45, PlayerHitFeedback = 46;
             // 40 已属于休息节点；旧豆包 40 从本协议版本起迁移，禁止与旧客户端混房。
             public const byte DoubaoSnapshot = 47;
+            public const byte CombatPresentation = 48;
+            public const byte UpgradeResult = 49;
         }
 
         public static class Peer
@@ -68,7 +79,11 @@ namespace DeepSleep.Runtime.Networking
             A(Authority.TokenBalance, nameof(Authority.TokenBalance), 13),
             A(Authority.ChapterState, nameof(Authority.ChapterState), 35),
             A(Authority.PlayerHitFeedback, nameof(Authority.PlayerHitFeedback), 17),
-            A(Authority.DoubaoSnapshot, nameof(Authority.DoubaoSnapshot), 32, MaximumPayloadBytes)
+            A(Authority.DoubaoSnapshot, nameof(Authority.DoubaoSnapshot), 32, MaximumPayloadBytes),
+            // uint context, uint sequence, byte kind, byte sourceRole, float2 position.
+            A(Authority.CombatPresentation, nameof(Authority.CombatPresentation), 18),
+            // int nodeSerial, uint resultSequence, byte role, byte result (reject/refresh/purchase).
+            A(Authority.UpgradeResult, nameof(Authority.UpgradeResult), 10)
         };
         public static IReadOnlyList<Definition> Definitions { get; } = Array.AsReadOnly(Entries);
 
@@ -205,10 +220,13 @@ namespace DeepSleep.Runtime.Networking
                 case Authority.GuardBlock: c.Skip(4); c.Floats(5); c.Skip(4); break;
                 case Authority.RestNodeState: c.Enum(4); c.Bool(); c.Bool(); break;
                 case Authority.CombatFeedback:
-                    c.Skip(4); c.Enum(3); c.Floats(4);
+                    c.Skip(4); c.Enum(5); c.Floats(4);
                     if (c.Float() < 0f || c.Float() < 0f) throw new InvalidDataException(); break;
                 case Authority.UpgradeSnapshot:
                     c.Skip(26); ReadWallet(ref c); int count = c.Byte(); c.Skip(3 * count); break;
+                case Authority.UpgradeResult:
+                    if (c.UInt() > int.MaxValue || c.UInt() == 0) throw new InvalidDataException();
+                    c.Enum(1); c.Enum(2); break;
                 case Authority.TokenBalance: ReadWallet(ref c); break;
                 case Authority.ChapterState:
                     c.Enum(4); c.Enum(4); c.Skip(4); c.Float(); c.Skip(4); c.Floats(3); c.Bool(); c.Skip(4); c.Float(); break;
@@ -216,6 +234,8 @@ namespace DeepSleep.Runtime.Networking
                     c.Skip(4); c.Enum(1);
                     if (Math.Abs(c.Float()) > 1.001f || Math.Abs(c.Float()) > 1.001f) throw new InvalidDataException();
                     float protection = c.Float(); if (protection < 0f || protection > 10f) throw new InvalidDataException(); break;
+                case Authority.CombatPresentation:
+                    c.Skip(8); c.Enum((byte)CombatPresentationKind.EncounterStarted); c.Enum(1); c.Floats(2); break;
                 case Authority.DoubaoSnapshot:
                     c.Skip(4); c.Enum(3); c.Bool(); c.Floats(2);
                     if (c.Float() < 0f) throw new InvalidDataException();
@@ -276,6 +296,7 @@ namespace DeepSleep.Runtime.Networking
             }
             public void Bool() { if (Byte() > 1) throw new InvalidDataException(); }
             public void Enum(byte maximum) { if (Byte() > maximum) throw new InvalidDataException(); }
+            public uint UInt() => (uint)(Byte() | Byte() << 8 | Byte() << 16 | Byte() << 24);
             public float Float()
             {
                 int bits = Byte() | Byte() << 8 | Byte() << 16 | Byte() << 24;

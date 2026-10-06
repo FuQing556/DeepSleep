@@ -21,6 +21,8 @@ namespace DeepSleep.Runtime.Combat.Projectiles
         private bool _hasReportedExhaustion;
 
         public event Action<RiceProjectileHitConfirmed> HitConfirmed;
+        /// <summary>仅直击，不含一个爆心对多个目标的溅射伤害。</summary>
+        public event Action<RiceProjectileHitConfirmed> DirectHitConfirmed;
         public event Action<Vector2, Vector2> SplashConfirmed;
         internal void NotifySplash(Vector2 point, Vector2 direction) => SplashConfirmed?.Invoke(point, direction);
 
@@ -138,11 +140,12 @@ namespace DeepSleep.Runtime.Combat.Projectiles
             return returned;
         }
 
-        internal void NotifyHitConfirmed(RiceProjectileHitConfirmed hit)
+        internal void NotifyHitConfirmed(RiceProjectileHitConfirmed hit, bool direct = false)
         {
             if (hit.IsValid)
             {
                 HitConfirmed?.Invoke(hit);
+                if (direct) DirectHitConfirmed?.Invoke(hit);
             }
         }
 

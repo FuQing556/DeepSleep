@@ -1,0 +1,16 @@
+2026-10-06 HS AI rescue stabilization
+Cause: each decision only used instant risk; no persistent clear-area condition. Auto-revive independently started during gaps between HS swings, then subsequent attacks cancelled it.
+Change: existing CompanionCommandSource implements IPlayerReviveStartBlocker. Explicit references appended to both scenes' existing channels and setup installer (existing laser/melee blockers preserved). HS-only active-control gate; reset/release/disable clears ownership. No PlayerCommand or network message change.
+CompanionBattleSensor queries ally area with reused bounded buffer, counts live attackable bodies including bubbles, prioritizes in-range threats. Query saturation is unsafe. Radius3.5 before rescue,2.5 while channeling;0.6s accumulated safe decisions required before starting. Threat distance uses actual collider overlap, not only center distance. Existing bullet danger and navigation checks retained.
+Config: Assets/_Project/Configs/Players/CFG_CompanionTactics_Default.asset
+Fields: HarnessRescueClearRadius / HarnessRescueInterruptRadius / HarnessRescueSafeSeconds.
+
+Controlled World01 Play with ProfileIsolation, Time.timeScale0, actual player life/downed and enemy pool, manual fixed-tick command/preprocessor driving:
+1. Ally downed,404 inside clear area; Plan ClearForRescue and BlocksReviveStart true. Fed2s idle commands to actual channel: no channel start.
+2. Removed enemy via RunReset, drove1s of brain commands and actual revive preprocessing: Plan Revive, channel started.
+3. Added enemy collider in outer area, outside inner area; channel stayed active for20 ticks.
+4. Moved it into inner area; channel cancelled and start blocked.
+5. ReleaseControl: blocker false, manual player not restricted.
+6. Revived DS, downed HS, DS ready shield nearby: generated PrimarySkill.Pressed, actual Guard.ConsumeCommand activated guard, DS rescue blocker false.
+All assertions passed. Profile RestoreAndVerify succeeded, exited Play. Both saved scene registrations checked (DS1 blocker, HS3 blockers). Console compile/runtime errors0.
+Not tested: physical phone, dual-peer session or full natural rescue under all enemies. No guaranteed rescue before downed timeout in continuously occupied area; safety-first policy can still fail if the team cannot clear it. No build/push.

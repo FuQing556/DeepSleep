@@ -1,0 +1,24 @@
+2026-10-06 / DeepSleep internet enemies
+Tool: built-in image_gen__imagegen, transparent_background=true. Five generated PNGs with real alpha; no chroma-key, geometric drawing, external image-generation API or repaint script.
+Raw outputs preserved under raw/. Runtime copies under Assets/_Project/Art/Enemies/DownloadCharger and SecurityGuard.
+Source/import: 512 PPU, Sprite/Single, Bilinear, mipmaps off, maximum2048. Equal axis scaling only; no collider-driven image distortion. Download idle visible width1.9, guard body height1.7, separate shield height0.9.
+
+Prompt record (content summary of generation instructions, not verbatim transcript):
+1) Production-ready 2D enemy sprite in existing DeepSleep polished anime/chibi style. Early download-software arrow robot, blue/ivory housing, three green progress cells, cyan eyes, two stabilizer fins, facing right. Neutral idle, complete centered silhouette, no ground/shadow/text/extra objects. Existing DataCrawlerSnake idle used only as rendering-style reference, not copied as identity.
+   Output raw/exec-3339e055-b212-44e2-8824-a3c1126de17b.png -> SPR_EN_Download_Idle.png
+2) Edit the generated idle reference into charging pose; preserve body, canvas/placement, proportions and design. Fold fins, amber progress cells and focused eyes. Transparent; no baked trail or additional objects.
+   Output raw/exec-bffacffe-6098-478e-ad91-44a8443ad0aa.png -> SPR_EN_Download_Charge.png
+3) Edit generated idle reference into dash pose; retain matching body/proportions/placement, streamline fins, cyan-white cells, short contained engine glow, no baked afterimage.
+   Output raw/exec-3580d1a5-fb59-4ff6-8500-3d10b62c481c.png -> SPR_EN_Download_Dash.png
+4) Original small green/ivory antivirus helper robot, squat chibi body, green helmet/cap, dark visor with green eyes, rounded torso, tiny boots, green check badge on chest, three-quarter right. Body only, no shield, no environment/text.
+   Output raw/exec-9361f6d3-a1d1-4eea-afd9-2c35121f1695.png -> SPR_EN_SecurityGuard_Idle.png
+5) Use generated guard as style/material reference only. Independent narrow upright green check-mark shield, beveled rim, three-quarter side view, no body/hands/background. Separate alpha sprite for left/right guard placement.
+   Output raw/exec-1cf2959a-2470-4194-bf73-13cace67df05.png -> SPR_EN_SecurityGuard_Shield.png
+
+Reference paths:
+Assets/_Project/Art/Enemies/DataCrawlerSnake/SPR_EN_DataCrawlerSnake_Idle_v01.png
+Generated output directory: C:/Users/Administrator/.codex/generated_images/01a09de0-b0b2-7ac0-8982-9b5e3fda84af/
+Viewed existing404 art as integration reference, not a new-enemy identity source.
+
+Afterimages are generated at runtime by SpritePoseTransition2D/SpritePoseGhost2D, one ghost only; not part of PNG. Body/shield transparency visually inspected. Gameplay preview and verification notes live in docs/ImplementationEvidence/20261006_InternetEnemies/.
+Art remains subject to user visual acceptance. Not exact historical corporate logo reproduction; download/antivirus visual motifs are original stylizations.

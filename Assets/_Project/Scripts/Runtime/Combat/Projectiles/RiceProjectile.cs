@@ -11,6 +11,9 @@ namespace DeepSleep.Runtime.Combat.Projectiles
     {
         [SerializeField] private Rigidbody2D _body;
         [SerializeField] private Collider2D _bodyCollider;
+        [SerializeField] private LayerMask _attackBlockerLayers;
+        private readonly AttackBlockerQuery2D _blockers = new();
+        private readonly RaycastHit2D[] _sweepHits = new RaycastHit2D[1];
 
         private RiceProjectilePool _ownerPool;
         private LayerMask _collisionLayers;
@@ -49,6 +52,16 @@ namespace DeepSleep.Runtime.Combat.Projectiles
 
             _remainingLifetimeSeconds -= Time.fixedDeltaTime;
 
+            // 先扫掠最近实体，防止高速米粒同刻跨过盾后由本体触发器先结算。
+            Vector2 velocity = _body.linearVelocity;
+            var filter = new ContactFilter2D { useTriggers = true }; filter.SetLayerMask(_collisionLayers);
+            if (velocity.sqrMagnitude > 0 && _bodyCollider.Cast(velocity.normalized, filter,
+                _sweepHits, velocity.magnitude * Time.fixedDeltaTime) > 0)
+            {
+                OnTriggerEnter2D(_sweepHits[0].collider);
+                return;
+            }
+
             if (_remainingLifetimeSeconds <= 0f)
             {
                 ReleaseToPool();
@@ -65,6 +78,7 @@ namespace DeepSleep.Runtime.Combat.Projectiles
 
             _impactConsumed = true;
             _bodyCollider.enabled = false;
+            if (other.TryGetComponent<PlayerAttackBlocker2D>(out var blocker)) blocker.NotifyBlocked();
             ApplyDamageIfPossible(other);
             ReleaseToPool();
         }
@@ -189,7 +203,7 @@ namespace DeepSleep.Runtime.Combat.Projectiles
                     hitbox,
                     hitPoint,
                     direction,
-                    damage.Amount));
+                    damage.Amount), direct: true);
 
             if (_splashRadius <= 0f) return;
             _ownerPool?.NotifySplash(hitPoint, direction);
@@ -197,6 +211,7 @@ namespace DeepSleep.Runtime.Combat.Projectiles
             {
                 if (candidate == null || !candidate.TryGetComponent(out DamageHitbox2D splashHit) ||
                     !splashHit.CanReceiveDamage || !splashHit.TryGetReceiver(out var receiver) ||
+                    _blockers.IsBlocked(hitPoint, candidate.ClosestPoint(hitPoint), _attackBlockerLayers) ||
                     !_splashReceivers.Add(receiver)) continue;
                 Vector2 point = candidate.ClosestPoint(hitPoint);
                 Vector2 outward = (Vector2)candidate.bounds.center - hitPoint;

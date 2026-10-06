@@ -12,7 +12,7 @@ namespace DeepSleep.Runtime.Players.Companion
         ApproachPortal, HoldPortal, Navigate, WaitForRoute }
 
     /// <summary>感知→战术→移动/角色策略→统一命令。仅被选中的同伴由Dispatcher驱动。</summary>
-    public sealed class CompanionCommandSource2D : MonoBehaviour, ICommandSource
+    public sealed class CompanionCommandSource2D : MonoBehaviour, ICommandSource, IPlayerReviveStartBlocker
     {
         public CompanionTacticsConfig Config;
         public CompanionBattleSensor2D Sensor;
@@ -45,6 +45,12 @@ namespace DeepSleep.Runtime.Players.Companion
         private uint _tick;
         private uint _sequence;
         private PlayerCommand _cached;
+        private bool _controlsRescue;
+        private float _rescueSafeSeconds;
+
+        public bool BlocksReviveStart => _controlsRescue && Combat.Role == DeepSleep.Runtime.Players.Identity.PlayerRole.Harness &&
+            AllyLife.State == PlayerLifeState.Downed &&
+            _plan != CompanionPlan.ApproachRescue && _plan != CompanionPlan.Revive;
 
         public CompanionPlan Plan => Life != null && Life.State == PlayerLifeState.Downed ? CompanionPlan.Downed : _plan;
         public string Reason => Plan == CompanionPlan.Downed ? "自己倒地，停止输入" : _reason;
@@ -72,6 +78,8 @@ namespace DeepSleep.Runtime.Players.Companion
             if (Life != null) Life.StateChanged -= OnLifeChanged;
         }
 
+        private void OnDisable() => ReleaseControl();
+
         private void OnLifeChanged(PlayerLifeStateController2D owner, PlayerLifeState state)
         {
             // 倒地会停用Dispatcher，因此观察状态必须响应生命事件而非等下一个命令。
@@ -81,11 +89,14 @@ namespace DeepSleep.Runtime.Players.Companion
                 _reason = "自己倒地，停止输入";
             }
             _untilDecision = 0;
+            _rescueSafeSeconds = 0;
             _navigation.Reset();
         }
 
         public void ReleaseControl()
         {
+            _controlsRescue = false;
+            _rescueSafeSeconds = 0;
             _plan = CompanionPlan.Inactive;
             _reason = "当前角色由其他控制源操纵";
             _move = Vector2.zero;
@@ -96,6 +107,8 @@ namespace DeepSleep.Runtime.Players.Companion
 
         public void ResetIntent()
         {
+            _controlsRescue = false;
+            _rescueSafeSeconds = 0;
             _hasTick = false;
             _untilDecision = 0;
             _move = Vector2.zero;
@@ -109,6 +122,7 @@ namespace DeepSleep.Runtime.Players.Companion
         {
             command = default;
             if (!_initialized || !isActiveAndEnabled) return false;
+            _controlsRescue = true;
             if (_hasTick && _tick == simulationTick) { command = _cached; return true; }
             _hasTick = true;
             _tick = simulationTick;
@@ -140,6 +154,8 @@ namespace DeepSleep.Runtime.Players.Companion
                 (AllyLife.State == PlayerLifeState.Downed && Vector2.Distance(position, AllyLife.transform.position) <= TeamGuard.Radius);
             Combat.Build(Sensor, position, rescue, guardWanted, _danger >= Config.EmergencyDanger,
                 dt, out var aim, out var skill, out var attack, out var cancel);
+            // 冷却/收刀的空档也不得偷起救；近处再现威胁则明确取消原引导。
+            if (BlocksReviveStart && Revive.IsChanneling) cancel |= CommandButtonState.Pressed;
             return Cache(simulationTick, stopForRescue || stopAtPortal ? Vector2.zero : _move, aim, skill, attack, cancel, out command);
         }
 
@@ -158,6 +174,7 @@ namespace DeepSleep.Runtime.Players.Companion
                 _danger = Mathf.Max(_danger, Config.EmergencyDanger);
             bool protectedHere = TeamGuard.IsActive && Vector2.Distance(position, TeamGuard.transform.position) <= TeamGuard.Radius;
             bool downedAlly = AllyLife.State == PlayerLifeState.Downed;
+            if (!downedAlly) _rescueSafeSeconds = 0;
             _destination = ally + Config.FormationOffset;
             if (SquadAnchor.TryGetGoal(Combat.Role, Config.FormationOffset, out var squadGoal)) _destination = squadGoal;
             _plan = _target != null ? CompanionPlan.Fight : CompanionPlan.Follow;
@@ -180,9 +197,18 @@ namespace DeepSleep.Runtime.Players.Companion
                     ally + colliderOffset, 0, Config.PredictionSeconds, extent, Config.NavigationPadding,
                     Sensor.Obstacles, Sensor.ObstacleCount)) rescueDanger += Config.EmergencyDanger;
                 bool canApproach = rescueDanger <= riskLimit || protectedHere;
+                if (Combat.Role == DeepSleep.Runtime.Players.Identity.PlayerRole.Harness)
+                {
+                    float radius = Revive.IsChanneling ? Config.HarnessRescueInterruptRadius : Config.HarnessRescueClearRadius;
+                    bool occupied = Sensor.PrioritizeRescueThreat(position, ally, radius, extent.magnitude);
+                    _rescueSafeSeconds = !occupied && canApproach
+                        ? _rescueSafeSeconds + Config.DecisionInterval : 0f;
+                    canApproach &= !occupied && (Revive.IsChanneling || _rescueSafeSeconds >= Config.HarnessRescueSafeSeconds);
+                    _target = Sensor.Target == null ? null : Sensor.Target.gameObject;
+                }
                 _plan = canApproach ? CompanionPlan.ApproachRescue : CompanionPlan.ClearForRescue;
                 _destination = canApproach ? ally : ally + Config.FormationOffset;
-                _reason = canApproach ? "救援点风险可接受，靠近队友" : "救援点受威胁，先清场";
+                _reason = canApproach ? "救援区域已安全，靠近队友" : "先清理救援区域并等待安全窗口";
             }
             if (_danger >= Config.EmergencyDanger && !protectedHere)
             {
@@ -195,6 +221,11 @@ namespace DeepSleep.Runtime.Players.Companion
                 MotorConfig.MaximumSpeed, MotorConfig.Acceleration, _destination + colliderOffset, Config.DecisionInterval);
             _waypoint = route.Waypoint - colliderOffset;
             _routeBlocked = route.ShouldWait && !route.ReachedGoal;
+            if (_routeBlocked)
+            {
+                Sensor.PrioritizeBlockedRoute(position, _destination, extent.magnitude);
+                _target = Sensor.Target == null ? null : Sensor.Target.gameObject;
+            }
             if (_routeBlocked && downedAlly && _plan == CompanionPlan.ApproachRescue)
             { _plan = CompanionPlan.ClearForRescue; _reason = "救援路线被气泡截断，先避险清障"; }
             else if (_routeBlocked && !portal && !downedAlly)

@@ -1,0 +1,28 @@
+2026-10-06 / Unity 6000.6.0f1 / Android active target / Editor Play
+
+Implemented two ordinary enemies under World01 only, using existing shared actor/pool/health/reward/perception/network systems.
+Editor installation succeeded; final LevelSceneInstaller.Preview: 0 changed reference fields.
+Enemy pool initialization: 404=16, data snake=12, download=4, security guard=4. No runtime console errors.
+
+Controlled checks (not a natural full playthrough):
+- Download: after 0.5s state Charging, position unchanged; next 0.7s Dashing. Moving registered players during dash did not change its frozen direction. Correct Dash sprite assigned.
+- Shield query: front beam clipped from length8 to approximately3.17 at shield; resolver front hits0. Top beam remains length8 and resolves guard (plus download also on the same test line).
+- Rice actual pool/projectile FixedUpdate sweep: front projectile returned and guard HP remained8; top returned and HP8->7.
+- HS actual melee Burst, attack0: front HP8->8; from above HP8->5, WaveHits1.
+- Turn: shield localX<0 and worldZ=0; old-pose ghost visible. Pool return/rent resets shield to right, clears ghost, resets HP8.
+- NetworkEntityView.Write/Read round trip: three layers fit capacity8; body resolves SPR_EN_SecurityGuard_Idle, shield resolves SPR_EN_SecurityGuard_Shield and is shown. This is serialization validation, not a real two-peer session.
+- Actual spawn director with healthMultiplier3: download HP18, guard HP24.
+- Lethal damage uses normal health/depleted/pool lifecycle and returned both new enemies.
+- Existing scene registration provides token reward consumers, perception registry, world snapshot and authority gating. Audio pool registration is now derived by LevelSceneInstaller too.
+
+Issues found and corrected during verification:
+- Cloned 404 physics root had an authored initial rotation; set both new roots to identity.
+- Cloned 404 VisualRoot had scale0.3, making bodies too small relative to shield; normalized that visual ancestor and retained explicitly calculated uniform visible-size scale. No original404 asset was changed.
+
+Preview:
+world01-enemies-accepted-preview.png is the final clean-session Editor Game View screenshot (1280x604), with deliberately positioned enemies and paused gameplay. Filename does NOT signify user visual approval. World clouds/fade can cover the sprites.
+Earlier world01-preview*.png / world01-enemies-final.png / world01-enemies-size-check.png are intermediate diagnostic frames and not final appearance.
+
+ProfileIsolation used for all three Play sessions. RestoreAndVerify succeeded each time. Left Play, did not build APK or push GitHub.
+No physical-phone or dual-device test; no natural four-wave difficulty/balance acceptance. Dedicated charge/dash/shield audio not added; existing combat hit/death/contact feedback reused.
+Melee wave artwork itself is not clipped by the shield; its damage is blocked by shield line of sight. Laser artwork and damage are both clipped using the same frozen snapshot.

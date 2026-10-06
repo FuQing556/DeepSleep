@@ -18,7 +18,9 @@ namespace DeepSleep.Runtime.Combat.Enemies
         [SerializeField, Min(0.01f)] private float _maximumIntervalSeconds = 1.8f;
         [SerializeField, Min(1)] private int _maximumAliveCount = 6;
 
-        [Header("右侧出生区域")]
+        [Header("出生区域")]
+        [SerializeField, Tooltip("开启后左右各约一半；关闭则保持原来的右侧出生。")]
+        private bool _spawnFromBothSides;
         [SerializeField, Min(0f)] private float _horizontalSpawnMargin = 1f;
         [SerializeField, Min(0f)] private float _verticalPadding = 0.8f;
 
@@ -26,6 +28,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
         [SerializeField] private int _randomSeed = 404;
 
         public float InitialDelaySeconds => _initialDelaySeconds;
+        public bool SpawnFromBothSides => _spawnFromBothSides;
         public int MaximumAliveCount => _maximumAliveCount;
         public float HorizontalSpawnMargin => _horizontalSpawnMargin;
         public float VerticalPadding => _verticalPadding;

@@ -13,11 +13,13 @@ namespace DeepSleep.Runtime.AppFlow
         [SerializeField] private GameLaunchContext _launchContext;
         [SerializeField] private GameSceneRouter _sceneRouter;
         [SerializeField] private AchievementService _achievements;
+        [SerializeField] private DeepSleep.Runtime.Presentation.Audio.GameAudioService _audio;
 
         public LocalPlayerProfileStore Profile => _profile;
         public GameLaunchContext LaunchContext => _launchContext;
         public GameSceneRouter SceneRouter => _sceneRouter;
         public AchievementService Achievements => _achievements;
+        public DeepSleep.Runtime.Presentation.Audio.GameAudioService Audio => _audio;
 
         private void Awake()
         {

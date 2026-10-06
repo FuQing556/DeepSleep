@@ -1,0 +1,9 @@
+2026-10-06 follow-up: user wants avoidance, not bubble hunting.
+Shared sensor changes only: no normal target score / NearbyCount / blanket nearest-melee threat contribution for ThreatTrackedAsObstacle. Obstacle snapshots retained. Brain requests explicit bubble target only after navigation reports blocked; rescue checks only bubbles overlapping ally footprint, not full clear radius. No manual-target mask, health, collider, DS passive shooter or damage changes.
+Controlled World01 Play with isolated profile: instantiated actual PF_DB_WordBubble, Activate(width1,health10), registered perception + obstacle. Tested both role sensors/policies:
+- Normal Refresh: Target null, NearbyCount0, nearest-melee false, ObstacleCount>0.
+- Combat.Build(rescue=false,guardWanted=false,emergency=true): no attack/skill from bubble alone.
+- Explicit blocked-route query across bubble: selects actual bubble adapter; close melee query can clear it.
+- Rescue query bubble near ally but not touching footprint: occupied=false.
+- Rescue query ally at bubble center: occupied=true and bubble selected.
+All assertions passed. Unregistered/destroyed fixture, RestoreAndVerify profile succeeded, exited Play. No physical phone/dual-peer/full maze navigation playthrough claimed.

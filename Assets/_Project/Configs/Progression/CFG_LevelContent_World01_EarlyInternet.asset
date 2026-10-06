@@ -21,3 +21,11 @@ MonoBehaviour:
     _channel: {fileID: 11400000, guid: 25500160a77fbed47ae3a9f44bd4833c, type: 2}
     _runtimePrefab: {fileID: 2509532023061632020, guid: 760d36186e125014aa7fa75d3b6200da, type: 3}
     _enemyPrefab: {fileID: 3247942948499192296, guid: fcc40d4ee2249cd4087a75572377584e, type: 3}
+  - _entryId: download
+    _channel: {fileID: 11400000, guid: 6b940fd41def9c841a688cb8a1820b43, type: 2}
+    _runtimePrefab: {fileID: 4964292152936606169, guid: 0cc8693bcdcef5342ae4697616d44188, type: 3}
+    _enemyPrefab: {fileID: 739013821261481618, guid: 97e344869497e2146864d1b482b2bf33, type: 3}
+  - _entryId: security-guard
+    _channel: {fileID: 11400000, guid: 5f730163644b84c4cba76dbacb764f29, type: 2}
+    _runtimePrefab: {fileID: 1787025652481311593, guid: c38d8d446ba072f42acce0a31f776083, type: 3}
+    _enemyPrefab: {fileID: 1159787934076448869, guid: ba7801a03dc88984282eae2fffa3ef0a, type: 3}

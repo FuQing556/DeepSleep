@@ -27,6 +27,9 @@ namespace DeepSleep.Runtime.Players.Companion
         public float DangerCost;
         public float DirectionChangeCost;
         public float RescueDangerLimit;
+        [Min(.1f)] public float HarnessRescueClearRadius = 3.5f;
+        [Min(.1f)] public float HarnessRescueInterruptRadius = 2.5f;
+        [Min(.01f)] public float HarnessRescueSafeSeconds = .6f;
         public float EmergencyDanger;
         [Range(0, 1)] public float LowHealthFraction;
         [Header("角色策略")]
@@ -50,6 +53,8 @@ namespace DeepSleep.Runtime.Players.Companion
         [Min(16)] public int NavigationMaxExpandedNodes = 768;
 
         public bool IsValid => QueryCapacity > 0 && DecisionInterval > 0 &&
+            HarnessRescueClearRadius >= HarnessRescueInterruptRadius && HarnessRescueInterruptRadius > 0 &&
+            HarnessRescueSafeSeconds > 0 &&
             PerceptionLayers.value != 0 && PerceptionRadius > 0 && PredictionSeconds > 0 &&
             NearbyRadius > 0 && AttackRange > 0 && ArrivalRadius > 0 && SkillRetrySeconds > 0 &&
             MeleeAttackRange > 0 && MeleeEnterRange > 0 && ObstacleCapacity > 0 &&
