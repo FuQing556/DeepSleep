@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 724a4423b89c6a54592f877c3a2f0a01, type: 3}
+  m_Name: CFG_KI_Laser
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiLaserConfig
+  ChargeSeconds: 1.2
+  FireSeconds: 0.45
+  RecoverySeconds: 0.35
+  Length: 40
+  DamageWidth: 1.2
+  VisualWidth: 2.8
+  TextureRepeatLength: 7.4666667
+  TextureScrollSpeed: 0.6
+  Damage: 1
+  FocusStartScale: 0.3
+  FocusEndScale: 0.7
+  FocusSpinDegrees: 40
+  WarningColor: {r: 0.72, g: 0.65, b: 1, a: 0.22}
+  BeamColor: {r: 1, g: 1, b: 1, a: 1}
+  PlayerLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  ShotCount: 5
+  TargetMarkerDiameter: 2.4
+  TargetMarkerSpinDegrees: 35

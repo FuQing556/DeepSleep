@@ -1,0 +1,18 @@
+Kimi observation complete; see measurements, not automatic balance approval.
+Kimi soak 0.0s HP=10000 skill=Moon casts=0 DS=8.0/Inactive HS=8.0/Inactive curtain=0 hits=0
+Kimi soak 10.0s HP=9538 skill=Prism casts=2 DS=8.0/Fight HS=8.0/Fight curtain=0 hits=0
+Kimi soak 20.0s HP=8728 skill=Prism casts=2 DS=8.0/Navigate HS=8.0/Navigate curtain=0 hits=0
+Kimi soak 30.0s HP=7942 skill=Moon casts=3 DS=8.0/Fight HS=8.0/Fight curtain=0 hits=0
+Kimi soak 40.0s HP=7198 skill=Moon casts=3 DS=8.0/Fight HS=8.0/Fight curtain=0 hits=0
+Kimi soak 50.0s HP=6412 skill=Laser casts=4 DS=8.0/Fight HS=7.0/Fight curtain=0 hits=0
+Kimi soak 60.0s HP=5626 skill=Prism casts=5 DS=8.0/Navigate HS=7.0/Navigate curtain=0 hits=0
+Kimi soak 70.0s HP=4990 skill=Prism casts=5 DS=8.0/Fight HS=7.0/Fight curtain=0 hits=0
+Kimi soak 80.0s HP=4204 skill=Moon casts=6 DS=7.0/Fight HS=7.0/Fight curtain=0 hits=0
+Kimi soak 90.0s HP=3388 skill=Moon casts=6 DS=7.0/Fight HS=7.0/Fight curtain=0 hits=0
+Kimi soak 100.0s HP=2554 skill=Laser casts=7 DS=7.0/Fight HS=7.0/Fight curtain=0 hits=0
+Kimi soak 110.0s HP=2152 skill=Ultimate casts=8 DS=6.0/Fight HS=7.0/Fight curtain=0 hits=0
+Kimi soak 120.0s HP=1384 skill=Moon casts=10 DS=5.0/Fight HS=7.0/Fight curtain=0 hits=0
+Kimi soak 130.0s HP=598 skill=Moon casts=10 DS=5.0/Fight HS=6.0/Fight curtain=0 hits=0
+Result=Complete; duration=138.6; minBossHP=4; frames=5358; meanEditorFrameMs=13.1; damageNumbers=1924; peakNumbers=56; capacityDrops=0; scenario=0; shieldHits=0
+Profile isolation: original reference/JSON restored; main SHA256=A9EE404BE1817CEFEC13209B942E854DD1AB0F068BF216185F9F19537F5FC4D5; backup SHA256=6383F46D950C6E87EBDE210EE484F61975ED3C8D3BE6985502270A069A8DEF42.
+

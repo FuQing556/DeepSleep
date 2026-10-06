@@ -23,6 +23,18 @@ Editor 中 Diagnostics 为 41 文件、8,112 行，Setup 为 23 文件、5,224 �
 
 ## 目录地图
 
+Kimi 当前结构（2026-10-06，正式黄昏第四波已装配）：
+
+- `Combat/Encounters/Kimi`：本体生命/姿态、月光刃、棱光、锁向激光、次数盾大招和统一遭遇编排；配置/Prefab 在 `Configs/Combat/Encounters/Kimi`、`Prefabs/Combat/Encounters/Kimi`。复用现有敌弹池、360、感知、伤害、短闪、姿态残影和特效池，不另建通用战斗框架。
+- `Progression/Run/KimiChapterEncounterDriver2D`：第四波50s接管、夜景、月之暗面/999/试炼任务；实现原目标/生命周期契约和 `IChapterCombatTakeover`。Chapter 仍负责倒地失败、检查点和结算。固定步只登记 Driver，由它推进 Encounter 及全部技能子池，不能重复登记子模块。
+- `UI/Combat/KimiBossHudView`：uGUI 血条、阶段和次数盾，只读实际状态。
+- `Networking/KimiEncounterNetworkChannel`：消息50/268字节快照，复制本体/短闪/四技能状态几何及激光目标标记坐标；客机只有表现、无伤害和碰撞。360/月光刃/潮汐刃通过 `NetworkWorldSnapshotChannel.EncounterEnemyPools/EncounterProjectilePools` 复用原实体镜像；命中/碎镜等通过既有 `NetworkEffectEventChannel`。协议7，内容20261006-kimi-pressure-1，旧包不可混房。
+- `KimiContentInstaller.ApplyPressureRevision`：本次明确调参入口。次数盾500/1000、镜边600/1200、激光五轮；Kimi专属360在既有`EnemySpawnDirector2D`配置`_spawnAnchor/_spawnOffsets`六点阵型，普通关卡未配置此字段时仍走原侧边出生。新标记在Laser中管理，无独立更新器、无碰撞。`CombatAudioPresenter.Kimi`沿用表现事件通道，各轮ChargeStarted/Fired分别触发音效。
+- `Editor/Setup/KimiChapterInstaller`：首次显式生产装配，已保存 `World01_EarlyInternet`，不覆盖已有装配。共享 `LevelSceneInstaller` 从明确绑定的 Kimi Driver 派生遭遇池到奖励、声音、感知和网络，不把它们加入普通刷怪固定步。
+- `KimiChapterVerificationRig`：只读取正式场景，缺失即失败；已删除临时补装分支。四技能/编排/网络独立测试在 `KimiMoonBladeChecks`、`KimiNetworkChecks`；正式两关流程、失败重试和 DS/HS 命中反馈在 `ChapterFlowLifecycleChecks`。这些 Editor 工具不进包。
+
+验证证据：`docs/ImplementationEvidence/20261006_KimiMoonBlade/formal_chapter_verification.txt`（正式场景受控离线测试）、`network_verification.txt`（同进程编解码/镜像测试）、`pressure_phase1/2.txt`（新数值正式场景满Buff双AI大招观察）。Kimi专属声音已接入，最终听感待验收。新数值仍需玩家手感反馈；真实双端/手机尚未验收。不能把受控通过称作完整实战验收。
+
 2026-10-06 新增怪物入口见 [敌人与碰撞调参](docs/37_InternetEnemies.md)：下载怪独立小状态机，360 复用数据蛇追逐，双方继续走共同 EnemyActor/池/生命/掉落/网络镜像。`Combat/Damage/PlayerAttackBlocker2D` 与 `AttackBlockerQuery2D` 是共用实体盾查询，三类玩家攻击接入。`LevelSceneInstaller` 现在也从同一敌人清单派生 `CombatAudioPresenter.EnemyPools`。没有新建关卡专用运行框架。
 
 ```text

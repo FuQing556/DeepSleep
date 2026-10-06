@@ -124,7 +124,7 @@ namespace DeepSleep.Editor.Diagnostics
                 { w.Write((uint)4); w.Write((uint)9); w.Write((byte)kind); w.Write((byte)1); w.Write(2f); w.Write(-3f); });
                 Require(Catalog.TryValidatePacket(packet, Catalog.Direction.AuthorityToPeer, out _), "Combat presentation kind rejected: " + kind);
                 checks++;
-                byte[] invalid = (byte[])packet.Clone(); invalid[9] = (byte)((byte)Catalog.CombatPresentationKind.EncounterStarted + 1);
+                byte[] invalid = (byte[])packet.Clone(); invalid[9] = (byte)((byte)Catalog.CombatPresentationKind.GuardImpact + 1);
                 Require(!Catalog.TryValidatePacket(invalid, Catalog.Direction.AuthorityToPeer, out _), "Unknown combat presentation kind accepted"); checks++;
                 invalid = (byte[])packet.Clone(); invalid[10] = 2;
                 Require(!Catalog.TryValidatePacket(invalid, Catalog.Direction.AuthorityToPeer, out _), "Unknown combat presentation role accepted"); checks++;
@@ -232,6 +232,7 @@ namespace DeepSleep.Editor.Diagnostics
                         w.Write((uint)1); w.Write((uint)1); w.Write((byte)Catalog.CombatPresentationKind.RiceVolley);
                         w.Write((byte)0); Floats(w, 2); break;
                     case Catalog.Authority.DoubaoSnapshot: WriteDoubao(w, 1, 0, false); break;
+                    case Catalog.Authority.KimiSnapshot: w.Write(new byte[KimiEncounterNetworkChannel.PayloadBytes]); break;
                     default: throw new Exception("No authority fixture for " + definition.Name);
                 }
             });

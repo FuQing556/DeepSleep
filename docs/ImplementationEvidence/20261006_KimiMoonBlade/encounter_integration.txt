@@ -1,0 +1,70 @@
+Kimi encounter sequencing / 2026-10-06
+
+Completed:
+KimiEncounter2D now owns the four existing skill modules' simulation and transitions.
+It is Kimi-specific, not a new generic framework. Existing module/pool implementations
+unchanged. Boss event -> clear all hazards -> one completion. Cancel resets boss and
+all module hazards without emitting victory. Restart restores health/phase/counters.
+
+Config: Assets/_Project/Configs/Combat/Encounters/Kimi/CFG_KI_Encounter.asset
+PreludeSeconds50, EntrySeconds2, PhaseChangeSeconds1.5,
+CastGapSeconds2, CycleGapSeconds5, CastsPerCycle5, BossPosition(6.5,-.8).
+RevealedTitle=月之暗面, ObjectiveText=通过 Kimi 的试炼, DisplaySeconds999.
+Important: these strings/display seconds are NOT yet consumed by ChapterRunController.
+
+State flow:
+Prelude -> Entering -> Casting -> Gap -> Casting...
+At half health: finish current cast -> protectedPhaseChange -> Gap -> phase2cast.
+Every5casts gets5s break; otherwise2s. Random among eligible skills; never repeat
+consecutively (including across5-cast boundaries); ultimate at most once per group,
+not forced. No live target means wait for the existing rescue/failure owner.
+Config/script dependencies are explicitly serialized and validated.
+
+Begin(waitForPrelude,seed,session,targets,perception,obstacles):
+true waits50s before TakeoverRequested; false requests takeover immediately then
+plays the same entrance. Future bestiary can use false and reuse this exact boss.
+TakeoverRequested is synchronous, allowing chapter cancellation at the boundary.
+It currently has NO formal chapter subscriber. Counter999 is not a second clock.
+
+Assembly already performed through Unity API:
+DeepSleep/开发/Kimi/装配完整技能编排 (first install only, refuses overwrite).
+Same existing PF_KI_MoonBladeModule now hasKimiEncounter2D references to its own
+Boss/Moon/Prism/Laser/Ultimate. No formal scene changed, no runtime AddComponent.
+Future fixed-step scene installation must register only encounter for its modules:
+it drives Moon.Projectiles+Moon, Prism, Laser or Ultimate; Ultimate drives its own
+giant projectile and guard pools. Double registration would double simulation speed.
+
+Verification:
+DeepSleep/开发/Kimi/打开独立验收场 -> Play ->
+DeepSleep.Editor.Diagnostics.KimiMoonBladeChecks.RunEncounter().
+No AppRoot/Profile/Session/save service. Existing controlled manualPhysics2D method.
+17893 sampled checks,20 real casts (no forced-completion shortcuts):
+Prism,Ultimate,Prism,Moon,Laser,
+Moon,Ultimate,Laser,Moon,Prism,
+Moon,Laser,Ultimate,Prism,Laser,
+Moon,Laser,Moon,Laser,Moon.
+Checks: no takeover at49.9s, one takeover after50s, pause, direct entry,20casts,
+all4skills, mutually exclusive active states,2/5s gaps, no consecutive repeats,
+ultimate frequency, half-health not mid-cast transition, protected phase animation,
+single victory, hazard cleanup, reset/seed restart and cancellation inside takeover.
+Moon6535, prism13674, laser32, ultimate345 prior checks also passed afterward.
+Latest Play Console0errors/warnings; Play stopped and Boot restored. No build/push.
+encounter_phase_change.png is independent editor render, not real phone/combat QA.
+
+Not completed / next required integration:
+ChapterRunController currently decrements its old segment timer in Update and checks
+old objective at65s. Encounter clock uses fixed simulation. Do not simply enable this
+prefab: it would create conflicting outcomes and unsynchronized clients.
+Next work must wire chapter takeover/cleanup/night/title999/task + authoritative
+time/final victory/failure semantics together. Ensure old fourth-wave ordinary goals
+cannot fail or win the boss trial. Then actualDS/HS/AI target/damage/guard tests,
+entity/effect replication, scene reset/leave/retry and audio. FormalWorld01 untouched.
+
+User-requested later roadmap, recorded but NOT implemented:
+FinishKimi -> dedicatedThunder/360hit anddeath VFX -> audio -> illustrated bestiary
+with single-enemy quick challenges -> accessories.
+Bestiary: descriptions/images; test-map rest node preparation; small monster300Token
+and10slow spawns of selected type; Doubao500Token andoneboss in its corresponding
+scene; Kimi1000Token andoneboss in its corresponding scene.
+Suggested isolated challenge economy/no persistent income is assistant proposal only,
+not user confirmation. Unlock rules, entry UI and reward persistence remain for that stage.

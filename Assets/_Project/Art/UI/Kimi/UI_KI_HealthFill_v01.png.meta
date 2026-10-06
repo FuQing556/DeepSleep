@@ -1,0 +1,234 @@
+fileFormatVersion: 2
+guid: 727d39123e4a9324189fd9896f47794a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6694753737098266148
+    second: UI_KI_HealthFill_v01_0
+  - first:
+      213: 6988091165314777903
+    second: UI_KI_HealthFill_v01_1
+  - first:
+      213: 1228592141754628077
+    second: UI_KI_HealthFill_v01_2
+  - first:
+      213: 1451893987148872087
+    second: UI_KI_HealthFill_v01_3
+  - first:
+      213: 5561310476493714050
+    second: UI_KI_HealthFill_v01_4
+  - first:
+      213: 3456267484657315423
+    second: UI_KI_HealthFill_v01_5
+  - first:
+      213: -2094072556079771383
+    second: UI_KI_HealthFill_v01_6
+  - first:
+      213: -4114077628105012881
+    second: UI_KI_HealthFill_v01_7
+  - first:
+      213: 7951142526036874558
+    second: UI_KI_HealthFill_v01_8
+  - first:
+      213: 1293400753498339417
+    second: UI_KI_HealthFill_v01_9
+  - first:
+      213: -3849142507887976101
+    second: UI_KI_HealthFill_v01_10
+  - first:
+      213: -2701090188875774830
+    second: UI_KI_HealthFill_v01_11
+  - first:
+      213: -1561711900438031421
+    second: UI_KI_HealthFill_v01_12
+  - first:
+      213: 275665271479358859
+    second: UI_KI_HealthFill_v01_13
+  - first:
+      213: 8161025325208770138
+    second: UI_KI_HealthFill_v01_14
+  - first:
+      213: -8711131487828545170
+    second: UI_KI_HealthFill_v01_15
+  - first:
+      213: 9109723281196753091
+    second: UI_KI_HealthFill_v01_16
+  - first:
+      213: 44235937886780735
+    second: UI_KI_HealthFill_v01_17
+  - first:
+      213: 6964363147561466198
+    second: UI_KI_HealthFill_v01_18
+  - first:
+      213: 1668070733075657681
+    second: UI_KI_HealthFill_v01
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: UI_KI_HealthFill_v01
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 455
+        width: 1508
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d333317e7d262710800000000000000
+      internalID: 1668070733075657681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      UI_KI_HealthFill_v01: 1668070733075657681
+      UI_KI_HealthFill_v01_0: -6694753737098266148
+      UI_KI_HealthFill_v01_1: 6988091165314777903
+      UI_KI_HealthFill_v01_10: -3849142507887976101
+      UI_KI_HealthFill_v01_11: -2701090188875774830
+      UI_KI_HealthFill_v01_12: -1561711900438031421
+      UI_KI_HealthFill_v01_13: 275665271479358859
+      UI_KI_HealthFill_v01_14: 8161025325208770138
+      UI_KI_HealthFill_v01_15: -8711131487828545170
+      UI_KI_HealthFill_v01_16: 9109723281196753091
+      UI_KI_HealthFill_v01_17: 44235937886780735
+      UI_KI_HealthFill_v01_18: 6964363147561466198
+      UI_KI_HealthFill_v01_2: 1228592141754628077
+      UI_KI_HealthFill_v01_3: 1451893987148872087
+      UI_KI_HealthFill_v01_4: 5561310476493714050
+      UI_KI_HealthFill_v01_5: 3456267484657315423
+      UI_KI_HealthFill_v01_6: -2094072556079771383
+      UI_KI_HealthFill_v01_7: -4114077628105012881
+      UI_KI_HealthFill_v01_8: 7951142526036874558
+      UI_KI_HealthFill_v01_9: 1293400753498339417
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

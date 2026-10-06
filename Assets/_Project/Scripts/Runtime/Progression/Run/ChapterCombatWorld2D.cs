@@ -67,6 +67,23 @@ namespace DeepSleep.Runtime.Progression.Run
             StopSpawning();
             for (int index = 0; index < _participants.Length; index++)
                 _participants[index].StopCombat(reason);
+            ClearOrdinaryCombat();
+        }
+
+        /// <summary>接管者保留自身模拟，其余机制无奖励清空；不关闭玩家攻击与救援门。</summary>
+        public void TakeOverCombat(IChapterCombatLifecycle owner)
+        {
+            if (!CanAuthor || _participants == null || owner == null ||
+                Array.IndexOf(_participants, owner) < 0) return;
+            StopSpawning();
+            for (int index = 0; index < _participants.Length; index++)
+                if (!ReferenceEquals(_participants[index], owner))
+                    _participants[index].StopCombat(ChapterCombatStopReason.EncounterTakeover);
+            ClearOrdinaryCombat();
+        }
+
+        private void ClearOrdinaryCombat()
+        {
             for (int index = 0; index < Bindings.Enemies.Count; index++)
             {
                 LevelEnemySceneBinding entry = Bindings.Enemies[index];

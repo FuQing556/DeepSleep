@@ -1,0 +1,7 @@
+Kimi observation complete; see measurements, not automatic balance approval.
+Kimi soak 0.0s HP=5000 skill=Ultimate casts=0 DS=8.0/Inactive HS=8.0/Inactive curtain=200 hits=0
+Kimi soak 10.0s HP=4610 skill=Ultimate casts=1 DS=8.0/Fight HS=8.0/Fight curtain=187 hits=213
+Kimi soak 20.0s HP=4076 skill=Laser casts=2 DS=8.0/Fight HS=8.0/Fight curtain=0 hits=400
+Result=Combat; duration=30.0; minBossHP=3242; frames=1120; meanEditorFrameMs=13.5; damageNumbers=727; peakNumbers=46; capacityDrops=0; scenario=2; shieldHits=400
+Profile isolation: original reference/JSON restored; main SHA256=A9EE404BE1817CEFEC13209B942E854DD1AB0F068BF216185F9F19537F5FC4D5; backup SHA256=6383F46D950C6E87EBDE210EE484F61975ED3C8D3BE6985502270A069A8DEF42.
+

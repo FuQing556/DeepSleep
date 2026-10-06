@@ -17,6 +17,10 @@ namespace DeepSleep.Runtime.Combat.Enemies
         [SerializeField] private EnemySpawnScheduleConfig _schedule;
         [SerializeField] private EnemySpawnChannelDefinition _channel;
         [SerializeField] private bool _autoStart = true;
+        [Tooltip("可选的定点增援阵型；未配置时保留战区侧边刷怪。偏移使用世界单位。")]
+        [SerializeField] private Transform _spawnAnchor;
+        [SerializeField] private Vector2[] _spawnOffsets;
+        private int _formationIndex;
 
         private System.Random _random;
         private float _remainingSeconds;
@@ -107,6 +111,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
             int maximumAliveCount, float healthMultiplier = 1f)
         {
             _runtimeEnabled = enabledForSegment;
+            _formationIndex = 0;
             _runtimeHealthMultiplier = Mathf.Max(1f, healthMultiplier);
             _runtimeInitialDelaySeconds = Mathf.Max(0f, initialDelaySeconds);
             _runtimeIntervalMultiplier = Mathf.Max(0.05f, intervalMultiplier);
@@ -152,6 +157,8 @@ namespace DeepSleep.Runtime.Combat.Enemies
             // 未开启的旧日程不额外抽随机数，保留其他怪物原有随机序列。
             bool fromLeft = _schedule.SpawnFromBothSides && _random.NextDouble() < .5;
             if (fromLeft) spawnPosition.x = bounds.xMin - _schedule.HorizontalSpawnMargin;
+            if (_spawnAnchor != null)
+                spawnPosition = (Vector2)_spawnAnchor.position + _spawnOffsets[_formationIndex % _spawnOffsets.Length];
             EnemySpawnVariation2D variation =
                 _motionConfig.SampleVariation(_random, fromLeft ? Vector2.right : Vector2.left);
 
@@ -161,6 +168,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
                 out var actor);
             if (spawned)
             {
+                if (_spawnAnchor != null) _formationIndex = (_formationIndex + 1) % _spawnOffsets.Length;
                 // 每次从基础生命计算，不能把池化实体上一段的倍率叠乘进来。
                 actor.Health.SetMaximumHealthBonus(0f);
                 float baseHealth = actor.Health.MaximumHealth;
@@ -173,6 +181,14 @@ namespace DeepSleep.Runtime.Combat.Enemies
 
         public bool TryValidateConfiguration(out string reason)
         {
+            if (_spawnAnchor != null)
+            {
+                if (_spawnOffsets == null || _spawnOffsets.Length == 0)
+                { reason = "定点增援缺少出生偏移。"; return false; }
+                foreach (var offset in _spawnOffsets)
+                    if (!float.IsFinite(offset.x) || !float.IsFinite(offset.y))
+                    { reason = "定点增援偏移必须有限。"; return false; }
+            }
             if (_pool == null)
             {
                 reason = "未配置敌人池。";

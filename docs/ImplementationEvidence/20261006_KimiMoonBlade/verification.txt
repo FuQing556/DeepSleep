@@ -1,0 +1,3 @@
+PASS 6535 checks. Real Unity Play/Physics2D; phase1=10x2, phase2=10x4; no growth beyond4.
+Shared hit flash/pose module, boundary-only phase change, replica damage rejection, pause/cancel/death/reset, uGUI fill, bidirectional actual trigger damage checked.
+DS-blockable DamagePacket policy verified, not complete DS guard integration. No real AI, network transport, phone or full boss fight acceptance.

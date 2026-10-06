@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86dfa4d56dee4c04d9d2a71b793a336a, type: 3}
+  m_Name: CFG_KI_Prism
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiPrismConfig
+  Duration: 12
+  FirstShotDelay: 0.8
+  ShotInterval: 1
+  PhaseOneSpeed: 5
+  PhaseTwoSpeed: 7.5
+  PhaseOneMirrorHealth: 600
+  PhaseTwoMirrorHealth: 1200
+  ContactDamage: 1
+  ContactInterval: 0.8
+  OrbRadius: 0.18
+  ArenaInset: 0.55
+  ExitPadding: 2
+  PlayerLayers:
+    serializedVersion: 2
+    m_Bits: 64

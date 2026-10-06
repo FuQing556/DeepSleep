@@ -25,6 +25,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
         private bool _hasReportedExhaustion;
 
         public event Action<EnemyDespawnRequest2D> ActorDespawned;
+        public event Action<EnemyActor2D> ActorCreated;
 
         public int TotalCount => _allActors.Count;
         public int ActiveCount => _rented.Count;
@@ -192,6 +193,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
             actor.DespawnRequested += OnDespawnRequested;
             actor.gameObject.SetActive(false);
             _allActors.Add(actor);
+            ActorCreated?.Invoke(actor);
             return actor;
         }
 

@@ -1,0 +1,18 @@
+Kimi observation complete; see measurements, not automatic balance approval.
+Kimi soak 0.0s HP=10000 skill=Moon casts=0 DS=8.0/Inactive HS=8.0/Inactive
+Kimi soak 10.0s HP=9472 skill=Prism casts=1 DS=8.0/Navigate HS=8.0/Navigate
+Kimi soak 20.0s HP=8680 skill=Moon casts=2 DS=8.0/Fight HS=8.0/Fight
+Kimi soak 30.0s HP=7846 skill=Moon casts=2 DS=8.0/Fight HS=8.0/Fight
+Kimi soak 40.0s HP=7030 skill=Moon casts=2 DS=8.0/Fight HS=8.0/Fight
+Kimi soak 50.0s HP=6244 skill=Prism casts=3 DS=8.0/Navigate HS=8.0/Navigate
+Kimi soak 60.0s HP=5458 skill=Moon casts=4 DS=8.0/Fight HS=8.0/Fight
+Kimi soak 70.0s HP=4666 skill=Moon casts=4 DS=8.0/Fight HS=8.0/Fight
+Kimi soak 80.0s HP=4012 skill=Moon casts=4 DS=8.0/Fight HS=8.0/Fight
+Kimi soak 90.0s HP=3202 skill=Moon casts=6 DS=7.0/Fight HS=8.0/Fight
+Kimi soak 100.0s HP=2482 skill=Moon casts=6 DS=7.0/Fight HS=8.0/Fight
+Kimi soak 110.0s HP=1768 skill=Moon casts=6 DS=7.0/Fight HS=8.0/Fight
+Kimi soak 120.0s HP=964 skill=Prism casts=8 DS=6.0/Navigate HS=8.0/Navigate
+Kimi soak 130.0s HP=184 skill=Prism casts=8 DS=6.0/Fight HS=8.0/Fight
+Result=Complete; duration=132.3; minBossHP=4; frames=5357; meanEditorFrameMs=12.7; damageNumbers=1636; capacityDrops=11
+Profile isolation: original reference/JSON restored; main SHA256=A9EE404BE1817CEFEC13209B942E854DD1AB0F068BF216185F9F19537F5FC4D5; backup SHA256=6383F46D950C6E87EBDE210EE484F61975ED3C8D3BE6985502270A069A8DEF42.
+

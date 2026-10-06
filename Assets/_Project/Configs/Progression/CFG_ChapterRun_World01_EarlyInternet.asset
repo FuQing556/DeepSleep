@@ -97,7 +97,7 @@ MonoBehaviour:
       _initialDelaySeconds: 1.5
       _intervalMultiplier: 0.7
       _maximumAliveCount: 2
-  - _displayName: "\u4F59\u6CE2\u6C47\u6D41"
+  - _displayName: "\uFF1F\uFF1F\uFF1F"
     _durationSeconds: 65
     _requiredDefeats: 22
     _objectiveMode: 0

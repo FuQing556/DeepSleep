@@ -157,6 +157,7 @@ namespace DeepSleep.Editor.Setup
                 }
                 Set(actor, "_motor", motor); Set(contact, "_motor", motor);
                 go.GetComponent<CombatPerceptionBody2D>().TargetValue = charger ? 2.5f : 1.5f;
+                go.GetComponent<CombatPerceptionBody2D>().DownloadCharge = charger ? (DownloadChargeMotor2D)motor : null;
                 var saved = PrefabUtility.SaveAsPrefabAsset(go, PrefabRoot + "PF_Enemy_" + name + ".prefab");
                 actorAsset = saved.GetComponent<EnemyActor2D>();
             }

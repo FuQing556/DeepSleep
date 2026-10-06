@@ -15,6 +15,7 @@ namespace DeepSleep.Runtime.Combat.Perception
         public DamageHitbox2D Hitbox;
         public EnemyProjectile2D Projectile;
         public DataCrawlerSnakeAttackController2D SnakeAttack;
+        public DownloadChargeMotor2D DownloadCharge;
         [Min(0)] public float TargetValue;
         public bool ThreatTrackedAsObstacle;
         private CombatPerceptionRegistry2D _registry;
@@ -24,9 +25,10 @@ namespace DeepSleep.Runtime.Combat.Perception
         public bool IsObservable => isActiveAndEnabled && Shape != null && Shape.enabled &&
             (IsAttackTarget ? Hitbox.CanReceiveDamage : Projectile != null && Projectile.IsRented);
         public Vector2 Position => Shape.bounds.center;
-        public Vector2 Velocity => Body != null ? Body.linearVelocity : Vector2.zero;
+        public Vector2 Velocity => DownloadCharge != null ? DownloadCharge.PerceivedVelocity : Body != null ? Body.linearVelocity : Vector2.zero;
         public float Radius => ((Vector2)Shape.bounds.extents).magnitude;
-        public bool IsCharging => SnakeAttack != null && SnakeAttack.State == DataCrawlerSnakeAttackState.Charging;
+        public bool IsCharging => (SnakeAttack != null && SnakeAttack.State == DataCrawlerSnakeAttackState.Charging) ||
+            (DownloadCharge != null && DownloadCharge.IsRunning && DownloadCharge.State == DownloadChargeState.Charging);
 
         public void Register(CombatPerceptionRegistry2D registry)
         {

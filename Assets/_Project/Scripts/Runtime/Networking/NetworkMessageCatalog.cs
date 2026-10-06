@@ -11,7 +11,7 @@ namespace DeepSleep.Runtime.Networking
     /// </summary>
     public static class NetworkMessageCatalog
     {
-        public const ushort ProtocolVersion = 5;
+        public const ushort ProtocolVersion = 7;
         public enum Direction { AuthorityToPeer, PeerToAuthority }
 
         // 仅补现有表现消息没有的动作边沿；激光/剑波/盾挡/角色受伤仍复用原消息。
@@ -20,7 +20,8 @@ namespace DeepSleep.Runtime.Networking
             ContextStarted, ContextStopped, RiceVolley, RiceDirectHit, RiceSplash,
             GuardStarted, GuardEnded, SlashDown, SlashUp, SlashSweep, PlayerDown,
             ReviveStarted, ReviveCancelled, ReviveCompleted, BubblePopped, BossRevealed, BossDefeated,
-            EnemyDefeated, SnakeFired, BubbleImpacted, EncounterStarted
+            EnemyDefeated, SnakeFired, BubbleImpacted, EncounterStarted,
+            KimiReveal, KimiPhase, KimiMoonWarn, KimiMoonFire, KimiPrism, KimiOrb, KimiReflect, KimiMirrorBreak, KimiLaserCharge, KimiLaserFire, KimiFlute, KimiTide, KimiInterrupt, KimiDefeat, KimiHit, DownloadCharge, DownloadDash, DownloadDefeat, DownloadImpact, GuardBlockMetal, GuardDefeat, GuardImpact
         }
 
         public static class Authority
@@ -34,6 +35,7 @@ namespace DeepSleep.Runtime.Networking
             public const byte DoubaoSnapshot = 47;
             public const byte CombatPresentation = 48;
             public const byte UpgradeResult = 49;
+            public const byte KimiSnapshot = 50;
         }
 
         public static class Peer
@@ -83,7 +85,8 @@ namespace DeepSleep.Runtime.Networking
             // uint context, uint sequence, byte kind, byte sourceRole, float2 position.
             A(Authority.CombatPresentation, nameof(Authority.CombatPresentation), 18),
             // int nodeSerial, uint resultSequence, byte role, byte result (reject/refresh/purchase).
-            A(Authority.UpgradeResult, nameof(Authority.UpgradeResult), 10)
+            A(Authority.UpgradeResult, nameof(Authority.UpgradeResult), 10),
+            A(Authority.KimiSnapshot, nameof(Authority.KimiSnapshot), KimiEncounterNetworkChannel.PayloadBytes)
         };
         public static IReadOnlyList<Definition> Definitions { get; } = Array.AsReadOnly(Entries);
 
@@ -235,7 +238,7 @@ namespace DeepSleep.Runtime.Networking
                     if (Math.Abs(c.Float()) > 1.001f || Math.Abs(c.Float()) > 1.001f) throw new InvalidDataException();
                     float protection = c.Float(); if (protection < 0f || protection > 10f) throw new InvalidDataException(); break;
                 case Authority.CombatPresentation:
-                    c.Skip(8); c.Enum((byte)CombatPresentationKind.EncounterStarted); c.Enum(1); c.Floats(2); break;
+                    c.Skip(8); c.Enum((byte)CombatPresentationKind.GuardImpact); c.Enum(1); c.Floats(2); break;
                 case Authority.DoubaoSnapshot:
                     c.Skip(4); c.Enum(3); c.Bool(); c.Floats(2);
                     if (c.Float() < 0f) throw new InvalidDataException();
@@ -249,6 +252,7 @@ namespace DeepSleep.Runtime.Networking
                         c.StringBytes(MaximumDoubaoPhraseBytes);
                     }
                     break;
+                case Authority.KimiSnapshot: ReadKimi(ref c); break;
                 default: throw new InvalidDataException();
             }
         }
@@ -258,6 +262,34 @@ namespace DeepSleep.Runtime.Networking
             c.Skip(4);
             float age = c.Float();
             if (age < 0f || age > 1f) throw new InvalidDataException();
+        }
+
+        private static void ReadKimi(ref Cursor c)
+        {
+            c.Skip(4); c.Bool(); c.Bool(); c.Floats(2);
+            if (c.Float() < 0) throw new InvalidDataException();
+            c.Bool(); c.Enum(9); ReadHitFlash(ref c);
+            byte curtain = c.Byte(); c.Floats(2);
+            int remaining = c.Byte() | c.Byte() << 8, maximum = c.Byte() | c.Byte() << 8;
+            if (curtain > 1 || remaining > maximum || (curtain == 1) != (remaining > 0)) throw new InvalidDataException();
+            ReadHitFlash(ref c);
+            int warnings = c.Byte(); float progress = c.Float();
+            if (warnings > 4 || progress < 0 || progress > 1) throw new InvalidDataException();
+            int lanes = 0;
+            for (int i = 0; i < 4; i++)
+            {
+                int lane = c.Byte(); c.Bool();
+                if (lane >= 10 || (i < warnings && (lanes & 1 << lane) != 0)) throw new InvalidDataException();
+                if (i < warnings) lanes |= 1 << lane;
+            }
+            byte prism = c.Byte(); c.Floats(2); float width = c.Float(), height = c.Float();
+            if (prism > 1 || width < 0 || height < 0 || (prism == 1 && (width <= 0 || height <= 0))) throw new InvalidDataException();
+            for (int i = 0; i < 4; i++) if (c.Float() < 0) throw new InvalidDataException();
+            for (int i = 0; i < 16; i++) { byte shown = c.Byte(); if (shown > 1 || (shown == 1 && prism == 0)) throw new InvalidDataException(); c.Floats(2); }
+            byte laser = c.Byte(); if (laser > 4 || c.Float() < 0) throw new InvalidDataException();
+            c.Floats(2); float x = c.Float(), y = c.Float();
+            if ((laser == 1 || laser == 2) && Math.Abs(x * x + y * y - 1) > .01f) throw new InvalidDataException();
+            c.Floats(2); // 锁定标记的权威世界坐标；不改变已锁定的激光方向。
         }
         private static void ReadPlayer(byte role, ref Cursor c)
         {

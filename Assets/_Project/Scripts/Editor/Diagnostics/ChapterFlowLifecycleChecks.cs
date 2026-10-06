@@ -6,6 +6,11 @@ using System.Reflection;
 using System.Security.Cryptography;
 using DeepSleep.Runtime.AppFlow;
 using DeepSleep.Runtime.Combat.Damage;
+using DeepSleep.Runtime.Combat.Beams;
+using DeepSleep.Runtime.Combat.Weapons.Harness;
+using DeepSleep.Runtime.Combat.Weapons.Harness.Presentation;
+using DeepSleep.Runtime.Presentation;
+using DeepSleep.Runtime.Presentation.DamageNumbers;
 using DeepSleep.Runtime.Combat.Encounters.Doubao;
 using DeepSleep.Runtime.Combat.Enemies;
 using DeepSleep.Runtime.Combat.Health;
@@ -28,7 +33,7 @@ namespace DeepSleep.Editor.Diagnostics
     /// 实际 Play/Router/选角/伤害/节点回归；最终结算跳过永久奖励落盘，最后回菜单。
     /// 仅推进场景实例计时器。成就使用临时内存档案的已完成分支，绝不改存档路径或资产。
     /// </summary>
-    public static class ChapterFlowLifecycleChecks
+    public static partial class ChapterFlowLifecycleChecks
     {
         private const BindingFlags Fields = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
         private const string LevelRoot = "Assets/_Project/Configs/Progression/Meta/CFG_META_Level_";
@@ -191,7 +196,10 @@ namespace DeepSleep.Editor.Diagnostics
                     int kills = chapter.Defeats, earned = wallet.BattleEarned;
                     Require(residual.Health.TryReceiveDamage(new DamagePacket(residual.Health.CurrentHealth + 1f,
                         residual.transform.position, Vector2.left, session.DeepSeek.gameObject)), "Residual enemy rejected real damage.");
-                    Require(chapter.Defeats == kills + 1 && wallet.BattleEarned > earned, "Clearing kill did not count/reward.");
+                    int objectiveIncrement = level.ChapterRunConfig.GetSegment(chapter.SegmentNumber)
+                        .CountsEnemy(world.Bindings.Enemies[0].Director.Channel) ? 1 : 0;
+                    Require(chapter.Defeats == kills + objectiveIncrement && wallet.BattleEarned > earned,
+                        "Clearing kill did not respect objective channel/reward.");
                     SeedProjectiles(world, session.DeepSeek.gameObject);
                     yield return Until(() => chapter.Phase == ChapterRunPhase.Node, "clear -> node");
                     AssertStopped(world);
@@ -305,9 +313,12 @@ namespace DeepSleep.Editor.Diagnostics
                         {
                             Require(segment.TryGetRule(entry.Director.Channel, out var rule), "Missing wave 4 spawn rule.");
                             Require(config.GetSegment(3).TryGetRule(entry.Director.Channel, out var previous), "Missing wave 3 spawn rule.");
-                            Require(rule.Enabled && Near(rule.IntervalMultiplier, previous.IntervalMultiplier * .8f) &&
-                                rule.MaximumAliveCount == previous.MaximumAliveCount && Near(rule.InitialDelaySeconds, previous.InitialDelaySeconds),
-                                "Wave 4 spawn progression changed delay/cap or has wrong frequency.");
+                            // 黄昏已独立重排四种敌人的波次；只有天空原型仍采用固定0.8频率递进。
+                            Require(rule.TryValidate(out _), "Invalid wave 4 spawn rule.");
+                            if (level.SceneName == "Gameplay_Prototype")
+                                Require(rule.Enabled && Near(rule.IntervalMultiplier, previous.IntervalMultiplier * .8f) &&
+                                    rule.MaximumAliveCount == previous.MaximumAliveCount && Near(rule.InitialDelaySeconds, previous.InitialDelaySeconds),
+                                    "Prototype wave 4 spawn progression changed.");
                             Require(Near(Get<float>(entry.Director, "_runtimeHealthMultiplier"), 3f) &&
                                 Near(Get<float>(entry.Director, "_runtimeIntervalMultiplier"), rule.IntervalMultiplier) &&
                                 Get<int>(entry.Director, "_runtimeMaximumAliveCount") == rule.MaximumAliveCount,
@@ -337,6 +348,12 @@ namespace DeepSleep.Editor.Diagnostics
                         AssertWallet(wallet, checkpoint, false);
                         Require(Near(chapter.CurrentEnemyHealthMultiplier, 3f), "Retry lost wave 4 health multiplier.");
                         Passed(level, "wave 4 real enemy HP/config verified; failure rolls back earnings/shop/ranks; retry stays wave 4");
+                        if (level.SceneName == "World01_EarlyInternet")
+                        {
+                            yield return CheckKimiTakeover(level, chapter);
+                            AssertStopped(world);
+                            continue;
+                        }
                     }
                     CompleteAdditionalObjectives(chapter, session.DeepSeek.gameObject, true);
                     var beforeClear = wallet.CaptureSnapshot();
@@ -419,6 +436,7 @@ namespace DeepSleep.Editor.Diagnostics
             {
                 var objective = (IChapterCombatObjective)component;
                 if (!objective.IsRequiredForSegment(chapter.SegmentNumber) || objective.IsComplete) continue;
+                if (component is KimiChapterEncounterDriver2D) continue; // 专门的接管/失败/击败测试负责，不在普通目标探针中提前召唤。
                 Require(component is DoubaoChapterEncounterDriver2D, "Fixture needs an explicit completion path for this objective.");
                 var encounter = Get<DoubaoWordWallEncounter2D>(component, "_encounter");
                 var driver = (DoubaoChapterEncounterDriver2D)component;
@@ -516,6 +534,89 @@ namespace DeepSleep.Editor.Diagnostics
         {
             float deadline = Time.realtimeSinceStartup + timeout;
             while (!condition()) { Require(Time.realtimeSinceStartup < deadline, "Timeout: " + name); yield return null; }
+        }
+
+        private static IEnumerator CheckKimiTakeover(MetaLevelDefinition level, ChapterRunController chapter)
+        {
+            Status = "World01: Kimi chapter takeover";
+            var world = chapter.CombatWorld;
+            var session = chapter.LevelBindings.Session;
+            var node = chapter.LevelBindings.RestNode;
+            using (var rig = new KimiChapterVerificationRig(chapter))
+            {
+                var driver = rig.Driver;
+                var encounter = driver.Encounter;
+                var doubao = One<DoubaoWordWallEncounter2D>();
+                doubao.BeginEncounter();
+                for (int i = 0; i < 1200 && doubao.ActiveBlocks.Count == 0; i++) doubao.Simulate(.05f);
+                RentResidual(world); SeedProjectiles(world, session.DeepSeek.gameObject);
+                int kills = chapter.Defeats;
+                var wallet = One<TokenWallet>(); var before = wallet.CaptureSnapshot();
+                driver.Simulate(encounter.Config.PreludeSeconds-.1f);
+                Require(!driver.HasTakenOver && driver.Backdrop.sprite == rig.Day, "No takeover before configured prelude ends.");
+                driver.Simulate(.11f);
+                Require(driver.HasTakenOver && encounter.Boss.IsShown && driver.Backdrop.sprite == driver.NightBackdrop, "Configured takeover did not reveal boss/night.");
+                Require(world.Gate.CombatAllowed && world.IsCleared && world.Rice.AvailableCount == world.Rice.TotalCount && doubao.ActiveBlocks.Count == 0 && !doubao.Boss.IsActive,
+                    "Takeover left ordinary enemies/rice/Doubao/bubbles.");
+                foreach (var entry in world.Bindings.Enemies) Require(!entry.Director.IsRunning, "Ordinary director still running.");
+                Require(chapter.Defeats == kills, "Takeover manufactured kills.");
+                AssertWallet(wallet, before, before.IsBattleSettled);
+                Invoke(chapter, "SimulateCombat", .02f);
+                Require(chapter.Phase == ChapterRunPhase.Combat && chapter.RemainingCombatSeconds == 999, "Chapter did not adopt boss timer.");
+                Invoke(chapter, "SimulateCombat", 1001f);
+                Require(chapter.Phase == ChapterRunPhase.Combat && chapter.RemainingCombatSeconds == 999, "Display timer became a timeout.");
+                string hud = (string)chapter.GetType().GetMethod("BuildHudText", Fields).Invoke(chapter, null);
+                Require(hud.Contains("月之暗面") && hud.Contains("通过 Kimi 的试炼") && !hud.Contains("/22"), "Boss HUD retains ordinary kill objective.");
+                // 真正对玩家扣血，继续由原 Chapter 判失败，不能被999冻结救援时限。
+                Down(Get<PlayerLifeStateController2D>(chapter, "_deepSeekLife"), session.DeepSeek.gameObject);
+                Down(Get<PlayerLifeStateController2D>(chapter, "_harnessLife"), session.Harness.gameObject);
+                Set(chapter, "_teamDownedSeconds", level.ChapterRunConfig.TeamDownedTimeoutSeconds);
+                Invoke(chapter, "SimulateCombat", .02f);
+                Require(chapter.Phase == ChapterRunPhase.Defeat && chapter.FailureReason == ChapterFailureReason.TeamDowned,
+                    "Boss takeover bypassed team failure.");
+                Require(!encounter.Boss.IsShown && !driver.HasTakenOver && driver.Backdrop.sprite == rig.Day, "Failure did not reset boss/night.");
+                AdvanceDefeat(chapter, level);
+                yield return Until(() => chapter.Phase == ChapterRunPhase.Node && node.State == RestNodeState.Open, "Kimi failure checkpoint");
+                yield return Depart(node, session, chapter, 4);
+                DelaySpawns(world);
+                Require(chapter.SegmentNumber == 4 && !driver.HasTakenOver, "Kimi retry skipped wave or retained takeover.");
+                driver.Simulate(49.9f); Require(!driver.HasTakenOver, "Retry skipped prelude.");
+                driver.Simulate(.11f); driver.Simulate(encounter.Config.EntrySeconds + .01f);
+                Require(encounter.Boss.CurrentHealth == 10000 && !encounter.Boss.PhaseTwo, "Retry retained boss HP/phase.");
+                // 受控命中探针：清除招式干扰，使用正式武器与反馈订阅，不冒充自然战斗测试。
+                encounter.Moon.Cancel(); encounter.Prism.Cancel(); encounter.Laser.Cancel(); encounter.Ultimate.Cancel();
+                encounter.Boss.SetVulnerable(true);
+                var boss = encounter.Boss;
+                var numbers = One<CombatDamageNumberPresenter2D>();
+                var flash = boss.GetComponent<SpriteHitFlash2D>();
+                float hp = boss.CurrentHealth;
+                uint numberCount = numbers.PlayedCount, flashCount = flash.PlayedCount;
+                Vector2 center = boss.HitCollider.bounds.center;
+                Require(world.Rice.TryRent(center, Vector2.right, session.DeepSeek.gameObject, 1f, out var rice), "Cannot rent real rice probe.");
+                Invoke(rice, "OnTriggerEnter2D", boss.HitCollider);
+                Require(boss.CurrentHealth < hp && numbers.PlayedCount > numberCount && flash.PlayedCount > flashCount,
+                    "DS Kimi hit lost damage, number or flash.");
+                var laser = One<HarnessTerminalLaserDamageExecutor2D>();
+                var config = Get<HarnessTerminalLaserController>(laser, "_controller").Config;
+                var impacts = One<HarnessLaserHitEffectPresenter2D>();
+                hp = boss.CurrentHealth; numberCount = numbers.PlayedCount; flashCount = flash.PlayedCount;
+                uint impactCount = impacts.PlayedCount;
+                Vector2 origin = center + Vector2.left * 2f;
+                var lane = new BeamLaneSnapshot(0, origin, Vector2.right, 4f, config.BaseBeamWidth, config.PrimaryTargetDamage, config.PrimaryTargetDamage);
+                var beam = new BeamFireSnapshot(1, origin, Vector2.right, config.TargetLayers, config.DamageLayers, new[] { lane });
+                Physics2D.SyncTransforms();
+                Invoke(laser, "OnFireRequested", new HarnessTerminalLaserFireRequest(session.Harness.gameObject,
+                    boss.HitCollider.GetComponent<DamageHitbox2D>(), center, beam));
+                Require(boss.CurrentHealth < hp && numbers.PlayedCount > numberCount && flash.PlayedCount > flashCount && impacts.PlayedCount > impactCount,
+                    "HS Kimi beam lost damage, number, flash or impact.");
+                var hit = new DamagePacket(10000, encounter.Boss.transform.position, Vector2.right, session.DeepSeek.gameObject);
+                Require(encounter.Boss.TryReceiveDamage(in hit) && driver.IsComplete, "Boss defeat not exposed as chapter objective.");
+                Invoke(chapter, "SimulateCombat", .02f);
+                Require(chapter.Phase == ChapterRunPhase.Complete && Time.timeScale == 0, "Kimi defeat did not settle chapter.");
+                Require(!encounter.Boss.IsShown && encounter.Ultimate.Blades.ActiveCount == 0 && encounter.Ultimate.ReinforcementPool.ActiveCount == 0,
+                    "Settlement left boss/giant blades/guards.");
+                Passed(level, "Kimi authored scene: configured prelude cleanup/night; 999 holds beyond1000s; no fake rewards; team failure, third-node retry and boss victory settlement. DS rice collision-entry / HS physical beam-query probes: damage, numbers, flash and HS impact passed. Controlled offline test, not natural combat or dual-peer acceptance.");
+            }
         }
 
         private static void AdvanceDefeat(ChapterRunController chapter, MetaLevelDefinition level) =>

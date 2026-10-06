@@ -1,0 +1,3 @@
+PRISM PASS 13674 sampled checks; timed12s/12shots both phases; speeds5/7.5; mirrorHP600/1200.
+Independent damageable sides; retained/corner reflections; broken-side exit; swept player contact retained; duplicate collider dedup; cancel/death/expiry/pause/reset passed.
+No DS/HS full weapon integration, actual guard, AI navigation, network transport or device acceptance in this isolated test.

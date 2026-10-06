@@ -1,0 +1,11 @@
+2026-10-06 Kimi pressure revision, formal World01 full-buff AI observation.
+Scenario2: force first cast phase-two ultimate only; subsequent player commands/weapons/physics are real AI. Not human balance approval or two-device test.
+0.0s boss5000, curtain1000, hits0, DS8 HS8.
+10.0s boss5000, curtain566, hits434, DS8 HS8.
+20.0s boss5000, curtain0 (charge expired/released), hits615, DS6 HS8.
+30.0s resultCombat, minimum boss4292, shieldHits615; thus first1000-hit curtain not interrupted within14s.
+1362frames, meanEditorFrameMs11.3 at timeScale2, numbers1070,peak84,capacityDrops0.
+Profile isolation restored and verified original JSON/reference and unchanged files for this run:
+main5DE13EF390C88406F3E6A04256EE511206371AB08C955F5FD1227F285266FF64
+backupA9EE404BE1817CEFEC13209B942E854DD1AB0F068BF216185F9F19537F5FC4D5
+Console errors/warnings0 after run.

@@ -1,4 +1,6 @@
 using DeepSleep.Runtime.Combat.Perception;
+using DeepSleep.Runtime.Combat.Enemies;
+using DeepSleep.Runtime.Players.Movement;
 using UnityEngine;
 
 namespace DeepSleep.Runtime.Players.Companion
@@ -20,6 +22,89 @@ namespace DeepSleep.Runtime.Players.Companion
         public CompanionObstacleSnapshot[] Obstacles { get; private set; }
         public int ObstacleCount { get; private set; }
         public bool ObstacleSaturated { get; private set; }
+        public bool HasImminentCharge
+        {
+            get
+            {
+                for (int i=0;i<_count;i++)
+                {
+                    var body=_visible[i];
+                    if (body==null || !body.IsObservable || body.DownloadCharge==null || !body.DownloadCharge.IsRunning) continue;
+                    var charge=body.DownloadCharge;
+                    if (charge.State==DownloadChargeState.Dashing || charge.State==DownloadChargeState.Charging) return true;
+                }
+                return false;
+            }
+        }
+        /// <summary>候选闪避沿真实加减速/边界逐步预测，不把反向输入当作瞬间反向速度。</summary>
+        public float PredictChargeRisk(Vector2 position, Vector2 velocity, Vector2 extent, Vector2 offset,
+            Vector2 input, PlayerMotorConfig motor)
+        {
+            float total=0;
+            for(int i=0;i<_count;i++)
+            {
+                var body=_visible[i];
+                if(body==null || !body.IsObservable || body.DownloadCharge==null || !body.DownloadCharge.IsRunning) continue;
+                var charge=body.DownloadCharge;
+                bool charging=charge.State==DownloadChargeState.Charging;
+                if(!charging && charge.State!=DownloadChargeState.Dashing) continue;
+                float delay=charging?charge.StateRemaining:0;
+                float duration=charging?charge.Config.DashSeconds:charge.StateRemaining;
+                bool follows=charging && charge.AimTarget!=null && Vector2.Distance(charge.AimTarget.Position,position+offset)<=extent.magnitude;
+                Vector2 point=position, speed=velocity, enemy=charge.Body.position, direction=charge.TravelDirection;
+                float risk=0, radius=Mathf.Max(body.Radius,charge.Config.ContactSweepRadius)+extent.magnitude+Config.SafetyPadding;
+                // 两个有限阶段分别积分，避免浮点累计在锁向时刻产生极小步长。
+                for(int phase=0;phase<2;phase++)
+                {
+                    float seconds=phase==0?delay:duration;
+                    if(seconds<=0) continue;
+                    if(phase==1 && follows) direction=(point+offset-enemy).normalized;
+                    int steps=Mathf.CeilToInt(seconds/Time.fixedDeltaTime);
+                    float dt=seconds/steps;
+                    Vector2 enemySpeed=phase==1?direction*charge.Config.DashSpeed:Vector2.zero;
+                    for(int step=0;step<steps;step++)
+                    {
+                        Vector2 previous=point;
+                        PlayerMovementStep.Calculate(ref point,ref speed,input,motor,extent,offset,dt);
+                        point+=speed*dt;
+                        risk=Mathf.Max(risk,CompanionThreatMath.Risk(enemy-previous-offset,enemySpeed-speed,radius,dt));
+                        enemy+=enemySpeed*dt;
+                    }
+                }
+                total+=risk;
+            }
+            return total;
+        }
+
+        /// <summary>预判蓄力结束后的直线扫掠；被追踪者不能把蓄力中平移误当成已躲开锁线。</summary>
+        public float ChargeDanger(Vector2 position, Vector2 velocity, float ownerRadius)
+        {
+            float danger=0;
+            for (int i=0;i<_count;i++)
+            {
+                var body=_visible[i];
+                if(body==null || !body.IsObservable || body.DownloadCharge==null || !body.DownloadCharge.IsRunning) continue;
+                var charge=body.DownloadCharge;
+                bool charging=charge.State==DownloadChargeState.Charging;
+                if (!charging && charge.State!=DownloadChargeState.Dashing) continue;
+                float delay=charging?charge.StateRemaining:0;
+                Vector2 future=position+velocity*delay;
+                Vector2 direction=charge.TravelDirection;
+                // 只有正被迅雷追踪的角色预测锁向更新；另一角色按可见预警方向避让。
+                if(charging && charge.AimTarget!=null && Vector2.Distance(charge.AimTarget.Position,position)<=ownerRadius)
+                    direction=(future-(Vector2)charge.Body.position).normalized;
+                float radius=Mathf.Max(body.Radius,charge.Config.ContactSweepRadius)+ownerRadius+Config.SafetyPadding;
+                float horizon=Mathf.Min(charging?charge.Config.DashSeconds:charge.StateRemaining,Config.PredictionSeconds);
+                if(horizon<=0) continue;
+                float dashRisk=CompanionThreatMath.Risk((Vector2)charge.Body.position-future,
+                    direction*charge.Config.DashSpeed-velocity,radius,horizon);
+                float approachRisk=charging && delay>0 ? CompanionThreatMath.Risk(
+                    (Vector2)charge.Body.position-position,-velocity,radius,delay) : 0;
+                // 不能为了避开未来的冲刺，先穿过仍在蓄力的另一只迅雷本体。
+                danger+=Mathf.Max(dashRisk,approachRisk);
+            }
+            return danger;
+        }
 
         public bool Initialize()
         {
@@ -120,7 +205,7 @@ namespace DeepSleep.Runtime.Players.Companion
                 danger += CompanionThreatMath.Risk((Vector2)bounds.center - position, body.Velocity - velocity,
                     ((Vector2)bounds.extents).magnitude + ownerRadius + Config.SafetyPadding, Config.PredictionSeconds);
             }
-            return danger;
+            return danger + ChargeDanger(position, velocity, ownerRadius);
         }
 
         public bool TryGetNearestThreat(Vector2 position, float range, out Vector2 point)

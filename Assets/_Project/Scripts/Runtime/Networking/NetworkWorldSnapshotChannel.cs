@@ -18,6 +18,9 @@ namespace DeepSleep.Runtime.Networking
         public EnemyActorPool2D[] EnemyPools = System.Array.Empty<EnemyActorPool2D>();
         public RiceProjectilePool Rice;
         public EnemyProjectilePool2D EnemyBullets;
+        // 特殊遭遇拥有自己的池；不混进由关卡普通敌人清单派生的EnemyPools。
+        public EnemyActorPool2D[] EncounterEnemyPools = Array.Empty<EnemyActorPool2D>();
+        public EnemyProjectilePool2D[] EncounterProjectilePools = Array.Empty<EnemyProjectilePool2D>();
         public NetworkEntityView ViewPrefab;
         public Transform ViewRoot;
         public int MaximumViews;
@@ -64,7 +67,8 @@ namespace DeepSleep.Runtime.Networking
         public bool TryValidateConfiguration(out string reason)
         {
             if (Session == null || Catalog == null || Rice == null || EnemyBullets == null ||
-                ViewPrefab == null || ViewRoot == null || MaximumViews < 1 || EnemyPools == null)
+                ViewPrefab == null || ViewRoot == null || MaximumViews < 1 || EnemyPools == null ||
+                EncounterEnemyPools == null || EncounterProjectilePools == null)
             { reason = "World snapshot core references or capacities are invalid."; return false; }
             for (int i = 0; i < EnemyPools.Length; i++)
             {
@@ -75,6 +79,14 @@ namespace DeepSleep.Runtime.Networking
                     { reason = "World snapshot repeats an enemy pool."; return false; }
             }
             reason = string.Empty;
+            for (int i = 0; i < EncounterEnemyPools.Length; i++)
+                if (EncounterEnemyPools[i] == null || Array.IndexOf(EncounterEnemyPools, EncounterEnemyPools[i]) != i ||
+                    Array.IndexOf(EnemyPools, EncounterEnemyPools[i]) >= 0)
+                { reason = "Encounter enemy pools are missing or duplicated."; return false; }
+            for (int i = 0; i < EncounterProjectilePools.Length; i++)
+                if (EncounterProjectilePools[i] == null || Array.IndexOf(EncounterProjectilePools, EncounterProjectilePools[i]) != i ||
+                    EncounterProjectilePools[i] == EnemyBullets)
+                { reason = "Encounter projectile pools are missing or duplicated."; return false; }
             return true;
         }
         private void OnEnable() { if (Session == null) return; Session.AuthorityMessage += Read; Session.SessionClosed += Clear; Session.SessionOpened += Open; }
@@ -93,6 +105,16 @@ namespace DeepSleep.Runtime.Networking
                     if (entities[i].gameObject.activeInHierarchy) Publish(entities[i]);
             }
             var rice = Rice.Instances;
+            for (int p = 0; p < EncounterEnemyPools.Length; p++)
+            {
+                var entities = EncounterEnemyPools[p].Instances;
+                for (int i = 0; i < entities.Count; i++) if (entities[i].gameObject.activeInHierarchy) Publish(entities[i]);
+            }
+            for (int p = 0; p < EncounterProjectilePools.Length; p++)
+            {
+                var entities = EncounterProjectilePools[p].Instances;
+                for (int i = 0; i < entities.Count; i++) if (entities[i].IsRented) Publish(entities[i]);
+            }
             for (int i = 0; i < rice.Count; i++) if (rice[i].IsRented) Publish(rice[i]);
             var bullets = EnemyBullets.Instances;
             for (int i = 0; i < bullets.Count; i++) if (bullets[i].IsRented) Publish(bullets[i]);

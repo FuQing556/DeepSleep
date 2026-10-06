@@ -1,0 +1,1328 @@
+fileFormatVersion: 2
+guid: 730c6d420d863ef47a7ebd5d9f993a2a
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4745084819357717007
+    second: VFX_KI_UltimateCurtain_v01_0
+  - first:
+      213: -3742215733435468154
+    second: VFX_KI_UltimateCurtain_v01_1
+  - first:
+      213: 1017927926053925548
+    second: VFX_KI_UltimateCurtain_v01_2
+  - first:
+      213: -6207475669134144155
+    second: VFX_KI_UltimateCurtain_v01_3
+  - first:
+      213: -7650873494330627706
+    second: VFX_KI_UltimateCurtain_v01_4
+  - first:
+      213: 7973636038519578371
+    second: VFX_KI_UltimateCurtain_v01_5
+  - first:
+      213: 952749348097637601
+    second: VFX_KI_UltimateCurtain_v01_6
+  - first:
+      213: 6059795078584341813
+    second: VFX_KI_UltimateCurtain_v01_7
+  - first:
+      213: -5167619129410916817
+    second: VFX_KI_UltimateCurtain_v01_8
+  - first:
+      213: 5009465231391667573
+    second: VFX_KI_UltimateCurtain_v01_9
+  - first:
+      213: -4871981202400789868
+    second: VFX_KI_UltimateCurtain_v01_10
+  - first:
+      213: -5512760024808453433
+    second: VFX_KI_UltimateCurtain_v01_11
+  - first:
+      213: 205492532072257398
+    second: VFX_KI_UltimateCurtain_v01_12
+  - first:
+      213: -3928313362162196974
+    second: VFX_KI_UltimateCurtain_v01_13
+  - first:
+      213: 3477794471935031132
+    second: VFX_KI_UltimateCurtain_v01_14
+  - first:
+      213: -3401271436859455847
+    second: VFX_KI_UltimateCurtain_v01_15
+  - first:
+      213: 5291115025076232608
+    second: VFX_KI_UltimateCurtain_v01_16
+  - first:
+      213: 6137305886862235142
+    second: VFX_KI_UltimateCurtain_v01_17
+  - first:
+      213: -2683783939429010806
+    second: VFX_KI_UltimateCurtain_v01_18
+  - first:
+      213: 3691582775455136408
+    second: VFX_KI_UltimateCurtain_v01_19
+  - first:
+      213: 7634726567228263316
+    second: VFX_KI_UltimateCurtain_v01_20
+  - first:
+      213: 6732838369882253463
+    second: VFX_KI_UltimateCurtain_v01_21
+  - first:
+      213: 5595926375669718025
+    second: VFX_KI_UltimateCurtain_v01_22
+  - first:
+      213: 253575909091446127
+    second: VFX_KI_UltimateCurtain_v01_23
+  - first:
+      213: 1427159275188214689
+    second: VFX_KI_UltimateCurtain_v01_24
+  - first:
+      213: -7985489082517973078
+    second: VFX_KI_UltimateCurtain_v01_25
+  - first:
+      213: 4444630908630222610
+    second: VFX_KI_UltimateCurtain_v01_26
+  - first:
+      213: -2812048338801715582
+    second: VFX_KI_UltimateCurtain_v01_27
+  - first:
+      213: 604790819156415841
+    second: VFX_KI_UltimateCurtain_v01_28
+  - first:
+      213: 1724794576271319574
+    second: VFX_KI_UltimateCurtain_v01_29
+  - first:
+      213: -6938557975941288734
+    second: VFX_KI_UltimateCurtain_v01_30
+  - first:
+      213: 5312192581266891497
+    second: VFX_KI_UltimateCurtain_v01_31
+  - first:
+      213: 8569446232833984471
+    second: VFX_KI_UltimateCurtain_v01_32
+  - first:
+      213: -7039586474083964866
+    second: VFX_KI_UltimateCurtain_v01_33
+  - first:
+      213: 5986230534075162798
+    second: VFX_KI_UltimateCurtain_v01_34
+  - first:
+      213: 6625194337129507353
+    second: VFX_KI_UltimateCurtain_v01_35
+  - first:
+      213: 9161890812257458858
+    second: VFX_KI_UltimateCurtain_v01_36
+  - first:
+      213: 1951577774365368499
+    second: VFX_KI_UltimateCurtain_v01_37
+  - first:
+      213: -6540539003206582843
+    second: VFX_KI_UltimateCurtain_v01_38
+  - first:
+      213: 3996500163893824431
+    second: VFX_KI_UltimateCurtain_v01_39
+  - first:
+      213: -6375027927046831895
+    second: VFX_KI_UltimateCurtain_v01_40
+  - first:
+      213: -560659238548864502
+    second: VFX_KI_UltimateCurtain_v01_41
+  - first:
+      213: -6370886934383911923
+    second: VFX_KI_UltimateCurtain_v01_42
+  - first:
+      213: 1270578031471803768
+    second: VFX_KI_UltimateCurtain_v01_43
+  - first:
+      213: 6490159884523135518
+    second: VFX_KI_UltimateCurtain_v01_44
+  - first:
+      213: 4521003835789546863
+    second: VFX_KI_UltimateCurtain_v01_45
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 949
+        height: 1635
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f025aeea08de9d140800000000000000
+      internalID: 4745084819357717007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1570
+        width: 105
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68673b71e9af01cc0800000000000000
+      internalID: -3742215733435468154
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_2
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 1630
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca2f4673e08602e00800000000000000
+      internalID: 1017927926053925548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_3
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 1468
+        width: 69
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56d016d74cd9ad9a0800000000000000
+      internalID: -6207475669134144155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_4
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 1446
+        width: 29
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 689a8fcc713a2d590800000000000000
+      internalID: -7650873494330627706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_5
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 1416
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30f563c1bbb08ae60800000000000000
+      internalID: 7973636038519578371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_6
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 1295
+        width: 55
+        height: 109
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ec3855fb78d83d00800000000000000
+      internalID: 952749348097637601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_7
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 1394
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5351eae8487b81450800000000000000
+      internalID: 6059795078584341813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_8
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 1361
+        width: 20
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2ee2f0f7cde848b0800000000000000
+      internalID: -5167619129410916817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_9
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 1311
+        width: 34
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57535cf2612358540800000000000000
+      internalID: 5009465231391667573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_10
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 1219
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49a3586c8ee336cb0800000000000000
+      internalID: -4871981202400789868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_11
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 1123
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ca815d17fdbe73b0800000000000000
+      internalID: -5512760024808453433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_12
+      rect:
+        serializedVersion: 2
+        x: 238
+        y: 1126
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67799228e5e0ad200800000000000000
+      internalID: 205492532072257398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_13
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 1089
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21ed6e96fc3db79c0800000000000000
+      internalID: -3928313362162196974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_14
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 1057
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c57318565ab934030800000000000000
+      internalID: 3477794471935031132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_15
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 1017
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9964f4d16a14cc0d0800000000000000
+      internalID: -3401271436859455847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_16
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 1012
+        width: 16
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a1a66fe411dd6940800000000000000
+      internalID: 5291115025076232608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_17
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 1024
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6065650ff271c2550800000000000000
+      internalID: 6137305886862235142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_18
+      rect:
+        serializedVersion: 2
+        x: 206
+        y: 997
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a827f64f9b841cad0800000000000000
+      internalID: -2683783939429010806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_19
+      rect:
+        serializedVersion: 2
+        x: 214
+        y: 997
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89a34f5b9f22b3330800000000000000
+      internalID: 3691582775455136408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_20
+      rect:
+        serializedVersion: 2
+        x: 162
+        y: 927
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49bc0e4cc5ff3f960800000000000000
+      internalID: 7634726567228263316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_21
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 897
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 798a3f643d8df6d50800000000000000
+      internalID: 6732838369882253463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_22
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 891
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90c5803e369b8ad40800000000000000
+      internalID: 5595926375669718025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_23
+      rect:
+        serializedVersion: 2
+        x: 742
+        y: 891
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6d0ef022f1e48300800000000000000
+      internalID: 253575909091446127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_24
+      rect:
+        serializedVersion: 2
+        x: 232
+        y: 858
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ab5f73acc94ec310800000000000000
+      internalID: 1427159275188214689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_25
+      rect:
+        serializedVersion: 2
+        x: 759
+        y: 816
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa791c60df7dd2190800000000000000
+      internalID: -7985489082517973078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_26
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 796
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21740a243408ead30800000000000000
+      internalID: 4444630908630222610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_27
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 806
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2861f7a4fe899f8d0800000000000000
+      internalID: -2812048338801715582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_28
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 767
+        width: 21
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1655c33bb06a46800800000000000000
+      internalID: 604790819156415841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_29
+      rect:
+        serializedVersion: 2
+        x: 854
+        y: 766
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6122c2d5783bfe710800000000000000
+      internalID: 1724794576271319574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_30
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 712
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ece09e684a45bf90800000000000000
+      internalID: -6938557975941288734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_31
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 638
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e2e0e8e103b8b940800000000000000
+      internalID: 5312192581266891497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_32
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 632
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d701e522f9cce670800000000000000
+      internalID: 8569446232833984471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_33
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 614
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e38a49e266d5e4e90800000000000000
+      internalID: -7039586474083964866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_34
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 576
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea0a52f44fc531350800000000000000
+      internalID: 5986230534075162798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_35
+      rect:
+        serializedVersion: 2
+        x: 246
+        y: 480
+        width: 14
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91aa888d52b61fb50800000000000000
+      internalID: 6625194337129507353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_36
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 456
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaa5587e623952f70800000000000000
+      internalID: 9161890812257458858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_37
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 395
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b0689855a5651b10800000000000000
+      internalID: 1951577774365368499
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_38
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 402
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cdb84a0e665b35a0800000000000000
+      internalID: -6540539003206582843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_39
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 386
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fab8ea589bb667730800000000000000
+      internalID: 3996500163893824431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_40
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 249
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e0cd2f60e95787a0800000000000000
+      internalID: -6375027927046831895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_41
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 229
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a02014e94632838f0800000000000000
+      internalID: -560659238548864502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_42
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 233
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0c9edb66101697a0800000000000000
+      internalID: -6370886934383911923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_43
+      rect:
+        serializedVersion: 2
+        x: 729
+        y: 231
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87dba41ecfff1a110800000000000000
+      internalID: 1270578031471803768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_44
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 103
+        width: 5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e12ed74570ea11a50800000000000000
+      internalID: 6490159884523135518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_UltimateCurtain_v01_45
+      rect:
+        serializedVersion: 2
+        x: 537
+        y: 12
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f651a6c0905ddbe30800000000000000
+      internalID: 4521003835789546863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_KI_UltimateCurtain_v01_0: 4745084819357717007
+      VFX_KI_UltimateCurtain_v01_1: -3742215733435468154
+      VFX_KI_UltimateCurtain_v01_10: -4871981202400789868
+      VFX_KI_UltimateCurtain_v01_11: -5512760024808453433
+      VFX_KI_UltimateCurtain_v01_12: 205492532072257398
+      VFX_KI_UltimateCurtain_v01_13: -3928313362162196974
+      VFX_KI_UltimateCurtain_v01_14: 3477794471935031132
+      VFX_KI_UltimateCurtain_v01_15: -3401271436859455847
+      VFX_KI_UltimateCurtain_v01_16: 5291115025076232608
+      VFX_KI_UltimateCurtain_v01_17: 6137305886862235142
+      VFX_KI_UltimateCurtain_v01_18: -2683783939429010806
+      VFX_KI_UltimateCurtain_v01_19: 3691582775455136408
+      VFX_KI_UltimateCurtain_v01_2: 1017927926053925548
+      VFX_KI_UltimateCurtain_v01_20: 7634726567228263316
+      VFX_KI_UltimateCurtain_v01_21: 6732838369882253463
+      VFX_KI_UltimateCurtain_v01_22: 5595926375669718025
+      VFX_KI_UltimateCurtain_v01_23: 253575909091446127
+      VFX_KI_UltimateCurtain_v01_24: 1427159275188214689
+      VFX_KI_UltimateCurtain_v01_25: -7985489082517973078
+      VFX_KI_UltimateCurtain_v01_26: 4444630908630222610
+      VFX_KI_UltimateCurtain_v01_27: -2812048338801715582
+      VFX_KI_UltimateCurtain_v01_28: 604790819156415841
+      VFX_KI_UltimateCurtain_v01_29: 1724794576271319574
+      VFX_KI_UltimateCurtain_v01_3: -6207475669134144155
+      VFX_KI_UltimateCurtain_v01_30: -6938557975941288734
+      VFX_KI_UltimateCurtain_v01_31: 5312192581266891497
+      VFX_KI_UltimateCurtain_v01_32: 8569446232833984471
+      VFX_KI_UltimateCurtain_v01_33: -7039586474083964866
+      VFX_KI_UltimateCurtain_v01_34: 5986230534075162798
+      VFX_KI_UltimateCurtain_v01_35: 6625194337129507353
+      VFX_KI_UltimateCurtain_v01_36: 9161890812257458858
+      VFX_KI_UltimateCurtain_v01_37: 1951577774365368499
+      VFX_KI_UltimateCurtain_v01_38: -6540539003206582843
+      VFX_KI_UltimateCurtain_v01_39: 3996500163893824431
+      VFX_KI_UltimateCurtain_v01_4: -7650873494330627706
+      VFX_KI_UltimateCurtain_v01_40: -6375027927046831895
+      VFX_KI_UltimateCurtain_v01_41: -560659238548864502
+      VFX_KI_UltimateCurtain_v01_42: -6370886934383911923
+      VFX_KI_UltimateCurtain_v01_43: 1270578031471803768
+      VFX_KI_UltimateCurtain_v01_44: 6490159884523135518
+      VFX_KI_UltimateCurtain_v01_45: 4521003835789546863
+      VFX_KI_UltimateCurtain_v01_5: 7973636038519578371
+      VFX_KI_UltimateCurtain_v01_6: 952749348097637601
+      VFX_KI_UltimateCurtain_v01_7: 6059795078584341813
+      VFX_KI_UltimateCurtain_v01_8: -5167619129410916817
+      VFX_KI_UltimateCurtain_v01_9: 5009465231391667573
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

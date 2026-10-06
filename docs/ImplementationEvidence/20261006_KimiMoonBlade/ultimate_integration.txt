@@ -1,0 +1,93 @@
+Kimi flute ultimate / 2026-10-06
+
+Implemented slice:
+KimiHitCurtain2D is IDamageReceiver/IDamageFeedbackSource, one accepted damage
+execution removes one hit regardless of amount. Nonzero AttackIds deduplicated
+for this shield lifetime. Existing player attacks often have ID0 and already dedup
+receivers in their own damage executors; do not collapse these independent hits.
+Feedback reports1, not the input's damage amount. Shared SpriteHitFlash used.
+
+KimiUltimatePattern2D owns charge/stagger/release/drain and cancellation.
+Begin freezes phase choice. Boss protected during charge; shield break restores
+vulnerability and3s stagger; timeout restores vulnerability and releases5volleys.
+Targets alternate between valid living player references at each volley, with fixed
+straight directions after launch. Phase2 adds two22-degree spread blades, not3x damage.
+Pattern waits for all its blades to drain before completion. Cancels on boss death/reset.
+Only its dedicated guard pool is cleaned via RunReset, never world-wide cleanup.
+Module controls its projectile/guard pools' Simulate calls; future scene integration
+must not also register those children in the fixed-step loop.
+
+Reused systems:
+EnemyProjectilePool2D / EnemyProjectile2D, existingSecurityGuard runtime/actor prefabs,
+EnemySpawnDirector2D, damage packets, perception adapter, hit flash, pose ghosts,
+existing mirror-break and Kimi hit effects. No generic new boss/pooling framework.
+KimiBossHudView.Bind(boss,curtain) reads count once changed, displays existing uGUI
+shield frame and live text. No duplicated shield-health model.
+
+Assets/Inspector:
+Assets/_Project/Configs/Combat/Encounters/Kimi/CFG_KI_Ultimate.asset
+PhaseOneHits100 / PhaseTwoHits200; charge10/14s; StaggerSeconds3;
+ReleaseDelay.8, VolleyInterval1.1, VolleyCount5, PhaseTwoBlades3, SpreadDegrees22.
+CurtainOffset(-2,1.15), MuzzleOffset(-1.2,1.15), relative to Boss foot root.
+ReinforcementLimit10, ReinforcementHealthMultiplier3.
+CFG_KI_GuardSchedule: right only, interval.65-.85, horizontal margin1,
+vertical padding1.8; separate10-slot prewarmed pool. Existing360baseHP8 =>24.
+Dedicated guards finish or are reset at skill end; no reward for reset cleanup.
+Existing360 AI/attack blocker behavior unchanged. Full player-target/AI/navigation/
+network registry wiring is still part of encounter integration, not this isolated test.
+
+CFG_KI_TidalProjectile: speed6, lifetime5, damage2, prewarm/max15, Player layer.
+PF_KI_TidalBlade copies the explicit common projectile graph. canBeCleared=false.
+Standard enemy projectile semantics retained: player hit or successful projectile
+block returns that blade to pool. It is not the persistent prism ball behavior.
+Capsule trigger vertical1.1x3.6, offset(.65,0), kinematic body. Source points left;
+Visual rotates180degrees locally, flipX/Y=false, uniform1.45scale,512PPU.
+Its visible height is about4.5u, much larger/slower than the compact moon blade.
+Initial inheritance of moon flipX produced a reversed blade; corrected and assertion
+added that visual leading direction agrees with rigidbody velocity, then rerun.
+
+Curtain root Enemy layer, Box trigger1.5x6, uniform visual scale2,512PPU,
+center pivot; Gameplay30 + shared overlay31; actor and physics root not scaled.
+Generated VFX_KI_UltimateCurtain_v01 / VFX_KI_TidalBlade_v01 reused unchanged.
+FluteCharge, TideRelease, Stagger use already generated character poses.
+Project art skill guided separate layers/equal scale and visual direction inspection;
+no new imagegen calls or bitmap edits this turn. Break uses4distributed existing
+mirror-break images rather than stretching one small image across the curtain.
+
+Reproduce / verification:
+Installer menu DeepSleep/开发/Kimi/装配吹笛大招模块 (already installed; rejects overwrite).
+DeepSleep/开发/Kimi/打开独立验收场, Play, invoke
+DeepSleep.Editor.Diagnostics.KimiMoonBladeChecks.RunUltimate().
+No AppRoot/Profile/Session, so no player save writes. Not a Test Runner suite.
+345 checks passed:100/200 hits, large-damage normalization, ID replay rejection,
+legacy hit counting, real right-side360 spawn/health/cap, exact interrupt/hard-stop,
+live counter, both failure branches5/15blades, cannot clear, visual facing,
+actual Physics2D2HP trigger hit and return, pause/cancel/reset/cleanup.
+Moon6535 / prism13674 / laser32 regression checks passed after this integration.
+Latest Play Console zero error/warning. Play stopped; Boot restored; no build/push.
+
+Captures: ultimate_phase1/2_charge, interrupted, release at1280x582;
+ultimate_phase2_release_desktop at1920x1080. Actual Unity renders, not physical phone.
+DS/HS visuals are size references. Damage uses Health probes.360motion in this
+isolated scene uses no registered real player targets, so default travel applies;
+do not claim these screenshots prove actual pursuit or a viable dodge route.
+Fixed-step tests clear frozen OneShot pools for screenshots; not runtime perf tests.
+
+Balance notes, not final recommendations:
+DS max attack rate9 salvos/s, five projectiles in60-degree fan: one connected lane9
+hits/s needs11.1/22.2s; theoretical all-five maximum45hits/s needs2.22/4.44s,
+excluding travel/aim/blocking. A6u tall curtain can intercept multiple fan lanes
+depending on distance;360 will reduce this. No assumption of100% fan connection.
+HS full ranged3ports x3bursts gives9 direct beam hits per volley if all connect.
+With.5s calibration,.36s burst and1.25s cooldown the nominal sustained rate is
+~4.27direct hits/s, before chain-return interactions and actual fixed-step timing.
+HS melee/echo/extra swords and actual shields must be measured in player integration,
+not inferred from damage amounts.100/200 hits with10/14s is intentionally provisional;
+alone/with an unhelpful AI may often fail to interrupt, but failure is a dodge phase,
+not automatic death. No balancing changes to either player's buffs made this turn.
+10guards crowd the boss in the isolated screenshot: known tuning issue to evaluate
+with real targeting, not evidence that density/occlusion is already polished.
+
+Next: random5-cast sequence, half-health phase boundary, World01wave4elapsed50s
+cleanup/night/title/timer/task, then real DS/HS attacks/guard/AI, authority replication,
+sound and full encounter/device acceptance. Formal wave4 remains disabled for Kimi.

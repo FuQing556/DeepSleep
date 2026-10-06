@@ -26,8 +26,8 @@ namespace DeepSleep.Runtime.Presentation.DamageNumbers
         [SerializeField] private DamageNumberEntryView _entryPrefab;
         [SerializeField] private DamageNumberStyleConfig _deepSeekStyle;
         [SerializeField] private DamageNumberStyleConfig _harnessStyle;
-        [SerializeField, Min(1)] private int _prewarmCount = 16;
-        [SerializeField, Min(1)] private int _maximumCount = 48;
+        [SerializeField, Min(1)] private int _prewarmCount = 64;
+        [SerializeField, Min(1)] private int _maximumCount = 96;
 
         private readonly Stack<DamageNumberEntryView> _available = new();
         private readonly List<DamageNumberEntryView> _all = new();

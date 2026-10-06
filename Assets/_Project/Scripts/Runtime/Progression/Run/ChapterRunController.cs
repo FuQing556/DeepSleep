@@ -304,6 +304,19 @@ namespace DeepSleep.Runtime.Progression.Run
                 return;
             }
 
+            IChapterCombatTakeover takeover = ActiveTakeover;
+            if (takeover != null)
+            {
+                // 999是展示值，不是新的超时。倒地失败已在上方裁决，胜利不能吞掉同刻失败。
+                _remainingCombatSeconds = takeover.DisplaySeconds;
+                if (takeover.IsComplete)
+                {
+                    if (_segmentNumber >= _runConfig.CombatSegmentCount) CompleteChapter();
+                    else _restNode.BeginNodeTransition();
+                }
+                return;
+            }
+
             if (CurrentSegment.ObjectiveMode == ChapterObjectiveMode.EncountersOnly)
                 _defeats = AreAdditionalObjectivesComplete() ? 1 : 0;
 
@@ -738,7 +751,10 @@ namespace DeepSleep.Runtime.Progression.Run
                 return string.Empty;
             }
 
-            string text = $"第 {_segmentNumber} 波  " +
+            IChapterCombatTakeover takeover = ActiveTakeover;
+            string text = takeover != null
+                ? $"第 {_segmentNumber} 波  剩余 {takeover.DisplaySeconds} 秒  {takeover.DisplayTitle}  {takeover.ObjectiveText}"
+                : $"第 {_segmentNumber} 波  " +
                 $"剩余 {Mathf.CeilToInt(_remainingCombatSeconds)} 秒  " +
                 $"{CurrentSegment.DisplayName}  " +
                 $"{CurrentSegment.ObjectiveLabel} {Mathf.Min(_defeats, CurrentSegment.RequiredDefeats)}/{CurrentSegment.RequiredDefeats}";
@@ -753,6 +769,19 @@ namespace DeepSleep.Runtime.Progression.Run
 
         private static float Remaining(float limit, float elapsed) =>
             Mathf.Max(0f, limit - elapsed);
+
+        private IChapterCombatTakeover ActiveTakeover
+        {
+            get
+            {
+                if (_additionalObjectives == null) return null;
+                for (int i = 0; i < _additionalObjectives.Length; i++)
+                    if (_additionalObjectives[i] is IChapterCombatTakeover takeover &&
+                        takeover.IsRequiredForSegment(_segmentNumber) && takeover.HasTakenOver)
+                        return takeover;
+                return null;
+            }
+        }
 
         private bool AreAdditionalObjectivesComplete()
         {

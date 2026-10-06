@@ -209,6 +209,7 @@ MonoBehaviour:
   Hitbox: {fileID: 4340465618542209968}
   Projectile: {fileID: 0}
   SnakeAttack: {fileID: 0}
+  DownloadCharge: {fileID: 5605097018033927027}
   TargetValue: 2.5
   ThreatTrackedAsObstacle: 0
 --- !u!114 &2161160973878216926

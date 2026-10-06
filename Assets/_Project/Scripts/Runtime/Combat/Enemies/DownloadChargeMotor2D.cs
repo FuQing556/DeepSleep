@@ -18,6 +18,11 @@ namespace DeepSleep.Runtime.Combat.Enemies
         private float _entrySpeed, _remaining;
         private bool _running;
         public DownloadChargeState State { get; private set; }
+        public float StateRemaining => Mathf.Max(0, _remaining);
+        public PlayerCombatTarget2D AimTarget { get; private set; }
+        public Vector2 PerceivedVelocity => !_running ? Vector2.zero : _direction *
+            (State == DownloadChargeState.Dashing ? Config.DashSpeed : State == DownloadChargeState.Entering ? _entrySpeed : 0f);
+        public event System.Action<DownloadChargeState, Vector2> StateEntered;
         public float ChargeProgress => State == DownloadChargeState.Charging
             ? 1f - _remaining / Config.ChargeSeconds : 0f;
         public override bool IsRunning => _running;
@@ -27,11 +32,11 @@ namespace DeepSleep.Runtime.Combat.Enemies
         {
             Body.position = position; Body.rotation = 0;
             _direction = variation.TravelDirection; _entrySpeed = variation.TravelSpeed;
-            _remaining = 0; State = DownloadChargeState.Entering; _running = true;
+            _remaining = 0; AimTarget = null; State = DownloadChargeState.Entering; _running = true;
         }
         public override void Stop()
         {
-            _running = false; _remaining = 0;
+            _running = false; _remaining = 0; AimTarget = null;
             Body.linearVelocity = Vector2.zero; Body.angularVelocity = 0;
         }
         private void OnDisable() { if (Body != null) Stop(); }
@@ -47,6 +52,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
             }
             if (State == DownloadChargeState.Charging && PlayerCombatTarget2D.TryFindNearest(position, out var target))
             {
+                AimTarget = target;
                 Vector2 offset = target.Position - position;
                 if (offset.sqrMagnitude > .0001f) _direction = offset.normalized;
             }
@@ -74,7 +80,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
                 case DownloadChargeState.Recovery: Enter(DownloadChargeState.Charging, Config.ChargeSeconds); break;
             }
         }
-        private void Enter(DownloadChargeState state, float seconds) { State = state; _remaining = seconds; }
+        private void Enter(DownloadChargeState state, float seconds) { State = state; _remaining = seconds; StateEntered?.Invoke(state, Body.position); }
         public override bool TryValidateConfiguration(out string reason)
         {
             reason = Body == null || Body.bodyType != RigidbodyType2D.Kinematic || Playfield == null ||

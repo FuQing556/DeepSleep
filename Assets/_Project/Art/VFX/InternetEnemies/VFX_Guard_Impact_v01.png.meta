@@ -1,0 +1,860 @@
+fileFormatVersion: 2
+guid: 83bd0f7d0dd8b5d4592b48eee9ed74bd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 831719828579954547
+    second: VFX_Guard_Impact_v01_0
+  - first:
+      213: 6074983754424895213
+    second: VFX_Guard_Impact_v01_1
+  - first:
+      213: 587850421610061067
+    second: VFX_Guard_Impact_v01_2
+  - first:
+      213: -2678266102110984643
+    second: VFX_Guard_Impact_v01_3
+  - first:
+      213: -4148653216887349969
+    second: VFX_Guard_Impact_v01_4
+  - first:
+      213: -533008449530657636
+    second: VFX_Guard_Impact_v01_5
+  - first:
+      213: 1733314841858884313
+    second: VFX_Guard_Impact_v01_6
+  - first:
+      213: 1845147600457854572
+    second: VFX_Guard_Impact_v01_7
+  - first:
+      213: 729871109917189489
+    second: VFX_Guard_Impact_v01_8
+  - first:
+      213: -4417240547276881525
+    second: VFX_Guard_Impact_v01_9
+  - first:
+      213: 315223159351793124
+    second: VFX_Guard_Impact_v01_10
+  - first:
+      213: -3165478015800900876
+    second: VFX_Guard_Impact_v01_11
+  - first:
+      213: 4547514010733051860
+    second: VFX_Guard_Impact_v01_12
+  - first:
+      213: 3936204532193314287
+    second: VFX_Guard_Impact_v01_13
+  - first:
+      213: -5808142582562517167
+    second: VFX_Guard_Impact_v01_14
+  - first:
+      213: 3446240813933730687
+    second: VFX_Guard_Impact_v01_15
+  - first:
+      213: -8251790044417043632
+    second: VFX_Guard_Impact_v01_16
+  - first:
+      213: -1912633355266001162
+    second: VFX_Guard_Impact_v01_17
+  - first:
+      213: -1605284533812040892
+    second: VFX_Guard_Impact_v01_18
+  - first:
+      213: -5976850066540577339
+    second: VFX_Guard_Impact_v01_19
+  - first:
+      213: 5115612220627798447
+    second: VFX_Guard_Impact_v01_20
+  - first:
+      213: 1457891944729632408
+    second: VFX_Guard_Impact_v01_21
+  - first:
+      213: 7895457412804601012
+    second: VFX_Guard_Impact_v01_22
+  - first:
+      213: 2770783783216736140
+    second: VFX_Guard_Impact_v01_23
+  - first:
+      213: 6005941158953782830
+    second: VFX_Guard_Impact_v01_24
+  - first:
+      213: -6712113319889357607
+    second: VFX_Guard_Impact_v01_25
+  - first:
+      213: -5042058002097506267
+    second: VFX_Guard_Impact_v01_26
+  - first:
+      213: 5924247049796969844
+    second: VFX_Guard_Impact_v01_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_0
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 0
+        width: 1143
+        height: 1216
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37f282707ccda8b00800000000000000
+      internalID: 831719828579954547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_1
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 1126
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de6c3cab98dae4450800000000000000
+      internalID: 6074983754424895213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_2
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 1143
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0d912908d6782800800000000000000
+      internalID: 587850421610061067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_3
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 1130
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3664b19b23e4dad0800000000000000
+      internalID: -2678266102110984643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_4
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 1108
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2dd52731e50d66c0800000000000000
+      internalID: -4148653216887349969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_5
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 1082
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c94817f93af5a98f0800000000000000
+      internalID: -533008449530657636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_6
+      rect:
+        serializedVersion: 2
+        x: 745
+        y: 1062
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d249e84aa8fd0810800000000000000
+      internalID: 1733314841858884313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_7
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 658
+        width: 26
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6e647377f74b9910800000000000000
+      internalID: 1845147600457854572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_8
+      rect:
+        serializedVersion: 2
+        x: 1155
+        y: 640
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1752f6e48e5012a00800000000000000
+      internalID: 729871109917189489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_9
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 649
+        width: 20
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b810c14302fc2b2c0800000000000000
+      internalID: -4417240547276881525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_10
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 602
+        width: 16
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e5d3261bc5ef5400800000000000000
+      internalID: 315223159351793124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_11
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 455
+        width: 57
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f201eb1486f114d0800000000000000
+      internalID: -3165478015800900876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_12
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 585
+        width: 26
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dffad426e30c1f30800000000000000
+      internalID: 4547514010733051860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_13
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 472
+        width: 22
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe54aa8ca2530a630800000000000000
+      internalID: 3936204532193314287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_14
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 465
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15f8a811815556fa0800000000000000
+      internalID: -5808142582562517167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_15
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 465
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7b19f4e2c183df20800000000000000
+      internalID: 3446240813933730687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_16
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 311
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 053da69aca0cb7d80800000000000000
+      internalID: -8251790044417043632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_17
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 320
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f67ec1d816f475e0800000000000000
+      internalID: -1912633355266001162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_18
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 312
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44b64beb832e8b9e0800000000000000
+      internalID: -1605284533812040892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_19
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 307
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cd341cf786fd0da0800000000000000
+      internalID: -5976850066540577339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_20
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 288
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa9ca23063e4ef640800000000000000
+      internalID: 5115612220627798447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_21
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 273
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89e538edff87b3410800000000000000
+      internalID: 1457891944729632408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_22
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 266
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b4617d5fac429d60800000000000000
+      internalID: 7895457412804601012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_23
+      rect:
+        serializedVersion: 2
+        x: 325
+        y: 256
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c87eb0cab2dc37620800000000000000
+      internalID: 2770783783216736140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_24
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 224
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2e8659c9a3695350800000000000000
+      internalID: 6005941158953782830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_25
+      rect:
+        serializedVersion: 2
+        x: 494
+        y: 184
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d4b3d37f78c9d2a0800000000000000
+      internalID: -6712113319889357607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_26
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 176
+        width: 8
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 528ff0806f2070ab0800000000000000
+      internalID: -5042058002097506267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_Guard_Impact_v01_27
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 69
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 475edc4cd47273250800000000000000
+      internalID: 5924247049796969844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_Guard_Impact_v01_0: 831719828579954547
+      VFX_Guard_Impact_v01_1: 6074983754424895213
+      VFX_Guard_Impact_v01_10: 315223159351793124
+      VFX_Guard_Impact_v01_11: -3165478015800900876
+      VFX_Guard_Impact_v01_12: 4547514010733051860
+      VFX_Guard_Impact_v01_13: 3936204532193314287
+      VFX_Guard_Impact_v01_14: -5808142582562517167
+      VFX_Guard_Impact_v01_15: 3446240813933730687
+      VFX_Guard_Impact_v01_16: -8251790044417043632
+      VFX_Guard_Impact_v01_17: -1912633355266001162
+      VFX_Guard_Impact_v01_18: -1605284533812040892
+      VFX_Guard_Impact_v01_19: -5976850066540577339
+      VFX_Guard_Impact_v01_2: 587850421610061067
+      VFX_Guard_Impact_v01_20: 5115612220627798447
+      VFX_Guard_Impact_v01_21: 1457891944729632408
+      VFX_Guard_Impact_v01_22: 7895457412804601012
+      VFX_Guard_Impact_v01_23: 2770783783216736140
+      VFX_Guard_Impact_v01_24: 6005941158953782830
+      VFX_Guard_Impact_v01_25: -6712113319889357607
+      VFX_Guard_Impact_v01_26: -5042058002097506267
+      VFX_Guard_Impact_v01_27: 5924247049796969844
+      VFX_Guard_Impact_v01_3: -2678266102110984643
+      VFX_Guard_Impact_v01_4: -4148653216887349969
+      VFX_Guard_Impact_v01_5: -533008449530657636
+      VFX_Guard_Impact_v01_6: 1733314841858884313
+      VFX_Guard_Impact_v01_7: 1845147600457854572
+      VFX_Guard_Impact_v01_8: 729871109917189489
+      VFX_Guard_Impact_v01_9: -4417240547276881525
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

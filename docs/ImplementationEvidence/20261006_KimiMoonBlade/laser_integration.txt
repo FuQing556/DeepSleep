@@ -1,0 +1,68 @@
+Kimi locked laser / 2026-10-06
+
+Completed slice: locked world-space shot origin/direction at initial aim, charging
+warning, generated focus/muzzle art, release pose and thick repeating beam.
+Uses existing BeamLaneSnapshot -> BeamTiledMeshView2D / BeamHitResolver2D ->
+DamageHitbox2D/Blockable DamagePacket -> shared Kimi hit pool. Each cast has a
+unique attack ID. Multiple hitboxes and persistent contact cannot damage the same
+receiver twice per cast. Players entering during firing can still be hit.
+No new generic boss/render/pool framework. Source additions only two Runtime types;
+installer and checks extend the existing Editor files. Runtime assets are explicitly
+serialized, not searched or assembled on demand.
+
+Assets/Inspector:
+Assets/_Project/Configs/Combat/Encounters/Kimi/CFG_KI_Laser.asset
+ChargeSeconds1.2, FireSeconds.45, RecoverySeconds.35, Length40,
+DamageWidth1.2, VisualWidth2.8, Damage1, PlayerLayers=Player.
+TextureRepeatLength = VisualWidth * source texture aspect; ScrollSpeed.6.
+FocusStartScale.3, FocusEndScale.7, FocusSpinDegrees40.
+WarningColor(.72,.65,1,.22). Same values for both phases (no extra phase buff requested).
+These are provisional test values, not a new user-confirmed final balance.
+
+Prefab: existing PF_KI_MoonBladeModule / LockedLaser (historical prefab name retained).
+Explicit child LaserOrigin under Boss, local(-1.05,1.5,0). Begin snapshots this anchor;
+later movement of target or anchor does not bend/re-aim this shot. Mesh extends off
+screen rather than putting an arbitrary end-cap inside the mobile viewport.
+New references: Boss, LaserOrigin, Warning/Beam mesh components, Focus Sprite,
+shared HitEffects. No new hit collider on laser; oriented overlap uses the same Lane.
+No collider on Focus. Gameplay sorting source follows Boss body with offsets23/24,
+Focus Gameplay46. Existing player/enemy colliders unchanged.
+
+Art skill integration:
+Reused confirmed TEX_KI_LaserBody_v01 and VFX_KI_LaserFocus_v01,
+SPR_KI_LaserCharge_v01 / SPR_KI_LaserRelease_v01, no new image generation.
+PNG bytes unchanged. Body is Default Texture, U=Mirror/V=Clamp, no mipmaps.
+Mirrored tiles share edge texels, avoiding a discontinuous original left/right seam.
+Dynamic mesh determines length/width; UV repeats with native source aspect ratio,
+not nonuniform stretching of a sprite. Focus remains a uniformly scaled512PPU Sprite.
+Full-width procedural warning is a translucent geometry rectangle, not an art substitute
+for the actual beam. Its constant-white sample is a persisted material subasset;
+initial use of temporary Texture2D.whiteTexture lost its reference on reload, fixed
+and retested. No source bitmap edits were needed.
+
+Reproduce:
+Editor menu DeepSleep/开发/Kimi/装配锁向激光模块 is first-install only and rejects
+existing laser instances, preserving tuning. Already installed; do not run again.
+DeepSleep/开发/Kimi/打开独立验收场, enter Play, invoke
+DeepSleep.Editor.Diagnostics.KimiMoonBladeChecks.RunLaser().
+This is the existing isolated diagnostic, not a Unity Test Runner suite.
+No AppRoot/Profile/Session is loaded, so tests cannot write saves.
+
+Latest laser test:32 checks passed. Horizontal/vertical/45-degree boundaries,
+lock/dodge/late entry, two receivers, duplicate colliders, per-cast dedup,
+unique blockable IDs, mesh origin/direction/UV, pause/cancel/disable/death/reset,
+long-step transition and single completion. A2.0-second total boundary assertion was
+corrected to2.1s to exceed float rounding at1.2+.45+.35; no added runtime epsilon.
+Moon regression6535 sampled checks; prism13674 sampled checks passed.
+Latest Play console0 error/warning. Existing unrelated Editor deprecated-API warnings
+were seen during script compilation; no blanket claim of a warning-free whole project.
+
+laser_final_mobile.png: actual1280x582 Unity camera render, not a physical phone.
+laser_final_desktop.png:1920x1080. Warning/fire captures also retained.
+DS/HS shown are size-reference sprites; damage tests use independent Health probes.
+Fixed-step screenshot tests clear frozen pooled effects between batches, not a
+real-time performance/guard/AI/network acceptance test.
+
+Remaining: flute ultimate100/200 hit curtain and5 giant-blade volleys, then random
+skill pool, World01 elapsed50s transition, full player/guard/AI/replication/audio.
+Formal scenes, build list, protocol, saves unchanged. No APK, commit or push.

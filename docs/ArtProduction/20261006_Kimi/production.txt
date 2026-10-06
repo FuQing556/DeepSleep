@@ -1,0 +1,130 @@
+Kimi production / 2026-10-06 / art imported, body/HUD/moon-blade module Play-tested.
+Full boss encounter and World01 activation remain pending; latest integration notes at EOF.
+Tools: built-in imagegen + deepsleep-art-generation. Transparent outputs requested.
+Git checkpoint before production: e9b27885c3c467b10debc9c3e5e817f664f47ac7.
+Push succeeded to FuQing556/DeepSleep main;325 LFS objects/80MB; ls-remote verified.
+
+Approved design:
+World01 wave4 elapsed50s: clear mobs, Kimi appears, night, title月之暗面,
+timer999 and task通过Kimi的试炼. Kimi stands on a separately drawn cloud,
+right-middle arena. HP initial10000, phase2 at5000, transition after current skill.
+Random skill pool, five casts then longer pause; no consecutive same skill,
+ultimate at most once per five casts (not guaranteed). Timing proposals:2s/5s gaps.
+Moon blade UPDATED by user: ten horizontal bands, left-to-right and right-to-left.
+Phase1 ten volleys of2 =20 blades, maximum2 active simultaneously;
+phase2 ten volleys of4 =40 blades, maximum4 active simultaneously.
+Fast compact bright solid blades. Different lanes per volley; do not emit the next
+volley until the active cap permits it. Counts replace the earlier5-lane10/20 plan.
+The200% request applies to these specified counts, not blanket speed/damage/HP.
+Final blade visible-core height must be checked against lane spacing/player hurtbox:
+ten lanes do not justify shrinking the already-too-small preview blade further.
+Prism: timed12s proposal, four individually destructible mirror sides. Balls cannot
+be destroyed/cleared by attacks; bounce until escaping through broken sides.
+End-of-skill cleanup. Phase2 faster balls and more mirror HP, not extra fire rate.
+Laser: lock direction at start, broad visible warning then thick laser.
+Ultimate: flute charge, vertical front light curtain100/200 hits.10/14s charge
+initial test values.360 reinforcements fromright, leave viable oblique approaches.
+Interrupted=>stagger window. Failure=>five volleys, phase1 one giant blade per volley,
+phase2 three spread blades per volley. Giant blade is a distinct slow translucent
+tidal/magnetic curtain, never enlarged ordinary blade. Shared Kimi hit VFX.
+DS shield can protect; HS cannot erase Kimi balls/blades/laser.
+Kimi vulnerable outside entry/transition and ultimate barrier protection.
+360/arrow bespoke hit/death VFX deferred by user.
+
+Preflight measurements (Unity asset pixels alpha>16, at512PPU, before runtime pose scaling):
+DS1254sq visible831x1107 =>1.623x2.162u; sceneVisual scale1, alive multiplier1.05.
+HS1254sq visible1052x1068 =>2.055x2.086u; sceneVisual scale1.
+Doubao CURRENT RooftopExplain1254sq visible529x1082 =>1.033x2.113u; prefab scale1.
+Reference inspection: DS Idle_Base_v01; HS IdleFly_v03; Doubao RooftopExplain_v01;
+Kimi old turnaround identity + original reference already inspected in design turn.
+Kimi style follows DS/HS cel shading, facial proportions, clean outline, not old
+turnaround micro-detail density. Provisional visible body height2.3u excluding cloud;
+check head size and in-game read before final size acceptance. No collider edits.
+
+Initial planned coverage (actual delivery status below takes precedence):
+Character: idle/arrival, moon-blade summon, prism cast, laser charge, laser release,
+flute charge, giant-wave release, interrupted stagger, phase change, recovery/bow.
+Separate cloud platform. Shared neutral idle/recovery may reuse only when appropriate.
+VFX: compact horizontal blade; distinct giant tidal blade; mirror edge and corner,
+cracked/break overlay; prism orb; reflection flash; laser charge/muzzle/body/end;
+ultimate vertical curtain + charge emblem + fracture; common impact; transition aura.
+UI: boss bar frame, backing, fill; portrait/emblem; shield-count frame/fill;
+skill/time indicator and phase marker. uGUI text remains live, not baked numbers.
+Background: edit current river/village/city panorama into matching moonlit night.
+All source variants in raw; ready is intentionally empty until runtime import decisions;
+previews are separate offline composites, NOT Unity or physical-phone captures.
+Production is not completed combat integration. Pending gameplay, AI, authority sync,
+phone/PC readability checks, full encounter verification and audio integration.
+
+First batch actual delivery:
+27 generated PNGs preserved in raw, 26 selected candidates. All ten character poses
+listed above generated. Cloud is separate. Compact blade, tidal blade, prism orb,
+mirror edge/corner/break, laser focus/body, ultimate curtain and common impact exist.
+Health frame/back/fill and shield counter frame exist; night river panorama exists.
+USER SELECTION UPDATE: VFX_KI_TidalBlade_v01 is the selected giant blade;
+attached exec-e3688eca-3472-466f-84e3-f50be4496010.png has identical SHA256
+16944C2C068F8B5681DED7D22F6EDFE25A7F4C67C6A28FB02408EFC9A14FB18D.
+v02 is retained as an alternate, not the default. Giant blade deals2 damage.
+User permits small-small-small-small-large pattern; current choice keeps all five
+ultimate volleys giant, preserving original spectacle (phase2 three per volley).
+That choice and lane readability require gameplay testing, not yet implemented.
+Exact prompts/references/output provenance: prompts.txt and night_prompt.txt.
+
+QA performed:
+- Inspected current DS/HS/Doubao sources and Kimi identity reference before generation.
+- Unity decoded raw PNG alpha; isolated sprites have real transparency and no
+  alpha>16 pixels on canvas border. LaserBody intentionally spans horizontal edges.
+  Night panorama is opaque by design. This is NOT a repeat-seam validation.
+- Inspected character_actions, scale_reference and two 1280x582 mobile-aspect
+  offline compositions. Kimi idle visible body955x1209 pixels at512PPU yields
+  1.865x2.361 world units; cloud excluded. Pose canvases1254 square.
+- HUD preview inspected at full/half health and100/200 hits. Fill/back are clipped
+  to inner slot, not stretched to match frame; raw assets remain unchanged.
+- No runtime source, prefab, scene, collider or game save changed by this art batch.
+
+Pending before combat delivery:
+Align feet/body anchors per pose and author cloud attachment, Unity import settings,
+verify laser repetition/endcaps, mirror assembled seams and mobile readability.
+Still evaluate/add reflection flash, transition aura, ultimate charge/fracture,
+portrait/phase/skill indicators as needed; these are not separately delivered yet.
+Implement four-skill encounter, wave4 elapsed50s transition, real uGUI, hit counting,
+damage/AI/authority synchronization, pooling/cleanup, sound and real play tests.
+Do not substitute these offline previews for a working boss or device screenshot.
+
+Integration follow-up (supersedes the historical art-only status above):
+26 selected PNGs imported through Unity into Art/Characters/Kimi, VFX/Kimi,
+UI/Kimi and Backgrounds/Kimi. The selected tidal blade is v01; v02 stays in docs.
+Ten body poses512PPU with shared foot pivot(.5,.028), separate cloud, shared
+SpritePoseTransition2D and SpriteHitFlash2D. Body hitbox is a new authored capsule,
+size(.65,1.55), offset(0,1.15); existing player/Doubao/enemy colliders untouched.
+Prefab module: Prefabs/Combat/Encounters/Kimi/PF_KI_MoonBladeModule.
+Real uGUI prefab: same directory/PF_UI_KI_BossHud; fill Image under RectMask2D,
+frame separate. UI source crops imported as Sprite subassets; raw PNGs unchanged.
+Moon blade:4-slot existing EnemyProjectilePool, canBeCleared=false, existing
+blockable damage/unique attack ID/impact effect chain. Pattern ten volleys of2/4,
+mutually exclusive lanes, both sides each volley. No volley overlap.
+First test tuning (not user-mandated final balance):24u/s,1.35s lifetime, .7s warning,
+.2s inter-volley gap,1 damage, .56u danger height. Visual1.44 uniform scale gives
+visible height~1.074u (~one of10 lanes), not counting transparent canvas margin.
+Full warning width matches damage height. All values in explicit assets/prefab.
+Play checks and actual Unity camera captures under docs/ImplementationEvidence/
+20261006_KimiMoonBlade; screenshots are independent module tests, not phone captures
+or complete World01 combat. DS/HS in these screenshots are size-reference sprites.
+Formal scenes/build list/network protocol unchanged; no APK or new GitHub push.
+Next: prism timed ricochet + attackable mirror sides, laser, ultimate100/200 hits
+and2-damage tidal waves, skill pool, World01 elapsed50s transition, AI/replication,
+damage numbers/audio and final player-integration/device tests. Imported unused
+laser/art/UI assets are not proof that those skills already work.
+
+Prism implementation follow-up:
+Same module prefab now contains four independently damageable mirror sides,
+four corner decorations and16 preauthored orb slots. Mirror edge imported using
+alpha crop(48,294,2076,148) in Unity bottom-left coordinates, Tiled; corner pivot
+(214/1295,1-213/1214). PNG bytes unchanged, no bitmap stretching/new generated art.
+Runtime orb visual scale.32, radius.18; mirror thickness.27, arena inset.55.
+Initial test config:12seconds, first shot.8s, interval1s both phases (12shots),
+speed5/7.5, each mirror60/120HP, orb damage1, per-receiver contact interval.8s.
+Intact-side/corner reflection, broken-side escape, collision retains ball, all-sides
+broken keeps timer/no repair, expiry/cancel/death cleanup and obstacle registration
+tested in independent Unity Play. Full player/AI/replication not yet integrated.
+Evidence and current prism_*.png renders share20261006_KimiMoonBlade folder.

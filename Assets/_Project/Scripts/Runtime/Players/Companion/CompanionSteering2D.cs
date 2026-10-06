@@ -22,6 +22,8 @@ namespace DeepSleep.Runtime.Players.Companion
             float hold = tactics.DecisionInterval + fixedDelta;
             float horizon = Mathf.Max(tactics.PredictionSeconds, hold + motor.MaximumSpeed / motor.Deceleration);
             float ownerRadius = extent.magnitude;
+            bool chargeThreat = sensor.HasImminentCharge;
+            float bestChargeDanger = float.PositiveInfinity;
             // 目标、制动、八方向全速/半速；慢行允许通过转角而非只在全速和停车间跳变。
             for (int i = 0; i < 18; i++)
             {
@@ -44,9 +46,17 @@ namespace DeepSleep.Runtime.Players.Companion
                 if (!safe) continue;
                 Vector2 averageVelocity = (end - position) / horizon;
                 float danger = sensor.Danger(position + colliderOffset, averageVelocity, ownerRadius);
+                float chargeDanger = 0;
+                if (chargeThreat)
+                {
+                    chargeDanger = sensor.PredictChargeRisk(position,velocity,extent,colliderOffset,candidate,motor);
+                }
                 float score = Vector2.Distance(end, destination) + tactics.DangerCost * danger +
                     tactics.DirectionChangeCost * (candidate - previousMove).sqrMagnitude;
-                if (score >= best) continue;
+                // 直线冲撞的碰撞风险优先级高于编队/救援距离，不能为了靠近目的地换取一次撞击。
+                if (chargeThreat && chargeDanger > bestChargeDanger + .000001f) continue;
+                if ((!chargeThreat || Mathf.Abs(chargeDanger - bestChargeDanger) <= .000001f) && score >= best) continue;
+                bestChargeDanger = chargeDanger;
                 best = score;
                 result = candidate;
             }

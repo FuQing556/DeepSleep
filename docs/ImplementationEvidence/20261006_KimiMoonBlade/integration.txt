@@ -1,0 +1,50 @@
+2026-10-06 Kimi 首个可验证实现单元
+
+范围：正式资产导入、本体生命/姿态、uGUI血条、十通道月光刃。
+不是完整Boss战，不启用正式第四波，不改已存在的角色/豆包碰撞体。
+
+调参入口（Assets/_Project/ 下）：
+Configs/Combat/Encounters/Kimi/CFG_KI_Boss.asset
+  MaximumHealth=10000，PhaseTwoHealthFraction=0.5，Poses按KimiPose枚举映射。
+Configs/Combat/Encounters/Kimi/CFG_KI_MoonBlade.asset
+  LaneCount=10、VolleyCount=10、PhaseOneBlades=2、PhaseTwoBlades=4。
+  首试WarningSeconds=.7、VolleyGapSeconds=.2、EdgePadding=2.5、WarningWidth=.56。
+Configs/Combat/Encounters/Kimi/CFG_KI_MoonProjectile.asset
+  首试speed=24、lifetime=1.35、damage=1，预热/最大容量=4。
+Prefabs/Combat/Encounters/Kimi/PF_KI_MoonBlade.prefab
+  胶囊size=(1.9,.56)、offset=(.45,0)，伤害层为Player。
+  Visual等比1.44、PPU512、Gameplay排序45；Physics根scale=1。
+  EnemyProjectile2D.canBeCleared=false，无专用清弹实现。
+Prefabs/Combat/Encounters/Kimi/PF_KI_MoonBladeModule.prefab
+  Kimi本体胶囊size=(.65,1.55)、offset=(0,1.15)，不覆盖头发外轮廓。
+  云与人物分层；SpritePoseTransition2D/SpriteHitFlash2D复用现有实现。
+Prefabs/Combat/Encounters/Kimi/PF_UI_KI_BossHud.prefab
+  内槽RectMask2D裁切、填充Image.Filled、独立框；父Canvas须在UI排序层。
+  ShieldCounter只有显示入口，次数盾玩法尚未接入。
+
+依赖和后续接线：
+遭遇控制器 -> Boss.BeginAuthority / MoonPattern.Begin；池与Pattern由固定模拟循环推进。
+Boss通过DamageHitbox2D接受现有武器伤害，注册CombatPerceptionRegistry供索敌。
+MoonPool.perceptionRegistry须在关卡装配时显式绑定；本验收场无AI，不伪称已验收。
+客机需通过新增遭遇快照驱动姿态/血量/预警，弹体和命中特效接现有复制入口。
+本次只有Boss.ApplyReplica伤害关闭的实测，没有完成网络通道，不变更协议版本。
+
+复测：菜单 DeepSleep/开发/Kimi/打开独立验收场，进入Play，调用
+DeepSleep.Editor.Diagnostics.KimiMoonBladeChecks.Run()。
+测试场不含AppRoot/Profile/Session，不能保存或改变用户游戏进度。
+逐步检查累计6535次，其中大部分是每固定步并发/不可清弹断言，不是6535种功能。
+两阶段10波与总数、互异通道和左右方向、峰值并发2/4、固定池容量4，均通过。
+真实Physics2D Trigger双侧各造成1HP伤害且回池；AttackId独立且Blockable策略正确。
+半血只在技能边界提交阶段、复制体拒伤、暂停、取消、死亡、重开清理通过。
+正常渲染帧另查：Idle->FluteCharge同帧显示新图、旧Idle残影启用；后续帧残影关闭。
+独立场完整复测后Console无Error。既有工程CS0618警告未顺带清理。
+
+截图：phase2_flight.png与phase2_half_health.png为实际Unity相机渲染、1280x582，
+不是离线图片合成，也不是真机截图。DS/HS只是等比静态尺寸参照，不在此场由AI操作。
+截图时手动固定模拟TimeScale=0，为静态画面清掉被冻结的旧姿态残影与诊断命中特效。
+final_desktop_warning.png为1920x1080。血条已经实际裁切，不只是设计图。
+
+未完成：棱光镜框/球、激光、大招/360增援/100及200次数盾/2伤巨刃、随机技能池，
+50秒清怪与月夜转场、正式目标和胜败、AI策略与网络、跳字/音效及真机验收。
+激光纹理虽导入，循环采样/接缝验证和动态网格接入尚未完成。
+没有打包，没有再次推送GitHub；e9b2788仍是上一轮备份。

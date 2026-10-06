@@ -12416,6 +12416,8 @@ MonoBehaviour:
   - {fileID: 468253773}
   Rice: {fileID: 1929090262}
   EnemyBullets: {fileID: 1076492545}
+  EncounterEnemyPools: []
+  EncounterProjectilePools: []
   ViewPrefab: {fileID: 2438952852968371978, guid: 998c9a5ca22439c4aaa5e2a8cf18e9a4, type: 3}
   ViewRoot: {fileID: 633344219}
   MaximumViews: 512
@@ -57786,8 +57788,8 @@ MonoBehaviour:
   _entryPrefab: {fileID: 4967399988684001009, guid: c9ec272f85a2d7048865f771387f2bc2, type: 3}
   _deepSeekStyle: {fileID: 11400000, guid: d36565949a745494683b1c17210759d5, type: 2}
   _harnessStyle: {fileID: 11400000, guid: fed68bfb80e597445ae46b6bdb68edef, type: 2}
-  _prewarmCount: 16
-  _maximumCount: 48
+  _prewarmCount: 64
+  _maximumCount: 96
 --- !u!114 &1827375905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -67761,6 +67763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06780106907928e45a37bcd33861a8d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Presentation.Audio.CombatAudioPresenter
+  Kimi: {fileID: 0}
   Session: {fileID: 398901449}
   Chapter: {fileID: 3000000008}
   Shooter: {fileID: 1929090261}

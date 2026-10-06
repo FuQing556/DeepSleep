@@ -103,3 +103,7 @@ MonoBehaviour:
     Sprite: {fileID: 21300000, guid: 1e7d9deb69128d446b48a9f4a9b2fd97, type: 3}
   - Id: 4139360146
     Sprite: {fileID: 21300000, guid: 4c43295c77bf48c4a85526c080194466, type: 3}
+  - Id: 4139360147
+    Sprite: {fileID: 21300000, guid: 63251e356accdcc4bac9ce7618109ced, type: 3}
+  - Id: 4139360148
+    Sprite: {fileID: 21300000, guid: d7571bd633c8b424c831269cbda3e70f, type: 3}

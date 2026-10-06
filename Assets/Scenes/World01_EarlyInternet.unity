@@ -7420,6 +7420,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4964292152936606169, guid: 0cc8693bcdcef5342ae4697616d44188, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 625932922}
     - targetCorrespondingSourceObject: {fileID: 7311349021023870829, guid: 0cc8693bcdcef5342ae4697616d44188, type: 3}
       insertIndex: -1
       addedObject: {fileID: 265512583}
@@ -7432,7 +7435,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3030159544896744436, guid: 0cc8693bcdcef5342ae4697616d44188, type: 3}
   m_PrefabInstance: {fileID: 265512574}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 625932921}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 273b701d75473104ca4ce225cccd9fd3, type: 3}
@@ -7480,7 +7483,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5268809121794501948, guid: 0cc8693bcdcef5342ae4697616d44188, type: 3}
   m_PrefabInstance: {fileID: 265512574}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 625932921}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8fb4ede931261042b9f0eac3970361d, type: 3}
@@ -12488,6 +12491,11 @@ MonoBehaviour:
   - {fileID: 1212662587}
   Rice: {fileID: 1929090262}
   EnemyBullets: {fileID: 1076492545}
+  EncounterEnemyPools:
+  - {fileID: 914221597}
+  EncounterProjectilePools:
+  - {fileID: 914221605}
+  - {fileID: 914221598}
   ViewPrefab: {fileID: 2438952852968371978, guid: 998c9a5ca22439c4aaa5e2a8cf18e9a4, type: 3}
   ViewRoot: {fileID: 633344219}
   MaximumViews: 512
@@ -14561,6 +14569,7 @@ MonoBehaviour:
   - {fileID: 769569896}
   - {fileID: 1929090268}
   - {fileID: 638977434}
+  - {fileID: 914221608}
 --- !u!114 &461702372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19847,6 +19856,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &625932921 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4964292152936606169, guid: 0cc8693bcdcef5342ae4697616d44188, type: 3}
+  m_PrefabInstance: {fileID: 265512574}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &625932922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 625932921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 462c72669cba75b4c88b4639379cc264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Presentation.Audio.EnemyContentAudio2D
+  Pool: {fileID: 265512575}
+  Audio: {fileID: 3000000015}
+  Download: 1
 --- !u!1 &627460678
 GameObject:
   m_ObjectHideFlags: 0
@@ -20565,6 +20594,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u5BFB\u627E\u5C40\u57DF\u7F51\u623F\u95F4\u2026"
+--- !u!114 &635701310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914221600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d7ad4301c034284894fd3fa7774e2aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Networking.NetworkEffectEventChannel
+  Session: {fileID: 398901449}
+  Pool: {fileID: 914221599}
+  EffectId: 124
 --- !u!1 &637491735
 GameObject:
   m_ObjectHideFlags: 0
@@ -29005,6 +29049,283 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u623F\u95F4"
+--- !u!1001 &914221590
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 223167109479904389, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+      propertyPath: _perceptionRegistry
+      value: 
+      objectReference: {fileID: 461702374}
+    - target: {fileID: 524745132838444693, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+      propertyPath: _perceptionRegistry
+      value: 
+      objectReference: {fileID: 461702374}
+    - target: {fileID: 2257573468414746939, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+      propertyPath: _perceptionRegistry
+      value: 
+      objectReference: {fileID: 461702374}
+    - target: {fileID: 2922558462499712246, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922558462499712246, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922558462499712246, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922558462499712246, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922558462499712246, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922558462499712246, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922558462499712246, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922558462499712246, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922558462499712246, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2922558462499712246, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5088504912445988991, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+      propertyPath: m_Name
+      value: PF_KI_MoonBladeModule
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5088504912445988991, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 914221608}
+    - targetCorrespondingSourceObject: {fileID: 5088504912445988991, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 914221607}
+    - targetCorrespondingSourceObject: {fileID: 633627342332953746, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 635701310}
+    - targetCorrespondingSourceObject: {fileID: 1478809758200975387, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2081455054}
+    - targetCorrespondingSourceObject: {fileID: 6828988500722972672, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1296026542}
+    - targetCorrespondingSourceObject: {fileID: 8124871374266200788, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2113204237}
+    - targetCorrespondingSourceObject: {fileID: 5671886526712559381, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1831113531}
+  m_SourcePrefab: {fileID: 100100000, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+--- !u!1 &914221591 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5088504912445988991, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+  m_PrefabInstance: {fileID: 914221590}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &914221592 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6005534155864668284, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+  m_PrefabInstance: {fileID: 914221590}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4fa9eda96d3224c9f55d818e84869e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Presentation.SpriteHitFlash2D
+--- !u!1 &914221593 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5671886526712559381, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+  m_PrefabInstance: {fileID: 914221590}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &914221594 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6164813590636667589, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+  m_PrefabInstance: {fileID: 914221590}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914221593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b5856bb3cbba4449bad95e133bbd25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Presentation.Effects.OneShotSpriteEffectPool2D
+--- !u!1 &914221595 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8124871374266200788, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+  m_PrefabInstance: {fileID: 914221590}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &914221596 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1917677455260912155, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+  m_PrefabInstance: {fileID: 914221590}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914221595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b5856bb3cbba4449bad95e133bbd25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Presentation.Effects.OneShotSpriteEffectPool2D
+--- !u!114 &914221597 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2257573468414746939, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+  m_PrefabInstance: {fileID: 914221590}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296026541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273b701d75473104ca4ce225cccd9fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Enemies.EnemyActorPool2D
+--- !u!114 &914221598 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 223167109479904389, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+  m_PrefabInstance: {fileID: 914221590}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb071473af14934aa518d324ced6ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Projectiles.EnemyProjectilePool2D
+--- !u!114 &914221599 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1484930199998923187, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+  m_PrefabInstance: {fileID: 914221590}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914221600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b5856bb3cbba4449bad95e133bbd25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Presentation.Effects.OneShotSpriteEffectPool2D
+--- !u!1 &914221600 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 633627342332953746, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+  m_PrefabInstance: {fileID: 914221590}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &914221601 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3381604496014778641, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+  m_PrefabInstance: {fileID: 914221590}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914221602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b5856bb3cbba4449bad95e133bbd25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Presentation.Effects.OneShotSpriteEffectPool2D
+--- !u!1 &914221602 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1478809758200975387, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+  m_PrefabInstance: {fileID: 914221590}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &914221603 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6921256867229138390, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+  m_PrefabInstance: {fileID: 914221590}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef783a4a66bbfe14ab78e663b29fb597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiBoss2D
+--- !u!114 &914221604 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4246840482378567194, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+  m_PrefabInstance: {fileID: 914221590}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be4fa9eda96d3224c9f55d818e84869e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Presentation.SpriteHitFlash2D
+--- !u!114 &914221605 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 524745132838444693, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+  m_PrefabInstance: {fileID: 914221590}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdb071473af14934aa518d324ced6ad9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Projectiles.EnemyProjectilePool2D
+--- !u!114 &914221606 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1675761175337296209, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+  m_PrefabInstance: {fileID: 914221590}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914221591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c810fe5a66dfdac48a5d2c4aa7e8a83c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiEncounter2D
+--- !u!114 &914221607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914221591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e30e62b7555f3ee4d8e9da1e551fd58c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Networking.KimiEncounterNetworkChannel
+  Session: {fileID: 398901449}
+  ChapterDriver: {fileID: 914221608}
+  Encounter: {fileID: 914221606}
+  BossFlash: {fileID: 914221604}
+  CurtainFlash: {fileID: 914221592}
+--- !u!114 &914221608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914221591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e8d73be2dacba4caa943190f57a900, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Run.KimiChapterEncounterDriver2D
+  Chapter: {fileID: 3000000008}
+  Encounter: {fileID: 914221606}
+  Session: {fileID: 398901449}
+  Targets:
+  - {fileID: 1929090256}
+  - {fileID: 1571070270}
+  Perception: {fileID: 461702374}
+  Obstacles: {fileID: 461702376}
+  Hud: {fileID: 1899315108}
+  Backdrop: {fileID: 679007740}
+  NightBackdrop: {fileID: 21300000, guid: ab6b0c4511085bf4db82c076fd760b56, type: 3}
+  SegmentNumber: 4
 --- !u!1 &917802236
 GameObject:
   m_ObjectHideFlags: 0
@@ -38146,6 +38467,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1787025652481311593, guid: c38d8d446ba072f42acce0a31f776083, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1768374906}
     - targetCorrespondingSourceObject: {fileID: 3947666720257821117, guid: c38d8d446ba072f42acce0a31f776083, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1212662589}
@@ -38190,7 +38514,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8362555025795576239, guid: c38d8d446ba072f42acce0a31f776083, type: 3}
   m_PrefabInstance: {fileID: 1212662581}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1768374905}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f8fb4ede931261042b9f0eac3970361d, type: 3}
@@ -38201,7 +38525,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6439366382160976466, guid: c38d8d446ba072f42acce0a31f776083, type: 3}
   m_PrefabInstance: {fileID: 1212662581}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1768374905}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 273b701d75473104ca4ce225cccd9fd3, type: 3}
@@ -40552,6 +40876,26 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: 
+--- !u!1 &1296026541 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6828988500722972672, guid: 897bd4d67d9e7e14c8acb7e7d81ea246, type: 3}
+  m_PrefabInstance: {fileID: 914221590}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1296026542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296026541}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 462c72669cba75b4c88b4639379cc264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Presentation.Audio.EnemyContentAudio2D
+  Pool: {fileID: 914221597}
+  Audio: {fileID: 3000000015}
+  Download: 0
 --- !u!1 &1314394712
 GameObject:
   m_ObjectHideFlags: 0
@@ -45694,6 +46038,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1518878277}
+  - {fileID: 1899315107}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -55830,6 +56175,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1763831445}
   m_CullTransparentMesh: 1
+--- !u!1 &1768374905 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1787025652481311593, guid: c38d8d446ba072f42acce0a31f776083, type: 3}
+  m_PrefabInstance: {fileID: 1212662581}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1768374906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768374905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 462c72669cba75b4c88b4639379cc264, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Presentation.Audio.EnemyContentAudio2D
+  Pool: {fileID: 1212662587}
+  Audio: {fileID: 3000000015}
+  Download: 0
 --- !u!1 &1769157147
 GameObject:
   m_ObjectHideFlags: 0
@@ -58739,8 +59104,8 @@ MonoBehaviour:
   _entryPrefab: {fileID: 4967399988684001009, guid: c9ec272f85a2d7048865f771387f2bc2, type: 3}
   _deepSeekStyle: {fileID: 11400000, guid: d36565949a745494683b1c17210759d5, type: 2}
   _harnessStyle: {fileID: 11400000, guid: fed68bfb80e597445ae46b6bdb68edef, type: 2}
-  _prewarmCount: 16
-  _maximumCount: 48
+  _prewarmCount: 64
+  _maximumCount: 96
 --- !u!114 &1827375905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58949,6 +59314,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1830607425}
   m_CullTransparentMesh: 1
+--- !u!114 &1831113531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914221593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d7ad4301c034284894fd3fa7774e2aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Networking.NetworkEffectEventChannel
+  Session: {fileID: 398901449}
+  Pool: {fileID: 914221594}
+  EffectId: 127
 --- !u!114 &1831201051 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2790956247263716347, guid: 59c4497ffc9193c42846e03a619a6271, type: 3}
@@ -61525,6 +61905,123 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1894268896}
   m_CullTransparentMesh: 1
+--- !u!1001 &1899315106
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1475132450}
+    m_Modifications:
+    - target: {fileID: 336484132597408867, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: Boss
+      value: 
+      objectReference: {fileID: 914221603}
+    - target: {fileID: 958622977662111375, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: m_Name
+      value: PF_UI_KI_BossHud
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808130401593589000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808130401593589000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808130401593589000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808130401593589000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808130401593589000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808130401593589000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808130401593589000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808130401593589000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808130401593589000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808130401593589000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808130401593589000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808130401593589000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808130401593589000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808130401593589000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808130401593589000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808130401593589000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808130401593589000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808130401593589000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808130401593589000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2808130401593589000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+--- !u!224 &1899315107 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 2808130401593589000, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+  m_PrefabInstance: {fileID: 1899315106}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1899315108 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 336484132597408867, guid: 7ea40d5e120d53b40a7950164c060930, type: 3}
+  m_PrefabInstance: {fileID: 1899315106}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba30fe2593a83694b878837e88881631, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.UI.Combat.KimiBossHudView
 --- !u!1 &1901054576
 GameObject:
   m_ObjectHideFlags: 0
@@ -66973,6 +67470,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2081455054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914221602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d7ad4301c034284894fd3fa7774e2aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Networking.NetworkEffectEventChannel
+  Session: {fileID: 398901449}
+  Pool: {fileID: 914221601}
+  EffectId: 125
 --- !u!1 &2085161085
 GameObject:
   m_ObjectHideFlags: 0
@@ -67647,6 +68159,21 @@ Transform:
   - {fileID: 3000000002}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2113204237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914221595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d7ad4301c034284894fd3fa7774e2aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Networking.NetworkEffectEventChannel
+  Session: {fileID: 398901449}
+  Pool: {fileID: 914221596}
+  EffectId: 126
 --- !u!1 &2116512760
 GameObject:
   m_ObjectHideFlags: 0
@@ -68913,6 +69440,7 @@ MonoBehaviour:
   - {fileID: 468253773}
   - {fileID: 265512575}
   - {fileID: 1212662587}
+  - {fileID: 914221597}
   _session: {fileID: 398901449}
 --- !u!114 &3000000007
 MonoBehaviour:
@@ -68951,6 +69479,7 @@ MonoBehaviour:
   _harnessLife: {fileID: 1571070268}
   _additionalObjectiveComponents:
   - {fileID: 638977434}
+  - {fileID: 914221608}
   _hud: {fileID: 197151802}
   _profile: {fileID: 0}
   _level: {fileID: 11400000, guid: 79f10b2babe75a748a39df66aa6c9e1f, type: 2}
@@ -69123,6 +69652,7 @@ MonoBehaviour:
   Rice: {fileID: 1929090262}
   ParticipantComponents:
   - {fileID: 638977434}
+  - {fileID: 914221608}
 --- !u!114 &3000000015
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -69135,6 +69665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06780106907928e45a37bcd33861a8d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Presentation.Audio.CombatAudioPresenter
+  Kimi: {fileID: 914221606}
   Session: {fileID: 398901449}
   Chapter: {fileID: 3000000008}
   Shooter: {fileID: 1929090261}
@@ -69159,6 +69690,7 @@ MonoBehaviour:
   - {fileID: 468253773}
   - {fileID: 265512575}
   - {fileID: 1212662587}
+  - {fileID: 914221597}
   EnemyProjectiles:
   - {fileID: 1076492545}
   Encounter: {fileID: 638977435}
@@ -69412,3 +69944,4 @@ SceneRoots:
   - {fileID: 632867925}
   - {fileID: 265512574}
   - {fileID: 1212662581}
+  - {fileID: 914221590}

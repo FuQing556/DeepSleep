@@ -48,9 +48,10 @@ namespace DeepSleep.Runtime.Players.Companion
         private bool _controlsRescue;
         private float _rescueSafeSeconds;
 
-        public bool BlocksReviveStart => _controlsRescue && Combat.Role == DeepSleep.Runtime.Players.Identity.PlayerRole.Harness &&
+        public bool BlocksReviveStart => _controlsRescue &&
             AllyLife.State == PlayerLifeState.Downed &&
-            _plan != CompanionPlan.ApproachRescue && _plan != CompanionPlan.Revive;
+            (_plan == CompanionPlan.Evade || (Combat.Role == DeepSleep.Runtime.Players.Identity.PlayerRole.Harness &&
+            _plan != CompanionPlan.ApproachRescue && _plan != CompanionPlan.Revive));
 
         public CompanionPlan Plan => Life != null && Life.State == PlayerLifeState.Downed ? CompanionPlan.Downed : _plan;
         public string Reason => Plan == CompanionPlan.Downed ? "自己倒地，停止输入" : _reason;
@@ -138,7 +139,7 @@ namespace DeepSleep.Runtime.Players.Companion
             _untilDecision -= dt;
             bool portalNow = AllyLife.State != PlayerLifeState.Downed && NodeGoal.TryGetGoal(out _, out _);
             if (portalNow != _portalActive) { _untilDecision = 0; _navigation.Reset(); _portalActive = portalNow; }
-            if (_untilDecision <= 0)
+            if (_untilDecision <= 0 || Sensor.HasImminentCharge)
             {
                 Decide(position);
                 _untilDecision = Config.DecisionInterval;
@@ -210,7 +211,9 @@ namespace DeepSleep.Runtime.Players.Companion
                 _destination = canApproach ? ally : ally + Config.FormationOffset;
                 _reason = canApproach ? "救援区域已安全，靠近队友" : "先清理救援区域并等待安全窗口";
             }
-            if (_danger >= Config.EmergencyDanger && !protectedHere)
+            // 当前速度可能暂时安全，但救援会停步；不能在已锁定的冲撞线上开始引导。
+            if ((_danger >= Config.EmergencyDanger && !protectedHere) ||
+                Sensor.ChargeDanger(position + colliderOffset, Vector2.zero, extent.magnitude) > 0)
             {
                 _plan = CompanionPlan.Evade;
                 _reason = "预测碰撞风险高，优先避险并允许防御技能";

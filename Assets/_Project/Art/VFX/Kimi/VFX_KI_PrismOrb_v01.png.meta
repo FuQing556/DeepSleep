@@ -1,0 +1,496 @@
+fileFormatVersion: 2
+guid: 463ac92e83fdbab43a735379f398cae7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6716261464769482018
+    second: VFX_KI_PrismOrb_v01_0
+  - first:
+      213: 7393798532860099811
+    second: VFX_KI_PrismOrb_v01_1
+  - first:
+      213: -2621279463657094902
+    second: VFX_KI_PrismOrb_v01_2
+  - first:
+      213: -1914007812642938273
+    second: VFX_KI_PrismOrb_v01_3
+  - first:
+      213: -3982302981412544612
+    second: VFX_KI_PrismOrb_v01_4
+  - first:
+      213: 3978209974790465144
+    second: VFX_KI_PrismOrb_v01_5
+  - first:
+      213: -8258644453515683419
+    second: VFX_KI_PrismOrb_v01_6
+  - first:
+      213: -9059528476156309279
+    second: VFX_KI_PrismOrb_v01_7
+  - first:
+      213: -8655141991351123302
+    second: VFX_KI_PrismOrb_v01_8
+  - first:
+      213: -8907428557181090247
+    second: VFX_KI_PrismOrb_v01_9
+  - first:
+      213: 3579597393035900940
+    second: VFX_KI_PrismOrb_v01_10
+  - first:
+      213: 3977573819662057069
+    second: VFX_KI_PrismOrb_v01_11
+  - first:
+      213: -33690988412082925
+    second: VFX_KI_PrismOrb_v01_12
+  - first:
+      213: -2686257343686623722
+    second: VFX_KI_PrismOrb_v01_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_KI_PrismOrb_v01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1205
+        height: 1259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22dca3ac734f43d50800000000000000
+      internalID: 6716261464769482018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_PrismOrb_v01_1
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 1172
+        width: 52
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ec3ee3779c0c9660800000000000000
+      internalID: 7393798532860099811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_PrismOrb_v01_2
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 1182
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0141b747385f9bd0800000000000000
+      internalID: -2621279463657094902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_PrismOrb_v01_3
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 1150
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f52681609041075e0800000000000000
+      internalID: -1914007812642938273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_PrismOrb_v01_4
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 913
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9f1dec99840cb8c0800000000000000
+      internalID: -3982302981412544612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_PrismOrb_v01_5
+      rect:
+        serializedVersion: 2
+        x: 1092
+        y: 907
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8762d4505e0753730800000000000000
+      internalID: 3978209974790465144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_PrismOrb_v01_6
+      rect:
+        serializedVersion: 2
+        x: 1135
+        y: 891
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a992fd20a6636d80800000000000000
+      internalID: -8258644453515683419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_PrismOrb_v01_7
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 791
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e0da22b9d6164280800000000000000
+      internalID: -9059528476156309279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_PrismOrb_v01_8
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 775
+        width: 35
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9203fc3732c2e780800000000000000
+      internalID: -8655141991351123302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_PrismOrb_v01_9
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 686
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9360d0bbbe4726480800000000000000
+      internalID: -8907428557181090247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_PrismOrb_v01_10
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 492
+        width: 16
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c08b1da0dd84da130800000000000000
+      internalID: 3579597393035900940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_PrismOrb_v01_11
+      rect:
+        serializedVersion: 2
+        x: 1058
+        y: 306
+        width: 50
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6eb9dc905e233730800000000000000
+      internalID: 3977573819662057069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_PrismOrb_v01_12
+      rect:
+        serializedVersion: 2
+        x: 1108
+        y: 305
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 315e09b793e488ff0800000000000000
+      internalID: -33690988412082925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_KI_PrismOrb_v01_13
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 88
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61e3646ad2f78bad0800000000000000
+      internalID: -2686257343686623722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_KI_PrismOrb_v01_0: 6716261464769482018
+      VFX_KI_PrismOrb_v01_1: 7393798532860099811
+      VFX_KI_PrismOrb_v01_10: 3579597393035900940
+      VFX_KI_PrismOrb_v01_11: 3977573819662057069
+      VFX_KI_PrismOrb_v01_12: -33690988412082925
+      VFX_KI_PrismOrb_v01_13: -2686257343686623722
+      VFX_KI_PrismOrb_v01_2: -2621279463657094902
+      VFX_KI_PrismOrb_v01_3: -1914007812642938273
+      VFX_KI_PrismOrb_v01_4: -3982302981412544612
+      VFX_KI_PrismOrb_v01_5: 3978209974790465144
+      VFX_KI_PrismOrb_v01_6: -8258644453515683419
+      VFX_KI_PrismOrb_v01_7: -9059528476156309279
+      VFX_KI_PrismOrb_v01_8: -8655141991351123302
+      VFX_KI_PrismOrb_v01_9: -8907428557181090247
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -344,9 +344,16 @@ namespace DeepSleep.Editor.Setup
             var bullets = entries.SelectMany(e => e.ProjectilePools).Distinct().ToArray();
             if (bullets.Length != 1) throw new InvalidOperationException("Phase A requires exactly one enemy projectile pool; multiple pools have no supported world replication yet.");
             var all = Components(bindings.gameObject.scene);
-            if (!new HashSet<EnemyActorPool2D>(pools).SetEquals(all.OfType<EnemyActorPool2D>()) ||
-                !new HashSet<EnemySpawnDirector2D>(directors).SetEquals(all.OfType<EnemySpawnDirector2D>()) ||
-                !new HashSet<EnemyProjectilePool2D>(bullets).SetEquals(all.OfType<EnemyProjectilePool2D>()))
+            var kimi = all.OfType<KimiChapterEncounterDriver2D>().ToArray();
+            foreach (var driver in kimi)
+                if (driver.Chapter != bindings.ChapterRun || !driver.TryValidateConfiguration(out reason))
+                    throw new InvalidOperationException("Invalid explicit Kimi chapter ownership: " + reason);
+            var encounterPools = kimi.Select(k => k.Encounter.Ultimate.ReinforcementPool).ToArray();
+            var encounterDirectors = kimi.Select(k => k.Encounter.Ultimate.Reinforcements).ToArray();
+            var encounterBullets = kimi.SelectMany(k => new[] { k.Encounter.Moon.Projectiles, k.Encounter.Ultimate.Blades }).ToArray();
+            if (!new HashSet<EnemyActorPool2D>(pools.Concat(encounterPools)).SetEquals(all.OfType<EnemyActorPool2D>()) ||
+                !new HashSet<EnemySpawnDirector2D>(directors.Concat(encounterDirectors)).SetEquals(all.OfType<EnemySpawnDirector2D>()) ||
+                !new HashSet<EnemyProjectilePool2D>(bullets.Concat(encounterBullets)).SetEquals(all.OfType<EnemyProjectilePool2D>()))
                 throw new InvalidOperationException("Scene contains enemy pools/directors/projectile pools outside this level registration. Register or explicitly remove the module first.");
             var writes = new List<Write>();
             void Ref(Object owner, string field, Object value) => writes.Add(new Write { Owner = owner, Field = field, Values = new[] { value } });
@@ -362,13 +369,15 @@ namespace DeepSleep.Editor.Setup
             if (selection == null || selection.gameObject.scene != bindings.gameObject.scene)
                 throw new InvalidOperationException("Chapter selection is missing or crosses scene boundaries.");
             Ref(selection, "_chapterRun", bindings.ChapterRun);
-            ArrayRef(bindings.TokenRewards, "_enemyPools", pools);
+            ArrayRef(bindings.TokenRewards, "_enemyPools", pools.Concat(encounterPools));
             ArrayRef(bindings.WorldSnapshot, "EnemyPools", pools);
+            ArrayRef(bindings.WorldSnapshot, "EncounterEnemyPools", encounterPools);
+            ArrayRef(bindings.WorldSnapshot, "EncounterProjectilePools", encounterBullets);
             foreach (var audio in all.OfType<DeepSleep.Runtime.Presentation.Audio.CombatAudioPresenter>())
-                ArrayRef(audio, "EnemyPools", pools);
+                ArrayRef(audio, "EnemyPools", pools.Concat(encounterPools));
             Ref(bindings.WorldSnapshot, "EnemyBullets", bullets[0]);
-            foreach (var pool in pools) Ref(pool, "_perceptionRegistry", bindings.PerceptionRegistry);
-            foreach (var pool in bullets) Ref(pool, "_perceptionRegistry", bindings.PerceptionRegistry);
+            foreach (var pool in pools.Concat(encounterPools)) Ref(pool, "_perceptionRegistry", bindings.PerceptionRegistry);
+            foreach (var pool in bullets.Concat(encounterBullets)) Ref(pool, "_perceptionRegistry", bindings.PerceptionRegistry);
             foreach (var entry in entries)
             {
                 bindings.Level.ContentManifest.TryGetEnemy(entry.EntryId, out var content);

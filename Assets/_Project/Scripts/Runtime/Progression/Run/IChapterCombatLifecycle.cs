@@ -5,7 +5,8 @@ namespace DeepSleep.Runtime.Progression.Run
         NaturalClear,
         Failure,
         Settlement,
-        SceneExit
+        SceneExit,
+        EncounterTakeover
     }
 
     /// <summary>由章节战斗域同步结束本段机制；不派发击败事件，也不结算奖励。</summary>

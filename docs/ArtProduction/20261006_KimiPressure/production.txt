@@ -1,0 +1,15 @@
+2026-10-06 Kimi difficulty/target marker revision
+
+User: local 360 reinforcements around Kimi, curtain500/1000 hits, five charged lasers, mirror health10x, dedicated target mark matching DS/HS.
+Art production card: Kimi laser target indicator / DS and HS targeting reticles for readability, Kimi laser focus for lunar palette / front-on hollow ring / independent sprite, no character, no collider / true alpha square / follows selected player's world position during charging, beam direction remains locked.
+Built-in imagegen, one generated asset. No local painting, matting or synthetic replacement. References actually viewed:
+Assets/_Project/Art/VFX/DeepSeek/Targeting/VFX_DS_TargetReticle_v01.png
+Assets/_Project/Art/VFX/Harness/Laser/VFX_HA_TargetReticle_v01.png
+Assets/_Project/Art/VFX/Kimi/VFX_KI_LaserFocus_v01.png
+
+Prompt:
+Use case: stylized-concept. Create one production transparent PNG target-lock reticle for Kimi in a chibi 2D game. References 1 DS blue and 2 HS red are layout/readability references only; reference 3 Kimi laser focus defines pale lavender, moon-white, silver-blue lunar crystal magic. A clean circular segmented targeting ring with four small inward-facing corner brackets, crescent moon accents, restrained crystalline highlights and narrow glow. Broad completely transparent hollow center so the player character stays visible. Clear silhouette at small game scale, comfortable refined finish, no dense tiny filigree, no opaque disk, no character, no text, no crosshair through the central face area. Front-on symmetrical square composition centered with margin, all art fully inside canvas. One isolated reticle, true alpha background.
+
+Source: exec-4cdc55e0-77e8-42b5-a88b-1709ec7ef1c9.png; raw preserved here.
+Production: Assets/_Project/Art/VFX/Kimi/VFX_KI_TargetReticle_v01.png
+Technical:1254x1254 RGBA;alpha range0..255;center alpha0. PPU512,center pivot,nomipmap,max2048. Isotropic2.4world-unit sprite width,35degrees/sec spin,Gameplay sorting65. No collider. Visual only, authoritative marker position mirrored in message50 (268bytes), protocol7. Screenshot evidence uses independent Unity skill test, not mobile-device acceptance.

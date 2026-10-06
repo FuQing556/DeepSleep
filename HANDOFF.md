@@ -2,6 +2,52 @@
 
 审计日期：2026-09-15。工程：D:\Unity Work\DeepSleep_Unity6。
 
+2026-10-06 最新节奏调整：用户要求黄昏第四波Kimi由50秒提前到20秒。已通过Unity保存CFG_KI_Encounter.PreludeSeconds=20，同步KimiContentInstaller及测试边界（按配置读取）；清怪/夜景/999/月之暗面任务仍走同一个接管事件，其余波次不变。此条覆盖下方全部50秒旧设计。Unity已恢复非播放Boot状态，本次不启动AI压力测试；AI避让仍未验收完成。未打包。
+
+2026-10-06 迅雷AI避让修复进行中，尚未验收完成：已为正式迅雷Prefab显式绑定DownloadCharge感知，暴露蓄力剩余时间/锁定目标/真实移动速度；AI提前评估冲撞，紧急闪避优先于停步救援。未改怪物数值、第三波密度或碰撞尺寸。旧候选版本真实Prefab/物理受控测试16个单箭头/贴边案例通过，但扩展双侧/三箭头后20例中4例仍受击；512例无冲撞导航等价检查通过。最新源码改为沿真实加减速和边界预测完整候选轨迹，积分使用有限双阶段循环；这版尚未完成运行验证。Unity在最后一轮测试期间MCP连接持续无响应，Stop/读取状态未成功，不能认定已退出Play或已恢复该轮测试隔离存档。此前已完成测试均有原存档SHA恢复记录。恢复编辑器后先检查ChapterFlowLifecycleChecks.Running/LastReport及ProfileIsolation，再编译并重跑StartDownloadEvasion，不要直接打包。新内容版本20261006-ai-charge-1、协议7；尚未出包/推送。
+
+2026-10-06 Kimi实战反馈修订（覆盖下方旧数值）：用户要求次数盾500/1000，镜边HP600/1200，激光连续五轮独立瞄准蓄力发射。已保存配置和模块Prefab；蓄力时长仍为大招10/14秒、激光每轮1.2/.45/.35秒。Kimi专属360刷怪器配置本体周围六个出生点，优先本体前方，其余点在上下/后侧；普通关卡360刷怪不变。复用原刷怪器/对象池，未改碰撞尺寸。新增生图VFX_KI_TargetReticle_v01，蓄力期跟随被点名角色，锁定射线不追踪移动；每轮轮换存活目标，结束/取消清标记，每轮蓄力和发射声音独立触发。消息50增加标记坐标到268字节，协议7/内容20261006-kimi-pressure-1，旧包不能混房。独立Play：激光39、棱光13674、次数盾/增援1545、网络392、协议目录1486检查通过；正式场景二阶段满Buff双AI首盾14秒命中615次，未打断而正常释放。证据pressure_phase2.txt及更新的技能报告；不是双端验收，也不代表最终难度合适。未打包/推送。图鉴与饰品功能仍未完成，小皇冠价格已由用户定为20鲸元券。
+
+2026-10-06 第三波密度调整已撤回：用户确认与Buff选择有关，要求恢复原配置。黄昏故都第三波404/爬虫刷新间隔倍率已通过Unity SerializedObject恢复并保存为0.22/0.11（实际间隔0.242–0.396秒/0.495–0.715秒）；此前临时采用第二波0.6/0.32的调整不再有效。其余配置未改，未打包。
+
+## 当前接续点：Kimi 正式关卡已启用（2026-10-06）
+
+本节覆盖下方历史记录的“未保存正式接线”。已由 `KimiChapterInstaller.Install()` 保存 World01：第四波揭晓前标题？？？，50s清怪/转月夜/出现Kimi、月之暗面/999/通过Kimi的试炼；实际Boss血条、章节胜败重试、网络专属快照、命中/碎镜事件池均已绑定。固定步只登记一个章节Driver，不重复推进技能子池。`LevelSceneInstaller` 显式接纳该Driver的遭遇自有池，并派生奖励/声音/感知/通用网络引用，普通关卡规则保留。没有更改玩家或怪物碰撞尺寸。
+
+`ChapterFlowLifecycleChecks.Start()` 正式场景受控测试通过：两关全流程、Kimi50s清场无伪奖励/999非超时/双倒地失败/第三休息点重试/HP复位/击败结算，以及16项进退场。DS真实饭团碰撞入口、HS真实物理束查询均验证扣血/数字/本体短闪，HS命中特效播放成功。测试辅助类已删除临时补装分支，场景漏装会失败。存档与备份SHA不变。证据 `docs/ImplementationEvidence/20261006_KimiMoonBlade/formal_chapter_verification.txt`。Console零error，批量加速测试有一次288特效池容量警告；未盲目扩池，尚非自然实战性能结论。
+
+下一步是正式场景中的AI/满Buff实战和真实双端联机验收，检查可躲性、护盾/镜框与输出节奏，之后按用户顺序补迅雷/360专属特效、音效、图鉴、饰品。Kimi四技能代码与正式接线已完成，不要再从头实现。当前未完成双设备/手机验收、难度调优和Kimi专属音效；不得宣称完整Boss体验验收完成。协议6/内容20261006-kimi-network-1，未出包/提交/推送。
+
+## 历史实施记录（以下状态以顶部为准）
+
+Kimi网络模块（2026-10-06，覆盖下方“尚无快照”）：新增 `Networking/KimiEncounterNetworkChannel`，消息50、260字节完整快照，20Hz沿用会话配置。同步接管/夜景/任务、本体HP/姿态/阶段/短闪、4条预警、4镜边/镜角、16反弹球、激光锁向几何/阶段、次数盾计数/短闪。先整帧校验再提交水位与画面，旧包/重复/截断/超配置HP不改当前状态；客机模块不推进技能、不启用碰撞或伤害。`NetworkWorldSnapshotChannel`增加显式EncounterEnemyPools/EncounterProjectilePools，供Kimi360/月光刃/潮汐刃复用原纯表现镜像，不另造敌人网络层。`InstallNetworkAssets()`仅给两种刃追加稳定Sprite ID4139360147/4139360148；保留全部旧ID，协议/配置已同步6，内容20261006-kimi-network-1，下一批新旧包不能混房。
+
+`KimiNetworkChecks.Run()`在独立Play场实际writer/reader与传输捕获383断言通过，覆盖技能画面、客机无碰撞、断开清理/重连完整恢复、通用实体采集三种对象、清场迟到包不复活；目录1346、旧节点/豆包组合22通过，四技能及20次连续施法回归通过。证据network_verification.txt。仅同进程受控验证，不是双机/手机/丢包延迟/自然战斗验收。**正式场景仍未保存Boss接线**：下一步把Driver/NetworkChannel/HUD/背景、通用世界额外池、感知及既有命中/数字/NetworkEffectEventChannel事件池一起接入；`LevelSceneInstaller.Apply`当前仍拒绝未属于普通清单的池/Director，须显式承认遭遇自有池而非把它们重复塞进普通固定步。处理生产装配与测试适配后才做真实DS/HS/AI、双端实战；不要再重写已通过的四技能。未出包、提交、推送。
+
+Kimi 章节接管（2026-10-06，本段覆盖下方旧“章节计时未改”状态）：新增 `KimiChapterEncounterDriver2D`，通过现有附加目标/停止契约和小接口 `IChapterCombatTakeover` 接 Chapter。50s接管时 World 停普通刷怪、无奖励清普通敌/敌弹/饭团并停止豆包，不关闭玩家攻击门；更换既有全景 Sprite 为已导入月夜图，HUD改月之暗面/通过 Kimi 的试炼/999。999仅展示，真正胜利由遭遇完成触发，原倒地失败仍优先；失败/重开/退出清掉Kimi子池、恢复原背景。四技能仍只由 Encounter 推进，未来正式固定步登记应登记章节 Driver，不再单独登记 Encounter/技能/子池。
+
+验证使用 `ChapterFlowLifecycleChecks.Start()`，真实两场景、真实休息节点/玩家生命/章节结算；Kimi通过 `KimiChapterVerificationRig` 在World01第四波临时离线装配、手动加速时间/致死探针。通过清场无伪奖励、1001s探针仍999、双倒地失败、回第三节点重试、重新50s出场、10000HP复位、击败最终结算及16站场景退出回归。修正两条落后于现设计的测试假设（第一波普通击杀计任务、第四波所有频道固定0.8递进），未改怪物数值。原始报告 `docs/ImplementationEvidence/20261006_KimiMoonBlade/chapter_verification.txt`；存档/备份哈希不变，最终Boot非Play且场景未改。Console无error，有一次批量测试中288容量特效池告警，未盲目扩容，不声称自然实战表现/性能通过。
+
+**尚未正式启用Boss**：本轮没有保存World01场景接线，尚无Kimi全技能网络快照。新章节HUD接管目前只读取本地Driver，客机仍须通过后续专用快照驱动；不能靠客机自行跑技能或从999猜Boss状态。下一步优先同步本体/血条/阶段、四技能几何与生命周期、专属360池、命中反馈，再保存正式接线并做DS/HS/AI/双端实战。原第四波“？？？”揭晓前文案也留在正式装配时一起更新，不能误称已改。协议/内容版本未动，无包/提交/推送。下方旧阶段说明仅作历史。
+
+Kimi 统一遭遇编排（2026-10-06，最新）：同一Prefab追加KimiEncounter2D+CFG_KI_Encounter，统一推进四技能及所属池，避免多个外部固定步重复驱动。随机、不连续重复、五次一组且大招至多一次，短间隔2s/组后5s；10000HP/半血等当前技能结束后1.5s保护切阶段。普通入口50s后只发一次TakeoverRequested；独立挑战入口可跳过前奏，两者都有2s出场。已在无存档Play场连续实跑20次技能，包含四种技能、阶段边界、清理/胜利/取消/重开，17893采样检查通过；四技能原回归也通过，最新Console无错误/警告，已恢复Boot。严格边界：TakeoverRequested尚未绑定正式章节清怪/夜景/任务，999只是配置数据，ChapterRunController原65s结算未改，不能宣称World01第50s转场已上线。正式场景、网络协议未修改，没包/提交/推送。下一实施段必须一起处理章节计时/胜败与权威快照，之后真实玩家/AI实战；不提前进入后续图鉴。
+
+用户后续顺序（最新直接指令）：先完成Kimi完整战斗，再补迅雷/360命中与死亡特效，然后音效，然后图鉴挑战，最后饰品系统。图鉴有图片/简介/快速挑战：先到天空测试场的休息节点配装；小怪给300Token、缓慢刷10只指定类型；豆包给500Token、对应场景一只；Kimi给1000Token、对应场景一只。助手提出挑战Token/配装独立且不带回永久收益，但此条尚是建议，不得写成用户已确认。图鉴入口/解锁/奖励持久化等到该轮再定，本轮不提前实现。
+
+Kimi 吹笛大招（2026-10-06，最新）：同一模块追加 KimiHitCurtain2D / KimiUltimatePattern2D / KimiUltimateConfig，100/200有效命中次数盾，试调10/14s蓄力；蓄力期间本体保护，打断后3s硬直且可受伤。高伤只算一次，非零攻击ID去重，旧DS/HS无ID的独立命中保留各自次数。真实uGUI读剩余次数。蓄力成功后五轮巨型潮汐刃：一阶段5枚，二阶段3枚×5=15枚、错角22度；选定v01、6u/s、2伤害，沿用现有敌弹命中回池/DS可挡/HS不可清除规则。右侧360增援复用现有预制体/刷怪器，专属10槽池，间隔.65-.85s、24HP（8×3），技能收尾/取消仅清专属增援，不给清场击杀奖励。已有SpriteHitFlash、碎镜图、命中池复用，不新增通用框架或重画PNG。实际Unity大招345项及另外三技能回归通过，最新Play Console无错误/警告，已退出并恢复Boot。证据ultimate_*；截图为1280x582独立编辑器场、DS/HS尺寸参照，不是真机/完整玩家测试。首测10只360视觉较拥挤，100/200与10/14s也待实际武器/AI平衡，不能当最终体验验收。正式第四波未启用；下一项是随机施法/阶段边界/50s转场，随后玩家/AI/联机/音效完整集成。没有包/提交/推送。
+
+Kimi 锁向激光增量（2026-10-06，最新）：同一模块Prefab新增 KimiLaserPattern2D / CFG_KI_Laser。首次瞄准即冻结世界起点、方向与伤害几何；宽预警不伤人，发射中进入可受击，同次施法每个接收者最多一次，沿用Blockable伤害身份。复用BeamTiledMeshView2D/BeamHitResolver2D及Kimi命中池，不新增通用框架。首试1.2s蓄力/.45s发射/.35s收势、1.2u判定宽、1伤害，两阶段相同；可调而非最终平衡。现有生图束身改Default纹理+U Mirror/V Clamp，以动态网格重复采样、不改PNG；聚光法阵与人物分层。独立Play激光32项、月光刃/棱光回归通过，最新Play Console无错误/警告；编译曾显示既有Editor API过时警告，不作全工程清零声明。证据及手机比例截图见原目录laser_*。正式第四波仍未启用；剩余吹笛大招、技能池、50秒转场、完整玩家/护盾/AI/网络/音效集成。独立测试不等于手机或完整Boss战验收。没有打包/推送。
+
+Kimi 棱光模块（2026-10-06，最新）：同一Kimi模块Prefab追加四边独立受击镜框、16槽预热反弹球。只读固定玩法区，镜条Tiled/转角分层，不非等比拉伸原图。球不可攻击/清除，碰玩家保留，完整边/角点反射，破边后逸出至逻辑区外回收；全破不提前结束，不补镜，计时到统一清场。首试12秒、两阶段均12发、速度5/7.5、边HP60/120、球伤害1；均在CFG_KI_Prism可调。镜边走DamageHitbox/感知索敌登记，球走独立障碍感知，不作为攻击目标；登记/撤销和扫掠伤害/同接收器多体去重已独立Play测试。月光刃回归通过。截图/记录复用docs/ImplementationEvidence/20261006_KimiMoonBlade，prism_*为本轮，DS/HS仍仅尺寸参照。正式场景/存档/协议未改，尚缺激光、大招、50秒转场、技能池、完整玩家攻击/护盾/AI/联机/音效接线与实战，不得写成Boss战全完成。没有打包或推送。
+
+Kimi 实施首步（2026-10-06，覆盖下文“仅原图”状态）：26张确认素材已通过Unity导入；本体10000HP/半血阶段提交、10姿态+独立云、共用残影/受击闪烁、真实uGUI血条裁切、新版10通道月光刃模块已装配并在独立Play场实测。月光刃10波×2/4，双侧发射，池并发2/4、预热4、不被HS清除；左右真实Trigger各扣1HP并回池，DamagePacket可被护航挡伤。未宣称完整DS盾/AI联动验收。 prefab/config入口见PROJECT_STRUCTURE；证据/1280x582与1920x1080截图在docs/ImplementationEvidence/20261006_KimiMoonBlade，DS/HS为尺寸参考图，不是真机或完整战斗。正式场景、波次、网络协议和构建清单未改；剩余棱光、激光、大招、50秒转场、随机施法、AI、权威同步、跳字/音效需要继续接入。没有包或本批GitHub上传，不可宣称Boss已完成。既有用户碰撞体/存档未改。
+
+Kimi 用户美术/技能修订（2026-10-06，覆盖下文首批选图）：用户指定巨型光刃为 VFX_KI_TidalBlade_v01（附件哈希一致），v02仅备选；大刃伤害2。横向月光刃改10条通道，一阶段10波、每波2道、共20道且同时最多2道；二阶段10波、每波4道、共40道且同时最多4道，左右两个方向均有。不要把“200%”擅自扩展到速度/HP/所有伤害。缩小通道数间距不等于继续缩小素材，需按有效刃身/角色碰撞体试玩定尺寸。用户允许“小小小小大”，当前建议保留大招五轮全大刃。以上是设计更新、尚未接入。血条越框已在离线hud_layers预览中通过内槽裁切修正，真实uGUI仍未接入，不能宣称运行时修复。
+
+Kimi 首批美术进度（2026-10-06）：已生图27张，选用26张候选（巨型潮汐刃v01保留但由v02替代），包含10个人物姿势、独立云座、核心技能特效、分层血条/次数盾框和同地貌月夜背景。原图及逐条提示词保存在 docs/ArtProduction/20261006_Kimi；previews 为离线合成检查，不是真机或 Unity 实战截图。已检查透明通道、动作画风、与 DS/HS/现役豆包的尺寸和血条分层；ready 暂空，尚未导入 Assets。本批没有修改 Boss 运行代码/场景/预制体，没有出包。下一步应沿用本批母版接入技能、50秒转场、真实uGUI和联机，不得把素材生成完成写成Boss战完成。详细待办见 production.txt 末尾。
+
+Kimi 制作已启动（2026-10-06）：备份 e9b27885c3c467b10debc9c3e5e817f664f47ac7 已推送 FuQing556/DeepSleep main，远端哈希核对一致；排除 docs/Resume。随后使用内置 imagegen 逐张制作，先核对 DS/HS/豆包现役素材与 Unity 尺寸。设计、完整素材清单和制作状态见 docs/ArtProduction/20261006_Kimi/production.txt；本批候选在 raw，不得把生图文件存在当成 Boss 已接入。当前试设10000HP/半血二阶段、大招100/200次数盾；巨刃与水平刃分开画。棱光球不可清除，仅破镜逸出，技能计时结束清理。后续须沿本批母版完成美术验证、接入、AI与联机，不恢复旧第三章过载方案。
+
 第四波设计更新（2026-10-06，仅记录、未实施）：用户把 Kimi 转场触发从开波后 20 秒改为开波后 **50 秒**（不是倒计时剩余 50 秒）。届时 Kimi 开始清怪并出场；此前确认的“？？？”揭晓为“月之暗面”、倒计时改为 999、任务改为“通过 Kimi 的试炼”、天空转夜晚保留。以下旧记录中的 at20s 已被本条覆盖。当前仍处设计环节，不改运行配置或代码。详见 docs/34_World01_DoubaoAndCityPlan.md 末尾新增设计记录。
 
 World01 wave objectives (2026-10-06 latest): first three waves now 最最最直白 / 击败豆包1; Python烤肉 / 击杀爬虫10; 超光速缓存 / 击落迅雷10. Durations45/55/60, health/spawn/drop settings unchanged. Chapter segment config selects legacy all-enemies+encounters, specific enemy channel, or encounters-only; first map retains legacy mode. Channel tasks do not additionally require Doubao, but its existing appearances and100Token reward remain. Total ordinary kills/rewards unaffected by task filtering. Existing chapter-state progress field remains authority-synchronized, no protocol layout change. Controlled isolated Play verified four pool event sources, non-kill exits, resets, actual Doubao defeat/reward and displayed counts1/1,10/10,10/10. Profile restored/verified, Play stopped, Console errors0. No phone/dual-peer test or package. Contentversion20261006-wave-objectives-1/protocol5. Fourth-wave future plan only: initial？？？, at20s reveal月之暗面, timer999, task通过Kimi的试炼, clear monsters/night/Kimi entrance; NOT implemented this turn, existing wave4 remains65s/22kills.

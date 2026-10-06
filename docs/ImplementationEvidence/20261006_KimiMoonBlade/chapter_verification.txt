@@ -1,0 +1,50 @@
+PASSED chapter flow in both scenes; returned to MainMenu; profile/backup unchanged.
+Gameplay_Prototype: initialized start gate skips static content revalidation but rejects captured level-ID mismatch.
+Gameplay_Prototype: connecting guest cannot author; replica chapter/node order and duplicate states preserve wallet/shop.
+Gameplay_Prototype: first failure retries segment 1 and rolls back earnings/HP.
+Gameplay_Prototype: clearing stops spawns but preserves life-failure rules.
+Gameplay_Prototype: residual enemy stays damageable/rewarded; clear reclaims projectiles and opens node once.
+Gameplay_Prototype: real portal readiness departs once; purchases/refresh/HP checkpoint committed.
+Gameplay_Prototype: segment 2 failure restores shop/wallet/exact HP; retry departure stays segment 2.
+Gameplay_Prototype: repeated forced stop clears all pools without rewards.
+Gameplay_Prototype: wave 1 -> rest shop -> wave 2 via actual portal.
+Gameplay_Prototype: wave 2 -> rest shop -> wave 3 via actual portal.
+Gameplay_Prototype: wave 3 -> rest shop -> wave 4 via actual portal.
+Gameplay_Prototype: wave 4 real enemy HP/config verified; failure rolls back earnings/shop/ranks; retry stays wave 4.
+Gameplay_Prototype: wave 4 final completion/Token settlement is idempotent; permanent voucher write intentionally skipped.
+World01_EarlyInternet: initialized start gate skips static content revalidation but rejects captured level-ID mismatch.
+World01_EarlyInternet: connecting guest cannot author; replica chapter/node order and duplicate states preserve wallet/shop.
+World01_EarlyInternet: first failure retries segment 1 and rolls back earnings/HP.
+World01_EarlyInternet: clearing stops spawns but preserves life-failure rules.
+World01_EarlyInternet: residual enemy stays damageable/rewarded; clear reclaims projectiles and opens node once.
+World01_EarlyInternet: real portal readiness departs once; purchases/refresh/HP checkpoint committed.
+World01_EarlyInternet: segment 2 failure restores shop/wallet/exact HP; retry departure stays segment 2.
+World01_EarlyInternet: repeated forced stop clears all pools plus live Doubao/bubbles without rewards.
+World01_EarlyInternet: wave 1 -> rest shop -> wave 2 via actual portal.
+World01_EarlyInternet: wave 2 -> rest shop -> wave 3 via actual portal.
+World01_EarlyInternet: wave 3 -> rest shop -> wave 4 via actual portal.
+World01_EarlyInternet: wave 4 real enemy HP/config verified; failure rolls back earnings/shop/ranks; retry stays wave 4.
+World01_EarlyInternet: Kimi real chapter: 50s cleanup/night; 999 holds beyond1000s; no fake rewards; team failure, third-node retry and boss victory settlement. Offline temporary wiring only..
+PASSED 16 lifecycle stations; local host/connecting only, not dual-device or relay acceptance.
+1. Initial menu cleanup: session/manager/registered=0/0/0
+2. World solo selection: session/manager/registered=1/1/1
+3. Selection back button: session/manager/registered=0/0/0
+4. World solo re-entry: session/manager/registered=1/1/1
+5. Chapter return after solo selection: session/manager/registered=0/0/0
+6. World before direct switch: session/manager/registered=1/1/1
+7. Direct StartLevel World -> Prototype: session/manager/registered=1/1/1
+8. Prototype menu return: session/manager/registered=0/0/0
+9. Online selection: session/manager/registered=1/1/1
+10. Start local DS host: session/manager/registered=1/1/1
+11. Online menu Leave: session/manager/registered=0/0/0
+12. Online re-entry after shutdown: session/manager/registered=1/1/1
+13. Rebind same port as HS host: session/manager/registered=1/1/1
+14. Host direct Router return: session/manager/registered=0/0/0
+15. Client selection: session/manager/registered=1/1/1
+16. Exit while loopback client is connecting: session/manager/registered=0/0/0
+
+Profile isolation: original reference/JSON restored; main SHA256=A9EE404BE1817CEFEC13209B942E854DD1AB0F068BF216185F9F19537F5FC4D5; backup SHA256=6383F46D950C6E87EBDE210EE484F61975ED3C8D3BE6985502270A069A8DEF42.
+
+Scope: controlled Editor Play on real chapters, accelerated timers/probe damage, temporary offline Kimi wiring. Not a natural boss fight, physical phone test, or Kimi network acceptance. Permanent completion award skipped; profile isolation restored and checked.
+Console after run: 0 errors; one OneShotSpriteEffectPool2D capacity-288 warning during batched verification. No pool capacities changed; this run does not establish real-time VFX capacity/performance.
+Earlier attempts failed obsolete test assumptions (all ordinary kills increment World01 wave-one objective; every World01 wave-four schedule equals previous x0.8). Assertions now respect current objective channel and handcrafted World01 schedules; gameplay balance assets were not changed.

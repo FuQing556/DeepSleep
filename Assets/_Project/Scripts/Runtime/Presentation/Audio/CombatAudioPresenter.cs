@@ -25,7 +25,7 @@ namespace DeepSleep.Runtime.Presentation.Audio
     /// 不读对象出生/消失猜命中，不修改玩法、Unity 随机数或网络权威。
     /// </summary>
     [DefaultExecutionOrder(200)]
-    public sealed class CombatAudioPresenter : MonoBehaviour
+    public sealed partial class CombatAudioPresenter : MonoBehaviour
     {
         private const byte PresentationMessage = NetworkMessageCatalog.Authority.CombatPresentation;
         public CoopSessionController Session;
@@ -56,7 +56,7 @@ namespace DeepSleep.Runtime.Presentation.Audio
         private readonly int[] _reviveHandles = new int[2];
         private readonly int[] _rescueTargets = { -1, -1 };
         private readonly bool[] _downed = new bool[2];
-        private readonly float[] _nextFactTime = new float[(int)Fact.EncounterStarted + 1];
+        private readonly float[] _nextFactTime = new float[(int)Fact.GuardImpact + 1];
         private float _nextHsImpact;
 
         private GameAudioService Audio => GameAppRoot.Instance != null ? GameAppRoot.Instance.Audio : null;
@@ -111,7 +111,7 @@ namespace DeepSleep.Runtime.Presentation.Audio
             Session.SessionClosed += ResetSession;
             Session.SceneExitStarted += OnSceneExit;
             Session.PeerJoined += OnPeerJoined;
-            foreach (var pool in EnemyPools) if (pool != null) pool.ActorDespawned += OnEnemyDespawned;
+            foreach (var pool in EnemyPools) if (pool != null && pool.GetComponent<EnemyContentAudio2D>() == null) pool.ActorDespawned += OnEnemyDespawned;
             foreach (var pool in EnemyProjectiles) if (pool != null) pool.ProjectileFired += OnSnakeFired;
             if (Encounter != null)
             {
@@ -122,12 +122,14 @@ namespace DeepSleep.Runtime.Presentation.Audio
                 Encounter.Completed += OnBossDefeated;
             }
             _subscribed = true;
+            SubscribeKimi();
         }
 
         private void OnDisable()
         {
             StopLoops();
             if (!_subscribed) return;
+            UnsubscribeKimi();
             Shooter.VolleyFired -= OnVolley;
             Rice.DirectHitConfirmed -= OnRiceHit;
             Rice.SplashConfirmed -= OnSplash;
@@ -241,6 +243,16 @@ namespace DeepSleep.Runtime.Presentation.Audio
 
         private void Present(Fact fact, PlayerRole role, Vector2 point)
         {
+            if (fact >= Fact.KimiReveal && fact <= Fact.GuardImpact)
+            {
+                var cue = (AudioCue)((int)AudioCue.KimiReveal + (int)fact - (int)Fact.KimiReveal);
+                if (cue == AudioCue.KimiFlute)
+                { StopKimiFlute(); if (Audio != null) _fluteHandle = Audio.StartLoop(cue, point, (int)cue); return; }
+                if (cue == AudioCue.KimiTide || cue == AudioCue.KimiInterrupt || cue == AudioCue.KimiDefeat || cue == AudioCue.KimiPhase)
+                    StopKimiFlute();
+                Play(cue, point, role);
+                return;
+            }
             switch (fact)
             {
                 case Fact.RiceVolley: Play(AudioCue.DsShot, point, role, WeaponGain(role)); break;
@@ -395,7 +407,7 @@ namespace DeepSleep.Runtime.Presentation.Audio
             if (_chargeHandle != 0) Audio?.StopLoop(_chargeHandle);
             _chargeHandle = 0; _wasCharging = false;
         }
-        private void StopLoops() { StopCharge(); StopRevive(0); StopRevive(1); }
+        private void StopLoops() { StopCharge(); StopRevive(0); StopRevive(1); StopKimiFlute(); }
         private void Play(AudioCue cue, Vector2 point, PlayerRole role, float gain = 1f) => Audio?.Play(cue, point, (int)role + 1, gain);
         private PlayerLifeStateController2D Life(PlayerRole role) => role == PlayerRole.DeepSeek ? DeepSeekLife : HarnessLife;
         private float WeaponGain(PlayerRole role)

@@ -305,6 +305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11b5856bb3cbba4449bad95e133bbd25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Presentation.Effects.OneShotSpriteEffectPool2D
-  _effectPrefab: {fileID: 3061628883009589961, guid: b313e1cc7356c934e9fa59efdb392d79, type: 3}
+  _effectPrefab: {fileID: 2744388470819545481, guid: b0017dfc38fab8841b2af1c70e0f376d, type: 3}
   _poolRoot: {fileID: 5830116349890049446}
-  _config: {fileID: 11400000, guid: d01c6d97759dcf94b9ee9c5546c8fc1d, type: 2}
+  _config: {fileID: 11400000, guid: e6d1b75b21d984e47b9e92d86321a3b6, type: 2}

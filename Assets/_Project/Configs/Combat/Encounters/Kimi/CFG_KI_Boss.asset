@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8c7c7b3088d95f439376e71579cef79, type: 3}
+  m_Name: CFG_KI_Boss
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiBossConfig
+  MaximumHealth: 10000
+  PhaseTwoHealthFraction: 0.5
+  Poses:
+  - {fileID: 21300000, guid: 95301f8332dc7ea4793a3061f8afd61f, type: 3}
+  - {fileID: 21300000, guid: f74b59436aaf2534b8a0490dd4de951b, type: 3}
+  - {fileID: 21300000, guid: 8d17044ec3d090e4f8db48caaf8da160, type: 3}
+  - {fileID: 21300000, guid: f9365d1772421394098c406b828b2e1b, type: 3}
+  - {fileID: 21300000, guid: 74f20e41705a53d478bf5a1f0fbb969f, type: 3}
+  - {fileID: 21300000, guid: 5a564b9c3b8f932418ed8a61d54b16af, type: 3}
+  - {fileID: 21300000, guid: f7e2da77863e07044a78a56033e29e1d, type: 3}
+  - {fileID: 21300000, guid: ae4a4fee5fcfffe4abe5a87e61c19120, type: 3}
+  - {fileID: 21300000, guid: eb688d1cf9793494ea3c11b62e5a6450, type: 3}
+  - {fileID: 21300000, guid: 62747d8946a26414ab32af2166d27b79, type: 3}

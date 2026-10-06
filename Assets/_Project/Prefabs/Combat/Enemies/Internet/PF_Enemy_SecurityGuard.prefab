@@ -303,6 +303,7 @@ MonoBehaviour:
   Hitbox: {fileID: 8813739556244376710}
   Projectile: {fileID: 0}
   SnakeAttack: {fileID: 0}
+  DownloadCharge: {fileID: 0}
   TargetValue: 1.5
   ThreatTrackedAsObstacle: 0
 --- !u!114 &2932177950866836890
@@ -388,7 +389,7 @@ MonoBehaviour:
   ShieldRoot: {fileID: 6063106116404084998}
   Transition: {fileID: 6173857194745298714}
   Renderer: {fileID: 8045850892653147103}
-  ShieldOffset: 0.65
+  ShieldOffset: 0.87
   TurnDelay: 0.16
   DirectionDeadZone: 0.18
 --- !u!1 &3231835447250480208
@@ -602,7 +603,7 @@ Transform:
   m_GameObject: {fileID: 5932113835129244123}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.65, y: 0, z: 0}
+  m_LocalPosition: {x: 0.87, y: -0.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -9,7 +9,8 @@ namespace DeepSleep.Runtime.Combat.Damage
         public Color RestColor = new Color(.72f, .85f, .72f, 1);
         public float FlashSeconds = .12f;
         private float _flash;
-        public void NotifyBlocked() { _flash = FlashSeconds; }
+        public event System.Action<Vector2> Blocked;
+        public void NotifyBlocked() { _flash = FlashSeconds; Blocked?.Invoke(transform.position); }
         private void OnEnable() { _flash = 0; if (Renderer != null) Renderer.color = RestColor; }
         private void LateUpdate()
         {

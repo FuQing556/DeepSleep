@@ -11,7 +11,8 @@ namespace DeepSleep.Runtime.Presentation.Audio
         HsSlashSweep, HsHit, HsWave, PlayerHurtDs, PlayerHurtHs, PlayerDown,
         ReviveStart, ReviveDone, BubblePop, BubbleImpact, DoubaoReveal, DoubaoDefeat,
         EnemyDefeat, SnakeShot, NodeOpen, Depart, Victory, Defeat, Upgrade, Refresh,
-        Connected, Disconnected, Ready, AiToggle, AmbienceSky, AmbienceDusk, AmbienceRest
+        Connected, Disconnected, Ready, AiToggle, AmbienceSky, AmbienceDusk, AmbienceRest,
+        KimiReveal, KimiPhase, KimiMoonWarn, KimiMoonFire, KimiPrism, KimiOrb, KimiReflect, KimiMirrorBreak, KimiLaserCharge, KimiLaserFire, KimiFlute, KimiTide, KimiInterrupt, KimiDefeat, KimiHit, DownloadCharge, DownloadDash, DownloadDefeat, DownloadImpact, GuardBlockMetal, GuardDefeat, GuardImpact
     }
 
     [Serializable]
