@@ -9,6 +9,15 @@ namespace DeepSleep.Runtime.Combat.Damage
     {
         [SerializeField] private MonoBehaviour _receiverComponent;
         [SerializeField] private MonoBehaviour _hitMotionReceiverComponent;
+        /// <summary>由接收者自有表现替代武器命中爆闪；不取消扣血、数字或音效。</summary>
+        public bool UseReceiverHitFeedback;
+        [Tooltip("受伤但截断穿透束线，例如Kimi球罩；不等同于无敌挡板。")]
+        public bool StopsPiercingBeams;
+        [Tooltip("可选跳字锚点；为空时保持实际命中位置，不影响攻击特效或判定。")]
+        public Transform DamageNumberAnchor;
+
+        public Vector2 GetDamageNumberPosition(Vector2 hitPoint)
+            => DamageNumberAnchor != null ? (Vector2)DamageNumberAnchor.position : hitPoint;
 
         private IDamageReceiver _receiver;
         private IHitMotionReceiver2D _hitMotionReceiver;

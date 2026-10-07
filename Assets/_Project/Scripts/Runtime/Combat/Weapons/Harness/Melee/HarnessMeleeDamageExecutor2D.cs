@@ -115,10 +115,12 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
                 if (!hitbox.TryReceiveDamage(packet)) continue;
                 hitbox.ApplyHitMotion(HitMotionKind.HarnessStop);
                 if (wave) WaveHits++; else BladeHits++;
-                HitConfirmed?.Invoke(point, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+                if (!hitbox.UseReceiverHitFeedback)
+                    HitConfirmed?.Invoke(point, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
                 DamageConfirmed?.Invoke(new HarnessMeleeDamageHitConfirmed(
                     point, direction, packet.Amount, wave,
-                    receiver is DeepSleep.Runtime.Combat.Encounters.Doubao.DoubaoWordWallBlock2D));
+                    receiver is DeepSleep.Runtime.Combat.Encounters.Doubao.DoubaoWordWallBlock2D,
+                    hitbox.UseReceiverHitFeedback, hitbox.GetDamageNumberPosition(point)));
             }
         }
 

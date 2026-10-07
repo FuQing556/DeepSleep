@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51bdcaae3cf8d8548a96e366540ee829, type: 3}
+  m_Name: CFG_Bestiary_Kimi
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Bestiary.BestiaryEntryDefinition
+  EntryId: kimi
+  DisplayName: Kimi
+  Subtitle: "\u6708\u4E4B\u6697\u9762 \xB7 \u9EC4\u660F\u6545\u90FD\u7684\u6708\u591C\u8BD5\u70BC\u8005"
+  Description: "\u8E29\u5728\u4E91\u7AEF\u7684\u8BD5\u70BC\u8005\uFF0C\u4EE5\u6708\u5149\u3001\u68F1\u955C\u548C\u7B1B\u58F0\u7F16\u7EC7\u6218\u573A\u3002\u751F\u547D\u964D\u81F3\u4E00\u534A\u540E\uFF0C\u5728\u62DB\u5F0F\u95F4\u9699\u8FDB\u5165\u7B2C\u4E8C\u9636\u6BB5\u3002"
+  SkillNotes: "\u6708\u5149\u5203\uFF1A\u5341\u6761\u6A2A\u5411\u901A\u9053\uFF0C\u7559\u610F\u6765\u81EA\u5DE6\u53F3\u7684\u9884\u8B66\u3002\n\n\u68F1\u5149\uFF1A\u51FB\u7834\u4EFB\u610F\u955C\u8FB9\uFF0C\u8BA9\u53CD\u5F39\u5149\u7403\u81EA\u884C\u9038\u51FA\u3002\n\n\u9501\u5411\u6FC0\u5149\uFF1A\u84C4\u529B\u9501\u5B9A\u65B9\u5411\uFF1B\u4E8C\u9636\u6BB5\u4E94\u675F\u4ECE\u4E0A\u5411\u4E0B\u9012\u8FDB\u3002\n\n\u7B1B\u58F0\u4E0E\u6F6E\u6C50\uFF1A\u5BFB\u627E\u89D2\u5EA6\u51FB\u7834\u6B21\u6570\u76FE\uFF0C\u6253\u65AD\u84C4\u529B\u3002"
+  Portrait: {fileID: 21300000, guid: 95301f8332dc7ea4793a3061f8afd61f, type: 3}
+  PreparationBackdrop: {fileID: 21300000, guid: 2f3d83ae4b3b4cf6b78f6fb8c06513d9, type: 3}
+  PreparationLayout:
+    BackgroundPosition: {x: 0, y: 0, z: 0}
+    BackgroundScale: {x: 1.432, y: 1.432, z: 1}
+    Hotspots:
+    - Kind: 0
+      Position: {x: -5.6277604, y: 0.54999995, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+      Size: {x: 2.2346368, y: 2.094972}
+      Offset: {x: 0, y: 0}
+      Enabled: 1
+    - Kind: 1
+      Position: {x: 0, y: 1.8902401, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+      Size: {x: 2.6536312, y: 2.9329607}
+      Offset: {x: 0, y: 0}
+      Enabled: 1
+    - Kind: 2
+      Position: {x: 5.61344, y: 0.49999997, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+      Size: {x: 2.2346368, y: 2.094972}
+      Offset: {x: 0, y: 0}
+      Enabled: 1
+    - Kind: 3
+      Position: {x: -12.200641, y: 1.01672, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+      Size: {x: 1.5363128, y: 1.8156424}
+      Offset: {x: 0, y: 0}
+      Enabled: 0
+  Level: {fileID: 11400000, guid: 79f10b2babe75a748a39df66aa6c9e1f, type: 2}
+  CombatSegment: 4
+  StartingTokensPerRole: 1000
+  PreludeSeconds: 3
+  PreparationPrompt: "Kimi \u5FEB\u901F\u6311\u6218 \xB7 \u53CC\u89D2\u8272\u54041000 Token \xB7 \u914D\u88C5\u540E\u8FDB\u5165\u4F20\u9001\u95E8\u5F00\u59CB\u8BD5\u70BC"

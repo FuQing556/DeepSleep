@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using DeepSleep.Runtime.Players.Identity;
 
 namespace DeepSleep.Runtime.Progression.Meta
 {
@@ -21,6 +22,10 @@ namespace DeepSleep.Runtime.Progression.Meta
         public List<string> clearedLevels = new();
         public List<string> unlockedAchievements = new();
         public List<AchievementProgressRecord> achievementProgress = new();
+        public string deepSeekHeadwear;
+        public string harnessHeadwear;
+        public string deepSeekBackwear;
+        public string harnessBackwear;
     }
 
     [Serializable]
@@ -37,17 +42,29 @@ namespace DeepSleep.Runtime.Progression.Meta
     [DefaultExecutionOrder(-300)]
     public sealed class LocalPlayerProfileStore : MonoBehaviour
     {
-        public const int CurrentVersion = 2;
+        public const int CurrentVersion = 4;
         private const string FileName = "profile.json";
         private const string BackupFileName = "profile.backup.json";
 
         private LocalPlayerProfileData _data;
+#if UNITY_EDITOR
+        // 编辑器验证写入独立临时目录，绝不对用户存档做买入/回滚试验。
+        internal string TestSaveDirectory;
+#endif
 
         public event Action Changed;
         public int WhaleVoucherBalance => _data?.whaleVoucherBalance ?? 0;
-        public string SavePath => Path.Combine(
-            Application.persistentDataPath,
-            FileName);
+        public string SavePath => Path.Combine(SaveDirectory, FileName);
+        private string SaveDirectory
+        {
+            get
+            {
+#if UNITY_EDITOR
+                if (!string.IsNullOrEmpty(TestSaveDirectory)) return TestSaveDirectory;
+#endif
+                return Application.persistentDataPath;
+            }
+        }
 
         private void Awake()
         {
@@ -58,6 +75,34 @@ namespace DeepSleep.Runtime.Progression.Meta
         {
             OwnedProductRecord record = FindProduct(productId);
             return record?.count ?? 0;
+        }
+
+        public string GetHeadwear(PlayerRole role) => role == PlayerRole.DeepSeek
+            ? _data.deepSeekHeadwear ?? string.Empty : _data.harnessHeadwear ?? string.Empty;
+
+        public bool TrySetHeadwear(PlayerRole role, ShopProductDefinition product, out string message)
+            => TrySetAccessory(role, AccessorySlot.Front, product, out message);
+
+        public string GetAccessory(PlayerRole role, AccessorySlot slot) => slot == AccessorySlot.Front
+            ? GetHeadwear(role) : role == PlayerRole.DeepSeek
+                ? _data.deepSeekBackwear ?? string.Empty : _data.harnessBackwear ?? string.Empty;
+
+        public bool TrySetAccessory(PlayerRole role, AccessorySlot slot, ShopProductDefinition product, out string message)
+        {
+            if ((role != PlayerRole.DeepSeek && role != PlayerRole.Harness) ||
+                (slot != AccessorySlot.Front && slot != AccessorySlot.Back) ||
+                (product != null && (!product.IsAccessory || product.Slot != slot || GetOwnedCount(product.ProductId) == 0)))
+            { message = "只能在对应栏位佩戴已拥有的饰品。"; return false; }
+            string id = product != null ? product.ProductId : string.Empty;
+            if (GetAccessory(role, slot) == id) { message = string.Empty; return true; }
+            var before = Clone(_data);
+            if (slot == AccessorySlot.Front)
+            { if (role == PlayerRole.DeepSeek) _data.deepSeekHeadwear = id; else _data.harnessHeadwear = id; }
+            else
+            { if (role == PlayerRole.DeepSeek) _data.deepSeekBackwear = id; else _data.harnessBackwear = id; }
+            if (!TrySave(_data, out message)) { _data = before; return false; }
+            Changed?.Invoke(); message = product == null ? "已摘下头饰" : "已佩戴 " + product.DisplayName;
+            return true;
         }
 
         public bool HasCleared(string levelId)
@@ -259,7 +304,7 @@ namespace DeepSleep.Runtime.Progression.Meta
         {
             string main = SavePath;
             string backup = Path.Combine(
-                Application.persistentDataPath,
+                SaveDirectory,
                 BackupFileName);
             if (TryLoad(main, out LocalPlayerProfileData loaded) ||
                 TryLoad(backup, out loaded))
@@ -295,7 +340,7 @@ namespace DeepSleep.Runtime.Progression.Meta
 
         private bool TrySave(LocalPlayerProfileData data, out string message)
         {
-            string directory = Application.persistentDataPath;
+            string directory = SaveDirectory;
             string main = SavePath;
             string backup = Path.Combine(directory, BackupFileName);
             string temporary = main + ".tmp";
@@ -390,6 +435,10 @@ namespace DeepSleep.Runtime.Progression.Meta
                 }
             }
             var levelIds = new HashSet<string>();
+            if (!productIds.Contains(data.deepSeekHeadwear ?? string.Empty)) data.deepSeekHeadwear = string.Empty;
+            if (!productIds.Contains(data.harnessHeadwear ?? string.Empty)) data.harnessHeadwear = string.Empty;
+            if (!productIds.Contains(data.deepSeekBackwear ?? string.Empty)) data.deepSeekBackwear = string.Empty;
+            if (!productIds.Contains(data.harnessBackwear ?? string.Empty)) data.harnessBackwear = string.Empty;
             for (int index = data.clearedLevels.Count - 1; index >= 0; index--)
             {
                 string id = data.clearedLevels[index];

@@ -25,6 +25,41 @@ namespace DeepSleep.Editor.Setup
         public const string ConfigRoot = "Assets/_Project/Configs/Combat/Encounters/Kimi";
         public const string RigPath = Root + "/PF_KI_MoonBladeModule.prefab";
         public const string HudPath = Root + "/PF_UI_KI_BossHud.prefab";
+        public static string ApplyFanAndRescueRevision()
+        {
+            if (EditorApplication.isPlaying || UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty)
+                throw new InvalidOperationException("先退出播放并保存场景。");
+            var config=AssetDatabase.LoadAssetAtPath<KimiLaserConfig>(ConfigRoot+"/CFG_KI_Laser.asset");
+            config.PhaseTwoRayCount=5; config.PhaseTwoRaySpacingDegrees=12; EditorUtility.SetDirty(config);
+            var ultimate=AssetDatabase.LoadAssetAtPath<KimiUltimateConfig>(ConfigRoot+"/CFG_KI_Ultimate.asset");
+            ultimate.PhaseOneHits=300; ultimate.PhaseTwoHits=500; EditorUtility.SetDirty(ultimate);
+            var root=PrefabUtility.LoadPrefabContents(RigPath);
+            try
+            {
+                ConfigureFan(root.GetComponentInChildren<KimiLaserPattern2D>(true));
+                root.GetComponentInChildren<KimiBoss2D>(true).Perception.PassiveAttackTarget=false;
+                root.GetComponentInChildren<KimiHitCurtain2D>(true).Perception.PassiveAttackTarget=true;
+                foreach(var mirror in root.GetComponentsInChildren<KimiMirrorSide2D>(true)) mirror.Perception.PassiveAttackTarget=true;
+                PrefabUtility.SaveAsPrefabAsset(root,RigPath);
+            }
+            finally {PrefabUtility.UnloadPrefabContents(root);}
+            var net=AssetDatabase.LoadAssetAtPath<DeepSleep.Runtime.Networking.NetworkTuningConfig>("Assets/_Project/Configs/Networking/CFG_Network.asset");
+            Networking.NetworkBuildRevision.Apply(net);EditorUtility.SetDirty(net);AssetDatabase.SaveAssets();
+            return "Kimi curtain300/500; phase2 fan5 spacing12; boss/mirrors/curtain passive contact; collider overrides untouched.";
+        }
+
+        private static void ConfigureFan(KimiLaserPattern2D laser)
+        {
+            int count=laser.Config.PhaseTwoRayCount-1;
+            if(laser.BranchWarnings!=null && laser.BranchWarnings.Length==count && laser.BranchBeams!=null && laser.BranchBeams.Length==count) return;
+            laser.BranchWarnings=new DeepSleep.Runtime.Combat.Beams.Presentation.BeamTiledMeshView2D[count];
+            laser.BranchBeams=new DeepSleep.Runtime.Combat.Beams.Presentation.BeamTiledMeshView2D[count];
+            for(int i=0;i<count;i++)
+            {
+                laser.BranchWarnings[i]=LaserMesh(laser.transform,"FanWarning"+i,laser.Warning.GetComponent<MeshRenderer>().sharedMaterial,laser.Boss.Body,23);
+                laser.BranchBeams[i]=LaserMesh(laser.transform,"FanBeam"+i,laser.Beam.GetComponent<MeshRenderer>().sharedMaterial,laser.Boss.Body,24);
+            }
+        }
         private static void ConfigureGuardFormation(KimiUltimatePattern2D ultimate)
         {
             Set(ultimate.Reinforcements, "_spawnAnchor", ultimate.Boss.transform);
@@ -54,7 +89,7 @@ namespace DeepSleep.Editor.Setup
             prism.PhaseOneMirrorHealth=600; prism.PhaseTwoMirrorHealth=1200;
             EditorUtility.SetDirty(prism); AssetDatabase.SaveAssetIfDirty(prism);
             var ultimateConfig=AssetDatabase.LoadAssetAtPath<KimiUltimateConfig>(ConfigRoot+"/CFG_KI_Ultimate.asset");
-            ultimateConfig.PhaseOneHits=500; ultimateConfig.PhaseTwoHits=1000;
+            ultimateConfig.PhaseOneHits=300; ultimateConfig.PhaseTwoHits=500;
             EditorUtility.SetDirty(ultimateConfig); AssetDatabase.SaveAssetIfDirty(ultimateConfig);
             var root=PrefabUtility.LoadPrefabContents(RigPath);
             try
@@ -69,7 +104,7 @@ namespace DeepSleep.Editor.Setup
             var network=AssetDatabase.LoadAssetAtPath<DeepSleep.Runtime.Networking.NetworkTuningConfig>("Assets/_Project/Configs/Networking/CFG_Network.asset");
             DeepSleep.Editor.Networking.NetworkBuildRevision.Apply(network);
             EditorUtility.SetDirty(network); AssetDatabase.SaveAssetIfDirty(network);
-            return "Saved Kimi: mirrors600/1200; curtain500/1000; laser5; reticle; local guard formation; protocol7.";
+            return "Saved Kimi pressure settings; curtain300/500; laser5; reticle; local guard formation.";
         }
         /// <summary>只补两种光刃的稳定网络资源ID与兼容版本，不启用正式章节、不改旧ID。</summary>
         public static void InstallNetworkAssets()
@@ -110,12 +145,14 @@ namespace DeepSleep.Editor.Setup
             var bossConfig = ScriptableObject.CreateInstance<KimiBossConfig>();
             bossConfig.MaximumHealth = 10000;
             bossConfig.PhaseTwoHealthFraction = .5f;
+            bossConfig.ContactDamageAmount = 1;
+            bossConfig.ContactIntervalSeconds = 1;
             bossConfig.Poses = Enum.GetNames(typeof(KimiPose)).Select(p => SpriteAt("SPR_KI_" + p + "_v01")).ToArray();
             SaveNew(bossConfig, ConfigRoot + "/CFG_KI_Boss.asset");
             var moonConfig = ScriptableObject.CreateInstance<KimiMoonBladeConfig>();
             moonConfig.LaneCount = 10; moonConfig.VolleyCount = 10;
             moonConfig.PhaseOneBlades = 2; moonConfig.PhaseTwoBlades = 4;
-            moonConfig.WarningSeconds = .7f; moonConfig.VolleyGapSeconds = .2f;
+            moonConfig.WarningSeconds = .55f; moonConfig.VolleyGapSeconds = .1f;
             moonConfig.EdgePadding = 2.5f; moonConfig.WarningWidth = .56f;
             moonConfig.WarningColor = new Color(.58f, .72f, 1f, .28f);
             SaveNew(moonConfig, ConfigRoot + "/CFG_KI_MoonBlade.asset");
@@ -199,8 +236,8 @@ namespace DeepSleep.Editor.Setup
             GameObject root = Child(parent, "Kimi"); root.layer = LayerMask.NameToLayer("Enemy");
             root.transform.localPosition = new Vector3(6.5f, -.8f, 0);
             var boss = root.AddComponent<KimiBoss2D>(); boss.Config = config;
-            var shape = root.AddComponent<CapsuleCollider2D>(); shape.isTrigger = true;
-            shape.size = new Vector2(.65f, 1.55f); shape.offset = new Vector2(0, 1.15f);
+            var shape = root.AddComponent<CircleCollider2D>(); shape.isTrigger = true;
+            shape.radius = 2.6f; shape.offset = new Vector2(0, 1.15f);
             boss.HitCollider = shape; shape.enabled = false;
             var hitbox = root.AddComponent<DamageHitbox2D>(); Set(hitbox, "_receiverComponent", boss);
             var perception = root.AddComponent<CombatPerceptionBody2D>();
@@ -335,7 +372,7 @@ namespace DeepSleep.Editor.Setup
             if(existing==null || existing.GetComponentInChildren<KimiUltimatePattern2D>(true)!=null)
                 throw new InvalidOperationException("缺少本体或大招已装配，拒绝覆盖。");
             var config=ScriptableObject.CreateInstance<KimiUltimateConfig>();
-            config.PhaseOneHits=500;config.PhaseTwoHits=1000;config.PhaseOneChargeSeconds=10;config.PhaseTwoChargeSeconds=14;
+            config.PhaseOneHits=300;config.PhaseTwoHits=500;config.PhaseOneChargeSeconds=10;config.PhaseTwoChargeSeconds=14;
             config.StaggerSeconds=3;config.ReleaseDelay=.8f;config.VolleyInterval=1.1f;
             config.VolleyCount=5;config.PhaseTwoBlades=3;config.SpreadDegrees=22;
             config.ReinforcementLimit=10;config.ReinforcementHealthMultiplier=3;
@@ -382,6 +419,8 @@ namespace DeepSleep.Editor.Setup
                 var overlay=Renderer(curtainRoot.transform,"HitFlash",curtain.Visual.sprite,31);
                 overlay.sharedMaterial=AssetDatabase.LoadAssetAtPath<Material>("Assets/_Project/Art/Shaders/MAT_PlayerHitOverlay.mat");overlay.enabled=false;
                 var flash=curtainRoot.AddComponent<SpriteHitFlash2D>();flash.DamageSource=curtain;flash.Sources=new[]{curtain.Visual};flash.Overlay=overlay;
+                curtain.HitFlash=flash;curtain.IdleAlpha=.8f;curtain.HitAlpha=.5f;
+                Set(flash,"_duration",.1f);Set(flash,"_peakAlpha",0f);Set(flash,"_reducedAlpha",0f);
                 var pool=Child(ultimate.transform,"TidalBladePool").AddComponent<EnemyProjectilePool2D>();
                 Set(pool,"_projectilePrefab",bladePrefab.GetComponent<EnemyProjectile2D>());Set(pool,"_poolRoot",pool.transform);
                 Set(pool,"_config",bladeConfig);Set(pool,"_impactEffectPool",prism.HitEffects);ultimate.Blades=pool;
@@ -416,6 +455,8 @@ namespace DeepSleep.Editor.Setup
             var config = ScriptableObject.CreateInstance<KimiLaserConfig>();
             config.ChargeSeconds = 1.2f; config.FireSeconds = .45f; config.RecoverySeconds = .35f;
             config.ShotCount = 5; config.TargetMarkerDiameter = 2.4f; config.TargetMarkerSpinDegrees = 35;
+            config.PhaseTwoRayCount = 5; config.PhaseTwoRaySpacingDegrees = 12;
+            config.PhaseTwoRayDelaySeconds = .08f;
             config.Length = 40; config.DamageWidth = 1.2f; config.VisualWidth = 2.8f;
             config.TextureRepeatLength = config.VisualWidth * texture.width / texture.height;
             config.TextureScrollSpeed = .6f; config.Damage = 1;
@@ -443,6 +484,7 @@ namespace DeepSleep.Editor.Setup
                 laser.HitEffects = root.GetComponentInChildren<KimiPrismPattern2D>(true).HitEffects;
                 laser.Warning = LaserMesh(laser.transform,"Warning",warningMaterial,laser.Boss.Body,23);
                 laser.Beam = LaserMesh(laser.transform,"Beam",material,laser.Boss.Body,24);
+                ConfigureFan(laser);
                 laser.Focus = Renderer(laser.transform,"Focus",SpriteAt("VFX_KI_LaserFocus_v01"),46);
                 laser.Focus.enabled = false;
                 laser.TargetMarker = Renderer(laser.transform,"TargetMarker",SpriteAt("VFX_KI_TargetReticle_v01"),65);

@@ -18,6 +18,8 @@ namespace DeepSleep.Runtime.Combat.Perception
         public DownloadChargeMotor2D DownloadCharge;
         [Min(0)] public float TargetValue;
         public bool ThreatTrackedAsObstacle;
+        [Tooltip("可攻击但本体不造成接触伤害；不阻止救援，攻击产生的弹幕独立感知。")]
+        public bool PassiveAttackTarget;
         private CombatPerceptionRegistry2D _registry;
 
         public bool IsEnemy => Enemy != null;

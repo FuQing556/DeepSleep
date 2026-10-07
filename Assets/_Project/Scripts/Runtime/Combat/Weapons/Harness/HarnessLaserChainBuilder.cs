@@ -22,7 +22,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
             var queue = new Queue<Branch>();
             for (int i = 0; i < source.LaneCount; i++)
             {
-                var lane = blockers.Clip(source.GetLane(i), config.AttackBlockerLayers);
+                var lane = blockers.Clip(source.GetLane(i), config.AttackBlockerLayers, source.DamageLayers);
                 lanes.Add(lane);
                 if (level > 0) queue.Enqueue(new Branch { Lane = lane, Ancestors = new HashSet<IDamageReceiver>() });
             }
@@ -42,7 +42,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                 resolver.Resolve(in parent.Lane, source.TargetLayers, null, hits);
                 foreach (var hit in hits)
                 {
-                    if (!hit.IsValid || !hit.Hitbox.TryGetReceiver(out var emitter) || parent.Ancestors.Contains(emitter)) continue;
+                    if (!hit.IsValid || hit.Hitbox.StopsPiercingBeams || !hit.Hitbox.TryGetReceiver(out var emitter) || parent.Ancestors.Contains(emitter)) continue;
                     Vector2 branchOrigin = hit.Hitbox.GetComponent<Collider2D>().bounds.center;
                     var ancestors = new HashSet<IDamageReceiver>(parent.Ancestors) { emitter };
                     float radius = config.ChainRadius(parent.Depth + 1);
@@ -71,7 +71,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                     float damage = parent.Lane.PrimaryTargetDamage * config.ChainDamageRatio;
                     var child = new BeamLaneSnapshot(lanes.Count, branchOrigin, direction, radius,
                         parent.Lane.Width, damage, damage, level - parent.Depth, true, emitter);
-                    child = blockers.Clip(child, config.AttackBlockerLayers);
+                    child = blockers.Clip(child, config.AttackBlockerLayers, source.DamageLayers);
                     lanes.Add(child);
                     queue.Enqueue(new Branch { Lane = child, Depth = parent.Depth + 1, Ancestors = ancestors });
                 }

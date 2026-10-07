@@ -116,7 +116,7 @@ namespace DeepSleep.Runtime.Networking
             for (int i = 0; i < f.WarningCount; i++) if (f.Lanes[i] >= Encounter.Moon.Config.LaneCount) return;
             // 全帧预检及配置边界完成后才提交水位和任何可见对象，坏帧不能制造半幅Boss画面。
             _received = true; _lastReceived = f.Sequence;
-            ChapterDriver.ApplyReplica(f.TakenOver);
+            ChapterDriver.ApplyReplica(f.TakenOver, f.Health <= 0 && f.Pose == KimiPose.Bow);
             Encounter.Boss.ApplyReplica(f.Shown, f.Position, f.Health, f.PhaseTwo, f.Pose);
             BossFlash.ApplyReplica(f.BossHit, f.BossHitAge);
             Encounter.Ultimate.Curtain.ApplyReplica(f.CurtainPosition, f.Remaining, f.Maximum);

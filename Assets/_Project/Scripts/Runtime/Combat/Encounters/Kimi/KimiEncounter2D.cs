@@ -37,11 +37,14 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
         private CompanionObstacleRegistry2D _obstacles;
         private DamageHitbox2D[] _targets;
         private readonly PlayerLifeStateController2D[] _lives=new PlayerLifeStateController2D[2];
+        private readonly Collider2D[] _targetShapes = new Collider2D[2];
+        private readonly float[] _contactCooldowns = new float[2];
         private System.Random _random;
         private readonly KimiSkill[] _choices=new KimiSkill[4];
         private int _cycleCasts, _nextTarget;
         private bool _hasPrevious, _ultimateUsed;
         private float _gap;
+        private float _preludeSeconds;
 
         public bool TryValidateConfiguration(out string reason)
         {
@@ -59,12 +62,20 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
         }
         /// <summary>章节传waitForPrelude=true；独立挑战可以false，跳过50秒普通战斗而保留出场。</summary>
         public bool Begin(bool waitForPrelude,int seed,CoopSessionController session,DamageHitbox2D[] targets,
-            CombatPerceptionRegistry2D perception,CompanionObstacleRegistry2D obstacles)
+            CombatPerceptionRegistry2D perception,CompanionObstacleRegistry2D obstacles, float? preludeSeconds = null)
         {
             if(!isActiveAndEnabled || targets==null || targets.Length!=2 || targets[0]==null || targets[1]==null ||
-                (session!=null && session.Phase!=SessionPhase.Offline && !session.IsAuthority)) return false;
+                (session!=null && session.Phase!=SessionPhase.Offline && !session.IsAuthority) ||
+                (preludeSeconds.HasValue && (!float.IsFinite(preludeSeconds.Value) || preludeSeconds.Value <= 0))) return false;
             Cancel();_session=session;_targets=targets;_perception=perception;_obstacles=obstacles;_random=new System.Random(seed);
-            for(int i=0;i<2;i++) targets[i].TryGetComponent(out _lives[i]);
+            _preludeSeconds = preludeSeconds ?? Config.PreludeSeconds;
+            for(int i=0;i<2;i++)
+            {
+                targets[i].TryGetComponent(out _lives[i]);
+                if (!targets[i].TryGetComponent(out _targetShapes[i]))
+                { Debug.LogError("[KimiEncounter] 玩家受击体缺少显式Collider2D。", this); Cancel(); return false; }
+                _contactCooldowns[i] = 0;
+            }
             CastsStarted=CastsFinished=0;CycleNumber=1;_cycleCasts=0;_nextTarget=0;_hasPrevious=_ultimateUsed=false;
             if(waitForPrelude) State=KimiEncounterState.Prelude;else Enter();
             return true;
@@ -84,10 +95,12 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
             if(_session!=null && _session.Phase!=SessionPhase.Offline && !_session.IsAuthority){Cancel();return;}
             if(State!=KimiEncounterState.Prelude && !Boss.IsAlive){Cancel();return;}
             StateElapsed+=dt;
+            if (State == KimiEncounterState.Casting || State == KimiEncounterState.Gap || State == KimiEncounterState.PhaseChange)
+                SimulateContact(dt);
             switch(State)
             {
                 case KimiEncounterState.Prelude:
-                    if(StateElapsed>=Config.PreludeSeconds) Enter();break;
+                    if(StateElapsed>=_preludeSeconds) Enter();break;
                 case KimiEncounterState.Entering:
                     if(StateElapsed>=Config.EntrySeconds){Boss.SetVulnerable(true);StartCast();}break;
                 case KimiEncounterState.PhaseChange:
@@ -104,6 +117,23 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
                         case KimiSkill.Ultimate:Ultimate.Simulate(dt);break;
                     }
                     break;
+            }
+        }
+        private void SimulateContact(float dt)
+        {
+            for (int i = 0; i < _targets.Length; i++)
+            {
+                _contactCooldowns[i] = Mathf.Max(0, _contactCooldowns[i] - dt);
+                if (_contactCooldowns[i] > 0 || !_targets[i].IsActiveTarget || !_targetShapes[i].enabled ||
+                    (_lives[i] != null && _lives[i].State != PlayerLifeState.Alive) ||
+                    !Boss.HitCollider.Distance(_targetShapes[i]).isOverlapped) continue;
+                _contactCooldowns[i] = Boss.Config.ContactIntervalSeconds;
+                Vector2 center = Boss.HitCollider.bounds.center;
+                Vector2 point = _targetShapes[i].ClosestPoint(center);
+                var packet = new DamagePacket(Boss.Config.ContactDamageAmount, point,
+                    (Vector2)_targets[i].transform.position - center, Boss.gameObject,
+                    DamageAttackIdAllocator.Next(), DamageInterceptionPolicy.Blockable);
+                _targets[i].TryReceiveDamage(in packet);
             }
         }
         private void StartCast()
@@ -151,11 +181,11 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
             ClearSkills();State=KimiEncounterState.Complete;StateElapsed=0;Completed?.Invoke();
         }
         private void ClearSkills(){Moon.Cancel();Prism.Cancel();Laser.Cancel();Ultimate.Cancel();}
-        public void Cancel()
+        public void Cancel(bool preserveDefeat = false)
         {
             State=KimiEncounterState.Idle;StateElapsed=0;
             if(Moon!=null && Prism!=null && Laser!=null && Ultimate!=null) ClearSkills();
-            if(Boss!=null)Boss.ResetEncounter();
+            if(Boss!=null)Boss.ResetEncounter(preserveDefeat);
         }
         private void OnDisable()=>Cancel();
         private void OnDestroy()

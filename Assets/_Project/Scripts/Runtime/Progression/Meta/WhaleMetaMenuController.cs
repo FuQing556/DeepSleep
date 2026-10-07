@@ -3,6 +3,8 @@ using DeepSleep.Runtime.AppFlow;
 using DeepSleep.Runtime.Presentation.Audio;
 using UnityEngine;
 using UnityEngine.UI;
+using DeepSleep.Runtime.Players.Identity;
+using DeepSleep.Runtime.Presentation.Accessories;
 
 namespace DeepSleep.Runtime.Progression.Meta
 {
@@ -18,6 +20,7 @@ namespace DeepSleep.Runtime.Progression.Meta
         [SerializeField] private Text _levelSelectionBalance;
         [SerializeField] private Text _inventoryEmpty;
         [SerializeField] private Text _feedback;
+        public HeadwearImageView[] HeadwearPreviews;
 
         private readonly List<MetaProductCardView> _shopCards = new();
         private readonly List<MetaProductCardView> _inventoryCards = new();
@@ -38,6 +41,7 @@ namespace DeepSleep.Runtime.Progression.Meta
                 _shopCards.Add(Instantiate(_cardPrefab, _shopContent));
                 _inventoryCards.Add(Instantiate(_cardPrefab, _inventoryContent));
             }
+            foreach (var preview in HeadwearPreviews) preview.Bind(_profile);
         }
 
         private void OnEnable()
@@ -86,10 +90,20 @@ namespace DeepSleep.Runtime.Progression.Meta
                     false,
                     false,
                     null);
+                _shopCards[index].RenderEquipment(_profile, false, Equip);
+                _inventoryCards[index].RenderEquipment(_profile, true, Equip);
                 _inventoryCards[index].gameObject.SetActive(owned > 0);
                 hasAnything |= owned > 0;
             }
             _inventoryEmpty.gameObject.SetActive(!hasAnything);
+        }
+        private void Equip(ShopProductDefinition product, PlayerRole role)
+        {
+            bool wearing = _profile.GetAccessory(role, product.Slot) == product.ProductId;
+            bool success = _profile.TrySetAccessory(role, product.Slot, wearing ? null : product, out string message);
+            GameAppRoot.Instance?.Audio?.Play(success ? AudioCue.UiConfirm : AudioCue.UiReject);
+            if (_feedback != null) _feedback.text = message;
+            Render();
         }
     }
 }

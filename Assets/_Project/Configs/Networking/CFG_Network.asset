@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: CFG_Network
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Networking.NetworkTuningConfig
   Port: 7777
-  ProtocolVersion: 7
+  ProtocolVersion: 9
   ClientVersion: 0.1.0
-  ContentVersion: 20261006-ai-charge-1
+  ContentVersion: 20261007-kimi-beam-stop-1
   SnapshotRate: 20
   InputTimeout: 0.35
   ConnectionTimeout: 12

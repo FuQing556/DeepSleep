@@ -44,6 +44,14 @@ namespace DeepSleep.Runtime.Progression.Upgrades
 
         public bool HasCheckpoint => _checkpoint != null;
 
+        /// <summary>挑战入口一次性设置本局双角色配装余额，不写入永久档案。</summary>
+        public bool PrepareChallengeBalance(int tokensPerRole)
+        {
+            if (!_isInitialized || !CanAuthor || _nodeActive || tokensPerRole < 0) return false;
+            _wallet.RestoreSnapshot(new TokenWalletSnapshot(tokensPerRole, tokensPerRole, 0, true));
+            return true;
+        }
+
         private bool IsOnline =>
             _session != null && _session.Phase == SessionPhase.Playing;
         private bool CanAuthor => _session == null || _session.Phase == SessionPhase.Offline ||

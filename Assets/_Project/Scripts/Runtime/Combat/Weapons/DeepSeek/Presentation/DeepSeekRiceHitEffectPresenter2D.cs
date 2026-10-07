@@ -79,7 +79,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek.Presentation
 
         private void OnHitConfirmed(RiceProjectileHitConfirmed hit)
         {
-            if (!hit.IsValid)
+            if (!hit.IsValid || hit.Hitbox.UseReceiverHitFeedback)
             {
                 return;
             }

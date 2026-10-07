@@ -16,8 +16,8 @@ MonoBehaviour:
   VolleyCount: 10
   PhaseOneBlades: 2
   PhaseTwoBlades: 4
-  WarningSeconds: 0.7
-  VolleyGapSeconds: 0.2
+  WarningSeconds: 0.55
+  VolleyGapSeconds: 0.1
   EdgePadding: 2.5
   WarningWidth: 1.31
   WarningColor: {r: 0.58, g: 0.72, b: 1, a: 0.28}

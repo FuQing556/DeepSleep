@@ -16,6 +16,7 @@ namespace DeepSleep.Runtime.AppFlow
         [SerializeField] private Canvas _combatHud;
         [SerializeField] private TouchCommandSource _touchInput;
         [SerializeField] private Button _backButton;
+        public DeepSleep.Runtime.Presentation.Accessories.HeadwearSessionPresenter Headwear;
 
         private GameLaunchMode _mode;
 
@@ -28,6 +29,7 @@ namespace DeepSleep.Runtime.AppFlow
                 return;
             }
             _mode = GameAppRoot.Instance.LaunchContext.Mode;
+            Headwear.Bind(GameAppRoot.Instance.Profile);
         }
 
         private void OnEnable()
@@ -73,7 +75,7 @@ namespace DeepSleep.Runtime.AppFlow
         private void ReturnToModes()
         {
             GameAppRoot.Instance.SceneRouter.LoadMainMenu(
-                MainMenuPage.ModeSelection);
+                GameAppRoot.Instance.LaunchContext.Challenge != null ? MainMenuPage.Bestiary : MainMenuPage.ModeSelection);
         }
     }
 }

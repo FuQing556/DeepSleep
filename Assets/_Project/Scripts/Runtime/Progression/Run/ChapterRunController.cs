@@ -9,6 +9,7 @@ using DeepSleep.Runtime.Players.Identity;
 using DeepSleep.Runtime.Players.LifeCycle;
 using DeepSleep.Runtime.Progression.Levels;
 using DeepSleep.Runtime.Progression.Meta;
+using DeepSleep.Runtime.Progression.Bestiary;
 using DeepSleep.Runtime.Progression.Upgrades;
 using DeepSleep.Runtime.UI.CharacterSelection;
 using DeepSleep.Runtime.World.Nodes;
@@ -60,6 +61,8 @@ namespace DeepSleep.Runtime.Progression.Run
         [SerializeField, HideInInspector] private MetaLevelDefinition _level;
 
         private ChapterRunConfig _runConfig;
+        public BestiaryEntryDefinition Challenge { get; private set; }
+        public bool IsChallenge => Challenge != null;
         private MetaLevelDefinition _runLevel;
         private string _runLevelId;
         private IReadOnlyList<LevelEnemySceneBinding> _enemies;
@@ -170,6 +173,13 @@ namespace DeepSleep.Runtime.Progression.Run
 
             _runLevel = _levelBindings.Level;
             _runConfig = _runLevel.ChapterRunConfig;
+            if (GameAppRoot.Instance != null)
+            {
+                Challenge = GameAppRoot.Instance.LaunchContext.Challenge;
+                if (Challenge != null && (Challenge.Level != _runLevel || !Challenge.TryValidate(out reason)))
+                { Debug.LogError("[ChapterRun] 挑战入口与场景关卡不匹配。", this); enabled = false; return; }
+                if (IsChallenge) _segmentNumber = Challenge.CombatSegment;
+            }
             _runLevelId = _runLevel.LevelId;
             _enemies = _levelBindings.Enemies;
             _isInitialized = true;
@@ -202,6 +212,7 @@ namespace DeepSleep.Runtime.Progression.Run
             if (_hud != null)
             {
                 _hud.ReturnRequested += ReturnToOpening;
+                _hud.RetryRequested += RetryChallenge;
             }
             SubscribeEnemyPools(true);
         }
@@ -226,6 +237,7 @@ namespace DeepSleep.Runtime.Progression.Run
             if (_hud != null)
             {
                 _hud.ReturnRequested -= ReturnToOpening;
+                _hud.RetryRequested -= RetryChallenge;
             }
             SubscribeEnemyPools(false);
         }
@@ -237,7 +249,7 @@ namespace DeepSleep.Runtime.Progression.Run
             {
                 _upgradeController.CaptureProgressCheckpoint();
                 CapturePlayerCheckpoint();
-                if (_selection.IsSelectionComplete) StartCombatSegment();
+                if (_selection.IsSelectionComplete && Phase == ChapterRunPhase.WaitingForSelection) StartRun();
             }
             else RefreshReplicaFlow();
         }
@@ -441,8 +453,23 @@ namespace DeepSleep.Runtime.Progression.Run
         {
             if (CanAuthor && !_sceneExitStarted && Phase == ChapterRunPhase.WaitingForSelection)
             {
-                StartCombatSegment();
+                StartRun();
             }
+        }
+
+        private void StartRun()
+        {
+            if (!IsChallenge) { StartCombatSegment(); return; }
+            _combatWorld.StopCombat(ChapterCombatStopReason.EncounterTakeover);
+            if (!_upgradeController.PrepareChallengeBalance(Challenge.StartingTokensPerRole))
+            { Debug.LogError("[ChapterRun] 挑战配装余额初始化失败。", this); enabled = false; return; }
+            _retryCurrentSegmentFromCheckpoint = true;
+            Phase = ChapterRunPhase.Node;
+            if (!_restNode.OpenPreparationNode(Challenge.PreparationBackdrop, Challenge.PreparationLayout, Challenge.PreparationPrompt))
+            { Debug.LogError("[ChapterRun] 无法打开挑战配装节点。", this); enabled = false; return; }
+            CapturePlayerCheckpoint();
+            _upgradeController.CaptureProgressCheckpoint();
+            Render();
         }
 
         private void OnRestNodeStateChanged(RestNodeState state)
@@ -536,7 +563,7 @@ namespace DeepSleep.Runtime.Progression.Run
             for (int index = 0; index < _enemies.Count; index++)
             {
                 EnemySpawnDirector2D director = _enemies[index].Director;
-                if (segment.TryGetRule(director.Channel, out SegmentSpawnRule rule))
+                if (!IsChallenge && segment.TryGetRule(director.Channel, out SegmentSpawnRule rule))
                 {
                     director.ApplyRuntimeTuning(
                         rule.Enabled,
@@ -568,7 +595,13 @@ namespace DeepSleep.Runtime.Progression.Run
         private void ReturnToOpening()
         {
             GameAppRoot.Instance.SceneRouter.LoadMainMenu(
-                MainMenuPage.LevelSelection);
+                IsChallenge ? MainMenuPage.Bestiary : MainMenuPage.LevelSelection);
+        }
+
+        private void RetryChallenge()
+        {
+            if (IsChallenge && Phase == ChapterRunPhase.Complete)
+                GameAppRoot.Instance.SceneRouter.StartChallenge(Challenge);
         }
 
         private void GrantMetaRewardOnce()
@@ -576,6 +609,7 @@ namespace DeepSleep.Runtime.Progression.Run
             if (_metaRewardGranted) return;
 
             _metaRewardGranted = true;
+            if (IsChallenge) { _awardedVouchers = 0; _rewardMessage = "练习挑战 · 不发放永久奖励"; return; }
             if (!TryValidateLevelIdentity(out _rewardMessage) || _runLevel != _levelBindings.Level)
             {
                 if (string.IsNullOrEmpty(_rewardMessage))
@@ -716,6 +750,7 @@ namespace DeepSleep.Runtime.Progression.Run
             _hud.RenderSettlement(
                 BuildSettlementText(),
                 Phase == ChapterRunPhase.Complete);
+            _hud.ConfigureChallengeActions(IsChallenge);
         }
 
         private string BuildSettlementText()
@@ -728,6 +763,8 @@ namespace DeepSleep.Runtime.Progression.Run
             int totalSeconds = Mathf.CeilToInt(_totalCombatSeconds);
             int minutes = totalSeconds / 60;
             int seconds = totalSeconds % 60;
+            if (IsChallenge)
+                return $"{Challenge.DisplayName} · 挑战完成\n\n战斗用时  {minutes:00}:{seconds:00}\n\n练习不消耗鲸元券，也不改变正式关卡通关记录。";
             return "原型演练完成\n\n" +
                 $"战斗段  {_runConfig.CombatSegmentCount}/{_runConfig.CombatSegmentCount}\n" +
                 $"累计击败  {_totalDefeats}\n" +
@@ -752,7 +789,10 @@ namespace DeepSleep.Runtime.Progression.Run
             }
 
             IChapterCombatTakeover takeover = ActiveTakeover;
-            string text = takeover != null
+            string text = IsChallenge
+                ? (takeover != null ? $"{Challenge.DisplayName} · {takeover.DisplayTitle}  {takeover.ObjectiveText}"
+                    : $"{Challenge.DisplayName} · 黄昏前奏，月夜即将降临")
+                : takeover != null
                 ? $"第 {_segmentNumber} 波  剩余 {takeover.DisplaySeconds} 秒  {takeover.DisplayTitle}  {takeover.ObjectiveText}"
                 : $"第 {_segmentNumber} 波  " +
                 $"剩余 {Mathf.CeilToInt(_remainingCombatSeconds)} 秒  " +

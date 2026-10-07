@@ -1,5 +1,19 @@
 # DeepSleep 项目结构与维护审计
 
+2026-10-07 Kimi球体判定：模块本体`CircleCollider2D`是受击/感知/接触伤害与月光罩中心、尺寸的唯一来源，不随动作图bounds变化。`KimiBoss2D`负责半血截断和锁血；`KimiEncounter2D`仍是唯一固定步，推进双玩家接触冷却和既有转阶段状态；`CFG_KI_Boss`新增接触伤害/间隔。清除Kimi固定跳字锚点，恢复通用实际命中点反馈。显式迁移在`KimiPresentationInstaller.ConfigurePrefab`，不修改其他技能碰撞。
+
+## 饰品首版（2026-10-06）
+
+第二饰品扩展：`ShopProductDefinition` 的 AccessorySlot（Front/Back）决定独立装备栏，`HeadwearDefinition.Layer`只决定绘制前后，可视化调层不改变商品所属栏。`LocalPlayerProfileStore` v4保存双角色四个饰品字段，旧皇冠字段保留；每个角色/肖像显式装配两个原有View，不运行时造组件。`HeadwearSessionPresenter`协议9同步四个ushort ID并检查栏位/房主权限。`BackwearInstaller`负责新增小翅膀/三场景背饰引用及卡片间距，不写皇冠姿态；后续不可仅重跑旧HeadwearInstaller覆盖目录/引用。翅膀配置 `Configs/Progression/Meta/CFG_Accessory_LittleWings.asset`，售价20，NetworkId2。编辑器可指定第二饰品叠加预览但只改当前配置。
+
+可视化调参入口：`Editor/Accessories/AccessoryEditorWindow.cs` → Unity菜单 `DeepSleep/饰品编辑器`，或配置Inspector按钮。编辑现有HeadwearDefinition，各动作独立Anchor/WidthRatio/Angle；整体Layer选择前饰或背饰。拖动、滚轮缩放、Undo、显式保存。配置直接驱动局内Sprite及局外UGUI，无需手抄数据或重跑装配器。仅划分绘制前后层，装备槽仍沿用当前单饰品规则。验证：`Editor/Diagnostics/AccessoryEditorChecks.cs`。
+
+- `Progression/Meta/LocalPlayerProfileStore`仍是唯一存档写入口：v3新增DS/HS各一头饰槽，旧v2可读；购买复用原商品事务，佩戴需持有，失败回滚。没有属性加成或第二套背包。
+- 商品：`Configs/Progression/Meta/Products/CFG_META_Product_little_crown.asset`，20券、永久非重复；原`WhaleMetaMenuController`/`MetaProductCardView`增加两角色佩戴按钮，复用已有生图多层按钮。
+- 表现：`Presentation/Accessories/HeadwearDefinition`配置稳定网络ID、商品、Sprite和逐姿态头顶锚点；当前`Configs/Progression/Meta/CFG_Headwear_LittleCrown.asset`覆盖9个正式人物Sprite。`HeadwearSpriteView`跟随最终姿态/朝向/缩放，`HeadwearImageView`用于主页、选角与HUD。无碰撞、无战斗属性、无运行时组件补装。
+- `HeadwearSessionPresenter`由现有`GameplayEntryFlow`注入Profile；两关共享，同伴AI和真人不更换饰品对象。离线读取本机两角色设置；在线各设备只声明自己的角色外观，客人不能改房主；接管沿用角色外观。消息51/52各4字节，协议8/内容20261006-headwear-1，旧包不混房。
+- `Editor/Setup/HeadwearInstaller`负责显式商品/卡片/场景接线；`HeadwearChecks`写入Temp隔离目录，43检查及协议1504断言；Unity实际预览在`docs/ImplementationEvidence/20261006_Headwear`。未完成真实双端/手机验收。新增款式复用商品、HeadwearDefinition并加入显式Catalog，不拷贝整套脚本。当前只做一个头饰槽。
+
 核对日期：2026-10-05。本文描述当前工作树的实际结构，供项目维护和后续内容开发查阅；不是未来架构的完成声明。已有共用底座，不是每关各写一套。用户确认后，本批已统一装配规则、删除 Chapter 镜像敌人数组并精简完整校验链；两关已装配并重新验证。部分控制器职责仍偏重，本批没有拆分，也不把它作为下一次内容任务的隐藏前置。
 
 音效入口为 [docs/36_AudioDesignAndCoverage.md](docs/36_AudioDesignAndCoverage.md)。2026-10-05 核心首版已接入：`Audio/CFG_GameAudio.asset` 管 42 个 cue、56 个 WAV 和原生 Mixer；Boot 的 `GameAudioService` 管 24+2 声源；每关 `CombatAudioPresenter` 消费实际战斗/可靠网络事件，`SceneAudioPresenter` 管阶段和环境；`UI/Common/UiAudioFeedback` 与 `AudioSettingsPanel` 管操作音和本机音量。两关共用这套实现，不各建一套。Editor 中 `CoreAudioInstaller`、`AudioUiInstaller` 负责显式装配，两个 Audio 检查文件只做诊断，不进包。完整覆盖/待细化项及试听边界见音效文档；没有新增音频中间件、运行时素材搜索或通用事件总线。
@@ -22,6 +36,10 @@ Editor 中 Diagnostics 为 41 文件、8,112 行，Setup 为 23 文件、5,224 �
 本批相对修复前：Runtime 减少 76 行；Editor 增加 127 行（现有诊断增加 75 行，其他工具净增 52 行），总计净增 51 行。仅新增一个 79 行的共享权限规则文件，没有新增 Runtime 文件或测试框架。收益是去掉两份可编辑镜像数组和分散规则，不宣称总源码大幅缩减。
 
 ## 目录地图
+
+2026-10-07 图鉴首版：`Progression/Bestiary`仅两个Runtime类型（条目配置/详情UI）；`Configs/Progression/Bestiary/CFG_Bestiary_Kimi`引用正式World01，不复制Level或场景。原LaunchContext/SceneRouter传Challenge意图，ChapterRun统一节点配装/波次/检查点/奖励隔离；KimiEncounter只接受可选本局前奏参数，正式20秒不变。Editor `BestiaryInstaller`显式复用生成UI装配主页图鉴与结算重试按钮，不进游戏包。挑战首版单人+AI，仅Kimi，后续普通怪/豆包图鉴目标与条目选择尚未实现。详细边界/延期验收见docs/KimiQuickChallenge.md。最新内容20261007-kimi-bestiary-1、协议9。
+
+2026-10-07 Kimi表现补充（以下旧Kimi数值/版本以此及HANDOFF顶部为准）：第四波20秒接管，次数盾300/500，协议9/内容20261007-kimi-presentation-1。新增`Combat/Encounters/Kimi/KimiBossPresentation2D`只负责月光受击罩与鞠躬退场影像，复用SpriteHitFlash序号；`DamageHitbox2D.UseReceiverHitFeedback`仅Kimi启用，武器扣血/数字/声音链不变，普通怪物保持原命中特效。`KimiChapterEncounterDriver2D`负责两层FinitePanorama等比背景交叉淡化，胜利结算暂停时仍播放纯表现。`KimiPresentationInstaller`只显式追加这些渲染器、引用与新间隔，不重建原模块、不改碰撞。五路激光同快照由下到上相隔0.08秒，消息结构不变。实际战斗/双端验收依用户要求留到下一轮。安卓操作与耗时说明见`docs/AndroidBuildGuide.md`。
 
 Kimi 当前结构（2026-10-06，正式黄昏第四波已装配）：
 

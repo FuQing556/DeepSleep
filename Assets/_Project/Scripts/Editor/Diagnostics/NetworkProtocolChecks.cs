@@ -189,6 +189,7 @@ namespace DeepSleep.Editor.Diagnostics
                 {
                     switch (definition.Id)
                     {
+                        case Catalog.Peer.Headwear: w.Write((ushort)1); w.Write((ushort)0); w.Write((ushort)2); w.Write((ushort)0); break;
                         case Catalog.Peer.Ready: case Catalog.Peer.Control: case Catalog.Peer.RestNodeReady: w.Write(true); break;
                         case Catalog.Peer.Input: w.Write(new byte[29]); break;
                         case Catalog.Peer.UpgradeRequest: w.Write((byte)1); w.Write((byte)0); break;
@@ -199,6 +200,7 @@ namespace DeepSleep.Editor.Diagnostics
             {
                 switch (definition.Id)
                 {
+                    case Catalog.Authority.Headwear: w.Write((ushort)1); w.Write((ushort)0); w.Write((ushort)2); w.Write((ushort)0); break;
                     case Catalog.Authority.Welcome: w.Write((byte)0); w.Write((uint)1); w.Write(false); w.Write("World01"); break;
                     case Catalog.Authority.Start: break;
                     case Catalog.Authority.Room: w.Write(new byte[8]); break;

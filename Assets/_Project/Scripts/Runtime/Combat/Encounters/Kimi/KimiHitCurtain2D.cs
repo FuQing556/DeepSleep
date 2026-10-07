@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using DeepSleep.Runtime.Combat.Damage;
 using DeepSleep.Runtime.Combat.Perception;
 using DeepSleep.Runtime.Networking;
+using DeepSleep.Runtime.Presentation;
 using UnityEngine;
 
 namespace DeepSleep.Runtime.Combat.Encounters.Kimi
 {
     /// <summary>次数光幕：一次有效命中扣一次，不把伤害值当成次数。</summary>
+    [DefaultExecutionOrder(310)]
     public sealed class KimiHitCurtain2D : MonoBehaviour, IDamageReceiver, IDamageFeedbackSource
     {
         public BoxCollider2D Shape;
         public SpriteRenderer Visual;
         public CombatPerceptionBody2D Perception;
+        public SpriteHitFlash2D HitFlash;
+        [Range(0, 1)] public float IdleAlpha;
+        [Range(0, 1)] public float HitAlpha;
         public int Remaining { get; private set; }
         public int Maximum { get; private set; }
         private CoopSessionController _session;
@@ -55,6 +60,14 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
         {
             _replica = true; Remaining = remaining; Maximum = maximum;
             transform.position = position; Shape.enabled = false; Visual.enabled = remaining > 0;
+        }
+        private void LateUpdate()
+        {
+            if (!Visual.enabled || HitFlash == null) return;
+            float flash = HitFlash.IsPlaying ? 1 - Mathf.SmoothStep(0, 1, HitFlash.NormalizedAge) : 0;
+            var color = Visual.color;
+            color.a = Mathf.Lerp(IdleAlpha, HitAlpha, flash);
+            Visual.color = color;
         }
         private void Awake() => Clear();
         private void OnDisable() => Clear();

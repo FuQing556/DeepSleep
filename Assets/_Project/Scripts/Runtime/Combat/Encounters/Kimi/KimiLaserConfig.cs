@@ -11,11 +11,16 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
         public Color WarningColor, BeamColor;
         public LayerMask PlayerLayers;
         public int ShotCount;
+        public int PhaseTwoRayCount;
+        public float PhaseTwoRaySpacingDegrees;
+        public float PhaseTwoRayDelaySeconds;
         public float TargetMarkerDiameter, TargetMarkerSpinDegrees;
 
         public bool TryValidate(out string reason)
         {
-            if (ShotCount <= 0 || !Positive(TargetMarkerDiameter) || !float.IsFinite(TargetMarkerSpinDegrees) ||
+            if (PhaseTwoRayCount < 1 || PhaseTwoRayCount > 5 || PhaseTwoRayCount % 2 == 0 || !Positive(PhaseTwoRaySpacingDegrees) ||
+                PhaseTwoRaySpacingDegrees * (PhaseTwoRayCount-1) >= 180 || !Positive(PhaseTwoRayDelaySeconds) ||
+                ShotCount <= 0 || !Positive(TargetMarkerDiameter) || !float.IsFinite(TargetMarkerSpinDegrees) ||
                 !Positive(ChargeSeconds) || !Positive(FireSeconds) || !Positive(RecoverySeconds) ||
                 !Positive(Length) || !Positive(DamageWidth) || !Positive(VisualWidth) || VisualWidth < DamageWidth ||
                 !Positive(TextureRepeatLength) || !float.IsFinite(TextureScrollSpeed) || !Positive(Damage) ||

@@ -2,6 +2,7 @@ using UnityEngine;
 
 namespace DeepSleep.Runtime.Progression.Meta
 {
+    public enum AccessorySlot { Front, Back }
     [CreateAssetMenu(
         fileName = "CFG_META_Product_",
         menuName = "DeepSleep/Progression/Meta Shop Product")]
@@ -13,6 +14,8 @@ namespace DeepSleep.Runtime.Progression.Meta
         [SerializeField, Min(0)] private int _price;
         [SerializeField] private Sprite _icon;
         [SerializeField] private bool _repeatable = true;
+        [SerializeField] private bool _isHeadwear;
+        [SerializeField] private bool _isBackwear;
 
         public string ProductId => _productId;
         public string DisplayName => _displayName;
@@ -20,6 +23,9 @@ namespace DeepSleep.Runtime.Progression.Meta
         public int Price => _price;
         public Sprite Icon => _icon;
         public bool Repeatable => _repeatable;
+        public bool IsHeadwear => _isHeadwear;
+        public bool IsAccessory => _isHeadwear || _isBackwear;
+        public AccessorySlot Slot => _isBackwear ? AccessorySlot.Back : AccessorySlot.Front;
 
         public bool TryValidate(out string reason)
         {
@@ -34,6 +40,8 @@ namespace DeepSleep.Runtime.Progression.Meta
                 reason = $"{_displayName} 的价格不能为负数。";
                 return false;
             }
+            if ((_isHeadwear && _isBackwear) || (IsAccessory && (_repeatable || _icon == null)))
+            { reason = "头饰必须是非重复购买商品并配置图标。"; return false; }
 
             reason = string.Empty;
             return true;

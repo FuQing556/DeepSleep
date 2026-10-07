@@ -1,4 +1,5 @@
 using DeepSleep.Runtime.Progression.Meta;
+using DeepSleep.Runtime.Progression.Bestiary;
 using UnityEngine;
 
 namespace DeepSleep.Runtime.AppFlow
@@ -16,7 +17,8 @@ namespace DeepSleep.Runtime.AppFlow
         ModeSelection,
         Shop,
         Inventory,
-        Achievements
+        Achievements,
+        Bestiary
     }
 
     /// <summary>跨场景传递一次启动意图，不保存战斗运行时对象。</summary>
@@ -24,6 +26,7 @@ namespace DeepSleep.Runtime.AppFlow
     {
         public MetaLevelDefinition SelectedLevel { get; private set; }
         public GameLaunchMode Mode { get; private set; }
+        public BestiaryEntryDefinition Challenge { get; private set; }
         public MainMenuPage ReturnPage { get; private set; } =
             MainMenuPage.Home;
 
@@ -33,11 +36,20 @@ namespace DeepSleep.Runtime.AppFlow
         {
             SelectedLevel = level;
             Mode = mode;
+            Challenge = null;
+        }
+
+        public void PrepareChallenge(BestiaryEntryDefinition entry)
+        {
+            Prepare(entry.Level, GameLaunchMode.Solo);
+            Challenge = entry;
+            ReturnPage = MainMenuPage.Bestiary;
         }
 
         public void SetReturnPage(MainMenuPage page)
         {
             ReturnPage = page;
+            Challenge = null;
         }
     }
 }

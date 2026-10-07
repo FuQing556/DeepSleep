@@ -28,10 +28,11 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
         public bool IsShown { get; private set; }
         public bool IsAlive => IsShown && CurrentHealth > 0;
         public bool PhaseTwo { get; private set; }
+        public bool IsPhaseHealthLocked => !PhaseTwo && CurrentHealth <= MaximumHealth * Config.PhaseTwoHealthFraction;
         public KimiPose Pose { get; private set; }
         public bool CanReceiveDamage => isActiveAndEnabled && _authoring &&
             (_session == null || _session.Phase == SessionPhase.Offline || _session.IsAuthority) &&
-            IsAlive && _vulnerable;
+            IsAlive && _vulnerable && !IsPhaseHealthLocked;
 
         private void Awake()
         {
@@ -67,7 +68,8 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
         public void SetVulnerable(bool vulnerable)
         {
             _vulnerable = vulnerable;
-            HitCollider.enabled = CanReceiveDamage;
+            // 锁血/转阶段只禁止扣血，球体仍用于接触伤害和可见边界。
+            HitCollider.enabled = IsAlive && _authoring;
         }
 
         public bool CommitPhaseAtSkillBoundary()
@@ -87,7 +89,8 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
         public bool TryReceiveDamage(in DamagePacket damage)
         {
             if (!CanReceiveDamage || !damage.IsValid) return false;
-            CurrentHealth = Mathf.Max(0, CurrentHealth - damage.Amount);
+            float floor = PhaseTwo ? 0 : MaximumHealth * Config.PhaseTwoHealthFraction;
+            CurrentHealth = Mathf.Max(floor, CurrentHealth - damage.Amount);
             DamageAccepted?.Invoke(damage);
             if (CurrentHealth <= 0)
             {
@@ -112,11 +115,13 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
             Render();
         }
 
-        public void ResetEncounter()
+        public void ResetEncounter(bool preserveDefeat = false)
         {
+            bool defeated = preserveDefeat && Pose == KimiPose.Bow;
             _authoring = _vulnerable = IsShown = PhaseTwo = false;
             CurrentHealth = 0;
-            Pose = KimiPose.Idle;
+            // 保留致死姿态作为已有快照内的退场事实，不让客机把胜利与普通取消混淆。
+            Pose = defeated ? KimiPose.Bow : KimiPose.Idle;
             if (HitCollider != null) HitCollider.enabled = false;
             if (Body != null) Body.enabled = false;
             if (Cloud != null) Cloud.enabled = false;
@@ -128,7 +133,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
         private void Render()
         {
             Body.enabled = Cloud.enabled = IsShown;
-            HitCollider.enabled = CanReceiveDamage;
+            HitCollider.enabled = IsAlive && _authoring;
         }
 
         private void OnDisable() => ResetEncounter();

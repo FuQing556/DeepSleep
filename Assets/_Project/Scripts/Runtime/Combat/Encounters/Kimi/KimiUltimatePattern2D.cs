@@ -39,7 +39,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
         public bool TryValidateConfiguration(out string reason)
         {
             if (Config==null || Boss==null || Curtain==null || Curtain.Shape==null || Curtain.Visual==null ||
-                Curtain.Perception==null || Blades==null || Reinforcements==null || ReinforcementPool==null || BreakEffects==null)
+                Curtain.Perception==null || Curtain.HitFlash==null || Blades==null || Reinforcements==null || ReinforcementPool==null || BreakEffects==null)
             { reason="大招需要本体/光幕、独立巨刃池、360刷怪器/池和碎裂特效。"; return false; }
             return Config.TryValidate(out reason) && Blades.TryValidateConfiguration(out reason) &&
                 Reinforcements.TryValidateConfiguration(out reason) && BreakEffects.TryValidateConfiguration(out reason);

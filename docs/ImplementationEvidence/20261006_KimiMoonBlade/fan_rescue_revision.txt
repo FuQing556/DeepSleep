@@ -1,0 +1,16 @@
+Kimi revision 2026-10-06
+Curtain: phase1 300 / phase2 500 hits. Charge duration unchanged 10/14s.
+Laser: five rounds unchanged; phase2 five rays at 0,-12,+12,-24,+24 degrees.
+Shared per-round hit cache prevents overlapping rays doing five instant hits.
+Explicit mesh views; no runtime component creation. Existing texture/UV repeat reused.
+Existing authoritative boss phase reconstructs branch geometry; wire layout unchanged.
+PassiveAttackTarget on Kimi, four mirror sides and curtain excludes false contact danger/rescue-clear requirement; regular target selection remains.
+
+Isolated Unity Play:
+62 laser assertions: original single-ray regression, each of 5 ray hit lanes, safe gaps, overlapping hit dedup, warning/fire/cancel cleanup.
+13 rescue perception assertions: old boss-blocking condition reproduced by old classification, corrected classification allows safe-area result while keeping boss selectable.
+393 Kimi network assertions including phase2 five-ray replica.
+845 ultimate assertions with production 300/500 counts.
+Formal World01 laser validates and inherits 4 extra mesh pairs plus center, passive boss marker true.
+No natural full-battle rescue acceptance or dual-device testing. No build/push.
+Preview: laser_phase2_fan_mobile.png is isolated Unity render, not device capture.

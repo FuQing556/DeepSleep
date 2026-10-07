@@ -101,18 +101,21 @@ namespace DeepSleep.Editor.Diagnostics
                     Vector2.Distance(encounter.Laser.Lane.Direction, locked.Direction) < .0001f, "Frozen laser warning geometry roundtrip");
                 encounter.Laser.Simulate(10); Check(encounter.Laser.State == KimiLaserState.Charging, "Replica cannot fire via Simulate");
                 Check(encounter.Laser.TargetMarker.enabled && encounter.Laser.MarkerPosition == new Vector2(-4,1), "Target marker roundtrip");
-                Prepare(); encounter.Laser.Begin(new Vector2(-4, 1), null); encounter.Laser.Simulate(encounter.Laser.Config.ChargeSeconds + .05f);
+                Prepare(); encounter.Boss.TryReceiveDamage(new DamagePacket(encounter.Boss.MaximumHealth*.5f,Vector2.zero,Vector2.left,null));
+                encounter.Boss.CommitPhaseAtSkillBoundary();
+                encounter.Laser.Begin(new Vector2(-4, 1), null); encounter.Laser.Simulate(encounter.Laser.Config.ChargeSeconds + .05f);
                 packet = Packet(4); encounter.Cancel(); Receive(packet); Check(encounter.Laser.State == KimiLaserState.Firing, "Laser firing restored");
+                Check(encounter.Laser.RayCount==5 && encounter.Laser.BranchBeams.All(b=>b.GetComponent<MeshRenderer>().enabled),"Phase2 five-ray replica uses authoritative phase");
                 Prepare(); Check(encounter.Ultimate.Begin(true, null, targets, null), "Ultimate begins");
                 var hit = new DamagePacket(1, Vector2.zero, Vector2.left, null); encounter.Ultimate.Curtain.TryReceiveDamage(in hit);
                 packet = Packet(5); encounter.Cancel(); Receive(packet); SafeReplica();
-                Check(encounter.Ultimate.Curtain.Remaining == 999 && encounter.Ultimate.Curtain.Maximum == 1000 &&
+                Check(encounter.Ultimate.Curtain.Remaining == encounter.Ultimate.Config.PhaseTwoHits-1 && encounter.Ultimate.Curtain.Maximum == encounter.Ultimate.Config.PhaseTwoHits &&
                     encounter.Ultimate.Curtain.Visual.enabled && encounter.Boss.Pose == KimiPose.FluteCharge, "Phase-two curtain count/pose");
                 transport.IsServer = true; var before = encounter.Boss.CurrentHealth; Receive(packet);
                 Check(encounter.Boss.CurrentHealth == before && Get<uint>(channel, "_lastReceived") == 5, "Authority ignores replica messages"); transport.IsServer = false;
                 typeof(KimiEncounterNetworkChannel).GetMethod("Clear", Private).Invoke(channel, null);
                 Check(!encounter.Boss.IsShown && !driver.HasTakenOver && !Get<bool>(channel, "_received"), "Room close clears visual and watermark");
-                Receive(packet); Check(Get<uint>(channel, "_lastReceived") == 5 && encounter.Ultimate.Curtain.Remaining == 999, "Fresh reconnect restores full current state");
+                Receive(packet); Check(Get<uint>(channel, "_lastReceived") == 5 && encounter.Ultimate.Curtain.Remaining == encounter.Ultimate.Config.PhaseTwoHits-1, "Fresh reconnect restores full current state");
                 // 同一通用世界通道的实际采集/发送/接收：独立遭遇池不能漏于普通关卡敌人清单之外。
                 Prepare();
                 Check(encounter.Moon.Projectiles.TryRent(new Vector2(-5, 3), Vector2.right, encounter.Boss.gameObject, out _), "Moon entity seed");
@@ -152,7 +155,7 @@ namespace DeepSleep.Editor.Diagnostics
                 Check(world.VisibleEntities == 0, "Late old entity packets cannot resurrect cleared hazards");
                 (Get<IDisposable>(session, "_sendWriter"))?.Dispose(); (Get<IDisposable>(session, "_sendBuffer"))?.Dispose();
                 Set(session, "_sendWriter", null); Set(session, "_sendBuffer", null); Set(session, "_transport", null);
-                string report = "PASS " + checks + " Kimi snapshot/entity assertions: actual 268-byte writer/reader, four lane warnings, broken mirror/orb, locked warning/fire and target marker, 999/1000 curtain, authority gate, all truncations, invalid frame atomicity, duplicate, close/reconnect. Existing world collector roundtrip shows360/moon/tidal with stable sprites; reliable despawn rejects late resurrection. Controlled in-process transport capture, not dual-device, full hit VFX/audio or natural gameplay acceptance.";
+                string report = "PASS " + checks + " Kimi snapshot/entity assertions: actual 268-byte writer/reader, four lane warnings, broken mirror/orb, locked warning/fire and target marker, phase2 five-ray fan, configured curtain hits, authority gate, all truncations, invalid frame atomicity, duplicate, close/reconnect. Existing world collector roundtrip shows360/moon/tidal with stable sprites; reliable despawn rejects late resurrection. Controlled in-process transport capture, not dual-device, full hit VFX/audio or natural gameplay acceptance.";
                 File.WriteAllText(KimiMoonBladeChecks.Evidence + "/network_verification.txt", report); return report;
             }
             finally

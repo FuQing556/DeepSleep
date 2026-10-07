@@ -280,6 +280,31 @@ namespace DeepSleep.Editor.Diagnostics
                     ? new HashSet<Object>(levelBindings.Enemies.Where(e => e != null).Select(e => (Object)e.Director)) : new HashSet<Object>();
                 var cleanupBullets = levelBindings != null
                     ? new HashSet<Object>(levelBindings.Enemies.Where(e => e != null).SelectMany(e => e.ProjectilePools).Cast<Object>()) : new HashSet<Object>();
+                // Kimi由章节Driver统一推进/停战，专用池不能再直接加入循环，否则每帧模拟两次。
+                var encounterOwned = new HashSet<Object>();
+                foreach (var driver in All<KimiChapterEncounterDriver2D>())
+                {
+                    bool valid = driver.TryValidateConfiguration(out string reason);
+                    Check(valid, Path(driver) + " Kimi ownership: " + reason);
+                    Check(steps.Contains(driver) && driver.Chapter == chapter && driver.Session == session,
+                        Path(driver) + " Kimi chapter/loop/session ownership mismatch.");
+                    if (!valid) continue;
+                    var encounter = driver.Encounter;
+                    Object[] delegated = { encounter, encounter.Moon, encounter.Prism, encounter.Laser, encounter.Ultimate,
+                        encounter.Moon.Projectiles, encounter.Ultimate.Blades, encounter.Ultimate.Reinforcements, encounter.Ultimate.ReinforcementPool };
+                    foreach (Object child in delegated)
+                    {
+                        Check(child is Component c && c.gameObject.scene == _scene, Path(child) + " Kimi child crosses scenes.");
+                        Check(!steps.Contains(child), Path(child) + " Kimi child is simulated twice.");
+                        Check(encounterOwned.Add(child), Path(child) + " Kimi child has multiple owners.");
+                        ownedSteps.Add(child);
+                    }
+                    registeredPools.Add(encounter.Ultimate.ReinforcementPool);
+                    directors.Add(encounter.Ultimate.Reinforcements);
+                    cleanupBullets.Add(encounter.Moon.Projectiles); cleanupBullets.Add(encounter.Ultimate.Blades);
+                    Check(All<KimiEncounterNetworkChannel>().Any(c => c.Encounter == encounter && c.ChapterDriver == driver && c.Session == session),
+                        Path(driver) + " Kimi replication channel missing/mismatched.");
+                }
                 Check(registeredPools.SetEquals(All<EnemyActorPool2D>().Cast<Object>()), "Level binding does not cover exactly this scene's enemy pools.");
                 Check(directors.SetEquals(All<EnemySpawnDirector2D>().Cast<Object>()), "Level binding does not cover exactly this scene's spawn directors.");
                 Check(cleanupBullets.SetEquals(All<EnemyProjectilePool2D>().Cast<Object>()), "Combat world binding does not cover exactly this scene's projectile pools.");
@@ -300,11 +325,11 @@ namespace DeepSleep.Editor.Diagnostics
                 foreach (var pool in All<EnemyActorPool2D>())
                 {
                     Check(pool.TryValidateConfiguration(out string reason), Path(pool) + " pool: " + reason);
-                    Check(steps.Contains(pool), Path(pool) + " omitted from fixed simulation loop.");
+                    Check(steps.Contains(pool) || encounterOwned.Contains(pool), Path(pool) + " omitted from fixed simulation loop/encounter owner.");
                     Check(registeredPools.Contains(pool), Path(pool) + " omitted from the shared chapter/world enemy registration.");
                     Check(rewardPools.Contains(pool), Path(pool) + " omitted from Token reward subscriptions.");
                     Check(replicatedPools.Contains(pool), Path(pool) + " omitted from world replication pool references.");
-                    Check(authority.Contains(pool), Path(pool) + " pool omitted from authority gate.");
+                    Check(authority.Contains(pool) || encounterOwned.Contains(pool), Path(pool) + " pool omitted from authority gate/encounter owner.");
                     Check(Reference<Object>(pool, "_perceptionRegistry") == perception, Path(pool) + " perception registry missing/mismatched.");
                     var prefab = Reference<EnemyActor2D>(pool, "_enemyPrefab");
                     if (prefab != null)
@@ -333,7 +358,7 @@ namespace DeepSleep.Editor.Diagnostics
                 foreach (var pool in All<EnemyProjectilePool2D>())
                 {
                     Check(pool.TryValidateConfiguration(out string reason), Path(pool) + " projectile pool: " + reason);
-                    Check(steps.Contains(pool) && authority.Contains(pool), Path(pool) + " projectile pool missing loop/authority registration.");
+                    Check((steps.Contains(pool) && authority.Contains(pool)) || encounterOwned.Contains(pool), Path(pool) + " projectile pool missing loop/authority registration.");
                     Check(replicatedBullets.Contains(pool), Path(pool) + " omitted from projectile replication references.");
                     Check(cleanupBullets.Contains(pool), Path(pool) + " omitted from combat world projectile cleanup.");
                     Check(Reference<Object>(pool, "_perceptionRegistry") == perception, Path(pool) + " projectile perception registry mismatch.");
@@ -343,7 +368,7 @@ namespace DeepSleep.Editor.Diagnostics
                 foreach (var director in All<EnemySpawnDirector2D>())
                 {
                     Check(director.TryValidateConfiguration(out string reason), Path(director) + " spawn: " + reason);
-                    Check(directors.Contains(director) && steps.Contains(director) && authority.Contains(director),
+                    Check(directors.Contains(director) && ((steps.Contains(director) && authority.Contains(director)) || encounterOwned.Contains(director)),
                         Path(director) + " spawn director missing chapter/loop/authority registration.");
                     var autoStart = new SerializedObject(director).FindProperty("_autoStart");
                     Check(autoStart != null && !autoStart.boolValue,

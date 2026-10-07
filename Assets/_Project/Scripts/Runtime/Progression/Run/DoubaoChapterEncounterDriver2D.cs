@@ -45,7 +45,7 @@ namespace DeepSleep.Runtime.Progression.Run
         }
 
         public bool IsRequiredForSegment(int segmentNumber) =>
-            _segmentNumbers != null && System.Array.IndexOf(_segmentNumbers, segmentNumber) >= 0;
+            !_chapterRun.IsChallenge && _segmentNumbers != null && System.Array.IndexOf(_segmentNumbers, segmentNumber) >= 0;
 
         private void OnEnable()
         {

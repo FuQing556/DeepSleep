@@ -35,6 +35,7 @@ namespace DeepSleep.Runtime.Progression.Meta
 
         private void OnReviveCompleted(PlayerActor rescuer)
         {
+            if (GameAppRoot.Instance.LaunchContext.Challenge != null) return;
             GameAppRoot.Instance.Achievements.Report(
                 AchievementTriggerIds.TeammateRevived);
         }

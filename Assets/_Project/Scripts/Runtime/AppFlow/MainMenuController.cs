@@ -16,6 +16,8 @@ namespace DeepSleep.Runtime.AppFlow
         [SerializeField] private GameObject _shop;
         [SerializeField] private GameObject _inventory;
         [SerializeField] private GameObject _achievements;
+        [SerializeField] private GameObject _bestiary;
+        [SerializeField] private Button _bestiaryButton;
         [SerializeField] private Button _startGame;
         [SerializeField] private Button _shopButton;
         [SerializeField] private Button _inventoryButton;
@@ -52,6 +54,7 @@ namespace DeepSleep.Runtime.AppFlow
             _shopButton.onClick.AddListener(OpenShop);
             _inventoryButton.onClick.AddListener(OpenInventory);
             _achievementsButton.onClick.AddListener(OpenAchievements);
+            if (_bestiaryButton != null) _bestiaryButton.onClick.AddListener(OpenBestiary);
             _prototypeButton.onClick.AddListener(SelectPrototype);
             if (_world01Button != null) _world01Button.onClick.AddListener(SelectWorld01);
             _soloButton.onClick.AddListener(StartSolo);
@@ -66,6 +69,7 @@ namespace DeepSleep.Runtime.AppFlow
             _shopButton.onClick.RemoveListener(OpenShop);
             _inventoryButton.onClick.RemoveListener(OpenInventory);
             _achievementsButton.onClick.RemoveListener(OpenAchievements);
+            if (_bestiaryButton != null) _bestiaryButton.onClick.RemoveListener(OpenBestiary);
             _prototypeButton.onClick.RemoveListener(SelectPrototype);
             if (_world01Button != null) _world01Button.onClick.RemoveListener(SelectWorld01);
             _soloButton.onClick.RemoveListener(StartSolo);
@@ -89,6 +93,7 @@ namespace DeepSleep.Runtime.AppFlow
         public void OpenShop() => ShowPage(MainMenuPage.Shop, AudioCue.UiOpen);
         public void OpenInventory() => ShowPage(MainMenuPage.Inventory, AudioCue.UiOpen);
         public void OpenAchievements() => ShowPage(MainMenuPage.Achievements, AudioCue.UiOpen);
+        public void OpenBestiary() => ShowPage(MainMenuPage.Bestiary, AudioCue.UiOpen);
         public void OpenModes() => ShowPage(MainMenuPage.ModeSelection, AudioCue.UiOpen);
 
         private void ShowPage(MainMenuPage page, AudioCue cue)
@@ -131,6 +136,7 @@ namespace DeepSleep.Runtime.AppFlow
             _shop.SetActive(_page == MainMenuPage.Shop);
             _inventory.SetActive(_page == MainMenuPage.Inventory);
             _achievements.SetActive(_page == MainMenuPage.Achievements);
+            if (_bestiary != null) _bestiary.SetActive(_page == MainMenuPage.Bestiary);
             _backButton.gameObject.SetActive(_page != MainMenuPage.Home);
         }
     }

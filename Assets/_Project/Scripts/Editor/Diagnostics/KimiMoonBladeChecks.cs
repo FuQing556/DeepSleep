@@ -417,7 +417,7 @@ namespace DeepSleep.Editor.Diagnostics
                     boss.BeginAuthority(new Vector2(6.5f,-.8f),null,null);hud.Bind(boss,u.Curtain);
                     if(phase==1){var half=new DamagePacket(5000,boss.transform.position,Vector2.left,null);boss.TryReceiveDamage(in half);boss.CommitPhaseAtSkillBoundary();boss.GetComponent<SpriteHitFlash2D>().ResetFeedback();}
                     require(u.Begin(phase==1,null,targets,null),"Ultimate starts");
-                    int maximum=phase==0?500:1000;
+                    int maximum=phase==0?u.Config.PhaseOneHits:u.Config.PhaseTwoHits;
                     require(u.Curtain.Remaining==maximum && !boss.CanReceiveDamage,"Correct hit shield protects boss");
                     u.Simulate(.02f);Physics2D.Simulate(.02f);
                     require(u.ReinforcementPool.ActiveCount==1,"360 spawned via real pool");
@@ -482,7 +482,7 @@ namespace DeepSleep.Editor.Diagnostics
                 require(u.Blades.TryRent(new Vector2(4,0),Vector2.left,boss.gameObject,out var probe),"Rent real giant hit probe");
                 for(int i=0;i<90;i++){u.Blades.Simulate(.02f);Physics2D.Simulate(.02f);}
                 require(healths[0].CurrentHealth==98 && u.Blades.ActiveCount==0,"Giant blade actual trigger deals2 and returns");
-                string report="ULTIMATE PASS "+checks+" checks.500/1000 hit shield,10/14s charge, exact interrupt/stagger, high damage counts once, duplicate IDs rejected, legacy independent hits accepted. Real Kimi-local360 spawn/24HP/cap10. Five volleys=5/15 distinct tidal blades,6u/s,2damage actual trigger, cannot be HS-cleared. Pause/cancel/reset/owned-pool cleanup and live uGUI counter tested. Independent Unity test only, not full player/AI/network/phone/balance acceptance.";
+                string report="ULTIMATE PASS "+checks+" checks. Shield="+u.Config.PhaseOneHits+"/"+u.Config.PhaseTwoHits+",10/14s charge, exact interrupt/stagger, high damage counts once, duplicate IDs rejected, legacy independent hits accepted. Real Kimi-local360 spawn/24HP/cap10. Five volleys=5/15 distinct tidal blades,6u/s,2damage actual trigger, cannot be HS-cleared. Pause/cancel/reset/owned-pool cleanup and live uGUI counter tested. Independent Unity test only, not full player/AI/network/phone/balance acceptance.";
                 File.WriteAllText(Evidence+"/ultimate_verification.txt",report);return report;
             }
             finally
@@ -617,7 +617,29 @@ namespace DeepSleep.Editor.Diagnostics
                     require(accepted.AttackId!=0 && accepted.AttackId!=previousId && accepted.InterceptionPolicy==DamageInterceptionPolicy.Blockable,"Unique blockable attack "+angle);
                     previousId=accepted.AttackId;
                 }
+                boss.TryReceiveDamage(new DamagePacket(boss.MaximumHealth*.5f,boss.transform.position,Vector2.right,null));
+                require(boss.CommitPhaseAtSkillBoundary(),"Enter phase2 at skill boundary");
+                for(int branch=0;branch<5;branch++)
+                {
+                    health[0].ResetToMaximum();health[1].ResetToMaximum();
+                    laser.Begin(origin+Vector2.left*10,null);
+                    require(laser.RayCount==5 && laser.BranchWarnings.All(w=>w.GetComponent<MeshRenderer>().enabled),"Five branch warnings");
+                    var lane=laser.GetLane(branch);
+                    probes[0].transform.position=lane.Origin+lane.Direction*10;
+                    Vector2 gap=Quaternion.Euler(0,0,6)*Vector2.left;
+                    probes[1].transform.position=origin+gap*10;
+                    Physics2D.SyncTransforms();laser.Simulate(laser.Config.ChargeSeconds+.01f);
+                    require(health[0].CurrentHealth==99 && health[1].CurrentHealth==100,"Branch damage and gap "+branch);
+                    require(laser.BranchBeams.All(b=>b.GetComponent<MeshRenderer>().enabled),"All branch meshes fire");
+                    laser.Simulate(.05f);require(health[0].CurrentHealth==99,"Fan dedup within round");
+                }
+                // 近炮口五道重叠也只吃一次，不瞬间叠五倍伤害。
+                health[0].ResetToMaximum();probes[0].transform.position=origin+Vector2.left*.3f;Physics2D.SyncTransforms();
+                laser.Begin(origin+Vector2.left*10,null);laser.Simulate(laser.Config.ChargeSeconds+.01f);
+                require(health[0].CurrentHealth==99,"Overlapping branches share hit cache");
+                Capture("laser_phase2_fan_mobile",1280,582);
                 laser.enabled=false;
+                require(laser.BranchWarnings.All(w=>!w.GetComponent<MeshRenderer>().enabled) && laser.BranchBeams.All(b=>!b.GetComponent<MeshRenderer>().enabled),"Disable clears fan");
                 require(laser.State==KimiLaserState.Idle && !laser.Beam.GetComponent<MeshRenderer>().enabled,"Disable clears active beam");
                 laser.enabled=true;
                 laser.Begin(origin+Vector2.left*8,null);laser.Simulate(1.3f);

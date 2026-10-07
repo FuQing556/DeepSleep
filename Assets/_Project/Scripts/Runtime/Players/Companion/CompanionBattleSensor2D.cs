@@ -136,7 +136,7 @@ namespace DeepSleep.Runtime.Players.Companion
                 if (!body.ThreatTrackedAsObstacle) _visible[_count++] = body;
                 Vector2 bodyPosition = body.Position;
                 float distance = Vector2.Distance(position, bodyPosition);
-                if (!body.ThreatTrackedAsObstacle && distance <= Config.NearbyRadius) NearbyCount++;
+                if (!body.ThreatTrackedAsObstacle && !body.PassiveAttackTarget && distance <= Config.NearbyRadius) NearbyCount++;
                 if (!body.IsAttackTarget || body.ThreatTrackedAsObstacle || distance > Config.AttackRange) continue;
                 float nearEither = Mathf.Min(distance, Vector2.Distance(ally, bodyPosition));
                 float wounded = body.IsEnemy
@@ -159,7 +159,7 @@ namespace DeepSleep.Runtime.Players.Companion
             float best = float.PositiveInfinity;
             for (int i = 0; i < hits; i++)
             {
-                if (!Registry.TryResolve(_colliders[i], out var body) || !body.IsObservable || !body.IsAttackTarget) continue;
+                if (!Registry.TryResolve(_colliders[i], out var body) || !body.IsObservable || !body.IsAttackTarget || body.PassiveAttackTarget) continue;
                 // 只有实际压住救援点的气泡需要清除，不能为了救人清空周围整片迷宫。
                 if (body.ThreatTrackedAsObstacle &&
                     Vector2.Distance(body.Shape.ClosestPoint(ally), ally) > rescueBodyRadius) continue;
@@ -199,7 +199,7 @@ namespace DeepSleep.Runtime.Players.Companion
             for (int i = 0; i < _count; i++)
             {
                 var body = _visible[i];
-                if (body == null || !body.IsObservable) continue;
+                if (body == null || !body.IsObservable || body.PassiveAttackTarget) continue;
                 // 仅复用本次循环体的 bounds；每次 Danger 仍重新读取活动状态与几何。
                 Bounds bounds = body.Shape.bounds;
                 danger += CompanionThreatMath.Risk((Vector2)bounds.center - position, body.Velocity - velocity,

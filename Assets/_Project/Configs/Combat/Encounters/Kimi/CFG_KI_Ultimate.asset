@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955f14c353109184f888b0e1d8a55a3c, type: 3}
   m_Name: CFG_KI_Ultimate
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiUltimateConfig
-  PhaseOneHits: 500
-  PhaseTwoHits: 1000
+  PhaseOneHits: 300
+  PhaseTwoHits: 500
   VolleyCount: 5
   PhaseTwoBlades: 3
   ReinforcementLimit: 10

@@ -30,5 +30,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   ShotCount: 5
+  PhaseTwoRayCount: 5
+  PhaseTwoRaySpacingDegrees: 12
+  PhaseTwoRayDelaySeconds: 0.08
   TargetMarkerDiameter: 2.4
   TargetMarkerSpinDegrees: 35

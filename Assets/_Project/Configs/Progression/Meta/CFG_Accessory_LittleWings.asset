@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c630a64fdc8e8ea40b995945a3f22ca1, type: 3}
+  m_Name: CFG_Accessory_LittleWings
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Presentation.Accessories.HeadwearDefinition
+  NetworkId: 2
+  Product: {fileID: 11400000, guid: 893a3a115be545e44a7b0120b9fb3cbe, type: 2}
+  Sprite: {fileID: 21300000, guid: 8e458caa42c286148941a98b0c28c2d0, type: 3}
+  Layer: 1
+  BaseAnchor: {x: 0.5, y: 0.4}
+  Poses:
+  - Pose: {fileID: 21300000, guid: 95d55fedc3e0b4c41a7a12e75dbd2879, type: 3}
+    Role: 0
+    Anchor: {x: 0.5689473, y: 0.50789475}
+    Angle: 0
+    WidthRatio: 1.5
+  - Pose: {fileID: 21300000, guid: 029e724a7167c8a4baa09ff54559f7b4, type: 3}
+    Role: 0
+    Anchor: {x: 0.6142105, y: 0.46736842}
+    Angle: 0
+    WidthRatio: 1.5
+  - Pose: {fileID: 21300000, guid: 89a7618210594394cb96adfaa7ce42db, type: 3}
+    Role: 1
+    Anchor: {x: 0.5973684, y: 0.51894736}
+    Angle: 0
+    WidthRatio: 1.5
+  - Pose: {fileID: 21300000, guid: 37f64160fdfbbad41bff5119545e9658, type: 3}
+    Role: 1
+    Anchor: {x: 0.61368424, y: 0.46210524}
+    Angle: 0
+    WidthRatio: 1.5
+  - Pose: {fileID: 21300000, guid: f4f4dda098d67f0499871416d852225b, type: 3}
+    Role: 1
+    Anchor: {x: 0.41368422, y: 0.49894735}
+    Angle: 0
+    WidthRatio: 1.5
+  - Pose: {fileID: 21300000, guid: 196cdf5b48121da41a623fc3117d64a2, type: 3}
+    Role: 1
+    Anchor: {x: 0.5721052, y: 0.5094737}
+    Angle: 0
+    WidthRatio: 1.5
+  - Pose: {fileID: 21300000, guid: c532329b8a8719e44b96dec02e453c60, type: 3}
+    Role: 1
+    Anchor: {x: 0.54, y: 0.44}
+    Angle: 0
+    WidthRatio: 1.5
+  - Pose: {fileID: 21300000, guid: 564250c1b39377f4d96f9f625c650edc, type: 3}
+    Role: 1
+    Anchor: {x: 0.5826315, y: 0.50526315}
+    Angle: 0
+    WidthRatio: 1.5
+  - Pose: {fileID: 21300000, guid: 534a84eb6a0acc34bafdde9a32bbed55, type: 3}
+    Role: 1
+    Anchor: {x: 0.5931579, y: 0.5336842}
+    Angle: 0
+    WidthRatio: 1.5

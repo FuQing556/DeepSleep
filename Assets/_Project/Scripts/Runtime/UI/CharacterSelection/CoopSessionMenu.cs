@@ -203,7 +203,8 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
             _ownsPause = false;
             Touch?.SetUiBlocked(true);
             if (Discovery != null) Discovery.SetBrowsing(false);
-            GameAppRoot.Instance.SceneRouter.LoadMainMenu(MainMenuPage.ModeSelection);
+            GameAppRoot.Instance.SceneRouter.LoadMainMenu(GameAppRoot.Instance.LaunchContext.Challenge != null
+                ? MainMenuPage.Bestiary : MainMenuPage.ModeSelection);
         }
         private void Refresh()
         {

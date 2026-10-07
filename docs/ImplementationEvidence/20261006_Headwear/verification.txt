@@ -1,0 +1,29 @@
+2026-10-06 Headwear first implementation
+Pre-feature GitHub checkpoint: 6055fa9, origin/main push succeeded (87 LFS objects / 91 MB).
+Excluded docs/Resume, Assets/_Recovery, saves and build caches.
+
+HeadwearChecks.Run: 43 assertions passed.
+Covered v2 profile normalization, insufficient funds, unowned equipment rejection,
+20-voucher purchase, duplicate rejection, independent DS/HS equip, unequip retaining
+ownership, saved profile reread, nine unique pose bindings, compact network writer,
+both host roles, peer cannot change host selection, known/unknown cosmetic IDs,
+authority replica assignment. This is isolated same-process testing, not dual-device.
+NetworkProtocolChecks.RunCatalog: 1504 assertions, 28 directional entries, protocol8.
+
+Play checks (Boot -> MainMenu -> Gameplay_Prototype opening; no AI combat):
+Shop listing/purchase state, inventory DS/HS buttons, home portrait and both actual
+player SpriteRenderers display crown. Test purchase/equip uses a cloned profile
+and Temp/HeadwearUiChecks save override. No user's currency or inventory was edited.
+Real profile remains version2, 85 vouchers, merit_medium count2, no crown;
+last-written19:00:18, before these tests. SHA256:
+7DA981DED1C1D9802F461EDF56624A6DF6B97CB5C995C425C6FBC13E55A6D5C7
+Backup SHA256:5DE13EF390C88406F3E6A04256EE511206371AB08C955F5FD1227F285266FF64
+
+pose_preview.png is a Unity render of actual source Sprites + production ornament
+placement code, in order: DS idle/downed, HS idle/laser/downed/melee idle/down/up/sweep.
+home.png and players.png are actual Play captures. shop.png/inventory.png show the
+first layout pass; product description was then shortened to fit the existing card.
+Both gameplay scenes have explicit session/DS/HS/catalog and four UI preview bindings.
+No player/monster colliders, combat balance or the unfinished AI fix changed here.
+No APK produced. Headwear changes remain local after the earlier GitHub checkpoint.
+Remaining acceptance: dual devices, phone touch usability and subjective fit.

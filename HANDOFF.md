@@ -1,6 +1,40 @@
 # DeepSleep 交接审计与待确认事项
 
+2026-10-07 用户授权本轮上传GitHub并打安卓APK。准备版本1.1.5/code7，沿用APK/IL2CPP/ARM64、原签名及四场景。上传范围为游戏源码/配置/场景/生产素材及项目文档；明确排除docs/Resume、Assets/_Recovery及meta、本地缓存和Releases。不因打包执行延期的手机/双端玩法验收，构建结果另记，不将准备记录当成功。
+
+2026-10-07 两个Kimi盾受伤变暗恢复时间由0.3改0.1秒，alpha仍0.8→0.5→0.8。仅保存对应SpriteHitFlash._duration并同步安装器，不更改玩家正在微调的LaserOrigin位置。激光源为模块Prefab/Kimi/LaserOrigin的Transform，由KimiLaserPattern.Muzzle引用，不是CFG_KI_Ultimate.MuzzleOffset（后者是潮汐刃）。
+
+2026-10-07 Kimi罩受击透明度改50%（覆盖下方25%）：本体常态0.8、命中0.5、0.3s恢复。大招次数盾保留原光幕素材/Box和300/500次数，仅改表现为相同0.8→0.5→0.8，SpriteHitFlash保留反馈/网络序号但覆盖层alpha设0，去掉红色叠盖。KimiHitCurtain显式引用原HitFlash，LateUpdate执行顺序310消费命中龄期；对应安装器已更新并保存Prefab/World01。编辑器独立实例检查：次数盾alpha0.8→0.5→0.8、300→299、红覆盖禁用、本体命中alpha0.5；Console零Error。非设备验收，不打包，已退出Play。
+
+2026-10-07 按用户要求反转Kimi球罩反馈：常态alpha0.8，实际受伤瞬间alpha0.25，沿既有0.3秒命中反馈恢复到0.8；连续受伤重置变暗时间，复用网络命中序号。仅改KimiBossPresentation参数与安装器默认值，球形判定、截束/跳字表面、锁血和接触伤害不变；不打包。
+
+2026-10-07 图鉴页面居中：原PortraitCard宽520/中心-430、DetailCard宽760/中心230，合并边界-690/+610，整体偏左40参考单位。已Unity保存MainMenu卡片中心-390/+270，合并边界-660/+660、间隙40不变；图鉴标题/首版收录文本外沿对齐卡片左右边。页面仍以SafeArea中心锚定，同步BestiaryInstaller默认坐标。不改美术、战斗节奏或其他主页按钮，不打包。
+
+2026-10-07 水平月光刃波间隔小幅缩短：原逻辑等当前波弹体全部回收（未命中寿命1.35秒），再空档0.2+预警0.7，通常发射间隔约2.25秒，非0.2秒。已经Unity保存CFG_KI_MoonBlade为VolleyGapSeconds=0.1、WarningSeconds=0.55，通常约2秒（受命中提前回收和固定步影响）；两阶段共用时序，速度24、寿命1.35、10波、每波2/4道及碰撞参数不变。同步安装器默认值，配置校验通过，不打包。
+
+2026-10-07 Kimi挑战前奏/激光修复：挑战关闭普通刷怪后，DoubaoChapterEncounterDriver仍按第4段配置启动独立遭遇，已在IsRequiredForSegment排除当前图鉴挑战（目前只有Kimi）；正式黄昏各波豆包不改。KimiLaserPattern.GetRayStart按世界Y降序，五束从屏幕上至下、仍间隔0.08秒，主客同算法，图鉴说明同步。Kimi球体Hitbox.StopsPiercingBeams=true：HS共用AttackBlockerQuery.Clip查询普通无敌挡板及可受伤截束目标，冻结视觉/伤害/联网同一截短快照；BeamHitResolver对球罩求迎光圆面交点，不使用内部投影；连锁不从球内继续分叉。普通怪依然贯穿，360盾沿用无敌遮挡。此前只换圆Collider、不改HS贯穿快照的修复不完整，已补齐。编辑器定向Play：2.9s黄昏前奏Doubao保持Idle/Kimi为Prelude；HS20u测试束截至约5.4u、10000→9900、命中一次、无球内连锁；朝左/右五束均通过Y降序检查。最终圆面交点精确修订编译检查，非手机/双端或完整实战。内容20261007-kimi-beam-stop-1/协议9，不打包/推送。
+
+2026-10-07 Kimi球体判定修订（覆盖下方固定跳字/替代武器爆闪方案）：用户要求按月光罩受击、撤销固定数字/特效位置、5000锁血直到转阶段完成，并增加接触伤害。已将Kimi本体Capsule替换为CircleCollider2D（初始半径2.6，中心沿用Idle人物中心），感知与球罩绑定同一圆；球罩常态alpha0.25、实际受击闪至0.8，客机禁用碰撞体时仍从圆参数绘制正确大小。清除DamageNumberAnchor及孤立锚点对象，UseReceiverHitFeedback=false，DS/HS数字/特效重新用实际命中点。第一阶段伤害截在MaximumHealth×PhaseTwoHealthFraction=5000，锁血期间拒绝后续伤害；原招式边界转阶段，动画期无敌，结束才恢复扣血。遭遇固定步复用明确玩家受击体做球形接触，每玩家1点/1秒，Blockable沿用护盾/无敌帧，入场保护期无接触伤害；不新增碰撞组件运行时补装或第二模拟循环。ContactDamageAmount/ContactIntervalSeconds在CFG_KI_Boss可调，球大小/中心在模块Kimi的CircleCollider2D可调。未改技能刃/360/箭头的用户碰撞参数。编辑器定向Play检查：玩家3→2→2；20000伤害截5000、再打拒绝、转阶段免疫、完成后100伤害降4900；客机镜像圆Collider禁用时罩直径仍5.2，跳字返回传入实际命中点。Console零Error，非手机/双端/全程AI难度验收。内容20261007-kimi-sphere-1/协议9；不打包/推送，已退出Play。
+
+2026-10-07 图鉴配装节点修复：上一轮只替换天空测试场背景，却沿用黄昏楼顶的交互区和背景缩放，导致画面上的装置/中央传送门无法触发，背景显得放大。已在BestiaryEntryDefinition加入PreparationLayout，由BestiaryInstaller.CapturePreparationLayout显式复制Gameplay_Prototype现有背景Transform及各热点位置/缩放/Box参数/启停；挑战仅应用到World01运行实例，正式两关场景与用户碰撞调参不改。相机本来两关均5.4，不改战斗镜头。针对本次反馈已进行编辑器Play检查：真实挑战入口选DS后，在匹配的DS/HS装置位置通过原交互按钮打开商店并购买，临时余额1000→970/1000→980；中央传送门确认后同伴AI自行到位，节点进入Departing并接入Kimi战斗。不是手机/双端或完整Boss验收。退出Play，不打包/上传。以后修改第一关设施后，可显式重新CapturePreparationLayout同步挑战配置，不做隐式全局覆盖。
+
+2026-10-07 用户已批准图鉴首版Kimi快速挑战（覆盖下方“仅建议尚未授权”）：主页图鉴详情页，复用生成素材/uGUI/SafeArea/分层按钮及DS/HS换肤；CFG_Bestiary_Kimi数据引用正式World01第4段、双方各1000临时Token、天空测试场同款休息背景、3秒黄昏前奏。GameLaunchContext/GameSceneRouter传入口意图，ChapterRun复用原节点配装/检查点/胜敗，只禁用该局普通刷怪且不发永久奖励或成就；没有复制场景/第二套Boss。3秒后渐变夜景与Kimi渐显，正式第四波仍20秒；胜利回黄昏并退场，原结算暂停下纯表现仍播放。失败回配装检查点；结算重新挑战（新一局/重新配装）和返回图鉴，选角/局内退出同回图鉴。当前仅单人+AI、只Kimi，豆包与普通小怪图鉴未做。详情docs/KimiQuickChallenge.md。内容20261007-kimi-bestiary-1/协议9。已编译并经Unity显式保存配置/MainMenu/World01/模块Prefab；用户要求玩法/手机/双端验收下一轮，本轮不运行Play或压力测试，不打包/上传，不声称实玩完成。
+
+2026-10-07 Kimi跳字避脸：DamageHitbox2D新增可选DamageNumberAnchor，Kimi模块显式绑定本体子节点DamageNumberAnchor（local -1.9/0.9，身体左侧），普通怪物无锚点仍按实际命中位置。DS、HS激光/近战跳字及可靠客机伤害数字统一消费这个位置；武器判定/声音/真实命中点不改。已编译并保存Prefab/World01，实玩与双端验证仍按用户要求留后。用户询问快速挑战入口选择，当前只给方案建议，尚未授权开始图鉴/独立Boss模式，不可自动扩展实现。
+
+2026-10-07 Kimi表现优化：安卓打包指南见docs/AndroidBuildGuide.md；上次实际构建348.456秒（约5分48秒），门禁修正另计。本轮不打包、不上传，用户明确将玩法/双端验证留到下一轮。二阶段每轮五束按方向世界Y从下到上依次发射，相邻0.08秒；每束仍0.45秒，发射段合计0.77秒，共用原命中去重/网络锁向快照。正式模块新增生图空心月光罩VFX_KI_MoonShield_v01、KimiBossPresentation2D，复用原命中序号；本体武器命中爆闪/饭团爆心视觉由罩替代，扣血/伤害数字/命中音效保留，普通怪物不变。月光罩0.3秒淡出；出场昼夜交叉淡化1.25秒，击败后回黄昏1.25秒、鞠躬身体和云影像退场1.25秒，结算暂停时只有退场表现使用unscaled时间。两层背景各自沿用FinitePanorama等比超长屏覆盖；无需改用户碰撞体。消息结构与协议9不变，内容版本20261007-kimi-presentation-1，新旧内容不能混房。配置由KimiPresentationInstaller显式保存，勿重跑全模块安装覆盖用户调参。实际视觉/暂停/主客机胜利转场/五束顺序与受击罩均待下轮验收。
+
+2026-10-06 Android最新包已构建：Releases/v1.1.4/DeepSleep-Android-v1.1.4.apk，版本1.1.4/code6，IL2CPP ARM64，193450604字节，SHA256 2F0F188BDC9BC1AD5B7C8ADC3B9B0F57B0AE7EE0D319CC7C3D29742AEE74D25C。Unity build succeeded（0错误/19警告），APK v2签名验证通过，minSDK26/target36，协议9/内容20261006-kimi-fan-rescue-1。未安装设备、未推GitHub。打包前只修正旧GameplayFoundationAudit漏识别Kimi自有池的校验逻辑：验证Driver/章节/会话/网络引用、禁止重复模拟，非放宽为无条件忽略；两关1535/1895检查0错误0警告。最新功能首版已实现，图鉴与快速挑战仍未做；自然AI救援/冲撞避让、音效细化和真实双端验收仍待完成。
+
+2026-10-06 Kimi救援/激光修订：次数盾改为300/500（10/14秒蓄力不变）。激光二阶段每轮五路，中心及±12°/±24°，仍五轮；共用锁向快照、预警/束体/伤害几何、单轮命中去重，分叉显式预装配，复用原激光网格与纹理。Boss仅招式边界换阶段，客机依既有PhaseTwo重建五路；消息结构仍268字节/协议9，内容版本20261006-kimi-fan-rescue-1。AI根因之一实测：把无接触伤害的Boss/镜边/次数盾算入危险及救援清场目标，可能永远等待先击杀；新增PassiveAttackTarget显式分类，只对Kimi这6个被动受击体开启，仍能正常选中攻击，真实小怪/弹体不豁免。隔离Play激光62、感知13（旧故障复现/修正）、网络393（五路客机）、次数盾845检查通过。正式World01实例装配有效，未改用户碰撞体；全场自然AI救援和双端仍需实玩验证，不能称所有Boss危险下救援已验收。已退出Play回Boot，未打包上传。
+
+2026-10-06 第二饰品小翅膀已生图并接入：SPR_ACC_LittleWings_v01真透明1254方图、PPU512，20鲸元券永久无属性背饰；新增前饰/背饰独立佩戴栏，DS/HS分别保存，可与皇冠叠加。Profile v4向后兼容v2/v3，协议9（51/52消息各8字节，四个稳定ID）、内容20261006-accessories-2；旧包不可混房。新配置CFG_Accessory_LittleWings提供9姿态初始位置，用户可继续在饰品编辑器调；增加“叠加预览（不修改它）”。用户已调皇冠配置SHA256保持876A20DAFCA39E5AC7C7DF52343167C82241D4DFD82A4BF61F942F104CC53D2E，勿重置。商店卡片图标独立110区域，图标矩形与文字边界25间距。67项购买/独立槽/叠加/存档/网络检查、1512协议及154表现检查通过；真实Play商店排版和主页双饰品已截图，UI背/人/前索引9/10/11。购买测试用克隆档案和Temp/BackwearUiChecks，真实存档仍v3/65券/皇冠1/中功德2，未替用户购买翅膀。退出Play；未打包/上传/双设备测试。
+
+2026-10-06 饰品可视化编辑器：Unity菜单 DeepSleep/饰品编辑器，或HeadwearDefinition Inspector按钮打开。左侧逐张选择9姿态，右侧拖动/滚轮等比缩放/旋转，Ctrl+Z撤销，“保存全部姿态”保存同一配置；用户后续调参直接由运行时消费，不需重跑Installer。新增AccessoryLayer Front默认0/Back1，为整个饰品的前后显示分类（不是新增两个独立装备槽）；SpriteRenderer排序±1，UGUI饰品在运行时转为人物Image的相邻兄弟以支持真正的背饰。未覆盖原皇冠9组参数、未改碰撞和装备购买规则。编译无错，154项九姿态/翻转/前后层/UI锚点/序列化检查、实际窗口合成拖动和滚轮事件通过；原43饰品及1504协议回归通过。未做手机/双端验收，未打包上传。
+
 审计日期：2026-09-15。工程：D:\Unity Work\DeepSleep_Unity6。
+
+2026-10-06 饰品首版：按用户要求先提交并上传6055fa9到origin/main（Kimi/怪物特效及调参检查点，明确保留AI避让未验收状态；不含docs/Resume、Assets/_Recovery或存档），随后制作饰品。小皇冠复用已有生图素材，20鲸元券、永久非重复购买、无属性，背包DS/HS分别佩戴/摘下；Profile v3向后读取v2。主菜单及两关显式装配Headwear视图，9张人物姿态配置头顶锚点；联机51权威/52客人消息各4字节，只同步稳定饰品ID，协议8/内容20261006-headwear-1，新旧包不能混房。43项隔离存档/购买/佩戴/同进程网络检查和1504项协议检查通过；实际商店、背包、主页、天空关角色画面及9姿态预览已检查。正式双端/手机未验收；饰品这批尚未再次提交上传或打包。真实存档保持v2/85券/中功德2，购买与佩戴截图使用独立临时存档，不授予用户皇冠。配置和扩展入口见PROJECT_STRUCTURE；证据docs/ImplementationEvidence/20261006_Headwear。用户最近调的360盾偏移±0.87/-0.31、两种刃碰撞、水平预警1.31均保留。
 
 2026-10-06 最新节奏调整：用户要求黄昏第四波Kimi由50秒提前到20秒。已通过Unity保存CFG_KI_Encounter.PreludeSeconds=20，同步KimiContentInstaller及测试边界（按配置读取）；清怪/夜景/999/月之暗面任务仍走同一个接管事件，其余波次不变。此条覆盖下方全部50秒旧设计。Unity已恢复非播放Boot状态，本次不启动AI压力测试；AI避让仍未验收完成。未打包。
 

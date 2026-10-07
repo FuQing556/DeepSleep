@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using DeepSleep.Runtime.Progression.Meta;
+using DeepSleep.Runtime.Progression.Bestiary;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -65,6 +66,15 @@ namespace DeepSleep.Runtime.AppFlow
         public void StartPrototype(
             MetaLevelDefinition level,
             GameLaunchMode mode) => StartLevel(level, mode);
+
+        public void StartChallenge(BestiaryEntryDefinition entry)
+        {
+            if (IsTransitioning) return;
+            if (entry == null || !entry.TryValidate(out string reason))
+            { Debug.LogError("[SceneRouter] 图鉴挑战配置无效。", this); return; }
+            // 练习不派发JourneyStarted，也不复制场景或正式关卡配置。
+            BeginTransition(entry.Level.SceneName, () => _launchContext.PrepareChallenge(entry));
+        }
 
         public void LoadMainMenu(MainMenuPage page)
         {

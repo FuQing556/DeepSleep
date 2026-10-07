@@ -30,6 +30,22 @@ namespace DeepSleep.Runtime.World.Nodes
         MemoryFragment
     }
 
+    [Serializable]
+    public sealed class RestNodePreparationLayout
+    {
+        public Vector3 BackgroundPosition, BackgroundScale;
+        public Hotspot[] Hotspots;
+
+        [Serializable]
+        public struct Hotspot
+        {
+            public RestNodeHotspotKind Kind;
+            public Vector3 Position, Scale;
+            public Vector2 Size, Offset;
+            public bool Enabled;
+        }
+    }
+
     /// <summary>节点对移动决策提供的只读门状态；不授予准备、奖励或离场权限。</summary>
     public readonly struct RestNodePortalGoal
     {
@@ -347,6 +363,36 @@ namespace DeepSleep.Runtime.World.Nodes
             ResetNodeInteraction();
             ApplyState(RestNodeState.Open, true);
             SetPrompt("已返回上一休息节点 · 本次战斗收益已回滚");
+            BroadcastState(State);
+            return true;
+        }
+
+        /// <summary>挑战初始配装使用既有节点设施；不是恢复失败战斗，不显示回滚文案。</summary>
+        public bool OpenPreparationNode(Sprite backdrop, RestNodePreparationLayout layout, string prompt)
+        {
+            if (backdrop == null || layout?.Hotspots == null || !TryValidateCheckpointRestore(out _)) return false;
+            // 背景与设施必须来自同一份节点布局；仅修改本次挑战的场景实例。
+            _templeRenderer.transform.position = layout.BackgroundPosition;
+            _templeRenderer.transform.localScale = layout.BackgroundScale;
+            _templeRenderer.sprite = backdrop;
+            foreach (var hotspot in _hotspots)
+            {
+                foreach (var source in layout.Hotspots)
+                {
+                    if (source.Kind != hotspot.Kind) continue;
+                    hotspot.transform.position = source.Position;
+                    hotspot.transform.localScale = source.Scale;
+                    var box = hotspot.GetComponent<BoxCollider2D>();
+                    box.size = source.Size;
+                    box.offset = source.Offset;
+                    box.enabled = source.Enabled;
+                    break;
+                }
+            }
+            _presentationSuspended = false;
+            ResetNodeInteraction();
+            ApplyState(RestNodeState.Open, true);
+            SetPrompt(prompt);
             BroadcastState(State);
             return true;
         }

@@ -144,13 +144,13 @@ namespace DeepSleep.Runtime.Presentation.DamageNumbers
         }
 
         private void OnRiceHit(RiceProjectileHitConfirmed hit)
-            => TryShow(hit.HitPoint, hit.DamageAmount, _deepSeekStyle);
+            => TryShow(hit.Hitbox != null ? hit.Hitbox.GetDamageNumberPosition(hit.HitPoint) : hit.HitPoint, hit.DamageAmount, _deepSeekStyle);
 
         private void OnLaserHit(HarnessTerminalLaserHitConfirmed hit)
-            => TryShow(hit.HitPoint, hit.DamageAmount, _harnessStyle);
+            => TryShow(hit.Hitbox != null ? hit.Hitbox.GetDamageNumberPosition(hit.HitPoint) : hit.HitPoint, hit.DamageAmount, _harnessStyle);
 
         private void OnMeleeHit(HarnessMeleeDamageHitConfirmed hit)
-            => TryShow(hit.HitPoint, hit.DamageAmount, _harnessStyle);
+            => TryShow(hit.DamageNumberPosition, hit.DamageAmount, _harnessStyle);
 
         /// <summary>只播放权威命中跳字，不在镜像端重新结算伤害。</summary>
         public void ShowReplicaDamage(Vector2 position, float amount, bool harness)

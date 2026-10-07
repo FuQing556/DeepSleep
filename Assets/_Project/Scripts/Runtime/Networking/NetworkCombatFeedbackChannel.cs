@@ -122,14 +122,20 @@ namespace DeepSleep.Runtime.Networking
             return report.ToString();
         }
         private void OnRice(RiceProjectileHitConfirmed hit)
-            => Send(Kind.Rice, hit.HitPoint, hit.Direction, hit.DamageAmount, 0f);
+            => Send(Kind.Rice, hit.Hitbox != null ? hit.Hitbox.GetDamageNumberPosition(hit.HitPoint) : hit.HitPoint,
+                hit.Direction, hit.DamageAmount, 0f);
         private void OnLaser(HarnessTerminalLaserHitConfirmed hit)
-            => Send(hit.Hitbox != null && hit.Hitbox.TryGetReceiver(out var target) && target is DoubaoWordWallBlock2D
-                ? Kind.LaserSurface : Kind.Laser, hit.HitPoint, hit.Direction, hit.DamageAmount, hit.BeamWidth);
+            // 自有受击罩沿用已有HS纯伤害数字消息，不再给客机追加遮脸爆闪；不改变线格式。
+            => Send(hit.Hitbox != null && hit.Hitbox.UseReceiverHitFeedback ? Kind.MeleeDamage :
+                hit.Hitbox != null && hit.Hitbox.TryGetReceiver(out var target) && target is DoubaoWordWallBlock2D
+                ? Kind.LaserSurface : Kind.Laser,
+                hit.Hitbox != null && hit.Hitbox.UseReceiverHitFeedback ? hit.Hitbox.GetDamageNumberPosition(hit.HitPoint) : hit.HitPoint,
+                hit.Direction, hit.DamageAmount, hit.BeamWidth);
         private void OnMeleeDamage(HarnessMeleeDamageHitConfirmed hit)
         {
-            Send(Kind.MeleeDamage, hit.HitPoint, hit.Direction, hit.DamageAmount, 0f);
-            Send(hit.IsSurface ? Kind.MeleeSurfaceImpact : Kind.MeleeImpact, hit.HitPoint, hit.Direction, 0f, .15f);
+            Send(Kind.MeleeDamage, hit.DamageNumberPosition, hit.Direction, hit.DamageAmount, 0f);
+            if (!hit.UseReceiverHitFeedback)
+                Send(hit.IsSurface ? Kind.MeleeSurfaceImpact : Kind.MeleeImpact, hit.HitPoint, hit.Direction, 0f, .15f);
         }
 
         private void Send(Kind kind, Vector2 point, Vector2 direction, float amount, float width)

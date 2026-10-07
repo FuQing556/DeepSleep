@@ -121,7 +121,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
 
         private void OnHitConfirmed(HarnessTerminalLaserHitConfirmed hit)
         {
-            if (!hit.IsValid)
+            if (!hit.IsValid || hit.Hitbox.UseReceiverHitFeedback)
             {
                 return;
             }

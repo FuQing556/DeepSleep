@@ -61,7 +61,23 @@ namespace DeepSleep.Runtime.Combat.Beams
                     collider.bounds.center,
                     lane.Origin,
                     lane.End);
-                Vector2 hitPoint = collider.ClosestPoint(samplePoint);
+                // 截束受击体以迎光表面结算，不能投影到球内部再返回内部点。
+                Vector2 hitPoint = collider.ClosestPoint(hitbox.StopsPiercingBeams ? lane.End : samplePoint);
+                if (hitbox.StopsPiercingBeams && collider is CircleCollider2D circle)
+                {
+                    Vector2 center = circle.transform.TransformPoint(circle.offset);
+                    float radius = circle.radius * Mathf.Abs(circle.transform.lossyScale.x);
+                    Vector2 offset = center - lane.Origin;
+                    float along = Vector2.Dot(offset, lane.Direction);
+                    float discriminant = radius * radius - (offset.sqrMagnitude - along * along);
+                    if (discriminant >= 0 && along - Mathf.Sqrt(discriminant) >= 0)
+                        hitPoint = lane.Origin + lane.Direction * (along - Mathf.Sqrt(discriminant));
+                    else
+                    {
+                        Vector2 radial = lane.End - center;
+                        hitPoint = center + (radial.sqrMagnitude > 0 ? radial.normalized : -lane.Direction) * radius;
+                    }
+                }
 
                 resolvedHits.Add(new BeamResolvedHit2D(
                     hitbox,

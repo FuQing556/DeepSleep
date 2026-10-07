@@ -23,9 +23,13 @@ namespace DeepSleep.Runtime.Progression.Run
         public KimiBossHudView Hud;
         public SpriteRenderer Backdrop;
         public Sprite NightBackdrop;
+        public SpriteRenderer BackdropTransition;
+        public KimiBossPresentation2D Presentation;
+        public float BackdropFadeSeconds;
         [Min(1)] public int SegmentNumber;
         private Sprite _dayBackdrop;
         private bool _armed;
+        private float _backdropFadeAge;
         public bool HasTakenOver { get; private set; }
         public bool IsComplete => Encounter.State == KimiEncounterState.Complete;
         public int DisplaySeconds => Encounter.Config.DisplaySeconds;
@@ -37,10 +41,11 @@ namespace DeepSleep.Runtime.Progression.Run
         {
             if (Chapter == null || Chapter.CombatWorld == null || Encounter == null || Session == null ||
                 Perception == null || Obstacles == null || Hud == null || Backdrop == null || NightBackdrop == null ||
+                BackdropTransition == null || Presentation == null || !float.IsFinite(BackdropFadeSeconds) || BackdropFadeSeconds <= 0 ||
                 SegmentNumber < 1 || Targets == null || Targets.Length != 2 || Targets[0] == null || Targets[1] == null ||
                 Targets[0] == Targets[1] || Array.IndexOf(Chapter.CombatWorld.ParticipantComponents, this) < 0)
             { reason = "章节、遭遇、会话、双角色、感知、障碍、HUD、昼夜背景及生命周期登记必须显式配置。"; return false; }
-            return Encounter.TryValidateConfiguration(out reason);
+            return Encounter.TryValidateConfiguration(out reason) && Presentation.TryValidateConfiguration(out reason);
         }
         private void Awake()
         {
@@ -55,6 +60,7 @@ namespace DeepSleep.Runtime.Progression.Run
         public void ResetForSegment(int segmentNumber)
         {
             StopCombat(ChapterCombatStopReason.EncounterTakeover);
+            Presentation.ResetPresentation();
             _armed = IsRequiredForSegment(segmentNumber);
         }
         public void Simulate(float deltaTime)
@@ -62,7 +68,8 @@ namespace DeepSleep.Runtime.Progression.Run
             if (!isActiveAndEnabled || !_armed || !CanAuthor || Chapter.Phase != ChapterRunPhase.Combat ||
                 !IsRequiredForSegment(Chapter.SegmentNumber) || !float.IsFinite(deltaTime) || deltaTime <= 0) return;
             if (Encounter.State == KimiEncounterState.Idle &&
-                !Encounter.Begin(true, UnityEngine.Random.Range(0, int.MaxValue), Session, Targets, Perception, Obstacles))
+                !Encounter.Begin(true, UnityEngine.Random.Range(0, int.MaxValue), Session, Targets, Perception, Obstacles,
+                    Chapter.IsChallenge ? Chapter.Challenge.PreludeSeconds : (float?)null))
             {
                 _armed = false;
                 Debug.LogError("[KimiChapter] 遭遇启动失败，停止本适配器。", this);
@@ -76,20 +83,51 @@ namespace DeepSleep.Runtime.Progression.Run
             { Encounter.Cancel(); return; }
             Chapter.CombatWorld.TakeOverCombat(this);
             HasTakenOver = true;
-            Backdrop.sprite = NightBackdrop;
+            _dayBackdrop = Backdrop.sprite;
+            FadeBackdropTo(NightBackdrop);
         }
         public void StopCombat(ChapterCombatStopReason reason)
         {
             _armed = false;
             HasTakenOver = false;
-            if (Encounter != null) Encounter.Cancel();
-            if (Backdrop != null && _dayBackdrop != null) Backdrop.sprite = _dayBackdrop;
+            bool victory = reason == ChapterCombatStopReason.Settlement && Encounter != null &&
+                (IsComplete || (!CanAuthor && Chapter.Phase == ChapterRunPhase.Complete));
+            if (victory && Presentation != null && Encounter.Boss.IsShown) Presentation.BeginDeparture();
+            if (Encounter != null) Encounter.Cancel(victory);
+            if (Backdrop != null && _dayBackdrop != null)
+            {
+                if (victory) FadeBackdropTo(_dayBackdrop);
+                else { Backdrop.sprite = _dayBackdrop; if (BackdropTransition != null) BackdropTransition.enabled = false; }
+            }
+            if (!victory && Presentation != null) Presentation.ResetPresentation();
         }
         /// <summary>客机仅切背景/任务展示；不能清权威实体、推进技能或自行判完成。</summary>
-        public void ApplyReplica(bool takenOver)
+        public void ApplyReplica(bool takenOver, bool defeated = false)
         {
+            if (defeated && Encounter.Boss.IsAlive) Presentation.BeginDeparture();
+            if (takenOver && !HasTakenOver) _dayBackdrop = Backdrop.sprite;
+            if (takenOver != HasTakenOver) FadeBackdropTo(takenOver ? NightBackdrop : _dayBackdrop);
             HasTakenOver = takenOver;
-            Backdrop.sprite = takenOver ? NightBackdrop : _dayBackdrop;
+        }
+
+        private void FadeBackdropTo(Sprite next)
+        {
+            if (next == null || Backdrop.sprite == next) return;
+            BackdropTransition.sprite = Backdrop.sprite;
+            BackdropTransition.color = Backdrop.color;
+            BackdropTransition.enabled = true;
+            _backdropFadeAge = 0;
+            Backdrop.sprite = next;
+        }
+
+        private void LateUpdate()
+        {
+            if (BackdropTransition == null || !BackdropTransition.enabled) return;
+            _backdropFadeAge += Chapter.Phase == ChapterRunPhase.Complete ? Time.unscaledDeltaTime : Time.deltaTime;
+            var color = BackdropTransition.color;
+            color.a = 1 - Mathf.SmoothStep(0, 1, Mathf.Clamp01(_backdropFadeAge / BackdropFadeSeconds));
+            BackdropTransition.color = color;
+            if (color.a <= 0) BackdropTransition.enabled = false;
         }
         private void OnDisable()
         {

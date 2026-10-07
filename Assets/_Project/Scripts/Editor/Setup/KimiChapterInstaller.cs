@@ -25,6 +25,7 @@ namespace DeepSleep.Editor.Setup
             var scene = EditorSceneManager.OpenScene("Assets/Scenes/World01_EarlyInternet.unity");
             var all = scene.GetRootGameObjects().SelectMany(r => r.GetComponentsInChildren<MonoBehaviour>(true)).ToArray();
             if (all.OfType<KimiChapterEncounterDriver2D>().Any()) throw new InvalidOperationException("Kimi already installed; no overwrite.");
+            KimiPresentationInstaller.ConfigurePrefab();
             var chapter = all.OfType<ChapterRunController>().Single(); var bindings = chapter.LevelBindings;
             var root = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(KimiContentInstaller.RigPath), scene);
             var encounter = root.GetComponent<KimiEncounter2D>();
@@ -34,6 +35,7 @@ namespace DeepSleep.Editor.Setup
             driver.Perception = bindings.PerceptionRegistry; driver.Obstacles = all.OfType<CompanionObstacleRegistry2D>().Single();
             driver.Backdrop = all.OfType<FinitePanoramaLayer2D>().Single().GetComponent<SpriteRenderer>();
             driver.NightBackdrop = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/_Project/Art/Backgrounds/Kimi/BG_W01_MoonRiver_Panorama_v01.png");
+            KimiPresentationInstaller.ConfigureChapter(driver);
             var canvas = all.OfType<ChapterRunHudView>().Single().GetComponentInParent<Canvas>();
             var hudRoot = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(KimiContentInstaller.HudPath), scene);
             hudRoot.transform.SetParent(canvas.transform, false); driver.Hud = hudRoot.GetComponent<KimiBossHudView>();

@@ -20,6 +20,8 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
         public KimiBoss2D Boss;
         public Transform Muzzle;
         public BeamTiledMeshView2D Warning, Beam;
+        public BeamTiledMeshView2D[] BranchWarnings, BranchBeams;
+        public int RayCount { get; private set; } = 1;
         public SpriteRenderer Focus;
         public SpriteRenderer TargetMarker;
         public Vector2 MarkerPosition { get; private set; }
@@ -48,6 +50,11 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
             if (Config == null || Boss == null || Muzzle == null || Warning == null || Beam == null || Focus == null ||
                 TargetMarker == null || TargetMarker.sprite == null || HitEffects == null)
             { reason = "激光配置、本体/炮口、两个网格、聚光Sprite及命中池必须显式装配。"; return false; }
+            if (BranchWarnings == null || BranchBeams == null || BranchWarnings.Length != Config.PhaseTwoRayCount-1 || BranchBeams.Length != BranchWarnings.Length)
+            { reason = "二阶段分叉预警/束体必须预先装配。"; return false; }
+            for (int i=0;i<BranchWarnings.Length;i++)
+                if (BranchWarnings[i] == null || BranchBeams[i] == null || !BranchWarnings[i].TryValidateConfiguration(out reason) || !BranchBeams[i].TryValidateConfiguration(out reason))
+                { reason = "激光分叉网格配置缺失。"; return false; }
             return Config.TryValidate(out reason) && Warning.TryValidateConfiguration(out reason) &&
                 Beam.TryValidateConfiguration(out reason) && HitEffects.TryValidateConfiguration(out reason);
         }
@@ -86,6 +93,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
             Vector2 origin = Muzzle.position, direction = target - origin;
             if (direction.sqrMagnitude < .000001f) { Finish(); return false; }
             MarkerPosition = target;
+            RayCount = Boss.PhaseTwo ? Config.PhaseTwoRayCount : 1;
             Lane = new BeamLaneSnapshot(0, origin, direction, Config.Length, Config.DamageWidth, Config.Damage, Config.Damage);
             _struck.Clear(); _attackId = DamageAttackIdAllocator.Next(); Elapsed = 0;
             State = KimiLaserState.Charging; Boss.SetPose(KimiPose.LaserCharge); Render(); ChargeStarted?.Invoke(); return true;
@@ -102,14 +110,15 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
             while (remaining > 0 && State != KimiLaserState.Complete)
             {
                 float duration = State == KimiLaserState.Charging ? Config.ChargeSeconds :
-                    State == KimiLaserState.Firing ? Config.FireSeconds : Config.RecoverySeconds;
+                    State == KimiLaserState.Firing ? Config.FireSeconds + (RayCount - 1) * Config.PhaseTwoRayDelaySeconds : Config.RecoverySeconds;
                 float step = Mathf.Min(remaining, Mathf.Max(0, duration - Elapsed));
+                float previousElapsed = Elapsed;
                 Elapsed += step; remaining -= step;
-                if (State == KimiLaserState.Firing) ResolveDamage();
+                if (State == KimiLaserState.Firing) ResolveDamage(previousElapsed, Elapsed);
                 if (Elapsed < duration) break;
                 Elapsed = 0;
                 if (State == KimiLaserState.Charging)
-                { State = KimiLaserState.Firing; FiredShots++; Boss.SetPose(KimiPose.LaserRelease); Fired?.Invoke(); ResolveDamage(); }
+                { State = KimiLaserState.Firing; FiredShots++; Boss.SetPose(KimiPose.LaserRelease); Fired?.Invoke(); ResolveDamage(0, 0); }
                 else if (State == KimiLaserState.Firing) State = KimiLaserState.Recovery;
                 else if (FiredShots < Config.ShotCount) { if (!StartCharge()) return; }
                 else { Finish(); return; }
@@ -117,22 +126,57 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
             Render();
         }
 
-        private void ResolveDamage()
+        private void ResolveDamage(float from, float to)
         {
-            _resolver.Resolve(Lane, Config.PlayerLayers, null, _hits);
+            for (int i=0;i<RayCount;i++)
+            {
+                float start = GetRayStart(i);
+                if (to >= start && from < start + Config.FireSeconds) ResolveLane(GetLane(i));
+            }
+        }
+
+        /// <summary>按世界Y方向排序，保证朝左或朝右都从屏幕上方向下递进；客机共用同一算法。</summary>
+        public float GetRayStart(int index)
+        {
+            float height = GetLane(index).Direction.y;
+            int rank = 0;
+            for (int i = 0; i < RayCount; i++)
+            {
+                float other = GetLane(i).Direction.y;
+                if (other > height || (other == height && i < index)) rank++;
+            }
+            return rank * Config.PhaseTwoRayDelaySeconds;
+        }
+
+        /// <summary>0是中心，随后左右成对展开；预警、束体和伤害使用同一快照。</summary>
+        public BeamLaneSnapshot GetLane(int index)
+        {
+            if (index < 0 || index >= RayCount) throw new ArgumentOutOfRangeException(nameof(index));
+            if (index == 0) return Lane;
+            int step=(index+1)/2;
+            float angle=step * Config.PhaseTwoRaySpacingDegrees * (index%2==1 ? -1 : 1);
+            Vector2 direction=Quaternion.Euler(0,0,angle)*Lane.Direction;
+            return new BeamLaneSnapshot(index,Lane.Origin,direction,Lane.Length,Lane.Width,Lane.PrimaryTargetDamage,Lane.PrimaryTargetDamage);
+        }
+
+        private void ResolveLane(BeamLaneSnapshot lane)
+        {
+            _resolver.Resolve(lane, Config.PlayerLayers, null, _hits);
             foreach (var hit in _hits)
             {
                 if (!hit.Hitbox.TryGetReceiver(out var receiver) || _struck.Contains(receiver)) continue;
-                var packet = new DamagePacket(Lane.PrimaryTargetDamage, hit.HitPoint, Lane.Direction,
+                var packet = new DamagePacket(lane.PrimaryTargetDamage, hit.HitPoint, lane.Direction,
                     Boss.gameObject, _attackId, DamageInterceptionPolicy.Blockable);
                 if (hit.Hitbox.TryReceiveDamage(in packet))
-                { _struck.Add(receiver); HitEffects.TryPlay(hit.HitPoint, Lane.RotationDegrees); }
+                { _struck.Add(receiver); HitEffects.TryPlay(hit.HitPoint, lane.RotationDegrees); }
             }
         }
 
         private void Render()
         {
             Warning.Hide(); Beam.Hide(); Focus.enabled = false;
+            foreach (var warning in BranchWarnings) warning.Hide();
+            foreach (var beam in BranchBeams) beam.Hide();
             TargetMarker.enabled = State == KimiLaserState.Charging;
             if (TargetMarker.enabled)
             {
@@ -147,11 +191,16 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
             Focus.transform.SetPositionAndRotation(Lane.Origin, Quaternion.Euler(0, 0, Elapsed * Config.FocusSpinDegrees));
             Focus.transform.localScale = Vector3.one * Mathf.Lerp(Config.FocusStartScale, Config.FocusEndScale, progress);
             Focus.color = new Color(1, 1, 1, Mathf.Lerp(.4f, 1, progress));
-            if (State == KimiLaserState.Charging)
-                Warning.Show(Lane.Origin, Lane.Direction, Lane.Length, Lane.Width, Config.TextureRepeatLength, 0, Config.WarningColor);
-            else
-                Beam.Show(Lane.Origin, Lane.Direction, Lane.Length, Config.VisualWidth,
-                    Config.TextureRepeatLength, Elapsed * Config.TextureScrollSpeed, Config.BeamColor);
+            for (int i=0;i<RayCount;i++)
+            {
+                var lane=GetLane(i);
+                float start = GetRayStart(i);
+                if (State == KimiLaserState.Charging || Elapsed < start)
+                    (i==0 ? Warning : BranchWarnings[i-1]).Show(lane.Origin, lane.Direction, lane.Length, lane.Width, Config.TextureRepeatLength, 0, Config.WarningColor);
+                else if (Elapsed < start + Config.FireSeconds)
+                    (i==0 ? Beam : BranchBeams[i-1]).Show(lane.Origin, lane.Direction, lane.Length, Config.VisualWidth,
+                        Config.TextureRepeatLength, (Elapsed - start) * Config.TextureScrollSpeed, Config.BeamColor);
+            }
         }
 
         public void Cancel()
@@ -159,12 +208,16 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
             _replica = false;
             State = KimiLaserState.Idle; Elapsed = 0; Lane = default; _struck.Clear(); _hits.Clear();
             FiredShots = 0; _targets = null; _markedTarget = null; MarkerPosition = default;
+            RayCount = 1;
+            if (BranchWarnings != null) foreach(var warning in BranchWarnings) if(warning != null) warning.Hide();
+            if (BranchBeams != null) foreach(var beam in BranchBeams) if(beam != null) beam.Hide();
             if (TargetMarker != null) TargetMarker.enabled = false;
             if (Warning != null) Warning.Hide(); if (Beam != null) Beam.Hide(); if (Focus != null) Focus.enabled = false;
         }
         public void ApplyReplica(KimiLaserState state, float elapsed, Vector2 origin, Vector2 direction, Vector2 markerPosition = default)
         {
             _replica = true; State = state; Elapsed = elapsed;
+            RayCount = Boss.PhaseTwo ? Config.PhaseTwoRayCount : 1;
             MarkerPosition = markerPosition;
             Lane = new BeamLaneSnapshot(0, origin, direction, Config.Length, Config.DamageWidth, 0, 0);
             Render();

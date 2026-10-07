@@ -11,7 +11,7 @@ namespace DeepSleep.Runtime.Networking
     /// </summary>
     public static class NetworkMessageCatalog
     {
-        public const ushort ProtocolVersion = 7;
+        public const ushort ProtocolVersion = 9;
         public enum Direction { AuthorityToPeer, PeerToAuthority }
 
         // 仅补现有表现消息没有的动作边沿；激光/剑波/盾挡/角色受伤仍复用原消息。
@@ -36,6 +36,7 @@ namespace DeepSleep.Runtime.Networking
             public const byte CombatPresentation = 48;
             public const byte UpgradeResult = 49;
             public const byte KimiSnapshot = 50;
+            public const byte Headwear = 51;
         }
 
         public static class Peer
@@ -43,6 +44,7 @@ namespace DeepSleep.Runtime.Networking
             public const byte Ready = 2, Control = 4, Input = 5;
             // 41 在反方向表示准备请求；不是 Authority.CombatFeedback 的另一个订阅者。
             public const byte RestNodeReady = 41, UpgradeRequest = 43;
+            public const byte Headwear = 52;
         }
 
         public readonly struct Definition
@@ -86,7 +88,9 @@ namespace DeepSleep.Runtime.Networking
             A(Authority.CombatPresentation, nameof(Authority.CombatPresentation), 18),
             // int nodeSerial, uint resultSequence, byte role, byte result (reject/refresh/purchase).
             A(Authority.UpgradeResult, nameof(Authority.UpgradeResult), 10),
-            A(Authority.KimiSnapshot, nameof(Authority.KimiSnapshot), KimiEncounterNetworkChannel.PayloadBytes)
+            A(Authority.KimiSnapshot, nameof(Authority.KimiSnapshot), KimiEncounterNetworkChannel.PayloadBytes),
+            A(Authority.Headwear, nameof(Authority.Headwear), 8),
+            P(Peer.Headwear, nameof(Peer.Headwear), 8)
         };
         public static IReadOnlyList<Definition> Definitions { get; } = Array.AsReadOnly(Entries);
 
@@ -172,6 +176,7 @@ namespace DeepSleep.Runtime.Networking
         {
             switch (id)
             {
+                case Peer.Headwear: c.Skip(8); break;
                 case Peer.Ready: case Peer.Control: case Peer.RestNodeReady: c.Bool(); break;
                 case Peer.Input:
                     c.Skip(16); // epoch、命令序号、模拟刻、两个量化方向 short。
@@ -188,6 +193,7 @@ namespace DeepSleep.Runtime.Networking
         {
             switch (id)
             {
+                case Authority.Headwear: c.Skip(8); break;
                 case Authority.Welcome:
                     c.Enum(1); c.Skip(4); c.Bool();
                     c.StringBytes(LevelIdentityValidation.MaximumLevelIdUtf8Bytes, 1, true); break;

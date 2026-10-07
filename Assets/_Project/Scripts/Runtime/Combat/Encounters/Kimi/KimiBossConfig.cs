@@ -14,11 +14,15 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
     {
         [Min(1)] public float MaximumHealth;
         [Range(0.01f, .99f)] public float PhaseTwoHealthFraction;
+        [Min(1)] public float ContactDamageAmount;
+        [Min(0.01f)] public float ContactIntervalSeconds;
         public Sprite[] Poses;
 
         public bool TryValidate(out string reason)
         {
             if (!float.IsFinite(MaximumHealth) || MaximumHealth < 1 ||
+                !float.IsFinite(ContactDamageAmount) || ContactDamageAmount < 1 ||
+                !float.IsFinite(ContactIntervalSeconds) || ContactIntervalSeconds <= 0 ||
                 !float.IsFinite(PhaseTwoHealthFraction) || PhaseTwoHealthFraction <= 0 || PhaseTwoHealthFraction >= 1 ||
                 Poses == null || Poses.Length != System.Enum.GetValues(typeof(KimiPose)).Length)
             { reason = "生命、二阶段阈值或姿态数组无效。"; return false; }

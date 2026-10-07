@@ -206,7 +206,7 @@ namespace DeepSleep.Runtime.Combat.Projectiles
                     damage.Amount), direct: true);
 
             if (_splashRadius <= 0f) return;
-            _ownerPool?.NotifySplash(hitPoint, direction);
+            if (!hitbox.UseReceiverHitFeedback) _ownerPool?.NotifySplash(hitPoint, direction);
             foreach (var candidate in _splashCandidates)
             {
                 if (candidate == null || !candidate.TryGetComponent(out DamageHitbox2D splashHit) ||
