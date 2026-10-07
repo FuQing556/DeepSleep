@@ -1,5 +1,7 @@
 # DeepSleep 交接审计与待确认事项
 
+2026-10-07 本轮GitHub与安卓交付已完成：游戏提交7667684已push到main，LFS18对象约23MB。APK Releases/v1.1.5/DeepSleep-Android-v1.1.5.apk，1.1.5/code7、IL2CPP/ARM64，构建206.416秒，Succeeded/0错误/4警告；大小195259350字节，SHA256 053D8556BC75EB65CDE1015A1AEE886C6563DF6B93DEE6EB5D22215D40614D26；apksigner及aapt检查通过。详情docs/AndroidRelease_v1.1.5.md。排除私人简历、本地恢复目录、缓存和APK；仍未进行本批手机/真实双端玩法验收。本条覆盖下方所有“未打包/未上传”的本批历史记录。
+
 2026-10-07 用户授权本轮上传GitHub并打安卓APK。准备版本1.1.5/code7，沿用APK/IL2CPP/ARM64、原签名及四场景。上传范围为游戏源码/配置/场景/生产素材及项目文档；明确排除docs/Resume、Assets/_Recovery及meta、本地缓存和Releases。不因打包执行延期的手机/双端玩法验收，构建结果另记，不将准备记录当成功。
 
 2026-10-07 两个Kimi盾受伤变暗恢复时间由0.3改0.1秒，alpha仍0.8→0.5→0.8。仅保存对应SpriteHitFlash._duration并同步安装器，不更改玩家正在微调的LaserOrigin位置。激光源为模块Prefab/Kimi/LaserOrigin的Transform，由KimiLaserPattern.Muzzle引用，不是CFG_KI_Ultimate.MuzzleOffset（后者是潮汐刃）。
