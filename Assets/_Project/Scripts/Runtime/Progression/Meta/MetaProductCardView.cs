@@ -62,8 +62,15 @@ namespace DeepSleep.Runtime.Progression.Meta
             Action<ShopProductDefinition, PlayerRole> request)
         {
             _equipRequested = request;
-            bool shown = inventory && _product.IsAccessory && profile.GetOwnedCount(_product.ProductId) > 0;
-            _equipDeepSeek.gameObject.SetActive(shown); _equipHarness.gameObject.SetActive(shown);
+            bool shown = inventory && (_product.IsAccessory || _product.IsSkin) && profile.GetOwnedCount(_product.ProductId) > 0;
+            _equipDeepSeek.gameObject.SetActive(shown && (!_product.IsSkin || _product.Skin.Role == PlayerRole.DeepSeek));
+            _equipHarness.gameObject.SetActive(shown && (!_product.IsSkin || _product.Skin.Role == PlayerRole.Harness));
+            if (_product.IsSkin)
+            {
+                _equipDeepSeekLabel.text = profile.GetSkin(PlayerRole.DeepSeek) == _product.ProductId ? "DS · 恢复默认" : "DS · 换装";
+                _equipHarnessLabel.text = profile.GetSkin(PlayerRole.Harness) == _product.ProductId ? "HS · 恢复默认" : "HS · 换装";
+                return;
+            }
             _equipDeepSeekLabel.text = profile.GetAccessory(PlayerRole.DeepSeek, _product.Slot) == _product.ProductId ? "DS · 摘下" : "DS · 佩戴";
             _equipHarnessLabel.text = profile.GetAccessory(PlayerRole.Harness, _product.Slot) == _product.ProductId ? "HS · 摘下" : "HS · 佩戴";
         }

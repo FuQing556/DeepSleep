@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb35e551b3aaf842acc6b9eb4e389a0, type: 3}
+  m_Name: CFG_META_Product_ds_borrowed_badge
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Meta.ShopProductDefinition
+  _productId: ds_borrowed_badge
+  _displayName: "\u501F\u6765\u7684\u5DE5\u724C"
+  _description: "DS \u4E13\u5C5E\u670D\u88C5 \xB7 \u6C38\u4E45\u6301\u6709 \xB7 \u65E0\u5C5E\u6027\u52A0\u6210\n\u66FF\u6362\u5E38\u6001\u4E0E\u5012\u5730\u5916\u89C2\u3002\u5DE5\u724C\u968F\u673A\u663E\u9690\uFF0C\u53EF\u540C\u65F6\u4F69\u6234\u9970\u54C1\u3002"
+  _price: 10
+  _icon: {fileID: 21300000, guid: 84c677269b71cd242a7976f3f62b257e, type: 3}
+  _repeatable: 0
+  _isHeadwear: 0
+  _isBackwear: 0
+  _skin: {fileID: 11400000, guid: b6e9b3aa5e3f2b7469902f56af42d8d4, type: 2}

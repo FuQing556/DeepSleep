@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261008_Claude\\raw\\VFX_CL_ScreenFracture_B_v01.png",
+  "source_sha256": "8d2f842d7a3caa0ed1e7a2058cdec12916bfeee0fbe36e7fcf7986d558e97070",
+  "mode": "RGBA",
+  "size": [
+    2172,
+    724
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    254
+  ],
+  "transparent_pixels": 1094704,
+  "partial_alpha_pixels": 477824,
+  "opaque_pixels": 0,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    19,
+    2172,
+    709
+  ],
+  "visible_bbox_alpha_gt_8": [
+    0,
+    236,
+    2172,
+    508
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

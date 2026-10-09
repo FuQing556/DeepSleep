@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: CFG_META_Level_PrototypeSky
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Meta.MetaLevelDefinition
   _levelId: prototype_sky
-  _displayName: "\u5929\u7A7A\u6D4B\u8BD5\u573A"
+  _displayName: "\u5929\u7A7A\u6D4B\u8BD5\u76D2"
   _sceneName: Gameplay_Prototype
-  _description: "\u5F53\u524D\u7528\u4E8E\u7EC3\u4E60\u4E0E\u7CFB\u7EDF\u9A8C\u8BC1\u7684\u56DB\u6BB5\u539F\u578B\u5173\u5361\u3002"
+  _description: "\u5728\u4E91\u6D77\u4E4B\u95F4\u719F\u6089\u6218\u6597\uFF0C\u4E0E\u961F\u53CB\u5B8C\u6210\u56DB\u6CE2\u6F14\u7EC3\u3002"
   _firstClearVoucherReward: 10
-  _repeatClearVoucherReward: 5
+  _repeatClearVoucherReward: 10
   _implemented: 1
   _chapterRunConfig: {fileID: 11400000, guid: 938a7777b81a5ac4fafdcd5865cfeb6f, type: 2}
   _contentManifest: {fileID: 11400000, guid: 0647efa4adec7f549aee8cc7e2a1bea7, type: 2}

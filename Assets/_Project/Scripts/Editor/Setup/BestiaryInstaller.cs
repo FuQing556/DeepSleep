@@ -21,6 +21,94 @@ namespace DeepSleep.Editor.Setup
     {
         public const string EntryPath = "Assets/_Project/Configs/Progression/Bestiary/CFG_Bestiary_Kimi.asset";
 
+        public static string ExpandEntries()
+        {
+            if (EditorApplication.isPlaying || UnityEngine.SceneManagement.SceneManager.GetActiveScene().isDirty)
+                throw new InvalidOperationException("先退出Play并保存场景。");
+            var kimi = AssetDatabase.LoadAssetAtPath<BestiaryEntryDefinition>(EntryPath);
+            var entries = new List<BestiaryEntryDefinition>();
+            string[] ids = { "404", "crawler", "download", "360", "doubao" };
+            string[] names = { "404 窗口", "爬虫", "迅雷", "360", "豆包" };
+            string[] portraits = {
+                "Enemies/404Window/SPR_EN_404Window_Idle_v01.png",
+                "Enemies/DataCrawlerSnake/SPR_EN_DataCrawlerSnake_Idle_v01.png",
+                "Enemies/DownloadCharger/SPR_EN_Download_Idle.png",
+                "Enemies/SecurityGuard/SPR_EN_SecurityGuard_Idle.png",
+                "Characters/Doubao/SPR_DB_Lecture_v01.png" };
+            string[] channels = {
+                "Combat/Enemies/SpawnChannels/CFG_EN_SpawnChannel_404Window.asset",
+                "Combat/Enemies/SpawnChannels/CFG_EN_SpawnChannel_DataCrawlerSnake.asset",
+                "Combat/Enemies/Internet/CFG_Download_Channel.asset",
+                "Combat/Enemies/Internet/CFG_SecurityGuard_Channel.asset" };
+            string[] descriptions = {
+                "找不到页面的错误窗口，仍在追赶访问者。", "沿着数据流爬行的小蛇，会朝玩家吐出弹体。",
+                "下载箭头把进度变成了冲撞，速度快，但不会在冲刺时拐弯。", "带着正面盾牌缓慢逼近的安全卫士。",
+                "热心讲解的豆包，会用成串的话语把战场变成气泡迷宫。" };
+            string[] notes = {
+                "留意窗口的接近路线，保持移动，避免被包围。\n\n独立挑战：只刷10只404窗口。",
+                "留意瞄准和弹体，横向追击时也要观察上下方向。\n\n独立挑战：只刷10只爬虫。",
+                "短暂蓄力后沿锁定方向直线冲撞。侧向移动避开冲刺，或在蓄力时击杀。\n\n独立挑战：只刷10枚迅雷箭头，左右都可能出现。",
+                "盾牌始终在正左或正右，正面攻击无法穿过。绕到头顶、脚下或斜侧攻击本体。\n\n独立挑战：只刷10只360。",
+                "优先观察气泡通道，移动避让，不必追着每个气泡打。\n\n独立挑战：只有1只豆包，没有其他小怪。" };
+            for (int i = 0; i < ids.Length; i++)
+            {
+                string path = "Assets/_Project/Configs/Progression/Bestiary/CFG_Bestiary_" + ids[i] + ".asset";
+                var entry = AssetDatabase.LoadAssetAtPath<BestiaryEntryDefinition>(path);
+                if (entry == null) { entry = ScriptableObject.CreateInstance<BestiaryEntryDefinition>(); AssetDatabase.CreateAsset(entry, path); }
+                entry.EntryId = ids[i]; entry.DisplayName = names[i]; entry.Subtitle = i == 4 ? "词墙迷宫 · 单体遭遇" : "黄昏故都 · 单怪练习";
+                entry.Description = descriptions[i]; entry.SkillNotes = notes[i];
+                entry.Portrait = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/_Project/Art/" + portraits[i]);
+                entry.Level = kimi.Level; entry.PreparationBackdrop = kimi.PreparationBackdrop; entry.PreparationLayout = kimi.PreparationLayout;
+                entry.CombatSegment = 1; entry.StartingTokensPerRole = 300; entry.CompletionVoucherReward = 0; entry.PreludeSeconds = 3;
+                entry.ChallengeKind = i == 4 ? BestiaryChallengeKind.Doubao : BestiaryChallengeKind.EnemyChannel;
+                entry.EnemyChannel = i == 4 ? null : AssetDatabase.LoadAssetAtPath<DeepSleep.Runtime.Combat.Enemies.EnemySpawnChannelDefinition>("Assets/_Project/Configs/" + channels[i]);
+                entry.EnemyCount = i == 4 ? 1 : 10; entry.SpawnAllAtStart = i != 4;
+                entry.EnemyBatchSize = i == 4 ? 0 : 5;
+                entry.EnemyBatchIntervalSeconds = i == 4 ? 0 : 3;
+                if(i != 4) entry.SkillNotes += "\n分2波，每波5只；第一波刷出3秒后刷第二波，不等待清场。";
+                entry.SpawnIntervalSeconds = 2; entry.MaximumAlive = 10; entry.ChallengeSeconds = 180;
+                entry.PreparationPrompt = names[i] + " 独立挑战 · 双角色各300 Token · 配装后进入传送门";
+                if (!entry.TryValidate(out string reason)) throw new InvalidOperationException(names[i] + ":" + reason);
+                EditorUtility.SetDirty(entry); entries.Add(entry);
+            }
+            entries.Add(kimi);
+            string previous = UnityEngine.SceneManagement.SceneManager.GetActiveScene().path;
+            var scene = EditorSceneManager.OpenScene("Assets/Scenes/MainMenu.unity");
+            try
+            {
+                var view = scene.GetRootGameObjects().SelectMany(r => r.GetComponentsInChildren<BestiaryMenuView>(true)).Single();
+                var page = view.transform; var theme = view.GetComponentsInChildren<UiThemeView>(true).First(t => t.DeepSeek != null);
+                view.Entries = entries.ToArray(); view.EntryButtons = new Button[entries.Count]; view.Entry = entries[0];
+                foreach (string name in new[] { "PortraitCard", "DetailCard" })
+                {
+                    var card = (RectTransform)page.Find(name);
+                    card.anchoredPosition = new Vector2(card.anchoredPosition.x, -60);
+                }
+                view.PortraitCaption = page.Find("PortraitCard").GetComponentsInChildren<Text>(true).Single();
+                foreach (var label in page.GetComponentsInChildren<Text>(true))
+                    if (label.text.StartsWith("首版收录")) label.text = "收录 · 6种敌人";
+                for (int i = 0; i < entries.Count; i++)
+                {
+                    string buttonName = "Entry_" + entries[i].EntryId;
+                    var existing = page.Find(buttonName);
+                    var button = existing != null ? existing.GetComponent<Button>() :
+                        CloneButton(view.ChallengeButton, page, entries[i].DisplayName, new Vector2(-545 + i * 218, 280), new Vector2(200, 44));
+                    button.name = buttonName; button.GetComponentInChildren<Text>(true).text = entries[i].DisplayName;
+                    var arrow = button.transform.Find("Arrow");
+                    if (arrow != null) arrow.gameObject.SetActive(false);
+                    if (existing == null && button.GetComponent<UiThemeView>() == null) MakeTheme(button.gameObject, theme);
+                    view.EntryButtons[i] = button;
+                }
+                view.Portrait.sprite = entries[0].Portrait; view.PortraitCaption.text = entries[0].DisplayName;
+                view.NameLabel.text = entries[0].DisplayName; view.SubtitleLabel.text = entries[0].Subtitle;
+                view.DescriptionLabel.text = entries[0].Description; view.SkillsLabel.text = entries[0].SkillNotes;
+                view.ChallengeLabel.text = "快速挑战 · 领取300 Token";
+                EditorSceneManager.MarkSceneDirty(scene); EditorSceneManager.SaveScene(scene); AssetDatabase.SaveAssets();
+            }
+            finally { EditorSceneManager.OpenScene(previous); }
+            return "6 separate bestiary entries saved:4 enemy channels x10 + Doubao x1 + existing Kimi; each new challenge300 tokens, dusk world/island preparation.";
+        }
+
         /// <summary>显式复制玩家已调好的第一关节点布局，不修改两张正式地图。</summary>
         public static string CapturePreparationLayout()
         {
@@ -83,6 +171,7 @@ namespace DeepSleep.Editor.Setup
                 entry.PreparationBackdrop = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/_Project/Art/Backgrounds/BG_P0_RestNode_DataTemple_v01.png");
                 entry.Level = (MetaLevelDefinition)so.FindProperty("_world01Level").objectReferenceValue;
                 entry.CombatSegment = 4; entry.StartingTokensPerRole = 1000; entry.PreludeSeconds = 3;
+                entry.CompletionVoucherReward = 5;
                 entry.PreparationPrompt = "Kimi 快速挑战 · 双角色各1000 Token · 配装后进入传送门开始试炼";
                 AssetDatabase.CreateAsset(entry, EntryPath);
             }

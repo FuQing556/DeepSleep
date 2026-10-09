@@ -102,6 +102,10 @@ namespace DeepSleep.Editor.Setup
             brain.Sensor = sensor;
             brain.Combat = combat;
             brain.Owner = actor.transform;
+            brain.SceneEffects = actor.MovementMotor.SceneEffects;
+            sensor.Claude = null;
+            foreach (var encounter in SceneComponents<DeepSleep.Runtime.Combat.Encounters.Claude.ClaudeEncounter2D>())
+                sensor.Claude = encounter;
             brain.Body = actor.GetComponent<Rigidbody2D>();
             var motor = new SerializedObject(actor.MovementMotor);
             brain.Shape = (Collider2D)motor.FindProperty("bodyCollider").objectReferenceValue;

@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261008_Claude\\raw\\VFX_CL_Hit_v01.png",
+  "source_sha256": "b5556de0e0fd0ec57011885b8368d360d53e89165caf62ef06a4a5d96d86ab06",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 1199481,
+  "partial_alpha_pixels": 373033,
+  "opaque_pixels": 2,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    20,
+    1242,
+    1254
+  ],
+  "visible_bbox_alpha_gt_8": [
+    308,
+    213,
+    1003,
+    1025
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

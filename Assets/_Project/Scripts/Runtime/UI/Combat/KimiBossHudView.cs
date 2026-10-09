@@ -5,9 +5,11 @@ using UnityEngine.UI;
 namespace DeepSleep.Runtime.UI.Combat
 {
     /// <summary>血量只读视图；填充图片在固定 RectMask2D 内，边框独立且不参与裁切。</summary>
+    [DefaultExecutionOrder(320)]
     public sealed class KimiBossHudView : MonoBehaviour
     {
         public KimiBoss2D Boss;
+        public KimiBossPresentation2D Presentation;
         public CanvasGroup Visibility;
         public Image HealthFill;
         public Text HealthText;
@@ -31,6 +33,7 @@ namespace DeepSleep.Runtime.UI.Combat
         public void Bind(KimiBoss2D boss, KimiHitCurtain2D curtain = null)
         {
             Boss = boss;
+            Presentation = boss != null ? boss.GetComponent<KimiBossPresentation2D>() : null;
             Curtain = curtain; _lastShield=-1;
             _lastHealth = -1;
             RenderNow();
@@ -40,8 +43,9 @@ namespace DeepSleep.Runtime.UI.Combat
 
         public void RenderNow()
         {
-            bool shown = Boss != null && Boss.IsShown;
-            Visibility.alpha = shown ? 1 : 0;
+            bool shown = Boss != null && Boss.IsAlive;
+            Visibility.alpha = shown && Presentation != null
+                ? Presentation.Timing.ShieldAlpha(Presentation.EntryAge) : 0;
             int shield=shown && Curtain!=null?Curtain.Remaining:0;
             if(shield!=_lastShield) { RenderShield(shield,Curtain!=null?Curtain.Maximum:0); _lastShield=shield; }
             if (!shown) return;

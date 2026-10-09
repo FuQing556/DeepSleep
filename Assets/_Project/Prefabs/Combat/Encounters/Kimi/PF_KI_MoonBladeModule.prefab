@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiPrismOrb2D
   Shape: {fileID: 2516564454273436873}
   Visual: {fileID: 6710084218744224911}
+  VisualSpinDegreesPerSecond: 180
 --- !u!58 &2516564454273436873
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -326,6 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiPrismOrb2D
   Shape: {fileID: 7912416319358981324}
   Visual: {fileID: 7814754157997270433}
+  VisualSpinDegreesPerSecond: 180
 --- !u!58 &7912416319358981324
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -410,6 +412,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiPrismOrb2D
   Shape: {fileID: 3027897794448658898}
   Visual: {fileID: 2156729396717903440}
+  VisualSpinDegreesPerSecond: 180
 --- !u!58 &3027897794448658898
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -581,6 +584,7 @@ MonoBehaviour:
   Projectile: {fileID: 0}
   SnakeAttack: {fileID: 0}
   DownloadCharge: {fileID: 0}
+  QuickApp: {fileID: 0}
   TargetValue: 1
   ThreatTrackedAsObstacle: 0
   PassiveAttackTarget: 1
@@ -1224,6 +1228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiPrismOrb2D
   Shape: {fileID: 1124235315796001011}
   Visual: {fileID: 400201283590483939}
+  VisualSpinDegreesPerSecond: 180
 --- !u!58 &1124235315796001011
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1447,6 +1452,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiPrismOrb2D
   Shape: {fileID: 4223575675368961652}
   Visual: {fileID: 7362531244561855474}
+  VisualSpinDegreesPerSecond: 180
 --- !u!58 &4223575675368961652
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -1710,6 +1716,7 @@ MonoBehaviour:
   Projectile: {fileID: 0}
   SnakeAttack: {fileID: 0}
   DownloadCharge: {fileID: 0}
+  QuickApp: {fileID: 0}
   TargetValue: 1
   ThreatTrackedAsObstacle: 0
   PassiveAttackTarget: 1
@@ -2655,6 +2662,7 @@ MonoBehaviour:
   Projectile: {fileID: 0}
   SnakeAttack: {fileID: 0}
   DownloadCharge: {fileID: 0}
+  QuickApp: {fileID: 0}
   TargetValue: 3
   ThreatTrackedAsObstacle: 0
   PassiveAttackTarget: 1
@@ -2819,6 +2827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiPrismOrb2D
   Shape: {fileID: 219637090186796991}
   Visual: {fileID: 2920773085488031578}
+  VisualSpinDegreesPerSecond: 180
 --- !u!58 &219637090186796991
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2903,6 +2912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiPrismOrb2D
   Shape: {fileID: 1748655297567498210}
   Visual: {fileID: 1637295381476291057}
+  VisualSpinDegreesPerSecond: 180
 --- !u!58 &1748655297567498210
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3049,6 +3059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiPrismOrb2D
   Shape: {fileID: 3330049597273558915}
   Visual: {fileID: 8723737011673190164}
+  VisualSpinDegreesPerSecond: 180
 --- !u!58 &3330049597273558915
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -3611,6 +3622,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiPrismOrb2D
   Shape: {fileID: 6047478957346490300}
   Visual: {fileID: 1146303334156131416}
+  VisualSpinDegreesPerSecond: 180
 --- !u!58 &6047478957346490300
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4752,6 +4764,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiPrismOrb2D
   Shape: {fileID: 5062707239665824916}
   Visual: {fileID: 4477322819586782636}
+  VisualSpinDegreesPerSecond: 180
 --- !u!58 &5062707239665824916
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5267,6 +5280,7 @@ MonoBehaviour:
   Projectile: {fileID: 0}
   SnakeAttack: {fileID: 0}
   DownloadCharge: {fileID: 0}
+  QuickApp: {fileID: 0}
   TargetValue: 1
   ThreatTrackedAsObstacle: 0
   PassiveAttackTarget: 1
@@ -5410,6 +5424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiPrismOrb2D
   Shape: {fileID: 6438396588086616993}
   Visual: {fileID: 4051096098792790208}
+  VisualSpinDegreesPerSecond: 180
 --- !u!58 &6438396588086616993
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -5586,6 +5601,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiPrismOrb2D
   Shape: {fileID: 808167778546225914}
   Visual: {fileID: 6776239486679692039}
+  VisualSpinDegreesPerSecond: 180
 --- !u!58 &808167778546225914
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -6051,6 +6067,7 @@ MonoBehaviour:
   Projectile: {fileID: 0}
   SnakeAttack: {fileID: 0}
   DownloadCharge: {fileID: 0}
+  QuickApp: {fileID: 0}
   TargetValue: 1
   ThreatTrackedAsObstacle: 0
   PassiveAttackTarget: 1
@@ -6837,6 +6854,7 @@ MonoBehaviour:
   Projectile: {fileID: 0}
   SnakeAttack: {fileID: 0}
   DownloadCharge: {fileID: 0}
+  QuickApp: {fileID: 0}
   TargetValue: 2
   ThreatTrackedAsObstacle: 0
   PassiveAttackTarget: 0
@@ -6906,10 +6924,9 @@ MonoBehaviour:
   MoonShield: {fileID: 7023958611371378927}
   DepartingBody: {fileID: 5580104175649731035}
   DepartingCloud: {fileID: 1583351822973739951}
+  Timing: {fileID: 11400000, guid: 4d8bcc9a96999b9408c427bcc91c3792, type: 2}
   ShieldPeakAlpha: 0.5
-  DepartureSeconds: 1.25
   ShieldIdleAlpha: 0.8
-  EntryFadeSeconds: 1.25
 --- !u!58 &663811252513934700
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7068,6 +7085,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiPrismOrb2D
   Shape: {fileID: 1137224201641255876}
   Visual: {fileID: 2879896559602925605}
+  VisualSpinDegreesPerSecond: 180
 --- !u!58 &1137224201641255876
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7152,6 +7170,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiPrismOrb2D
   Shape: {fileID: 693819835866394166}
   Visual: {fileID: 811746506022348244}
+  VisualSpinDegreesPerSecond: 180
 --- !u!58 &693819835866394166
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7328,6 +7347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiPrismOrb2D
   Shape: {fileID: 8012759693968204384}
   Visual: {fileID: 8703995884234335928}
+  VisualSpinDegreesPerSecond: 180
 --- !u!58 &8012759693968204384
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -7504,6 +7524,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiPrismOrb2D
   Shape: {fileID: 3818942816297733491}
   Visual: {fileID: 7051336255989646160}
+  VisualSpinDegreesPerSecond: 180
 --- !u!58 &3818942816297733491
 CircleCollider2D:
   m_ObjectHideFlags: 0

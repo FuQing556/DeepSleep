@@ -1,0 +1,938 @@
+fileFormatVersion: 2
+guid: f9d366a3b5e07234280d703b00e35a52
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5438377513091787403
+    second: VFX_CL_EnergyCore_0
+  - first:
+      213: 1166945061358089800
+    second: VFX_CL_EnergyCore_1
+  - first:
+      213: -9108124894897812249
+    second: VFX_CL_EnergyCore_2
+  - first:
+      213: 2329237106146174302
+    second: VFX_CL_EnergyCore_3
+  - first:
+      213: -8794776161986862739
+    second: VFX_CL_EnergyCore_4
+  - first:
+      213: 7132958313456376997
+    second: VFX_CL_EnergyCore_5
+  - first:
+      213: -2576092342291316168
+    second: VFX_CL_EnergyCore_6
+  - first:
+      213: 3662141365319738093
+    second: VFX_CL_EnergyCore_7
+  - first:
+      213: 5288810004003510910
+    second: VFX_CL_EnergyCore_8
+  - first:
+      213: -4273306999112458967
+    second: VFX_CL_EnergyCore_9
+  - first:
+      213: -3028801438158736122
+    second: VFX_CL_EnergyCore_10
+  - first:
+      213: -1482341147613370319
+    second: VFX_CL_EnergyCore_11
+  - first:
+      213: -6817866459468244161
+    second: VFX_CL_EnergyCore_12
+  - first:
+      213: 1417004751862123803
+    second: VFX_CL_EnergyCore_13
+  - first:
+      213: -3529992083347606624
+    second: VFX_CL_EnergyCore_14
+  - first:
+      213: 8652580766662555558
+    second: VFX_CL_EnergyCore_15
+  - first:
+      213: -6382112492075767289
+    second: VFX_CL_EnergyCore_16
+  - first:
+      213: 7086503508052682377
+    second: VFX_CL_EnergyCore_17
+  - first:
+      213: 6928222926795549495
+    second: VFX_CL_EnergyCore_18
+  - first:
+      213: -5415894963225308171
+    second: VFX_CL_EnergyCore_19
+  - first:
+      213: -1329000458297650748
+    second: VFX_CL_EnergyCore_20
+  - first:
+      213: -4082871864674579063
+    second: VFX_CL_EnergyCore_21
+  - first:
+      213: 7510703677633672872
+    second: VFX_CL_EnergyCore_22
+  - first:
+      213: -2392618820588234098
+    second: VFX_CL_EnergyCore_23
+  - first:
+      213: 5048838134979911891
+    second: VFX_CL_EnergyCore_24
+  - first:
+      213: 42957375139000205
+    second: VFX_CL_EnergyCore_25
+  - first:
+      213: -5784501933652373615
+    second: VFX_CL_EnergyCore_26
+  - first:
+      213: -5970649577830742584
+    second: VFX_CL_EnergyCore_27
+  - first:
+      213: -5211725134537891992
+    second: VFX_CL_EnergyCore_28
+  - first:
+      213: -4561576316269420430
+    second: VFX_CL_EnergyCore_29
+  - first:
+      213: 4575191424038280806
+    second: VFX_CL_EnergyCore_30
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.49880382, y: 0.5095694}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1254
+        height: 1229
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8aee4ec88ff87b40800000000000000
+      internalID: 5438377513091787403
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_1
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 1218
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84635aeb952d13010800000000000000
+      internalID: 1166945061358089800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_2
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 1180
+        width: 43
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ec49bd3aa0799180800000000000000
+      internalID: -9108124894897812249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_3
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 1086
+        width: 222
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e556085aecc135020800000000000000
+      internalID: 2329237106146174302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_4
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 1218
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6123b96dada2f580800000000000000
+      internalID: -8794776161986862739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_5
+      rect:
+        serializedVersion: 2
+        x: 1145
+        y: 1216
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ac9c374bcb5df260800000000000000
+      internalID: 7132958313456376997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_6
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 1213
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8324f15d9a1ef3cd0800000000000000
+      internalID: -2576092342291316168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_7
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 1203
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de2a52d3b2a82d230800000000000000
+      internalID: 3662141365319738093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1138
+        width: 33
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7a59256da0a56940800000000000000
+      internalID: 5288810004003510910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_9
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 1117
+        width: 11
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92d16bddce922b4c0800000000000000
+      internalID: -4273306999112458967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_10
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 1092
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6053b57a32987f5d0800000000000000
+      internalID: -3028801438158736122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_11
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 1030
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1386f8c749aad6be0800000000000000
+      internalID: -1482341147613370319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_12
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 1034
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3b5855e3921261a0800000000000000
+      internalID: -6817866459468244161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_13
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 883
+        width: 40
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1d48cf60563aa310800000000000000
+      internalID: 1417004751862123803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_14
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 836
+        width: 27
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a3ff1427e2f20fc0800000000000000
+      internalID: -3529992083347606624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_15
+      rect:
+        serializedVersion: 2
+        x: 1194
+        y: 834
+        width: 25
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a77c4b2d54241870800000000000000
+      internalID: 8652580766662555558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_16
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 465
+        width: 17
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70aad39908e2e67a0800000000000000
+      internalID: -6382112492075767289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_17
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 333
+        width: 86
+        height: 178
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9862a090561585260800000000000000
+      internalID: 7086503508052682377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_18
+      rect:
+        serializedVersion: 2
+        x: 1206
+        y: 455
+        width: 17
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73bad5c6b0ef52060800000000000000
+      internalID: 6928222926795549495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_19
+      rect:
+        serializedVersion: 2
+        x: 1203
+        y: 359
+        width: 22
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f3d020c930e6d4b0800000000000000
+      internalID: -5415894963225308171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_20
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 79
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c156d0ef117e8de0800000000000000
+      internalID: -1329000458297650748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_21
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 47
+        width: 17
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98d82aacba9b657c0800000000000000
+      internalID: -4082871864674579063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_22
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 63
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a6339e83316b3860800000000000000
+      internalID: 7510703677633672872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_23
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 33
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8a9cebfbd5bbced0800000000000000
+      internalID: -2392618820588234098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_24
+      rect:
+        serializedVersion: 2
+        x: 1029
+        y: 39
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d06ceba883111640800000000000000
+      internalID: 5048838134979911891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_25
+      rect:
+        serializedVersion: 2
+        x: 1093
+        y: 35
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8fa4ad418d989000800000000000000
+      internalID: 42957375139000205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_26
+      rect:
+        serializedVersion: 2
+        x: 1178
+        y: 41
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19f0712932259bfa0800000000000000
+      internalID: -5784501933652373615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_27
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 39
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c50013c7ddf32da0800000000000000
+      internalID: -5970649577830742584
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_28
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 11
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86fd4e06a9b3ca7b0800000000000000
+      internalID: -5211725134537891992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_29
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 19
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2702de4328602b0c0800000000000000
+      internalID: -4561576316269420430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyCore_30
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 12
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66e17391c585e7f30800000000000000
+      internalID: 4575191424038280806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_CL_EnergyCore_0: 5438377513091787403
+      VFX_CL_EnergyCore_1: 1166945061358089800
+      VFX_CL_EnergyCore_10: -3028801438158736122
+      VFX_CL_EnergyCore_11: -1482341147613370319
+      VFX_CL_EnergyCore_12: -6817866459468244161
+      VFX_CL_EnergyCore_13: 1417004751862123803
+      VFX_CL_EnergyCore_14: -3529992083347606624
+      VFX_CL_EnergyCore_15: 8652580766662555558
+      VFX_CL_EnergyCore_16: -6382112492075767289
+      VFX_CL_EnergyCore_17: 7086503508052682377
+      VFX_CL_EnergyCore_18: 6928222926795549495
+      VFX_CL_EnergyCore_19: -5415894963225308171
+      VFX_CL_EnergyCore_2: -9108124894897812249
+      VFX_CL_EnergyCore_20: -1329000458297650748
+      VFX_CL_EnergyCore_21: -4082871864674579063
+      VFX_CL_EnergyCore_22: 7510703677633672872
+      VFX_CL_EnergyCore_23: -2392618820588234098
+      VFX_CL_EnergyCore_24: 5048838134979911891
+      VFX_CL_EnergyCore_25: 42957375139000205
+      VFX_CL_EnergyCore_26: -5784501933652373615
+      VFX_CL_EnergyCore_27: -5970649577830742584
+      VFX_CL_EnergyCore_28: -5211725134537891992
+      VFX_CL_EnergyCore_29: -4561576316269420430
+      VFX_CL_EnergyCore_3: 2329237106146174302
+      VFX_CL_EnergyCore_30: 4575191424038280806
+      VFX_CL_EnergyCore_4: -8794776161986862739
+      VFX_CL_EnergyCore_5: 7132958313456376997
+      VFX_CL_EnergyCore_6: -2576092342291316168
+      VFX_CL_EnergyCore_7: 3662141365319738093
+      VFX_CL_EnergyCore_8: 5288810004003510910
+      VFX_CL_EnergyCore_9: -4273306999112458967
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

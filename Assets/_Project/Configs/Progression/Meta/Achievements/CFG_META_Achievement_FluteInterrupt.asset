@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9d3bd0204d2234bb7af54735526d6a, type: 3}
+  m_Name: CFG_META_Achievement_FluteInterrupt
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Meta.AchievementDefinition
+  _achievementId: flute_interrupt
+  _displayName: "\u6F14\u594F\u6682\u505C"
+  _description: "\u9996\u6B21\u51FB\u7834\u6B21\u6570\u76FE\uFF0C\u6253\u65AD Kimi \u7684\u7B1B\u58F0\u84C4\u529B\u3002"
+  _hidden: 0
+  _triggerId: flute_interrupted
+  _targetCount: 1
+  _icon: {fileID: 21300000, guid: 95301f8332dc7ea4793a3061f8afd61f, type: 3}
+  _requiredLevel: {fileID: 0}
+  _requiredChallenges: []

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1faa5e0e173b304f80bd66cb79ca478, type: 3}
+  m_Name: CFG_Skin_DS_BorrowedBadge
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Meta.PlayerSkinDefinition
+  NetworkId: 1
+  Role: 0
+  DefaultAlive: {fileID: 21300000, guid: 95d55fedc3e0b4c41a7a12e75dbd2879, type: 3}
+  DefaultDowned: {fileID: 21300000, guid: 029e724a7167c8a4baa09ff54559f7b4, type: 3}
+  Preview: {fileID: 21300000, guid: 84c677269b71cd242a7976f3f62b257e, type: 3}
+  AliveVariants:
+  - {fileID: 21300000, guid: 84c677269b71cd242a7976f3f62b257e, type: 3}
+  - {fileID: 21300000, guid: a8977c7ec98aac44fa57ffcc182e97dd, type: 3}
+  DownedVariants:
+  - {fileID: 21300000, guid: 9c94674055f9b1948921bf4ee6c05d04, type: 3}
+  - {fileID: 21300000, guid: 1b0be348196862749bded8f3625b769a, type: 3}

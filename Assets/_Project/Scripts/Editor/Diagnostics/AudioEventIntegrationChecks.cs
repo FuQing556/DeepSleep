@@ -209,6 +209,18 @@ namespace DeepSleep.Editor.Diagnostics
                 Check(completed == 1 && popped == 1, "Boss clear emitted duplicate completion or per-bubble audio facts.");
                 Check(played.Count(c => c == AudioCue.DoubaoDefeat) == 1 && !played.Contains(AudioCue.BubblePop),
                     "Boss-clear presentation did not produce exactly one collective cue.");
+                uint sequence = 30;
+                foreach (Fact fact in Enum.GetValues(typeof(Fact)))
+                {
+                    if (fact < Fact.RecursiveHit) continue;
+                    audio.StopWorld();
+                    int before = played.Count;
+                    Replay(presenter, 8, sequence, fact);
+                    var expected = (AudioCue)((int)AudioCue.KimiReveal + (int)fact - (int)Fact.KimiReveal);
+                    Check(played.Count == before + 1 && played.Last() == expected, "World02 fact maps to exact cue " + fact);
+                    Replay(presenter, 8, sequence++, fact);
+                    Check(played.Count == before + 1, "Duplicate World02 fact suppressed " + fact);
+                }
                 return _checks + " isolated replay checks passed: real Read() validator/sequence/context/world gate, " +
                     "plus actual encounter completion guard and 240 simulated clear callbacks. No transport, gameplay damage, profile or preference writes. " +
                     "This is not a live two-device/network delivery test.";

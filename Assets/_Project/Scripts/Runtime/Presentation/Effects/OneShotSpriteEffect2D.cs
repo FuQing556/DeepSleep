@@ -26,6 +26,7 @@ namespace DeepSleep.Runtime.Presentation.Effects
         public event Action<OneShotSpriteEffect2D> Finished;
 
         public bool IsPlaying => _isPlaying;
+        internal ulong PoolPlaySequence;
 
         private void Awake()
         {

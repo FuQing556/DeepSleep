@@ -1,0 +1,626 @@
+fileFormatVersion: 2
+guid: 719aed1633bc5bc418cb609c21f4f46e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1437135451277685810
+    second: SPR_EN_RecursiveJelly_Idle_v01_0
+  - first:
+      213: -754812332333222788
+    second: SPR_EN_RecursiveJelly_Idle_v01_1
+  - first:
+      213: 6755841885874542781
+    second: SPR_EN_RecursiveJelly_Idle_v01_2
+  - first:
+      213: -821211546287431191
+    second: SPR_EN_RecursiveJelly_Idle_v01_3
+  - first:
+      213: 6452565467823788825
+    second: SPR_EN_RecursiveJelly_Idle_v01_4
+  - first:
+      213: -5373849588546301940
+    second: SPR_EN_RecursiveJelly_Idle_v01_5
+  - first:
+      213: 2826772391953642123
+    second: SPR_EN_RecursiveJelly_Idle_v01_6
+  - first:
+      213: -9148548282035973368
+    second: SPR_EN_RecursiveJelly_Idle_v01_7
+  - first:
+      213: 3319720619187805155
+    second: SPR_EN_RecursiveJelly_Idle_v01_8
+  - first:
+      213: -2447745743817372062
+    second: SPR_EN_RecursiveJelly_Idle_v01_9
+  - first:
+      213: -5795787859165211795
+    second: SPR_EN_RecursiveJelly_Idle_v01_10
+  - first:
+      213: 745363563497107379
+    second: SPR_EN_RecursiveJelly_Idle_v01_11
+  - first:
+      213: -5863901017592602695
+    second: SPR_EN_RecursiveJelly_Idle_v01_12
+  - first:
+      213: -5359754263194619629
+    second: SPR_EN_RecursiveJelly_Idle_v01_13
+  - first:
+      213: -6976788841633169832
+    second: SPR_EN_RecursiveJelly_Idle_v01_14
+  - first:
+      213: -3671460957342568701
+    second: SPR_EN_RecursiveJelly_Idle_v01_15
+  - first:
+      213: -4357742352658921510
+    second: SPR_EN_RecursiveJelly_Idle_v01_16
+  - first:
+      213: 7813575073636138569
+    second: SPR_EN_RecursiveJelly_Idle_v01_17
+  - first:
+      213: -6195872506100111296
+    second: SPR_EN_RecursiveJelly_Idle_v01_18
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SPR_EN_RecursiveJelly_Idle_v01_0
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 1201
+        height: 1225
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecb097cdbe44e0ce0800000000000000
+      internalID: -1437135451277685810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_RecursiveJelly_Idle_v01_1
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 1100
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c74b133de2e5685f0800000000000000
+      internalID: -754812332333222788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_RecursiveJelly_Idle_v01_2
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 1052
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db8d146b66291cd50800000000000000
+      internalID: 6755841885874542781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_RecursiveJelly_Idle_v01_3
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 1012
+        width: 13
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e1a61a13787a94f0800000000000000
+      internalID: -821211546287431191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_RecursiveJelly_Idle_v01_4
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 103
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 913d6971b1e1c8950800000000000000
+      internalID: 6452565467823788825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_RecursiveJelly_Idle_v01_5
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 43
+        width: 33
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c00915665404c65b0800000000000000
+      internalID: -5373849588546301940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_RecursiveJelly_Idle_v01_6
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 63
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b82374b7386ba3720800000000000000
+      internalID: 2826772391953642123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_RecursiveJelly_Idle_v01_7
+      rect:
+        serializedVersion: 2
+        x: 924
+        y: 71
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8035cbefec3d90180800000000000000
+      internalID: -9148548282035973368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_RecursiveJelly_Idle_v01_8
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 27
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3eb9a348054021e20800000000000000
+      internalID: 3319720619187805155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_RecursiveJelly_Idle_v01_9
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 37
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26e8a47f63cd70ed0800000000000000
+      internalID: -2447745743817372062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_RecursiveJelly_Idle_v01_10
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 9
+        width: 25
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d639fe446a9319fa0800000000000000
+      internalID: -5795787859165211795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_RecursiveJelly_Idle_v01_11
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 18
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bfa3ce3630185a00800000000000000
+      internalID: 745363563497107379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_RecursiveJelly_Idle_v01_12
+      rect:
+        serializedVersion: 2
+        x: 690
+        y: 15
+        width: 16
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bf5750c71d3f9ea0800000000000000
+      internalID: -5863901017592602695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_RecursiveJelly_Idle_v01_13
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 15
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31136e215e35e95b0800000000000000
+      internalID: -5359754263194619629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_RecursiveJelly_Idle_v01_14
+      rect:
+        serializedVersion: 2
+        x: 856
+        y: 7
+        width: 13
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85ebb8d53877d2f90800000000000000
+      internalID: -6976788841633169832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_RecursiveJelly_Idle_v01_15
+      rect:
+        serializedVersion: 2
+        x: 886
+        y: 25
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30f61e626b95c0dc0800000000000000
+      internalID: -3671460957342568701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_RecursiveJelly_Idle_v01_16
+      rect:
+        serializedVersion: 2
+        x: 898
+        y: 26
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad707172b603683c0800000000000000
+      internalID: -4357742352658921510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_RecursiveJelly_Idle_v01_17
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 25
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94ebde1a1256f6c60800000000000000
+      internalID: 7813575073636138569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SPR_EN_RecursiveJelly_Idle_v01_18
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 7
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0482b4868c6d30aa0800000000000000
+      internalID: -6195872506100111296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      SPR_EN_RecursiveJelly_Idle_v01_0: -1437135451277685810
+      SPR_EN_RecursiveJelly_Idle_v01_1: -754812332333222788
+      SPR_EN_RecursiveJelly_Idle_v01_10: -5795787859165211795
+      SPR_EN_RecursiveJelly_Idle_v01_11: 745363563497107379
+      SPR_EN_RecursiveJelly_Idle_v01_12: -5863901017592602695
+      SPR_EN_RecursiveJelly_Idle_v01_13: -5359754263194619629
+      SPR_EN_RecursiveJelly_Idle_v01_14: -6976788841633169832
+      SPR_EN_RecursiveJelly_Idle_v01_15: -3671460957342568701
+      SPR_EN_RecursiveJelly_Idle_v01_16: -4357742352658921510
+      SPR_EN_RecursiveJelly_Idle_v01_17: 7813575073636138569
+      SPR_EN_RecursiveJelly_Idle_v01_18: -6195872506100111296
+      SPR_EN_RecursiveJelly_Idle_v01_2: 6755841885874542781
+      SPR_EN_RecursiveJelly_Idle_v01_3: -821211546287431191
+      SPR_EN_RecursiveJelly_Idle_v01_4: 6452565467823788825
+      SPR_EN_RecursiveJelly_Idle_v01_5: -5373849588546301940
+      SPR_EN_RecursiveJelly_Idle_v01_6: 2826772391953642123
+      SPR_EN_RecursiveJelly_Idle_v01_7: -9148548282035973368
+      SPR_EN_RecursiveJelly_Idle_v01_8: 3319720619187805155
+      SPR_EN_RecursiveJelly_Idle_v01_9: -2447745743817372062
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

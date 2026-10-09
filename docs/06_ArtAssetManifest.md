@@ -1,5 +1,7 @@
 # 06｜美术资源清单与交付验收 v3.1（素材有效，动作语义待重映射）
 
+> 2026-10-09：生图新增 Kimi 月夜左右堤岸 `FG_W01_Riverbanks_Night_v01.png`，与原黄昏切片同几何并接入出场/胜利昼夜渐变；重画 Claude `SPR_CL_Move.png`，按常态母图恢复头身比例，保留原 GUID/PPU/碰撞与世界缩放。原稿、备份、提示词和透明/场景预览见 `ArtProduction/20261009_KimiForeground_ClaudeMove/README.md`。未双端设备验收。
+
 > 2026-09-04：角色造型、画风、文件规格和已有候选继续有效；TapRise/Fall/扑翼/旧路线专属动作不得直接进入新玩法，按 `18_CoopShooterGameplaySpec.md` 重映射为自由移动、常态开火、清弹、救援和共鸣状态。
 
 > 第一批只生产灰盒玩法当前需要的 DeepSeek/Harness 状态图、循环背景与第一章机制图形。概念候选不得冒充透明生产素材；不为尚未落地的玩法提前堆动画帧。

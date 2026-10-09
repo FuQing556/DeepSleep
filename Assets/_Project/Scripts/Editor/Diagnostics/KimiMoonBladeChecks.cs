@@ -57,6 +57,55 @@ namespace DeepSleep.Editor.Diagnostics
             EditorSceneManager.MarkSceneDirty(SceneManager.GetActiveScene());
         }
 
+        public static string RunPresentation()
+        {
+            if (EditorApplication.isPlaying) throw new InvalidOperationException("Run outside Play.");
+            var scene = EditorSceneManager.OpenPreviewScene("Assets/Scenes/World01_EarlyInternet.unity");
+            int checks = 0;
+            void Check(bool ok, string message) { checks++; if (!ok) throw new Exception(message); }
+            try
+            {
+                var view = scene.GetRootGameObjects().SelectMany(r => r.GetComponentsInChildren<KimiBossPresentation2D>(true)).Single();
+                Check(view.TryValidateConfiguration(out _), "Presentation assembly");
+                var boss = view.Boss;
+                var sphere = (CircleCollider2D)boss.HitCollider;
+                float radius = sphere.radius; Vector2 offset = sphere.offset;
+                for (int replica = 0; replica < 2; replica++)
+                {
+                    view.ResetPresentation(); view.HitFlash.ResetFeedback();
+                    if (replica == 0) boss.BeginAuthority(new Vector2(6, 0), null, null);
+                    else boss.ApplyReplica(true, new Vector2(6, 0), boss.MaximumHealth, false, KimiPose.Idle);
+                    view.AdvancePresentation(0, 0);
+                    Check(!view.MoonShield.enabled && boss.Body.color.a == 0, "No shield before figure appears");
+                    float entryAge = 0;
+                    void Step(float seconds)
+                    {
+                        entryAge += seconds;
+                        if (replica == 1) view.ApplyReplicaEntry(entryAge);
+                        view.AdvancePresentation(seconds, seconds);
+                    }
+                    Step(view.Timing.NightSeconds);
+                    Check(boss.Body.color.a == 0 && !view.MoonShield.enabled, "Night before figure");
+                    Step(view.EntryFadeSeconds * .5f);
+                    Check(!view.MoonShield.enabled && boss.Body.color.a > 0 && boss.Body.color.a < 1, "Figure fades first");
+                    Step(view.EntryFadeSeconds * .5f);
+                    Check(boss.Body.color.a == 1 && view.MoonShield.color.a == 0, "Shield starts only after full figure");
+                    Step(view.ShieldEntryFadeSeconds * .5f);
+                    Check(view.MoonShield.enabled && view.MoonShield.color.a > 0 && view.MoonShield.color.a < view.ShieldIdleAlpha, "Shield fades in second");
+                    Step(view.ShieldEntryFadeSeconds * .5f);
+                    Check(Mathf.Abs(view.MoonShield.color.a - view.ShieldIdleAlpha) < .0001f && sphere.radius == radius && sphere.offset == offset,
+                        "Normal brightness and unchanged collision geometry");
+                    float alpha = view.MoonShield.color.a;
+                    view.AdvancePresentation(0, 5);
+                    Check(view.MoonShield.color.a == alpha, "Ordinary pause freezes entrance");
+                    boss.ResetEncounter(); view.AdvancePresentation(0, 0);
+                    Check(!view.MoonShield.enabled, "Reset hides shield for next entrance");
+                }
+                return "Kimi presentation: " + checks + " checks passed (authority and replica, isolated Editor).";
+            }
+            finally { EditorSceneManager.ClosePreviewScene(scene); }
+        }
+
         public static string Run()
         {
             if (!EditorApplication.isPlaying || GameObject.Find("Kimi_Verification_Only") == null)
@@ -126,7 +175,8 @@ namespace DeepSleep.Editor.Diagnostics
                     }
                     pattern.Completed -= onComplete;
                     require(pattern.State == KimiMoonState.Complete && completed==1,"Pattern completes exactly once");
-                    require(pattern.FiredVolleys == 10 && pattern.FiredBlades == (phase==0?20:40),"Exact volley/blade totals");
+                    require(pattern.FiredVolleys == pattern.Config.VolleyCount &&
+                        pattern.FiredBlades == pattern.Config.VolleyCount * (phase==0?pattern.Config.PhaseOneBlades:pattern.Config.PhaseTwoBlades),"Exact configured volley/blade totals");
                     require(warningChecks == 10 && maxActive == (phase==0?2:4),"10 warnings and expected peak occupancy");
                     require(pattern.Projectiles.ActiveCount==0 && pattern.Projectiles.TotalCount==4,"Prewarmed pool, no growth/leak");
                 }
@@ -543,9 +593,10 @@ namespace DeepSleep.Editor.Diagnostics
                     require(laser.Config.ShotCount==5,"Production sequence has five rounds");
                     require(laser.Begin(probes[0].transform.position,null,sequenceTargets,0),"Sequence starts");
                     var lockedDirection = laser.Lane.Direction;
+                    var lockedMarker = laser.MarkerPosition;
                     probes[0].transform.position += Vector3.up;
                     laser.Simulate(.1f);
-                    require(laser.Lane.Direction==lockedDirection && laser.MarkerPosition==(Vector2)probes[0].transform.position && laser.TargetMarker.enabled,"Marker follows player while direction stays locked");
+                    require(laser.Lane.Direction==lockedDirection && laser.MarkerPosition==lockedMarker && laser.TargetMarker.enabled,"Marker and beam both remain at the locked position after player moves");
                     laser.Simulate(1.91f);
                     require(charges==2 && fired==1 && Vector2.Distance(laser.Lane.Direction,((Vector2)probes[1].transform.position-origin).normalized)<.001f,"Second round retargets other player");
                     Capture("laser_sequence_marker_mobile",1280,582);
@@ -628,14 +679,14 @@ namespace DeepSleep.Editor.Diagnostics
                     probes[0].transform.position=lane.Origin+lane.Direction*10;
                     Vector2 gap=Quaternion.Euler(0,0,6)*Vector2.left;
                     probes[1].transform.position=origin+gap*10;
-                    Physics2D.SyncTransforms();laser.Simulate(laser.Config.ChargeSeconds+.01f);
+                    Physics2D.SyncTransforms();laser.Simulate(laser.Config.ChargeSeconds+laser.GetRayStart(branch)+.01f);
                     require(health[0].CurrentHealth==99 && health[1].CurrentHealth==100,"Branch damage and gap "+branch);
-                    require(laser.BranchBeams.All(b=>b.GetComponent<MeshRenderer>().enabled),"All branch meshes fire");
+                    require((branch==0?laser.Beam:laser.BranchBeams[branch-1]).GetComponent<MeshRenderer>().enabled,"The scheduled branch mesh fires");
                     laser.Simulate(.05f);require(health[0].CurrentHealth==99,"Fan dedup within round");
                 }
                 // 近炮口五道重叠也只吃一次，不瞬间叠五倍伤害。
                 health[0].ResetToMaximum();probes[0].transform.position=origin+Vector2.left*.3f;Physics2D.SyncTransforms();
-                laser.Begin(origin+Vector2.left*10,null);laser.Simulate(laser.Config.ChargeSeconds+.01f);
+                laser.Begin(origin+Vector2.left*10,null);laser.Simulate(laser.Config.ChargeSeconds+laser.GetRayStart(0)+.01f);
                 require(health[0].CurrentHealth==99,"Overlapping branches share hit cache");
                 Capture("laser_phase2_fan_mobile",1280,582);
                 laser.enabled=false;

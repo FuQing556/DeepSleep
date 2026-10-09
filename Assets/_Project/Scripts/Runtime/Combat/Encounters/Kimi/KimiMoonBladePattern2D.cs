@@ -121,7 +121,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
                 int pick = _random.Next(i, _laneBag.Length);
                 (_laneBag[i], _laneBag[pick]) = (_laneBag[pick], _laneBag[i]);
                 _lanes[i] = _laneBag[i];
-                // 同波两侧都有来刃；首方向随机，不能十波恰巧全部只从同一侧进入。
+                // 同波两侧都有来刃；首方向随机，避免整次技能只从同一侧进入。
                 _fromLeft[i] = (i % 2 == 0) == firstFromLeft;
             }
             _elapsed = 0;

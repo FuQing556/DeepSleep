@@ -13,6 +13,14 @@ namespace DeepSleep.Runtime.Combat.Enemies
     {
         [SerializeField, Min(0.01f)] private float _damageAmount = 1f;
         [SerializeField] private LayerMask _targetLayers;
+        [SerializeField] private bool _despawnOnImpact = true;
+        [SerializeField, Min(.01f)] private float _repeatIntervalSeconds = 1f;
+        [SerializeField, Min(0f)] private float _knockbackDistance;
+        [SerializeField, Min(.01f)] private float _knockbackSeconds = .22f;
+        public bool DespawnOnImpact => _despawnOnImpact;
+        public float RepeatIntervalSeconds => _repeatIntervalSeconds;
+        public float KnockbackDistance => _knockbackDistance;
+        public float KnockbackSeconds => _knockbackSeconds;
 
         public float DamageAmount => _damageAmount;
         public LayerMask TargetLayers => _targetLayers;
@@ -24,6 +32,10 @@ namespace DeepSleep.Runtime.Combat.Enemies
 
         public bool TryValidate(out string reason)
         {
+            if (!float.IsFinite(_repeatIntervalSeconds) || _repeatIntervalSeconds <= 0f ||
+                !float.IsFinite(_knockbackDistance) || _knockbackDistance < 0f ||
+                !float.IsFinite(_knockbackSeconds) || _knockbackSeconds <= 0f)
+            { reason = "接触冷却/击退距离/时长无效。"; return false; }
             if (_damageAmount <= 0f)
             {
                 reason = "接触伤害必须大于 0。";

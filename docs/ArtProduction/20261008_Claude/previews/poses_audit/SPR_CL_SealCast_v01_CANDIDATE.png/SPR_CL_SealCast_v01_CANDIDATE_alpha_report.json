@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261008_Claude\\raw\\SPR_CL_SealCast_v01_CANDIDATE.png",
+  "source_sha256": "9a2eb988a9d501859e4457ece059d9587017b6a6352e54d137bc124d35498d42",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 858508,
+  "partial_alpha_pixels": 712692,
+  "opaque_pixels": 1316,
+  "visible_bbox_alpha_gt_0": [
+    65,
+    16,
+    1214,
+    1240
+  ],
+  "visible_bbox_alpha_gt_8": [
+    188,
+    20,
+    1180,
+    1238
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

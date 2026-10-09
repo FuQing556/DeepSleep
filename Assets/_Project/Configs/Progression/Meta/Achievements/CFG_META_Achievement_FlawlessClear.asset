@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Meta.AchievementDefinition
   _achievementId: flawless_clear
   _displayName: "\u5F62\u5F71\u4E0D\u79BB"
-  _description: "\u65E0\u4EBA\u8FDB\u5165\u5012\u5730\u72B6\u6001\u5B8C\u6210\u5929\u7A7A\u6D4B\u8BD5\u573A\u3002"
+  _description: "\u53CC\u65B9\u5747\u672A\u5012\u5730\uFF0C\u901A\u5173\u4EFB\u610F\u666E\u901A\u5173\u5361\u3002"
   _hidden: 0
   _triggerId: flawless_level_cleared
   _targetCount: 1
   _icon: {fileID: 0}
+  _requiredLevel: {fileID: 0}
+  _requiredChallenges: []

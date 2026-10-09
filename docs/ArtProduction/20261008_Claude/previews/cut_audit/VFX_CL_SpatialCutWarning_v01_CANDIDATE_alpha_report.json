@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261008_Claude\\raw\\VFX_CL_SpatialCutWarning_v01_CANDIDATE.png",
+  "source_sha256": "4bcc2b28a0268887c43cfa9003fc325eede8255a8cd7bb9d48db40176f7e8e41",
+  "mode": "RGBA",
+  "size": [
+    2172,
+    724
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    253
+  ],
+  "transparent_pixels": 1395310,
+  "partial_alpha_pixels": 177218,
+  "opaque_pixels": 0,
+  "visible_bbox_alpha_gt_0": [
+    9,
+    25,
+    2161,
+    684
+  ],
+  "visible_bbox_alpha_gt_8": [
+    37,
+    281,
+    2146,
+    446
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

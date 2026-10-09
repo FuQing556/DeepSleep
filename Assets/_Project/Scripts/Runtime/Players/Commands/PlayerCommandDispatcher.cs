@@ -114,6 +114,14 @@ namespace DeepSleep.Runtime.Players.Commands
                 if (consumer is IPlayerActionCommandConsumer actionConsumer &&
                     _actionGate.IsBlocked(actionConsumer.ActionCategory))
                 {
+                    // 蓄力等主动移动锁不吞掉外部击退；倒地停用的移动器仍不会模拟。
+                    if (consumer is DeepSleep.Runtime.Players.Movement.PlayerMovementMotor2D motor)
+                        motor.SimulateBlocked(deltaTime);
+                    // 只新增权限书封普攻的取消处理，旧救援/剧情门禁保持原推进语义。
+                    if (_actionGate.IsBlocked(PlayerActionBlock.PrimaryAttack) &&
+                        (actionConsumer.ActionCategory & PlayerActionBlock.PrimaryAttack) != 0 &&
+                        consumer is IPlayerBlockedCommandConsumer blockedConsumer)
+                        blockedConsumer.ConsumeBlockedCommand(deltaTime);
                     continue;
                 }
 

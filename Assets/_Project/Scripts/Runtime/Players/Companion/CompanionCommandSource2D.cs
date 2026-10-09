@@ -28,6 +28,7 @@ namespace DeepSleep.Runtime.Players.Companion
         public DeepSeekRiceGuardController TeamGuard;
         public CompanionNodeGoal2D NodeGoal;
         public CompanionSquadAnchor2D SquadAnchor;
+        public DeepSleep.Runtime.Progression.Run.ChapterSceneEffectsController SceneEffects;
         [Header("运行时观察（只读用途）")]
         [SerializeField] private CompanionPlan _plan;
         [SerializeField] private string _reason;
@@ -139,7 +140,7 @@ namespace DeepSleep.Runtime.Players.Companion
             _untilDecision -= dt;
             bool portalNow = AllyLife.State != PlayerLifeState.Downed && NodeGoal.TryGetGoal(out _, out _);
             if (portalNow != _portalActive) { _untilDecision = 0; _navigation.Reset(); _portalActive = portalNow; }
-            if (_untilDecision <= 0 || Sensor.HasImminentCharge)
+            if (_untilDecision <= 0 || Sensor.HasImminentCharge || Sensor.HasClaudeWarning)
             {
                 Decide(position);
                 _untilDecision = Config.DecisionInterval;
@@ -169,6 +170,8 @@ namespace DeepSleep.Runtime.Players.Companion
             Sensor.Refresh(position, ally);
             _target = Sensor.Target == null ? null : Sensor.Target.gameObject;
             _danger = Sensor.Danger(position + colliderOffset, Body.linearVelocity, extent.magnitude);
+            _danger = Mathf.Max(_danger, Sensor.PredictClaudeRisk(position, Vector2.zero, extent,
+                colliderOffset, Vector2.zero, MotorConfig));
             if (Sensor.ObstacleSaturated || !CompanionNavigation2D.IsSegmentSafe(position + colliderOffset,
                 position + colliderOffset + Body.linearVelocity * Config.PredictionSeconds, 0,
                 Config.PredictionSeconds, extent, Config.NavigationPadding, Sensor.Obstacles, Sensor.ObstacleCount))
@@ -189,11 +192,20 @@ namespace DeepSleep.Runtime.Players.Companion
                 _plan = holdPortal ? CompanionPlan.HoldPortal : CompanionPlan.ApproachPortal;
                 _reason = holdPortal ? "已在门内停稳，等待原有准备规则" : "配合离开意图，前往传送门";
             }
+            if (!portal && !downedAlly && Sensor.HasMechanicTarget)
+            {
+                Vector2 away = (position - Sensor.Target.Position).normalized;
+                if (away == Vector2.zero) away = Vector2.left;
+                _destination = Sensor.Target.Position + away * (Config.AttackRange * .65f);
+                _reason = "优先解封或在安全距离击破能量弹";
+            }
             if (downedAlly)
             {
                 float riskLimit = Config.RescueDangerLimit * Mathf.Max(Config.LowHealthFraction,
                     Health.CurrentHealth / Health.MaximumHealth);
                 float rescueDanger = Sensor.Danger(ally + colliderOffset, Vector2.zero, extent.magnitude);
+                rescueDanger += Sensor.PredictClaudeRisk(ally, Vector2.zero, extent,
+                    colliderOffset, Vector2.zero, MotorConfig);
                 if (Sensor.ObstacleSaturated || !CompanionNavigation2D.IsSegmentSafe(ally + colliderOffset,
                     ally + colliderOffset, 0, Config.PredictionSeconds, extent, Config.NavigationPadding,
                     Sensor.Obstacles, Sensor.ObstacleCount)) rescueDanger += Config.EmergencyDanger;
@@ -213,6 +225,8 @@ namespace DeepSleep.Runtime.Players.Companion
             }
             // 当前速度可能暂时安全，但救援会停步；不能在已锁定的冲撞线上开始引导。
             if ((_danger >= Config.EmergencyDanger && !protectedHere) ||
+                (Sensor.HasClaudeWarning && Sensor.PredictClaudeRisk(position, Body.linearVelocity, extent,
+                    colliderOffset, Vector2.zero, MotorConfig) > 0) ||
                 Sensor.ChargeDanger(position + colliderOffset, Vector2.zero, extent.magnitude) > 0)
             {
                 _plan = CompanionPlan.Evade;
@@ -242,6 +256,8 @@ namespace DeepSleep.Runtime.Players.Companion
         private bool Cache(uint tick, Vector2 move, AimIntent aim, CommandButtonState skill,
             CommandButtonState attack, CommandButtonState cancel, out PlayerCommand command)
         {
+            // 世界走位只在命令边界逆变换一次；Motor仍按原规则处理场景颠倒。
+            move = SceneEffects != null ? SceneEffects.TransformMovement(move) : move;
             _cached = new PlayerCommand(++_sequence, tick, move, aim, skill, 0, attack, cancel, 0, 0);
             command = _cached;
             return true;

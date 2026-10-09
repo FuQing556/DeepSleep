@@ -35,6 +35,7 @@ namespace DeepSleep.Runtime.Combat.Enemies.Presentation
             if (_isInitialized)
             {
                 _enemyPool.ActorDespawned += OnActorDespawned;
+                _enemyPool.ActorContactImpacted += OnActorDespawned;
             }
         }
 
@@ -43,6 +44,7 @@ namespace DeepSleep.Runtime.Combat.Enemies.Presentation
             if (_enemyPool != null)
             {
                 _enemyPool.ActorDespawned -= OnActorDespawned;
+                _enemyPool.ActorContactImpacted -= OnActorDespawned;
             }
         }
 

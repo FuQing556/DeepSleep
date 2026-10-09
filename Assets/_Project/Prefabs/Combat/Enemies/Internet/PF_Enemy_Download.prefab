@@ -159,6 +159,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Damage.DamageHitbox2D
   _receiverComponent: {fileID: 1712642164609371385}
   _hitMotionReceiverComponent: {fileID: 2161160973878216926}
+  UseReceiverHitFeedback: 0
+  StopsPiercingBeams: 0
+  DamageNumberAnchor: {fileID: 0}
 --- !u!114 &739013821261481618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,7 +177,8 @@ MonoBehaviour:
   _health: {fileID: 1712642164609371385}
   _motor: {fileID: 5605097018033927027}
   _hitMotion: {fileID: 2161160973878216926}
-  _simulationStepComponents: []
+  _simulationStepComponents:
+  - {fileID: 8355842878888022966}
 --- !u!114 &8355842878888022966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +194,7 @@ MonoBehaviour:
   _bodyCollider: {fileID: 8705475887908951710}
   _actor: {fileID: 739013821261481618}
   _motor: {fileID: 5605097018033927027}
-  _config: {fileID: 11400000, guid: 8ab2deab853f1b84989c5b32f2678abc, type: 2}
+  _config: {fileID: 11400000, guid: 01fad21316e00f44ca9af0880067167d, type: 2}
 --- !u!114 &4996737512719394277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,8 +214,10 @@ MonoBehaviour:
   Projectile: {fileID: 0}
   SnakeAttack: {fileID: 0}
   DownloadCharge: {fileID: 5605097018033927027}
-  TargetValue: 2.5
+  QuickApp: {fileID: 0}
+  TargetValue: 16
   ThreatTrackedAsObstacle: 0
+  PassiveAttackTarget: 0
 --- !u!114 &2161160973878216926
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -298,6 +304,8 @@ MonoBehaviour:
   Charge: {fileID: 21300000, guid: 972333f2899173a49b9157c2a2035821, type: 3}
   Dash: {fileID: 21300000, guid: b572c1239365cd545beda28da38144eb, type: 3}
   Actor: {fileID: 739013821261481618}
+  MotionTrailPrefab: {fileID: 6933376168561185919, guid: 65eb2a53a36302440a9f68af43775a6a, type: 3}
+  SortingGroup: {fileID: 5377260850588240566}
 --- !u!1 &4247936850519610037
 GameObject:
   m_ObjectHideFlags: 0

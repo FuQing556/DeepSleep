@@ -23,8 +23,12 @@ namespace DeepSleep.Runtime.Combat.Enemies
         private readonly List<EnemyActor2D> _despawnBuffer = new();
         private bool _isInitialized;
         private bool _hasReportedExhaustion;
+        private int _challengeCapacity;
+        public int MaximumCapacity => Mathf.Max(_config.MaximumCapacity, _challengeCapacity);
 
         public event Action<EnemyDespawnRequest2D> ActorDespawned;
+        /// <summary>仍存活的接触攻击；不回池、不计离场或奖励。</summary>
+        public event Action<EnemyDespawnRequest2D> ActorContactImpacted;
         public event Action<EnemyActor2D> ActorCreated;
 
         public int TotalCount => _allActors.Count;
@@ -61,6 +65,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
                 if (actor != null)
                 {
                     actor.DespawnRequested -= OnDespawnRequested;
+                    actor.ContactImpacted -= OnContactImpacted;
                 }
             }
         }
@@ -81,7 +86,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
             {
                 actor = _available.Pop();
             }
-            else if (_allActors.Count < _config.MaximumCapacity)
+            else if (_allActors.Count < MaximumCapacity)
             {
                 actor = CreateActor();
             }
@@ -127,6 +132,16 @@ namespace DeepSleep.Runtime.Combat.Enemies
             return true;
         }
 
+        /// <summary>Only called at the isolated challenge preparation boundary. Shared assets
+        /// and ordinary scene capacities stay unchanged; descendants are prewarmed before combat.</summary>
+        public bool PrepareChallengeCapacity(int capacity)
+        {
+            if (!_isInitialized || ActiveCount != 0 || capacity < 1) return false;
+            _challengeCapacity = Mathf.Max(_challengeCapacity, capacity);
+            while (_allActors.Count < capacity) _available.Push(CreateActor());
+            return true;
+        }
+
         /// <summary>
         /// 让全部活动敌人通过正常回收事件离场。
         /// 可用于波次切换、房间重置和编辑器调试，不直接销毁对象。
@@ -154,6 +169,8 @@ namespace DeepSleep.Runtime.Combat.Enemies
             }
 
             _despawnBuffer.Clear();
+            if (reason == EnemyDespawnReason.RunReset)
+                for (int i = 0; i < _allActors.Count; i++) _allActors[i].ResetPresentation();
             return despawnedCount;
         }
 
@@ -191,6 +208,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
             }
 
             actor.DespawnRequested += OnDespawnRequested;
+            actor.ContactImpacted += OnContactImpacted;
             actor.gameObject.SetActive(false);
             _allActors.Add(actor);
             ActorCreated?.Invoke(actor);
@@ -212,6 +230,8 @@ namespace DeepSleep.Runtime.Combat.Enemies
             _available.Push(actor);
             _hasReportedExhaustion = false;
         }
+
+        private void OnContactImpacted(EnemyDespawnRequest2D request) => ActorContactImpacted?.Invoke(request);
 
         private void ReportExhaustionOnce()
         {

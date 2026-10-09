@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e20c45e5f55770e429652f0d438af824, type: 3}
+  m_Name: CFG_CL_Encounter
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Claude.ClaudeEncounterConfig
+  Timing: {fileID: 11400000, guid: 4d8bcc9a96999b9408c427bcc91c3792, type: 2}
+  PreludeSeconds: 20
+  CastGapOne: 1.2
+  CastGapTwo: 0.9
+  CycleGapSeconds: 3
+  PermissionCastSeconds: 1.5
+  PermissionRecoverySeconds: 5
+  CastsPerCycle: 5
+  EntryPosition: {x: 5, y: 0}
+  MoveSpeed: 2.5
+  SteeringIntervalSeconds: 1.2
+  Title: "\u6743\u9650\u4E4B\u5916"
+  Objective: "\u51FB\u8D25 Claude"

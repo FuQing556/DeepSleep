@@ -124,7 +124,7 @@ namespace DeepSleep.Editor.Diagnostics
                 { w.Write((uint)4); w.Write((uint)9); w.Write((byte)kind); w.Write((byte)1); w.Write(2f); w.Write(-3f); });
                 Require(Catalog.TryValidatePacket(packet, Catalog.Direction.AuthorityToPeer, out _), "Combat presentation kind rejected: " + kind);
                 checks++;
-                byte[] invalid = (byte[])packet.Clone(); invalid[9] = (byte)((byte)Catalog.CombatPresentationKind.GuardImpact + 1);
+                byte[] invalid = (byte[])packet.Clone(); invalid[9] = (byte)((byte)Catalog.CombatPresentationKind.SceneStateEnd + 1);
                 Require(!Catalog.TryValidatePacket(invalid, Catalog.Direction.AuthorityToPeer, out _), "Unknown combat presentation kind accepted"); checks++;
                 invalid = (byte[])packet.Clone(); invalid[10] = 2;
                 Require(!Catalog.TryValidatePacket(invalid, Catalog.Direction.AuthorityToPeer, out _), "Unknown combat presentation role accepted"); checks++;
@@ -189,6 +189,7 @@ namespace DeepSleep.Editor.Diagnostics
                 {
                     switch (definition.Id)
                     {
+                        case Catalog.Peer.Skin: w.Write((ushort)1); break;
                         case Catalog.Peer.Headwear: w.Write((ushort)1); w.Write((ushort)0); w.Write((ushort)2); w.Write((ushort)0); break;
                         case Catalog.Peer.Ready: case Catalog.Peer.Control: case Catalog.Peer.RestNodeReady: w.Write(true); break;
                         case Catalog.Peer.Input: w.Write(new byte[29]); break;
@@ -200,6 +201,7 @@ namespace DeepSleep.Editor.Diagnostics
             {
                 switch (definition.Id)
                 {
+                    case Catalog.Authority.Skin: w.Write((ushort)1); break;
                     case Catalog.Authority.Headwear: w.Write((ushort)1); w.Write((ushort)0); w.Write((ushort)2); w.Write((ushort)0); break;
                     case Catalog.Authority.Welcome: w.Write((byte)0); w.Write((uint)1); w.Write(false); w.Write("World01"); break;
                     case Catalog.Authority.Start: break;
@@ -228,13 +230,15 @@ namespace DeepSleep.Editor.Diagnostics
                     case Catalog.Authority.TokenBalance: w.Write(0); w.Write(0); w.Write(0); w.Write(false); break;
                     case Catalog.Authority.ChapterState:
                         w.Write((byte)0); w.Write((byte)0); w.Write(0); w.Write(0f); w.Write(0);
-                        Floats(w, 3); w.Write(false); w.Write(0); w.Write(0f); break;
+                        Floats(w, 3); w.Write(false); w.Write(0); w.Write(0f); w.Write(1); break;
                     case Catalog.Authority.PlayerHitFeedback: w.Write((uint)1); w.Write((byte)0); Floats(w, 3); break;
                     case Catalog.Authority.CombatPresentation:
                         w.Write((uint)1); w.Write((uint)1); w.Write((byte)Catalog.CombatPresentationKind.RiceVolley);
                         w.Write((byte)0); Floats(w, 2); break;
                     case Catalog.Authority.DoubaoSnapshot: WriteDoubao(w, 1, 0, false); break;
                     case Catalog.Authority.KimiSnapshot: w.Write(new byte[KimiEncounterNetworkChannel.PayloadBytes]); break;
+                    case Catalog.Authority.ClaudeSnapshot:
+                        ClaudeEncounterNetworkChannel.WriteFrame(w, new DeepSleep.Runtime.Combat.Encounters.Claude.ClaudeEncounterSnapshot()); break;
                     default: throw new Exception("No authority fixture for " + definition.Name);
                 }
             });
@@ -242,7 +246,7 @@ namespace DeepSleep.Editor.Diagnostics
 
         private static void WritePlayer(BinaryWriter w, byte role)
         {
-            w.Write(role); Floats(w, 4); w.Write(false); w.Write((sbyte)1); w.Write((uint)0);
+            w.Write(role); Floats(w, 4); w.Write(false); Floats(w, 3); w.Write((sbyte)1); w.Write((uint)0);
             Floats(w, 7); w.Write(true); w.Write(1f); Floats(w, 7);
             Floats(w, 2); w.Write(false); w.Write(false); Floats(w, 2); w.Write(false);
             w.Write((byte)0); w.Write(0f); w.Write(0); w.Write((byte)0); w.Write(0f);

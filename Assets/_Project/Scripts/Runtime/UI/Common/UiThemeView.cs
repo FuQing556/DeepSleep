@@ -1,5 +1,7 @@
 using System;
 using DeepSleep.Runtime.Players.Identity;
+using DeepSleep.Runtime.AppFlow;
+using DeepSleep.Runtime.Progression.Meta;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -54,14 +56,33 @@ namespace DeepSleep.Runtime.UI.Common
         public PortraitBinding[] Portraits = Array.Empty<PortraitBinding>();
         public Image[] TitleLogos = Array.Empty<Image>();
         public BackgroundBinding[] MenuBackgrounds = Array.Empty<BackgroundBinding>();
+        public ShopProductDefinition[] PlayerSkins = Array.Empty<ShopProductDefinition>();
+        private LocalPlayerProfileStore _profile;
 
         private void OnEnable()
         {
             UiThemePreferences.Changed += Apply;
+            _profile = GameAppRoot.Instance != null ? GameAppRoot.Instance.Profile : null;
+            if (_profile != null) _profile.Changed += RefreshPortrait;
             Apply(UiThemePreferences.Current);
         }
 
-        private void OnDisable() => UiThemePreferences.Changed -= Apply;
+        private void OnDisable()
+        {
+            UiThemePreferences.Changed -= Apply;
+            if (_profile != null) _profile.Changed -= RefreshPortrait;
+        }
+
+        private void RefreshPortrait() => Apply(UiThemePreferences.Current);
+
+        public Sprite ResolvePortrait(PlayerRole role, Sprite original, LocalPlayerProfileStore profile)
+        {
+            if (profile != null)
+                foreach (var product in PlayerSkins)
+                    if (product.Skin.Role == role && profile.GetSkin(role) == product.ProductId)
+                        return product.Skin.Preview;
+            return original;
+        }
 
         /// <summary>即时换肤，不改输入、控件显隐、按钮事件或玩法反馈的状态。</summary>
         public void Apply(PlayerRole role)
@@ -93,7 +114,7 @@ namespace DeepSleep.Runtime.UI.Common
             }
             foreach (PortraitBinding binding in Portraits)
             {
-                binding.Target.sprite = palette.Portrait;
+                binding.Target.sprite = ResolvePortrait(role, palette.Portrait, _profile);
                 binding.Target.preserveAspect = true;
             }
             foreach (Image logo in TitleLogos)

@@ -33,7 +33,8 @@ namespace DeepSleep.Runtime.Presentation.DamageNumbers
         private readonly List<DamageNumberEntryView> _all = new();
         private System.Random _visualRandom;
         private bool _isInitialized;
-        private bool _reportedExhaustion;
+        private ulong _playSequence;
+        public uint RecycledCount { get; private set; }
         public uint RequestedCount { get; private set; }
         public uint PlayedCount { get; private set; }
         public uint CapacityDropCount { get; private set; }
@@ -182,20 +183,16 @@ namespace DeepSleep.Runtime.Presentation.DamageNumbers
             }
             else
             {
-                CapacityDropCount++;
-                if (!_reportedExhaustion)
-                {
-                    Debug.LogWarning(
-                        "[DamageNumbers] 跳字池已满，本次只省略表现。",
-                        this);
-                    _reportedExhaustion = true;
-                }
-                return;
+                entry=_all[0];
+                for(int i=1;i<_all.Count;i++)if(_all[i].PoolPlaySequence<entry.PoolPlaySequence)entry=_all[i];
+                entry.PrepareForPool();
+                RecycledCount++;
             }
 
             Camera uiCamera = _canvas.renderMode == RenderMode.ScreenSpaceOverlay
                 ? null
                 : _canvas.worldCamera;
+            entry.PoolPlaySequence=++_playSequence;
             entry.Play(
                 worldPosition,
                 amount,
@@ -223,7 +220,6 @@ namespace DeepSleep.Runtime.Presentation.DamageNumbers
         {
             entry.PrepareForPool();
             _available.Push(entry);
-            _reportedExhaustion = false;
         }
     }
 }

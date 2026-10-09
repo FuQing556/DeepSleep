@@ -20,6 +20,9 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
         private readonly List<HarnessLaserHitEffect2D> _all = new();
         private System.Random _visualRandom;
         private bool _isInitialized;
+        private ulong _playSequence;
+        public uint RecycledCount { get; private set; }
+        public int TotalCount => _all.Count;
         public uint RequestedCount { get; private set; }
         public uint PlayedCount { get; private set; }
         public uint DisabledDropCount { get; private set; }
@@ -135,9 +138,18 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
             RequestedCount++;
             if (!_isInitialized || !isActiveAndEnabled) { DisabledDropCount++; return; }
 
-            HarnessLaserHitEffect2D effect = _available.Count > 0
-                ? _available.Pop()
-                : CreateEffect();
+            HarnessLaserHitEffect2D effect;
+            if (_available.Count > 0) effect = _available.Pop();
+            else if (_all.Count < _config.HitEffectPoolMaximumCount) effect = CreateEffect();
+            else
+            {
+                effect = _all[0];
+                for (int i = 1; i < _all.Count; i++)
+                    if (_all[i].PoolPlaySequence < effect.PoolPlaySequence) effect = _all[i];
+                effect.PrepareForPool();
+                RecycledCount++;
+            }
+            effect.PoolPlaySequence = ++_playSequence;
             float initialRotationOffset = NextVisualFloat(0f, 360f);
             float rotationMagnitude = NextVisualFloat(
                 _config.HitEffectMinimumRotationDegrees,

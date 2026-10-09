@@ -1,0 +1,2524 @@
+fileFormatVersion: 2
+guid: 4c134f0db8e6c7f4a91e197e252ed78b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8412509017638145839
+    second: TEX_SceneSlow_Edge_v01_0
+  - first:
+      213: -2192479452368668926
+    second: TEX_SceneSlow_Edge_v01_1
+  - first:
+      213: 7311803083648618268
+    second: TEX_SceneSlow_Edge_v01_2
+  - first:
+      213: 8022788707962790705
+    second: TEX_SceneSlow_Edge_v01_3
+  - first:
+      213: 5005992104190800063
+    second: TEX_SceneSlow_Edge_v01_4
+  - first:
+      213: -517363005379772169
+    second: TEX_SceneSlow_Edge_v01_5
+  - first:
+      213: 5562848095608604982
+    second: TEX_SceneSlow_Edge_v01_6
+  - first:
+      213: -8965949386755718396
+    second: TEX_SceneSlow_Edge_v01_7
+  - first:
+      213: 2544151512092770085
+    second: TEX_SceneSlow_Edge_v01_8
+  - first:
+      213: 2931702533775722959
+    second: TEX_SceneSlow_Edge_v01_9
+  - first:
+      213: 6619221978771555192
+    second: TEX_SceneSlow_Edge_v01_10
+  - first:
+      213: 4956938270387467313
+    second: TEX_SceneSlow_Edge_v01_11
+  - first:
+      213: 2769934628345802127
+    second: TEX_SceneSlow_Edge_v01_12
+  - first:
+      213: -5947516099648420077
+    second: TEX_SceneSlow_Edge_v01_13
+  - first:
+      213: -2088051282080582950
+    second: TEX_SceneSlow_Edge_v01_14
+  - first:
+      213: -2616827333694335363
+    second: TEX_SceneSlow_Edge_v01_15
+  - first:
+      213: 5439378351864341773
+    second: TEX_SceneSlow_Edge_v01_16
+  - first:
+      213: 5649984900961771238
+    second: TEX_SceneSlow_Edge_v01_17
+  - first:
+      213: 2633808598601077345
+    second: TEX_SceneSlow_Edge_v01_18
+  - first:
+      213: -738391449351395233
+    second: TEX_SceneSlow_Edge_v01_19
+  - first:
+      213: -3246098916103935051
+    second: TEX_SceneSlow_Edge_v01_20
+  - first:
+      213: 7278884971829667179
+    second: TEX_SceneSlow_Edge_v01_21
+  - first:
+      213: -1533391836724624604
+    second: TEX_SceneSlow_Edge_v01_22
+  - first:
+      213: -7480445873596878322
+    second: TEX_SceneSlow_Edge_v01_23
+  - first:
+      213: 7864847946368839095
+    second: TEX_SceneSlow_Edge_v01_24
+  - first:
+      213: -7916403297375618989
+    second: TEX_SceneSlow_Edge_v01_25
+  - first:
+      213: 8512850261397596152
+    second: TEX_SceneSlow_Edge_v01_26
+  - first:
+      213: -7230725063613162840
+    second: TEX_SceneSlow_Edge_v01_27
+  - first:
+      213: 3986367535393393141
+    second: TEX_SceneSlow_Edge_v01_28
+  - first:
+      213: 2226317446353385626
+    second: TEX_SceneSlow_Edge_v01_29
+  - first:
+      213: -5885216539677847142
+    second: TEX_SceneSlow_Edge_v01_30
+  - first:
+      213: 7607254123538191865
+    second: TEX_SceneSlow_Edge_v01_31
+  - first:
+      213: -3813339342412884816
+    second: TEX_SceneSlow_Edge_v01_32
+  - first:
+      213: 6683565025703356224
+    second: TEX_SceneSlow_Edge_v01_33
+  - first:
+      213: -6826879448989378810
+    second: TEX_SceneSlow_Edge_v01_34
+  - first:
+      213: -2872348311197384354
+    second: TEX_SceneSlow_Edge_v01_35
+  - first:
+      213: 363688711982075033
+    second: TEX_SceneSlow_Edge_v01_36
+  - first:
+      213: 2945362073053743398
+    second: TEX_SceneSlow_Edge_v01_37
+  - first:
+      213: -2302866326848260468
+    second: TEX_SceneSlow_Edge_v01_38
+  - first:
+      213: 8296467288893333591
+    second: TEX_SceneSlow_Edge_v01_39
+  - first:
+      213: 6499331197935295974
+    second: TEX_SceneSlow_Edge_v01_40
+  - first:
+      213: -1209468762991754559
+    second: TEX_SceneSlow_Edge_v01_41
+  - first:
+      213: -842610255418503086
+    second: TEX_SceneSlow_Edge_v01_42
+  - first:
+      213: 5178316325315540874
+    second: TEX_SceneSlow_Edge_v01_43
+  - first:
+      213: -5292758715877789900
+    second: TEX_SceneSlow_Edge_v01_44
+  - first:
+      213: 1858229259855844006
+    second: TEX_SceneSlow_Edge_v01_45
+  - first:
+      213: 953290531697841517
+    second: TEX_SceneSlow_Edge_v01_46
+  - first:
+      213: 1213668187745200410
+    second: TEX_SceneSlow_Edge_v01_47
+  - first:
+      213: 4437215774764354183
+    second: TEX_SceneSlow_Edge_v01_48
+  - first:
+      213: 3096487311595554721
+    second: TEX_SceneSlow_Edge_v01_49
+  - first:
+      213: 8988021312430087573
+    second: TEX_SceneSlow_Edge_v01_50
+  - first:
+      213: 852978442969982404
+    second: TEX_SceneSlow_Edge_v01_51
+  - first:
+      213: 7089184704235154463
+    second: TEX_SceneSlow_Edge_v01_52
+  - first:
+      213: -6147642734928328706
+    second: TEX_SceneSlow_Edge_v01_53
+  - first:
+      213: -4907700255710115601
+    second: TEX_SceneSlow_Edge_v01_54
+  - first:
+      213: 1813652697297205968
+    second: TEX_SceneSlow_Edge_v01_55
+  - first:
+      213: -2874770055046942239
+    second: TEX_SceneSlow_Edge_v01_56
+  - first:
+      213: 1953424485666416292
+    second: TEX_SceneSlow_Edge_v01_57
+  - first:
+      213: 8706648428638512755
+    second: TEX_SceneSlow_Edge_v01_58
+  - first:
+      213: 6411315575384292275
+    second: TEX_SceneSlow_Edge_v01_59
+  - first:
+      213: 6903817455750804250
+    second: TEX_SceneSlow_Edge_v01_60
+  - first:
+      213: -7762139939690524293
+    second: TEX_SceneSlow_Edge_v01_61
+  - first:
+      213: 227751944939995985
+    second: TEX_SceneSlow_Edge_v01_62
+  - first:
+      213: 7857402832552373168
+    second: TEX_SceneSlow_Edge_v01_63
+  - first:
+      213: -1937862938062759888
+    second: TEX_SceneSlow_Edge_v01_64
+  - first:
+      213: -3937317147577612211
+    second: TEX_SceneSlow_Edge_v01_65
+  - first:
+      213: -8753394961866664169
+    second: TEX_SceneSlow_Edge_v01_66
+  - first:
+      213: -1822546698767096815
+    second: TEX_SceneSlow_Edge_v01_67
+  - first:
+      213: -3005018701086844269
+    second: TEX_SceneSlow_Edge_v01_68
+  - first:
+      213: -4303759019966324621
+    second: TEX_SceneSlow_Edge_v01_69
+  - first:
+      213: -735051618984840850
+    second: TEX_SceneSlow_Edge_v01_70
+  - first:
+      213: 6107267744578784625
+    second: TEX_SceneSlow_Edge_v01_71
+  - first:
+      213: 8247406396680682654
+    second: TEX_SceneSlow_Edge_v01_72
+  - first:
+      213: 7713981246740170032
+    second: TEX_SceneSlow_Edge_v01_73
+  - first:
+      213: 1019539787167727250
+    second: TEX_SceneSlow_Edge_v01_74
+  - first:
+      213: -3978379919843889378
+    second: TEX_SceneSlow_Edge_v01_75
+  - first:
+      213: 4448139437919573773
+    second: TEX_SceneSlow_Edge_v01_76
+  - first:
+      213: -4266725343093278327
+    second: TEX_SceneSlow_Edge_v01_77
+  - first:
+      213: -6361235611842721537
+    second: TEX_SceneSlow_Edge_v01_78
+  - first:
+      213: 5954511824223204000
+    second: TEX_SceneSlow_Edge_v01_79
+  - first:
+      213: -5370655260642676188
+    second: TEX_SceneSlow_Edge_v01_80
+  - first:
+      213: -6398203421547007929
+    second: TEX_SceneSlow_Edge_v01_81
+  - first:
+      213: -756317178353422119
+    second: TEX_SceneSlow_Edge_v01_82
+  - first:
+      213: 4810267841144210810
+    second: TEX_SceneSlow_Edge_v01_83
+  - first:
+      213: -6496297450090773196
+    second: TEX_SceneSlow_Edge_v01_84
+  - first:
+      213: -482959490313069080
+    second: TEX_SceneSlow_Edge_v01_85
+  - first:
+      213: -3905730873152113771
+    second: TEX_SceneSlow_Edge_v01_86
+  - first:
+      213: 8455110046953449052
+    second: TEX_SceneSlow_Edge_v01_87
+  - first:
+      213: 310372322338705641
+    second: TEX_SceneSlow_Edge_v01_88
+  - first:
+      213: -7743012480095294841
+    second: TEX_SceneSlow_Edge_v01_89
+  - first:
+      213: -6275816804457397458
+    second: TEX_SceneSlow_Edge_v01_90
+  - first:
+      213: 2733837712656953690
+    second: TEX_SceneSlow_Edge_v01_91
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 2
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 2172
+        height: 724
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d078edae93c04b80800000000000000
+      internalID: -8412509017638145839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_1
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 32
+        width: 146
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 207f838ed8fb291e0800000000000000
+      internalID: -2192479452368668926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_2
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 112
+        width: 49
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1f4b7c3a2eb87560800000000000000
+      internalID: 7311803083648618268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_3
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 49
+        width: 23
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1332326c2dba65f60800000000000000
+      internalID: 8022788707962790705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_4
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 7
+        width: 134
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb0f3bebb4bd87540800000000000000
+      internalID: 5005992104190800063
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_5
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 99
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f009647615f1d8f0800000000000000
+      internalID: -517363005379772169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_6
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 124
+        width: 27
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6398536aed4333d40800000000000000
+      internalID: 5562848095608604982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_7
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 116
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4034b40598c829380800000000000000
+      internalID: -8965949386755718396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_8
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 91
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52fff0d1254ae4320800000000000000
+      internalID: 2544151512092770085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_9
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 128
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc980d0fbef7fa820800000000000000
+      internalID: 2931702533775722959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_10
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 47
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 873032ec1533cdb50800000000000000
+      internalID: 6619221978771555192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_11
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 46
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 134fbfb08159ac440800000000000000
+      internalID: 4956938270387467313
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_12
+      rect:
+        serializedVersion: 2
+        x: 392
+        y: 29
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8dea956ed8c07620800000000000000
+      internalID: 2769934628345802127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_13
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 15
+        width: 14
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3170a806e9d267da0800000000000000
+      internalID: -5947516099648420077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_14
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 31
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad2b9c20c60c503e0800000000000000
+      internalID: -2088051282080582950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_15
+      rect:
+        serializedVersion: 2
+        x: 434
+        y: 23
+        width: 82
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d76dd9097692fabd0800000000000000
+      internalID: -2616827333694335363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_16
+      rect:
+        serializedVersion: 2
+        x: 436
+        y: 72
+        width: 26
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d05e2ddbacd8c7b40800000000000000
+      internalID: 5439378351864341773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_17
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 94
+        width: 11
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ee95202557c86e40800000000000000
+      internalID: 5649984900961771238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_18
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 109
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1629cf547fa2d8420800000000000000
+      internalID: 2633808598601077345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_19
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 110
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f58693493e4b0c5f0800000000000000
+      internalID: -738391449351395233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_20
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 112
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bb28dffb3a83f2d0800000000000000
+      internalID: -3246098916103935051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_21
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 61
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6526d2115bc30560800000000000000
+      internalID: 7278884971829667179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_22
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 92
+        width: 61
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4238b8eaf3c48bae0800000000000000
+      internalID: -1533391836724624604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_23
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 63
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e02b8be6c1e103890800000000000000
+      internalID: -7480445873596878322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_24
+      rect:
+        serializedVersion: 2
+        x: 563
+        y: 61
+        width: 96
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bd66c7998d852d60800000000000000
+      internalID: 7864847946368839095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_25
+      rect:
+        serializedVersion: 2
+        x: 595
+        y: 47
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 358f139d429432290800000000000000
+      internalID: -7916403297375618989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_26
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 85
+        width: 74
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f7e1b0b538b32670800000000000000
+      internalID: 8512850261397596152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_27
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 30
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8aad2da5ddd47ab90800000000000000
+      internalID: -7230725063613162840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_28
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 112
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f9c54b172c625730800000000000000
+      internalID: 3986367535393393141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_29
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 101
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a98f5230ce775ee10800000000000000
+      internalID: 2226317446353385626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_30
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 77
+        width: 112
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a919f360db2835ea0800000000000000
+      internalID: -5885216539677847142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_31
+      rect:
+        serializedVersion: 2
+        x: 842
+        y: 83
+        width: 36
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f59e950255629960800000000000000
+      internalID: 7607254123538191865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_32
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 116
+        width: 47
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b4557f621c441bc0800000000000000
+      internalID: -3813339342412884816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_33
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 75
+        width: 37
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 047e546dafac0cc50800000000000000
+      internalID: 6683565025703356224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_34
+      rect:
+        serializedVersion: 2
+        x: 885
+        y: 112
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 607d29ebf4d0241a0800000000000000
+      internalID: -6826879448989378810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_35
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 111
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5103e7ed6e5328d0800000000000000
+      internalID: -2872348311197384354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_36
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 100
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99cc286e4f41c0500800000000000000
+      internalID: 363688711982075033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_37
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 20
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 629c643433700e820800000000000000
+      internalID: 2945362073053743398
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_38
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 95
+        width: 31
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c86300fd6439a00e0800000000000000
+      internalID: -2302866326848260468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_39
+      rect:
+        serializedVersion: 2
+        x: 977
+        y: 47
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 750a22dea09f22370800000000000000
+      internalID: 8296467288893333591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_40
+      rect:
+        serializedVersion: 2
+        x: 983
+        y: 23
+        width: 94
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ed1c822a43423a50800000000000000
+      internalID: 6499331197935295974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_41
+      rect:
+        serializedVersion: 2
+        x: 989
+        y: 130
+        width: 28
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c202fe619a173fe0800000000000000
+      internalID: -1209468762991754559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_42
+      rect:
+        serializedVersion: 2
+        x: 1020
+        y: 120
+        width: 29
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 250dda1ef627e44f0800000000000000
+      internalID: -842610255418503086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_43
+      rect:
+        serializedVersion: 2
+        x: 1088
+        y: 13
+        width: 84
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a87f90113431dd740800000000000000
+      internalID: 5178316325315540874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_44
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 108
+        width: 49
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43f604a7df75c86b0800000000000000
+      internalID: -5292758715877789900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_45
+      rect:
+        serializedVersion: 2
+        x: 1166
+        y: 120
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a2d1f0aaa1c9c910800000000000000
+      internalID: 1858229259855844006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_46
+      rect:
+        serializedVersion: 2
+        x: 1170
+        y: 25
+        width: 110
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d65d79510b4ca3d00800000000000000
+      internalID: 953290531697841517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_47
+      rect:
+        serializedVersion: 2
+        x: 1221
+        y: 25
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a19aeb559c0d7d010800000000000000
+      internalID: 1213668187745200410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_48
+      rect:
+        serializedVersion: 2
+        x: 1271
+        y: 43
+        width: 116
+        height: 132
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78ac69edc38249d30800000000000000
+      internalID: 4437215774764354183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_49
+      rect:
+        serializedVersion: 2
+        x: 1359
+        y: 43
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a74823ddcee8fa20800000000000000
+      internalID: 3096487311595554721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_50
+      rect:
+        serializedVersion: 2
+        x: 1384
+        y: 139
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59d190953cddbbc70800000000000000
+      internalID: 8988021312430087573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_51
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 77
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c5aa46ef5366db00800000000000000
+      internalID: 852978442969982404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_52
+      rect:
+        serializedVersion: 2
+        x: 1398
+        y: 118
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1ca11bade7d16260800000000000000
+      internalID: 7089184704235154463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_53
+      rect:
+        serializedVersion: 2
+        x: 1412
+        y: 77
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef70692118f2faaa0800000000000000
+      internalID: -6147642734928328706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_54
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 47
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe80e4a9e9854ebb0800000000000000
+      internalID: -4907700255710115601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_55
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 65
+        width: 232
+        height: 122
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0da3450e4836b2910800000000000000
+      internalID: 1813652697297205968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_56
+      rect:
+        serializedVersion: 2
+        x: 1448
+        y: 63
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e13ff9bdd3ca18d0800000000000000
+      internalID: -2874770055046942239
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_57
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 55
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a662b35835fb1b10800000000000000
+      internalID: 1953424485666416292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_58
+      rect:
+        serializedVersion: 2
+        x: 1502
+        y: 55
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3762635bd9a34d870800000000000000
+      internalID: 8706648428638512755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_59
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 45
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bbb5b51c8199f850800000000000000
+      internalID: 6411315575384292275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_60
+      rect:
+        serializedVersion: 2
+        x: 1534
+        y: 46
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a13fa24e5694fcf50800000000000000
+      internalID: 6903817455750804250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_61
+      rect:
+        serializedVersion: 2
+        x: 1661
+        y: 123
+        width: 21
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b71dfd5b9d6574490800000000000000
+      internalID: -7762139939690524293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_62
+      rect:
+        serializedVersion: 2
+        x: 1661
+        y: 80
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1538d0fef23292300800000000000000
+      internalID: 227751944939995985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_63
+      rect:
+        serializedVersion: 2
+        x: 1671
+        y: 101
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bbae63fe3a1b0d60800000000000000
+      internalID: 7857402832552373168
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_64
+      rect:
+        serializedVersion: 2
+        x: 1695
+        y: 50
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 038df51dce35b15e0800000000000000
+      internalID: -1937862938062759888
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_65
+      rect:
+        serializedVersion: 2
+        x: 1703
+        y: 53
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4805924ae6db59c0800000000000000
+      internalID: -3937317147577612211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_66
+      rect:
+        serializedVersion: 2
+        x: 1709
+        y: 79
+        width: 32
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7175e3fd8a1b58680800000000000000
+      internalID: -8753394961866664169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_67
+      rect:
+        serializedVersion: 2
+        x: 1743
+        y: 69
+        width: 74
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1142d690f6305b6e0800000000000000
+      internalID: -1822546698767096815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_68
+      rect:
+        serializedVersion: 2
+        x: 1758
+        y: 126
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39a1052a9670c46d0800000000000000
+      internalID: -3005018701086844269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_69
+      rect:
+        serializedVersion: 2
+        x: 1760
+        y: 37
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 370260049f9f544c0800000000000000
+      internalID: -4303759019966324621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_70
+      rect:
+        serializedVersion: 2
+        x: 1800
+        y: 41
+        width: 39
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6135de62729cc5f0800000000000000
+      internalID: -735051618984840850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_71
+      rect:
+        serializedVersion: 2
+        x: 1815
+        y: 93
+        width: 26
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17dc1dfe7af51c450800000000000000
+      internalID: 6107267744578784625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_72
+      rect:
+        serializedVersion: 2
+        x: 1827
+        y: 0
+        width: 104
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9cbf60db6ca47270800000000000000
+      internalID: 8247406396680682654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_73
+      rect:
+        serializedVersion: 2
+        x: 1840
+        y: 87
+        width: 9
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03509ffc2119d0b60800000000000000
+      internalID: 7713981246740170032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_74
+      rect:
+        serializedVersion: 2
+        x: 1902
+        y: 43
+        width: 60
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29e7280e802262e00800000000000000
+      internalID: 1019539787167727250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_75
+      rect:
+        serializedVersion: 2
+        x: 1961
+        y: 60
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1f68209a84f9c8c0800000000000000
+      internalID: -3978379919843889378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_76
+      rect:
+        serializedVersion: 2
+        x: 1961
+        y: 39
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d071a946047fabd30800000000000000
+      internalID: 4448139437919573773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_77
+      rect:
+        serializedVersion: 2
+        x: 1969
+        y: 77
+        width: 17
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 989b4c218eb89c4c0800000000000000
+      internalID: -4266725343093278327
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_78
+      rect:
+        serializedVersion: 2
+        x: 1985
+        y: 79
+        width: 41
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff8cc8f0ae958b7a0800000000000000
+      internalID: -6361235611842721537
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_79
+      rect:
+        serializedVersion: 2
+        x: 2009
+        y: 79
+        width: 29
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a2ffada4fca2a250800000000000000
+      internalID: 5954511824223204000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_80
+      rect:
+        serializedVersion: 2
+        x: 2025
+        y: 61
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4227f42de799775b0800000000000000
+      internalID: -5370655260642676188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_81
+      rect:
+        serializedVersion: 2
+        x: 2039
+        y: 77
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 740700223e30537a0800000000000000
+      internalID: -6398203421547007929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_82
+      rect:
+        serializedVersion: 2
+        x: 2049
+        y: 126
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d0f7be88850185f0800000000000000
+      internalID: -756317178353422119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_83
+      rect:
+        serializedVersion: 2
+        x: 2065
+        y: 132
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a75c2e99d1181c240800000000000000
+      internalID: 4810267841144210810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_84
+      rect:
+        serializedVersion: 2
+        x: 2065
+        y: 111
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 435401453e388d5a0800000000000000
+      internalID: -6496297450090773196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_85
+      rect:
+        serializedVersion: 2
+        x: 2073
+        y: 79
+        width: 20
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ed5cf207ee2c49f0800000000000000
+      internalID: -482959490313069080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_86
+      rect:
+        serializedVersion: 2
+        x: 2083
+        y: 114
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 593fd7dd67e0cc9c0800000000000000
+      internalID: -3905730873152113771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_87
+      rect:
+        serializedVersion: 2
+        x: 2089
+        y: 38
+        width: 6
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c562f756ac5965570800000000000000
+      internalID: 8455110046953449052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_88
+      rect:
+        serializedVersion: 2
+        x: 2106
+        y: 77
+        width: 19
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e09c159bf9ae4400800000000000000
+      internalID: 310372322338705641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_89
+      rect:
+        serializedVersion: 2
+        x: 2120
+        y: 49
+        width: 37
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78ae0807c2b4b8490800000000000000
+      internalID: -7743012480095294841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_90
+      rect:
+        serializedVersion: 2
+        x: 2122
+        y: 17
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e23c3e6fdd1d7e8a0800000000000000
+      internalID: -6275816804457397458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneSlow_Edge_v01_91
+      rect:
+        serializedVersion: 2
+        x: 2164
+        y: 39
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a51fb784aea80f520800000000000000
+      internalID: 2733837712656953690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TEX_SceneSlow_Edge_v01_0: -8412509017638145839
+      TEX_SceneSlow_Edge_v01_1: -2192479452368668926
+      TEX_SceneSlow_Edge_v01_10: 6619221978771555192
+      TEX_SceneSlow_Edge_v01_11: 4956938270387467313
+      TEX_SceneSlow_Edge_v01_12: 2769934628345802127
+      TEX_SceneSlow_Edge_v01_13: -5947516099648420077
+      TEX_SceneSlow_Edge_v01_14: -2088051282080582950
+      TEX_SceneSlow_Edge_v01_15: -2616827333694335363
+      TEX_SceneSlow_Edge_v01_16: 5439378351864341773
+      TEX_SceneSlow_Edge_v01_17: 5649984900961771238
+      TEX_SceneSlow_Edge_v01_18: 2633808598601077345
+      TEX_SceneSlow_Edge_v01_19: -738391449351395233
+      TEX_SceneSlow_Edge_v01_2: 7311803083648618268
+      TEX_SceneSlow_Edge_v01_20: -3246098916103935051
+      TEX_SceneSlow_Edge_v01_21: 7278884971829667179
+      TEX_SceneSlow_Edge_v01_22: -1533391836724624604
+      TEX_SceneSlow_Edge_v01_23: -7480445873596878322
+      TEX_SceneSlow_Edge_v01_24: 7864847946368839095
+      TEX_SceneSlow_Edge_v01_25: -7916403297375618989
+      TEX_SceneSlow_Edge_v01_26: 8512850261397596152
+      TEX_SceneSlow_Edge_v01_27: -7230725063613162840
+      TEX_SceneSlow_Edge_v01_28: 3986367535393393141
+      TEX_SceneSlow_Edge_v01_29: 2226317446353385626
+      TEX_SceneSlow_Edge_v01_3: 8022788707962790705
+      TEX_SceneSlow_Edge_v01_30: -5885216539677847142
+      TEX_SceneSlow_Edge_v01_31: 7607254123538191865
+      TEX_SceneSlow_Edge_v01_32: -3813339342412884816
+      TEX_SceneSlow_Edge_v01_33: 6683565025703356224
+      TEX_SceneSlow_Edge_v01_34: -6826879448989378810
+      TEX_SceneSlow_Edge_v01_35: -2872348311197384354
+      TEX_SceneSlow_Edge_v01_36: 363688711982075033
+      TEX_SceneSlow_Edge_v01_37: 2945362073053743398
+      TEX_SceneSlow_Edge_v01_38: -2302866326848260468
+      TEX_SceneSlow_Edge_v01_39: 8296467288893333591
+      TEX_SceneSlow_Edge_v01_4: 5005992104190800063
+      TEX_SceneSlow_Edge_v01_40: 6499331197935295974
+      TEX_SceneSlow_Edge_v01_41: -1209468762991754559
+      TEX_SceneSlow_Edge_v01_42: -842610255418503086
+      TEX_SceneSlow_Edge_v01_43: 5178316325315540874
+      TEX_SceneSlow_Edge_v01_44: -5292758715877789900
+      TEX_SceneSlow_Edge_v01_45: 1858229259855844006
+      TEX_SceneSlow_Edge_v01_46: 953290531697841517
+      TEX_SceneSlow_Edge_v01_47: 1213668187745200410
+      TEX_SceneSlow_Edge_v01_48: 4437215774764354183
+      TEX_SceneSlow_Edge_v01_49: 3096487311595554721
+      TEX_SceneSlow_Edge_v01_5: -517363005379772169
+      TEX_SceneSlow_Edge_v01_50: 8988021312430087573
+      TEX_SceneSlow_Edge_v01_51: 852978442969982404
+      TEX_SceneSlow_Edge_v01_52: 7089184704235154463
+      TEX_SceneSlow_Edge_v01_53: -6147642734928328706
+      TEX_SceneSlow_Edge_v01_54: -4907700255710115601
+      TEX_SceneSlow_Edge_v01_55: 1813652697297205968
+      TEX_SceneSlow_Edge_v01_56: -2874770055046942239
+      TEX_SceneSlow_Edge_v01_57: 1953424485666416292
+      TEX_SceneSlow_Edge_v01_58: 8706648428638512755
+      TEX_SceneSlow_Edge_v01_59: 6411315575384292275
+      TEX_SceneSlow_Edge_v01_6: 5562848095608604982
+      TEX_SceneSlow_Edge_v01_60: 6903817455750804250
+      TEX_SceneSlow_Edge_v01_61: -7762139939690524293
+      TEX_SceneSlow_Edge_v01_62: 227751944939995985
+      TEX_SceneSlow_Edge_v01_63: 7857402832552373168
+      TEX_SceneSlow_Edge_v01_64: -1937862938062759888
+      TEX_SceneSlow_Edge_v01_65: -3937317147577612211
+      TEX_SceneSlow_Edge_v01_66: -8753394961866664169
+      TEX_SceneSlow_Edge_v01_67: -1822546698767096815
+      TEX_SceneSlow_Edge_v01_68: -3005018701086844269
+      TEX_SceneSlow_Edge_v01_69: -4303759019966324621
+      TEX_SceneSlow_Edge_v01_7: -8965949386755718396
+      TEX_SceneSlow_Edge_v01_70: -735051618984840850
+      TEX_SceneSlow_Edge_v01_71: 6107267744578784625
+      TEX_SceneSlow_Edge_v01_72: 8247406396680682654
+      TEX_SceneSlow_Edge_v01_73: 7713981246740170032
+      TEX_SceneSlow_Edge_v01_74: 1019539787167727250
+      TEX_SceneSlow_Edge_v01_75: -3978379919843889378
+      TEX_SceneSlow_Edge_v01_76: 4448139437919573773
+      TEX_SceneSlow_Edge_v01_77: -4266725343093278327
+      TEX_SceneSlow_Edge_v01_78: -6361235611842721537
+      TEX_SceneSlow_Edge_v01_79: 5954511824223204000
+      TEX_SceneSlow_Edge_v01_8: 2544151512092770085
+      TEX_SceneSlow_Edge_v01_80: -5370655260642676188
+      TEX_SceneSlow_Edge_v01_81: -6398203421547007929
+      TEX_SceneSlow_Edge_v01_82: -756317178353422119
+      TEX_SceneSlow_Edge_v01_83: 4810267841144210810
+      TEX_SceneSlow_Edge_v01_84: -6496297450090773196
+      TEX_SceneSlow_Edge_v01_85: -482959490313069080
+      TEX_SceneSlow_Edge_v01_86: -3905730873152113771
+      TEX_SceneSlow_Edge_v01_87: 8455110046953449052
+      TEX_SceneSlow_Edge_v01_88: 310372322338705641
+      TEX_SceneSlow_Edge_v01_89: -7743012480095294841
+      TEX_SceneSlow_Edge_v01_9: 2931702533775722959
+      TEX_SceneSlow_Edge_v01_90: -6275816804457397458
+      TEX_SceneSlow_Edge_v01_91: 2733837712656953690
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

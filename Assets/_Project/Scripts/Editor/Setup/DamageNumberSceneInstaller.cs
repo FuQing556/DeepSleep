@@ -245,8 +245,8 @@ namespace DeepSleep.Editor.Setup
                 deepSeekStyle;
             serialized.FindProperty("_harnessStyle").objectReferenceValue =
                 harnessStyle;
-            serialized.FindProperty("_prewarmCount").intValue = 64;
-            serialized.FindProperty("_maximumCount").intValue = 96;
+            serialized.FindProperty("_prewarmCount").intValue = 128;
+            serialized.FindProperty("_maximumCount").intValue = 256;
             serialized.ApplyModifiedPropertiesWithoutUndo();
 
             EditorUtility.SetDirty(root);

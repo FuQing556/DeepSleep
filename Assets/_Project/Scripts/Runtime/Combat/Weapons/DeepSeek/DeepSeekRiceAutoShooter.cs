@@ -29,6 +29,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek
         private NearestVisibleTargetFinder2D _targetFinder;
         private float _remainingShotCooldown;
         private bool _isInitialized;
+        private bool _mirrorFan;
         private readonly System.Collections.Generic.List<Collider2D> _fanTargets = new(32);
         private readonly System.Collections.Generic.HashSet<DeepSleep.Runtime.Combat.Damage.IDamageReceiver> _assignedTargets = new();
 
@@ -36,7 +37,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek
         public event System.Action<Vector2> VolleyFired;
 
         public PlayerActionBlock ActionCategory =>
-            PlayerActionBlock.AutomaticCombat;
+            PlayerActionBlock.AutomaticCombat | PlayerActionBlock.PrimaryAttack;
 
         private void Awake()
         {
@@ -57,6 +58,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek
         private void OnDisable()
         {
             _remainingShotCooldown = 0f;
+            _mirrorFan = false;
         }
 
         public void ConsumeCommand(
@@ -84,11 +86,11 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek
 
             bool foundTarget =
                 _manualTargetController.TryGetLockedTargetPosition(
-                    out Vector2 targetPosition) ||
+                    out Vector2 targetPosition, out Collider2D primaryTarget) ||
                 _targetFinder.TryFind(
                     origin,
                     direction,
-                    out targetPosition);
+                    out targetPosition, out primaryTarget);
 
             if (!foundTarget)
             {
@@ -106,21 +108,38 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek
             bool correct = GetBonus(UpgradeEffectKind.TargetCorrection) > 0f;
             _assignedTargets.Clear();
             if (correct)
+            {
+                // 主弹道已分配给锁定/自动选中的目标，侧弹道不再争抢同一接收者。
+                if (primaryTarget.TryGetComponent(out DeepSleep.Runtime.Combat.Damage.DamageHitbox2D primaryHit) &&
+                    primaryHit.TryGetReceiver(out var primaryReceiver)) _assignedTargets.Add(primaryReceiver);
                 Physics2D.OverlapCircle(origin, _config.TargetSearchRadius,
                     new ContactFilter2D { useLayerMask = true, layerMask = _config.TargetLayers, useTriggers = true }, _fanTargets);
+            }
             float damageMultiplier = (_config.DamagePerProjectile + GetBonus(UpgradeEffectKind.WeaponDamage)) / _config.DamagePerProjectile;
             bool fired = false;
             for (int i = 0; i < count; i++)
             {
-                float angle = count == 1 ? 0f : _config.FanDegrees * ((i + .5f) / count - .5f);
+                float angle = GetFanLaneAngle(i, _config.FanDegrees, _mirrorFan);
                 Vector2 lane = Quaternion.Euler(0f, 0f, angle) * direction;
-                if (correct) lane = CorrectLane(origin, lane);
+                if (correct && i > 0) lane = CorrectLane(origin, lane);
                 fired |= _projectilePool.TryRent(origin, lane, gameObject, damageMultiplier, out _,
                     GetBonus(UpgradeEffectKind.RiceSplash) > 0f);
             }
-            if (fired) VolleyFired?.Invoke(origin);
+            if (fired)
+            {
+                if ((count & 1) == 0) _mirrorFan = !_mirrorFan;
+                VolleyFired?.Invoke(origin);
+            }
             _remainingShotCooldown = _config.ShotIntervalSeconds /
                 GetUpgradeMultiplier(UpgradeEffectKind.AttackRate);
+        }
+
+        /// <summary>0度主弹道优先；侧弹道按±15、±30度递增，镜像使偶数齐射额外弹左右交替。</summary>
+        public static float GetFanLaneAngle(int index, float fanDegrees, bool mirrored)
+        {
+            if (index == 0) return 0f;
+            float side = (index & 1) == 1 ? 1f : -1f;
+            return ((index + 1) / 2) * (fanDegrees * .25f) * side * (mirrored ? -1f : 1f);
         }
 
         private float GetUpgradeMultiplier(UpgradeEffectKind effect)

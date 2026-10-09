@@ -11,10 +11,14 @@ namespace DeepSleep.Runtime.Networking
         public NetworkPlayerReplica Replica;
         public PlayerMotorConfig Motor;
         public Collider2D BodyCollider;
+        public DeepSleep.Runtime.Progression.Run.ChapterSceneEffectsController SceneEffects;
         private struct Pending { public uint Sequence; public Vector2 Move; public float Dt; }
         private readonly List<Pending> _pending = new(128);
         private Vector2 _position, _velocity, _extents, _offset;
         private bool _ready, _blocked;
+        private Vector2 _knockbackVelocity;
+        private float _knockbackRemaining;
+        private bool _finishKnockback;
         public Vector2 Position => _position;
         public bool Active => _ready && !Replica.Session.IsAuthority && !Replica.Session.LocalAi &&
             Replica.Session.LocalRole == Replica.Role && Replica.Session.Phase == SessionPhase.Playing;
@@ -30,24 +34,31 @@ namespace DeepSleep.Runtime.Networking
         { Replica.Session.LocalCommandSent += Predict; Replica.Session.SessionOpened += Reset; }
         private void OnDisable()
         { Replica.Session.LocalCommandSent -= Predict; Replica.Session.SessionOpened -= Reset; }
-        private void Reset(bool authority) { _ready = false; _pending.Clear(); }
+        private void Reset(bool authority) { _ready = false; _pending.Clear(); _knockbackVelocity = Vector2.zero; _knockbackRemaining = 0f; _finishKnockback = false; }
         private void Predict(PlayerCommand command)
         {
-            if (!Active || _blocked) return;
+            if (!Active || (_blocked && _knockbackRemaining <= 0f)) return;
             if (_pending.Count >= 128) { _ready = false; _pending.Clear(); return; }
-            var step = new Pending { Sequence = command.Sequence, Move = command.Move, Dt = Time.fixedDeltaTime };
+            // 在接收命令时冻结实际方向；ACK重放不重新用当前状态翻转旧输入。
+            var step = new Pending { Sequence = command.Sequence, Move = SceneEffects != null ? SceneEffects.TransformMovement(command.Move) : command.Move, Dt = Time.fixedDeltaTime };
             _pending.Add(step); Step(step);
         }
         private void Step(Pending step)
         {
-            if (_blocked) { _velocity = Vector2.zero; return; }
-            PlayerMovementStep.Calculate(ref _position, ref _velocity, step.Move, Motor, _extents, _offset, step.Dt);
+            if (_blocked && _knockbackRemaining <= 0f) { _velocity = Vector2.zero; return; }
+            if (_finishKnockback) { _velocity = Vector2.zero; _finishKnockback = false; }
+            bool knocked = _knockbackRemaining > 0f;
+            PlayerMovementStep.Calculate(ref _position, ref _velocity, _blocked ? Vector2.zero : step.Move, Motor, _extents, _offset, step.Dt,
+                ref _knockbackVelocity, ref _knockbackRemaining);
+            _finishKnockback = knocked && _knockbackRemaining <= 0f;
             _position += _velocity * step.Dt;
         }
-        public void Reconcile(uint ack, Vector2 position, Vector2 velocity, bool blocked)
+        public void Reconcile(uint ack, Vector2 position, Vector2 velocity, bool blocked,
+            Vector2 knockbackVelocity = default, float knockbackRemaining = 0f)
         {
             _position = position; _velocity = velocity; _blocked = blocked; _ready = true;
-            if (!Active || _blocked) { _pending.Clear(); return; }
+            _knockbackVelocity = knockbackVelocity; _knockbackRemaining = knockbackRemaining; _finishKnockback = false;
+            if (!Active || (_blocked && _knockbackRemaining <= 0f)) { _pending.Clear(); return; }
             int completed = 0;
             while (completed < _pending.Count && !RemoteCommandSource.IsNewer(_pending[completed].Sequence, ack)) completed++;
             if (completed > 0) _pending.RemoveRange(0, completed);

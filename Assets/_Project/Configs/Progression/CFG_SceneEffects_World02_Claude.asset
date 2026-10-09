@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f940842518ac0b4d936680724e23ca7, type: 3}
+  m_Name: CFG_SceneEffects_World02_Claude
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Run.ChapterSceneEffectsConfig
+  Waves:
+  - Wave: 3
+    FirstWarningSeconds: 15
+    IntervalSeconds: {x: 32, y: 42}
+    TriggerProbability: 1
+    TypeWeights: {x: 1, y: 1, z: 2}
+  WarningSeconds: 2
+  DurationSeconds: 10
+  StopBeforeEndSeconds: 12

@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261008_Claude\\raw\\TEX_CL_ScreenCutFlash_v01.png",
+  "source_sha256": "d227e0b44a8c306ff8cd7778bb361369062db2f5d33ea364e58cd279fb88f5de",
+  "mode": "RGBA",
+  "size": [
+    2172,
+    724
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    254
+  ],
+  "transparent_pixels": 1116033,
+  "partial_alpha_pixels": 456495,
+  "opaque_pixels": 0,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    37,
+    2172,
+    700
+  ],
+  "visible_bbox_alpha_gt_8": [
+    0,
+    273,
+    2172,
+    449
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

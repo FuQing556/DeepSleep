@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261008_Claude\\raw\\SPR_CL_PermissionBookOpen_v01_CANDIDATE.png",
+  "source_sha256": "e3eff9d640b41dc238b906dcec54117c9f86dd62653ebdfa6abb18861b723ff8",
+  "mode": "RGBA",
+  "size": [
+    1536,
+    1024
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    254
+  ],
+  "transparent_pixels": 798421,
+  "partial_alpha_pixels": 774443,
+  "opaque_pixels": 0,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    9,
+    1512,
+    1024
+  ],
+  "visible_bbox_alpha_gt_8": [
+    160,
+    51,
+    1432,
+    993
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

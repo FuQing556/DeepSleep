@@ -1,0 +1,2602 @@
+fileFormatVersion: 2
+guid: f1124503e2410cd4e805b1c75ed149e8
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9162519688468547901
+    second: VFX_CL_ScreenFracture_B_v01_0
+  - first:
+      213: 6820402312362733268
+    second: VFX_CL_ScreenFracture_B_v01_1
+  - first:
+      213: 4778715801366207646
+    second: VFX_CL_ScreenFracture_B_v01_2
+  - first:
+      213: 5115069947292466175
+    second: VFX_CL_ScreenFracture_B_v01_3
+  - first:
+      213: -7538856069436990580
+    second: VFX_CL_ScreenFracture_B_v01_4
+  - first:
+      213: -7818240934786131443
+    second: VFX_CL_ScreenFracture_B_v01_5
+  - first:
+      213: -5529035739470547943
+    second: VFX_CL_ScreenFracture_B_v01_6
+  - first:
+      213: 451994912843971534
+    second: VFX_CL_ScreenFracture_B_v01_7
+  - first:
+      213: -6038306895746870393
+    second: VFX_CL_ScreenFracture_B_v01_8
+  - first:
+      213: -3210350096925259390
+    second: VFX_CL_ScreenFracture_B_v01_9
+  - first:
+      213: 7716971496668145801
+    second: VFX_CL_ScreenFracture_B_v01_10
+  - first:
+      213: 1545823602943479118
+    second: VFX_CL_ScreenFracture_B_v01_11
+  - first:
+      213: 2312232306765859923
+    second: VFX_CL_ScreenFracture_B_v01_12
+  - first:
+      213: 6409715242215321763
+    second: VFX_CL_ScreenFracture_B_v01_13
+  - first:
+      213: 5714119285873773861
+    second: VFX_CL_ScreenFracture_B_v01_14
+  - first:
+      213: 4105197502520105636
+    second: VFX_CL_ScreenFracture_B_v01_15
+  - first:
+      213: 607130289214919216
+    second: VFX_CL_ScreenFracture_B_v01_16
+  - first:
+      213: 2711641695333712775
+    second: VFX_CL_ScreenFracture_B_v01_17
+  - first:
+      213: 8077698667242214719
+    second: VFX_CL_ScreenFracture_B_v01_18
+  - first:
+      213: -3941871807595416974
+    second: VFX_CL_ScreenFracture_B_v01_19
+  - first:
+      213: -644400889447525214
+    second: VFX_CL_ScreenFracture_B_v01_20
+  - first:
+      213: 8821773586152509267
+    second: VFX_CL_ScreenFracture_B_v01_21
+  - first:
+      213: 8765090403356844509
+    second: VFX_CL_ScreenFracture_B_v01_22
+  - first:
+      213: 4818455054913055840
+    second: VFX_CL_ScreenFracture_B_v01_23
+  - first:
+      213: -2556550985788453971
+    second: VFX_CL_ScreenFracture_B_v01_24
+  - first:
+      213: -8409618917398048506
+    second: VFX_CL_ScreenFracture_B_v01_25
+  - first:
+      213: -5274176060875172108
+    second: VFX_CL_ScreenFracture_B_v01_26
+  - first:
+      213: -3865322981597245142
+    second: VFX_CL_ScreenFracture_B_v01_27
+  - first:
+      213: 763260919826873254
+    second: VFX_CL_ScreenFracture_B_v01_28
+  - first:
+      213: -4963274926354056520
+    second: VFX_CL_ScreenFracture_B_v01_29
+  - first:
+      213: 1082225447757260064
+    second: VFX_CL_ScreenFracture_B_v01_30
+  - first:
+      213: -7417286892766084591
+    second: VFX_CL_ScreenFracture_B_v01_31
+  - first:
+      213: -2378778857118676003
+    second: VFX_CL_ScreenFracture_B_v01_32
+  - first:
+      213: 4782163671862775613
+    second: VFX_CL_ScreenFracture_B_v01_33
+  - first:
+      213: 1616469560508545490
+    second: VFX_CL_ScreenFracture_B_v01_34
+  - first:
+      213: 1088444744512550039
+    second: VFX_CL_ScreenFracture_B_v01_35
+  - first:
+      213: 7205894852419550220
+    second: VFX_CL_ScreenFracture_B_v01_36
+  - first:
+      213: 3833376772383393733
+    second: VFX_CL_ScreenFracture_B_v01_37
+  - first:
+      213: -1761102963941291281
+    second: VFX_CL_ScreenFracture_B_v01_38
+  - first:
+      213: 2698840549787874087
+    second: VFX_CL_ScreenFracture_B_v01_39
+  - first:
+      213: -4880931260697523303
+    second: VFX_CL_ScreenFracture_B_v01_40
+  - first:
+      213: -2878214060366078487
+    second: VFX_CL_ScreenFracture_B_v01_41
+  - first:
+      213: -4877101708639726049
+    second: VFX_CL_ScreenFracture_B_v01_42
+  - first:
+      213: 8987057212107292805
+    second: VFX_CL_ScreenFracture_B_v01_43
+  - first:
+      213: 6247135506807907828
+    second: VFX_CL_ScreenFracture_B_v01_44
+  - first:
+      213: 3304231761418955775
+    second: VFX_CL_ScreenFracture_B_v01_45
+  - first:
+      213: -6142289935669185172
+    second: VFX_CL_ScreenFracture_B_v01_46
+  - first:
+      213: 2996503946433546732
+    second: VFX_CL_ScreenFracture_B_v01_47
+  - first:
+      213: -5934859743244653099
+    second: VFX_CL_ScreenFracture_B_v01_48
+  - first:
+      213: 7002360867977136907
+    second: VFX_CL_ScreenFracture_B_v01_49
+  - first:
+      213: -7375484990308123271
+    second: VFX_CL_ScreenFracture_B_v01_50
+  - first:
+      213: -8485557786304339610
+    second: VFX_CL_ScreenFracture_B_v01_51
+  - first:
+      213: -210986073118017300
+    second: VFX_CL_ScreenFracture_B_v01_52
+  - first:
+      213: 634871923677277259
+    second: VFX_CL_ScreenFracture_B_v01_53
+  - first:
+      213: 6931680562628479007
+    second: VFX_CL_ScreenFracture_B_v01_54
+  - first:
+      213: 947260527904015624
+    second: VFX_CL_ScreenFracture_B_v01_55
+  - first:
+      213: -4706863132665727528
+    second: VFX_CL_ScreenFracture_B_v01_56
+  - first:
+      213: 3892153213122441921
+    second: VFX_CL_ScreenFracture_B_v01_57
+  - first:
+      213: -7643752513515706735
+    second: VFX_CL_ScreenFracture_B_v01_58
+  - first:
+      213: -4127644004639833579
+    second: VFX_CL_ScreenFracture_B_v01_59
+  - first:
+      213: -7948632823530010238
+    second: VFX_CL_ScreenFracture_B_v01_60
+  - first:
+      213: 7665027249007412950
+    second: VFX_CL_ScreenFracture_B_v01_61
+  - first:
+      213: 1602267811887135102
+    second: VFX_CL_ScreenFracture_B_v01_62
+  - first:
+      213: 4113342350778770362
+    second: VFX_CL_ScreenFracture_B_v01_63
+  - first:
+      213: 1876435569995277140
+    second: VFX_CL_ScreenFracture_B_v01_64
+  - first:
+      213: -974868103300558146
+    second: VFX_CL_ScreenFracture_B_v01_65
+  - first:
+      213: 3655368926132174723
+    second: VFX_CL_ScreenFracture_B_v01_66
+  - first:
+      213: -3224128262645729682
+    second: VFX_CL_ScreenFracture_B_v01_67
+  - first:
+      213: -6503798009605754805
+    second: VFX_CL_ScreenFracture_B_v01_68
+  - first:
+      213: -4615680763244030248
+    second: VFX_CL_ScreenFracture_B_v01_69
+  - first:
+      213: 5732555527212550669
+    second: VFX_CL_ScreenFracture_B_v01_70
+  - first:
+      213: -2561010251064455916
+    second: VFX_CL_ScreenFracture_B_v01_71
+  - first:
+      213: 477877946938625976
+    second: VFX_CL_ScreenFracture_B_v01_72
+  - first:
+      213: -4450656099651785404
+    second: VFX_CL_ScreenFracture_B_v01_73
+  - first:
+      213: 1883309700961170953
+    second: VFX_CL_ScreenFracture_B_v01_74
+  - first:
+      213: 4536666238731980720
+    second: VFX_CL_ScreenFracture_B_v01_75
+  - first:
+      213: -4343909143015875698
+    second: VFX_CL_ScreenFracture_B_v01_76
+  - first:
+      213: -5467435831025123263
+    second: VFX_CL_ScreenFracture_B_v01_77
+  - first:
+      213: -7328720170825715614
+    second: VFX_CL_ScreenFracture_B_v01_78
+  - first:
+      213: 1823942176586034041
+    second: VFX_CL_ScreenFracture_B_v01_79
+  - first:
+      213: 5891124056598953907
+    second: VFX_CL_ScreenFracture_B_v01_80
+  - first:
+      213: 415734236225186246
+    second: VFX_CL_ScreenFracture_B_v01_81
+  - first:
+      213: 2830536936176583617
+    second: VFX_CL_ScreenFracture_B_v01_82
+  - first:
+      213: 5087001395329378298
+    second: VFX_CL_ScreenFracture_B_v01_83
+  - first:
+      213: 2311479207214705033
+    second: VFX_CL_ScreenFracture_B_v01_84
+  - first:
+      213: -2892633992044395315
+    second: VFX_CL_ScreenFracture_B_v01_85
+  - first:
+      213: 8558911583606889309
+    second: VFX_CL_ScreenFracture_B_v01_86
+  - first:
+      213: -3801322059783928034
+    second: VFX_CL_ScreenFracture_B_v01_87
+  - first:
+      213: 8949324318079157083
+    second: VFX_CL_ScreenFracture_B_v01_88
+  - first:
+      213: 7677179022351360590
+    second: VFX_CL_ScreenFracture_B_v01_89
+  - first:
+      213: 782946097290618901
+    second: VFX_CL_ScreenFracture_B_v01_90
+  - first:
+      213: 6364745535998964401
+    second: VFX_CL_ScreenFracture_B_v01_91
+  - first:
+      213: -1177432067892925012
+    second: VFX_CL_ScreenFracture_B_v01_92
+  - first:
+      213: -3786637627271132910
+    second: VFX_CL_ScreenFracture_B_v01_93
+  - first:
+      213: -8972250419455175282
+    second: VFX_CL_ScreenFracture_B_v01_94
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_0
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 555
+        width: 200
+        height: 137
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d39c0be8c1fc72f70800000000000000
+      internalID: 9162519688468547901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_1
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 645
+        width: 103
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4de22ad54cfe6ae50800000000000000
+      internalID: 6820402312362733268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_2
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 558
+        width: 224
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9c9afed3b8615240800000000000000
+      internalID: 4778715801366207646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_3
+      rect:
+        serializedVersion: 2
+        x: 790
+        y: 663
+        width: 38
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffbb4a924016cf640800000000000000
+      internalID: 5115069947292466175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_4
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 610
+        width: 92
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8b1960f85a906790800000000000000
+      internalID: -7538856069436990580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_5
+      rect:
+        serializedVersion: 2
+        x: 901
+        y: 554
+        width: 132
+        height: 134
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0a97a9ea47008390800000000000000
+      internalID: -7818240934786131443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_6
+      rect:
+        serializedVersion: 2
+        x: 1036
+        y: 630
+        width: 51
+        height: 60
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9143b6ef94be443b0800000000000000
+      internalID: -5529035739470547943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_7
+      rect:
+        serializedVersion: 2
+        x: 1084
+        y: 554
+        width: 238
+        height: 152
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecb395c7afec54600800000000000000
+      internalID: 451994912843971534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_8
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 651
+        width: 88
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7835732eedf933ca0800000000000000
+      internalID: -6038306895746870393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_9
+      rect:
+        serializedVersion: 2
+        x: 1711
+        y: 665
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2890124989b8273d0800000000000000
+      internalID: -3210350096925259390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_10
+      rect:
+        serializedVersion: 2
+        x: 1888
+        y: 683
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98828b0a0b0381b60800000000000000
+      internalID: 7716971496668145801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_11
+      rect:
+        serializedVersion: 2
+        x: 2009
+        y: 659
+        width: 39
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4d4cd2706ed37510800000000000000
+      internalID: 1545823602943479118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_12
+      rect:
+        serializedVersion: 2
+        x: 2073
+        y: 554
+        width: 94
+        height: 139
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35c06f24803b61020800000000000000
+      internalID: 2312232306765859923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_13
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 602
+        width: 50
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a0b6ab7d02e3f850800000000000000
+      internalID: 6409715242215321763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_14
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 556
+        width: 67
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52d07be3731ac4f40800000000000000
+      internalID: 5714119285873773861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_15
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 659
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4aa1886d06798f830800000000000000
+      internalID: 4105197502520105636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_16
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 646
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 032190508c5fc6800800000000000000
+      internalID: 607130289214919216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_17
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 634
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 783018841cfa1a520800000000000000
+      internalID: 2711641695333712775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_18
+      rect:
+        serializedVersion: 2
+        x: 1319
+        y: 626
+        width: 32
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f355e9fe320c91070800000000000000
+      internalID: 8077698667242214719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_19
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 586
+        width: 76
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 272f526d978ab49c0800000000000000
+      internalID: -3941871807595416974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_20
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 640
+        width: 23
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a4d8832ec0ae07f0800000000000000
+      internalID: -644400889447525214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_21
+      rect:
+        serializedVersion: 2
+        x: 1454
+        y: 546
+        width: 59
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35f4b8b365c3d6a70800000000000000
+      internalID: 8821773586152509267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_22
+      rect:
+        serializedVersion: 2
+        x: 1534
+        y: 562
+        width: 84
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd1254c484bd3a970800000000000000
+      internalID: 8765090403356844509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_23
+      rect:
+        serializedVersion: 2
+        x: 1645
+        y: 659
+        width: 15
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06c274ad7579ed240800000000000000
+      internalID: 4818455054913055840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_24
+      rect:
+        serializedVersion: 2
+        x: 1782
+        y: 570
+        width: 101
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dab87e17c6e458cd0800000000000000
+      internalID: -2556550985788453971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_25
+      rect:
+        serializedVersion: 2
+        x: 1822
+        y: 578
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 601951496280b4b80800000000000000
+      internalID: -8409618917398048506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_26
+      rect:
+        serializedVersion: 2
+        x: 1896
+        y: 647
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f69aa001dc5ec6b0800000000000000
+      internalID: -5274176060875172108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_27
+      rect:
+        serializedVersion: 2
+        x: 1896
+        y: 641
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a211eb34a3d9b5ac0800000000000000
+      internalID: -3865322981597245142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_28
+      rect:
+        serializedVersion: 2
+        x: 1901
+        y: 642
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6abf73d33c5a79a00800000000000000
+      internalID: 763260919826873254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_29
+      rect:
+        serializedVersion: 2
+        x: 1911
+        y: 634
+        width: 37
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ba301440c7ee1bb0800000000000000
+      internalID: -4963274926354056520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_30
+      rect:
+        serializedVersion: 2
+        x: 1923
+        y: 578
+        width: 33
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 025a5749f46d40f00800000000000000
+      internalID: 1082225447757260064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_31
+      rect:
+        serializedVersion: 2
+        x: 2019
+        y: 610
+        width: 52
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11244879ed0801990800000000000000
+      internalID: -7417286892766084591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_32
+      rect:
+        serializedVersion: 2
+        x: 2065
+        y: 632
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddb4b369b31ecfed0800000000000000
+      internalID: -2378778857118676003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_33
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 562
+        width: 32
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3f8827c588ad5240800000000000000
+      internalID: 4782163671862775613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_34
+      rect:
+        serializedVersion: 2
+        x: 1333
+        y: 562
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d9f758308ade6610800000000000000
+      internalID: 1616469560508545490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_35
+      rect:
+        serializedVersion: 2
+        x: 1376
+        y: 544
+        width: 63
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 794bf427abeea1f00800000000000000
+      internalID: 1088444744512550039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_36
+      rect:
+        serializedVersion: 2
+        x: 1961
+        y: 554
+        width: 55
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0c7847903b700460800000000000000
+      internalID: 7205894852419550220
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_37
+      rect:
+        serializedVersion: 2
+        x: 2023
+        y: 529
+        width: 62
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c745284dd3e23530800000000000000
+      internalID: 3833376772383393733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_38
+      rect:
+        serializedVersion: 2
+        x: 2065
+        y: 569
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fea446d5f2e4f87e0800000000000000
+      internalID: -1761102963941291281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_39
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 14
+        width: 2172
+        height: 549
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 723b6835e25347520800000000000000
+      internalID: 2698840549787874087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_40
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 548
+        width: 18
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99b4601f0e2734cb0800000000000000
+      internalID: -4880931260697523303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_41
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 553
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ed5850cf878e08d0800000000000000
+      internalID: -2878214060366078487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_42
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 542
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f16141306dd015cb0800000000000000
+      internalID: -4877101708639726049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_43
+      rect:
+        serializedVersion: 2
+        x: 997
+        y: 546
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58084cf3be078bc70800000000000000
+      internalID: 8987057212107292805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_44
+      rect:
+        serializedVersion: 2
+        x: 1317
+        y: 538
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f5e30b05a842b650800000000000000
+      internalID: 6247135506807907828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_45
+      rect:
+        serializedVersion: 2
+        x: 1367
+        y: 548
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffba0fac74dfadd20800000000000000
+      internalID: 3304231761418955775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_46
+      rect:
+        serializedVersion: 2
+        x: 1623
+        y: 530
+        width: 51
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c653bf4c8d332caa0800000000000000
+      internalID: -6142289935669185172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_47
+      rect:
+        serializedVersion: 2
+        x: 1313
+        y: 532
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce94a3f8678b59920800000000000000
+      internalID: 2996503946433546732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_48
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 532
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5dde22cf18423ada0800000000000000
+      internalID: -5934859743244653099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_49
+      rect:
+        serializedVersion: 2
+        x: 1396
+        y: 520
+        width: 27
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0b8fdcfb126d2160800000000000000
+      internalID: 7002360867977136907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_50
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 536
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97d75727a7305a990800000000000000
+      internalID: -7375484990308123271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_51
+      rect:
+        serializedVersion: 2
+        x: 1896
+        y: 524
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 661a74ad62e3d3a80800000000000000
+      internalID: -8485557786304339610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_52
+      rect:
+        serializedVersion: 2
+        x: 1977
+        y: 522
+        width: 17
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce8fe3bc84d621df0800000000000000
+      internalID: -210986073118017300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_53
+      rect:
+        serializedVersion: 2
+        x: 1166
+        y: 522
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4c27a0a6a48fc800800000000000000
+      internalID: 634871923677277259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_54
+      rect:
+        serializedVersion: 2
+        x: 1263
+        y: 522
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1843fffeb6423060800000000000000
+      internalID: 6931680562628479007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_55
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 520
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 805c77b6e68552d00800000000000000
+      internalID: 947260527904015624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_56
+      rect:
+        serializedVersion: 2
+        x: 1277
+        y: 520
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d5b31b3becddaeb0800000000000000
+      internalID: -4706863132665727528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_57
+      rect:
+        serializedVersion: 2
+        x: 1544
+        y: 516
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c2fe8fc9b4b30630800000000000000
+      internalID: 3892153213122441921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_58
+      rect:
+        serializedVersion: 2
+        x: 1162
+        y: 508
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 196a5e8569febe590800000000000000
+      internalID: -7643752513515706735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_59
+      rect:
+        serializedVersion: 2
+        x: 2089
+        y: 508
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5120c20a5a9a7b6c0800000000000000
+      internalID: -4127644004639833579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_60
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 176
+        width: 10
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 289cb778f88c0b190800000000000000
+      internalID: -7948632823530010238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_61
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 176
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d6c6c20ca5af5a60800000000000000
+      internalID: 7665027249007412950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_62
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 160
+        width: 13
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e793392f5166c3610800000000000000
+      internalID: 1602267811887135102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_63
+      rect:
+        serializedVersion: 2
+        x: 1365
+        y: 144
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab32db91317851930800000000000000
+      internalID: 4113342350778770362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_64
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 128
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 453e97985307a0a10800000000000000
+      internalID: 1876435569995277140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_65
+      rect:
+        serializedVersion: 2
+        x: 1273
+        y: 115
+        width: 21
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb259e700a29872f0800000000000000
+      internalID: -974868103300558146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_66
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 85
+        width: 15
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38ffb1ddbaa7ab230800000000000000
+      internalID: 3655368926132174723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_67
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 95
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6634b26d689143d0800000000000000
+      internalID: -3224128262645729682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_68
+      rect:
+        serializedVersion: 2
+        x: 406
+        y: 77
+        width: 46
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b407e8a3b2eddb5a0800000000000000
+      internalID: -6503798009605754805
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_69
+      rect:
+        serializedVersion: 2
+        x: 1042
+        y: 108
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d65c3efccec1ffb0800000000000000
+      internalID: -4615680763244030248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_70
+      rect:
+        serializedVersion: 2
+        x: 316
+        y: 67
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0ac4be21e02e8f40800000000000000
+      internalID: 5732555527212550669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_71
+      rect:
+        serializedVersion: 2
+        x: 619
+        y: 81
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41d4b27deb6757cd0800000000000000
+      internalID: -2561010251064455916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_72
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 79
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bf0549f573c1a600800000000000000
+      internalID: 477877946938625976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_73
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 64
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44d64d2abd71c32c0800000000000000
+      internalID: -4450656099651785404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_74
+      rect:
+        serializedVersion: 2
+        x: 1285
+        y: 46
+        width: 35
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90676dfd13cd22a10800000000000000
+      internalID: 1883309700961170953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_75
+      rect:
+        serializedVersion: 2
+        x: 1341
+        y: 79
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bf802868e975fe30800000000000000
+      internalID: 4536666238731980720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_76
+      rect:
+        serializedVersion: 2
+        x: 1406
+        y: 62
+        width: 9
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8b97f146a557b3c0800000000000000
+      internalID: -4343909143015875698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_77
+      rect:
+        serializedVersion: 2
+        x: 1518
+        y: 79
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14041835414cf14b0800000000000000
+      internalID: -5467435831025123263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_78
+      rect:
+        serializedVersion: 2
+        x: 1989
+        y: 81
+        width: 29
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26071b775d72b4a90800000000000000
+      internalID: -7328720170825715614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_79
+      rect:
+        serializedVersion: 2
+        x: 2138
+        y: 61
+        width: 23
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97b6346feb1ff4910800000000000000
+      internalID: 1823942176586034041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_80
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 63
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bfb651fd1a71c150800000000000000
+      internalID: 5891124056598953907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_81
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 55
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c9ab2fc51cf4c500800000000000000
+      internalID: 415734236225186246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_82
+      rect:
+        serializedVersion: 2
+        x: 957
+        y: 61
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c38d6cb856184720800000000000000
+      internalID: 2830536936176583617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_83
+      rect:
+        serializedVersion: 2
+        x: 973
+        y: 66
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af7268421d8a89640800000000000000
+      internalID: 5087001395329378298
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_84
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 65
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 989ebbb9716041020800000000000000
+      internalID: 2311479207214705033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_85
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 63
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc449f6c5bc4bd7d0800000000000000
+      internalID: -2892633992044395315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_86
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 63
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5b5ddcfcbc57c670800000000000000
+      internalID: 8558911583606889309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_87
+      rect:
+        serializedVersion: 2
+        x: 1094
+        y: 63
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1709b51abdfe3bc0800000000000000
+      internalID: -3801322059783928034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_88
+      rect:
+        serializedVersion: 2
+        x: 1357
+        y: 63
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b538fde3d03623c70800000000000000
+      internalID: 8949324318079157083
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_89
+      rect:
+        serializedVersion: 2
+        x: 1366
+        y: 52
+        width: 17
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e42655835a1da8a60800000000000000
+      internalID: 7677179022351360590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_90
+      rect:
+        serializedVersion: 2
+        x: 1373
+        y: 69
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5182947c3559dda00800000000000000
+      internalID: 782946097290618901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_91
+      rect:
+        serializedVersion: 2
+        x: 1609
+        y: 63
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b2b8f6d75e145850800000000000000
+      internalID: 6364745535998964401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_92
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 31
+        width: 17
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cada616c5cbe8afe0800000000000000
+      internalID: -1177432067892925012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_93
+      rect:
+        serializedVersion: 2
+        x: 851
+        y: 25
+        width: 9
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2194065f329237bc0800000000000000
+      internalID: -3786637627271132910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ScreenFracture_B_v01_94
+      rect:
+        serializedVersion: 2
+        x: 1540
+        y: 49
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e855680d7c92c7380800000000000000
+      internalID: -8972250419455175282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_CL_ScreenFracture_B_v01_0: 9162519688468547901
+      VFX_CL_ScreenFracture_B_v01_1: 6820402312362733268
+      VFX_CL_ScreenFracture_B_v01_10: 7716971496668145801
+      VFX_CL_ScreenFracture_B_v01_11: 1545823602943479118
+      VFX_CL_ScreenFracture_B_v01_12: 2312232306765859923
+      VFX_CL_ScreenFracture_B_v01_13: 6409715242215321763
+      VFX_CL_ScreenFracture_B_v01_14: 5714119285873773861
+      VFX_CL_ScreenFracture_B_v01_15: 4105197502520105636
+      VFX_CL_ScreenFracture_B_v01_16: 607130289214919216
+      VFX_CL_ScreenFracture_B_v01_17: 2711641695333712775
+      VFX_CL_ScreenFracture_B_v01_18: 8077698667242214719
+      VFX_CL_ScreenFracture_B_v01_19: -3941871807595416974
+      VFX_CL_ScreenFracture_B_v01_2: 4778715801366207646
+      VFX_CL_ScreenFracture_B_v01_20: -644400889447525214
+      VFX_CL_ScreenFracture_B_v01_21: 8821773586152509267
+      VFX_CL_ScreenFracture_B_v01_22: 8765090403356844509
+      VFX_CL_ScreenFracture_B_v01_23: 4818455054913055840
+      VFX_CL_ScreenFracture_B_v01_24: -2556550985788453971
+      VFX_CL_ScreenFracture_B_v01_25: -8409618917398048506
+      VFX_CL_ScreenFracture_B_v01_26: -5274176060875172108
+      VFX_CL_ScreenFracture_B_v01_27: -3865322981597245142
+      VFX_CL_ScreenFracture_B_v01_28: 763260919826873254
+      VFX_CL_ScreenFracture_B_v01_29: -4963274926354056520
+      VFX_CL_ScreenFracture_B_v01_3: 5115069947292466175
+      VFX_CL_ScreenFracture_B_v01_30: 1082225447757260064
+      VFX_CL_ScreenFracture_B_v01_31: -7417286892766084591
+      VFX_CL_ScreenFracture_B_v01_32: -2378778857118676003
+      VFX_CL_ScreenFracture_B_v01_33: 4782163671862775613
+      VFX_CL_ScreenFracture_B_v01_34: 1616469560508545490
+      VFX_CL_ScreenFracture_B_v01_35: 1088444744512550039
+      VFX_CL_ScreenFracture_B_v01_36: 7205894852419550220
+      VFX_CL_ScreenFracture_B_v01_37: 3833376772383393733
+      VFX_CL_ScreenFracture_B_v01_38: -1761102963941291281
+      VFX_CL_ScreenFracture_B_v01_39: 2698840549787874087
+      VFX_CL_ScreenFracture_B_v01_4: -7538856069436990580
+      VFX_CL_ScreenFracture_B_v01_40: -4880931260697523303
+      VFX_CL_ScreenFracture_B_v01_41: -2878214060366078487
+      VFX_CL_ScreenFracture_B_v01_42: -4877101708639726049
+      VFX_CL_ScreenFracture_B_v01_43: 8987057212107292805
+      VFX_CL_ScreenFracture_B_v01_44: 6247135506807907828
+      VFX_CL_ScreenFracture_B_v01_45: 3304231761418955775
+      VFX_CL_ScreenFracture_B_v01_46: -6142289935669185172
+      VFX_CL_ScreenFracture_B_v01_47: 2996503946433546732
+      VFX_CL_ScreenFracture_B_v01_48: -5934859743244653099
+      VFX_CL_ScreenFracture_B_v01_49: 7002360867977136907
+      VFX_CL_ScreenFracture_B_v01_5: -7818240934786131443
+      VFX_CL_ScreenFracture_B_v01_50: -7375484990308123271
+      VFX_CL_ScreenFracture_B_v01_51: -8485557786304339610
+      VFX_CL_ScreenFracture_B_v01_52: -210986073118017300
+      VFX_CL_ScreenFracture_B_v01_53: 634871923677277259
+      VFX_CL_ScreenFracture_B_v01_54: 6931680562628479007
+      VFX_CL_ScreenFracture_B_v01_55: 947260527904015624
+      VFX_CL_ScreenFracture_B_v01_56: -4706863132665727528
+      VFX_CL_ScreenFracture_B_v01_57: 3892153213122441921
+      VFX_CL_ScreenFracture_B_v01_58: -7643752513515706735
+      VFX_CL_ScreenFracture_B_v01_59: -4127644004639833579
+      VFX_CL_ScreenFracture_B_v01_6: -5529035739470547943
+      VFX_CL_ScreenFracture_B_v01_60: -7948632823530010238
+      VFX_CL_ScreenFracture_B_v01_61: 7665027249007412950
+      VFX_CL_ScreenFracture_B_v01_62: 1602267811887135102
+      VFX_CL_ScreenFracture_B_v01_63: 4113342350778770362
+      VFX_CL_ScreenFracture_B_v01_64: 1876435569995277140
+      VFX_CL_ScreenFracture_B_v01_65: -974868103300558146
+      VFX_CL_ScreenFracture_B_v01_66: 3655368926132174723
+      VFX_CL_ScreenFracture_B_v01_67: -3224128262645729682
+      VFX_CL_ScreenFracture_B_v01_68: -6503798009605754805
+      VFX_CL_ScreenFracture_B_v01_69: -4615680763244030248
+      VFX_CL_ScreenFracture_B_v01_7: 451994912843971534
+      VFX_CL_ScreenFracture_B_v01_70: 5732555527212550669
+      VFX_CL_ScreenFracture_B_v01_71: -2561010251064455916
+      VFX_CL_ScreenFracture_B_v01_72: 477877946938625976
+      VFX_CL_ScreenFracture_B_v01_73: -4450656099651785404
+      VFX_CL_ScreenFracture_B_v01_74: 1883309700961170953
+      VFX_CL_ScreenFracture_B_v01_75: 4536666238731980720
+      VFX_CL_ScreenFracture_B_v01_76: -4343909143015875698
+      VFX_CL_ScreenFracture_B_v01_77: -5467435831025123263
+      VFX_CL_ScreenFracture_B_v01_78: -7328720170825715614
+      VFX_CL_ScreenFracture_B_v01_79: 1823942176586034041
+      VFX_CL_ScreenFracture_B_v01_8: -6038306895746870393
+      VFX_CL_ScreenFracture_B_v01_80: 5891124056598953907
+      VFX_CL_ScreenFracture_B_v01_81: 415734236225186246
+      VFX_CL_ScreenFracture_B_v01_82: 2830536936176583617
+      VFX_CL_ScreenFracture_B_v01_83: 5087001395329378298
+      VFX_CL_ScreenFracture_B_v01_84: 2311479207214705033
+      VFX_CL_ScreenFracture_B_v01_85: -2892633992044395315
+      VFX_CL_ScreenFracture_B_v01_86: 8558911583606889309
+      VFX_CL_ScreenFracture_B_v01_87: -3801322059783928034
+      VFX_CL_ScreenFracture_B_v01_88: 8949324318079157083
+      VFX_CL_ScreenFracture_B_v01_89: 7677179022351360590
+      VFX_CL_ScreenFracture_B_v01_9: -3210350096925259390
+      VFX_CL_ScreenFracture_B_v01_90: 782946097290618901
+      VFX_CL_ScreenFracture_B_v01_91: 6364745535998964401
+      VFX_CL_ScreenFracture_B_v01_92: -1177432067892925012
+      VFX_CL_ScreenFracture_B_v01_93: -3786637627271132910
+      VFX_CL_ScreenFracture_B_v01_94: -8972250419455175282
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

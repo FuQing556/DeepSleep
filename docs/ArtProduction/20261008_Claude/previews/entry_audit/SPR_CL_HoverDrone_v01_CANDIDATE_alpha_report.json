@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261008_Claude\\raw\\SPR_CL_HoverDrone_v01_CANDIDATE.png",
+  "source_sha256": "3587fb58e7a0d752534ac7b265ac7bc6a976f7782842ae0c9b62cb1ca6fdc124",
+  "mode": "RGBA",
+  "size": [
+    1536,
+    1024
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    254
+  ],
+  "transparent_pixels": 1017391,
+  "partial_alpha_pixels": 555473,
+  "opaque_pixels": 0,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    179,
+    1455,
+    976
+  ],
+  "visible_bbox_alpha_gt_8": [
+    90,
+    236,
+    1447,
+    783
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

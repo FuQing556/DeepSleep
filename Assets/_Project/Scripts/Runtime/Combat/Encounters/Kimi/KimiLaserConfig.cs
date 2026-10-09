@@ -7,7 +7,8 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
     {
         public float ChargeSeconds, FireSeconds, RecoverySeconds;
         public float Length, DamageWidth, VisualWidth, TextureRepeatLength, TextureScrollSpeed;
-        public float Damage, FocusStartScale, FocusEndScale, FocusSpinDegrees;
+        public float Damage, FocusStartScale, FocusEndScale;
+        public float FocusStartAngleOffsetDegrees, FocusAlignedAngleOffsetDegrees;
         public Color WarningColor, BeamColor;
         public LayerMask PlayerLayers;
         public int ShotCount;
@@ -24,7 +25,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
                 !Positive(ChargeSeconds) || !Positive(FireSeconds) || !Positive(RecoverySeconds) ||
                 !Positive(Length) || !Positive(DamageWidth) || !Positive(VisualWidth) || VisualWidth < DamageWidth ||
                 !Positive(TextureRepeatLength) || !float.IsFinite(TextureScrollSpeed) || !Positive(Damage) ||
-                !Positive(FocusStartScale) || !Positive(FocusEndScale) || !float.IsFinite(FocusSpinDegrees) || PlayerLayers.value == 0)
+                !Positive(FocusStartScale) || !Positive(FocusEndScale) || !float.IsFinite(FocusStartAngleOffsetDegrees) || !float.IsFinite(FocusAlignedAngleOffsetDegrees) || PlayerLayers.value == 0)
             { reason = "激光时间、几何、伤害、视觉或玩家层配置无效。"; return false; }
             reason = string.Empty; return true;
         }

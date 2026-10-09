@@ -22,6 +22,7 @@ namespace DeepSleep.Runtime.Progression.Upgrades
         private const byte NetworkRequest = NetworkMessageCatalog.Peer.UpgradeRequest;
         private const byte RequestRefresh = 1;
         private const byte RequestSelect = 2;
+        private const byte RequestAutoBuy = 3;
         private const int OfferCount = 3;
         private const int PaidRefreshCost = 5;
 
@@ -31,6 +32,7 @@ namespace DeepSleep.Runtime.Progression.Upgrades
         [SerializeField] private CoopSessionController _session;
         [SerializeField] private TokenWallet _wallet;
         [SerializeField] private int _chapterSeed = 20260910;
+        private int _runSeed;
 
         private readonly List<UpgradeDefinition> _candidates = new();
         private readonly OfferState _deepSeek = new();
@@ -43,6 +45,51 @@ namespace DeepSleep.Runtime.Progression.Upgrades
         private ProgressCheckpoint _checkpoint;
 
         public bool HasCheckpoint => _checkpoint != null;
+        public bool IsNodeActive => _isInitialized && _nodeActive;
+
+        /// <summary>章节初始化时传入已有本局种子；节点刷新/失败回退不重新播种。</summary>
+        public void InitializeRunSeed(int seed) => _runSeed = seed;
+
+        /// <summary>按槽位顺序连续购买买得起的首项；联机提交本角色的一份批量请求。</summary>
+        public void AutoBuyLocal()
+        {
+            if (!IsNodeActive) return;
+            PlayerRole role = _controlAssignment.CurrentLocalPlayerRole;
+            if (!IsOnline || _session.IsAuthority)
+            {
+                ApplyAutoBuy(role);
+                if (!IsOnline) ApplyAutoBuy(role == PlayerRole.DeepSeek ? PlayerRole.Harness : PlayerRole.DeepSeek);
+                return;
+            }
+            _session.SendToAuthority(NetworkRequest, writer =>
+            {
+                writer.Write(RequestAutoBuy); writer.Write((byte)role);
+                writer.Write(_nodeSerial); writer.Write(GetOffer(role).PurchaseCount);
+            }, reliable: true);
+        }
+
+        private void ApplyAutoBuy(PlayerRole role)
+        {
+            OfferState state = GetOffer(role);
+            int bought = 0;
+            // 每次成功必定增加一个未满级卡牌等级，循环有目录等级总量的自然上限。
+            // 队友购买的共享卡牌可能使旧商品满级，只清理失效商品，不付费刷新。
+            if (Array.Exists(state.Offers, id => id != default && _runtimeState.IsMaximumRank(role, id)))
+                GenerateOffers(role, state);
+            while (_nodeActive)
+            {
+                bool purchased = false;
+                for (int index = 0; index < OfferCount; index++)
+                {
+                    if (!TryPurchase(role, state.Offers[index])) continue;
+                    bought++; purchased = true; break;
+                }
+                if (!purchased) break;
+            }
+            BroadcastSnapshot();
+            PlayLocalResult(role, bought > 0 ? AudioCue.Upgrade : AudioCue.UiReject);
+            if (IsPanelShowing(role)) RefreshPanel(role);
+        }
 
         /// <summary>挑战入口一次性设置本局双角色配装余额，不写入永久档案。</summary>
         public bool PrepareChallengeBalance(int tokensPerRole)
@@ -362,43 +409,41 @@ namespace DeepSleep.Runtime.Progression.Upgrades
 
         private void ApplySelection(PlayerRole role, UpgradeCardId id)
         {
+            bool bought = TryPurchase(role, id);
+            PlayLocalResult(role, bought ? AudioCue.Upgrade : AudioCue.UiReject);
+            BroadcastSnapshot();
+            if (IsPanelShowing(role))
+            {
+                RefreshPanel(role);
+                if (!bought) _panel.ShowStatus("无法购买：TOKEN 不足或商品已失效。");
+            }
+        }
+
+        private bool TryPurchase(PlayerRole role, UpgradeCardId id)
+        {
             OfferState state = GetOffer(role);
             if (!_nodeActive || !Contains(state, id) ||
                 !_runtimeState.Catalog.TryGet(id, out UpgradeDefinition definition) ||
                 !IsOfferUnlocked(role, id))
             {
-                PlayLocalResult(role, AudioCue.UiReject);
-                return;
+                return false;
             }
 
             int cost = definition.GetTokenCost(
                 _runtimeState.GetRank(role, id));
             if (_wallet.GetBalance(role) < cost)
             {
-                PlayLocalResult(role, AudioCue.UiReject);
-                if (IsPanelShowing(role))
-                {
-                    _panel.ShowStatus($"TOKEN 不足：购买需要 {cost}");
-                }
-                BroadcastSnapshot();
-                return;
+                return false;
             }
             if (!_runtimeState.TryApply(role, id))
             {
-                PlayLocalResult(role, AudioCue.UiReject);
-                BroadcastSnapshot();
-                return;
+                return false;
             }
             _wallet.TrySpend(role, cost);
 
             state.PurchaseCount++;
-            PlayLocalResult(role, AudioCue.Upgrade);
             GenerateOffers(role, state);
-            BroadcastSnapshot();
-            if (IsPanelShowing(role))
-            {
-                RefreshPanel(role);
-            }
+            return true;
         }
 
         private bool IsPanelShowing(PlayerRole role)
@@ -465,7 +510,7 @@ namespace DeepSleep.Runtime.Progression.Upgrades
                 }
             }
 
-            int seed = _chapterSeed ^ (_nodeSerial * 397) ^
+            int seed = _chapterSeed ^ _runSeed ^ (_nodeSerial * 397) ^
                 ((int)role * 7919) ^ (state.RefreshCount * 104729);
             seed ^= state.PurchaseCount * 130363;
             var random = new System.Random(seed);
@@ -574,6 +619,12 @@ namespace DeepSleep.Runtime.Progression.Upgrades
             else if (request == RequestSelect)
             {
                 ApplySelection(role, (UpgradeCardId)reader.ReadByte());
+            }
+            else if (request == RequestAutoBuy)
+            {
+                int nodeSerial = reader.ReadInt32(), purchaseCount = reader.ReadInt32();
+                if (nodeSerial == _nodeSerial && purchaseCount == GetOffer(role).PurchaseCount)
+                    ApplyAutoBuy(role);
             }
         }
 

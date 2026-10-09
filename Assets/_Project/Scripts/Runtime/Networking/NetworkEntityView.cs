@@ -10,6 +10,11 @@ namespace DeepSleep.Runtime.Networking
         public SpriteRenderer[] Layers;
         public UnityEngine.Rendering.SortingGroup Group;
         public SpriteHitFlash2D HitFlash;
+        public DeepSleep.Runtime.Presentation.Poses.SpriteMotionTrail2D MotionTrailPrefab;
+        public Sprite MotionTrailSprite;
+        public Sprite WrappingTrailSprite;
+        public DeepSleep.Runtime.World.Playfield.CombatPlayfieldConfig WrappingPlayfield;
+        private DeepSleep.Runtime.Presentation.Poses.SpriteMotionTrail2D _motionTrail;
         public float InterpolationSpeed { get; set; } = 30f;
         private Vector3[] _positions;
         private Quaternion[] _rotations;
@@ -37,8 +42,11 @@ namespace DeepSleep.Runtime.Networking
                 bool flipX = r.ReadBoolean(), flipY = r.ReadBoolean();
                 var view = Layers[i]; view.enabled = shown && catalog.TryResolve(id, out _);
                 if (catalog.TryResolve(id, out var sprite)) view.sprite = sprite;
+                bool crossedEdge = _initialized && WrappingTrailSprite != null && count > 0 && Layers[0].sprite == WrappingTrailSprite &&
+                    (Mathf.Abs(position.x - _positions[i].x) > WrappingPlayfield.WorldBounds.width * .5f ||
+                    Mathf.Abs(position.y - _positions[i].y) > WrappingPlayfield.WorldBounds.height * .5f);
                 _positions[i] = position; _rotations[i] = Quaternion.Euler(0, 0, angle);
-                if (!_initialized) view.transform.SetPositionAndRotation(position, _rotations[i]);
+                if (!_initialized || crossedEdge) view.transform.SetPositionAndRotation(position, _rotations[i]);
                 view.transform.localScale = scale; view.color = color;
                 view.flipX = flipX; view.flipY = flipY;
                 view.sortingLayerID = layer; view.sortingOrder = order;
@@ -56,7 +64,18 @@ namespace DeepSleep.Runtime.Networking
             for (int i = 0; i < Layers.Length; i++) if (Layers[i].enabled)
                 Layers[i].transform.SetPositionAndRotation(Vector3.Lerp(Layers[i].transform.position, _positions[i], t),
                     Quaternion.Slerp(Layers[i].transform.rotation, _rotations[i], t));
+            // 仅在主渲染层是迅雷冲刺姿态时本地重建；不对姿态残影或其他敌人重复采样。
+            bool dashing = Time.deltaTime > 0f && Layers.Length > 0 && Layers[0].enabled &&
+                (Layers[0].sprite == MotionTrailSprite || Layers[0].sprite == WrappingTrailSprite);
+            if (dashing && _motionTrail == null)
+            {
+                _motionTrail = Instantiate(MotionTrailPrefab);
+                UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(_motionTrail.gameObject, gameObject.scene);
+            }
+            if (_motionTrail != null) _motionTrail.Sample(Layers[0], Group, dashing);
         }
+        public void ClearMotionTrail() { if (_motionTrail != null) _motionTrail.Clear(); }
+        private void OnDestroy() { if (_motionTrail != null) Destroy(_motionTrail.gameObject); }
         public static void Write(BinaryWriter w, SpriteRenderer[] layers, NetworkSpriteCatalog catalog)
         {
             w.Write((byte)layers.Length);

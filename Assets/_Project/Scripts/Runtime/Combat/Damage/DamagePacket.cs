@@ -16,7 +16,9 @@ namespace DeepSleep.Runtime.Combat.Damage
             ulong attackId = 0,
             DamageInterceptionPolicy interceptionPolicy =
                 DamageInterceptionPolicy.Unspecified,
-            bool suppressKillReward = false)
+            bool suppressKillReward = false,
+            float knockbackDistance = 0f,
+            float knockbackSeconds = 0f)
         {
             Amount = Quantize(amount);
             HitPoint = hitPoint;
@@ -27,6 +29,8 @@ namespace DeepSleep.Runtime.Combat.Damage
             AttackId = attackId;
             InterceptionPolicy = interceptionPolicy;
             SuppressKillReward = suppressKillReward;
+            KnockbackDistance = knockbackDistance;
+            KnockbackSeconds = knockbackSeconds;
         }
 
         public float Amount { get; }
@@ -36,6 +40,8 @@ namespace DeepSleep.Runtime.Combat.Damage
         public ulong AttackId { get; }
         public DamageInterceptionPolicy InterceptionPolicy { get; }
         public bool SuppressKillReward { get; }
+        public float KnockbackDistance { get; }
+        public float KnockbackSeconds { get; }
 
         public bool IsValid => Amount > 0f;
 

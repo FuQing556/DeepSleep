@@ -12,7 +12,12 @@ namespace DeepSleep.Runtime.Presentation.Audio
         ReviveStart, ReviveDone, BubblePop, BubbleImpact, DoubaoReveal, DoubaoDefeat,
         EnemyDefeat, SnakeShot, NodeOpen, Depart, Victory, Defeat, Upgrade, Refresh,
         Connected, Disconnected, Ready, AiToggle, AmbienceSky, AmbienceDusk, AmbienceRest,
-        KimiReveal, KimiPhase, KimiMoonWarn, KimiMoonFire, KimiPrism, KimiOrb, KimiReflect, KimiMirrorBreak, KimiLaserCharge, KimiLaserFire, KimiFlute, KimiTide, KimiInterrupt, KimiDefeat, KimiHit, DownloadCharge, DownloadDash, DownloadDefeat, DownloadImpact, GuardBlockMetal, GuardDefeat, GuardImpact
+        KimiReveal, KimiPhase, KimiMoonWarn, KimiMoonFire, KimiPrism, KimiOrb, KimiReflect, KimiMirrorBreak, KimiLaserCharge, KimiLaserFire, KimiFlute, KimiTide, KimiInterrupt, KimiDefeat, KimiHit, DownloadCharge, DownloadDash, DownloadDefeat, DownloadImpact, GuardBlockMetal, GuardDefeat, GuardImpact,
+        RecursiveHit, RecursiveSplit, RecursiveDefeat, RecursiveImpact, QuickAppImpact, QuickAppDefeat,
+        ClaudeReveal, ClaudePhase, ClaudeCutWarning, ClaudeCutFire, ClaudeTrackingLock, ClaudeTrackingFire,
+        ClaudeEnergyCharge, ClaudeEnergyFire, ClaudeEnergyBurst, ClaudeBookOpen, ClaudeBookSeal, ClaudeBookBreak,
+        ClaudeHit, ClaudeImpact, ClaudeDefeat, SceneStateWarning, SceneStateStart, SceneStateEnd,
+        AmbienceCyber, AmbienceRain, AmbienceArcade
     }
 
     [Serializable]

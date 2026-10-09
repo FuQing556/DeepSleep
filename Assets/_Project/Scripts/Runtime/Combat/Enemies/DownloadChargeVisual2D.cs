@@ -13,6 +13,21 @@ namespace DeepSleep.Runtime.Combat.Enemies
         public Sprite Idle, Charge, Dash;
         private uint _generation;
         public EnemyActor2D Actor;
+        public SpriteMotionTrail2D MotionTrailPrefab;
+        public UnityEngine.Rendering.SortingGroup SortingGroup;
+        private SpriteMotionTrail2D _motionTrail;
+        private void Awake()
+        {
+            _motionTrail = Instantiate(MotionTrailPrefab);
+            UnityEngine.SceneManagement.SceneManager.MoveGameObjectToScene(_motionTrail.gameObject, gameObject.scene);
+            Actor.PresentationReset += ClearMotionTrail;
+        }
+        private void ClearMotionTrail() => _motionTrail.Clear();
+        private void OnDestroy()
+        {
+            if (Actor != null) Actor.PresentationReset -= ClearMotionTrail;
+            if (_motionTrail != null) Destroy(_motionTrail.gameObject);
+        }
         private void LateUpdate()
         {
             if (Actor.SpawnGeneration != _generation)
@@ -26,6 +41,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
             VisualRoot.localRotation = Quaternion.Euler(0, 0, angle);
             Renderer.color = Motor.State == DownloadChargeState.Charging
                 ? Color.Lerp(new Color(.65f, .65f, .65f, 1), Color.white, Motor.ChargeProgress) : Color.white;
+            _motionTrail.Sample(Renderer, SortingGroup, Time.deltaTime > 0f && Motor.IsRunning && Motor.State == DownloadChargeState.Dashing);
         }
     }
 }

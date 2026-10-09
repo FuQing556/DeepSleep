@@ -2814,6 +2814,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 24d4818ece81f17429d8e3bc97fc6818, type: 2}
   - {fileID: 11400000, guid: 839098f9aa4213245b628147b6634960, type: 2}
   - {fileID: 11400000, guid: 403655f5924ab214aabbda6d0daa3b74, type: 2}
+  - {fileID: 11400000, guid: dc8c155f006c9e343aa3d637b6e9d160, type: 2}
+  - {fileID: 11400000, guid: baa20a73386de58408e7cfea81357a9b, type: 2}
+  - {fileID: 11400000, guid: c38548c7c29b14547b6469cae5a2e7fc, type: 2}
+  - {fileID: 11400000, guid: e45057386105d2b4a8900a9bfe5af2ca, type: 2}
+  - {fileID: 11400000, guid: 9afe4c2b52537b341a542ec3408b1367, type: 2}
+  - {fileID: 11400000, guid: 42c2414ff1e26e840948132b7e444a3c, type: 2}
+  - {fileID: 11400000, guid: d54990662f59fe347b598f58db4e0b48, type: 2}
+  - {fileID: 11400000, guid: a7adf4abbc0412c42a8b1997a0b13332, type: 2}
+  - {fileID: 11400000, guid: 578eaaf3e18476648b8936d6dca19dba, type: 2}
+  - {fileID: 11400000, guid: b70df54880dfb03448acc1f292217b1d, type: 2}
 --- !u!114 &1188785424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2854,6 +2864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d79736a65abec4994f4c2682b1b0a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Meta.LocalPlayerProfileStore
+  TestSaveDirectory: 
 --- !u!4 &1188785427
 Transform:
   m_ObjectHideFlags: 0
@@ -4223,6 +4234,7 @@ MonoBehaviour:
   Portraits: []
   TitleLogos: []
   MenuBackgrounds: []
+  PlayerSkins: []
 --- !u!1 &1936292327
 GameObject:
   m_ObjectHideFlags: 0

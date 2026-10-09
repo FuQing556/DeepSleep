@@ -1,0 +1,1952 @@
+fileFormatVersion: 2
+guid: 2306a06ddd830b647ad2191732a30a8b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 286893242031686951
+    second: VFX_CL_EnergyOuterHalo_0
+  - first:
+      213: 8514509165670744665
+    second: VFX_CL_EnergyOuterHalo_1
+  - first:
+      213: -7928849859910457866
+    second: VFX_CL_EnergyOuterHalo_2
+  - first:
+      213: -4071022839127300150
+    second: VFX_CL_EnergyOuterHalo_3
+  - first:
+      213: 7859511110841124058
+    second: VFX_CL_EnergyOuterHalo_4
+  - first:
+      213: -7701808502594909131
+    second: VFX_CL_EnergyOuterHalo_5
+  - first:
+      213: 5426287139621029195
+    second: VFX_CL_EnergyOuterHalo_6
+  - first:
+      213: -3554271746558257905
+    second: VFX_CL_EnergyOuterHalo_7
+  - first:
+      213: -4020260220951383107
+    second: VFX_CL_EnergyOuterHalo_8
+  - first:
+      213: -77369244130565748
+    second: VFX_CL_EnergyOuterHalo_9
+  - first:
+      213: 8006742487757602489
+    second: VFX_CL_EnergyOuterHalo_10
+  - first:
+      213: -256235279753373517
+    second: VFX_CL_EnergyOuterHalo_11
+  - first:
+      213: -1007590404077171282
+    second: VFX_CL_EnergyOuterHalo_12
+  - first:
+      213: 7722524767632269889
+    second: VFX_CL_EnergyOuterHalo_13
+  - first:
+      213: -4449645720746943351
+    second: VFX_CL_EnergyOuterHalo_14
+  - first:
+      213: 4238884493059120639
+    second: VFX_CL_EnergyOuterHalo_15
+  - first:
+      213: -5820308003385785706
+    second: VFX_CL_EnergyOuterHalo_16
+  - first:
+      213: 3960696668902429148
+    second: VFX_CL_EnergyOuterHalo_17
+  - first:
+      213: -3768255878081771779
+    second: VFX_CL_EnergyOuterHalo_18
+  - first:
+      213: 8526528966889304593
+    second: VFX_CL_EnergyOuterHalo_19
+  - first:
+      213: 56030423259796047
+    second: VFX_CL_EnergyOuterHalo_20
+  - first:
+      213: 6551069315954373983
+    second: VFX_CL_EnergyOuterHalo_21
+  - first:
+      213: 8817587211641116847
+    second: VFX_CL_EnergyOuterHalo_22
+  - first:
+      213: -4262978652595005201
+    second: VFX_CL_EnergyOuterHalo_23
+  - first:
+      213: 3688727509589315155
+    second: VFX_CL_EnergyOuterHalo_24
+  - first:
+      213: -6672382862004963141
+    second: VFX_CL_EnergyOuterHalo_25
+  - first:
+      213: 8516441592777489000
+    second: VFX_CL_EnergyOuterHalo_26
+  - first:
+      213: -8520840010642510603
+    second: VFX_CL_EnergyOuterHalo_27
+  - first:
+      213: -4152186578897898550
+    second: VFX_CL_EnergyOuterHalo_28
+  - first:
+      213: -6297367915553662961
+    second: VFX_CL_EnergyOuterHalo_29
+  - first:
+      213: -6705937199762400183
+    second: VFX_CL_EnergyOuterHalo_30
+  - first:
+      213: 5842610422286919516
+    second: VFX_CL_EnergyOuterHalo_31
+  - first:
+      213: 2676511734390220279
+    second: VFX_CL_EnergyOuterHalo_32
+  - first:
+      213: 610980996849838359
+    second: VFX_CL_EnergyOuterHalo_33
+  - first:
+      213: 640720647504229471
+    second: VFX_CL_EnergyOuterHalo_34
+  - first:
+      213: 4426425803082854531
+    second: VFX_CL_EnergyOuterHalo_35
+  - first:
+      213: 6826669875874923777
+    second: VFX_CL_EnergyOuterHalo_36
+  - first:
+      213: -3191815480931960216
+    second: VFX_CL_EnergyOuterHalo_37
+  - first:
+      213: 5007230604208707979
+    second: VFX_CL_EnergyOuterHalo_38
+  - first:
+      213: 8668365085216298819
+    second: VFX_CL_EnergyOuterHalo_39
+  - first:
+      213: 6975031017929700456
+    second: VFX_CL_EnergyOuterHalo_40
+  - first:
+      213: 5001998806986162109
+    second: VFX_CL_EnergyOuterHalo_41
+  - first:
+      213: 7768337089225592343
+    second: VFX_CL_EnergyOuterHalo_42
+  - first:
+      213: 4337490322358027712
+    second: VFX_CL_EnergyOuterHalo_43
+  - first:
+      213: -1748437954208602820
+    second: VFX_CL_EnergyOuterHalo_44
+  - first:
+      213: -5690450208245022131
+    second: VFX_CL_EnergyOuterHalo_45
+  - first:
+      213: 8924307226289950401
+    second: VFX_CL_EnergyOuterHalo_46
+  - first:
+      213: -582772829688018480
+    second: VFX_CL_EnergyOuterHalo_47
+  - first:
+      213: 8467922841300263606
+    second: VFX_CL_EnergyOuterHalo_48
+  - first:
+      213: -4373092750711028261
+    second: VFX_CL_EnergyOuterHalo_49
+  - first:
+      213: -8309143174001226934
+    second: VFX_CL_EnergyOuterHalo_50
+  - first:
+      213: 3699733686054598593
+    second: VFX_CL_EnergyOuterHalo_51
+  - first:
+      213: 6553885162867331222
+    second: VFX_CL_EnergyOuterHalo_52
+  - first:
+      213: -8926691991244433367
+    second: VFX_CL_EnergyOuterHalo_53
+  - first:
+      213: -7434186480959169606
+    second: VFX_CL_EnergyOuterHalo_54
+  - first:
+      213: 3955841183697734126
+    second: VFX_CL_EnergyOuterHalo_55
+  - first:
+      213: 5287488532174580783
+    second: VFX_CL_EnergyOuterHalo_56
+  - first:
+      213: 4569862572433921430
+    second: VFX_CL_EnergyOuterHalo_57
+  - first:
+      213: 1563212547623253664
+    second: VFX_CL_EnergyOuterHalo_58
+  - first:
+      213: -1976125882258811491
+    second: VFX_CL_EnergyOuterHalo_59
+  - first:
+      213: -8731044062653002538
+    second: VFX_CL_EnergyOuterHalo_60
+  - first:
+      213: -1530668931741929297
+    second: VFX_CL_EnergyOuterHalo_61
+  - first:
+      213: 6680937335992755593
+    second: VFX_CL_EnergyOuterHalo_62
+  - first:
+      213: 5349412938685586902
+    second: VFX_CL_EnergyOuterHalo_63
+  - first:
+      213: 2386050133782955380
+    second: VFX_CL_EnergyOuterHalo_64
+  - first:
+      213: 3384954959896765266
+    second: VFX_CL_EnergyOuterHalo_65
+  - first:
+      213: -2223486721310932303
+    second: VFX_CL_EnergyOuterHalo_66
+  - first:
+      213: 2084815327434130588
+    second: VFX_CL_EnergyOuterHalo_67
+  - first:
+      213: 7308368476990263238
+    second: VFX_CL_EnergyOuterHalo_68
+  - first:
+      213: 4775007400973525703
+    second: VFX_CL_EnergyOuterHalo_69
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 9
+  spritePivot: {x: 0.49880382, y: 0.5095694}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1254
+        height: 1252
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72542c332ef3bf300800000000000000
+      internalID: 286893242031686951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_1
+      rect:
+        serializedVersion: 2
+        x: 482
+        y: 1237
+        width: 15
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 952cc9079fc992670800000000000000
+      internalID: 8514509165670744665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_2
+      rect:
+        serializedVersion: 2
+        x: 669
+        y: 1158
+        width: 198
+        height: 96
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f5a1aeaf0117f190800000000000000
+      internalID: -7928849859910457866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 1243
+        width: 25
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac7a0590c42d087c0800000000000000
+      internalID: -4071022839127300150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_4
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 1249
+        width: 9
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad4cbedb6b7921d60800000000000000
+      internalID: 7859511110841124058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_5
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 1209
+        width: 29
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53c4fba09fdad1590800000000000000
+      internalID: -7701808502594909131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 851
+        width: 355
+        height: 328
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b45c16e576b0e4b40800000000000000
+      internalID: 5426287139621029195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_7
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 1171
+        width: 33
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0510378da0bcaec0800000000000000
+      internalID: -3554271746558257905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_8
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 963
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db33f8911aa2538c0800000000000000
+      internalID: -4020260220951383107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 725
+        width: 71
+        height: 116
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c81ae0715112deef0800000000000000
+      internalID: -77369244130565748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_10
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 835
+        width: 25
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9beb1defed9ad1f60800000000000000
+      internalID: 8006742487757602489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_11
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 803
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b89063ee5ba17cf0800000000000000
+      internalID: -256235279753373517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_12
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 723
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ead43edadd15402f0800000000000000
+      internalID: -1007590404077171282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_13
+      rect:
+        serializedVersion: 2
+        x: 1244
+        y: 740
+        width: 10
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 142a0e74c5beb2b60800000000000000
+      internalID: 7722524767632269889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 694
+        width: 33
+        height: 40
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 98c9a8ecaceaf32c0800000000000000
+      internalID: -4449645720746943351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 626
+        width: 19
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffd53b4ecfa83da30800000000000000
+      internalID: 4238884493059120639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_16
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 643
+        width: 37
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 692c3de45bc1a3fa0800000000000000
+      internalID: -5820308003385785706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_17
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 660
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd1900db2a837f630800000000000000
+      internalID: 3960696668902429148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_18
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 624
+        width: 19
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df688247e3774bbc0800000000000000
+      internalID: -3768255878081771779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 535
+        width: 57
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 112f38e7be0545670800000000000000
+      internalID: 8526528966889304593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 383
+        width: 68
+        height: 154
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f42d3038f5f07c000800000000000000
+      internalID: 56030423259796047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_21
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 534
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f55fb6475d21aea50800000000000000
+      internalID: 6551069315954373983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_22
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 487
+        width: 8
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa855e5f9dc5e5a70800000000000000
+      internalID: 8817587211641116847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 336
+        width: 51
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe8500f608bd6d4c0800000000000000
+      internalID: -4262978652595005201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_24
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 377
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35e4842502ef03330800000000000000
+      internalID: 3688727509589315155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_25
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 373
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb83ac8832fe663a0800000000000000
+      internalID: -6672382862004963141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_26
+      rect:
+        serializedVersion: 2
+        x: 1246
+        y: 360
+        width: 8
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86a3ddfa18a703670800000000000000
+      internalID: 8516441592777489000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_27
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 340
+        width: 8
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fca7b9d725efb980800000000000000
+      internalID: -8520840010642510603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_28
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 345
+        width: 9
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac375a34e487066c0800000000000000
+      internalID: -4152186578897898550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 280
+        width: 25
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f085b75ee314b98a0800000000000000
+      internalID: -6297367915553662961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_30
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 304
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 94c951a75a9bfe2a0800000000000000
+      internalID: -6705937199762400183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_31
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 226
+        width: 5
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c57286d393f151150800000000000000
+      internalID: 5842610422286919516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_32
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 255
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f56e7ddd31e42520800000000000000
+      internalID: 2676511734390220279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_33
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 160
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 719afb1caf3aa7800800000000000000
+      internalID: 610980996849838359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_34
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 136
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f547fb2c80c44e800800000000000000
+      internalID: 640720647504229471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_35
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 139
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3807061d0d2dd6d30800000000000000
+      internalID: 4426425803082854531
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_36
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 126
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 105826635143dbe50800000000000000
+      internalID: 6826669875874923777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_37
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 105
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86a35762bb464b3d0800000000000000
+      internalID: -3191815480931960216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_38
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 70
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b89135084b14d7540800000000000000
+      internalID: 5007230604208707979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_39
+      rect:
+        serializedVersion: 2
+        x: 697
+        y: 27
+        width: 76
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34757b73e183c4870800000000000000
+      internalID: 8668365085216298819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_40
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 35
+        width: 41
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 864f70961c94cc060800000000000000
+      internalID: 6975031017929700456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_41
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 53
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbf7659c96baa6540800000000000000
+      internalID: 5001998806986162109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_42
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 17
+        width: 46
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71e88ca9c6daecb60800000000000000
+      internalID: 7768337089225592343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_43
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 19
+        width: 38
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c548d8977cd13c30800000000000000
+      internalID: 4337490322358027712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_44
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 37
+        width: 35
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c35e59bb1fc4cb7e0800000000000000
+      internalID: -1748437954208602820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_45
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 22
+        width: 27
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4202855fa57701b0800000000000000
+      internalID: -5690450208245022131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_46
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 31
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cec679a32289db70800000000000000
+      internalID: 8924307226289950401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_47
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 29
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d942b5f23399e7f0800000000000000
+      internalID: -582772829688018480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_48
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 34
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b26e1d85fa148570800000000000000
+      internalID: 8467922841300263606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_49
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 29
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd588081057af43c0800000000000000
+      internalID: -4373092750711028261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_50
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 25
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a4b8bc59e4effac80800000000000000
+      internalID: -8309143174001226934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_51
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 11
+        width: 23
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c7b4d87f28185330800000000000000
+      internalID: 3699733686054598593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_52
+      rect:
+        serializedVersion: 2
+        x: 464
+        y: 14
+        width: 23
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6901967e4d314fa50800000000000000
+      internalID: 6553885162867331222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_53
+      rect:
+        serializedVersion: 2
+        x: 545
+        y: 15
+        width: 11
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9281d8afde40e1480800000000000000
+      internalID: -8926691991244433367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_54
+      rect:
+        serializedVersion: 2
+        x: 571
+        y: 10
+        width: 33
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abbda6898c674d890800000000000000
+      internalID: -7434186480959169606
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_55
+      rect:
+        serializedVersion: 2
+        x: 675
+        y: 16
+        width: 15
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee90a2ef898f5e630800000000000000
+      internalID: 3955841183697734126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_56
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 34
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2ca7324ecee06940800000000000000
+      internalID: 5287488532174580783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_57
+      rect:
+        serializedVersion: 2
+        x: 1033
+        y: 21
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 695d6462cc96b6f30800000000000000
+      internalID: 4569862572433921430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_58
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 6
+        width: 25
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a67481a785a1b510800000000000000
+      internalID: 1563212547623253664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_59
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 9
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d951284eaf36394e0800000000000000
+      internalID: -1976125882258811491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_60
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 9
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dcc84f1fa915d680800000000000000
+      internalID: -8731044062653002538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_61
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 13
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa0bbc667b8f1cae0800000000000000
+      internalID: -1530668931741929297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_62
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 0
+        width: 81
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9852e762c1577bc50800000000000000
+      internalID: 6680937335992755593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_63
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 13
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6dd9b3fa9beec3a40800000000000000
+      internalID: 5349412938685586902
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_64
+      rect:
+        serializedVersion: 2
+        x: 602
+        y: 17
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 475086074f3fc1120800000000000000
+      internalID: 2386050133782955380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_65
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 15
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 253e75d0a96c9fe20800000000000000
+      internalID: 3384954959896765266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_66
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 11
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b2c6758b969421e0800000000000000
+      internalID: -2223486721310932303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_67
+      rect:
+        serializedVersion: 2
+        x: 1214
+        y: 15
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9440069e70ceec10800000000000000
+      internalID: 2084815327434130588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_68
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 9
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cfcaae886a8c6560800000000000000
+      internalID: 7308368476990263238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyOuterHalo_69
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 0
+        width: 208
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c263ee9eeb344240800000000000000
+      internalID: 4775007400973525703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_CL_EnergyOuterHalo_0: 286893242031686951
+      VFX_CL_EnergyOuterHalo_1: 8514509165670744665
+      VFX_CL_EnergyOuterHalo_10: 8006742487757602489
+      VFX_CL_EnergyOuterHalo_11: -256235279753373517
+      VFX_CL_EnergyOuterHalo_12: -1007590404077171282
+      VFX_CL_EnergyOuterHalo_13: 7722524767632269889
+      VFX_CL_EnergyOuterHalo_14: -4449645720746943351
+      VFX_CL_EnergyOuterHalo_15: 4238884493059120639
+      VFX_CL_EnergyOuterHalo_16: -5820308003385785706
+      VFX_CL_EnergyOuterHalo_17: 3960696668902429148
+      VFX_CL_EnergyOuterHalo_18: -3768255878081771779
+      VFX_CL_EnergyOuterHalo_19: 8526528966889304593
+      VFX_CL_EnergyOuterHalo_2: -7928849859910457866
+      VFX_CL_EnergyOuterHalo_20: 56030423259796047
+      VFX_CL_EnergyOuterHalo_21: 6551069315954373983
+      VFX_CL_EnergyOuterHalo_22: 8817587211641116847
+      VFX_CL_EnergyOuterHalo_23: -4262978652595005201
+      VFX_CL_EnergyOuterHalo_24: 3688727509589315155
+      VFX_CL_EnergyOuterHalo_25: -6672382862004963141
+      VFX_CL_EnergyOuterHalo_26: 8516441592777489000
+      VFX_CL_EnergyOuterHalo_27: -8520840010642510603
+      VFX_CL_EnergyOuterHalo_28: -4152186578897898550
+      VFX_CL_EnergyOuterHalo_29: -6297367915553662961
+      VFX_CL_EnergyOuterHalo_3: -4071022839127300150
+      VFX_CL_EnergyOuterHalo_30: -6705937199762400183
+      VFX_CL_EnergyOuterHalo_31: 5842610422286919516
+      VFX_CL_EnergyOuterHalo_32: 2676511734390220279
+      VFX_CL_EnergyOuterHalo_33: 610980996849838359
+      VFX_CL_EnergyOuterHalo_34: 640720647504229471
+      VFX_CL_EnergyOuterHalo_35: 4426425803082854531
+      VFX_CL_EnergyOuterHalo_36: 6826669875874923777
+      VFX_CL_EnergyOuterHalo_37: -3191815480931960216
+      VFX_CL_EnergyOuterHalo_38: 5007230604208707979
+      VFX_CL_EnergyOuterHalo_39: 8668365085216298819
+      VFX_CL_EnergyOuterHalo_4: 7859511110841124058
+      VFX_CL_EnergyOuterHalo_40: 6975031017929700456
+      VFX_CL_EnergyOuterHalo_41: 5001998806986162109
+      VFX_CL_EnergyOuterHalo_42: 7768337089225592343
+      VFX_CL_EnergyOuterHalo_43: 4337490322358027712
+      VFX_CL_EnergyOuterHalo_44: -1748437954208602820
+      VFX_CL_EnergyOuterHalo_45: -5690450208245022131
+      VFX_CL_EnergyOuterHalo_46: 8924307226289950401
+      VFX_CL_EnergyOuterHalo_47: -582772829688018480
+      VFX_CL_EnergyOuterHalo_48: 8467922841300263606
+      VFX_CL_EnergyOuterHalo_49: -4373092750711028261
+      VFX_CL_EnergyOuterHalo_5: -7701808502594909131
+      VFX_CL_EnergyOuterHalo_50: -8309143174001226934
+      VFX_CL_EnergyOuterHalo_51: 3699733686054598593
+      VFX_CL_EnergyOuterHalo_52: 6553885162867331222
+      VFX_CL_EnergyOuterHalo_53: -8926691991244433367
+      VFX_CL_EnergyOuterHalo_54: -7434186480959169606
+      VFX_CL_EnergyOuterHalo_55: 3955841183697734126
+      VFX_CL_EnergyOuterHalo_56: 5287488532174580783
+      VFX_CL_EnergyOuterHalo_57: 4569862572433921430
+      VFX_CL_EnergyOuterHalo_58: 1563212547623253664
+      VFX_CL_EnergyOuterHalo_59: -1976125882258811491
+      VFX_CL_EnergyOuterHalo_6: 5426287139621029195
+      VFX_CL_EnergyOuterHalo_60: -8731044062653002538
+      VFX_CL_EnergyOuterHalo_61: -1530668931741929297
+      VFX_CL_EnergyOuterHalo_62: 6680937335992755593
+      VFX_CL_EnergyOuterHalo_63: 5349412938685586902
+      VFX_CL_EnergyOuterHalo_64: 2386050133782955380
+      VFX_CL_EnergyOuterHalo_65: 3384954959896765266
+      VFX_CL_EnergyOuterHalo_66: -2223486721310932303
+      VFX_CL_EnergyOuterHalo_67: 2084815327434130588
+      VFX_CL_EnergyOuterHalo_68: 7308368476990263238
+      VFX_CL_EnergyOuterHalo_69: 4775007400973525703
+      VFX_CL_EnergyOuterHalo_7: -3554271746558257905
+      VFX_CL_EnergyOuterHalo_8: -4020260220951383107
+      VFX_CL_EnergyOuterHalo_9: -77369244130565748
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

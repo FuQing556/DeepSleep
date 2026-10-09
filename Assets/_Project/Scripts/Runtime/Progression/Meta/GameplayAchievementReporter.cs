@@ -1,6 +1,6 @@
 using DeepSleep.Runtime.AppFlow;
-using DeepSleep.Runtime.Players.Identity;
-using DeepSleep.Runtime.Players.Revive;
+using DeepSleep.Runtime.Networking;
+using DeepSleep.Runtime.Presentation.Audio;
 using UnityEngine;
 
 namespace DeepSleep.Runtime.Progression.Meta
@@ -8,36 +8,35 @@ namespace DeepSleep.Runtime.Progression.Meta
     /// <summary>把场景内稀疏玩法事件转交给常驻成就服务。</summary>
     public sealed class GameplayAchievementReporter : MonoBehaviour
     {
-        [SerializeField] private PlayerReviveCoordinator2D[] _reviveSystems;
-
-        private void Awake()
+        [System.Serializable]
+        public sealed class FactBinding
         {
-            if (_reviveSystems == null || _reviveSystems.Length == 0)
-            {
-                Debug.LogError("[Achievements] 玩法场景未配置复活事件桥。", this);
-                enabled = false;
-            }
+            public NetworkMessageCatalog.CombatPresentationKind Fact;
+            public string TriggerId;
         }
+        [SerializeField] private CombatAudioPresenter _facts;
+        [SerializeField] private FactBinding[] _bindings;
+        private AchievementService _service;
 
         private void OnEnable()
         {
-            for (int index = 0; index < _reviveSystems.Length; index++)
-                _reviveSystems[index].ReviveCompleted += OnReviveCompleted;
+            if (_facts == null || _facts.Chapter == null || _bindings == null || _bindings.Length == 0)
+            { Debug.LogError("[Achievements] 未配置玩法事实源及成就映射。", this); enabled = false; return; }
+            _service = GameAppRoot.Instance.Achievements;
+            _facts.FactPresented += OnFact;
         }
 
         private void OnDisable()
         {
-            if (_reviveSystems == null) return;
-            for (int index = 0; index < _reviveSystems.Length; index++)
-                if (_reviveSystems[index] != null)
-                    _reviveSystems[index].ReviveCompleted -= OnReviveCompleted;
+            if (_facts != null) _facts.FactPresented -= OnFact;
         }
 
-        private void OnReviveCompleted(PlayerActor rescuer)
+        private void OnFact(NetworkMessageCatalog.CombatPresentationKind fact)
         {
-            if (GameAppRoot.Instance.LaunchContext.Challenge != null) return;
-            GameAppRoot.Instance.Achievements.Report(
-                AchievementTriggerIds.TeammateRevived);
+            if (_facts.Chapter.IsChallenge) return;
+            foreach (var binding in _bindings)
+                if (binding.Fact == fact)
+                    _service.Report(binding.TriggerId);
         }
     }
 }

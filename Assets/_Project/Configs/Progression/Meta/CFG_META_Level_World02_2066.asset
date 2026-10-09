@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e691dde11a09db44bb8b51d2ed8ec05, type: 3}
+  m_Name: CFG_META_Level_World02_2066
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Meta.MetaLevelDefinition
+  _levelId: world02_2066
+  _displayName: "\u7B2C\u4E8C\u4E16\u754C \xB7 \u201C2066\u201D"
+  _sceneName: World02_2066
+  _description: "\u9713\u8679\u7167\u8FDB\u6F6E\u6E7F\u7684\u8857\u5DF7\u3002\u5F39\u7A97\u56DB\u5904\u4E71\u7A9C\uFF0C\u8FDE\u65F6\u95F4\u548C\u65B9\u5411\u4E5F\u4E0D\u518D\u53EF\u9760\u3002"
+  _firstClearVoucherReward: 10
+  _repeatClearVoucherReward: 10
+  _implemented: 1
+  _chapterRunConfig: {fileID: 11400000, guid: 2220e203026d4884eb3f5efbca50acf9, type: 2}
+  _contentManifest: {fileID: 11400000, guid: cf9f33fdabc963e4d9a07309ee3e3468, type: 2}

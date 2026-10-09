@@ -15,8 +15,33 @@ namespace DeepSleep.Runtime.Players.Movement
         [SerializeField] private Rigidbody2D body;
         [SerializeField] private Collider2D bodyCollider;
         [SerializeField] private PlayerMotorConfig config;
+        public DeepSleep.Runtime.Progression.Run.ChapterSceneEffectsController SceneEffects;
 
         private bool isInitialized;
+        private Vector2 _knockbackVelocity;
+        private float _knockbackRemaining;
+        private bool _finishKnockback;
+        public Vector2 KnockbackVelocity => _knockbackVelocity;
+        public float KnockbackRemaining => _knockbackRemaining;
+
+        public void ApplyKnockback(Vector2 direction, float distance, float seconds)
+        {
+            if (!isInitialized || !isActiveAndEnabled || direction.sqrMagnitude <= 0f ||
+                !float.IsFinite(distance) || !float.IsFinite(seconds) || distance <= 0f || seconds <= 0f) return;
+            _knockbackVelocity = direction.normalized * (2f * distance / seconds);
+            _knockbackRemaining = seconds;
+            _finishKnockback = false;
+        }
+
+        public void ResetKnockback()
+        { _knockbackVelocity = Vector2.zero; _knockbackRemaining = 0f; _finishKnockback = false; }
+
+        public void SimulateBlocked(float deltaTime)
+        {
+            if (!isInitialized || !isActiveAndEnabled) return;
+            if (_knockbackRemaining > 0f) Simulate(Vector2.zero, deltaTime);
+            else { body.linearVelocity = Vector2.zero; _finishKnockback = false; }
+        }
 
         public PlayerActionBlock ActionCategory =>
             PlayerActionBlock.Movement;
@@ -40,6 +65,7 @@ namespace DeepSleep.Runtime.Players.Movement
 
         private void OnDisable()
         {
+            ResetKnockback();
             if (body != null)
             {
                 body.linearVelocity = Vector2.zero;
@@ -55,16 +81,20 @@ namespace DeepSleep.Runtime.Players.Movement
 
             Vector2 position = body.position;
             Vector2 velocity = body.linearVelocity;
+            if (_finishKnockback) { velocity = Vector2.zero; _finishKnockback = false; }
             Bounds bounds = bodyCollider.bounds;
+            bool knocked = _knockbackRemaining > 0f;
             PlayerMovementStep.Calculate(ref position, ref velocity, moveIntent, config,
-                bounds.extents, (Vector2)bounds.center - position, deltaTime);
+                bounds.extents, (Vector2)bounds.center - position, deltaTime,
+                ref _knockbackVelocity, ref _knockbackRemaining);
+            _finishKnockback = knocked && _knockbackRemaining <= 0f;
             if (position != body.position) body.position = position;
             body.linearVelocity = velocity;
         }
 
         public void ConsumeCommand(in PlayerCommand command, float deltaTime)
         {
-            Simulate(command.Move, deltaTime);
+            Simulate(SceneEffects != null ? SceneEffects.TransformMovement(command.Move) : command.Move, deltaTime);
         }
 
         private bool TryValidateConfiguration()

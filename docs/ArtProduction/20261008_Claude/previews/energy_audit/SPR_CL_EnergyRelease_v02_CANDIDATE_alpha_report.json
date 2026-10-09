@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261008_Claude\\raw\\SPR_CL_EnergyRelease_v02_CANDIDATE.png",
+  "source_sha256": "525c8b76d70bd8d7f3f3b6f10a5f3c7907496fe2b535d7319b19a1dcc31e11d3",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 924461,
+  "partial_alpha_pixels": 646422,
+  "opaque_pixels": 1633,
+  "visible_bbox_alpha_gt_0": [
+    61,
+    25,
+    1240,
+    1254
+  ],
+  "visible_bbox_alpha_gt_8": [
+    115,
+    100,
+    1222,
+    1197
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

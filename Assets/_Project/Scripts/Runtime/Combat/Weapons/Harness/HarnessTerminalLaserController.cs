@@ -20,7 +20,8 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
     public sealed partial class HarnessTerminalLaserController :
         MonoBehaviour,
         IPlayerActionCommandConsumer,
-        IPlayerReviveStartBlocker
+        IPlayerReviveStartBlocker,
+        IPlayerBlockedCommandConsumer
     {
         [SerializeField] private Transform _beamOrigin;
         [SerializeField] private PlayerFacingController2D _facingController;
@@ -56,7 +57,15 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
         }
 
         public PlayerActionBlock ActionCategory =>
-            PlayerActionBlock.ActiveCombat;
+            PlayerActionBlock.ActiveCombat | PlayerActionBlock.PrimaryAttack;
+
+        public void ConsumeBlockedCommand(float deltaTime)
+        {
+            if (!_isInitialized || !isActiveAndEnabled) return;
+            // 未发射的锁定/蓄力取消，不将被封期间的命令积攒到解封瞬间。
+            CancelSelection();
+            AdvanceCycle(Mathf.Max(0, deltaTime));
+        }
 
         public bool BlocksReviveStart =>
             State == HarnessTerminalLaserState.Calibrating || _burstActive;

@@ -17,6 +17,7 @@ namespace DeepSleep.Runtime.AppFlow
         [SerializeField] private TouchCommandSource _touchInput;
         [SerializeField] private Button _backButton;
         public DeepSleep.Runtime.Presentation.Accessories.HeadwearSessionPresenter Headwear;
+        public DeepSleep.Runtime.Presentation.Skins.PlayerSkinSessionPresenter Skins;
 
         private GameLaunchMode _mode;
 
@@ -30,6 +31,7 @@ namespace DeepSleep.Runtime.AppFlow
             }
             _mode = GameAppRoot.Instance.LaunchContext.Mode;
             Headwear.Bind(GameAppRoot.Instance.Profile);
+            Skins.Bind(GameAppRoot.Instance.Profile);
         }
 
         private void OnEnable()

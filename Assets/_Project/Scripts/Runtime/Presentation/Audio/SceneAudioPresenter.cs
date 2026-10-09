@@ -13,6 +13,9 @@ namespace DeepSleep.Runtime.Presentation.Audio
     {
         public Camera WorldCamera;
         public AudioCue CombatAmbience = AudioCue.AmbienceSky;
+        public AudioCue RestAmbience = AudioCue.AmbienceRest;
+        public DeepSleep.Runtime.Combat.Encounters.Claude.ClaudeEncounterPresentation2D ClaudePresentation;
+        private AudioCue? _requestedAmbience;
         public ChapterRunController Chapter;
         public RestNodePrototypeController2D Node;
         public CoopSessionController Session;
@@ -35,7 +38,7 @@ namespace DeepSleep.Runtime.Presentation.Audio
             if (Node != null) Node.StateChanged += OnNodeChanged;
             CaptureSession();
             _portalReady = LocalPortalReady();
-            _audio.SetAmbience(_phase == ChapterRunPhase.Node ? AudioCue.AmbienceRest : CombatAmbience);
+            RefreshAmbience();
             _achievements = GameAppRoot.Instance.Achievements;
             if (_achievements != null) _achievements.Unlocked += OnAchievement;
         }
@@ -52,6 +55,7 @@ namespace DeepSleep.Runtime.Presentation.Audio
                 return;
             }
             if (_leaving) { _leaving = false; CaptureSession(); }
+            RefreshAmbience();
             if (Node != null)
             {
                 bool ready = LocalPortalReady();
@@ -86,11 +90,25 @@ namespace DeepSleep.Runtime.Presentation.Audio
             _phase = phase;
             if (_audio == null || _leaving || (Session != null && Session.IsExiting)) return;
             if (phase != ChapterRunPhase.Combat) _audio.StopWorld();
-            if (phase == ChapterRunPhase.Complete) _audio.Play(AudioCue.Victory);
+            if (phase == ChapterRunPhase.Complete) _audio.Play(ClaudePresentation != null && Chapter != null &&
+                (Chapter.IsChallenge ? Chapter.Challenge.ChallengeKind == DeepSleep.Runtime.Progression.Bestiary.BestiaryChallengeKind.Claude :
+                    Chapter.SegmentNumber == Chapter.LevelBindings.Level.ChapterRunConfig.CombatSegmentCount)
+                ? AudioCue.ClaudeDefeat : AudioCue.Victory);
             else if (phase == ChapterRunPhase.Defeat) _audio.Play(AudioCue.Defeat);
             else if (phase == ChapterRunPhase.Combat)
-            { _audio.SetAmbience(CombatAmbience); _audio.Play(AudioCue.Depart); }
-            else if (phase == ChapterRunPhase.Node) _audio.SetAmbience(AudioCue.AmbienceRest, 1.5f);
+            { RefreshAmbience(); _audio.Play(AudioCue.Depart); }
+            else if (phase == ChapterRunPhase.Node) RefreshAmbience();
+        }
+
+        private void RefreshAmbience()
+        {
+            var state = ClaudePresentation != null ? ClaudePresentation.State : DeepSleep.Runtime.Combat.Encounters.Claude.ClaudePresentationState.Hidden;
+            var cue = _phase == ChapterRunPhase.Node ? RestAmbience :
+                (state != DeepSleep.Runtime.Combat.Encounters.Claude.ClaudePresentationState.Hidden &&
+                 state != DeepSleep.Runtime.Combat.Encounters.Claude.ClaudePresentationState.Departing)
+                ? AudioCue.AmbienceRain : CombatAmbience;
+            if (_requestedAmbience == cue) return;
+            _requestedAmbience = cue; _audio.SetAmbience(cue, 1.5f);
         }
 
         private void OnNodeChanged(RestNodeState state)

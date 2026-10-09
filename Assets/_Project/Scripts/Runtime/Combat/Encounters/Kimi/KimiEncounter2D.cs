@@ -94,7 +94,9 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
             if(!isActiveAndEnabled || !float.IsFinite(dt) || dt<=0 || State==KimiEncounterState.Idle || State==KimiEncounterState.Complete) return;
             if(_session!=null && _session.Phase!=SessionPhase.Offline && !_session.IsAuthority){Cancel();return;}
             if(State!=KimiEncounterState.Prelude && !Boss.IsAlive){Cancel();return;}
-            StateElapsed+=dt;
+            // 入场与转阶段使用真实战斗秒；普通前奏和技能节奏不改。
+            StateElapsed += State == KimiEncounterState.Entering || State == KimiEncounterState.PhaseChange
+                ? dt / (Time.timeScale > 0 ? Time.timeScale : 1) : dt;
             if (State == KimiEncounterState.Casting || State == KimiEncounterState.Gap || State == KimiEncounterState.PhaseChange)
                 SimulateContact(dt);
             switch(State)
@@ -132,8 +134,11 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
                 Vector2 point = _targetShapes[i].ClosestPoint(center);
                 var packet = new DamagePacket(Boss.Config.ContactDamageAmount, point,
                     (Vector2)_targets[i].transform.position - center, Boss.gameObject,
-                    DamageAttackIdAllocator.Next(), DamageInterceptionPolicy.Blockable);
-                _targets[i].TryReceiveDamage(in packet);
+                    DamageAttackIdAllocator.Next(), DamageInterceptionPolicy.Blockable,
+                    knockbackDistance: Boss.Config.ContactKnockbackDistance,
+                    knockbackSeconds: Boss.Config.ContactKnockbackSeconds);
+                if (_targets[i].TryReceiveDamage(in packet))
+                    Laser.HitEffects.TryPlay(point, Mathf.Atan2(packet.Direction.y, packet.Direction.x) * Mathf.Rad2Deg);
             }
         }
         private void StartCast()

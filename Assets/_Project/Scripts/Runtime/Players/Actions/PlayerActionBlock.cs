@@ -13,5 +13,8 @@ namespace DeepSleep.Runtime.Players.Actions
         Movement = 1 << 0,
         AutomaticCombat = 1 << 1,
         ActiveCombat = 1 << 2,
+        // 保留旧bit：复活等旧来源仍整体阻止主动行为。权限书单独封禁新增类别。
+        PrimaryAttack = 1 << 3,
+        Skill = 1 << 4,
     }
 }

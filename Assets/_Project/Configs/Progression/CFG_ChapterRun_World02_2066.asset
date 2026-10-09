@@ -1,0 +1,245 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ee4d1544306a147a7c662d44648ddd, type: 3}
+  m_Name: CFG_ChapterRun_World02_2066
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Run.ChapterRunConfig
+  _segments:
+  - _displayName: "\u9012\u5F52\u8C03\u7528"
+    _durationSeconds: 45
+    _requiredDefeats: 3
+    _objectiveMode: 1
+    _objectiveChannel: {fileID: 11400000, guid: 8edbfff11732db143883184d6b5789b5, type: 2}
+    _objectiveLabel: "\u51FB\u8D25\u5927\u578B\u9012\u5F52"
+    _enemyHealthMultiplier: 1
+    _spawnRules:
+    - _channel: {fileID: 11400000, guid: a815017bee6cbbd4087e12e8b402ef6d, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 0.8
+      _intervalMultiplier: 0.575
+      _maximumAliveCount: 10
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 25500160a77fbed47ae3a9f44bd4833c, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 0
+      _intervalMultiplier: 1
+      _maximumAliveCount: 1
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 6b940fd41def9c841a688cb8a1820b43, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 0
+      _intervalMultiplier: 1
+      _maximumAliveCount: 1
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 5f730163644b84c4cba76dbacb764f29, type: 2}
+      _enabled: 1
+      _initialDelaySeconds: 6
+      _intervalMultiplier: 1
+      _maximumAliveCount: 2
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 8edbfff11732db143883184d6b5789b5, type: 2}
+      _enabled: 1
+      _initialDelaySeconds: 1
+      _intervalMultiplier: 1
+      _maximumAliveCount: 3
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 86459c521ad5a544d9a153220dfcd180, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 1
+      _intervalMultiplier: 1
+      _maximumAliveCount: 1
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: aa20bcf8132ca2742a80906a0be82fd4, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 1
+      _intervalMultiplier: 1
+      _maximumAliveCount: 1
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 8dd170f8915c2c24b86983585dcc112a, type: 2}
+      _enabled: 1
+      _initialDelaySeconds: 12
+      _intervalMultiplier: 2.5
+      _maximumAliveCount: 2
+      _healthMultiplierOverride: 0
+  - _displayName: "\u6765\u676F\u597D\u8336"
+    _durationSeconds: 55
+    _requiredDefeats: 6
+    _objectiveMode: 1
+    _objectiveChannel: {fileID: 11400000, guid: 8dd170f8915c2c24b86983585dcc112a, type: 2}
+    _objectiveLabel: "\u51FB\u8D25\u5FEB\u5E94\u7528"
+    _enemyHealthMultiplier: 1.5
+    _spawnRules:
+    - _channel: {fileID: 11400000, guid: a815017bee6cbbd4087e12e8b402ef6d, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 0.8
+      _intervalMultiplier: 0.6
+      _maximumAliveCount: 12
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 25500160a77fbed47ae3a9f44bd4833c, type: 2}
+      _enabled: 1
+      _initialDelaySeconds: 12
+      _intervalMultiplier: 2.5
+      _maximumAliveCount: 2
+      _healthMultiplierOverride: 2.5
+    - _channel: {fileID: 11400000, guid: 6b940fd41def9c841a688cb8a1820b43, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 0
+      _intervalMultiplier: 1
+      _maximumAliveCount: 1
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 5f730163644b84c4cba76dbacb764f29, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 1.5
+      _intervalMultiplier: 0.4
+      _maximumAliveCount: 3
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 8edbfff11732db143883184d6b5789b5, type: 2}
+      _enabled: 1
+      _initialDelaySeconds: 1
+      _intervalMultiplier: 0.75
+      _maximumAliveCount: 4
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 86459c521ad5a544d9a153220dfcd180, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 1
+      _intervalMultiplier: 1
+      _maximumAliveCount: 1
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: aa20bcf8132ca2742a80906a0be82fd4, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 1
+      _intervalMultiplier: 1
+      _maximumAliveCount: 1
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 8dd170f8915c2c24b86983585dcc112a, type: 2}
+      _enabled: 1
+      _initialDelaySeconds: 4
+      _intervalMultiplier: 1
+      _maximumAliveCount: 4
+      _healthMultiplierOverride: 4
+  - _displayName: "\u9500\u51A0\u738B\u8001\u677F"
+    _durationSeconds: 60
+    _requiredDefeats: 6
+    _objectiveMode: 1
+    _objectiveChannel: {fileID: 11400000, guid: 6b940fd41def9c841a688cb8a1820b43, type: 2}
+    _objectiveLabel: "\u51FB\u8D25\u8FC5\u96F7"
+    _enemyHealthMultiplier: 2
+    _spawnRules:
+    - _channel: {fileID: 11400000, guid: a815017bee6cbbd4087e12e8b402ef6d, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 0.5
+      _intervalMultiplier: 0.22
+      _maximumAliveCount: 28
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 25500160a77fbed47ae3a9f44bd4833c, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 3
+      _intervalMultiplier: 0.11
+      _maximumAliveCount: 16
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 6b940fd41def9c841a688cb8a1820b43, type: 2}
+      _enabled: 1
+      _initialDelaySeconds: 5
+      _intervalMultiplier: 0.7
+      _maximumAliveCount: 3
+      _healthMultiplierOverride: 5
+    - _channel: {fileID: 11400000, guid: 5f730163644b84c4cba76dbacb764f29, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 1.5
+      _intervalMultiplier: 0.7
+      _maximumAliveCount: 2
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 8edbfff11732db143883184d6b5789b5, type: 2}
+      _enabled: 1
+      _initialDelaySeconds: 10
+      _intervalMultiplier: 2.5
+      _maximumAliveCount: 2
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 86459c521ad5a544d9a153220dfcd180, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 1
+      _intervalMultiplier: 1
+      _maximumAliveCount: 1
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: aa20bcf8132ca2742a80906a0be82fd4, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 1
+      _intervalMultiplier: 1
+      _maximumAliveCount: 1
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 8dd170f8915c2c24b86983585dcc112a, type: 2}
+      _enabled: 1
+      _initialDelaySeconds: 1
+      _intervalMultiplier: 0.6
+      _maximumAliveCount: 6
+      _healthMultiplierOverride: 8
+  - _displayName: "\uFF1F\uFF1F\uFF1F"
+    _durationSeconds: 65
+    _requiredDefeats: 1
+    _objectiveMode: 2
+    _objectiveChannel: {fileID: 0}
+    _objectiveLabel: "\uFF1F\uFF1F\uFF1F"
+    _enemyHealthMultiplier: 3
+    _spawnRules:
+    - _channel: {fileID: 11400000, guid: a815017bee6cbbd4087e12e8b402ef6d, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 0.5
+      _intervalMultiplier: 0.2
+      _maximumAliveCount: 28
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 25500160a77fbed47ae3a9f44bd4833c, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 2.5
+      _intervalMultiplier: 0.085
+      _maximumAliveCount: 20
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 6b940fd41def9c841a688cb8a1820b43, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 5
+      _intervalMultiplier: 0.2
+      _maximumAliveCount: 4
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 5f730163644b84c4cba76dbacb764f29, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 1.5
+      _intervalMultiplier: 0.85
+      _maximumAliveCount: 2
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 8edbfff11732db143883184d6b5789b5, type: 2}
+      _enabled: 1
+      _initialDelaySeconds: 1
+      _intervalMultiplier: 0.6
+      _maximumAliveCount: 4
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 86459c521ad5a544d9a153220dfcd180, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 1
+      _intervalMultiplier: 1
+      _maximumAliveCount: 1
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: aa20bcf8132ca2742a80906a0be82fd4, type: 2}
+      _enabled: 0
+      _initialDelaySeconds: 1
+      _intervalMultiplier: 1
+      _maximumAliveCount: 1
+      _healthMultiplierOverride: 0
+    - _channel: {fileID: 11400000, guid: 8dd170f8915c2c24b86983585dcc112a, type: 2}
+      _enabled: 1
+      _initialDelaySeconds: 1
+      _intervalMultiplier: 0.6
+      _maximumAliveCount: 6
+      _healthMultiplierOverride: 0
+  _singleDownedTimeoutSeconds: 10
+  _teamDownedTimeoutSeconds: 2
+  _defeatPresentationSeconds: 2
+  _restNodeRecovery: 0
+  _reviveOnlyHealthFraction: 0.333
+  _checkpointInvulnerabilitySeconds: 1.5

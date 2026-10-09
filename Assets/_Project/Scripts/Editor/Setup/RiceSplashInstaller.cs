@@ -52,7 +52,8 @@ namespace DeepSleep.Editor.Setup
             values.FindProperty("_fadeStart01").floatValue = .2f;
             values.FindProperty("_minimumRotationDegrees").floatValue = 12f;
             values.FindProperty("_maximumRotationDegrees").floatValue = 28f;
-            values.FindProperty("_maximumCount").intValue = 32;
+            values.FindProperty("_maximumCount").intValue = 128;
+            values.FindProperty("_prewarmCount").intValue = 32;
             values.ApplyModifiedPropertiesWithoutUndo();
             var catalog = AssetDatabase.LoadAssetAtPath<UpgradeCatalog>(Root + "Configs/Progression/CFG_UpgradeCatalog_Default.asset");
             if (!catalog.TryGet(UpgradeCardId.RiceSplash, out _))

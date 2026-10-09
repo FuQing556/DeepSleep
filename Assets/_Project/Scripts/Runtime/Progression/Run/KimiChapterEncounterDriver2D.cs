@@ -24,27 +24,38 @@ namespace DeepSleep.Runtime.Progression.Run
         public SpriteRenderer Backdrop;
         public Sprite NightBackdrop;
         public SpriteRenderer BackdropTransition;
+        public SpriteRenderer[] Foregrounds = Array.Empty<SpriteRenderer>();
+        public Sprite[] NightForegrounds = Array.Empty<Sprite>();
+        public SpriteRenderer[] ForegroundTransitions = Array.Empty<SpriteRenderer>();
         public KimiBossPresentation2D Presentation;
-        public float BackdropFadeSeconds;
+        public float BackdropFadeSeconds => Presentation.Timing.NightSeconds;
         [Min(1)] public int SegmentNumber;
         private Sprite _dayBackdrop;
+        private Sprite[] _dayForegrounds;
         private bool _armed;
         private float _backdropFadeAge;
         public bool HasTakenOver { get; private set; }
         public bool IsComplete => Encounter.State == KimiEncounterState.Complete;
         public int DisplaySeconds => Encounter.Config.DisplaySeconds;
         public string DisplayTitle => Encounter.Config.RevealedTitle;
-        public string ObjectiveText => Encounter.Config.ObjectiveText;
+        public string ObjectiveText => Chapter.IsChallenge ? Encounter.Config.ObjectiveText : "击败 Kimi";
         private bool CanAuthor => Session.Phase == SessionPhase.Offline || Session.IsAuthority;
 
         public bool TryValidateConfiguration(out string reason)
         {
             if (Chapter == null || Chapter.CombatWorld == null || Encounter == null || Session == null ||
                 Perception == null || Obstacles == null || Hud == null || Backdrop == null || NightBackdrop == null ||
-                BackdropTransition == null || Presentation == null || !float.IsFinite(BackdropFadeSeconds) || BackdropFadeSeconds <= 0 ||
+                BackdropTransition == null || Presentation == null || Presentation.Timing == null || !float.IsFinite(BackdropFadeSeconds) || BackdropFadeSeconds <= 0 ||
                 SegmentNumber < 1 || Targets == null || Targets.Length != 2 || Targets[0] == null || Targets[1] == null ||
                 Targets[0] == Targets[1] || Array.IndexOf(Chapter.CombatWorld.ParticipantComponents, this) < 0)
             { reason = "章节、遭遇、会话、双角色、感知、障碍、HUD、昼夜背景及生命周期登记必须显式配置。"; return false; }
+            if (Foregrounds == null || NightForegrounds == null || ForegroundTransitions == null ||
+                Foregrounds.Length != NightForegrounds.Length || Foregrounds.Length != ForegroundTransitions.Length)
+            { reason = "昼夜前景和渐变层必须成对配置。"; return false; }
+            for (int i = 0; i < Foregrounds.Length; i++)
+                if (Foregrounds[i] == null || NightForegrounds[i] == null || ForegroundTransitions[i] == null ||
+                    Foregrounds[i] == ForegroundTransitions[i])
+                { reason = "昼夜前景引用不完整。"; return false; }
             return Encounter.TryValidateConfiguration(out reason) && Presentation.TryValidateConfiguration(out reason);
         }
         private void Awake()
@@ -52,11 +63,13 @@ namespace DeepSleep.Runtime.Progression.Run
             if (!TryValidateConfiguration(out string reason))
             { Debug.LogError("[KimiChapter] " + reason, this); enabled = false; return; }
             _dayBackdrop = Backdrop.sprite;
+            CacheDayForegrounds();
             Hud.Bind(Encounter.Boss, Encounter.Ultimate.Curtain);
         }
         private void OnEnable()
         { if (Encounter != null) Encounter.TakeoverRequested += OnTakeover; }
-        public bool IsRequiredForSegment(int segmentNumber) => segmentNumber == SegmentNumber;
+        public bool IsRequiredForSegment(int segmentNumber) => isActiveAndEnabled && segmentNumber == SegmentNumber &&
+            (!Chapter.IsChallenge || Chapter.Challenge.ChallengeKind == DeepSleep.Runtime.Progression.Bestiary.BestiaryChallengeKind.Kimi);
         public void ResetForSegment(int segmentNumber)
         {
             StopCombat(ChapterCombatStopReason.EncounterTakeover);
@@ -85,6 +98,7 @@ namespace DeepSleep.Runtime.Progression.Run
             HasTakenOver = true;
             _dayBackdrop = Backdrop.sprite;
             FadeBackdropTo(NightBackdrop);
+            SetNightForegrounds(true, true);
         }
         public void StopCombat(ChapterCombatStopReason reason)
         {
@@ -100,13 +114,18 @@ namespace DeepSleep.Runtime.Progression.Run
                 else { Backdrop.sprite = _dayBackdrop; if (BackdropTransition != null) BackdropTransition.enabled = false; }
             }
             if (!victory && Presentation != null) Presentation.ResetPresentation();
+            SetNightForegrounds(false, victory);
         }
         /// <summary>客机仅切背景/任务展示；不能清权威实体、推进技能或自行判完成。</summary>
         public void ApplyReplica(bool takenOver, bool defeated = false)
         {
             if (defeated && Encounter.Boss.IsAlive) Presentation.BeginDeparture();
             if (takenOver && !HasTakenOver) _dayBackdrop = Backdrop.sprite;
-            if (takenOver != HasTakenOver) FadeBackdropTo(takenOver ? NightBackdrop : _dayBackdrop);
+            if (takenOver != HasTakenOver)
+            {
+                FadeBackdropTo(takenOver ? NightBackdrop : _dayBackdrop);
+                SetNightForegrounds(takenOver, true);
+            }
             HasTakenOver = takenOver;
         }
 
@@ -120,14 +139,63 @@ namespace DeepSleep.Runtime.Progression.Run
             Backdrop.sprite = next;
         }
 
-        private void LateUpdate()
+        private void CacheDayForegrounds()
         {
-            if (BackdropTransition == null || !BackdropTransition.enabled) return;
-            _backdropFadeAge += Chapter.Phase == ChapterRunPhase.Complete ? Time.unscaledDeltaTime : Time.deltaTime;
-            var color = BackdropTransition.color;
-            color.a = 1 - Mathf.SmoothStep(0, 1, Mathf.Clamp01(_backdropFadeAge / BackdropFadeSeconds));
-            BackdropTransition.color = color;
-            if (color.a <= 0) BackdropTransition.enabled = false;
+            if (_dayForegrounds != null) return;
+            _dayForegrounds = new Sprite[Foregrounds.Length];
+            for (int i = 0; i < Foregrounds.Length; i++)
+                if (Foregrounds[i] != null) _dayForegrounds[i] = Foregrounds[i].sprite;
+        }
+
+        private void SetNightForegrounds(bool night, bool fade)
+        {
+            CacheDayForegrounds();
+            for (int i = 0; i < Foregrounds.Length; i++)
+            {
+                var layer = Foregrounds[i];
+                var overlay = ForegroundTransitions[i];
+                var next = night ? NightForegrounds[i] : _dayForegrounds[i];
+                // SceneExit/OnDisable 的跨根销毁顺序不固定；仍存活的层各自复位，已销毁的层不再访问。
+                if (!fade)
+                {
+                    if (layer != null) layer.sprite = next;
+                    if (overlay != null) overlay.enabled = false;
+                    continue;
+                }
+                if (layer.sprite == next) continue;
+                overlay.sprite = layer.sprite;
+                overlay.color = layer.color;
+                // 渐变层是前景的子物体，位置与缩放随原堤岸，不新增碰撞。
+                overlay.enabled = layer.enabled;
+                layer.sprite = next;
+                _backdropFadeAge = 0;
+            }
+        }
+
+        private void LateUpdate()
+        { AdvanceBackdrop(Time.unscaledDeltaTime, Time.timeScale <= 0 && Chapter.Phase != ChapterRunPhase.Complete); }
+
+        public void AdvanceBackdrop(float realSeconds, bool paused)
+        {
+            if (paused) return;
+            bool fading = BackdropTransition != null && BackdropTransition.enabled;
+            for (int i = 0; i < ForegroundTransitions.Length; i++) fading |= ForegroundTransitions[i].enabled;
+            if (!fading) return;
+            _backdropFadeAge += realSeconds;
+            float alpha = 1 - Mathf.SmoothStep(0, 1, Mathf.Clamp01(_backdropFadeAge / BackdropFadeSeconds));
+            FadeLayer(BackdropTransition, alpha, Backdrop.color.a);
+            for (int i = 0; i < ForegroundTransitions.Length; i++)
+                FadeLayer(ForegroundTransitions[i], alpha, Foregrounds[i].color.a);
+        }
+        public void ApplyReplicaEntranceAge(float age)
+        { _backdropFadeAge = age; AdvanceBackdrop(0, false); }
+        private static void FadeLayer(SpriteRenderer layer, float alpha, float opacity)
+        {
+            if (layer == null || !layer.enabled) return;
+            var color = layer.color;
+            color.a = alpha * opacity;
+            layer.color = color;
+            if (alpha <= 0) layer.enabled = false;
         }
         private void OnDisable()
         {

@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51bdcaae3cf8d8548a96e366540ee829, type: 3}
+  m_Name: CFG_Bestiary_404
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Bestiary.BestiaryEntryDefinition
+  PoolCapacities: []
+  EntryId: 404
+  DisplayName: "404 \u7A97\u53E3"
+  Subtitle: "\u9EC4\u660F\u6545\u90FD \xB7 \u5355\u602A\u7EC3\u4E60"
+  Description: "\u627E\u4E0D\u5230\u9875\u9762\u7684\u9519\u8BEF\u7A97\u53E3\uFF0C\u4ECD\u5728\u8FFD\u8D76\u8BBF\u95EE\u8005\u3002"
+  SkillNotes: "\u7559\u610F\u7A97\u53E3\u7684\u63A5\u8FD1\u8DEF\u7EBF\uFF0C\u4FDD\u6301\u79FB\u52A8\uFF0C\u907F\u514D\u88AB\u5305\u56F4\u3002"
+  Portrait: {fileID: 21300000, guid: 4edce75fc276c32458c21bf3252c234d, type: 3}
+  PreparationBackdrop: {fileID: 21300000, guid: 2f3d83ae4b3b4cf6b78f6fb8c06513d9, type: 3}
+  PreparationLayout:
+    BackgroundPosition: {x: 0, y: 0, z: 0}
+    BackgroundScale: {x: 1.432, y: 1.432, z: 1}
+    Hotspots:
+    - Kind: 0
+      Position: {x: -5.6277604, y: 0.54999995, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+      Size: {x: 2.2346368, y: 2.094972}
+      Offset: {x: 0, y: 0}
+      Enabled: 1
+    - Kind: 1
+      Position: {x: 0, y: 1.8902401, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+      Size: {x: 2.6536312, y: 2.9329607}
+      Offset: {x: 0, y: 0}
+      Enabled: 1
+    - Kind: 2
+      Position: {x: 5.61344, y: 0.49999997, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+      Size: {x: 2.2346368, y: 2.094972}
+      Offset: {x: 0, y: 0}
+      Enabled: 1
+    - Kind: 3
+      Position: {x: -12.200641, y: 1.01672, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+      Size: {x: 1.5363128, y: 1.8156424}
+      Offset: {x: 0, y: 0}
+      Enabled: 0
+  Level: {fileID: 11400000, guid: 79f10b2babe75a748a39df66aa6c9e1f, type: 2}
+  CombatSegment: 1
+  StartingTokensPerRole: 300
+  ChallengeKind: 2
+  EnemyChannel: {fileID: 11400000, guid: a815017bee6cbbd4087e12e8b402ef6d, type: 2}
+  EnemyCount: 10
+  EnemyBatchSize: 5
+  EnemyBatchIntervalSeconds: 3
+  SpawnAllAtStart: 1
+  SpawnIntervalSeconds: 2
+  MaximumAlive: 10
+  ChallengeSeconds: 180
+  CompletionVoucherReward: 0
+  PreludeSeconds: 3
+  PreparationPrompt: "404 \u7A97\u53E3 \u72EC\u7ACB\u6311\u6218 \xB7 \u53CC\u89D2\u8272\u5404300 Token \xB7 \u914D\u88C5\u540E\u8FDB\u5165\u4F20\u9001\u95E8"

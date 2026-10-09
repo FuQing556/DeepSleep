@@ -21,13 +21,13 @@ namespace DeepSleep.Runtime.Networking
         private Action<BinaryWriter> _write;
 
         // 线格式固定语义槽：4个同时预警、左/右/下/上4镜边、16个反弹球表现槽。
-        public const int PayloadBytes = 268;
+        public const int PayloadBytes = 272;
         private sealed class Frame
         {
             public uint Sequence, BossHit, CurtainHit;
             public bool TakenOver, Shown, PhaseTwo, Prism;
             public Vector2 Position, CurtainPosition, LaserOrigin, LaserDirection, LaserMarker;
-            public float Health, BossHitAge, CurtainHitAge, WarningProgress, LaserElapsed;
+            public float Health, BossHitAge, CurtainHitAge, WarningProgress, LaserElapsed, EntryAge;
             public KimiPose Pose;
             public KimiLaserState LaserState;
             public int Remaining, Maximum, WarningCount;
@@ -45,7 +45,7 @@ namespace DeepSleep.Runtime.Networking
         }
         public bool TryValidateConfiguration(out string reason)
         {
-            if (Session == null || ChapterDriver == null || Encounter == null || BossFlash == null || CurtainFlash == null ||
+            if (Session == null || ChapterDriver == null || ChapterDriver.Presentation == null || Encounter == null || BossFlash == null || CurtainFlash == null ||
                 ChapterDriver.Encounter != Encounter || ChapterDriver.Session != Session || Encounter.Moon == null ||
                 Encounter.Prism == null || Encounter.Moon.Warnings.Length != 4 || Encounter.Prism.Orbs.Length != 16)
             { reason = "会话、章节适配器、遭遇、闪光以及固定4预警/16球必须匹配。"; return false; }
@@ -90,6 +90,7 @@ namespace DeepSleep.Runtime.Networking
             var laser = Encounter.Laser;
             w.Write((byte)laser.State); w.Write(laser.Elapsed); WriteVector(w, laser.Lane.Origin); WriteVector(w, laser.Lane.Direction);
             WriteVector(w, laser.MarkerPosition);
+            w.Write(ChapterDriver.Presentation.EntryAge);
         }
         private static void WriteVector(BinaryWriter w, Vector2 v) { w.Write(v.x); w.Write(v.y); }
         private static Vector2 ReadVector(BinaryReader r) => new(r.ReadSingle(), r.ReadSingle());
@@ -111,13 +112,16 @@ namespace DeepSleep.Runtime.Networking
             for (int i = 0; i < 16; i++) { f.OrbShown[i] = r.ReadBoolean(); f.OrbPositions[i] = ReadVector(r); }
             f.LaserState = (KimiLaserState)r.ReadByte(); f.LaserElapsed = r.ReadSingle(); f.LaserOrigin = ReadVector(r); f.LaserDirection = ReadVector(r);
             f.LaserMarker = ReadVector(r);
-            if (f.Health > Encounter.Boss.MaximumHealth || f.Maximum > Encounter.Ultimate.Config.PhaseTwoHits ||
+            f.EntryAge = r.ReadSingle();
+            if (f.EntryAge < 0 || f.EntryAge > Encounter.Config.Timing.EntranceSeconds || f.Health > Encounter.Boss.MaximumHealth || f.Maximum > Encounter.Ultimate.Config.PhaseTwoHits ||
                 f.WarningCount > Encounter.Moon.Warnings.Length) return;
             for (int i = 0; i < f.WarningCount; i++) if (f.Lanes[i] >= Encounter.Moon.Config.LaneCount) return;
             // 全帧预检及配置边界完成后才提交水位和任何可见对象，坏帧不能制造半幅Boss画面。
             _received = true; _lastReceived = f.Sequence;
             ChapterDriver.ApplyReplica(f.TakenOver, f.Health <= 0 && f.Pose == KimiPose.Bow);
             Encounter.Boss.ApplyReplica(f.Shown, f.Position, f.Health, f.PhaseTwo, f.Pose);
+            ChapterDriver.Presentation.ApplyReplicaEntry(f.EntryAge);
+            if (f.TakenOver) ChapterDriver.ApplyReplicaEntranceAge(f.EntryAge);
             BossFlash.ApplyReplica(f.BossHit, f.BossHitAge);
             Encounter.Ultimate.Curtain.ApplyReplica(f.CurtainPosition, f.Remaining, f.Maximum);
             CurtainFlash.ApplyReplica(f.CurtainHit, f.CurtainHitAge);

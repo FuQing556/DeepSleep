@@ -14,6 +14,8 @@ namespace DeepSleep.Runtime.Players.Health
     {
         [SerializeField] private HealthComponent _health;
         [SerializeField] private PlayerDamageResponseConfig _config;
+        [SerializeField] private DeepSleep.Runtime.Players.Movement.PlayerMovementMotor2D _movementMotor;
+        public DeepSleep.Runtime.Players.Movement.PlayerMovementMotor2D MovementMotor => _movementMotor;
 
         private float _remainingInvulnerabilitySeconds;
         private bool _isReviveProtection;
@@ -85,6 +87,10 @@ namespace DeepSleep.Runtime.Players.Health
 
             if (!_health.TryReceiveDamage(in damage)) return false;
 
+            // 只有实际扣血才弹开；拦截器成功和无敌拒绝都不会触发。倒地已停用移动器。
+            if (damage.KnockbackDistance > 0f)
+                _movementMotor.ApplyKnockback(damage.Direction, damage.KnockbackDistance, damage.KnockbackSeconds);
+
             _remainingInvulnerabilitySeconds =
                 _config.InvulnerabilityDurationSeconds;
             _isReviveProtection = false;
@@ -110,6 +116,7 @@ namespace DeepSleep.Runtime.Players.Health
         /// </summary>
         public void ResetDamageGate()
         {
+            if (_movementMotor != null) _movementMotor.ResetKnockback();
             _remainingInvulnerabilitySeconds = 0f;
             _isReviveProtection = false;
             FeedbackReset?.Invoke();
@@ -117,6 +124,7 @@ namespace DeepSleep.Runtime.Players.Health
 
         public void BeginInvulnerability(float durationSeconds)
         {
+            if (_movementMotor != null) _movementMotor.ResetKnockback();
             if (!_isInitialized || durationSeconds <= 0f)
             {
                 return;
@@ -131,6 +139,8 @@ namespace DeepSleep.Runtime.Players.Health
 
         public bool TryValidateConfiguration(out string reason)
         {
+            if (_movementMotor == null)
+            { reason = "未配置玩家击退所需的移动器。"; return false; }
             if (_health == null)
             {
                 reason = "未配置通用生命组件。";

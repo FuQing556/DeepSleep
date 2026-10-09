@@ -171,7 +171,7 @@ namespace DeepSleep.Editor.Setup
                 new Vector2(0, 70), new Vector2(920, 250));
             Label("天空测试场", levelCard, new Vector2(0, 70),
                 new Vector2(820, 55), 36);
-            Label("四段战斗原型 · 首通 10 / 重复 5 鲸元券",
+            Label("四段战斗原型 · 通关奖励 10 鲸元券",
                 levelCard, new Vector2(0, 15),
                 new Vector2(820, 45), 23);
             Button prototype = Button("进入关卡", levelCard,
@@ -242,6 +242,9 @@ namespace DeepSleep.Editor.Setup
                 guid => AssetDatabase.LoadAssetAtPath<ShopProductDefinition>(
                     AssetDatabase.GUIDToAssetPath(guid)));
             Array.Sort(products, (a, b) => a.Price.CompareTo(b.Price));
+            // 功德商品已下架；保留旧资产和存档记录，但重建主页也不能重新上架。
+            products = Array.FindAll(products, p => p.ProductId != "merit_small" &&
+                p.ProductId != "merit_medium" && p.ProductId != "merit_large");
 
             SetReference(menu, "_prototypeLevel", level);
             SetReference(menu, "_home", home.gameObject);
@@ -327,10 +330,9 @@ namespace DeepSleep.Editor.Setup
             SetReference(run, "_profile", null);
             GameplayAchievementReporter reporter =
                 root.gameObject.AddComponent<GameplayAchievementReporter>();
-            PlayerReviveCoordinator2D[] reviveSystems =
-                UnityEngine.Object.FindObjectsByType<PlayerReviveCoordinator2D>(
-                    FindObjectsInactive.Include, FindObjectsSortMode.None);
-            SetArray(reporter, "_reviveSystems", reviveSystems);
+            // 完整音效事实源需后续 CombatAudio 装配；不再写入已移除的旧复活桥字段。
+            if (root.GetComponentsInChildren<DeepSleep.Runtime.Presentation.Audio.CombatAudioPresenter>(true).Length > 0)
+                AchievementCompletionInstaller.BindFacts(scene);
             EditorSceneManager.SaveScene(scene, GameplayPath);
         }
 

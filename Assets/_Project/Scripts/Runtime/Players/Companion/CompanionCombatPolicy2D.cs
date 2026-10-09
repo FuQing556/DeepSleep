@@ -42,8 +42,14 @@ namespace DeepSleep.Runtime.Players.Companion
             _retryRemaining = Mathf.Max(0f, _retryRemaining - deltaTime);
             skill = attack = cancel = CommandButtonState.None;
             var target = sensor.Target;
-            bool hasTarget = target != null && target.IsObservable;
+            bool hasTarget = target != null && target.IsObservable && sensor.CanAttack(target, position);
             aim = hasTarget ? new AimIntent(AimReference.WorldPosition, target.Position) : default;
+            if (Role == PlayerRole.Harness && _lastTarget != null && !sensor.CanAttack(_lastTarget, position) && Laser.HasAimPoint)
+            {
+                cancel = CommandButtonState.Pressed;
+                _lastTarget = null;
+                return;
+            }
             if (Role == PlayerRole.DeepSeek)
             {
                 if (guardWanted && !Guard.IsActive && Guard.CooldownRemaining <= 0 && _retryRemaining <= 0)
@@ -99,7 +105,10 @@ namespace DeepSleep.Runtime.Players.Companion
             }
             _harnessAimRest = Mathf.Max(0f, _harnessAimRest - deltaTime);
             if (hasTarget && !Laser.HasAimPoint && _harnessAimRest <= 0f)
+            {
                 attack = CommandButtonState.Pressed;
+                _lastTarget = target;
+            }
         }
 
         private void PressSkill(ref CommandButtonState skill)

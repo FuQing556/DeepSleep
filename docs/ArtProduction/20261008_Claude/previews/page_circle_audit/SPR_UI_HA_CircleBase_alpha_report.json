@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\Assets\\_Project\\Art\\UI\\Themes\\Harness\\SPR_UI_HA_CircleBase.png",
+  "source_sha256": "43f4d309e1985259664395203548c4a0a62db8b57d655d601bc5d1c8f5c4a660",
+  "mode": "RGBA",
+  "size": [
+    1101,
+    1095
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 314916,
+  "partial_alpha_pixels": 889720,
+  "opaque_pixels": 959,
+  "visible_bbox_alpha_gt_0": [
+    14,
+    16,
+    1085,
+    1080
+  ],
+  "visible_bbox_alpha_gt_8": [
+    18,
+    18,
+    1083,
+    1077
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

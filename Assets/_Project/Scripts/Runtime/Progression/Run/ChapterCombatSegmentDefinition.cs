@@ -14,15 +14,25 @@ namespace DeepSleep.Runtime.Progression.Run
         [SerializeField, Min(0f)] private float _initialDelaySeconds = 0.8f;
         [SerializeField, Min(0.05f)] private float _intervalMultiplier = 1f;
         [SerializeField, Min(1)] private int _maximumAliveCount = 6;
+        [SerializeField, Min(0f), Tooltip("0沿用本波生命倍率；大于等于1时覆盖本频道倍率，不与波次倍率叠乘。")]
+        private float _healthMultiplierOverride;
 
         public EnemySpawnChannelDefinition Channel => _channel;
         public bool Enabled => _enabled;
         public float InitialDelaySeconds => _initialDelaySeconds;
         public float IntervalMultiplier => _intervalMultiplier;
         public int MaximumAliveCount => _maximumAliveCount;
+        public float ResolveHealthMultiplier(float segmentMultiplier) =>
+            _healthMultiplierOverride > 0f ? _healthMultiplierOverride : segmentMultiplier;
 
         public bool TryValidate(out string reason)
         {
+            if (!float.IsFinite(_healthMultiplierOverride) ||
+                (_healthMultiplierOverride != 0f && _healthMultiplierOverride < 1f))
+            {
+                reason = "频道生命倍率覆盖必须为0（继承）或不小于1的有限数。";
+                return false;
+            }
             if (_channel == null)
             {
                 reason = "未配置刷怪频道。";

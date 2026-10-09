@@ -719,6 +719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Players.Health.PlayerDamageReceiver2D
   _health: {fileID: 5459249838610364715}
   _config: {fileID: 11400000, guid: 758f7382ca747c54a85073d742535529, type: 2}
+  _movementMotor: {fileID: 3822380466900079879}
 --- !u!114 &8572350596078327654
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -733,6 +734,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Damage.DamageHitbox2D
   _receiverComponent: {fileID: 1429621406014940267}
   _hitMotionReceiverComponent: {fileID: 0}
+  UseReceiverHitFeedback: 0
+  StopsPiercingBeams: 0
+  DamageNumberAnchor: {fileID: 0}
 --- !u!114 &6701128718704048838
 MonoBehaviour:
   m_ObjectHideFlags: 0

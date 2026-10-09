@@ -24,6 +24,7 @@ namespace DeepSleep.Runtime.Players.Companion
             float ownerRadius = extent.magnitude;
             bool chargeThreat = sensor.HasImminentCharge;
             float bestChargeDanger = float.PositiveInfinity;
+            float bestClaudeDanger = float.PositiveInfinity;
             // 目标、制动、八方向全速/半速；慢行允许通过转角而非只在全速和停车间跳变。
             for (int i = 0; i < 18; i++)
             {
@@ -53,9 +54,13 @@ namespace DeepSleep.Runtime.Players.Companion
                 }
                 float score = Vector2.Distance(end, destination) + tactics.DangerCost * danger +
                     tactics.DirectionChangeCost * (candidate - previousMove).sqrMagnitude;
+                float claudeDanger = sensor.PredictClaudeRisk(position, velocity, extent, colliderOffset, candidate, motor);
+                if (sensor.HasClaudeWarning && claudeDanger > bestClaudeDanger + .000001f) continue;
+                bool betterClaude = sensor.HasClaudeWarning && claudeDanger < bestClaudeDanger - .000001f;
                 // 直线冲撞的碰撞风险优先级高于编队/救援距离，不能为了靠近目的地换取一次撞击。
-                if (chargeThreat && chargeDanger > bestChargeDanger + .000001f) continue;
-                if ((!chargeThreat || Mathf.Abs(chargeDanger - bestChargeDanger) <= .000001f) && score >= best) continue;
+                if (!betterClaude && chargeThreat && chargeDanger > bestChargeDanger + .000001f) continue;
+                if (!betterClaude && (!chargeThreat || Mathf.Abs(chargeDanger - bestChargeDanger) <= .000001f) && score >= best) continue;
+                bestClaudeDanger = claudeDanger;
                 bestChargeDanger = chargeDanger;
                 best = score;
                 result = candidate;

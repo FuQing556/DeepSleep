@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261008_Claude\\raw\\VFX_CL_EnergyOuterHalo_v02_CANDIDATE.png",
+  "source_sha256": "9f31ef8242b31e22578ef2568233ca4e0a17bc86cdea61361e01cd0ce592a6de",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    253
+  ],
+  "transparent_pixels": 657220,
+  "partial_alpha_pixels": 915296,
+  "opaque_pixels": 0,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    0,
+    1254,
+    1254
+  ],
+  "visible_bbox_alpha_gt_8": [
+    90,
+    88,
+    1161,
+    1142
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

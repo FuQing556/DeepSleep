@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Meta.AchievementDefinition
   _achievementId: first_clear
   _displayName: "\u7B2C\u4E00\u6BB5\u65C5\u7A0B"
-  _description: "\u5B8C\u6210\u5929\u7A7A\u6D4B\u8BD5\u573A\u3002"
+  _description: "\u9996\u6B21\u901A\u5173\u4EFB\u610F\u666E\u901A\u5173\u5361\u3002"
   _hidden: 0
   _triggerId: level_cleared
   _targetCount: 1
   _icon: {fileID: 0}
+  _requiredLevel: {fileID: 0}
+  _requiredChallenges: []

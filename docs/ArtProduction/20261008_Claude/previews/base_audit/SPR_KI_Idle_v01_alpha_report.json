@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\Assets\\_Project\\Art\\Characters\\Kimi\\SPR_KI_Idle_v01.png",
+  "source_sha256": "8d399eb8dc198ee507d70e30a22307847d66d81df4327f734cd359380d251c44",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 868180,
+  "partial_alpha_pixels": 703821,
+  "opaque_pixels": 515,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    17,
+    1222,
+    1254
+  ],
+  "visible_bbox_alpha_gt_8": [
+    188,
+    23,
+    1143,
+    1232
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    1,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

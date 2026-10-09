@@ -29,7 +29,7 @@ namespace DeepSleep.Editor.Setup
                 product=ScriptableObject.CreateInstance<ShopProductDefinition>(); AssetDatabase.CreateAsset(product,ProductPath);
                 Set(product,"_productId","little_crown"); Set(product,"_displayName","小皇冠");
                 Set(product,"_description","永久头饰 · 无属性加成 · 双角色独立佩戴");
-                Set(product,"_price",20); Set(product,"_repeatable",false); Set(product,"_isHeadwear",true);
+                Set(product,"_price",10); Set(product,"_repeatable",false); Set(product,"_isHeadwear",true);
                 Set(product,"_icon",SpriteAt(Root+"Art/Accessories/SPR_ACC_LittleCrown_v01.png"));
             }
             var crown=AssetDatabase.LoadAssetAtPath<HeadwearDefinition>(DefinitionPath);
@@ -84,7 +84,7 @@ namespace DeepSleep.Editor.Setup
             var net=AssetDatabase.LoadAssetAtPath<NetworkTuningConfig>(Root+"Configs/Networking/CFG_Network.asset");
             Networking.NetworkBuildRevision.Apply(net);EditorUtility.SetDirty(net);
             AssetDatabase.SaveAssets();EditorSceneManager.OpenScene("Assets/Scenes/Boot.unity");
-            return "Crown price20, nonrepeatable; card equip buttons; 9 pose anchors; menu/two gameplay scenes; protocol8 saved.";
+            return "Crown price10, nonrepeatable; card equip buttons; 9 pose anchors; menu/two gameplay scenes; protocol8 saved.";
         }
         static HeadwearPose Pose(string file,float x,float y,float angle,PlayerRole role=PlayerRole.Harness) =>
             new(){Pose=SpriteAt(Root+"Art/Characters/"+file),Anchor=new Vector2(x,y),Angle=angle,WidthRatio=.32f,Role=role};

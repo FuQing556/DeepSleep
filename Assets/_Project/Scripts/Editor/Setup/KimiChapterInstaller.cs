@@ -40,6 +40,7 @@ namespace DeepSleep.Editor.Setup
             var hudRoot = (GameObject)PrefabUtility.InstantiatePrefab(AssetDatabase.LoadAssetAtPath<GameObject>(KimiContentInstaller.HudPath), scene);
             hudRoot.transform.SetParent(canvas.transform, false); driver.Hud = hudRoot.GetComponent<KimiBossHudView>();
             driver.Hud.Boss = encounter.Boss;
+            driver.Hud.Presentation = driver.Presentation;
             Append(chapter, "_additionalObjectiveComponents", driver);
             Append(chapter.CombatWorld, "ParticipantComponents", driver);
             Append(bindings.SimulationLoop, "worldStepComponents", driver);

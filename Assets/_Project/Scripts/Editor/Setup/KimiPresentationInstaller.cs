@@ -43,11 +43,11 @@ namespace DeepSleep.Editor.Setup
                     view.MoonShield.sortingOrder = boss.Body.sortingOrder + 3;
                     view.DepartingBody = MakeRenderer(boss.Body.transform.parent, "DepartingBody", boss.Body);
                     view.DepartingCloud = MakeRenderer(boss.Cloud.transform.parent, "DepartingCloud", boss.Cloud);
-                    view.ShieldPeakAlpha = .5f; view.DepartureSeconds = 1.25f;
+                    view.ShieldPeakAlpha = .5f;
                 }
                 var flash = new SerializedObject(view.HitFlash);
                 ConfigureSphere(boss, view);
-                if (view.EntryFadeSeconds <= 0) view.EntryFadeSeconds = 1.25f;
+                view.Timing = BossPresentationTimingInstaller.GetTiming();
                 flash.FindProperty("_duration").floatValue = .1f;
                 flash.FindProperty("_peakAlpha").floatValue = 0;
                 flash.FindProperty("_reducedAlpha").floatValue = 0;
@@ -93,6 +93,8 @@ namespace DeepSleep.Editor.Setup
             var unusedAnchor = boss.transform.Find("DamageNumberAnchor");
             if (unusedAnchor != null) UnityEngine.Object.DestroyImmediate(unusedAnchor.gameObject);
             boss.Config.ContactDamageAmount = 1;
+            boss.Config.ContactKnockbackDistance = .65f;
+            boss.Config.ContactKnockbackSeconds = .18f;
             boss.Config.ContactIntervalSeconds = 1;
             EditorUtility.SetDirty(boss.Config);
         }
@@ -116,7 +118,6 @@ namespace DeepSleep.Editor.Setup
                 serialized.FindProperty("_renderer").objectReferenceValue = renderer;
                 serialized.ApplyModifiedPropertiesWithoutUndo();
                 driver.BackdropTransition = renderer;
-                driver.BackdropFadeSeconds = 1.25f;
             }
             EditorUtility.SetDirty(driver);
         }

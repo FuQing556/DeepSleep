@@ -21,6 +21,7 @@ namespace DeepSleep.Runtime.Progression.Meta
         [SerializeField] private Text _inventoryEmpty;
         [SerializeField] private Text _feedback;
         public HeadwearImageView[] HeadwearPreviews;
+        public DeepSleep.Runtime.Presentation.Skins.PlayerSkinImageView[] SkinPreviews;
 
         private readonly List<MetaProductCardView> _shopCards = new();
         private readonly List<MetaProductCardView> _inventoryCards = new();
@@ -42,6 +43,7 @@ namespace DeepSleep.Runtime.Progression.Meta
                 _inventoryCards.Add(Instantiate(_cardPrefab, _inventoryContent));
             }
             foreach (var preview in HeadwearPreviews) preview.Bind(_profile);
+            foreach (var preview in SkinPreviews) preview.Bind(_profile);
         }
 
         private void OnEnable()
@@ -99,6 +101,14 @@ namespace DeepSleep.Runtime.Progression.Meta
         }
         private void Equip(ShopProductDefinition product, PlayerRole role)
         {
+            if (product.IsSkin)
+            {
+                bool wearingSkin = _profile.GetSkin(role) == product.ProductId;
+                bool changed = _profile.TrySetSkin(role, wearingSkin ? null : product, out string skinMessage);
+                GameAppRoot.Instance?.Audio?.Play(changed ? AudioCue.UiConfirm : AudioCue.UiReject);
+                if (_feedback != null) _feedback.text = skinMessage;
+                Render(); return;
+            }
             bool wearing = _profile.GetAccessory(role, product.Slot) == product.ProductId;
             bool success = _profile.TrySetAccessory(role, product.Slot, wearing ? null : product, out string message);
             GameAppRoot.Instance?.Audio?.Play(success ? AudioCue.UiConfirm : AudioCue.UiReject);

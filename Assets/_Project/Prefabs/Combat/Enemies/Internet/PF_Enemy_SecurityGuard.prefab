@@ -252,6 +252,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Damage.DamageHitbox2D
   _receiverComponent: {fileID: 7404724244944576155}
   _hitMotionReceiverComponent: {fileID: 2932177950866836890}
+  UseReceiverHitFeedback: 0
+  StopsPiercingBeams: 0
+  DamageNumberAnchor: {fileID: 0}
 --- !u!114 &1159787934076448869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -269,6 +272,7 @@ MonoBehaviour:
   _hitMotion: {fileID: 2932177950866836890}
   _simulationStepComponents:
   - {fileID: 8463199939558294170}
+  - {fileID: 5678252964880508127}
 --- !u!114 &5678252964880508127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,7 +288,7 @@ MonoBehaviour:
   _bodyCollider: {fileID: 9139317572485939363}
   _actor: {fileID: 1159787934076448869}
   _motor: {fileID: 5151846831620605605}
-  _config: {fileID: 11400000, guid: 8ab2deab853f1b84989c5b32f2678abc, type: 2}
+  _config: {fileID: 11400000, guid: 692acc1082e3c6e439f683256256531f, type: 2}
 --- !u!114 &8605942416416739224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +310,7 @@ MonoBehaviour:
   DownloadCharge: {fileID: 0}
   TargetValue: 1.5
   ThreatTrackedAsObstacle: 0
+  PassiveAttackTarget: 0
 --- !u!114 &2932177950866836890
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d9d3bd0204d2234bb7af54735526d6a, type: 3}
+  m_Name: CFG_META_Achievement_QuickAppDefeat
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Meta.AchievementDefinition
+  _achievementId: quick_app_defeat
+  _displayName: "\u62D2\u7EDD\u5F39\u7A97"
+  _description: "\u9996\u6B21\u51FB\u8D25\u5FEB\u5E94\u7528\u3002"
+  _hidden: 0
+  _triggerId: quick_app_defeated
+  _targetCount: 1
+  _icon: {fileID: 21300000, guid: b1f2e15d0989e4c4fb52582bd7d5b797, type: 3}
+  _requiredLevel: {fileID: 0}
+  _requiredChallenges: []

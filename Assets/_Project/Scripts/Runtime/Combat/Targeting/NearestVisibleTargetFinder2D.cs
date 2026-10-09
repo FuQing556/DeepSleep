@@ -36,11 +36,13 @@ namespace DeepSleep.Runtime.Combat.Targeting
         public bool TryFind(
             Vector2 origin,
             Vector2 forward,
-            out Vector2 targetPosition)
+            out Vector2 targetPosition,
+            out Collider2D target)
         {
             if (forward.sqrMagnitude <= Mathf.Epsilon)
             {
                 targetPosition = default;
+                target = null;
                 return false;
             }
 
@@ -60,7 +62,9 @@ namespace DeepSleep.Runtime.Combat.Targeting
             {
                 Collider2D candidate = _targetCandidates[index];
 
-                if (candidate == null || !candidate.isActiveAndEnabled)
+                if (candidate == null || !candidate.isActiveAndEnabled ||
+                    (candidate.TryGetComponent(out DeepSleep.Runtime.Combat.Damage.DamageHitbox2D hitbox) &&
+                     !hitbox.CanReceiveDamage))
                 {
                     continue;
                 }
@@ -96,6 +100,7 @@ namespace DeepSleep.Runtime.Combat.Targeting
             }
 
             targetPosition = nearestPosition;
+            target = nearestTarget;
             return nearestTarget != null;
         }
 

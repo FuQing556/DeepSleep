@@ -1,0 +1,2368 @@
+fileFormatVersion: 2
+guid: a45d09b62a591034c815d424fb399afe
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8926341600698046872
+    second: TEX_SceneReverse_Edge_v01_0
+  - first:
+      213: -1008941193892629953
+    second: TEX_SceneReverse_Edge_v01_1
+  - first:
+      213: -9111613223085420743
+    second: TEX_SceneReverse_Edge_v01_2
+  - first:
+      213: -4283848116193767754
+    second: TEX_SceneReverse_Edge_v01_3
+  - first:
+      213: 3468168753459849383
+    second: TEX_SceneReverse_Edge_v01_4
+  - first:
+      213: -3036979177709762088
+    second: TEX_SceneReverse_Edge_v01_5
+  - first:
+      213: -8486558445501174868
+    second: TEX_SceneReverse_Edge_v01_6
+  - first:
+      213: 866467927022944061
+    second: TEX_SceneReverse_Edge_v01_7
+  - first:
+      213: -1269798603533396927
+    second: TEX_SceneReverse_Edge_v01_8
+  - first:
+      213: 4599126848378363016
+    second: TEX_SceneReverse_Edge_v01_9
+  - first:
+      213: -8687330710798260630
+    second: TEX_SceneReverse_Edge_v01_10
+  - first:
+      213: 8607802923545921486
+    second: TEX_SceneReverse_Edge_v01_11
+  - first:
+      213: 3454103401417806003
+    second: TEX_SceneReverse_Edge_v01_12
+  - first:
+      213: 7371576518011800879
+    second: TEX_SceneReverse_Edge_v01_13
+  - first:
+      213: 6014616955120286296
+    second: TEX_SceneReverse_Edge_v01_14
+  - first:
+      213: -451040666456899367
+    second: TEX_SceneReverse_Edge_v01_15
+  - first:
+      213: -3903289599992578907
+    second: TEX_SceneReverse_Edge_v01_16
+  - first:
+      213: 1425392883750441477
+    second: TEX_SceneReverse_Edge_v01_17
+  - first:
+      213: 4325282727477706620
+    second: TEX_SceneReverse_Edge_v01_18
+  - first:
+      213: 873744420766838322
+    second: TEX_SceneReverse_Edge_v01_19
+  - first:
+      213: -4481465911362032863
+    second: TEX_SceneReverse_Edge_v01_20
+  - first:
+      213: 4619415965770595595
+    second: TEX_SceneReverse_Edge_v01_21
+  - first:
+      213: -4493626558364434550
+    second: TEX_SceneReverse_Edge_v01_22
+  - first:
+      213: 5934976783418813635
+    second: TEX_SceneReverse_Edge_v01_23
+  - first:
+      213: 7400727781112073453
+    second: TEX_SceneReverse_Edge_v01_24
+  - first:
+      213: 3778177735993242999
+    second: TEX_SceneReverse_Edge_v01_25
+  - first:
+      213: 2923681677454413985
+    second: TEX_SceneReverse_Edge_v01_26
+  - first:
+      213: -8820765482483852435
+    second: TEX_SceneReverse_Edge_v01_27
+  - first:
+      213: 4744178341797564047
+    second: TEX_SceneReverse_Edge_v01_28
+  - first:
+      213: 2225426832598671766
+    second: TEX_SceneReverse_Edge_v01_29
+  - first:
+      213: -3191805928294940842
+    second: TEX_SceneReverse_Edge_v01_30
+  - first:
+      213: 7757818106119256221
+    second: TEX_SceneReverse_Edge_v01_31
+  - first:
+      213: 3827015067379009120
+    second: TEX_SceneReverse_Edge_v01_32
+  - first:
+      213: 5704170167353402691
+    second: TEX_SceneReverse_Edge_v01_33
+  - first:
+      213: 6652721448108918883
+    second: TEX_SceneReverse_Edge_v01_34
+  - first:
+      213: 874028284084948850
+    second: TEX_SceneReverse_Edge_v01_35
+  - first:
+      213: 1142610133812862610
+    second: TEX_SceneReverse_Edge_v01_36
+  - first:
+      213: 3077160731166226318
+    second: TEX_SceneReverse_Edge_v01_37
+  - first:
+      213: -8452189476154839985
+    second: TEX_SceneReverse_Edge_v01_38
+  - first:
+      213: -7319609402724028358
+    second: TEX_SceneReverse_Edge_v01_39
+  - first:
+      213: 7860687828517325936
+    second: TEX_SceneReverse_Edge_v01_40
+  - first:
+      213: 5668659236327374078
+    second: TEX_SceneReverse_Edge_v01_41
+  - first:
+      213: 3191711520740972743
+    second: TEX_SceneReverse_Edge_v01_42
+  - first:
+      213: 1220567068686420093
+    second: TEX_SceneReverse_Edge_v01_43
+  - first:
+      213: -174479377597544264
+    second: TEX_SceneReverse_Edge_v01_44
+  - first:
+      213: 8622722656382383276
+    second: TEX_SceneReverse_Edge_v01_45
+  - first:
+      213: 8533412493765601151
+    second: TEX_SceneReverse_Edge_v01_46
+  - first:
+      213: -6916427089241932047
+    second: TEX_SceneReverse_Edge_v01_47
+  - first:
+      213: 5093281601759679351
+    second: TEX_SceneReverse_Edge_v01_48
+  - first:
+      213: -6661067643684584973
+    second: TEX_SceneReverse_Edge_v01_49
+  - first:
+      213: 1070829645474113406
+    second: TEX_SceneReverse_Edge_v01_50
+  - first:
+      213: 5060305548342742164
+    second: TEX_SceneReverse_Edge_v01_51
+  - first:
+      213: 7878411607871107629
+    second: TEX_SceneReverse_Edge_v01_52
+  - first:
+      213: -4210656291623130318
+    second: TEX_SceneReverse_Edge_v01_53
+  - first:
+      213: 5757590160804137975
+    second: TEX_SceneReverse_Edge_v01_54
+  - first:
+      213: 3997344265489328869
+    second: TEX_SceneReverse_Edge_v01_55
+  - first:
+      213: 4970713553777319334
+    second: TEX_SceneReverse_Edge_v01_56
+  - first:
+      213: 8618031008466074511
+    second: TEX_SceneReverse_Edge_v01_57
+  - first:
+      213: -1447162427161402726
+    second: TEX_SceneReverse_Edge_v01_58
+  - first:
+      213: -5647176095933529060
+    second: TEX_SceneReverse_Edge_v01_59
+  - first:
+      213: -4465680523026486214
+    second: TEX_SceneReverse_Edge_v01_60
+  - first:
+      213: -5427382230217193096
+    second: TEX_SceneReverse_Edge_v01_61
+  - first:
+      213: 8390108597250875662
+    second: TEX_SceneReverse_Edge_v01_62
+  - first:
+      213: 3826364675475560253
+    second: TEX_SceneReverse_Edge_v01_63
+  - first:
+      213: -5767381419074665216
+    second: TEX_SceneReverse_Edge_v01_64
+  - first:
+      213: 101659335986527091
+    second: TEX_SceneReverse_Edge_v01_65
+  - first:
+      213: -4805020451960911760
+    second: TEX_SceneReverse_Edge_v01_66
+  - first:
+      213: -538419000107833597
+    second: TEX_SceneReverse_Edge_v01_67
+  - first:
+      213: 6247394244673149828
+    second: TEX_SceneReverse_Edge_v01_68
+  - first:
+      213: -4728203978243268875
+    second: TEX_SceneReverse_Edge_v01_69
+  - first:
+      213: -8850118737926406279
+    second: TEX_SceneReverse_Edge_v01_70
+  - first:
+      213: -3068180905475542849
+    second: TEX_SceneReverse_Edge_v01_71
+  - first:
+      213: 5181716793166318018
+    second: TEX_SceneReverse_Edge_v01_72
+  - first:
+      213: -3507043417548921752
+    second: TEX_SceneReverse_Edge_v01_73
+  - first:
+      213: 1876603194360995418
+    second: TEX_SceneReverse_Edge_v01_74
+  - first:
+      213: 8234916049639903999
+    second: TEX_SceneReverse_Edge_v01_75
+  - first:
+      213: 6886027922033565632
+    second: TEX_SceneReverse_Edge_v01_76
+  - first:
+      213: -3155227173211101567
+    second: TEX_SceneReverse_Edge_v01_77
+  - first:
+      213: -7801345044478633111
+    second: TEX_SceneReverse_Edge_v01_78
+  - first:
+      213: -6172131634718251924
+    second: TEX_SceneReverse_Edge_v01_79
+  - first:
+      213: 1787248162524755692
+    second: TEX_SceneReverse_Edge_v01_80
+  - first:
+      213: 742752021599235064
+    second: TEX_SceneReverse_Edge_v01_81
+  - first:
+      213: -8443675554064976933
+    second: TEX_SceneReverse_Edge_v01_82
+  - first:
+      213: 5849867494752704979
+    second: TEX_SceneReverse_Edge_v01_83
+  - first:
+      213: -9025488296211691582
+    second: TEX_SceneReverse_Edge_v01_84
+  - first:
+      213: 2218901967999482321
+    second: TEX_SceneReverse_Edge_v01_85
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 2
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 0
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 25
+        width: 2172
+        height: 699
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 866e992ab934f1480800000000000000
+      internalID: -8926341600698046872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_1
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 240
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3275ca64558ff1f0800000000000000
+      internalID: -1008941193892629953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_2
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 279
+        width: 54
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93fcd3b8c0c0d8180800000000000000
+      internalID: -9111613223085420743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_3
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 247
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6be4b8ac5d6bc84c0800000000000000
+      internalID: -4283848116193767754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_4
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 311
+        width: 22
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a8651b2b19612030800000000000000
+      internalID: 3468168753459849383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_5
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 244
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d90a5a478b7ad5d0800000000000000
+      internalID: -3036979177709762088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_6
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 272
+        width: 45
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cabaf4abe00b93a80800000000000000
+      internalID: -8486558445501174868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_7
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 240
+        width: 7
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3fb8772dff460c00800000000000000
+      internalID: 866467927022944061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_8
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 297
+        width: 61
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 144da14d5e4c06ee0800000000000000
+      internalID: -1269798603533396927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_9
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 266
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88cdd8a508163df30800000000000000
+      internalID: 4599126848378363016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_10
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 284
+        width: 42
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a662788feb6607780800000000000000
+      internalID: -8687330710798260630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_11
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 302
+        width: 30
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec70682272f057770800000000000000
+      internalID: 8607802923545921486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_12
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 305
+        width: 41
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b01af23eb07fef20800000000000000
+      internalID: 3454103401417806003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_13
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 309
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2d44be69c91d4660800000000000000
+      internalID: 7371576518011800879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_14
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 240
+        width: 168
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85a7cfdf046387350800000000000000
+      internalID: 6014616955120286296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_15
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 318
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d0c49057e49db9f0800000000000000
+      internalID: -451040666456899367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_16
+      rect:
+        serializedVersion: 2
+        x: 515
+        y: 318
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ac37f01acab4d9c0800000000000000
+      internalID: -3903289599992578907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_17
+      rect:
+        serializedVersion: 2
+        x: 523
+        y: 313
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5029055964308c310800000000000000
+      internalID: 1425392883750441477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_18
+      rect:
+        serializedVersion: 2
+        x: 613
+        y: 272
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7ff07c69bd760c30800000000000000
+      internalID: 4325282727477706620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_19
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 230
+        width: 30
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23e6940ebe9202c00800000000000000
+      internalID: 873744420766838322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_20
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 226
+        width: 15
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12b6e385f72aec1c0800000000000000
+      internalID: -4481465911362032863
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_21
+      rect:
+        serializedVersion: 2
+        x: 678
+        y: 224
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0d368d98567b1040800000000000000
+      internalID: 4619415965770595595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_22
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 248
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8f3d63147e63a1c0800000000000000
+      internalID: -4493626558364434550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_23
+      rect:
+        serializedVersion: 2
+        x: 714
+        y: 208
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3cc6edd80f54d5250800000000000000
+      internalID: 5934976783418813635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_24
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 210
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deccc88c4baa4b660800000000000000
+      internalID: 7400727781112073453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_25
+      rect:
+        serializedVersion: 2
+        x: 746
+        y: 180
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 775ba2c12a8ce6430800000000000000
+      internalID: 3778177735993242999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_26
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 190
+        width: 35
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a01dfccef0039820800000000000000
+      internalID: 2923681677454413985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_27
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 200
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6bd5813788569580800000000000000
+      internalID: -8820765482483852435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_28
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 207
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8e02fde015b6d140800000000000000
+      internalID: 4744178341797564047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_29
+      rect:
+        serializedVersion: 2
+        x: 828
+        y: 192
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 691aaa6d9ed42ee10800000000000000
+      internalID: 2225426832598671766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_30
+      rect:
+        serializedVersion: 2
+        x: 915
+        y: 226
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65f7efb4b6d64b3d0800000000000000
+      internalID: -3191805928294940842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_31
+      rect:
+        serializedVersion: 2
+        x: 933
+        y: 281
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d98f45ff67e49ab60800000000000000
+      internalID: 7757818106119256221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_32
+      rect:
+        serializedVersion: 2
+        x: 937
+        y: 256
+        width: 33
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06681396de94c1530800000000000000
+      internalID: 3827015067379009120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_33
+      rect:
+        serializedVersion: 2
+        x: 955
+        y: 287
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 345ea739b88492f40800000000000000
+      internalID: 5704170167353402691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_34
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 316
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3688720d8e6335c50800000000000000
+      internalID: 6652721448108918883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_35
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 240
+        width: 24
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27f0784f71c212c00800000000000000
+      internalID: 874028284084948850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_36
+      rect:
+        serializedVersion: 2
+        x: 987
+        y: 270
+        width: 30
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29e5da6ecdd5bdf00800000000000000
+      internalID: 1142610133812862610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_37
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 258
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e87b1f9a16544ba20800000000000000
+      internalID: 3077160731166226318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_38
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 310
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4cee7bf37ac3ba80800000000000000
+      internalID: -8452189476154839985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_39
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 295
+        width: 105
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a30760877068b6a90800000000000000
+      internalID: -7319609402724028358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_40
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 291
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07c030daee5c61d60800000000000000
+      internalID: 7860687828517325936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_41
+      rect:
+        serializedVersion: 2
+        x: 1158
+        y: 238
+        width: 219
+        height: 135
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: efcb706aa8f1bae40800000000000000
+      internalID: 5668659236327374078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_42
+      rect:
+        serializedVersion: 2
+        x: 1166
+        y: 120
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c8994bb7bc3b4c20800000000000000
+      internalID: 3191711520740972743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_43
+      rect:
+        serializedVersion: 2
+        x: 1174
+        y: 71
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d780899384350f010800000000000000
+      internalID: 1220567068686420093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_44
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 182
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b8caa53eef149df0800000000000000
+      internalID: -174479377597544264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_45
+      rect:
+        serializedVersion: 2
+        x: 1390
+        y: 310
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca4726222901aa770800000000000000
+      internalID: 8622722656382383276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_46
+      rect:
+        serializedVersion: 2
+        x: 1394
+        y: 254
+        width: 21
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7767cc7375cc6670800000000000000
+      internalID: 8533412493765601151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_47
+      rect:
+        serializedVersion: 2
+        x: 1406
+        y: 280
+        width: 17
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fe78d6053ae300a0800000000000000
+      internalID: -6916427089241932047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_48
+      rect:
+        serializedVersion: 2
+        x: 1414
+        y: 256
+        width: 15
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7731be5a1a8fea640800000000000000
+      internalID: 5093281601759679351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_49
+      rect:
+        serializedVersion: 2
+        x: 1422
+        y: 280
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f1055915422f83a0800000000000000
+      internalID: -6661067643684584973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_50
+      rect:
+        serializedVersion: 2
+        x: 1428
+        y: 305
+        width: 27
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e77217993e95cde00800000000000000
+      internalID: 1070829645474113406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_51
+      rect:
+        serializedVersion: 2
+        x: 1430
+        y: 254
+        width: 23
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49c48e7e511d93640800000000000000
+      internalID: 5060305548342742164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_52
+      rect:
+        serializedVersion: 2
+        x: 1432
+        y: 280
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d22b871ad9db55d60800000000000000
+      internalID: 7878411607871107629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_53
+      rect:
+        serializedVersion: 2
+        x: 1454
+        y: 262
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23b2a8a696eb095c0800000000000000
+      internalID: -4210656291623130318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_54
+      rect:
+        serializedVersion: 2
+        x: 1462
+        y: 309
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fbc3090fb117ef40800000000000000
+      internalID: 5757590160804137975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_55
+      rect:
+        serializedVersion: 2
+        x: 1470
+        y: 243
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5eaaf6d3e6b697730800000000000000
+      internalID: 3997344265489328869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_56
+      rect:
+        serializedVersion: 2
+        x: 1486
+        y: 240
+        width: 25
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6addd1524a58bf440800000000000000
+      internalID: 4970713553777319334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_57
+      rect:
+        serializedVersion: 2
+        x: 1504
+        y: 273
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8bfbeaba85699770800000000000000
+      internalID: 8618031008466074511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_58
+      rect:
+        serializedVersion: 2
+        x: 1510
+        y: 229
+        width: 11
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a92a0cc9075aaebe0800000000000000
+      internalID: -1447162427161402726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_59
+      rect:
+        serializedVersion: 2
+        x: 1520
+        y: 226
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c140ec1c24331a1b0800000000000000
+      internalID: -5647176095933529060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_60
+      rect:
+        serializedVersion: 2
+        x: 1548
+        y: 205
+        width: 62
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3c20a87937b602c0800000000000000
+      internalID: -4465680523026486214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_61
+      rect:
+        serializedVersion: 2
+        x: 1623
+        y: 191
+        width: 53
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87903abfd901ea4b0800000000000000
+      internalID: -5427382230217193096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_62
+      rect:
+        serializedVersion: 2
+        x: 1677
+        y: 190
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e01e6160157af6470800000000000000
+      internalID: 8390108597250875662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_63
+      rect:
+        serializedVersion: 2
+        x: 1701
+        y: 208
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d37d2de366af91530800000000000000
+      internalID: 3826364675475560253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_64
+      rect:
+        serializedVersion: 2
+        x: 1709
+        y: 246
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 005cddff72526ffa0800000000000000
+      internalID: -5767381419074665216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_65
+      rect:
+        serializedVersion: 2
+        x: 1711
+        y: 192
+        width: 12
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 37b3491a0aa296100800000000000000
+      internalID: 101659335986527091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_66
+      rect:
+        serializedVersion: 2
+        x: 1719
+        y: 222
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07802666b53215db0800000000000000
+      internalID: -4805020451960911760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_67
+      rect:
+        serializedVersion: 2
+        x: 1724
+        y: 200
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3076046a5c62788f0800000000000000
+      internalID: -538419000107833597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_68
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 254
+        width: 14
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48b109527f333b650800000000000000
+      internalID: 6247394244673149828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_69
+      rect:
+        serializedVersion: 2
+        x: 1741
+        y: 198
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fe983b688b026eb0800000000000000
+      internalID: -4728203978243268875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_70
+      rect:
+        serializedVersion: 2
+        x: 1746
+        y: 257
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97f3ed5d5ef0e2580800000000000000
+      internalID: -8850118737926406279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_71
+      rect:
+        serializedVersion: 2
+        x: 1778
+        y: 230
+        width: 35
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb07e7ee8b1ab65d0800000000000000
+      internalID: -3068180905475542849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_72
+      rect:
+        serializedVersion: 2
+        x: 1790
+        y: 292
+        width: 21
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c9ca5f28f729e740800000000000000
+      internalID: 5181716793166318018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_73
+      rect:
+        serializedVersion: 2
+        x: 1840
+        y: 255
+        width: 65
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 864ef15c79a745fc0800000000000000
+      internalID: -3507043417548921752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_74
+      rect:
+        serializedVersion: 2
+        x: 1848
+        y: 246
+        width: 21
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5e1040a9a80b0a10800000000000000
+      internalID: 1876603194360995418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_75
+      rect:
+        serializedVersion: 2
+        x: 1904
+        y: 295
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff213f5448c484270800000000000000
+      internalID: 8234916049639903999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_76
+      rect:
+        serializedVersion: 2
+        x: 1908
+        y: 293
+        width: 6
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0cf5b3e49e5109f50800000000000000
+      internalID: 6886027922033565632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_77
+      rect:
+        serializedVersion: 2
+        x: 1910
+        y: 272
+        width: 38
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 186a7136a916634d0800000000000000
+      internalID: -3155227173211101567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_78
+      rect:
+        serializedVersion: 2
+        x: 1947
+        y: 297
+        width: 39
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96bd89de30e0cb390800000000000000
+      internalID: -7801345044478633111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_79
+      rect:
+        serializedVersion: 2
+        x: 1983
+        y: 278
+        width: 13
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c64eaa5cafe285aa0800000000000000
+      internalID: -6172131634718251924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_80
+      rect:
+        serializedVersion: 2
+        x: 1993
+        y: 305
+        width: 33
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce6f1cc0cb49dc810800000000000000
+      internalID: 1787248162524755692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_81
+      rect:
+        serializedVersion: 2
+        x: 2067
+        y: 258
+        width: 10
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fb20a34709ce4a00800000000000000
+      internalID: 742752021599235064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_82
+      rect:
+        serializedVersion: 2
+        x: 2089
+        y: 240
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd3be41f1d902da80800000000000000
+      internalID: -8443675554064976933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_83
+      rect:
+        serializedVersion: 2
+        x: 2091
+        y: 254
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d9d6d71e77ee2150800000000000000
+      internalID: 5849867494752704979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_84
+      rect:
+        serializedVersion: 2
+        x: 2108
+        y: 226
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c74bd3b6360fb280800000000000000
+      internalID: -9025488296211691582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TEX_SceneReverse_Edge_v01_85
+      rect:
+        serializedVersion: 2
+        x: 2130
+        y: 272
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d9360a659f1bce10800000000000000
+      internalID: 2218901967999482321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TEX_SceneReverse_Edge_v01_0: -8926341600698046872
+      TEX_SceneReverse_Edge_v01_1: -1008941193892629953
+      TEX_SceneReverse_Edge_v01_10: -8687330710798260630
+      TEX_SceneReverse_Edge_v01_11: 8607802923545921486
+      TEX_SceneReverse_Edge_v01_12: 3454103401417806003
+      TEX_SceneReverse_Edge_v01_13: 7371576518011800879
+      TEX_SceneReverse_Edge_v01_14: 6014616955120286296
+      TEX_SceneReverse_Edge_v01_15: -451040666456899367
+      TEX_SceneReverse_Edge_v01_16: -3903289599992578907
+      TEX_SceneReverse_Edge_v01_17: 1425392883750441477
+      TEX_SceneReverse_Edge_v01_18: 4325282727477706620
+      TEX_SceneReverse_Edge_v01_19: 873744420766838322
+      TEX_SceneReverse_Edge_v01_2: -9111613223085420743
+      TEX_SceneReverse_Edge_v01_20: -4481465911362032863
+      TEX_SceneReverse_Edge_v01_21: 4619415965770595595
+      TEX_SceneReverse_Edge_v01_22: -4493626558364434550
+      TEX_SceneReverse_Edge_v01_23: 5934976783418813635
+      TEX_SceneReverse_Edge_v01_24: 7400727781112073453
+      TEX_SceneReverse_Edge_v01_25: 3778177735993242999
+      TEX_SceneReverse_Edge_v01_26: 2923681677454413985
+      TEX_SceneReverse_Edge_v01_27: -8820765482483852435
+      TEX_SceneReverse_Edge_v01_28: 4744178341797564047
+      TEX_SceneReverse_Edge_v01_29: 2225426832598671766
+      TEX_SceneReverse_Edge_v01_3: -4283848116193767754
+      TEX_SceneReverse_Edge_v01_30: -3191805928294940842
+      TEX_SceneReverse_Edge_v01_31: 7757818106119256221
+      TEX_SceneReverse_Edge_v01_32: 3827015067379009120
+      TEX_SceneReverse_Edge_v01_33: 5704170167353402691
+      TEX_SceneReverse_Edge_v01_34: 6652721448108918883
+      TEX_SceneReverse_Edge_v01_35: 874028284084948850
+      TEX_SceneReverse_Edge_v01_36: 1142610133812862610
+      TEX_SceneReverse_Edge_v01_37: 3077160731166226318
+      TEX_SceneReverse_Edge_v01_38: -8452189476154839985
+      TEX_SceneReverse_Edge_v01_39: -7319609402724028358
+      TEX_SceneReverse_Edge_v01_4: 3468168753459849383
+      TEX_SceneReverse_Edge_v01_40: 7860687828517325936
+      TEX_SceneReverse_Edge_v01_41: 5668659236327374078
+      TEX_SceneReverse_Edge_v01_42: 3191711520740972743
+      TEX_SceneReverse_Edge_v01_43: 1220567068686420093
+      TEX_SceneReverse_Edge_v01_44: -174479377597544264
+      TEX_SceneReverse_Edge_v01_45: 8622722656382383276
+      TEX_SceneReverse_Edge_v01_46: 8533412493765601151
+      TEX_SceneReverse_Edge_v01_47: -6916427089241932047
+      TEX_SceneReverse_Edge_v01_48: 5093281601759679351
+      TEX_SceneReverse_Edge_v01_49: -6661067643684584973
+      TEX_SceneReverse_Edge_v01_5: -3036979177709762088
+      TEX_SceneReverse_Edge_v01_50: 1070829645474113406
+      TEX_SceneReverse_Edge_v01_51: 5060305548342742164
+      TEX_SceneReverse_Edge_v01_52: 7878411607871107629
+      TEX_SceneReverse_Edge_v01_53: -4210656291623130318
+      TEX_SceneReverse_Edge_v01_54: 5757590160804137975
+      TEX_SceneReverse_Edge_v01_55: 3997344265489328869
+      TEX_SceneReverse_Edge_v01_56: 4970713553777319334
+      TEX_SceneReverse_Edge_v01_57: 8618031008466074511
+      TEX_SceneReverse_Edge_v01_58: -1447162427161402726
+      TEX_SceneReverse_Edge_v01_59: -5647176095933529060
+      TEX_SceneReverse_Edge_v01_6: -8486558445501174868
+      TEX_SceneReverse_Edge_v01_60: -4465680523026486214
+      TEX_SceneReverse_Edge_v01_61: -5427382230217193096
+      TEX_SceneReverse_Edge_v01_62: 8390108597250875662
+      TEX_SceneReverse_Edge_v01_63: 3826364675475560253
+      TEX_SceneReverse_Edge_v01_64: -5767381419074665216
+      TEX_SceneReverse_Edge_v01_65: 101659335986527091
+      TEX_SceneReverse_Edge_v01_66: -4805020451960911760
+      TEX_SceneReverse_Edge_v01_67: -538419000107833597
+      TEX_SceneReverse_Edge_v01_68: 6247394244673149828
+      TEX_SceneReverse_Edge_v01_69: -4728203978243268875
+      TEX_SceneReverse_Edge_v01_7: 866467927022944061
+      TEX_SceneReverse_Edge_v01_70: -8850118737926406279
+      TEX_SceneReverse_Edge_v01_71: -3068180905475542849
+      TEX_SceneReverse_Edge_v01_72: 5181716793166318018
+      TEX_SceneReverse_Edge_v01_73: -3507043417548921752
+      TEX_SceneReverse_Edge_v01_74: 1876603194360995418
+      TEX_SceneReverse_Edge_v01_75: 8234916049639903999
+      TEX_SceneReverse_Edge_v01_76: 6886027922033565632
+      TEX_SceneReverse_Edge_v01_77: -3155227173211101567
+      TEX_SceneReverse_Edge_v01_78: -7801345044478633111
+      TEX_SceneReverse_Edge_v01_79: -6172131634718251924
+      TEX_SceneReverse_Edge_v01_8: -1269798603533396927
+      TEX_SceneReverse_Edge_v01_80: 1787248162524755692
+      TEX_SceneReverse_Edge_v01_81: 742752021599235064
+      TEX_SceneReverse_Edge_v01_82: -8443675554064976933
+      TEX_SceneReverse_Edge_v01_83: 5849867494752704979
+      TEX_SceneReverse_Edge_v01_84: -9025488296211691582
+      TEX_SceneReverse_Edge_v01_85: 2218901967999482321
+      TEX_SceneReverse_Edge_v01_9: 4599126848378363016
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

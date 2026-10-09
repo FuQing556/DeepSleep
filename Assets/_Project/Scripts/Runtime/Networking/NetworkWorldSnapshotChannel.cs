@@ -221,6 +221,7 @@ namespace DeepSleep.Runtime.Networking
         private void Clear()
         {
             foreach (var pair in _views) { pair.Value.Clear(); _available.Push(pair.Value); }
+            foreach (var view in _available) view.ClearMotionTrail();
             _views.Clear(); _sources.Clear(); _deadThisFrame.Clear(); _receivedFrame = _frame = _nextId = 0;
         }
     }

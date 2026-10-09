@@ -8,6 +8,15 @@ namespace DeepSleep.Runtime.AppFlow
     /// <summary>主菜单场景的纯页面路由；不持有任何战斗场景对象。</summary>
     public sealed class MainMenuController : MonoBehaviour
     {
+        [System.Serializable]
+        public sealed class LevelCardTextBinding
+        {
+            public MetaLevelDefinition Level;
+            public Text Title;
+            public Text Description;
+        }
+
+        [SerializeField] private LevelCardTextBinding[] _levelCards;
         [SerializeField] private MetaLevelDefinition _prototypeLevel;
         [SerializeField] private MetaLevelDefinition _world01Level;
         [SerializeField] private GameObject _home;
@@ -50,6 +59,7 @@ namespace DeepSleep.Runtime.AppFlow
 
         private void OnEnable()
         {
+            RefreshLevelCardText();
             _startGame.onClick.AddListener(OpenLevels);
             _shopButton.onClick.AddListener(OpenShop);
             _inventoryButton.onClick.AddListener(OpenInventory);
@@ -80,6 +90,22 @@ namespace DeepSleep.Runtime.AppFlow
 
         private void Start() => Render();
 
+        /// <summary>选关显示直接读取正式定义，避免场景文案与关卡配置各存一份。</summary>
+        public void RefreshLevelCardText()
+        {
+            if (_levelCards == null) return;
+            foreach (var card in _levelCards)
+            {
+                if (card == null || card.Level == null || card.Title == null || card.Description == null)
+                {
+                    Debug.LogError("[MainMenu] 选关文字绑定不完整。", this);
+                    continue;
+                }
+                card.Title.text = card.Level.DisplayName;
+                card.Description.text = card.Level.Description;
+            }
+        }
+
         public void QuitGame()
         {
 #if UNITY_EDITOR
@@ -105,13 +131,23 @@ namespace DeepSleep.Runtime.AppFlow
 
         private void SelectPrototype()
         {
-            _selectedLevel = _prototypeLevel;
-            OpenModes();
+            SelectLevel(_prototypeLevel);
         }
 
         private void SelectWorld01()
         {
-            _selectedLevel = _world01Level;
+            SelectLevel(_world01Level);
+        }
+
+        /// <summary>新增关卡按钮显式绑定定义，复用现有单人/联机入口。</summary>
+        public void SelectLevel(MetaLevelDefinition level)
+        {
+            if (level == null || !level.Implemented)
+            {
+                Debug.LogError("[MainMenu] 选关按钮未绑定可用关卡。", this);
+                return;
+            }
+            _selectedLevel = level;
             OpenModes();
         }
 

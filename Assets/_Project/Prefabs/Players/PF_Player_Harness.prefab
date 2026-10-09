@@ -333,7 +333,6 @@ Transform:
   - {fileID: 4940953702363154762}
   - {fileID: 778777293392439926}
   - {fileID: 784525438698816617}
-  - {fileID: 968924091694493160}
   m_Father: {fileID: 3379439028853076217}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2847555151651622417
@@ -802,12 +801,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4068629304217769587}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 325012856615255416}
+  m_Father: {fileID: 2284403947702677328}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3031047924641627579
 SpriteRenderer:
@@ -854,8 +853,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: -291232263
-  m_SortingLayer: 2
+  m_SortingLayerID: 143349531
+  m_SortingLayer: 4
   m_SortingOrder: 6
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 40770aa0ddaa074449e983977321445b, type: 3}
@@ -1475,6 +1474,7 @@ Transform:
   - {fileID: 8444892037243392373}
   - {fileID: 2845998162578035920}
   - {fileID: 2842185243092484675}
+  - {fileID: 968924091694493160}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &3974650380107878940
@@ -1556,6 +1556,7 @@ MonoBehaviour:
   body: {fileID: 3974650380107878940}
   bodyCollider: {fileID: 5560572656795370052}
   config: {fileID: 11400000, guid: 3ae7ed534f7592b4d93283616e93bdff, type: 2}
+  SceneEffects: {fileID: 0}
 --- !u!114 &8123551487015862456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1723,6 +1724,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Players.Health.PlayerDamageReceiver2D
   _health: {fileID: 8689099493400434673}
   _config: {fileID: 11400000, guid: 758f7382ca747c54a85073d742535529, type: 2}
+  _movementMotor: {fileID: 3822380466900079879}
 --- !u!114 &5744885908775775762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1737,6 +1739,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Damage.DamageHitbox2D
   _receiverComponent: {fileID: 7135039378945216463}
   _hitMotionReceiverComponent: {fileID: 0}
+  UseReceiverHitFeedback: 0
+  StopsPiercingBeams: 0
+  DamageNumberAnchor: {fileID: 0}
 --- !u!114 &5425549424486569485
 MonoBehaviour:
   m_ObjectHideFlags: 0

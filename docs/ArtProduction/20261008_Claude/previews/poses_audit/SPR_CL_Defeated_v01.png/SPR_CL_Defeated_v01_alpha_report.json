@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261008_Claude\\raw\\SPR_CL_Defeated_v01.png",
+  "source_sha256": "75b3301e6f58dba524528eb12a1d734fefcb77a59e6fc1aacdf7e32a62cd8461",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 917358,
+  "partial_alpha_pixels": 654151,
+  "opaque_pixels": 1007,
+  "visible_bbox_alpha_gt_0": [
+    25,
+    17,
+    1228,
+    1222
+  ],
+  "visible_bbox_alpha_gt_8": [
+    255,
+    32,
+    1132,
+    1220
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

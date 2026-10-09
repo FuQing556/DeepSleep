@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261008_Claude\\raw\\VFX_CL_EnergyDissipation_v02_CANDIDATE.png",
+  "source_sha256": "9d6e3c81d80995f161e68cf6d857038d5f71f49237928bc6e209ab76bb458a88",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 1060528,
+  "partial_alpha_pixels": 511983,
+  "opaque_pixels": 5,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    17,
+    1253,
+    1254
+  ],
+  "visible_bbox_alpha_gt_8": [
+    214,
+    247,
+    1051,
+    1055
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

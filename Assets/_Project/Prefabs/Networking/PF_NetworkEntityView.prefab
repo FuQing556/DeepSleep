@@ -710,6 +710,10 @@ MonoBehaviour:
   - {fileID: 8651361179386961129}
   Group: {fileID: 8897757069371123528}
   HitFlash: {fileID: 7478544049662760698}
+  MotionTrailPrefab: {fileID: 6933376168561185919, guid: 65eb2a53a36302440a9f68af43775a6a, type: 3}
+  MotionTrailSprite: {fileID: 21300000, guid: b572c1239365cd545beda28da38144eb, type: 3}
+  WrappingTrailSprite: {fileID: 21300000, guid: b1f2e15d0989e4c4fb52582bd7d5b797, type: 3}
+  WrappingPlayfield: {fileID: 11400000, guid: fcfe09c9517aa5549a0fbd1cee78fa5a, type: 2}
 --- !u!210 &8897757069371123528
 SortingGroup:
   m_ObjectHideFlags: 0

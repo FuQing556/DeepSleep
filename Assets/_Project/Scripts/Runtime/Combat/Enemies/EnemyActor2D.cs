@@ -22,6 +22,12 @@ namespace DeepSleep.Runtime.Combat.Enemies
 
         public event Action<EnemyActor2D, EnemyDespawnRequest2D>
             DespawnRequested;
+        public event Action<EnemyDespawnRequest2D> ContactImpacted;
+        public event Action PresentationReset;
+        public void ResetPresentation() => PresentationReset?.Invoke();
+        public void NotifyContactImpact(Vector2 point, Vector2 direction)
+            => ContactImpacted?.Invoke(new EnemyDespawnRequest2D(EnemyDespawnReason.ContactImpact,
+                point, transform.eulerAngles.z, direction));
 
         public HealthComponent Health => _health;
         public uint SpawnGeneration { get; private set; }

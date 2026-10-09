@@ -48,7 +48,7 @@ MonoBehaviour:
     _effectPerRank: 1
   - _id: 12
     _displayName: "\u996D\u56E2\u6247\u9635"
-    _description: "\u5F39\u9053+1\uFF0C\u5728\u524D\u65B960\u5EA6\u8303\u56F4\u5185\u5747\u5206\uFF0C\u4E0D\u989D\u5916\u590D\u5236\u9501\u5B9A\u5F39\u3002"
+    _description: "\u5F39\u9053+1\u3002\u4FDD\u7559\u6B63\u5BF9\u76EE\u6807\u7684\u4E3B\u5F39\u9053\uFF0C\u4FA7\u5F39\u9053\u4F9D\u6B21\u589E\u52A0\u81F3\u5DE6\u53F315\u5EA6\u300130\u5EA6\uFF1B\u5076\u6570\u5F39\u9053\u989D\u5916\u4E00\u53D1\u5DE6\u53F3\u4EA4\u66FF\u3002"
     _icon: {fileID: 21300000, guid: 4c69cdd61905bf547bb16d70582e2dd2, type: 3}
     _eligibleRoles: 1
     _ownershipScope: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
     _effect: 3
     _effectPerRank: 1
   - _id: 11
-    _displayName: "\u996D\u56E2\u52A0\u901F"
+    _displayName: "\u996D\u56E2\u901F\u5C04"
     _description: "\u996D\u56E2\u653B\u51FB\u9891\u7387\u589E\u52A0\u57FA\u7840\u503C\u768450%\u3002"
     _icon: {fileID: 21300000, guid: 6b64d8400ebd87148bd657243d52bd5c, type: 3}
     _eligibleRoles: 1
@@ -70,7 +70,7 @@ MonoBehaviour:
     _effectPerRank: 0.5
   - _id: 13
     _displayName: "\u591A\u76EE\u6807\u6821\u51C6"
-    _description: "\u9700\u5148\u83B7\u5F97\u996D\u56E2\u6247\u9635\u3002\u5404\u5F39\u9053\u57288\u5EA6\u5185\u6821\u51C6\u4E0D\u540C\u76EE\u6807\uFF1B\u65E0\u76EE\u6807\u4FDD\u6301\u539F\u65B9\u5411\u3002"
+    _description: "\u9700\u5148\u83B7\u5F97\u996D\u56E2\u6247\u9635\u3002\u4EC5\u4FA7\u5F39\u9053\u57288\u5EA6\u5185\u6821\u51C6\u5176\u4ED6\u4E0D\u540C\u76EE\u6807\uFF1B\u65E0\u76EE\u6807\u4FDD\u6301\u539F\u65B9\u5411\uFF0C\u4E3B\u5F39\u9053\u59CB\u7EC8\u7784\u51C6\u5F53\u524D\u76EE\u6807\u3002"
     _icon: {fileID: 21300000, guid: 74d857d713d354342887a807c45ec47e, type: 3}
     _eligibleRoles: 1
     _ownershipScope: 0
@@ -102,7 +102,7 @@ MonoBehaviour:
     _effect: 5
     _effectPerRank: 1
   - _id: 24
-    _displayName: "\u9012\u5F52\u8FDE\u9501"
+    _displayName: "\u7EC8\u7AEF\u8FDE\u9501"
     _description: "\u8FDE\u9501\u5C42\u7EA7+1\uFF0C\u6BCF\u7EA7\u4F24\u5BB3\u51CF\u534A\uFF0C\u4ECD\u8D2F\u7A7F\u3002\u8FD1\u6218\u5251\u4E0E\u5251\u6C14\u8303\u56F4+15%\uFF0C\u89D2\u8272\u4E0D\u53D8\u3002"
     _icon: {fileID: 21300000, guid: 3122408d11cc90147b69af8b13bb1515, type: 3}
     _eligibleRoles: 2

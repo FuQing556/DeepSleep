@@ -6,8 +6,8 @@
 
 1. 退出 Play，保存已修改的场景/Prefab，等 Unity 导入、编译结束；Console 不应有编译红错。
 2. 打开 **File → Build Profiles**，选择 Android。沿用当前配置：APK（不勾 Build App Bundle）、非 Development Build、IL2CPP、ARM64；不要临时更换后端或清缓存。
-3. 检查构建场景只有这四个，且 Boot 排第一：`Boot`、`MainMenu`、`Gameplay_Prototype`、`World01_EarlyInternet`（均在 `Assets/Scenes/`）。
-4. Player Settings 中更新版本号及 Android Bundle Version Code（必须递增；最新已交付 **1.1.5 / 7**，下轮不能重复使用此code）。不改包名、签名或 SDK 设置。
+3. 检查构建场景为五个，且 Boot 排第一：`Boot`、`MainMenu`、`Gameplay_Prototype`、`World01_EarlyInternet`、`World02_2066`（均在 `Assets/Scenes/`）。旧指南的四场景列表已过期，不要漏掉第二世界。
+4. Player Settings 中更新版本号及 Android Bundle Version Code（必须递增；本轮 **1.1.7 / 9**，下轮不能重复使用此code）。不改包名、签名或 SDK 设置。
 5. 点 **Build**，输出到 `Releases/v<版本>/DeepSleep-Android-v<版本>.apk`。等构建完成，检查最终成功/失败信息。不是 Build And Run，不必连接手机。
 6. 检查 APK 包名/版本/ARM64及签名，记录文件大小和 SHA256，然后交付文件。是否安装设备、实玩或上传 GitHub，另按用户指令。
 
@@ -23,7 +23,7 @@ Unity 构建时主线程忙，MCP 状态查询可能超时；**超时不等于�
 
 ## 给其他 AI 的执行指令
 
-> 仅打安卓 APK，不开发新功能，不运行本轮已延期的玩法/双端测试，不上传。打开 DeepSleep_Unity6，使用 Unity 6000.6.0f1，退出 Play、保存并等编译。保留现有 APK/IL2CPP/ARM64、包名和签名，递增版本号及 code。只打包启用的四个正式场景，沿用构建门禁，输出到 Releases/version。MCP 超时先查看 Editor.log，不重复启动构建。完成后检查 APK 签名、包名、版本、架构，报告大小、SHA256、构建警告和文件路径。遇到新权限或需要改变配置的情况先问我。
+> 仅打安卓 APK，不开发新功能，不运行本轮已延期的玩法/双端测试，不上传。打开 DeepSleep_Unity6，使用 Unity 6000.6.0f1，退出 Play、保存并等编译。保留现有 APK/IL2CPP/ARM64、包名和签名，递增版本号及 code。打包启用的五个正式场景（包括World02_2066），沿用构建门禁，输出到 Releases/version。MCP 超时先查看 Editor.log，不重复启动构建。完成后检查 APK 签名、包名、版本、架构，报告大小、SHA256、构建警告和文件路径。遇到新权限或需要改变配置的情况先问我。
 
 MCP 构建入口（先读取 `mcpforunity://custom-tools`）：
 

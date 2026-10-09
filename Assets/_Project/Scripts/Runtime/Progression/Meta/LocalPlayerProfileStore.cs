@@ -20,12 +20,15 @@ namespace DeepSleep.Runtime.Progression.Meta
         public int whaleVoucherBalance;
         public List<OwnedProductRecord> ownedProducts = new();
         public List<string> clearedLevels = new();
+        public List<string> completedChallenges = new();
         public List<string> unlockedAchievements = new();
         public List<AchievementProgressRecord> achievementProgress = new();
         public string deepSeekHeadwear;
         public string harnessHeadwear;
         public string deepSeekBackwear;
         public string harnessBackwear;
+        public string deepSeekSkin;
+        public string harnessSkin;
     }
 
     [Serializable]
@@ -42,14 +45,14 @@ namespace DeepSleep.Runtime.Progression.Meta
     [DefaultExecutionOrder(-300)]
     public sealed class LocalPlayerProfileStore : MonoBehaviour
     {
-        public const int CurrentVersion = 4;
+        public const int CurrentVersion = 6;
         private const string FileName = "profile.json";
         private const string BackupFileName = "profile.backup.json";
 
         private LocalPlayerProfileData _data;
 #if UNITY_EDITOR
         // 编辑器验证写入独立临时目录，绝不对用户存档做买入/回滚试验。
-        internal string TestSaveDirectory;
+        [SerializeField, HideInInspector] internal string TestSaveDirectory;
 #endif
 
         public event Action Changed;
@@ -101,7 +104,7 @@ namespace DeepSleep.Runtime.Progression.Meta
             else
             { if (role == PlayerRole.DeepSeek) _data.deepSeekBackwear = id; else _data.harnessBackwear = id; }
             if (!TrySave(_data, out message)) { _data = before; return false; }
-            Changed?.Invoke(); message = product == null ? "已摘下头饰" : "已佩戴 " + product.DisplayName;
+            Changed?.Invoke(); message = product == null ? "已摘下饰品" : "已佩戴 " + product.DisplayName;
             return true;
         }
 
@@ -109,6 +112,27 @@ namespace DeepSleep.Runtime.Progression.Meta
         {
             return !string.IsNullOrWhiteSpace(levelId) &&
                 _data.clearedLevels.Contains(levelId);
+        }
+
+        public string GetSkin(PlayerRole role) => role == PlayerRole.DeepSeek
+            ? _data.deepSeekSkin ?? string.Empty : _data.harnessSkin ?? string.Empty;
+
+        public bool HasCompletedChallenge(string entryId) =>
+            !string.IsNullOrWhiteSpace(entryId) && _data.completedChallenges.Contains(entryId);
+
+        public bool TrySetSkin(PlayerRole role, ShopProductDefinition product, out string message)
+        {
+            if ((role != PlayerRole.DeepSeek && role != PlayerRole.Harness) ||
+                (product != null && (!product.IsSkin || product.Skin.Role != role ||
+                    GetOwnedCount(product.ProductId) == 0 || !product.TryValidate(out _))))
+            { message = "只能为对应角色穿戴已拥有的专属服装。"; return false; }
+            string id = product != null ? product.ProductId : string.Empty;
+            if (GetSkin(role) == id) { message = string.Empty; return true; }
+            var before = Clone(_data);
+            if (role == PlayerRole.DeepSeek) _data.deepSeekSkin = id; else _data.harnessSkin = id;
+            if (!TrySave(_data, out message)) { _data = before; return false; }
+            Changed?.Invoke(); message = product == null ? "已恢复默认服装" : "已换装 " + product.DisplayName;
+            return true;
         }
 
         public bool IsAchievementUnlocked(string achievementId) =>
@@ -300,6 +324,23 @@ namespace DeepSleep.Runtime.Progression.Meta
             return true;
         }
 
+        public bool TryAwardChallengeCompletion(
+            DeepSleep.Runtime.Progression.Bestiary.BestiaryEntryDefinition entry,
+            out int awarded, out string message)
+        {
+            awarded = 0;
+            if (entry == null) { message = "图鉴挑战配置为空。"; return false; }
+            if (!entry.TryValidate(out message)) return false;
+            LocalPlayerProfileData before = Clone(_data);
+            if (!HasCompletedChallenge(entry.EntryId)) _data.completedChallenges.Add(entry.EntryId);
+            _data.whaleVoucherBalance = checked(_data.whaleVoucherBalance + entry.CompletionVoucherReward);
+            if (!TrySave(_data, out message)) { _data = before; return false; }
+            awarded = entry.CompletionVoucherReward;
+            message = awarded == 0 ? "练习挑战 · 不发放鲸元券" : "图鉴挑战奖励";
+            Changed?.Invoke();
+            return true;
+        }
+
         private LocalPlayerProfileData LoadOrCreate()
         {
             string main = SavePath;
@@ -350,15 +391,20 @@ namespace DeepSleep.Runtime.Progression.Meta
                 File.WriteAllText(temporary, JsonUtility.ToJson(data, true));
                 if (File.Exists(main))
                 {
+                    // 先保留旧主档；不让Replace删除/覆盖上一次的备份文件。
+                    // 优先原子替换；Mono/Windows替换失败时使用已有备份保护覆盖写入。
+                    File.Copy(main, backup, true);
                     try
                     {
-                        File.Replace(temporary, main, backup);
+                        File.Replace(temporary, main, null);
                     }
                     catch (PlatformNotSupportedException)
                     {
-                        File.Copy(main, backup, true);
-                        File.Delete(main);
-                        File.Move(temporary, main);
+                        File.Copy(temporary, main, true);
+                    }
+                    catch (IOException)
+                    {
+                        File.Copy(temporary, main, true);
                     }
                 }
                 else
@@ -421,6 +467,9 @@ namespace DeepSleep.Runtime.Progression.Meta
             data.version = CurrentVersion;
             data.ownedProducts ??= new List<OwnedProductRecord>();
             data.clearedLevels ??= new List<string>();
+            data.completedChallenges ??= new List<string>();
+            var challengeIds = new HashSet<string>();
+            data.completedChallenges.RemoveAll(id => string.IsNullOrWhiteSpace(id) || !challengeIds.Add(id));
             data.unlockedAchievements ??= new List<string>();
             data.achievementProgress ??=
                 new List<AchievementProgressRecord>();
@@ -439,6 +488,8 @@ namespace DeepSleep.Runtime.Progression.Meta
             if (!productIds.Contains(data.harnessHeadwear ?? string.Empty)) data.harnessHeadwear = string.Empty;
             if (!productIds.Contains(data.deepSeekBackwear ?? string.Empty)) data.deepSeekBackwear = string.Empty;
             if (!productIds.Contains(data.harnessBackwear ?? string.Empty)) data.harnessBackwear = string.Empty;
+            if (!productIds.Contains(data.deepSeekSkin ?? string.Empty)) data.deepSeekSkin = string.Empty;
+            if (!productIds.Contains(data.harnessSkin ?? string.Empty)) data.harnessSkin = string.Empty;
             for (int index = data.clearedLevels.Count - 1; index >= 0; index--)
             {
                 string id = data.clearedLevels[index];

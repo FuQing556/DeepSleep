@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261008_Claude\\raw\\VFX_CL_EnergyCore_v01_CANDIDATE.png",
+  "source_sha256": "77f2deec71c337f6beadd03a68b592002f97ec7743def699f0d7e856249bf26c",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    254
+  ],
+  "transparent_pixels": 541322,
+  "partial_alpha_pixels": 1031194,
+  "opaque_pixels": 0,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    19,
+    1253,
+    1254
+  ],
+  "visible_bbox_alpha_gt_8": [
+    77,
+    85,
+    1174,
+    1145
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

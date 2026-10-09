@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Meta.ShopProductDefinition
   _productId: little_wings
   _displayName: "\u5C0F\u7FC5\u8180"
-  _description: "\u6C38\u4E45\u80CC\u9970 \xB7 \u65E0\u5C5E\u6027 \xB7 \u53EF\u4E0E\u7687\u51A0\u540C\u65F6\u4F69\u6234"
-  _price: 20
+  _description: "\u80CC\u9970 \xB7 \u6C38\u4E45\u6301\u6709 \xB7 \u65E0\u5C5E\u6027\u52A0\u6210\n\u53CC\u89D2\u8272\u72EC\u7ACB\u4F69\u6234\uFF0C\u53EF\u4E0E\u524D\u9970\u540C\u65F6\u4F69\u6234\u3002"
+  _price: 10
   _icon: {fileID: 21300000, guid: 8e458caa42c286148941a98b0c28c2d0, type: 3}
   _repeatable: 0
   _isHeadwear: 0
   _isBackwear: 1
+  _skin: {fileID: 0}

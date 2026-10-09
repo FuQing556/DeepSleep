@@ -56,7 +56,7 @@ namespace DeepSleep.Editor.Diagnostics
         {
             int checks=0; void Check(bool value,string reason){checks++;if(!value)throw new Exception(reason);}
             var crown=AssetDatabase.LoadAssetAtPath<HeadwearDefinition>(HeadwearInstaller.DefinitionPath);
-            Check(crown!=null && crown.Product.Price==20 && !crown.Product.Repeatable && crown.Product.IsHeadwear,"Product config");
+            Check(crown!=null && crown.Product.Price==10 && !crown.Product.Repeatable && crown.Product.IsHeadwear,"Product config");
             var root=new GameObject("HeadwearChecks");root.SetActive(false);
             string dir=Path.GetFullPath(Path.Combine("Temp","HeadwearChecks",Guid.NewGuid().ToString("N")));
             try
@@ -64,14 +64,14 @@ namespace DeepSleep.Editor.Diagnostics
                 var profile=root.AddComponent<LocalPlayerProfileStore>();
                 Set(profile,"TestSaveDirectory",dir);
                 Type dataType=typeof(LocalPlayerProfileStore).Assembly.GetType("DeepSleep.Runtime.Progression.Meta.LocalPlayerProfileData");
-                Set(profile,"_data",JsonUtility.FromJson("{\"version\":2,\"whaleVoucherBalance\":19}",dataType));
+                Set(profile,"_data",JsonUtility.FromJson("{\"version\":2,\"whaleVoucherBalance\":9}",dataType));
                 var normalize=typeof(LocalPlayerProfileStore).GetMethod("TryNormalize",BindingFlags.Static|BindingFlags.NonPublic);
                 Check((bool)normalize.Invoke(null,new[]{Get(profile,"_data")}),"Migrate v2");
                 Check(profile.GetHeadwear(PlayerRole.DeepSeek)=="","Old profile no headwear");
                 Check(!profile.TrySetHeadwear(PlayerRole.DeepSeek,crown.Product,out _),"Reject unowned equipment");
-                Check(!profile.TryPurchase(crown.Product,out _) && profile.WhaleVoucherBalance==19,"Reject insufficient currency");
-                Get(profile,"_data").GetType().GetField("whaleVoucherBalance").SetValue(Get(profile,"_data"),20);
-                Check(profile.TryPurchase(crown.Product,out _) && profile.WhaleVoucherBalance==0 && profile.GetOwnedCount(crown.Product.ProductId)==1,"Buy for20");
+                Check(!profile.TryPurchase(crown.Product,out _) && profile.WhaleVoucherBalance==9,"Reject insufficient currency");
+                Get(profile,"_data").GetType().GetField("whaleVoucherBalance").SetValue(Get(profile,"_data"),10);
+                Check(profile.TryPurchase(crown.Product,out _) && profile.WhaleVoucherBalance==0 && profile.GetOwnedCount(crown.Product.ProductId)==1,"Buy for10");
                 Check(!profile.TryPurchase(crown.Product,out _),"Reject duplicate");
                 Check(profile.TrySetHeadwear(PlayerRole.DeepSeek,crown.Product,out _),"Equip DS");
                 Check(profile.GetHeadwear(PlayerRole.Harness)=="","Role isolation");
@@ -82,10 +82,10 @@ namespace DeepSleep.Editor.Diagnostics
                 Set(profile,"_data",reloaded);Check((bool)normalize.Invoke(null,new[]{reloaded}),"Saved profile valid");
                 Check(profile.GetHeadwear(PlayerRole.DeepSeek)==crown.Product.ProductId && profile.GetHeadwear(PlayerRole.Harness)==crown.Product.ProductId,"Both roles survive reload");
                 var wings=AssetDatabase.LoadAssetAtPath<HeadwearDefinition>(BackwearInstaller.DefinitionPath);
-                Check(wings!=null && wings.Product.Price==20 && wings.Product.Slot==AccessorySlot.Back && !wings.Product.Repeatable,"Wings product");
+                Check(wings!=null && wings.Product.Price==10 && wings.Product.Slot==AccessorySlot.Back && !wings.Product.Repeatable,"Wings product");
                 Check(!profile.TrySetAccessory(PlayerRole.DeepSeek,AccessorySlot.Back,wings.Product,out _),"Unowned backwear rejected");
-                Get(profile,"_data").GetType().GetField("whaleVoucherBalance").SetValue(Get(profile,"_data"),20);
-                Check(profile.TryPurchase(wings.Product,out _) && profile.WhaleVoucherBalance==0,"Wings cost20");
+                Get(profile,"_data").GetType().GetField("whaleVoucherBalance").SetValue(Get(profile,"_data"),10);
+                Check(profile.TryPurchase(wings.Product,out _) && profile.WhaleVoucherBalance==0,"Wings cost10");
                 Check(!profile.TryPurchase(wings.Product,out _),"Wings permanent nonrepeatable");
                 foreach(var role in new[]{PlayerRole.DeepSeek,PlayerRole.Harness})
                 {
@@ -108,7 +108,7 @@ namespace DeepSleep.Editor.Diagnostics
                     Check(pose.Pose!=null && pose.WidthRatio>0 && pose.Anchor.x>=0 && pose.Anchor.x<=1 && pose.Anchor.y>=0 && pose.Anchor.y<=1,"Pose anchor valid");
                     Check(crown.TryGetPose(pose.Pose,out var found) && found.Anchor==pose.Anchor,"Pose lookup");
                 }
-                Check(crown.Poses.Select(p=>p.Pose).Distinct().Count()==9,"Nine unique gameplay poses");
+                Check(crown.Poses.Length>=9 && crown.Poses.Select(p=>p.Pose).Distinct().Count()==crown.Poses.Length,"Unique original and skin poses");
                 var channel=root.AddComponent<HeadwearSessionPresenter>();var session=root.AddComponent<CoopSessionController>();
                 var transport=new Capture();Set(session,"_transport",transport);
                 session.Config=AssetDatabase.LoadAssetAtPath<NetworkTuningConfig>("Assets/_Project/Configs/Networking/CFG_Network.asset");

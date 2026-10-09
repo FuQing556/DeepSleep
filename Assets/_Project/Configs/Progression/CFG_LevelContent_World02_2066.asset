@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6706fd2f862ca5459a5f95910a75a0d, type: 3}
+  m_Name: CFG_LevelContent_World02_2066
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Levels.LevelContentManifest
+  _enemies:
+  - _entryId: enemy-a815017bee6cbbd4087e12e8b402ef6d
+    _channel: {fileID: 11400000, guid: a815017bee6cbbd4087e12e8b402ef6d, type: 2}
+    _runtimePrefab: {fileID: 1288936916379884853, guid: ac23a44213c11ac4b9c8c874f98acf65, type: 3}
+    _enemyPrefab: {fileID: 6318783156667337981, guid: b1820c5c2bd07be4299985618239f97f, type: 3}
+  - _entryId: enemy-25500160a77fbed47ae3a9f44bd4833c
+    _channel: {fileID: 11400000, guid: 25500160a77fbed47ae3a9f44bd4833c, type: 2}
+    _runtimePrefab: {fileID: 2509532023061632020, guid: 760d36186e125014aa7fa75d3b6200da, type: 3}
+    _enemyPrefab: {fileID: 3247942948499192296, guid: fcc40d4ee2249cd4087a75572377584e, type: 3}
+  - _entryId: download
+    _channel: {fileID: 11400000, guid: 6b940fd41def9c841a688cb8a1820b43, type: 2}
+    _runtimePrefab: {fileID: 4964292152936606169, guid: 0cc8693bcdcef5342ae4697616d44188, type: 3}
+    _enemyPrefab: {fileID: 739013821261481618, guid: 97e344869497e2146864d1b482b2bf33, type: 3}
+  - _entryId: security-guard
+    _channel: {fileID: 11400000, guid: 5f730163644b84c4cba76dbacb764f29, type: 2}
+    _runtimePrefab: {fileID: 1787025652481311593, guid: c38d8d446ba072f42acce0a31f776083, type: 3}
+    _enemyPrefab: {fileID: 1159787934076448869, guid: ba7801a03dc88984282eae2fffa3ef0a, type: 3}
+  - _entryId: recursive-large
+    _channel: {fileID: 11400000, guid: 8edbfff11732db143883184d6b5789b5, type: 2}
+    _runtimePrefab: {fileID: 7002300642246006209, guid: e50ccc88b8bebbd408869da288c9c321, type: 3}
+    _enemyPrefab: {fileID: 5671865729729008795, guid: 0e69934655e40d94fbd42079b51d6908, type: 3}
+  - _entryId: recursive-medium
+    _channel: {fileID: 11400000, guid: 86459c521ad5a544d9a153220dfcd180, type: 2}
+    _runtimePrefab: {fileID: 1858087242989547887, guid: 242f0e8c065ce474b90a566eafc44f81, type: 3}
+    _enemyPrefab: {fileID: 5457622259272920183, guid: 171352ca0396cdf45aacc1b37b68287f, type: 3}
+  - _entryId: recursive-small
+    _channel: {fileID: 11400000, guid: aa20bcf8132ca2742a80906a0be82fd4, type: 2}
+    _runtimePrefab: {fileID: 5800297873112777241, guid: 0896efebb6778fb4a9afca9690a7c941, type: 3}
+    _enemyPrefab: {fileID: 6866523816104168332, guid: 1201a21219523c94cac6f2333415b8f8, type: 3}
+  - _entryId: quick-app
+    _channel: {fileID: 11400000, guid: 8dd170f8915c2c24b86983585dcc112a, type: 2}
+    _runtimePrefab: {fileID: 828705992821356520, guid: 5bc494b0d5b9bda44abd78854ce5185c, type: 3}
+    _enemyPrefab: {fileID: 5946962874049380401, guid: 5e99e2b3829c3d74784921f1bbb22d50, type: 3}

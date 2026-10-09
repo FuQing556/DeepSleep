@@ -16,7 +16,8 @@ namespace DeepSleep.Runtime.Presentation.Effects
         private readonly List<OneShotSpriteEffect2D> _all = new();
         private System.Random _visualRandom;
         private bool _isInitialized;
-        private bool _hasReportedExhaustion;
+        private ulong _playSequence;
+        public uint RecycledCount { get; private set; }
 
         public int TotalCount => _all.Count;
         public int ActiveCount => _all.Count - _available.Count;
@@ -75,8 +76,11 @@ namespace DeepSleep.Runtime.Presentation.Effects
             }
             else
             {
-                ReportExhaustionOnce();
-                return false;
+                // 这是纯表现池：满池复用最早的一次播放，不丢新命中，也不无限扩容。
+                effect = _all[0];
+                for(int i=1;i<_all.Count;i++)if(_all[i].PoolPlaySequence<effect.PoolPlaySequence)effect=_all[i];
+                effect.PrepareForPool();
+                RecycledCount++;
             }
 
             float rotationMagnitude = NextFloat(
@@ -84,6 +88,7 @@ namespace DeepSleep.Runtime.Presentation.Effects
                 _config.MaximumRotationDegrees);
             float rotationDirection =
                 _visualRandom.Next(0, 2) == 0 ? -1f : 1f;
+            effect.PoolPlaySequence=++_playSequence;
             effect.Play(
                 position,
                 baseRotationDegrees,
@@ -138,7 +143,6 @@ namespace DeepSleep.Runtime.Presentation.Effects
         {
             effect.PrepareForPool();
             _available.Push(effect);
-            _hasReportedExhaustion = false;
         }
 
         private float NextFloat(float minimum, float maximum)
@@ -149,18 +153,5 @@ namespace DeepSleep.Runtime.Presentation.Effects
                 (float)_visualRandom.NextDouble());
         }
 
-        private void ReportExhaustionOnce()
-        {
-            if (_hasReportedExhaustion)
-            {
-                return;
-            }
-
-            Debug.LogWarning(
-                $"[{nameof(OneShotSpriteEffectPool2D)}] " +
-                $"特效池达到上限 {_config.MaximumCount}，跳过本次播放。",
-                this);
-            _hasReportedExhaustion = true;
-        }
     }
 }

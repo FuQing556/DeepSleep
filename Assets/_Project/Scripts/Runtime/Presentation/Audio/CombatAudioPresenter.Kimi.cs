@@ -14,7 +14,7 @@ namespace DeepSleep.Runtime.Presentation.Audio
         private void StopKimiFlute() { if (_fluteHandle != 0 && Audio != null) Audio.StopLoop(_fluteHandle, .08f); _fluteHandle = 0; }
         public void PublishContentCue(AudioCue cue, Vector2 point, float minimumInterval = .06f)
         {
-            if (cue < AudioCue.KimiReveal || cue > AudioCue.GuardImpact) return;
+            if (cue < AudioCue.KimiReveal || cue > AudioCue.SceneStateEnd) return;
             Publish((Fact)((int)Fact.KimiReveal + (int)cue - (int)AudioCue.KimiReveal), PlayerRole.DeepSeek, point, minimumInterval);
         }
         private Vector2 KimiPoint => Kimi.Boss.transform.position;

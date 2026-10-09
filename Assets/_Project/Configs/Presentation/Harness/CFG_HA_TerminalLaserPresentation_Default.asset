@@ -44,7 +44,8 @@ MonoBehaviour:
   _hitEffectMinimumRotationDegrees: 35
   _hitEffectMaximumRotationDegrees: 85
   _hitEffectColor: {r: 1, g: 1, b: 1, a: 1}
-  _hitEffectPoolPrewarmCount: 8
+  _hitEffectPoolPrewarmCount: 32
+  _hitEffectPoolMaximumCount: 128
   _firePoseHoldSeconds: 0.18
   _poseGhostFadeSeconds: 0.32
   _poseGhostStartAlpha: 0.38

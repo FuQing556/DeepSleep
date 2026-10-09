@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Meta.ShopProductDefinition
   _productId: little_crown
   _displayName: "\u5C0F\u7687\u51A0"
-  _description: "\u6C38\u4E45\u5934\u9970 \xB7 \u65E0\u5C5E\u6027\u52A0\u6210 \xB7 \u53CC\u89D2\u8272\u72EC\u7ACB\u4F69\u6234"
-  _price: 20
+  _description: "\u524D\u9970 \xB7 \u6C38\u4E45\u6301\u6709 \xB7 \u65E0\u5C5E\u6027\u52A0\u6210\n\u53CC\u89D2\u8272\u72EC\u7ACB\u4F69\u6234\uFF0C\u53EF\u4E0E\u80CC\u9970\u540C\u65F6\u4F69\u6234\u3002"
+  _price: 10
   _icon: {fileID: -3487156419421943455, guid: 27d2e00d88dd5214390cfe0d9a699ae9, type: 3}
   _repeatable: 0
   _isHeadwear: 1
+  _isBackwear: 0
+  _skin: {fileID: 0}

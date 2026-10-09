@@ -11,7 +11,7 @@ namespace DeepSleep.Runtime.Networking
     /// </summary>
     public static class NetworkMessageCatalog
     {
-        public const ushort ProtocolVersion = 9;
+        public const ushort ProtocolVersion = 18;
         public enum Direction { AuthorityToPeer, PeerToAuthority }
 
         // 仅补现有表现消息没有的动作边沿；激光/剑波/盾挡/角色受伤仍复用原消息。
@@ -21,7 +21,11 @@ namespace DeepSleep.Runtime.Networking
             GuardStarted, GuardEnded, SlashDown, SlashUp, SlashSweep, PlayerDown,
             ReviveStarted, ReviveCancelled, ReviveCompleted, BubblePopped, BossRevealed, BossDefeated,
             EnemyDefeated, SnakeFired, BubbleImpacted, EncounterStarted,
-            KimiReveal, KimiPhase, KimiMoonWarn, KimiMoonFire, KimiPrism, KimiOrb, KimiReflect, KimiMirrorBreak, KimiLaserCharge, KimiLaserFire, KimiFlute, KimiTide, KimiInterrupt, KimiDefeat, KimiHit, DownloadCharge, DownloadDash, DownloadDefeat, DownloadImpact, GuardBlockMetal, GuardDefeat, GuardImpact
+            KimiReveal, KimiPhase, KimiMoonWarn, KimiMoonFire, KimiPrism, KimiOrb, KimiReflect, KimiMirrorBreak, KimiLaserCharge, KimiLaserFire, KimiFlute, KimiTide, KimiInterrupt, KimiDefeat, KimiHit, DownloadCharge, DownloadDash, DownloadDefeat, DownloadImpact, GuardBlockMetal, GuardDefeat, GuardImpact,
+            RecursiveHit, RecursiveSplit, RecursiveDefeat, RecursiveImpact, QuickAppImpact, QuickAppDefeat,
+            ClaudeReveal, ClaudePhase, ClaudeCutWarning, ClaudeCutFire, ClaudeTrackingLock, ClaudeTrackingFire,
+            ClaudeEnergyCharge, ClaudeEnergyFire, ClaudeEnergyBurst, ClaudeBookOpen, ClaudeBookSeal, ClaudeBookBreak,
+            ClaudeHit, ClaudeImpact, ClaudeDefeat, SceneStateWarning, SceneStateStart, SceneStateEnd
         }
 
         public static class Authority
@@ -37,6 +41,8 @@ namespace DeepSleep.Runtime.Networking
             public const byte UpgradeResult = 49;
             public const byte KimiSnapshot = 50;
             public const byte Headwear = 51;
+            public const byte Skin = 52;
+            public const byte ClaudeSnapshot = 53;
         }
 
         public static class Peer
@@ -45,6 +51,7 @@ namespace DeepSleep.Runtime.Networking
             // 41 在反方向表示准备请求；不是 Authority.CombatFeedback 的另一个订阅者。
             public const byte RestNodeReady = 41, UpgradeRequest = 43;
             public const byte Headwear = 52;
+            public const byte Skin = 53;
         }
 
         public readonly struct Definition
@@ -67,7 +74,7 @@ namespace DeepSleep.Runtime.Networking
             A(Authority.Start, nameof(Authority.Start), 0), A(Authority.Room, nameof(Authority.Room), 8),
             P(Peer.Ready, nameof(Peer.Ready), 1), P(Peer.Control, nameof(Peer.Control), 1),
             P(Peer.Input, nameof(Peer.Input), 29),
-            A(Authority.PlayerSnapshot, nameof(Authority.PlayerSnapshot), 242),
+            A(Authority.PlayerSnapshot, nameof(Authority.PlayerSnapshot), 266),
             A(Authority.WorldEntity, nameof(Authority.WorldEntity), 38, 38 + 59 * 255),
             A(Authority.WorldDespawn, nameof(Authority.WorldDespawn), 8),
             A(Authority.Effect, nameof(Authority.Effect), 18),
@@ -79,9 +86,9 @@ namespace DeepSleep.Runtime.Networking
             A(Authority.CombatFeedback, nameof(Authority.CombatFeedback), 29),
             P(Peer.RestNodeReady, nameof(Peer.RestNodeReady), 1),
             A(Authority.UpgradeSnapshot, nameof(Authority.UpgradeSnapshot), 40, 40 + 3 * 255),
-            P(Peer.UpgradeRequest, nameof(Peer.UpgradeRequest), 2, 3),
+            P(Peer.UpgradeRequest, nameof(Peer.UpgradeRequest), 2, 10),
             A(Authority.TokenBalance, nameof(Authority.TokenBalance), 13),
-            A(Authority.ChapterState, nameof(Authority.ChapterState), 35),
+            A(Authority.ChapterState, nameof(Authority.ChapterState), 39),
             A(Authority.PlayerHitFeedback, nameof(Authority.PlayerHitFeedback), 17),
             A(Authority.DoubaoSnapshot, nameof(Authority.DoubaoSnapshot), 32, MaximumPayloadBytes),
             // uint context, uint sequence, byte kind, byte sourceRole, float2 position.
@@ -90,7 +97,11 @@ namespace DeepSleep.Runtime.Networking
             A(Authority.UpgradeResult, nameof(Authority.UpgradeResult), 10),
             A(Authority.KimiSnapshot, nameof(Authority.KimiSnapshot), KimiEncounterNetworkChannel.PayloadBytes),
             A(Authority.Headwear, nameof(Authority.Headwear), 8),
-            P(Peer.Headwear, nameof(Peer.Headwear), 8)
+            P(Peer.Headwear, nameof(Peer.Headwear), 8),
+            A(Authority.Skin, nameof(Authority.Skin), 2),
+            P(Peer.Skin, nameof(Peer.Skin), 2),
+            A(Authority.ClaudeSnapshot, nameof(Authority.ClaudeSnapshot),
+                ClaudeEncounterNetworkChannel.MinimumPayloadBytes, ClaudeEncounterNetworkChannel.MaximumPayloadBytes)
         };
         public static IReadOnlyList<Definition> Definitions { get; } = Array.AsReadOnly(Entries);
 
@@ -177,13 +188,16 @@ namespace DeepSleep.Runtime.Networking
             switch (id)
             {
                 case Peer.Headwear: c.Skip(8); break;
+                case Peer.Skin: c.Skip(2); break;
                 case Peer.Ready: case Peer.Control: case Peer.RestNodeReady: c.Bool(); break;
                 case Peer.Input:
                     c.Skip(16); // epoch、命令序号、模拟刻、两个量化方向 short。
                     c.Enum(2); c.Floats(2); for (int i = 0; i < 4; i++) c.Enum(7); break;
                 case Peer.UpgradeRequest:
                     byte request = c.Byte(); c.Enum(1);
-                    if (request == 2) c.Byte(); else if (request != 1) throw new InvalidDataException();
+                    if (request == 2) c.Byte();
+                    else if (request == 3) { if (c.UInt() > int.MaxValue || c.UInt() > int.MaxValue) throw new InvalidDataException(); }
+                    else if (request != 1) throw new InvalidDataException();
                     break;
                 default: throw new InvalidDataException();
             }
@@ -194,6 +208,7 @@ namespace DeepSleep.Runtime.Networking
             switch (id)
             {
                 case Authority.Headwear: c.Skip(8); break;
+                case Authority.Skin: c.Skip(2); break;
                 case Authority.Welcome:
                     c.Enum(1); c.Skip(4); c.Bool();
                     c.StringBytes(LevelIdentityValidation.MaximumLevelIdUtf8Bytes, 1, true); break;
@@ -238,13 +253,13 @@ namespace DeepSleep.Runtime.Networking
                     c.Enum(1); c.Enum(2); break;
                 case Authority.TokenBalance: ReadWallet(ref c); break;
                 case Authority.ChapterState:
-                    c.Enum(4); c.Enum(4); c.Skip(4); c.Float(); c.Skip(4); c.Floats(3); c.Bool(); c.Skip(4); c.Float(); break;
+                    c.Enum(4); c.Enum(4); c.Skip(4); c.Float(); c.Skip(4); c.Floats(3); c.Bool(); c.Skip(4); c.Float(); c.Skip(4); break;
                 case Authority.PlayerHitFeedback:
                     c.Skip(4); c.Enum(1);
                     if (Math.Abs(c.Float()) > 1.001f || Math.Abs(c.Float()) > 1.001f) throw new InvalidDataException();
                     float protection = c.Float(); if (protection < 0f || protection > 10f) throw new InvalidDataException(); break;
                 case Authority.CombatPresentation:
-                    c.Skip(8); c.Enum((byte)CombatPresentationKind.GuardImpact); c.Enum(1); c.Floats(2); break;
+                    c.Skip(8); c.Enum((byte)CombatPresentationKind.SceneStateEnd); c.Enum(1); c.Floats(2); break;
                 case Authority.DoubaoSnapshot:
                     c.Skip(4); c.Enum(3); c.Bool(); c.Floats(2);
                     if (c.Float() < 0f) throw new InvalidDataException();
@@ -259,6 +274,7 @@ namespace DeepSleep.Runtime.Networking
                     }
                     break;
                 case Authority.KimiSnapshot: ReadKimi(ref c); break;
+                case Authority.ClaudeSnapshot: ReadClaude(ref c); break;
                 default: throw new InvalidDataException();
             }
         }
@@ -296,11 +312,36 @@ namespace DeepSleep.Runtime.Networking
             c.Floats(2); float x = c.Float(), y = c.Float();
             if ((laser == 1 || laser == 2) && Math.Abs(x * x + y * y - 1) > .01f) throw new InvalidDataException();
             c.Floats(2); // 锁定标记的权威世界坐标；不改变已锁定的激光方向。
+            if (c.Float() < 0) throw new InvalidDataException(); // Kimi权威入场现实年龄。
         }
+        private static void ReadClaude(ref Cursor c)
+        {
+            c.Skip(4); c.Bool(); c.Enum(6); c.Bool(); c.Floats(2); Nonnegative(ref c, 1); c.Bool(); c.Enum(7); ReadHitFlash(ref c);
+            c.Enum(4);
+            for (int i = 0; i < 4; i++) { float alpha = c.Float(); if (alpha < 0 || alpha > 1) throw new InvalidDataException(); }
+            c.Bool(); c.Bool(); c.Skip(4);
+            // 有界现实钟避免损坏的时间戳触发无限时间表扩充；线格式允许最长24小时遭遇。
+            float elapsed = c.Float(); if (elapsed < 0 || elapsed > 86400) throw new InvalidDataException();
+            c.Enum(4); c.Floats(4); Nonnegative(ref c, 3);
+            c.Enum(4); c.Floats(4); Nonnegative(ref c, 3); // second energy ball
+            c.Enum(4); c.Enum(2); c.Enum(3); Nonnegative(ref c, 2); c.Float(); c.Floats(6);
+            c.Enum(2); c.Floats(6);
+            for (int i = 0; i < 6; i++) { c.Floats(4); Nonnegative(ref c, 1); }
+            c.Bool(); c.Enum(3); c.Enum(3); Nonnegative(ref c, 2);
+            for (int i = 0; i < 3; i++)
+            {
+                int count = c.Byte(); if (count > 20) throw new InvalidDataException();
+                Nonnegative(ref c, 1); c.Floats(count * 4);
+            }
+            for (int i = 0; i < 4; i++)
+            { c.Floats(2); c.Enum(1); c.Enum(2); c.Enum(2); Nonnegative(ref c, 2); c.Bool(); ReadHitFlash(ref c); }
+        }
+        private static void Nonnegative(ref Cursor c, int count)
+        { for (int i = 0; i < count; i++) if (c.Float() < 0) throw new InvalidDataException(); }
         private static void ReadPlayer(byte role, ref Cursor c)
         {
             if (role > 1) throw new InvalidDataException();
-            c.Floats(4); c.Bool(); byte facing = c.Byte();
+            c.Floats(4); c.Bool(); c.Floats(2); if (c.Float() < 0f) throw new InvalidDataException(); byte facing = c.Byte();
             if (facing != 1 && facing != 255) throw new InvalidDataException();
             c.Skip(4); c.Floats(7); c.Bool(); c.Float(); c.Floats(7);
             c.Floats(2); c.Bool(); c.Bool(); c.Floats(2); c.Bool();

@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d01de3943bc3fa4190f5eb191244ebf, type: 3}
+  m_Name: CFG_QuickApp_Motion
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Enemies.QuickAppMotionConfig
+  SpeedRange: {x: 7, y: 9}
+  AmplitudeRange: {x: 5.4, y: 7.5}
+  WavelengthRange: {x: 21, y: 28}
+  AxisTiltDegrees: 12
+  VisualTiltDegrees: 12
+  PlayerLayers:
+    serializedVersion: 2
+    m_Bits: 64

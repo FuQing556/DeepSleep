@@ -48,6 +48,8 @@ namespace DeepSleep.Runtime.Networking
             w.Write((byte)Role); w.Write(Body.position.x); w.Write(Body.position.y);
             w.Write(Body.linearVelocity.x); w.Write(Body.linearVelocity.y);
             w.Write(Actions.IsBlocked(DeepSleep.Runtime.Players.Actions.PlayerActionBlock.Movement));
+            var movement = LocalHud.DamageReceiver.MovementMotor;
+            w.Write(movement.KnockbackVelocity.x); w.Write(movement.KnockbackVelocity.y); w.Write(movement.KnockbackRemaining);
             w.Write((sbyte)Facing.CurrentDirection); w.Write(Sprites.GetId(Visual.sprite));
             WriteVector(w, Visual.transform.localPosition); WriteVector(w, Visual.transform.localScale);
             w.Write(Visual.transform.localEulerAngles.z); w.Write(Visual.enabled); w.Write(Visual.color.a);
@@ -65,6 +67,8 @@ namespace DeepSleep.Runtime.Networking
             var position = new Vector2(r.ReadSingle(), r.ReadSingle());
             var velocity = new Vector2(r.ReadSingle(), r.ReadSingle());
             bool blocked = r.ReadBoolean();
+            var knockbackVelocity = new Vector2(r.ReadSingle(), r.ReadSingle());
+            float knockbackRemaining = r.ReadSingle();
             var facing = (FacingDirection)r.ReadSByte(); uint sprite = r.ReadUInt32();
             Vector3 localPosition = ReadVector(r), localScale = ReadVector(r); float angle = r.ReadSingle();
             bool visible = r.ReadBoolean(); float alpha = r.ReadSingle();
@@ -73,7 +77,7 @@ namespace DeepSleep.Runtime.Networking
             float progress = r.ReadSingle(), protection = r.ReadSingle(); bool reviveProtection = r.ReadBoolean();
             var skill = (HudActionPhase)r.ReadByte(); float skillSeconds = r.ReadSingle(); int charges = r.ReadInt32();
             var weapon = (HudActionPhase)r.ReadByte(); float weaponSeconds = r.ReadSingle();
-            if (Prediction != null) Prediction.Reconcile(ack, position, velocity, blocked || downed);
+            if (Prediction != null) Prediction.Reconcile(ack, position, velocity, blocked || downed, knockbackVelocity, downed ? 0f : knockbackRemaining);
             _hud = new PlayerCombatHudSnapshot(health, max, downed, reviving, progress, protection, reviveProtection,
                 Session.LocalRole == Role, skill, skillSeconds, charges, weapon, weaponSeconds);
             LocalHud.Revive.ApplyReplicaProgress(reviving, progress);

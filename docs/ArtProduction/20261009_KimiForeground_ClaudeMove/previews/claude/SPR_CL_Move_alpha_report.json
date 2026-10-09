@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261009_KimiForeground_ClaudeMove\\ready\\SPR_CL_Move.png",
+  "source_sha256": "609b0a78afaf2cddf14c9e0ffb912530c59cab175ebd2d9d8d457ae34623919b",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 831692,
+  "partial_alpha_pixels": 739702,
+  "opaque_pixels": 1122,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    14,
+    1223,
+    1254
+  ],
+  "visible_bbox_alpha_gt_8": [
+    157,
+    18,
+    1220,
+    1238
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

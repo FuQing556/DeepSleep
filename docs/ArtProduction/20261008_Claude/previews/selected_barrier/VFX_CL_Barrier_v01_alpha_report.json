@@ -1,0 +1,55 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\Assets\\_Project\\Art\\VFX\\Claude\\VFX_CL_Barrier_v01.png",
+  "source_sha256": "e3bd9207dd519b9e4aed64bfbdceff88bdfca7f4e9a2a3d231da888f16889ecc",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    254
+  ],
+  "transparent_pixels": 771128,
+  "partial_alpha_pixels": 801388,
+  "opaque_pixels": 0,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    0,
+    1254,
+    1254
+  ],
+  "visible_bbox_alpha_gt_8": [
+    2,
+    7,
+    1253,
+    1233
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    1,
+    0
+  ],
+  "checked_points": [
+    {
+      "role": "clear",
+      "xy": [
+        627,
+        627
+      ],
+      "rgba": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "passed": false
+    }
+  ],
+  "automatic_failures": [
+    "clear point failed at 627,627"
+  ],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

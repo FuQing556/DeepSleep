@@ -10,6 +10,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
     {
         public event Action<EnemyMotor2D> ExitedPlayfield;
 
+
         public abstract bool IsRunning { get; }
         public abstract Vector2 TravelDirection { get; }
 

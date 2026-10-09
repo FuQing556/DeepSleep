@@ -22,6 +22,11 @@ namespace DeepSleep.Runtime.Players.LifeCycle
         private Sprite _aliveSprite;
         private Vector3 _baseVisualScale;
         private bool _isInitialized;
+        private bool _showingDowned;
+        private DeepSleep.Runtime.Progression.Meta.PlayerSkinDefinition _skin;
+        // 外观抽取独立于战斗随机源，不能改变刷怪/强化的随机序列。
+        private readonly System.Random _skinRandom = new();
+        public uint SkinRollCount { get; private set; }
 
         private void Awake()
         {
@@ -40,6 +45,7 @@ namespace DeepSleep.Runtime.Players.LifeCycle
             _baseVisualScale = _characterRenderer.transform.localScale;
             ApplyPoseScale(_aliveScaleMultiplier);
             _isInitialized = true;
+            if (_skin != null) RerollSkinPose();
         }
 
         private void LateUpdate()
@@ -78,6 +84,8 @@ namespace DeepSleep.Runtime.Players.LifeCycle
             color.a = 1f;
             _characterRenderer.color = color;
             _characterRenderer.sprite = _downedSprite;
+            _showingDowned = true;
+            ApplySkinVariant();
             ApplyPoseScale(_downedScaleMultiplier);
         }
 
@@ -96,6 +104,8 @@ namespace DeepSleep.Runtime.Players.LifeCycle
             color.a = 1f;
             _characterRenderer.color = color;
             _characterRenderer.sprite = _aliveSprite;
+            _showingDowned = false;
+            ApplySkinVariant();
             ApplyPoseScale(_aliveScaleMultiplier);
         }
 
@@ -106,6 +116,29 @@ namespace DeepSleep.Runtime.Players.LifeCycle
                 _baseVisualScale.x * multiplier,
                 _baseVisualScale.y * multiplier,
                 _baseVisualScale.z);
+        }
+
+        public void SetSkin(DeepSleep.Runtime.Progression.Meta.PlayerSkinDefinition skin)
+        {
+            if (_skin == skin) return;
+            _skin = skin;
+            if (!_isInitialized) return;
+            _characterRenderer.sprite = _showingDowned ? _downedSprite : _aliveSprite;
+            ApplySkinVariant();
+        }
+
+        /// <summary>入局/进出节点调用；不制造生命状态切换或额外残影。</summary>
+        public void RerollSkinPose()
+        {
+            if (_isInitialized) ApplySkinVariant();
+        }
+
+        private void ApplySkinVariant()
+        {
+            if (_skin == null) return;
+            var variants = _showingDowned ? _skin.DownedVariants : _skin.AliveVariants;
+            _characterRenderer.sprite = variants[_skinRandom.Next(variants.Length)];
+            SkinRollCount++;
         }
 
         public bool TryValidateConfiguration(out string reason)

@@ -12,6 +12,9 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
     {
         public CircleCollider2D Shape;
         public SpriteRenderer Visual;
+        [Tooltip("光球贴图自转角速度；只旋转Visual，不影响球心、碰撞和反射。")]
+        public float VisualSpinDegreesPerSecond;
+        private Quaternion _initialVisualRotation;
         private KimiPrismPattern2D _owner;
         private CompanionObstacleRegistry2D _obstacles;
         private readonly RaycastHit2D[] _hits = new RaycastHit2D[8];
@@ -95,6 +98,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
             for(int i=0;i<_victims.Length;i++){_victims[i]=null;_nextContact[i]=0;}
             if(Shape!=null) Shape.enabled=false;
             if(Visual!=null) Visual.enabled=false;
+            if(Visual!=null) Visual.transform.localRotation=_initialVisualRotation;
         }
         public void ApplyReplica(bool shown, Vector2 position)
         {
@@ -102,7 +106,18 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
             Active = false; Shape.enabled = false; Visual.enabled = shown;
             Position = position; transform.position = position;
         }
-        private void Awake()=>Clear();
+        private void Update()=>TickVisual(Time.deltaTime);
+        private void TickVisual(float deltaTime)
+        {
+            // 权威和客机各自播放纯视觉自转；暂停随Time.deltaTime停止。
+            if(Visual.enabled)
+                Visual.transform.Rotate(0,0,VisualSpinDegreesPerSecond*deltaTime,Space.Self);
+        }
+        private void Awake()
+        {
+            _initialVisualRotation=Visual.transform.localRotation;
+            Clear();
+        }
         private void OnDisable()=>Clear();
     }
 }

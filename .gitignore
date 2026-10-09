@@ -52,3 +52,8 @@ Desktop.ini
 
 # 本地美术处理脚本缓存
 __pycache__/
+
+# 本地私人文档与Unity恢复备份，不属于发布源码
+/docs/Resume/
+/Assets/_Recovery/
+/Assets/_Recovery.meta

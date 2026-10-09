@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bb99988e46c89446ade8b1a15a2b3f6, type: 3}
+  m_Name: CFG_CL_TrackingCut
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Claude.ClaudeTrackingCutConfig
+  TrackingSeconds: 0.8
+  LockedSeconds: 0.4
+  FadeSeconds: 0.5
+  Length: 4.2
+  DamageWidth: 0.525
+  Damage: 1
+  MovementDirectionEpsilon: 0.01
+  MarkerDiameter: 2.4
+  MarkerSpin: 35
+  FrozenClearance: 0.25
+  PlayerLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  BladeAxisStart: {x: 0.01519337, y: 0.31402764}
+  BladeAxisEnd: {x: 0.98526704, y: 0.6826595}

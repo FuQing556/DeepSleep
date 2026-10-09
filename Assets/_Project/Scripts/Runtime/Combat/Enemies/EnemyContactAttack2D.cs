@@ -5,10 +5,9 @@ using UnityEngine;
 namespace DeepSleep.Runtime.Combat.Enemies
 {
     /// <summary>
-    /// 一次性接触攻击。接触合法目标后先尝试提交伤害，
-    /// 随后无条件消耗敌人，因此护盾和无敌帧不会留下贴身判定。
+    /// 共用接触攻击：配置决定攻击后回收或持续存活，重复攻击由所属固定步驱动冷却。
     /// </summary>
-    public sealed class EnemyContactAttack2D : MonoBehaviour
+    public sealed class EnemyContactAttack2D : MonoBehaviour, DeepSleep.Runtime.Simulation.IFixedSimulationStep
     {
         [SerializeField] private Collider2D _bodyCollider;
         [SerializeField] private EnemyActor2D _actor;
@@ -17,6 +16,9 @@ namespace DeepSleep.Runtime.Combat.Enemies
 
         private bool _hasImpacted;
         private ulong _attackId;
+        private float _remaining;
+        public float RemainingCooldown => _remaining;
+        public void Simulate(float deltaTime) => _remaining = Mathf.Max(0f, _remaining - Mathf.Max(0f, deltaTime));
 
         public event Action<EnemyContactAttack2D, Vector2> ImpactOccurred;
 
@@ -35,6 +37,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
         private void OnEnable()
         {
             _hasImpacted = false;
+            _remaining = 0f;
             _attackId = DamageAttackIdAllocator.Next();
         }
 
@@ -43,10 +46,17 @@ namespace DeepSleep.Runtime.Combat.Enemies
             // 子盾牌的触发不能冒充本体接触。
             if (other != null && _bodyCollider.Distance(other).isOverlapped) TryImpact(other);
         }
-
-        public bool TryImpact(Collider2D other)
+        private void OnTriggerStay2D(Collider2D other)
         {
-            if (_hasImpacted || other == null ||
+            if (!_config.DespawnOnImpact && other != null && _bodyCollider.Distance(other).isOverlapped) TryImpact(other);
+        }
+
+        public bool TryImpact(Collider2D other) => TryImpact(other, _bodyCollider.bounds.center);
+
+        // 扫掠运动可以跨越屏幕边界；使用当前线段的起点，而非尚未移动的刚体位置。
+        public bool TryImpact(Collider2D other, Vector2 contactOrigin)
+        {
+            if (!isActiveAndEnabled || !_bodyCollider.enabled || _hasImpacted || _remaining > 0f || other == null ||
                 !_config.ContainsLayer(other.gameObject.layer))
             {
                 return false;
@@ -58,21 +68,27 @@ namespace DeepSleep.Runtime.Combat.Enemies
                 return false;
             }
 
-            _hasImpacted = true;
-            Vector2 hitPoint = other.ClosestPoint(_bodyCollider.bounds.center);
+            _hasImpacted = _config.DespawnOnImpact;
+            _remaining = _config.RepeatIntervalSeconds;
+            _attackId = DamageAttackIdAllocator.Next();
+            Vector2 hitPoint = other.ClosestPoint(contactOrigin);
+            Vector2 direction = (Vector2)other.bounds.center - contactOrigin;
+            if (direction.sqrMagnitude <= Mathf.Epsilon) direction = _motor.TravelDirection;
             DamagePacket damage = new DamagePacket(
                 _config.DamageAmount,
                 hitPoint,
-                _motor.TravelDirection,
+                direction,
                 gameObject,
                 _attackId,
-                DamageInterceptionPolicy.Blockable);
+                DamageInterceptionPolicy.Blockable,
+                knockbackDistance: _config.KnockbackDistance, knockbackSeconds: _config.KnockbackSeconds);
             hitbox.TryReceiveDamage(in damage);
 
             ImpactOccurred?.Invoke(this, hitPoint);
-            _actor.TryRequestDespawn(
-                EnemyDespawnReason.ContactImpact,
-                hitPoint);
+            if (_config.DespawnOnImpact)
+                _actor.TryRequestDespawn(EnemyDespawnReason.ContactImpact, hitPoint);
+            else
+                _actor.NotifyContactImpact(hitPoint, direction);
             return true;
         }
 

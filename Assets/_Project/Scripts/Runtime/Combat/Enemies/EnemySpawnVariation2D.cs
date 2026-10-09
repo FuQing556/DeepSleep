@@ -12,19 +12,24 @@ namespace DeepSleep.Runtime.Combat.Enemies
             Vector2 travelDirection,
             float travelSpeed,
             float initialRotationDegrees,
-            float angularVelocityDegreesPerSecond)
+            float angularVelocityDegreesPerSecond,
+            float curveAmplitude = 0f, float curveWavelength = 0f)
         {
             TravelDirection = travelDirection.normalized;
             TravelSpeed = travelSpeed;
             InitialRotationDegrees = initialRotationDegrees;
             AngularVelocityDegreesPerSecond =
                 angularVelocityDegreesPerSecond;
+            CurveAmplitude = curveAmplitude;
+            CurveWavelength = curveWavelength;
         }
 
         public Vector2 TravelDirection { get; }
         public float TravelSpeed { get; }
         public float InitialRotationDegrees { get; }
         public float AngularVelocityDegreesPerSecond { get; }
+        public float CurveAmplitude { get; }
+        public float CurveWavelength { get; }
 
         public bool IsValid =>
             Mathf.Abs(TravelDirection.x) > 0.001f &&

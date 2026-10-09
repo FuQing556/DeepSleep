@@ -116,7 +116,7 @@ namespace DeepSleep.Editor.Setup
             catalog.Entries = Enum.GetValues(typeof(AudioCue)).Cast<AudioCue>().Select(cue =>
             {
                 bool ui = cue <= AudioCue.UiReject;
-                bool ambient = cue >= AudioCue.AmbienceSky;
+                bool ambient = cue >= AudioCue.AmbienceSky && cue <= AudioCue.AmbienceRest || cue >= AudioCue.AmbienceCyber;
                 bool enemy = cue >= AudioCue.BubblePop && cue <= AudioCue.SnakeShot;
                 bool flow = cue >= AudioCue.NodeOpen && !ambient;
                 string prefix = (ambient ? "AMB_" : "SFX_") + cue + "_";

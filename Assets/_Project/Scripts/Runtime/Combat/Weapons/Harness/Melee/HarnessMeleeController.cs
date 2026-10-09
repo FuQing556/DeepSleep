@@ -30,7 +30,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
         public bool IsMelee { get; private set; }
         public bool IsSwinging { get; private set; }
         public bool BlocksReviveStart => IsSwinging;
-        public PlayerActionBlock ActionCategory => PlayerActionBlock.ActiveCombat;
+        public PlayerActionBlock ActionCategory => PlayerActionBlock.ActiveCombat | PlayerActionBlock.Skill;
         public HarnessMeleeAttackConfig Attack { get; private set; }
         public float AimDegrees { get; private set; }
         public float Progress => IsSwinging ? Mathf.Clamp01(_elapsed / Attack.SwingSeconds) : 0f;

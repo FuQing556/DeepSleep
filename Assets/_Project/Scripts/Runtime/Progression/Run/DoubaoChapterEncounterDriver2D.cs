@@ -45,7 +45,9 @@ namespace DeepSleep.Runtime.Progression.Run
         }
 
         public bool IsRequiredForSegment(int segmentNumber) =>
-            !_chapterRun.IsChallenge && _segmentNumbers != null && System.Array.IndexOf(_segmentNumbers, segmentNumber) >= 0;
+            isActiveAndEnabled && (_chapterRun.IsChallenge
+                ? _chapterRun.Challenge.ChallengeKind == DeepSleep.Runtime.Progression.Bestiary.BestiaryChallengeKind.Doubao && segmentNumber == _chapterRun.Challenge.CombatSegment
+                : _segmentNumbers != null && System.Array.IndexOf(_segmentNumbers, segmentNumber) >= 0);
 
         private void OnEnable()
         {

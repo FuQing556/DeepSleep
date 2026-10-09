@@ -800,3 +800,337 @@ MonoBehaviour:
     Importance: 45
     IsUi: 0
     PauseWithWorld: 1
+  - Cue: 64
+    Clips:
+    - {fileID: 8300000, guid: 36eff54c2c31d6e4b8cbf72d9a28bedd, type: 3}
+    - {fileID: 8300000, guid: 933591cc31b10a6479db21587361f657, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 2
+    Importance: 20
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 65
+    Clips:
+    - {fileID: 8300000, guid: 8ab88262f32fdfe4c8208f2d995d7502, type: 3}
+    - {fileID: 8300000, guid: bd24699f88bec5d49a0af02986889cf8, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 66
+    Clips:
+    - {fileID: 8300000, guid: cd2696e78bee3ba4682703c267f01482, type: 3}
+    - {fileID: 8300000, guid: b79829b85685f974e93d41e9e2004825, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 67
+    Clips:
+    - {fileID: 8300000, guid: c8e15d547af10b447bbfe90b9227e726, type: 3}
+    - {fileID: 8300000, guid: be3c7aa2645630d42b2f654517a994a2, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 68
+    Clips:
+    - {fileID: 8300000, guid: 9017bc21c4ccbfe44857af37a4771c10, type: 3}
+    - {fileID: 8300000, guid: 6f6bd8523a50c50438b67ecffa2a0d7c, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 69
+    Clips:
+    - {fileID: 8300000, guid: 15201880f14ea6441a36d34b78ca0c91, type: 3}
+    - {fileID: 8300000, guid: 32f94859a5898a544b37cd4143128b95, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 70
+    Clips:
+    - {fileID: 8300000, guid: 032f5d848df879d48a8ebca271d20dad, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 71
+    Clips:
+    - {fileID: 8300000, guid: 46ed5fcf5ed706a438a491097175dd46, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 72
+    Clips:
+    - {fileID: 8300000, guid: a0a49927eacc5e0479e8251148b7af6c, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 73
+    Clips:
+    - {fileID: 8300000, guid: 5f8b5347f17761e47ad33e881d4f137d, type: 3}
+    - {fileID: 8300000, guid: 0efa77eb1c4b0184f8eb916c6948c7a9, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 80
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 74
+    Clips:
+    - {fileID: 8300000, guid: 6601ef4fb62151e4b9ca36e55e675193, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 75
+    Clips:
+    - {fileID: 8300000, guid: 0a5d41b53668adb449b2ebc71ff30701, type: 3}
+    - {fileID: 8300000, guid: 4120db8100c04c64ea90f0a51878e5ec, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 76
+    Clips:
+    - {fileID: 8300000, guid: d05d9525215032946b7f5969abd37d1f, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 77
+    Clips:
+    - {fileID: 8300000, guid: 46d66a177d95d6e47a0fd66b77e7570b, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 78
+    Clips:
+    - {fileID: 8300000, guid: 50f7965467394cb4f91079dd3d2baabe, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.55
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 80
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 79
+    Clips:
+    - {fileID: 8300000, guid: 084495d02d8b3774c8ae2dfe4174b37f, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 80
+    Clips:
+    - {fileID: 8300000, guid: be05c8294f5507b4bb113517468cf0c7, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 81
+    Clips:
+    - {fileID: 8300000, guid: 0904f01b5a8bbf943b059b0fe76ce6e1, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 82
+    Clips:
+    - {fileID: 8300000, guid: d5eb4872255155543add8622485a1f69, type: 3}
+    - {fileID: 8300000, guid: 1dabe01ae081dd4419744bb8dec22776, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 2
+    Importance: 20
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 83
+    Clips:
+    - {fileID: 8300000, guid: 729691bd535e998448b66488432fce8d, type: 3}
+    - {fileID: 8300000, guid: 1910aa5d0ef8b844c9dedff05486e18f, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 84
+    Clips:
+    - {fileID: 8300000, guid: e63fbe9ed4581404f9323e7fe4920fb4, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 0
+  - Cue: 85
+    Clips:
+    - {fileID: 8300000, guid: 5bfc4f47360d5764a95020820f464426, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 86
+    Clips:
+    - {fileID: 8300000, guid: 73cf53cd43cebee4f808c3a5828cd586, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 87
+    Clips:
+    - {fileID: 8300000, guid: d8d714dbbde626342a4ce6b411854fd7, type: 3}
+    HarnessClips: []
+    Output: {fileID: 544232552067008434, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.45
+    PitchVariation: 0.01
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 88
+    Clips:
+    - {fileID: 8300000, guid: 1afc5418acdf84a4481e0ecd1bc1d0c0, type: 3}
+    HarnessClips: []
+    Output: {fileID: 7021599285157731883, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.5
+    PitchVariation: 0
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 89
+    Clips:
+    - {fileID: 8300000, guid: 9db0e7320a9bd0348a02c23de156ddce, type: 3}
+    HarnessClips: []
+    Output: {fileID: 7021599285157731883, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.5
+    PitchVariation: 0
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1
+  - Cue: 90
+    Clips:
+    - {fileID: 8300000, guid: bae379f2c5907ad4f873717da14facca, type: 3}
+    HarnessClips: []
+    Output: {fileID: 7021599285157731883, guid: 2b6b9c006dd25c04b805f6b44d8c290e, type: 2}
+    Gain: 0.5
+    PitchVariation: 0
+    MinimumInterval: 0.12
+    MaximumVoices: 1
+    Importance: 55
+    IsUi: 0
+    PauseWithWorld: 1

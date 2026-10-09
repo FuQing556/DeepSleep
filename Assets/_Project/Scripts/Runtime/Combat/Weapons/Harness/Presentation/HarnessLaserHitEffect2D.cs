@@ -24,6 +24,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
         private float _elapsedSeconds;
         private DeepSleep.Runtime.Presentation.PresentationLifetime _lifetime;
         private bool _isPlaying;
+        internal ulong PoolPlaySequence;
 
         public event Action<HarnessLaserHitEffect2D> Finished;
 

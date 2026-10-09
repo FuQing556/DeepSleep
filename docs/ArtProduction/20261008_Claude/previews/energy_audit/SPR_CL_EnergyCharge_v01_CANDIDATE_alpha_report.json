@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261008_Claude\\raw\\SPR_CL_EnergyCharge_v01_CANDIDATE.png",
+  "source_sha256": "f899fb4a5e938831f4522d3aee8eae4c67299f277434d6fbcc693ff7ed693cd9",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 781148,
+  "partial_alpha_pixels": 790056,
+  "opaque_pixels": 1312,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    8,
+    1238,
+    1233
+  ],
+  "visible_bbox_alpha_gt_8": [
+    162,
+    11,
+    1236,
+    1229
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

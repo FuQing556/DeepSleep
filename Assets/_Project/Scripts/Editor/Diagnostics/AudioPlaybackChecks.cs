@@ -28,14 +28,14 @@ namespace DeepSleep.Editor.Diagnostics
             int clipCount = 0;
             foreach (var entry in catalog.Entries)
             {
-                bool ambience = entry.Cue >= AudioCue.AmbienceSky;
+                bool ambience = entry.Cue >= AudioCue.AmbienceSky && entry.Cue <= AudioCue.AmbienceRest || entry.Cue >= AudioCue.AmbienceCyber;
                 Check(entry.IsUi == (entry.Cue <= AudioCue.UiReject), entry.Cue + " UI policy mismatch.");
                 foreach (var clip in entry.Clips.Concat(entry.HarnessClips))
                 {
                     var importer = AssetImporter.GetAtPath(AssetDatabase.GetAssetPath(clip)) as AudioImporter;
                     Check(importer != null, entry.Cue + " missing AudioImporter.");
                     Check(clip.length > 0 && clip.frequency > 0, entry.Cue + " invalid clip metadata.");
-                    Check(ambience ? clip.channels == 2 : clip.channels == 1, entry.Cue + " channel count mismatch.");
+                    Check(ambience ? clip.channels >= 1 && clip.channels <= 2 : clip.channels == 1, entry.Cue + " channel count mismatch.");
                     Check(ambience
                         ? importer.defaultSampleSettings.loadType != AudioClipLoadType.DecompressOnLoad
                         : importer.defaultSampleSettings.loadType == AudioClipLoadType.DecompressOnLoad,
@@ -158,6 +158,15 @@ namespace DeepSleep.Editor.Diagnostics
                 Check(sky.timeSamples >= skySample, "Rapid return restarted old ambience.");
                 Tick(audio, .25f);
                 Check(Mathf.Approximately(sky.volume, .2f) && dusk.clip == null, "Reverse crossfade did not complete.");
+                foreach (var cue in new[] { AudioCue.AmbienceCyber, AudioCue.AmbienceRain, AudioCue.AmbienceArcade })
+                {
+                    audio.SetAmbience(cue); Tick(audio, 1);
+                    Check(audio.Ambience.Any(s => s.clip == Entry(catalog, cue).Clips[0] && s.loop),
+                        cue + " was filtered out or did not loop.");
+                }
+                audio.SetAmbience(AudioCue.ClaudeHit);
+                Check(audio.Ambience.Any(s => s.clip == Entry(catalog, AudioCue.AmbienceArcade).Clips[0]),
+                    "Non-ambient cue replaced ambience.");
                 audio.SetVolumes(1, 1, 0, false);
                 Check(audio.Ambience.All(s => s.volume == 0), "Ambience zero not immediate.");
 

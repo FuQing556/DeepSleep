@@ -47,6 +47,27 @@ namespace DeepSleep.Runtime.Progression.Meta
                 Unlocked?.Invoke(newlyUnlocked[index]);
         }
 
+        public void ReportLevelCleared(MetaLevelDefinition level)
+        {
+            foreach (var definition in _definitions)
+                if (definition.RequiredLevel == level && level != null)
+                    Report(definition.TriggerId);
+        }
+
+        public void ReportChallengeCleared()
+        {
+            foreach (var definition in _definitions)
+            {
+                var required = definition.RequiredChallenges;
+                if (required == null || required.Length == 0) continue;
+                int completed = 0;
+                foreach (var entry in required)
+                    if (_profile.HasCompletedChallenge(entry.EntryId)) completed++;
+                int missing = completed - GetProgress(definition);
+                if (missing > 0) Report(definition.TriggerId, missing);
+            }
+        }
+
         public bool TryValidateConfiguration(out string reason)
         {
             if (_profile == null || _definitions == null ||
@@ -70,6 +91,16 @@ namespace DeepSleep.Runtime.Progression.Meta
                 {
                     reason = "成就 ID 重复：" + definition.AchievementId;
                     return false;
+                }
+                var challenges = definition.RequiredChallenges;
+                if (challenges != null && challenges.Length > 0)
+                {
+                    var unique = new System.Collections.Generic.HashSet<string>();
+                    foreach (var entry in challenges)
+                        if (entry == null || !unique.Add(entry.EntryId))
+                        { reason = "成就挑战条件缺失或重复。"; return false; }
+                    if (definition.TargetCount != unique.Count)
+                    { reason = "成就目标数须匹配指定的不同挑战数量。"; return false; }
                 }
             }
             reason = string.Empty;

@@ -12,17 +12,25 @@ namespace DeepSleep.Runtime.Presentation.Audio
         public EnemyActorPool2D Pool;
         public CombatAudioPresenter Audio;
         public bool Download;
+        public bool Recursive, RecursiveSplits, QuickApp;
         private readonly List<Action> _unsubscribe = new();
         private void OnEnable()
         {
             if (Pool == null || Audio == null) { Debug.LogError("[EnemyContentAudio] Missing explicit pool/audio", this); return; }
             Pool.ActorCreated += Bind;
             Pool.ActorDespawned += Despawn;
+            Pool.ActorContactImpacted += Despawn;
             foreach (var actor in Pool.Instances) Bind(actor);
         }
         private void Bind(EnemyActor2D actor)
         {
-            if (Download)
+            if (Recursive)
+            {
+                actor.Health.DamageAccepted += RecursiveHit;
+                _unsubscribe.Add(() => { if (actor != null) actor.Health.DamageAccepted -= RecursiveHit; });
+            }
+            else if (QuickApp) { }
+            else if (Download)
             {
                 var motor = actor.GetComponent<DownloadChargeMotor2D>();
                 if (motor == null) return;
@@ -43,16 +51,19 @@ namespace DeepSleep.Runtime.Presentation.Audio
             else if (state == DownloadChargeState.Dashing) Audio.PublishContentCue(AudioCue.DownloadDash, point, .1f);
         }
         private void Block(Vector2 point) => Audio.PublishContentCue(AudioCue.GuardBlockMetal, point, .12f);
+        private void RecursiveHit(DamagePacket packet) => Audio.PublishContentCue(AudioCue.RecursiveHit, packet.HitPoint, .16f);
         private void Despawn(EnemyDespawnRequest2D request)
         {
             if (request.Reason == EnemyDespawnReason.Defeated)
-                Audio.PublishContentCue(Download ? AudioCue.DownloadDefeat : AudioCue.GuardDefeat, request.EffectPosition, .12f);
+                Audio.PublishContentCue(Recursive ? (RecursiveSplits ? AudioCue.RecursiveSplit : AudioCue.RecursiveDefeat) :
+                    QuickApp ? AudioCue.QuickAppDefeat : Download ? AudioCue.DownloadDefeat : AudioCue.GuardDefeat, request.EffectPosition, .12f);
             else if (request.Reason == EnemyDespawnReason.ContactImpact)
-                Audio.PublishContentCue(Download ? AudioCue.DownloadImpact : AudioCue.GuardImpact, request.EffectPosition, .12f);
+                Audio.PublishContentCue(Recursive ? AudioCue.RecursiveImpact : QuickApp ? AudioCue.QuickAppImpact :
+                    Download ? AudioCue.DownloadImpact : AudioCue.GuardImpact, request.EffectPosition, .12f);
         }
         private void OnDisable()
         {
-            if (Pool != null) { Pool.ActorCreated -= Bind; Pool.ActorDespawned -= Despawn; }
+            if (Pool != null) { Pool.ActorCreated -= Bind; Pool.ActorDespawned -= Despawn; Pool.ActorContactImpacted -= Despawn; }
             foreach (var action in _unsubscribe) action();
             _unsubscribe.Clear();
         }

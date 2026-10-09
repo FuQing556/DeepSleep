@@ -17,6 +17,9 @@ namespace DeepSleep.Runtime.Combat.Enemies
         [SerializeField] private EnemySpawnScheduleConfig _schedule;
         [SerializeField] private EnemySpawnChannelDefinition _channel;
         [SerializeField] private bool _autoStart = true;
+        [Tooltip("可选的生成容量约束；不配置时保持原刷怪规则。")]
+        [SerializeField] private MonoBehaviour _spawnAdmission;
+        private IEnemySpawnAdmission2D _admission;
         [Tooltip("可选的定点增援阵型；未配置时保留战区侧边刷怪。偏移使用世界单位。")]
         [SerializeField] private Transform _spawnAnchor;
         [SerializeField] private Vector2[] _spawnOffsets;
@@ -31,6 +34,11 @@ namespace DeepSleep.Runtime.Combat.Enemies
         private int _runtimeMaximumAliveCount;
         private float _runtimeHealthMultiplier = 1f;
         private int _encounterMaximumAliveCount;
+        private int _runtimeSpawnLimit, _spawnedCount;
+        private float _runtimeSpawnInterval;
+        private bool _runtimeSpawnAllAtOnce;
+        private int _runtimeBatchSize, _runtimeBatchQuota;
+        private float _runtimeBatchInterval;
 
         public int EffectiveMaximumAliveCount => _encounterMaximumAliveCount > 0
             ? Mathf.Min(_runtimeMaximumAliveCount, _encounterMaximumAliveCount)
@@ -55,6 +63,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
             }
 
             _random = new System.Random(_schedule.RandomSeed);
+            _admission = _spawnAdmission as IEnemySpawnAdmission2D;
             ResetRuntimeTuning();
         }
 
@@ -81,10 +90,21 @@ namespace DeepSleep.Runtime.Combat.Enemies
                 return;
             }
 
+            if (_runtimeSpawnAllAtOnce)
+            {
+                // 有限批次在同一模拟刻生成；池不足时停止本刻尝试，不能无限循环。
+                while (_isRunning && TrySpawnNow()) { }
+                if (_isRunning && _spawnedCount >= _runtimeBatchQuota && _runtimeBatchQuota < _runtimeSpawnLimit)
+                {
+                    _runtimeBatchQuota = Mathf.Min(_runtimeSpawnLimit, _runtimeBatchQuota + _runtimeBatchSize);
+                    _remainingSeconds = _runtimeBatchInterval;
+                }
+                return;
+            }
             if (TrySpawnNow())
             {
-                _remainingSeconds = _schedule.SampleInterval(_random) *
-                    _runtimeIntervalMultiplier;
+                _remainingSeconds = _runtimeSpawnInterval > 0 ? _runtimeSpawnInterval :
+                    _schedule.SampleInterval(_random) * _runtimeIntervalMultiplier;
             }
         }
 
@@ -108,9 +128,16 @@ namespace DeepSleep.Runtime.Combat.Enemies
             bool enabledForSegment,
             float initialDelaySeconds,
             float intervalMultiplier,
-            int maximumAliveCount, float healthMultiplier = 1f)
+            int maximumAliveCount, float healthMultiplier = 1f, int spawnLimit = 0, float spawnIntervalSeconds = 0,
+            bool spawnAllAtOnce = false, int spawnBatchSize = 0, float spawnBatchIntervalSeconds = 0)
         {
             _runtimeEnabled = enabledForSegment;
+            _runtimeSpawnLimit = Mathf.Max(0, spawnLimit); _spawnedCount = 0;
+            _runtimeSpawnInterval = Mathf.Max(0, spawnIntervalSeconds);
+            _runtimeSpawnAllAtOnce = spawnAllAtOnce && _runtimeSpawnLimit > 0;
+            _runtimeBatchSize = _runtimeSpawnAllAtOnce ? Mathf.Max(0, spawnBatchSize) : 0;
+            _runtimeBatchQuota = _runtimeBatchSize > 0 ? Mathf.Min(_runtimeBatchSize, _runtimeSpawnLimit) : _runtimeSpawnLimit;
+            _runtimeBatchInterval = Mathf.Max(0, spawnBatchIntervalSeconds);
             _formationIndex = 0;
             _runtimeHealthMultiplier = Mathf.Max(1f, healthMultiplier);
             _runtimeInitialDelaySeconds = Mathf.Max(0f, initialDelaySeconds);
@@ -138,8 +165,9 @@ namespace DeepSleep.Runtime.Combat.Enemies
 
         public bool TrySpawnNow()
         {
-            if (_random == null ||
-                _pool.ActiveCount >= EffectiveMaximumAliveCount)
+            if (_random == null || (_runtimeSpawnLimit > 0 && _spawnedCount >= _runtimeSpawnLimit) ||
+                (_runtimeSpawnAllAtOnce && (_spawnedCount >= _runtimeBatchQuota || (_runtimeBatchSize > 0 && _remainingSeconds > 0))) ||
+                _pool.ActiveCount >= EffectiveMaximumAliveCount || (_admission != null && !_admission.CanSpawn))
             {
                 return false;
             }
@@ -168,6 +196,8 @@ namespace DeepSleep.Runtime.Combat.Enemies
                 out var actor);
             if (spawned)
             {
+                _spawnedCount++;
+                if (_runtimeSpawnLimit > 0 && _spawnedCount >= _runtimeSpawnLimit) Stop();
                 if (_spawnAnchor != null) _formationIndex = (_formationIndex + 1) % _spawnOffsets.Length;
                 // 每次从基础生命计算，不能把池化实体上一段的倍率叠乘进来。
                 actor.Health.SetMaximumHealthBonus(0f);
@@ -181,6 +211,8 @@ namespace DeepSleep.Runtime.Combat.Enemies
 
         public bool TryValidateConfiguration(out string reason)
         {
+            if (_spawnAdmission != null && _spawnAdmission is not IEnemySpawnAdmission2D)
+            { reason = "生成容量约束必须实现 IEnemySpawnAdmission2D。"; return false; }
             if (_spawnAnchor != null)
             {
                 if (_spawnOffsets == null || _spawnOffsets.Length == 0)

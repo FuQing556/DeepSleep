@@ -180,7 +180,8 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
             TargetMarker.enabled = State == KimiLaserState.Charging;
             if (TargetMarker.enabled)
             {
-                if (!_replica && _markedTarget != null) MarkerPosition = _markedTarget.position;
+                // The beam direction and marker share the position captured by StartCharge.
+                // Moving after that lock must evade both the warning and the eventual beam.
                 TargetMarker.transform.SetPositionAndRotation(MarkerPosition, Quaternion.Euler(0, 0, Elapsed * Config.TargetMarkerSpinDegrees));
                 float width = TargetMarker.sprite.bounds.size.x;
                 TargetMarker.transform.localScale = Vector3.one * (Config.TargetMarkerDiameter / width);
@@ -188,7 +189,10 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
             if (State != KimiLaserState.Charging && State != KimiLaserState.Firing) return;
             Focus.enabled = true;
             float progress = State == KimiLaserState.Charging ? Mathf.Clamp01(Elapsed / Config.ChargeSeconds) : 1;
-            Focus.transform.SetPositionAndRotation(Lane.Origin, Quaternion.Euler(0, 0, Elapsed * Config.FocusSpinDegrees));
+            // 锁定束线方向作为终点，蓄力由偏角转正；发射阶段保持终点，不依赖归零的阶段计时。
+            float focusAngle=Lane.RotationDegrees+Config.FocusAlignedAngleOffsetDegrees+
+                Mathf.Lerp(Config.FocusStartAngleOffsetDegrees,0,Mathf.SmoothStep(0,1,progress));
+            Focus.transform.SetPositionAndRotation(Lane.Origin, Quaternion.Euler(0, 0, focusAngle));
             Focus.transform.localScale = Vector3.one * Mathf.Lerp(Config.FocusStartScale, Config.FocusEndScale, progress);
             Focus.color = new Color(1, 1, 1, Mathf.Lerp(.4f, 1, progress));
             for (int i=0;i<RayCount;i++)

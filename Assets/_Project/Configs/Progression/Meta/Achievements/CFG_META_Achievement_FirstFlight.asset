@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Meta.AchievementDefinition
   _achievementId: first_flight
   _displayName: "\u6700\u521D\u7684\u98DE\u884C"
-  _description: "\u672A\u6765\u7684\u795E\u660E\u5C06\u56E0\u679C\u6295\u5411\u8FC7\u53BB\u3002"
-  _hidden: 1
+  _description: "\u9996\u6B21\u8FDB\u5165\u666E\u901A\u5173\u5361\u3002\n\u672A\u6765\u7684\u795E\u660E\u5C06\u56E0\u679C\u6295\u5411\u8FC7\u53BB\u3002"
+  _hidden: 0
   _triggerId: journey_started
   _targetCount: 1
   _icon: {fileID: 0}
+  _requiredLevel: {fileID: 0}
+  _requiredChallenges: []

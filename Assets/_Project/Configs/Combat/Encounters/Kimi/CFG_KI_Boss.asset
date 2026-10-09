@@ -16,6 +16,8 @@ MonoBehaviour:
   PhaseTwoHealthFraction: 0.5
   ContactDamageAmount: 1
   ContactIntervalSeconds: 1
+  ContactKnockbackDistance: 0.65
+  ContactKnockbackSeconds: 0.18
   Poses:
   - {fileID: 21300000, guid: 95301f8332dc7ea4793a3061f8afd61f, type: 3}
   - {fileID: 21300000, guid: f74b59436aaf2534b8a0490dd4de951b, type: 3}

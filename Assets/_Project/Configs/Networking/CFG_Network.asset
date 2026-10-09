@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: CFG_Network
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Networking.NetworkTuningConfig
   Port: 7777
-  ProtocolVersion: 9
+  ProtocolVersion: 18
   ClientVersion: 0.1.0
-  ContentVersion: 20261007-kimi-beam-stop-1
+  ContentVersion: 20261009-android-1.1.7
   SnapshotRate: 20
   InputTimeout: 0.35
   ConnectionTimeout: 12

@@ -29,8 +29,8 @@ namespace DeepSleep.Editor.Diagnostics
                 Vector2 ally=boss.Perception.Position;
                 Vector2 rescuer=ally+Vector2.left;
                 boss.Perception.PassiveAttackTarget=false;sensor.Refresh(rescuer,ally);
-                Check(sensor.PrioritizeRescueThreat(rescuer,ally,3.5f,.5f),"Reproduce old boss blocks rescue");
-                Check(sensor.Danger(ally,Vector2.zero,.5f)>0,"Reproduce old false contact danger");
+                Check(!sensor.PrioritizeRescueThreat(rescuer,ally,3.5f,.5f),"Contact boss is not a compulsory rescue clear target");
+                Check(sensor.Danger(ally,Vector2.zero,.5f)>0,"Boss shield contact remains dangerous");
                 boss.Perception.PassiveAttackTarget=true;sensor.Refresh(rescuer,ally);
                 Check(sensor.Target==boss.Perception,"Boss remains normal attack target");
                 Check(!sensor.PrioritizeRescueThreat(rescuer,ally,3.5f,.5f),"Boss no longer requires killing before rescue");
@@ -40,8 +40,8 @@ namespace DeepSleep.Editor.Diagnostics
                 foreach(var mirror in UnityEngine.Object.FindObjectsByType<KimiMirrorSide2D>(FindObjectsInactive.Include,FindObjectsSortMode.None))
                     Check(mirror.Perception.PassiveAttackTarget,"Mirror configured passive");
                 boss.Perception.PassiveAttackTarget=false;sensor.Refresh(rescuer,ally);
-                Check(sensor.PrioritizeRescueThreat(rescuer,ally,3.5f,.5f),"Contact-danger classification still blocks rescue");
-                return "PASS "+count+" rescue perception checks, old failure reproduced then removed; ordinary boss targeting preserved. Not full battle AI/device acceptance.";
+                Check(!sensor.PrioritizeRescueThreat(rescuer,ally,3.5f,.5f),"Restoring contact danger does not require killing boss");
+                return "PASS "+count+" rescue perception checks; boss targeting/contact danger preserved without compulsory boss clear. Not full battle AI/device acceptance.";
             }
             finally {boss.Perception.PassiveAttackTarget=original;boss.ResetEncounter();UnityEngine.Object.DestroyImmediate(root);}
         }

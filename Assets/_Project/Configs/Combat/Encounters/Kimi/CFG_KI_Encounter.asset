@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 125925aa2172e624bb2730fa92b1e5b2, type: 3}
   m_Name: CFG_KI_Encounter
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiEncounterConfig
+  Timing: {fileID: 11400000, guid: 4d8bcc9a96999b9408c427bcc91c3792, type: 2}
   PreludeSeconds: 20
-  EntrySeconds: 2
-  PhaseChangeSeconds: 1.5
   CastGapSeconds: 2
   CycleGapSeconds: 5
   CastsPerCycle: 5

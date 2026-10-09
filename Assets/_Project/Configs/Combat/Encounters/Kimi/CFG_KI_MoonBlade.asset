@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CFG_KI_MoonBlade
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Kimi.KimiMoonBladeConfig
   LaneCount: 10
-  VolleyCount: 10
+  VolleyCount: 5
   PhaseOneBlades: 2
   PhaseTwoBlades: 4
   WarningSeconds: 0.55

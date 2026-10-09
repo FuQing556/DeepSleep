@@ -36,6 +36,7 @@ namespace DeepSleep.Editor.Diagnostics
                 config.MaximumMessageBytes = 16384; config.RemoteInterpolationSpeed = 30;
                 var transport = new NoNetworkTransport(); Set(session, "_transport", transport); Set(session, "<Phase>k__BackingField", SessionPhase.Playing);
                 var driver = root.AddComponent<KimiChapterEncounterDriver2D>(); driver.Encounter = encounter; driver.Session = session;
+                driver.Presentation = encounter.Boss.GetComponent<KimiBossPresentation2D>();
                 driver.Backdrop = GameObject.Find("MoonNight").GetComponent<SpriteRenderer>();
                 driver.NightBackdrop = driver.Backdrop.sprite; Set(driver, "_dayBackdrop", driver.Backdrop.sprite);
                 driver.ApplyReplica(true);
@@ -78,8 +79,12 @@ namespace DeepSleep.Editor.Diagnostics
                         encounter.Ultimate.ReinforcementPool.ActiveCount == 0, "Snapshot never rents gameplay entities");
                 }
                 Prepare(); Check(encounter.Moon.Begin(true, 7, null), "Moon begins"); encounter.Moon.Simulate(.1f);
+                driver.Presentation.ApplyReplicaEntry(4.5f);
                 var packet = Packet(1); int lane = encounter.Moon.GetWarningLane(0); bool left = encounter.Moon.IsWarningFromLeft(0);
                 encounter.Cancel(); Receive(packet); SafeReplica();
+                driver.Presentation.AdvancePresentation(0, 0);
+                Check(driver.Presentation.EntryAge == 4.5f && encounter.Boss.Body.color.a == 1 &&
+                    Mathf.Approximately(driver.Presentation.MoonShield.color.a, .8f), "Actual wire restores late-join figure/shield stage");
                 Check(encounter.Moon.WarningCount == 4 && encounter.Moon.GetWarningLane(0) == lane && encounter.Moon.IsWarningFromLeft(0) == left &&
                     encounter.Moon.Warnings[3].enabled && encounter.Boss.IsShown && driver.HasTakenOver, "Four lanes/directions/boss/takeover restored");
                 for (int n = 1; n < packet.Length; n++)
@@ -95,6 +100,9 @@ namespace DeepSleep.Editor.Diagnostics
                 var bad = (byte[])packet.Clone(); Array.Copy(BitConverter.GetBytes((uint)50), 0, bad, 1, 4);
                 Array.Copy(BitConverter.GetBytes(10001f), 0, bad, 15, 4); Receive(bad);
                 Check(Get<uint>(channel, "_lastReceived") == 2 && encounter.Boss.CurrentHealth == 10000, "Config-invalid high health applies nothing");
+                bad = (byte[])packet.Clone(); Array.Copy(BitConverter.GetBytes((uint)50), 0, bad, 1, 4);
+                Array.Copy(BitConverter.GetBytes(99f), 0, bad, bad.Length - 4, 4); Receive(bad);
+                Check(Get<uint>(channel, "_lastReceived") == 2, "Config-invalid entry age rejected before applying frame");
                 Prepare(); Check(encounter.Laser.Begin(new Vector2(-4, 1), null), "Laser begins"); encounter.Laser.Simulate(.4f);
                 packet = Packet(3); var locked = encounter.Laser.Lane; encounter.Cancel(); Receive(packet); SafeReplica();
                 Check(encounter.Laser.State == KimiLaserState.Charging && encounter.Laser.Lane.Origin == locked.Origin &&
@@ -105,7 +113,7 @@ namespace DeepSleep.Editor.Diagnostics
                 encounter.Boss.CommitPhaseAtSkillBoundary();
                 encounter.Laser.Begin(new Vector2(-4, 1), null); encounter.Laser.Simulate(encounter.Laser.Config.ChargeSeconds + .05f);
                 packet = Packet(4); encounter.Cancel(); Receive(packet); Check(encounter.Laser.State == KimiLaserState.Firing, "Laser firing restored");
-                Check(encounter.Laser.RayCount==5 && encounter.Laser.BranchBeams.All(b=>b.GetComponent<MeshRenderer>().enabled),"Phase2 five-ray replica uses authoritative phase");
+                Check(encounter.Laser.RayCount==5 && Enumerable.Range(0,5).All(i=>(i==0?encounter.Laser.Beam:encounter.Laser.BranchBeams[i-1]).GetComponent<MeshRenderer>().enabled == (encounter.Laser.Elapsed>=encounter.Laser.GetRayStart(i) && encounter.Laser.Elapsed<encounter.Laser.GetRayStart(i)+encounter.Laser.Config.FireSeconds)),"Phase2 replica uses authoritative staggered five-ray timing");
                 Prepare(); Check(encounter.Ultimate.Begin(true, null, targets, null), "Ultimate begins");
                 var hit = new DamagePacket(1, Vector2.zero, Vector2.left, null); encounter.Ultimate.Curtain.TryReceiveDamage(in hit);
                 packet = Packet(5); encounter.Cancel(); Receive(packet); SafeReplica();
@@ -155,7 +163,7 @@ namespace DeepSleep.Editor.Diagnostics
                 Check(world.VisibleEntities == 0, "Late old entity packets cannot resurrect cleared hazards");
                 (Get<IDisposable>(session, "_sendWriter"))?.Dispose(); (Get<IDisposable>(session, "_sendBuffer"))?.Dispose();
                 Set(session, "_sendWriter", null); Set(session, "_sendBuffer", null); Set(session, "_transport", null);
-                string report = "PASS " + checks + " Kimi snapshot/entity assertions: actual 268-byte writer/reader, four lane warnings, broken mirror/orb, locked warning/fire and target marker, phase2 five-ray fan, configured curtain hits, authority gate, all truncations, invalid frame atomicity, duplicate, close/reconnect. Existing world collector roundtrip shows360/moon/tidal with stable sprites; reliable despawn rejects late resurrection. Controlled in-process transport capture, not dual-device, full hit VFX/audio or natural gameplay acceptance.";
+                string report = "PASS " + checks + " Kimi snapshot/entity assertions: actual " + KimiEncounterNetworkChannel.PayloadBytes + "-byte writer/reader, late-join presentation age and invalid-age rejection, four lane warnings, broken mirror/orb, locked warning/fire and target marker, phase2 five-ray fan, configured curtain hits, authority gate, all truncations, invalid frame atomicity, duplicate, close/reconnect. Existing world collector roundtrip shows360/moon/tidal with stable sprites; reliable despawn rejects late resurrection. Controlled in-process transport capture, not dual-device, full hit VFX/audio or natural gameplay acceptance.";
                 File.WriteAllText(KimiMoonBladeChecks.Evidence + "/network_verification.txt", report); return report;
             }
             finally

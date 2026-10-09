@@ -53,7 +53,9 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
             foreach(var side in Sides) if(side==null || side.Shape==null || side.Visual==null || side.Perception==null ||
                 side.Thickness<=0 || side.FlashSeconds<=0) {reason="镜边装配不完整。";return false;}
             foreach(var corner in Corners) if(corner==null) {reason="镜角缺失。";return false;}
-            foreach(var orb in Orbs) if(orb==null || orb.Shape==null || orb.Visual==null) {reason="预热球装配缺失。";return false;}
+            foreach(var orb in Orbs) if(orb==null || orb.Shape==null || orb.Visual==null ||
+                orb.Visual.transform==orb.transform || !float.IsFinite(orb.VisualSpinDegreesPerSecond))
+                {reason="预热球装配缺失、自转数值无效或Visual未独立于碰撞根节点。";return false;}
             return BreakEffects.TryValidateConfiguration(out reason) && HitEffects.TryValidateConfiguration(out reason);
         }
 

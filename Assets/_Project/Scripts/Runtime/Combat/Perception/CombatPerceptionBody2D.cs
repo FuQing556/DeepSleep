@@ -16,6 +16,7 @@ namespace DeepSleep.Runtime.Combat.Perception
         public EnemyProjectile2D Projectile;
         public DataCrawlerSnakeAttackController2D SnakeAttack;
         public DownloadChargeMotor2D DownloadCharge;
+        public QuickAppMotor2D QuickApp;
         [Min(0)] public float TargetValue;
         public bool ThreatTrackedAsObstacle;
         [Tooltip("可攻击但本体不造成接触伤害；不阻止救援，攻击产生的弹幕独立感知。")]
@@ -27,7 +28,7 @@ namespace DeepSleep.Runtime.Combat.Perception
         public bool IsObservable => isActiveAndEnabled && Shape != null && Shape.enabled &&
             (IsAttackTarget ? Hitbox.CanReceiveDamage : Projectile != null && Projectile.IsRented);
         public Vector2 Position => Shape.bounds.center;
-        public Vector2 Velocity => DownloadCharge != null ? DownloadCharge.PerceivedVelocity : Body != null ? Body.linearVelocity : Vector2.zero;
+        public Vector2 Velocity => QuickApp != null ? QuickApp.PerceivedVelocity : DownloadCharge != null ? DownloadCharge.PerceivedVelocity : Body != null ? Body.linearVelocity : Vector2.zero;
         public float Radius => ((Vector2)Shape.bounds.extents).magnitude;
         public bool IsCharging => (SnakeAttack != null && SnakeAttack.State == DataCrawlerSnakeAttackState.Charging) ||
             (DownloadCharge != null && DownloadCharge.IsRunning && DownloadCharge.State == DownloadChargeState.Charging);

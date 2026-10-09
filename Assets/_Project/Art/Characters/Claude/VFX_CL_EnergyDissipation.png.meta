@@ -1,0 +1,1640 @@
+fileFormatVersion: 2
+guid: 8e311f5f4c081e64dab04682d3f9935b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -95210348825105545
+    second: VFX_CL_EnergyDissipation_0
+  - first:
+      213: 7828386810400526803
+    second: VFX_CL_EnergyDissipation_1
+  - first:
+      213: -2962400587999632038
+    second: VFX_CL_EnergyDissipation_2
+  - first:
+      213: -1350871018865199999
+    second: VFX_CL_EnergyDissipation_3
+  - first:
+      213: 7823814630638421509
+    second: VFX_CL_EnergyDissipation_4
+  - first:
+      213: 6201846662377720705
+    second: VFX_CL_EnergyDissipation_5
+  - first:
+      213: 200654519080139470
+    second: VFX_CL_EnergyDissipation_6
+  - first:
+      213: 4801594952075811131
+    second: VFX_CL_EnergyDissipation_7
+  - first:
+      213: 4574678929023064331
+    second: VFX_CL_EnergyDissipation_8
+  - first:
+      213: 5551240340953551435
+    second: VFX_CL_EnergyDissipation_9
+  - first:
+      213: 3515006533315085137
+    second: VFX_CL_EnergyDissipation_10
+  - first:
+      213: 5603372212883099137
+    second: VFX_CL_EnergyDissipation_11
+  - first:
+      213: -1193237532847209310
+    second: VFX_CL_EnergyDissipation_12
+  - first:
+      213: 2456767124690146254
+    second: VFX_CL_EnergyDissipation_13
+  - first:
+      213: -4794319238332759174
+    second: VFX_CL_EnergyDissipation_14
+  - first:
+      213: 1980950687312434428
+    second: VFX_CL_EnergyDissipation_15
+  - first:
+      213: -3811003960429102841
+    second: VFX_CL_EnergyDissipation_16
+  - first:
+      213: 651997389472160494
+    second: VFX_CL_EnergyDissipation_17
+  - first:
+      213: -1335747746992081049
+    second: VFX_CL_EnergyDissipation_18
+  - first:
+      213: -2492186273345913248
+    second: VFX_CL_EnergyDissipation_19
+  - first:
+      213: -849245613898221687
+    second: VFX_CL_EnergyDissipation_20
+  - first:
+      213: 7892677495541992236
+    second: VFX_CL_EnergyDissipation_21
+  - first:
+      213: -2981397935521129219
+    second: VFX_CL_EnergyDissipation_22
+  - first:
+      213: -1677431209626785435
+    second: VFX_CL_EnergyDissipation_23
+  - first:
+      213: 6886743422122794123
+    second: VFX_CL_EnergyDissipation_24
+  - first:
+      213: -3243419041509032573
+    second: VFX_CL_EnergyDissipation_25
+  - first:
+      213: 7747309791527511391
+    second: VFX_CL_EnergyDissipation_26
+  - first:
+      213: -2422675321318652114
+    second: VFX_CL_EnergyDissipation_27
+  - first:
+      213: 1950359654403970163
+    second: VFX_CL_EnergyDissipation_28
+  - first:
+      213: -5799832883671607890
+    second: VFX_CL_EnergyDissipation_29
+  - first:
+      213: -5351967693372858834
+    second: VFX_CL_EnergyDissipation_30
+  - first:
+      213: 3365949430501284826
+    second: VFX_CL_EnergyDissipation_31
+  - first:
+      213: 843776333003363470
+    second: VFX_CL_EnergyDissipation_32
+  - first:
+      213: -7418548905932346391
+    second: VFX_CL_EnergyDissipation_33
+  - first:
+      213: 4147474104905511087
+    second: VFX_CL_EnergyDissipation_34
+  - first:
+      213: -8888311515463158581
+    second: VFX_CL_EnergyDissipation_35
+  - first:
+      213: 2255026115805111813
+    second: VFX_CL_EnergyDissipation_36
+  - first:
+      213: 6135764379730051259
+    second: VFX_CL_EnergyDissipation_37
+  - first:
+      213: 177484678630744984
+    second: VFX_CL_EnergyDissipation_38
+  - first:
+      213: -1962084184479142729
+    second: VFX_CL_EnergyDissipation_39
+  - first:
+      213: 2740625420095100147
+    second: VFX_CL_EnergyDissipation_40
+  - first:
+      213: 8425712052751213950
+    second: VFX_CL_EnergyDissipation_41
+  - first:
+      213: 1059034529643465462
+    second: VFX_CL_EnergyDissipation_42
+  - first:
+      213: 2909740313442668113
+    second: VFX_CL_EnergyDissipation_43
+  - first:
+      213: 5403459654329731856
+    second: VFX_CL_EnergyDissipation_44
+  - first:
+      213: -1200611867553770507
+    second: VFX_CL_EnergyDissipation_45
+  - first:
+      213: 8319494685938619707
+    second: VFX_CL_EnergyDissipation_46
+  - first:
+      213: 8553007571617563623
+    second: VFX_CL_EnergyDissipation_47
+  - first:
+      213: -2255072066352256364
+    second: VFX_CL_EnergyDissipation_48
+  - first:
+      213: 3690077919688334786
+    second: VFX_CL_EnergyDissipation_49
+  - first:
+      213: 3089648265681199663
+    second: VFX_CL_EnergyDissipation_50
+  - first:
+      213: 3158848133684575927
+    second: VFX_CL_EnergyDissipation_51
+  - first:
+      213: 851823178398509966
+    second: VFX_CL_EnergyDissipation_52
+  - first:
+      213: -2611050557780626420
+    second: VFX_CL_EnergyDissipation_53
+  - first:
+      213: 713338585688125395
+    second: VFX_CL_EnergyDissipation_54
+  - first:
+      213: 7724887370731379527
+    second: VFX_CL_EnergyDissipation_55
+  - first:
+      213: -4743474066897159536
+    second: VFX_CL_EnergyDissipation_56
+  - first:
+      213: -8362761465889792040
+    second: VFX_CL_EnergyDissipation_57
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1020
+        width: 317
+        height: 212
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77ba65331bebdaef0800000000000000
+      internalID: -95210348825105545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_1
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 1205
+        width: 36
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d1d646d35404ac60800000000000000
+      internalID: 7828386810400526803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_2
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 1076
+        width: 190
+        height: 159
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a55afd55c5073e6d0800000000000000
+      internalID: -2962400587999632038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_3
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 1051
+        width: 261
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1847b2f27fdb04de0800000000000000
+      internalID: -1350871018865199999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_4
+      rect:
+        serializedVersion: 2
+        x: 961
+        y: 1052
+        width: 111
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50605b744f5c39c60800000000000000
+      internalID: 7823814630638421509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_5
+      rect:
+        serializedVersion: 2
+        x: 1067
+        y: 1132
+        width: 154
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18b477e3ea2611650800000000000000
+      internalID: 6201846662377720705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_6
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 1146
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eca3954d83ed8c200800000000000000
+      internalID: 200654519080139470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_7
+      rect:
+        serializedVersion: 2
+        x: 1131
+        y: 1140
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3999c14b21b2a240800000000000000
+      internalID: 4801594952075811131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1254
+        height: 1054
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0952ed8f368c7f30800000000000000
+      internalID: 4574678929023064331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_9
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 1108
+        width: 21
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b42da59ada7f90d40800000000000000
+      internalID: 5551240340953551435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 970
+        width: 66
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1534c6991dfc7c030800000000000000
+      internalID: 3515006533315085137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_11
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 1102
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10e0135f65d23cd40800000000000000
+      internalID: 5603372212883099137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_12
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 1035
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a48af139c4c07fe0800000000000000
+      internalID: -1193237532847209310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_13
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 1032
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec39303fea0381220800000000000000
+      internalID: 2456767124690146254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_14
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 1124
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a73ca5bdd08277db0800000000000000
+      internalID: -4794319238332759174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_15
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 1116
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf4d2d29720cd7b10800000000000000
+      internalID: 1980950687312434428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_16
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 1056
+        width: 50
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 709340de6189c1bc0800000000000000
+      internalID: -3811003960429102841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_17
+      rect:
+        serializedVersion: 2
+        x: 930
+        y: 1044
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eea58f9db2c5c0900800000000000000
+      internalID: 651997389472160494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_18
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 1044
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 767320f4088767de0800000000000000
+      internalID: -1335747746992081049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_19
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 1026
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06ebc1fd9c9f96dd0800000000000000
+      internalID: -2492186273345913248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_20
+      rect:
+        serializedVersion: 2
+        x: 1125
+        y: 1024
+        width: 80
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 987b9881d9fd634f0800000000000000
+      internalID: -849245613898221687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_21
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 988
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2b00807d5c688d60800000000000000
+      internalID: 7892677495541992236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_22
+      rect:
+        serializedVersion: 2
+        x: 1163
+        y: 980
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfc1e2faf52ff96d0800000000000000
+      internalID: -2981397935521129219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_23
+      rect:
+        serializedVersion: 2
+        x: 1180
+        y: 964
+        width: 57
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 569aa07c33198b8e0800000000000000
+      internalID: -1677431209626785435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_24
+      rect:
+        serializedVersion: 2
+        x: 1192
+        y: 956
+        width: 15
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8c13e6a7a0a29f50800000000000000
+      internalID: 6886743422122794123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_25
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 964
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38dbd1de09f0df2d0800000000000000
+      internalID: -3243419041509032573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_26
+      rect:
+        serializedVersion: 2
+        x: 1091
+        y: 789
+        width: 21
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5527e85539f38b60800000000000000
+      internalID: 7747309791527511391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_27
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 859
+        width: 48
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2742b291ade06ed0800000000000000
+      internalID: -2422675321318652114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_28
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 746
+        width: 71
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3749001b5c1111b10800000000000000
+      internalID: 1950359654403970163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_29
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 644
+        width: 6
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea5df1c98bad28fa0800000000000000
+      internalID: -5799832883671607890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_30
+      rect:
+        serializedVersion: 2
+        x: 1123
+        y: 641
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2ed4232dbdf9b5b0800000000000000
+      internalID: -5351967693372858834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_31
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 648
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adb15f86c2146be20800000000000000
+      internalID: 3365949430501284826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_32
+      rect:
+        serializedVersion: 2
+        x: 137
+        y: 505
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e841c86ba12b5bb00800000000000000
+      internalID: 843776333003363470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_33
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 533
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9eb2a0143150c0990800000000000000
+      internalID: -7418548905932346391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_34
+      rect:
+        serializedVersion: 2
+        x: 1103
+        y: 475
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa0360269b9ce8930800000000000000
+      internalID: 4147474104905511087
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_35
+      rect:
+        serializedVersion: 2
+        x: 1131
+        y: 473
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc4fdcbd4cf56a480800000000000000
+      internalID: -8888311515463158581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_36
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 546
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 506eacffd467b4f10800000000000000
+      internalID: 2255026115805111813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_37
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 472
+        width: 115
+        height: 173
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb00e47d13d962550800000000000000
+      internalID: 6135764379730051259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_38
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 457
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8932cd6ff5d867200800000000000000
+      internalID: 177484678630744984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_39
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 262
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bc65bc64d645c4e0800000000000000
+      internalID: -1962084184479142729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_40
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 262
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f49c239c48a80620800000000000000
+      internalID: 2740625420095100147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_41
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 193
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e75a6fb78742ee470800000000000000
+      internalID: 8425712052751213950
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_42
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 168
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fa85403b4272be00800000000000000
+      internalID: 1059034529643465462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_43
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 165
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15e426b0669716820800000000000000
+      internalID: 2909740313442668113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_44
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 160
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01b8a764de1fcfa40800000000000000
+      internalID: 5403459654329731856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_45
+      rect:
+        serializedVersion: 2
+        x: 504
+        y: 146
+        width: 8
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f3d6591ed1965fe0800000000000000
+      internalID: -1200611867553770507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_46
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 150
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b351f1a9658c47370800000000000000
+      internalID: 8319494685938619707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_47
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 146
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e3cd73121362b670800000000000000
+      internalID: 8553007571617563623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_48
+      rect:
+        serializedVersion: 2
+        x: 488
+        y: 106
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49aea2e47ef54b0e0800000000000000
+      internalID: -2255072066352256364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_49
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 63
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2cd198c215ac53330800000000000000
+      internalID: 3690077919688334786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_50
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 63
+        width: 10
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2264dc5ab2a0ea20800000000000000
+      internalID: 3089648265681199663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_51
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 77
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bebcab24ab76db20800000000000000
+      internalID: 3158848133684575927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_52
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 63
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8b23e7eaa842db00800000000000000
+      internalID: 851823178398509966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_53
+      rect:
+        serializedVersion: 2
+        x: 1161
+        y: 65
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0476e40a5fa3cbd0800000000000000
+      internalID: -2611050557780626420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_54
+      rect:
+        serializedVersion: 2
+        x: 1131
+        y: 45
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3df258c0aa946e900800000000000000
+      internalID: 713338585688125395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_55
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 50
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74b585ea220543b60800000000000000
+      internalID: 7724887370731379527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_56
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 31
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09a3159d77bcb2eb0800000000000000
+      internalID: -4743474066897159536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyDissipation_57
+      rect:
+        serializedVersion: 2
+        x: 874
+        y: 31
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8df505c21c081fb80800000000000000
+      internalID: -8362761465889792040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_CL_EnergyDissipation_0: -95210348825105545
+      VFX_CL_EnergyDissipation_1: 7828386810400526803
+      VFX_CL_EnergyDissipation_10: 3515006533315085137
+      VFX_CL_EnergyDissipation_11: 5603372212883099137
+      VFX_CL_EnergyDissipation_12: -1193237532847209310
+      VFX_CL_EnergyDissipation_13: 2456767124690146254
+      VFX_CL_EnergyDissipation_14: -4794319238332759174
+      VFX_CL_EnergyDissipation_15: 1980950687312434428
+      VFX_CL_EnergyDissipation_16: -3811003960429102841
+      VFX_CL_EnergyDissipation_17: 651997389472160494
+      VFX_CL_EnergyDissipation_18: -1335747746992081049
+      VFX_CL_EnergyDissipation_19: -2492186273345913248
+      VFX_CL_EnergyDissipation_2: -2962400587999632038
+      VFX_CL_EnergyDissipation_20: -849245613898221687
+      VFX_CL_EnergyDissipation_21: 7892677495541992236
+      VFX_CL_EnergyDissipation_22: -2981397935521129219
+      VFX_CL_EnergyDissipation_23: -1677431209626785435
+      VFX_CL_EnergyDissipation_24: 6886743422122794123
+      VFX_CL_EnergyDissipation_25: -3243419041509032573
+      VFX_CL_EnergyDissipation_26: 7747309791527511391
+      VFX_CL_EnergyDissipation_27: -2422675321318652114
+      VFX_CL_EnergyDissipation_28: 1950359654403970163
+      VFX_CL_EnergyDissipation_29: -5799832883671607890
+      VFX_CL_EnergyDissipation_3: -1350871018865199999
+      VFX_CL_EnergyDissipation_30: -5351967693372858834
+      VFX_CL_EnergyDissipation_31: 3365949430501284826
+      VFX_CL_EnergyDissipation_32: 843776333003363470
+      VFX_CL_EnergyDissipation_33: -7418548905932346391
+      VFX_CL_EnergyDissipation_34: 4147474104905511087
+      VFX_CL_EnergyDissipation_35: -8888311515463158581
+      VFX_CL_EnergyDissipation_36: 2255026115805111813
+      VFX_CL_EnergyDissipation_37: 6135764379730051259
+      VFX_CL_EnergyDissipation_38: 177484678630744984
+      VFX_CL_EnergyDissipation_39: -1962084184479142729
+      VFX_CL_EnergyDissipation_4: 7823814630638421509
+      VFX_CL_EnergyDissipation_40: 2740625420095100147
+      VFX_CL_EnergyDissipation_41: 8425712052751213950
+      VFX_CL_EnergyDissipation_42: 1059034529643465462
+      VFX_CL_EnergyDissipation_43: 2909740313442668113
+      VFX_CL_EnergyDissipation_44: 5403459654329731856
+      VFX_CL_EnergyDissipation_45: -1200611867553770507
+      VFX_CL_EnergyDissipation_46: 8319494685938619707
+      VFX_CL_EnergyDissipation_47: 8553007571617563623
+      VFX_CL_EnergyDissipation_48: -2255072066352256364
+      VFX_CL_EnergyDissipation_49: 3690077919688334786
+      VFX_CL_EnergyDissipation_5: 6201846662377720705
+      VFX_CL_EnergyDissipation_50: 3089648265681199663
+      VFX_CL_EnergyDissipation_51: 3158848133684575927
+      VFX_CL_EnergyDissipation_52: 851823178398509966
+      VFX_CL_EnergyDissipation_53: -2611050557780626420
+      VFX_CL_EnergyDissipation_54: 713338585688125395
+      VFX_CL_EnergyDissipation_55: 7724887370731379527
+      VFX_CL_EnergyDissipation_56: -4743474066897159536
+      VFX_CL_EnergyDissipation_57: -8362761465889792040
+      VFX_CL_EnergyDissipation_6: 200654519080139470
+      VFX_CL_EnergyDissipation_7: 4801594952075811131
+      VFX_CL_EnergyDissipation_8: 4574678929023064331
+      VFX_CL_EnergyDissipation_9: 5551240340953551435
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

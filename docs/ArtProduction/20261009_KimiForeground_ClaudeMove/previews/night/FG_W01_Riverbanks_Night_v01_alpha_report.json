@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261009_KimiForeground_ClaudeMove\\ready\\FG_W01_Riverbanks_Night_v01.png",
+  "source_sha256": "912339283a18c5d3ac02597a961d674be8a5df783c7f1952b22b749ea4e911f9",
+  "mode": "RGBA",
+  "size": [
+    1774,
+    887
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 1041347,
+  "partial_alpha_pixels": 531313,
+  "opaque_pixels": 878,
+  "visible_bbox_alpha_gt_0": [
+    11,
+    37,
+    1773,
+    839
+  ],
+  "visible_bbox_alpha_gt_8": [
+    14,
+    248,
+    1760,
+    829
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

@@ -70,6 +70,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
         private float _hitEffectMaximumRotationDegrees = 85f;
         [SerializeField] private Color _hitEffectColor = Color.white;
         [SerializeField, Min(1)] private int _hitEffectPoolPrewarmCount = 8;
+        [SerializeField, Min(1)] private int _hitEffectPoolMaximumCount = 128;
 
         [Header("角色姿态")]
         [SerializeField, Min(0f)] private float _firePoseHoldSeconds = 0.3f;
@@ -132,6 +133,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
         public Color HitEffectColor => _hitEffectColor;
         public int HitEffectPoolPrewarmCount =>
             _hitEffectPoolPrewarmCount;
+        public int HitEffectPoolMaximumCount => _hitEffectPoolMaximumCount;
         public float FirePoseHoldSeconds => _firePoseHoldSeconds;
         public float PoseGhostFadeSeconds => _poseGhostFadeSeconds;
         public float PoseGhostStartAlpha => _poseGhostStartAlpha;
@@ -186,6 +188,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
                 _hitEffectMinimumRotationDegrees < 0f ||
                 _hitEffectMaximumRotationDegrees < 0f ||
                 _hitEffectPoolPrewarmCount < 1 ||
+                _hitEffectPoolMaximumCount < _hitEffectPoolPrewarmCount ||
                 _poseGhostFadeSeconds <= 0f)
             {
                 reason = "引导线宽度和视觉尺寸必须大于 0。";

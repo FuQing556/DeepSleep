@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261008_Claude\\raw\\SPR_CL_IdleHover_v02_CANDIDATE.png",
+  "source_sha256": "71cdc3fb008576a44bc29d41f0ddc95dc36f9a6b72a4064e6eeffdd21b94f1d5",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 880393,
+  "partial_alpha_pixels": 691209,
+  "opaque_pixels": 914,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    17,
+    1234,
+    1254
+  ],
+  "visible_bbox_alpha_gt_8": [
+    223,
+    21,
+    1172,
+    1230
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

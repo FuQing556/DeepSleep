@@ -16,3 +16,7 @@ MonoBehaviour:
   _targetLayers:
     serializedVersion: 2
     m_Bits: 64
+  _despawnOnImpact: 1
+  _repeatIntervalSeconds: 1
+  _knockbackDistance: 1.8
+  _knockbackSeconds: 0.22

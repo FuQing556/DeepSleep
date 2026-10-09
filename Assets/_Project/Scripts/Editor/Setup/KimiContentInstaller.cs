@@ -146,11 +146,13 @@ namespace DeepSleep.Editor.Setup
             bossConfig.MaximumHealth = 10000;
             bossConfig.PhaseTwoHealthFraction = .5f;
             bossConfig.ContactDamageAmount = 1;
+            bossConfig.ContactKnockbackDistance = .65f;
+            bossConfig.ContactKnockbackSeconds = .18f;
             bossConfig.ContactIntervalSeconds = 1;
             bossConfig.Poses = Enum.GetNames(typeof(KimiPose)).Select(p => SpriteAt("SPR_KI_" + p + "_v01")).ToArray();
             SaveNew(bossConfig, ConfigRoot + "/CFG_KI_Boss.asset");
             var moonConfig = ScriptableObject.CreateInstance<KimiMoonBladeConfig>();
-            moonConfig.LaneCount = 10; moonConfig.VolleyCount = 10;
+            moonConfig.LaneCount = 10; moonConfig.VolleyCount = 5;
             moonConfig.PhaseOneBlades = 2; moonConfig.PhaseTwoBlades = 4;
             moonConfig.WarningSeconds = .55f; moonConfig.VolleyGapSeconds = .1f;
             moonConfig.EdgePadding = 2.5f; moonConfig.WarningWidth = .56f;
@@ -162,6 +164,7 @@ namespace DeepSleep.Editor.Setup
             Set(projectileConfig, "_initialPoolSize", 4); Set(projectileConfig, "_maximumPoolSize", 4);
             SaveNew(projectileConfig, ConfigRoot + "/CFG_KI_MoonProjectile.asset");
             var hitConfig = ScriptableObject.CreateInstance<OneShotSpriteEffectConfig>();
+            Set(hitConfig, "_prewarmCount", 32); Set(hitConfig, "_maximumCount", 128);
             Set(hitConfig, "_worldDiameter", 1.1f); Set(hitConfig, "_durationSeconds", .28f);
             SaveNew(hitConfig, ConfigRoot + "/CFG_KI_Hit.asset");
 
@@ -328,6 +331,7 @@ namespace DeepSleep.Editor.Setup
                     var orb=go.AddComponent<KimiPrismOrb2D>();orb.Shape=go.AddComponent<CircleCollider2D>();
                     orb.Shape.isTrigger=true;orb.Shape.radius=config.OrbRadius;orb.Shape.enabled=false;
                     orb.Visual=Renderer(go.transform,"Visual",SpriteAt("VFX_KI_PrismOrb_v01"),45);
+                    orb.VisualSpinDegreesPerSecond=180f;
                     orb.Visual.transform.localScale=Vector3.one*.32f;orb.Visual.enabled=false;
                     prism.Orbs[i]=orb;
                 }
@@ -345,7 +349,7 @@ namespace DeepSleep.Editor.Setup
             var prefab=AssetDatabase.LoadAssetAtPath<GameObject>(RigPath);
             if(prefab==null || prefab.GetComponent<KimiEncounter2D>()!=null)throw new InvalidOperationException("缺少模块或已装配，拒绝覆盖。");
             var config=ScriptableObject.CreateInstance<KimiEncounterConfig>();
-            config.PreludeSeconds=20;config.EntrySeconds=2;config.PhaseChangeSeconds=1.5f;
+            config.PreludeSeconds=20;config.Timing=BossPresentationTimingInstaller.GetTiming();
             config.CastGapSeconds=2;config.CycleGapSeconds=5;config.CastsPerCycle=5;
             config.BossPosition=new Vector2(6.5f,-.8f);config.RevealedTitle="月之暗面";config.ObjectiveText="通过 Kimi 的试炼";config.DisplaySeconds=999;
             SaveNew(config,ConfigRoot+"/CFG_KI_Encounter.asset");
@@ -460,7 +464,8 @@ namespace DeepSleep.Editor.Setup
             config.Length = 40; config.DamageWidth = 1.2f; config.VisualWidth = 2.8f;
             config.TextureRepeatLength = config.VisualWidth * texture.width / texture.height;
             config.TextureScrollSpeed = .6f; config.Damage = 1;
-            config.FocusStartScale = .3f; config.FocusEndScale = .7f; config.FocusSpinDegrees = 40;
+            config.FocusStartScale = .3f; config.FocusEndScale = .7f;
+            config.FocusStartAngleOffsetDegrees = -48; config.FocusAlignedAngleOffsetDegrees = 0;
             config.WarningColor = new Color(.72f,.65f,1,.22f); config.BeamColor = Color.white;
             config.PlayerLayers = 1 << LayerMask.NameToLayer("Player");
             SaveNew(config, ConfigRoot + "/CFG_KI_Laser.asset");

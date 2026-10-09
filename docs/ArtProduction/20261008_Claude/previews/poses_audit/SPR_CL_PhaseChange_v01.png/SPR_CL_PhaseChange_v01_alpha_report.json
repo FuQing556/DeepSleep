@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261008_Claude\\raw\\SPR_CL_PhaseChange_v01.png",
+  "source_sha256": "ed0926f19bc7b8034d25ec7fa85ae8f6dcc44d8e4d446b5847d65d9f65c68189",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 828193,
+  "partial_alpha_pixels": 743580,
+  "opaque_pixels": 743,
+  "visible_bbox_alpha_gt_0": [
+    57,
+    22,
+    1232,
+    1222
+  ],
+  "visible_bbox_alpha_gt_8": [
+    61,
+    25,
+    1198,
+    1217
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

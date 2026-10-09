@@ -13,9 +13,12 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
     public sealed class CoopSessionMenu : MonoBehaviour
     {
         public CoopSessionController Session;
+        public DeepSleep.Runtime.Progression.Run.ChapterSceneEffectsController SceneEffects;
         public LanRoomDiscovery Discovery;
         public GameObject Panel;
         public Button TogglePanel, HostDs, HostHs, JoinButton, ReadyButton, AiButton, LeaveButton;
+        public DeepSleep.Runtime.Progression.Upgrades.RestNodeUpgradeController Upgrades;
+        public Button AutoBuyButton;
         public InputField Address;
         public Text StatusLabel, AiLabel, ReadyLabel;
         public Button TransportMode;
@@ -51,6 +54,7 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
             CloseButton.onClick.AddListener(ClosePanel); ScanButton.onClick.AddListener(Scan);
             ManualButton.onClick.AddListener(ToggleManual); ConfirmLeave.onClick.AddListener(Leave);
             CancelLeave.onClick.AddListener(CancelExit); QuickAi.onClick.AddListener(Ai);
+            if (AutoBuyButton != null) AutoBuyButton.onClick.AddListener(AutoBuy);
             for (int i = 0; i < RoomButtons.Length; i++)
             {
                 int index = i;
@@ -80,6 +84,7 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
             if (ConfirmLeave != null) ConfirmLeave.onClick.RemoveListener(Leave);
             if (CancelLeave != null) CancelLeave.onClick.RemoveListener(CancelExit);
             if (QuickAi != null) QuickAi.onClick.RemoveListener(Ai);
+            if (AutoBuyButton != null) AutoBuyButton.onClick.RemoveListener(AutoBuy);
             if (RoomButtons != null)
                 foreach (var button in RoomButtons) if (button != null) button.onClick.RemoveAllListeners();
             if (Session != null) Session.Changed -= Refresh;
@@ -102,6 +107,8 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
         private void LateUpdate()
         {
             if (Transitioning || Session == null) return;
+            if (AutoBuyButton != null)
+                AutoBuyButton.gameObject.SetActive(InGame && Upgrades != null && Upgrades.IsNodeActive);
             bool blocked = Panel.activeSelf && InGame;
             GameAppRoot.Instance?.Audio?.SetLocalMenuOpen(blocked);
             Touch?.SetUiBlocked(blocked);
@@ -138,7 +145,7 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
         {
             if (!_ownsPause) return;
             _ownsPause = false;
-            if (!Transitioning) Time.timeScale = _previousTimeScale;
+            if (!Transitioning) Time.timeScale = SceneEffects != null ? SceneEffects.TimeMultiplier : _previousTimeScale;
         }
         private void Configure() => Relay?.SelectRelay(_relay, RelayEndpoint.text.Trim(), Address.text.Trim());
         private void CreateDs() => CreateLocally(PlayerRole.DeepSeek);
@@ -181,6 +188,10 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
             if (Panel.activeSelf && InGame) SetPanel(false);
         }
         private void CopyRoomCode() { if (Relay != null) GUIUtility.systemCopyBuffer = Relay.RoomCode; }
+        private void AutoBuy()
+        {
+            if (Upgrades != null && Upgrades.IsNodeActive) Upgrades.AutoBuyLocal();
+        }
         private void RequestLeave()
         {
             if (InGame || Session.Phase == SessionPhase.Disconnected)

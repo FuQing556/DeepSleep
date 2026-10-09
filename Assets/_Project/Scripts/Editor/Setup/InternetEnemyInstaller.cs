@@ -89,7 +89,7 @@ namespace DeepSleep.Editor.Setup
         private static GameObject CreateEnemy(string name, bool charger, Sprite[] sprites)
         {
             var health = Create<HealthConfig>(name + "_Health"); Set(health, "_maximumHealth", charger ? 6f : 8f);
-            var poolConfig = Create<EnemyPoolConfig>(name + "_Pool"); Set(poolConfig, "_initialCapacity", 4); Set(poolConfig, "_maximumCapacity", 8);
+            var poolConfig = Create<EnemyPoolConfig>(name + "_Pool"); Set(poolConfig, "_initialCapacity", 10); Set(poolConfig, "_maximumCapacity", 10);
             var motion = Create<DataCrawlerSnakeMotionConfig>(name + "_Motion");
             Set(motion, "_minimumSpeed", charger ? 2.4f : .65f); Set(motion, "_maximumSpeed", charger ? 2.8f : .85f);
             Set(motion, "_stoppingDistance", 0f);
@@ -135,6 +135,8 @@ namespace DeepSleep.Editor.Setup
                     var visual = go.AddComponent<DownloadChargeVisual2D>(); visual.Motor = m; visual.Actor = actor;
                     visual.VisualRoot = renderer.transform; visual.Renderer = renderer; visual.Transition = transition;
                     visual.Idle = sprites[0]; visual.Charge = sprites[1]; visual.Dash = sprites[2];
+                    visual.MotionTrailPrefab = AssetDatabase.LoadAssetAtPath<SpriteMotionTrail2D>(PrefabRoot + "PF_Download_MotionTrail.prefab");
+                    visual.SortingGroup = go.GetComponent<UnityEngine.Rendering.SortingGroup>();
                     flash.Sources = new[] { renderer, ghost };
                 }
                 else
@@ -152,11 +154,13 @@ namespace DeepSleep.Editor.Setup
                     var facing = go.AddComponent<SecurityGuardFacing2D>(); facing.Motor = motor;
                     facing.Renderer = renderer; facing.VisualRoot = renderer.transform; facing.ShieldRoot = shield.transform; facing.Transition = transition;
                     shield.transform.localPosition = Vector3.right * facing.ShieldOffset;
-                    SetArray(actor, "_simulationStepComponents", new Object[] { facing });
+                    SetArray(actor, "_simulationStepComponents", new Object[] { facing, contact });
                     flash.Sources = new[] { renderer, ghost, shieldView };
                 }
                 Set(actor, "_motor", motor); Set(contact, "_motor", motor);
-                go.GetComponent<CombatPerceptionBody2D>().TargetValue = charger ? 2.5f : 1.5f;
+                Set(contact, "_config", AssetDatabase.LoadAssetAtPath<EnemyContactDamageConfig>(Root +
+                    "Configs/Combat/Enemies/Internet/CFG_EN_" + name + "_ContactDamage.asset"));
+                go.GetComponent<CombatPerceptionBody2D>().TargetValue = charger ? 16f : 1.5f;
                 go.GetComponent<CombatPerceptionBody2D>().DownloadCharge = charger ? (DownloadChargeMotor2D)motor : null;
                 var saved = PrefabUtility.SaveAsPrefabAsset(go, PrefabRoot + "PF_Enemy_" + name + ".prefab");
                 actorAsset = saved.GetComponent<EnemyActor2D>();

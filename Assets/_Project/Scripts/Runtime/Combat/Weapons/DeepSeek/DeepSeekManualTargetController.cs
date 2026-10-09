@@ -25,7 +25,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek
         private bool _isInitialized;
 
         public PlayerActionBlock ActionCategory =>
-            PlayerActionBlock.ActiveCombat;
+            PlayerActionBlock.ActiveCombat | PlayerActionBlock.PrimaryAttack;
 
         public bool HasLockedTarget => IsTargetValid(_lockedTarget);
 
@@ -69,13 +69,21 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek
         }
 
         public bool TryGetLockedTargetPosition(out Vector2 targetPosition)
+            => TryGetLockedTargetPosition(out targetPosition, out _);
+
+        public bool TryGetLockedTargetPosition(out Vector2 targetPosition, out Collider2D target)
         {
-            if (!IsTargetValid(_lockedTarget))
+            // 保留锁定引用，但入场/转阶段不可受击时不向武器提供射击目标。
+            if (!IsTargetValid(_lockedTarget) ||
+                (_lockedTarget.TryGetComponent(out DeepSleep.Runtime.Combat.Damage.DamageHitbox2D hitbox) &&
+                 !hitbox.CanReceiveDamage))
             {
                 targetPosition = default;
+                target = null;
                 return false;
             }
 
+            target = _lockedTarget;
             targetPosition = _lockedTarget.bounds.center;
             return true;
         }

@@ -63,3 +63,23 @@ MonoBehaviour:
     Anchor: {x: 0.8144646, y: 0.8509697}
     Angle: -43.6
     WidthRatio: 0.32
+  - Pose: {fileID: 21300000, guid: 84c677269b71cd242a7976f3f62b257e, type: 3}
+    Role: 0
+    Anchor: {x: 0.437697, y: 0.84377766}
+    Angle: 49.3
+    WidthRatio: 0.32
+  - Pose: {fileID: 21300000, guid: a8977c7ec98aac44fa57ffcc182e97dd, type: 3}
+    Role: 0
+    Anchor: {x: 0.437697, y: 0.84377766}
+    Angle: 49.3
+    WidthRatio: 0.32
+  - Pose: {fileID: 21300000, guid: 9c94674055f9b1948921bf4ee6c05d04, type: 3}
+    Role: 0
+    Anchor: {x: 0.755, y: 0.788303}
+    Angle: 4.9
+    WidthRatio: 0.32
+  - Pose: {fileID: 21300000, guid: 1b0be348196862749bded8f3625b769a, type: 3}
+    Role: 0
+    Anchor: {x: 0.755, y: 0.788303}
+    Angle: 4.9
+    WidthRatio: 0.32

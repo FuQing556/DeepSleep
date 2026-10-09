@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261008_Claude\\raw\\VFX_CL_EnergyRadialBurst_v01_CANDIDATE.png",
+  "source_sha256": "eb93d2b63bf7115b0bfd8fe74031752d6184f083930c14c1b04d9af18cf3ae54",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    254
+  ],
+  "transparent_pixels": 631444,
+  "partial_alpha_pixels": 941072,
+  "opaque_pixels": 0,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    0,
+    1254,
+    1254
+  ],
+  "visible_bbox_alpha_gt_8": [
+    35,
+    53,
+    1221,
+    1204
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    1,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

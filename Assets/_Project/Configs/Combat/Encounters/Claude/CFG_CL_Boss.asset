@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9b3515fe8f48fd44975952dfa27390e, type: 3}
+  m_Name: CFG_CL_Boss
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Encounters.Claude.ClaudeBossConfig
+  MaximumHealth: 10000
+  PhaseTwoHealthFraction: 0.5
+  ContactDamage: 1
+  ContactIntervalSeconds: 1
+  ContactKnockbackDistance: 0.65
+  ContactKnockbackSeconds: 0.18
+  Poses:
+  - {fileID: 21300000, guid: 4a0dee22b011d8644b0e3775a5abec1d, type: 3}
+  - {fileID: 21300000, guid: 487151246ed787e4dbacf40b4e619906, type: 3}
+  - {fileID: 21300000, guid: 0018f816db61e704f9faa7b786912f5b, type: 3}
+  - {fileID: 21300000, guid: f48fbb3260947fb459ce783c23b4bc56, type: 3}
+  - {fileID: -3286369462443944367, guid: 74a15c1779b691b4abfbceaf43c9d288, type: 3}
+  - {fileID: 21300000, guid: 38b323a7cb4f41d4bb430df4b9bf263b, type: 3}
+  - {fileID: 21300000, guid: b338cf22f540be3409f56562bdf48bd2, type: 3}
+  - {fileID: 21300000, guid: 011abe62b60775c458d21651d46ba1ec, type: 3}

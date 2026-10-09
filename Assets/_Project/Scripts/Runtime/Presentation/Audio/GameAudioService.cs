@@ -183,7 +183,9 @@ namespace DeepSleep.Runtime.Presentation.Audio
 
         public void SetAmbience(AudioCue cue, float fadeSeconds = 1f)
         {
-            if (!_ready || !isActiveAndEnabled || cue == _ambienceCue || cue < AudioCue.AmbienceSky || cue > AudioCue.AmbienceRest) return;
+            bool ambience = cue >= AudioCue.AmbienceSky && cue <= AudioCue.AmbienceRest ||
+                cue >= AudioCue.AmbienceCyber && cue <= AudioCue.AmbienceArcade;
+            if (!_ready || !isActiveAndEnabled || cue == _ambienceCue || !ambience) return;
             var entry = _definitions[(int)cue];
             _ambientFadeSeconds = Mathf.Max(.05f, fadeSeconds);
             for (int i = 0; i < 2; i++)

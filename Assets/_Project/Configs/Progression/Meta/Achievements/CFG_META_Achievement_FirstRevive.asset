@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Meta.AchievementDefinition
   _achievementId: first_revive
   _displayName: "\u4E0D\u8981\u7761\u5566"
-  _description: "\u9996\u6B21\u6210\u529F\u590D\u6D3B\u961F\u53CB\u3002"
+  _description: "\u9996\u6B21\u590D\u6D3B\u961F\u53CB\u3002"
   _hidden: 0
   _triggerId: teammate_revived
   _targetCount: 1
   _icon: {fileID: 0}
+  _requiredLevel: {fileID: 0}
+  _requiredChallenges: []

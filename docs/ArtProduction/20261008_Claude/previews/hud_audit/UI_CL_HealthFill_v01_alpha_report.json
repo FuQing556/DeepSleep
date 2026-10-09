@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261008_Claude\\raw\\UI_CL_HealthFill_v01.png",
+  "source_sha256": "40533e377c96179012289e0181d40a5059cda27d5ed37a8c0b2e912cf809c0bf",
+  "mode": "RGBA",
+  "size": [
+    1586,
+    992
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    254
+  ],
+  "transparent_pixels": 1433803,
+  "partial_alpha_pixels": 139509,
+  "opaque_pixels": 0,
+  "visible_bbox_alpha_gt_0": [
+    41,
+    229,
+    1551,
+    750
+  ],
+  "visible_bbox_alpha_gt_8": [
+    42,
+    448,
+    1547,
+    537
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    0,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

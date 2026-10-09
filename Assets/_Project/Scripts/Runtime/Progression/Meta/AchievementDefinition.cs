@@ -14,6 +14,8 @@ namespace DeepSleep.Runtime.Progression.Meta
         [SerializeField] private string _triggerId;
         [SerializeField, Min(1)] private int _targetCount = 1;
         [SerializeField] private Sprite _icon;
+        [SerializeField] private MetaLevelDefinition _requiredLevel;
+        [SerializeField] private DeepSleep.Runtime.Progression.Bestiary.BestiaryEntryDefinition[] _requiredChallenges;
 
         public string AchievementId => _achievementId;
         public string DisplayName => _displayName;
@@ -22,6 +24,8 @@ namespace DeepSleep.Runtime.Progression.Meta
         public string TriggerId => _triggerId;
         public int TargetCount => _targetCount;
         public Sprite Icon => _icon;
+        public MetaLevelDefinition RequiredLevel => _requiredLevel;
+        public DeepSleep.Runtime.Progression.Bestiary.BestiaryEntryDefinition[] RequiredChallenges => _requiredChallenges;
 
         public bool TryValidate(out string reason)
         {

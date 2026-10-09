@@ -36,7 +36,7 @@ namespace DeepSleep.Editor.Setup
                 so.FindProperty("_productId").stringValue = "little_wings";
                 so.FindProperty("_displayName").stringValue = "小翅膀";
                 so.FindProperty("_description").stringValue = "永久背饰 · 无属性 · 可与皇冠同时佩戴";
-                so.FindProperty("_price").intValue = 20;
+                so.FindProperty("_price").intValue = 10;
                 so.FindProperty("_repeatable").boolValue = false;
                 so.FindProperty("_isBackwear").boolValue = true;
                 so.FindProperty("_icon").objectReferenceValue = sprite;
@@ -100,7 +100,7 @@ namespace DeepSleep.Editor.Setup
             Networking.NetworkBuildRevision.Apply(net); EditorUtility.SetDirty(net);
             AssetDatabase.SaveAssets(); EditorSceneManager.OpenScene("Assets/Scenes/Boot.unity");
             Accessories.AccessoryEditorWindow.Open(wings);
-            return "Installed little_wings20, two independent slots, 9 wing poses, three scenes, protocol9. Crown untouched.";
+            return "Installed little_wings10, two independent slots, 9 wing poses, three scenes, protocol9. Crown untouched.";
         }
 
         private static HeadwearSpriteView AddBack(HeadwearSpriteView front, HeadwearSpriteView back)

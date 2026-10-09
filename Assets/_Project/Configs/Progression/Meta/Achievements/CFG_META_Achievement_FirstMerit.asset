@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: CFG_META_Achievement_FirstMerit
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Meta.AchievementDefinition
   _achievementId: first_merit
-  _displayName: "\u4E00\u70B9\u529F\u5FB7"
-  _description: "\u9996\u6B21\u8D2D\u4E70\u4EFB\u610F\u529F\u5FB7\u3002"
+  _displayName: "\u7B2C\u4E00\u4EF6\u85CF\u54C1"
+  _description: "\u9996\u6B21\u5728\u9CB8\u5143\u5238\u5546\u5E97\u8D2D\u4E70\u5546\u54C1\u3002"
   _hidden: 0
   _triggerId: product_purchased
   _targetCount: 1
   _icon: {fileID: 0}
+  _requiredLevel: {fileID: 0}
+  _requiredChallenges: []

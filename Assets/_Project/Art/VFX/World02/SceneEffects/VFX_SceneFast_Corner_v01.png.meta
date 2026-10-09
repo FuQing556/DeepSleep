@@ -1,0 +1,730 @@
+fileFormatVersion: 2
+guid: bcc3bb794aad14142ac048b252a1d8ad
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7096050428849415340
+    second: VFX_SceneFast_Corner_v01_0
+  - first:
+      213: -3376540385004987284
+    second: VFX_SceneFast_Corner_v01_1
+  - first:
+      213: 1079117256972356210
+    second: VFX_SceneFast_Corner_v01_2
+  - first:
+      213: -3048667217662573594
+    second: VFX_SceneFast_Corner_v01_3
+  - first:
+      213: -3555077173251377908
+    second: VFX_SceneFast_Corner_v01_4
+  - first:
+      213: -9221115656819073513
+    second: VFX_SceneFast_Corner_v01_5
+  - first:
+      213: 585642202156088739
+    second: VFX_SceneFast_Corner_v01_6
+  - first:
+      213: 4803233345705277664
+    second: VFX_SceneFast_Corner_v01_7
+  - first:
+      213: -4106940326811348205
+    second: VFX_SceneFast_Corner_v01_8
+  - first:
+      213: 4547728381812731874
+    second: VFX_SceneFast_Corner_v01_9
+  - first:
+      213: -8878350424046571907
+    second: VFX_SceneFast_Corner_v01_10
+  - first:
+      213: 2376633340729930953
+    second: VFX_SceneFast_Corner_v01_11
+  - first:
+      213: 3772428710672868802
+    second: VFX_SceneFast_Corner_v01_12
+  - first:
+      213: -1239469493884088006
+    second: VFX_SceneFast_Corner_v01_13
+  - first:
+      213: -5599967889150013745
+    second: VFX_SceneFast_Corner_v01_14
+  - first:
+      213: 5964500867065353939
+    second: VFX_SceneFast_Corner_v01_15
+  - first:
+      213: -8022164536726951663
+    second: VFX_SceneFast_Corner_v01_16
+  - first:
+      213: 108694614063537414
+    second: VFX_SceneFast_Corner_v01_17
+  - first:
+      213: -3406821641638055732
+    second: VFX_SceneFast_Corner_v01_18
+  - first:
+      213: 4363169238621198007
+    second: VFX_SceneFast_Corner_v01_19
+  - first:
+      213: -8430004708648388300
+    second: VFX_SceneFast_Corner_v01_20
+  - first:
+      213: 3771685226262795439
+    second: VFX_SceneFast_Corner_v01_21
+  - first:
+      213: 4744527634688808024
+    second: VFX_SceneFast_Corner_v01_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1254
+        height: 1254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45b1c204bb3c58d90800000000000000
+      internalID: -7096050428849415340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_1
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 1156
+        width: 13
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6c5406d86e1421d0800000000000000
+      internalID: -3376540385004987284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_2
+      rect:
+        serializedVersion: 2
+        x: 1205
+        y: 1111
+        width: 8
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27ac4d48d6bc9fe00800000000000000
+      internalID: 1079117256972356210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_3
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 1111
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e308dc6155f0b5d0800000000000000
+      internalID: -3048667217662573594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_4
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 1106
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0570438524d9aec0800000000000000
+      internalID: -3555077173251377908
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_5
+      rect:
+        serializedVersion: 2
+        x: 1212
+        y: 1077
+        width: 15
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71e918a6a24080080800000000000000
+      internalID: -9221115656819073513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_6
+      rect:
+        serializedVersion: 2
+        x: 1224
+        y: 1068
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3adbdf0ea7e902800800000000000000
+      internalID: 585642202156088739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_7
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 923
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e8f210874388a240800000000000000
+      internalID: 4803233345705277664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_8
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 725
+        width: 17
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 313dea248873107c0800000000000000
+      internalID: -4106940326811348205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_9
+      rect:
+        serializedVersion: 2
+        x: 1214
+        y: 728
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2efe8ec4ed6cc1f30800000000000000
+      internalID: 4547728381812731874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_10
+      rect:
+        serializedVersion: 2
+        x: 1214
+        y: 705
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7ee34f2453c9c480800000000000000
+      internalID: -8878350424046571907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_11
+      rect:
+        serializedVersion: 2
+        x: 1220
+        y: 674
+        width: 14
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c4be837e6f7bf020800000000000000
+      internalID: 2376633340729930953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_12
+      rect:
+        serializedVersion: 2
+        x: 1204
+        y: 529
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c52428dceb5a5430800000000000000
+      internalID: 3772428710672868802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_13
+      rect:
+        serializedVersion: 2
+        x: 1214
+        y: 497
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a311b13ff058ccee0800000000000000
+      internalID: -1239469493884088006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_14
+      rect:
+        serializedVersion: 2
+        x: 1205
+        y: 461
+        width: 16
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fce8e9defdae842b0800000000000000
+      internalID: -5599967889150013745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_15
+      rect:
+        serializedVersion: 2
+        x: 1214
+        y: 216
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d690f3ffe926c250800000000000000
+      internalID: 5964500867065353939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_16
+      rect:
+        serializedVersion: 2
+        x: 1198
+        y: 159
+        width: 25
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11967aa6bdb8ba090800000000000000
+      internalID: -8022164536726951663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_17
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 31
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60d5144fc29228100800000000000000
+      internalID: 108694614063537414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_18
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 21
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc0fc0d54c988b0d0800000000000000
+      internalID: -3406821641638055732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_19
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 31
+        width: 25
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b69de23e471d8c30800000000000000
+      internalID: 4363169238621198007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_20
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 17
+        width: 9
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 439742ea16b920b80800000000000000
+      internalID: -8430004708648388300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_21
+      rect:
+        serializedVersion: 2
+        x: 1172
+        y: 29
+        width: 15
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa49bf3eab7b75430800000000000000
+      internalID: 3771685226262795439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_SceneFast_Corner_v01_22
+      rect:
+        serializedVersion: 2
+        x: 601
+        y: 7
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85496a40fb2f7d140800000000000000
+      internalID: 4744527634688808024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_SceneFast_Corner_v01_0: -7096050428849415340
+      VFX_SceneFast_Corner_v01_1: -3376540385004987284
+      VFX_SceneFast_Corner_v01_10: -8878350424046571907
+      VFX_SceneFast_Corner_v01_11: 2376633340729930953
+      VFX_SceneFast_Corner_v01_12: 3772428710672868802
+      VFX_SceneFast_Corner_v01_13: -1239469493884088006
+      VFX_SceneFast_Corner_v01_14: -5599967889150013745
+      VFX_SceneFast_Corner_v01_15: 5964500867065353939
+      VFX_SceneFast_Corner_v01_16: -8022164536726951663
+      VFX_SceneFast_Corner_v01_17: 108694614063537414
+      VFX_SceneFast_Corner_v01_18: -3406821641638055732
+      VFX_SceneFast_Corner_v01_19: 4363169238621198007
+      VFX_SceneFast_Corner_v01_2: 1079117256972356210
+      VFX_SceneFast_Corner_v01_20: -8430004708648388300
+      VFX_SceneFast_Corner_v01_21: 3771685226262795439
+      VFX_SceneFast_Corner_v01_22: 4744527634688808024
+      VFX_SceneFast_Corner_v01_3: -3048667217662573594
+      VFX_SceneFast_Corner_v01_4: -3555077173251377908
+      VFX_SceneFast_Corner_v01_5: -9221115656819073513
+      VFX_SceneFast_Corner_v01_6: 585642202156088739
+      VFX_SceneFast_Corner_v01_7: 4803233345705277664
+      VFX_SceneFast_Corner_v01_8: -4106940326811348205
+      VFX_SceneFast_Corner_v01_9: 4547728381812731874
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

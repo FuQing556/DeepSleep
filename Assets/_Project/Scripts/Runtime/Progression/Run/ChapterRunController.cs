@@ -74,6 +74,7 @@ namespace DeepSleep.Runtime.Progression.Run
         private float _defeatElapsed;
         private float _networkElapsed;
         private int _defeats;
+        private int _challengeResolvedEnemies;
         private int _totalDefeats;
         private float _totalCombatSeconds;
         private int _segmentNumber = 1;
@@ -108,7 +109,9 @@ namespace DeepSleep.Runtime.Progression.Run
         }
         public ChapterFailureReason FailureReason { get; private set; }
         public int SegmentNumber => _segmentNumber;
+        public int SceneEffectSeed { get; private set; }
         public int Defeats => _defeats;
+        public int ChallengeResolvedEnemies => _challengeResolvedEnemies;
         public float RemainingCombatSeconds => _remainingCombatSeconds;
         /// <summary>仅表示显式配置已通过且本局引用已捕获；不另建开战状态。</summary>
         public bool IsInitialized => _isInitialized;
@@ -116,7 +119,7 @@ namespace DeepSleep.Runtime.Progression.Run
         public OpeningCharacterSelectionController Selection => _selection;
         public LevelSceneBindings LevelBindings => _levelBindings;
         public ChapterCombatWorld2D CombatWorld => _combatWorld;
-        public float CurrentEnemyHealthMultiplier => CurrentSegment.EnemyHealthMultiplier;
+        public float CurrentEnemyHealthMultiplier => IsChallenge ? 1f : CurrentSegment.EnemyHealthMultiplier;
 
         private ChapterCombatSegmentDefinition CurrentSegment =>
             _runConfig.GetSegment(_segmentNumber);
@@ -183,6 +186,8 @@ namespace DeepSleep.Runtime.Progression.Run
             _runLevelId = _runLevel.LevelId;
             _enemies = _levelBindings.Enemies;
             _isInitialized = true;
+            SceneEffectSeed = CanAuthor ? UnityEngine.Random.Range(1,int.MaxValue) : 0;
+            _upgradeController.InitializeRunSeed(SceneEffectSeed);
             int objectiveCount = _additionalObjectiveComponents?.Length ?? 0;
             _additionalObjectives = new IChapterCombatObjective[objectiveCount];
             for (int index = 0; index < objectiveCount; index++)
@@ -300,7 +305,9 @@ namespace DeepSleep.Runtime.Progression.Run
                 return;
             }
 
-            _totalCombatSeconds += deltaTime;
+            // 波次与状态持续按真实秒；其余战斗、冷却与倒地计时消费倍速后的游戏时间。
+            float chapterSeconds = Time.unscaledDeltaTime;
+            _totalCombatSeconds += chapterSeconds;
             if (_restNode.State == RestNodeState.Clearing)
             {
                 // 清残敌仍是战斗：受击、倒地失败、击败奖励继续生效，段倒计时不再重跑。
@@ -329,12 +336,21 @@ namespace DeepSleep.Runtime.Progression.Run
                 return;
             }
 
+            if (IsChallenge && !Challenge.IsBossChallenge)
+            {
+                bool complete = Challenge.ChallengeKind == BestiaryChallengeKind.EnemyChannel
+                    ? _challengeResolvedEnemies >= Challenge.EnemyCount && _combatWorld.IsCleared : AreAdditionalObjectivesComplete();
+                if (complete) { CompleteChapter(); return; }
+                _remainingCombatSeconds = Mathf.Max(0, _remainingCombatSeconds - chapterSeconds);
+                if (_remainingCombatSeconds <= 0) BeginDefeat(ChapterFailureReason.ObjectiveIncomplete);
+                return;
+            }
             if (CurrentSegment.ObjectiveMode == ChapterObjectiveMode.EncountersOnly)
                 _defeats = AreAdditionalObjectivesComplete() ? 1 : 0;
 
             _remainingCombatSeconds = Mathf.Max(
                 0f,
-                _remainingCombatSeconds - deltaTime);
+                _remainingCombatSeconds - chapterSeconds);
             if (_remainingCombatSeconds > 0f)
             {
                 return;
@@ -461,6 +477,12 @@ namespace DeepSleep.Runtime.Progression.Run
         {
             if (!IsChallenge) { StartCombatSegment(); return; }
             _combatWorld.StopCombat(ChapterCombatStopReason.EncounterTakeover);
+            foreach (var capacity in Challenge.PoolCapacities)
+            {
+                foreach (var enemy in _enemies)
+                    if (enemy.Director.Channel == capacity.Channel && !enemy.Pool.PrepareChallengeCapacity(capacity.Capacity))
+                    { Debug.LogError("[ChapterRun] 挑战池预热失败。", this); enabled = false; return; }
+            }
             if (!_upgradeController.PrepareChallengeBalance(Challenge.StartingTokensPerRole))
             { Debug.LogError("[ChapterRun] 挑战配装余额初始化失败。", this); enabled = false; return; }
             _retryCurrentSegmentFromCheckpoint = true;
@@ -543,8 +565,10 @@ namespace DeepSleep.Runtime.Progression.Run
             ApplyCurrentSegmentTuning();
             Phase = ChapterRunPhase.Combat;
             FailureReason = ChapterFailureReason.None;
-            _remainingCombatSeconds = CurrentSegment.DurationSeconds;
+            _remainingCombatSeconds = IsChallenge && !Challenge.IsBossChallenge
+                ? Challenge.ChallengeSeconds : CurrentSegment.DurationSeconds;
             _defeats = 0;
+            _challengeResolvedEnemies = 0;
             _deepSeekDownedSeconds = 0f;
             _harnessDownedSeconds = 0f;
             _teamDownedSeconds = 0f;
@@ -563,13 +587,20 @@ namespace DeepSleep.Runtime.Progression.Run
             for (int index = 0; index < _enemies.Count; index++)
             {
                 EnemySpawnDirector2D director = _enemies[index].Director;
+                if (IsChallenge && Challenge.ChallengeKind == BestiaryChallengeKind.EnemyChannel && director.Channel == Challenge.EnemyChannel)
+                {
+                    director.ApplyRuntimeTuning(true, Challenge.SpawnAllAtStart ? 0 : Challenge.SpawnIntervalSeconds, 1f, Challenge.MaximumAlive,
+                        1f, Challenge.EnemyCount, Challenge.SpawnIntervalSeconds, Challenge.SpawnAllAtStart,
+                        Challenge.EnemyBatchSize, Challenge.EnemyBatchIntervalSeconds);
+                    continue;
+                }
                 if (!IsChallenge && segment.TryGetRule(director.Channel, out SegmentSpawnRule rule))
                 {
                     director.ApplyRuntimeTuning(
                         rule.Enabled,
                         rule.InitialDelaySeconds,
                         rule.IntervalMultiplier,
-                        rule.MaximumAliveCount, segment.EnemyHealthMultiplier);
+                        rule.MaximumAliveCount, rule.ResolveHealthMultiplier(segment.EnemyHealthMultiplier));
                 }
                 else
                 {
@@ -609,13 +640,19 @@ namespace DeepSleep.Runtime.Progression.Run
             if (_metaRewardGranted) return;
 
             _metaRewardGranted = true;
-            if (IsChallenge) { _awardedVouchers = 0; _rewardMessage = "练习挑战 · 不发放永久奖励"; return; }
             if (!TryValidateLevelIdentity(out _rewardMessage) || _runLevel != _levelBindings.Level)
             {
                 if (string.IsNullOrEmpty(_rewardMessage))
                     _rewardMessage = "本局关卡定义在运行中发生变化，已阻止通关写入。";
                 Debug.LogError($"[{nameof(ChapterRunController)}] {_rewardMessage}", this);
                 _awardedVouchers = 0;
+                return;
+            }
+            if (IsChallenge)
+            {
+                if (!_profile.TryAwardChallengeCompletion(Challenge, out _awardedVouchers, out _rewardMessage))
+                    _awardedVouchers = 0;
+                else GameAppRoot.Instance.Achievements.ReportChallengeCleared();
                 return;
             }
             if (!_profile.TryAwardCompletion(
@@ -629,6 +666,7 @@ namespace DeepSleep.Runtime.Progression.Run
             }
             GameAppRoot.Instance.Achievements.Report(
                 AchievementTriggerIds.LevelCleared);
+            GameAppRoot.Instance.Achievements.ReportLevelCleared(_runLevel);
             if (!_anyPlayerDowned)
                 GameAppRoot.Instance.Achievements.Report(
                     AchievementTriggerIds.FlawlessLevelCleared);
@@ -707,10 +745,16 @@ namespace DeepSleep.Runtime.Progression.Run
 
         private void OnEnemyDespawned(EnemyDespawnRequest2D request, EnemySpawnChannelDefinition channel)
         {
+            if (CanAuthor && Phase == ChapterRunPhase.Combat && IsChallenge &&
+                Challenge.ChallengeKind == BestiaryChallengeKind.EnemyChannel && channel == Challenge.EnemyChannel &&
+                (request.Reason == EnemyDespawnReason.Defeated || request.Reason == EnemyDespawnReason.ExitedPlayfield ||
+                 request.Reason == EnemyDespawnReason.ContactImpact))
+                _challengeResolvedEnemies++;
             if (CanAuthor && Phase == ChapterRunPhase.Combat &&
                 request.Reason == EnemyDespawnReason.Defeated)
             {
-                if (CurrentSegment.CountsEnemy(channel)) _defeats++;
+                if (IsChallenge ? Challenge.ChallengeKind == BestiaryChallengeKind.EnemyChannel && channel == Challenge.EnemyChannel
+                    : CurrentSegment.CountsEnemy(channel)) _defeats++;
                 _totalDefeats++;
             }
         }
@@ -764,8 +808,10 @@ namespace DeepSleep.Runtime.Progression.Run
             int minutes = totalSeconds / 60;
             int seconds = totalSeconds % 60;
             if (IsChallenge)
-                return $"{Challenge.DisplayName} · 挑战完成\n\n战斗用时  {minutes:00}:{seconds:00}\n\n练习不消耗鲸元券，也不改变正式关卡通关记录。";
-            return "原型演练完成\n\n" +
+                return $"{Challenge.DisplayName} · 挑战完成\n\n战斗用时  {minutes:00}:{seconds:00}\n\n" +
+                    (_awardedVouchers > 0 ? $"鲸元券 +{_awardedVouchers}\n当前持有  {_profile.WhaleVoucherBalance}" : _rewardMessage) +
+                    "\n不改变正式关卡通关记录。";
+            return _runLevel.DisplayName + " · 通关完成\n\n" +
                 $"战斗段  {_runConfig.CombatSegmentCount}/{_runConfig.CombatSegmentCount}\n" +
                 $"累计击败  {_totalDefeats}\n" +
                 $"战斗用时  {minutes:00}:{seconds:00}\n\n" +
@@ -791,13 +837,18 @@ namespace DeepSleep.Runtime.Progression.Run
             IChapterCombatTakeover takeover = ActiveTakeover;
             string text = IsChallenge
                 ? (takeover != null ? $"{Challenge.DisplayName} · {takeover.DisplayTitle}  {takeover.ObjectiveText}"
-                    : $"{Challenge.DisplayName} · 黄昏前奏，月夜即将降临")
+                    : Challenge.ChallengeKind == BestiaryChallengeKind.Kimi ? $"{Challenge.DisplayName} · 黄昏前奏，月夜即将降临"
+                    : Challenge.ChallengeKind == BestiaryChallengeKind.Claude ? $"{Challenge.DisplayName} · 雨夜将至"
+                    : Challenge.ChallengeKind == BestiaryChallengeKind.EnemyChannel
+                    ? $"{Challenge.DisplayName} · 已离场 {_challengeResolvedEnemies}/{Challenge.EnemyCount} · 击杀 {_defeats} · 剩余 {Mathf.CeilToInt(_remainingCombatSeconds)} 秒"
+                    : $"{Challenge.DisplayName} · 击败豆包 · 剩余 {Mathf.CeilToInt(_remainingCombatSeconds)} 秒")
                 : takeover != null
                 ? $"第 {_segmentNumber} 波  剩余 {takeover.DisplaySeconds} 秒  {takeover.DisplayTitle}  {takeover.ObjectiveText}"
                 : $"第 {_segmentNumber} 波  " +
                 $"剩余 {Mathf.CeilToInt(_remainingCombatSeconds)} 秒  " +
                 $"{CurrentSegment.DisplayName}  " +
-                $"{CurrentSegment.ObjectiveLabel} {Mathf.Min(_defeats, CurrentSegment.RequiredDefeats)}/{CurrentSegment.RequiredDefeats}";
+                (CurrentSegment.ObjectiveLabel == "？？？" ? "？？？" :
+                $"{CurrentSegment.ObjectiveLabel} {Mathf.Min(_defeats, CurrentSegment.RequiredDefeats)}/{CurrentSegment.RequiredDefeats}");
             if (_teamDownedSeconds > 0f)
                 text += $"\n全队宕机：{Remaining(_runConfig.TeamDownedTimeoutSeconds, _teamDownedSeconds):0.0}s";
             else if (_deepSeekDownedSeconds > 0f)
@@ -870,6 +921,7 @@ namespace DeepSleep.Runtime.Progression.Run
                     writer.Write(_anyPlayerDowned);
                     writer.Write(_totalDefeats);
                     writer.Write(_totalCombatSeconds);
+                    writer.Write(SceneEffectSeed);
                 },
                 reliable: true);
         }
@@ -892,6 +944,7 @@ namespace DeepSleep.Runtime.Progression.Run
             _anyPlayerDowned = reader.ReadBoolean();
             _totalDefeats = reader.ReadInt32();
             _totalCombatSeconds = reader.ReadSingle();
+            SceneEffectSeed = reader.ReadInt32();
             RefreshReplicaFlow();
             if (previousPhase != ChapterRunPhase.Complete &&
                 Phase == ChapterRunPhase.Complete)

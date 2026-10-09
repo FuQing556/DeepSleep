@@ -16,6 +16,7 @@ namespace DeepSleep.Runtime.Progression.Meta
         [SerializeField] private bool _repeatable = true;
         [SerializeField] private bool _isHeadwear;
         [SerializeField] private bool _isBackwear;
+        [SerializeField] private PlayerSkinDefinition _skin;
 
         public string ProductId => _productId;
         public string DisplayName => _displayName;
@@ -25,6 +26,8 @@ namespace DeepSleep.Runtime.Progression.Meta
         public bool Repeatable => _repeatable;
         public bool IsHeadwear => _isHeadwear;
         public bool IsAccessory => _isHeadwear || _isBackwear;
+        public PlayerSkinDefinition Skin => _skin;
+        public bool IsSkin => _skin != null;
         public AccessorySlot Slot => _isBackwear ? AccessorySlot.Back : AccessorySlot.Front;
 
         public bool TryValidate(out string reason)
@@ -42,6 +45,8 @@ namespace DeepSleep.Runtime.Progression.Meta
             }
             if ((_isHeadwear && _isBackwear) || (IsAccessory && (_repeatable || _icon == null)))
             { reason = "头饰必须是非重复购买商品并配置图标。"; return false; }
+            if (IsSkin && (IsAccessory || _repeatable || _icon == null || !_skin.TryValidate(out reason)))
+            { reason = "服装必须独立于饰品、永久持有且配置有效姿态及图标。"; return false; }
 
             reason = string.Empty;
             return true;

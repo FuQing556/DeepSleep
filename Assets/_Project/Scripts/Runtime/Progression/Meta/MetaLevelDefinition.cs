@@ -14,7 +14,7 @@ namespace DeepSleep.Runtime.Progression.Meta
         [SerializeField] private string _sceneName = "Gameplay_Prototype";
         [SerializeField, TextArea] private string _description;
         [SerializeField, Min(0)] private int _firstClearVoucherReward = 10;
-        [SerializeField, Min(0)] private int _repeatClearVoucherReward = 5;
+        [SerializeField, Min(0)] private int _repeatClearVoucherReward = 10;
         [SerializeField] private bool _implemented = true;
         [SerializeField] private ChapterRunConfig _chapterRunConfig;
         [SerializeField] private LevelContentManifest _contentManifest;

@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51bdcaae3cf8d8548a96e366540ee829, type: 3}
+  m_Name: CFG_Bestiary_recursive
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Progression.Bestiary.BestiaryEntryDefinition
+  PoolCapacities:
+  - Channel: {fileID: 11400000, guid: 8edbfff11732db143883184d6b5789b5, type: 2}
+    Capacity: 10
+  - Channel: {fileID: 11400000, guid: 86459c521ad5a544d9a153220dfcd180, type: 2}
+    Capacity: 40
+  - Channel: {fileID: 11400000, guid: aa20bcf8132ca2742a80906a0be82fd4, type: 2}
+    Capacity: 80
+  EntryId: recursive
+  DisplayName: "\u9012\u5F52"
+  Subtitle: "\u201C2066\u201D \xB7 \u5355\u602A\u7EC3\u4E60"
+  Description: "\u4E00\u56E2\u8FD8\u6CA1\u7B97\u5B8C\u7684\u51FD\u6570\u3002\u6C89\u91CD\u7684\u679C\u51BB\u5411\u524D\u8815\u52A8\uFF0C\u7ED3\u675F\u4E00\u6B21\u8C03\u7528\uFF0C\u5374\u7559\u4E0B\u66F4\u591A\u8C03\u7528\u3002"
+  SkillNotes: "\u5927\u578B\u88AB\u51FB\u8D25\u540E\uFF0C\u6CBF\u56DB\u4E2A\u5BF9\u89D2\u65B9\u5411\u5206\u62104\u53EA\u4E2D\u578B\uFF1B\u6BCF\u53EA\u4E2D\u578B\u518D\u5206\u62102\u53EA\u5C0F\u578B\u3002\n\u63A5\u89E6\u4F1A\u9020\u6210\u4F24\u5BB3\u5E76\u51FB\u9000\uFF0C\u4F46\u4E0D\u4F1A\u8BA9\u5B83\u6D88\u5931\u3002\u7559\u610F\u5206\u88C2\u540E\u7684\u5305\u56F4\u3002"
+  Portrait: {fileID: 21300000, guid: 719aed1633bc5bc418cb609c21f4f46e, type: 3}
+  PreparationBackdrop: {fileID: 21300000, guid: 2f3d83ae4b3b4cf6b78f6fb8c06513d9, type: 3}
+  PreparationLayout:
+    BackgroundPosition: {x: 0, y: 0, z: 0}
+    BackgroundScale: {x: 1.432, y: 1.432, z: 1}
+    Hotspots:
+    - Kind: 0
+      Position: {x: -5.6277604, y: 0.54999995, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+      Size: {x: 2.2346368, y: 2.094972}
+      Offset: {x: 0, y: 0}
+      Enabled: 1
+    - Kind: 1
+      Position: {x: 0, y: 1.8902401, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+      Size: {x: 2.6536312, y: 2.9329607}
+      Offset: {x: 0, y: 0}
+      Enabled: 1
+    - Kind: 2
+      Position: {x: 5.61344, y: 0.49999997, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+      Size: {x: 2.2346368, y: 2.094972}
+      Offset: {x: 0, y: 0}
+      Enabled: 1
+    - Kind: 3
+      Position: {x: -12.200641, y: 1.01672, z: 0}
+      Scale: {x: 1, y: 1, z: 1}
+      Size: {x: 1.5363128, y: 1.8156424}
+      Offset: {x: 0, y: 0}
+      Enabled: 0
+  Level: {fileID: 11400000, guid: be007779311c89342961b0eb917dd9b5, type: 2}
+  CombatSegment: 1
+  StartingTokensPerRole: 300
+  ChallengeKind: 2
+  EnemyChannel: {fileID: 11400000, guid: 8edbfff11732db143883184d6b5789b5, type: 2}
+  EnemyCount: 10
+  EnemyBatchSize: 5
+  EnemyBatchIntervalSeconds: 3
+  SpawnAllAtStart: 1
+  SpawnIntervalSeconds: 2
+  MaximumAlive: 10
+  ChallengeSeconds: 300
+  CompletionVoucherReward: 0
+  PreludeSeconds: 3
+  PreparationPrompt: "\u9012\u5F52 \u72EC\u7ACB\u6311\u6218 \xB7 \u53CC\u89D2\u8272\u5404300 Token \xB7 \u914D\u88C5\u540E\u8FDB\u5165\u4F20\u9001\u95E8"

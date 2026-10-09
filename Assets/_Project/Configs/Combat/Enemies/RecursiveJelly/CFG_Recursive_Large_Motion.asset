@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d72358206d5b04e43a8f4e5f6f0b2d4b, type: 3}
+  m_Name: CFG_Recursive_Large_Motion
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Combat.Enemies.RecursiveJellyConfig
+  Speed: 0.85
+  RetargetSeconds: 0.2
+  DespawnMargin: 1.5
+  StrideDistance: 0.42
+  StrideSeconds: 0.9
+  ReachPhase01: 0.28
+  PullPhase01: 0.42
+  SplitDirections:
+  - {x: -1, y: 1}
+  - {x: 1, y: 1}
+  - {x: -1, y: -1}
+  - {x: 1, y: -1}
+  SplitOffset: 0.42
+  SeparationSpeed: 3
+  SeparationSeconds: 0.5
+  BirthProtectionSeconds: 0.24
+  MoveStretch: 0.18
+  HitSquash: 0.16
+  HitRecoverSeconds: 0.35
+  BirthSquash: 0.2
+  Opacity: 0.86

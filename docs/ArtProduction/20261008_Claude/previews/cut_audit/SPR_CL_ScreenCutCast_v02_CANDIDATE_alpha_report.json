@@ -1,0 +1,38 @@
+{
+  "source": "D:\\Unity Work\\DeepSleep_Unity6\\docs\\ArtProduction\\20261008_Claude\\raw\\SPR_CL_ScreenCutCast_v02_CANDIDATE.png",
+  "source_sha256": "624e0d1f7efdd33d7d91a8b340970f0de40f465ba52781f3039d13828ff25c8b",
+  "mode": "RGBA",
+  "size": [
+    1254,
+    1254
+  ],
+  "has_alpha": true,
+  "alpha_min_max": [
+    0,
+    255
+  ],
+  "transparent_pixels": 847577,
+  "partial_alpha_pixels": 722220,
+  "opaque_pixels": 2719,
+  "visible_bbox_alpha_gt_0": [
+    0,
+    18,
+    1232,
+    1254
+  ],
+  "visible_bbox_alpha_gt_8": [
+    61,
+    20,
+    1228,
+    1228
+  ],
+  "corner_alpha": [
+    0,
+    0,
+    1,
+    0
+  ],
+  "checked_points": [],
+  "automatic_failures": [],
+  "visual_review": "REQUIRED: inspect interior holes, edges and semitransparent glow"
+}

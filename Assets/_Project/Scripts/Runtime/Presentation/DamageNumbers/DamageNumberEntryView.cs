@@ -23,6 +23,7 @@ namespace DeepSleep.Runtime.Presentation.DamageNumbers
 
         public event Action<DamageNumberEntryView> Finished;
         public bool IsPlaying => _isPlaying;
+        internal ulong PoolPlaySequence;
 
         public bool TryValidateConfiguration(out string reason)
         {

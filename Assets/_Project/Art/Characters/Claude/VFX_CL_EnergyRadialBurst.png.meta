@@ -1,0 +1,496 @@
+fileFormatVersion: 2
+guid: afe8b706b29b1e647bcf93be59939dc9
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6286446695158574844
+    second: VFX_CL_EnergyRadialBurst_0
+  - first:
+      213: -1373419981647143664
+    second: VFX_CL_EnergyRadialBurst_1
+  - first:
+      213: -3330219734901753314
+    second: VFX_CL_EnergyRadialBurst_2
+  - first:
+      213: 2109558169254342490
+    second: VFX_CL_EnergyRadialBurst_3
+  - first:
+      213: -937549821853095740
+    second: VFX_CL_EnergyRadialBurst_4
+  - first:
+      213: -7778188047639011991
+    second: VFX_CL_EnergyRadialBurst_5
+  - first:
+      213: 5892069160707576630
+    second: VFX_CL_EnergyRadialBurst_6
+  - first:
+      213: 5972061883682987649
+    second: VFX_CL_EnergyRadialBurst_7
+  - first:
+      213: -6277573098077214751
+    second: VFX_CL_EnergyRadialBurst_8
+  - first:
+      213: -5516501781468647634
+    second: VFX_CL_EnergyRadialBurst_9
+  - first:
+      213: 7450946604271632393
+    second: VFX_CL_EnergyRadialBurst_10
+  - first:
+      213: 5108286746381060511
+    second: VFX_CL_EnergyRadialBurst_11
+  - first:
+      213: -3246172519798942556
+    second: VFX_CL_EnergyRadialBurst_12
+  - first:
+      213: 8913521330207611812
+    second: VFX_CL_EnergyRadialBurst_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 512
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_CL_EnergyRadialBurst_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1254
+        height: 1251
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfeea5456f1fd3750800000000000000
+      internalID: 6286446695158574844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyRadialBurst_1
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 1223
+        width: 19
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01d9f7aadc1a0fce0800000000000000
+      internalID: -1373419981647143664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyRadialBurst_2
+      rect:
+        serializedVersion: 2
+        x: 892
+        y: 1229
+        width: 9
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e1a7f2d9bcea8c1d0800000000000000
+      internalID: -3330219734901753314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyRadialBurst_3
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 1241
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5fad6f5af7a64d10800000000000000
+      internalID: 2109558169254342490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyRadialBurst_4
+      rect:
+        serializedVersion: 2
+        x: 1003
+        y: 1236
+        width: 11
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c8273587672df2f0800000000000000
+      internalID: -937549821853095740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyRadialBurst_5
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 1199
+        width: 39
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96d99486e235e0490800000000000000
+      internalID: -7778188047639011991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyRadialBurst_6
+      rect:
+        serializedVersion: 2
+        x: 1238
+        y: 134
+        width: 16
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63352042fa5d4c150800000000000000
+      internalID: 5892069160707576630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyRadialBurst_7
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 10
+        width: 35
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18e139154a601e250800000000000000
+      internalID: 5972061883682987649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyRadialBurst_8
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 8
+        width: 15
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e72f8df68491e8a0800000000000000
+      internalID: -6277573098077214751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyRadialBurst_9
+      rect:
+        serializedVersion: 2
+        x: 175
+        y: 17
+        width: 17
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2f60c08bd27173b0800000000000000
+      internalID: -5516501781468647634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyRadialBurst_10
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 15
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9008304b574176760800000000000000
+      internalID: 7450946604271632393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyRadialBurst_11
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 15
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9901e02bb744e640800000000000000
+      internalID: 5108286746381060511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyRadialBurst_12
+      rect:
+        serializedVersion: 2
+        x: 1141
+        y: 7
+        width: 36
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a4dfbdca4743f2d0800000000000000
+      internalID: -3246172519798942556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_EnergyRadialBurst_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ab54e88c6033bb70800000000000000
+      internalID: 8913521330207611812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_CL_EnergyRadialBurst_0: 6286446695158574844
+      VFX_CL_EnergyRadialBurst_1: -1373419981647143664
+      VFX_CL_EnergyRadialBurst_10: 7450946604271632393
+      VFX_CL_EnergyRadialBurst_11: 5108286746381060511
+      VFX_CL_EnergyRadialBurst_12: -3246172519798942556
+      VFX_CL_EnergyRadialBurst_13: 8913521330207611812
+      VFX_CL_EnergyRadialBurst_2: -3330219734901753314
+      VFX_CL_EnergyRadialBurst_3: 2109558169254342490
+      VFX_CL_EnergyRadialBurst_4: -937549821853095740
+      VFX_CL_EnergyRadialBurst_5: -7778188047639011991
+      VFX_CL_EnergyRadialBurst_6: 5892069160707576630
+      VFX_CL_EnergyRadialBurst_7: 5972061883682987649
+      VFX_CL_EnergyRadialBurst_8: -6277573098077214751
+      VFX_CL_EnergyRadialBurst_9: -5516501781468647634
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

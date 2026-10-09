@@ -34,7 +34,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek.Guard
         private RiceGuardState _state;
         private bool _isInitialized;
 
-        public PlayerActionBlock ActionCategory => PlayerActionBlock.ActiveCombat;
+        public PlayerActionBlock ActionCategory => PlayerActionBlock.ActiveCombat | PlayerActionBlock.Skill;
         public bool IsActive => _replica ? _replicaActive : _state?.IsActive == true;
         public bool IsWarning => _replica ? _replicaWarning : _state?.IsWarning == true;
         public int Capacity => _config != null ? _config.Charges : 0;
