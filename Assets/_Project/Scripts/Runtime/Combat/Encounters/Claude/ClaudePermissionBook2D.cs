@@ -48,6 +48,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Claude
     public sealed class ClaudePermissionBook2D : MonoBehaviour, IDamageReceiver, IDamageFeedbackSource
     {
         public Collider2D Shape;
+        public DeepSleep.Runtime.Progression.Run.RunDifficultyContext Difficulty;
         public SpriteRenderer Visual;
         public SpriteRenderer Decoration;
         private void LateUpdate()
@@ -113,7 +114,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Claude
                 (session != null && session.Phase != SessionPhase.Offline && !session.IsAuthority)) return false;
             _gate = gate; _life = life; _session = session; _registry = registry; _authority = true;
             Role = role; Permission = permission;
-            CurrentHealth = Mathf.Floor(phaseTwo ? config.PhaseTwoHealth : config.PhaseOneHealth);
+            CurrentHealth = (phaseTwo ? config.PhaseTwoHealth : config.PhaseOneHealth) * (Difficulty != null ? Difficulty.DurabilityMultiplier : 1f);
             _warningSeconds = config.WarningSeconds; _sealSeconds = config.SealSeconds;
             State = _warningSeconds > 0 ? ClaudeBookState.Warning : ClaudeBookState.Sealed;
             RemainingSeconds = State == ClaudeBookState.Warning ? _warningSeconds : _sealSeconds;

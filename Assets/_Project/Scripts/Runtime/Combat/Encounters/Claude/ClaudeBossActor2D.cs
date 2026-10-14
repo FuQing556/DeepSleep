@@ -56,11 +56,13 @@ namespace DeepSleep.Runtime.Combat.Encounters.Claude
             ResetActor();
         }
 
+        public DeepSleep.Runtime.Progression.Run.RunDifficultyContext Difficulty;
+        public float MaximumHealth => Difficulty != null ? Difficulty.Health(Config.MaximumHealth) : Config.MaximumHealth;
         public bool BeginAuthority(CoopSessionController session, CombatPerceptionRegistry2D registry)
         {
             ResetActor();
             _session = session;
-            return Body.BeginAuthority(Config.MaximumHealth, Config.PhaseTwoHealthFraction, session, registry);
+            return Body.BeginAuthority(MaximumHealth, Config.PhaseTwoHealthFraction, session, registry);
         }
 
         public void SetPose(ClaudePose pose)

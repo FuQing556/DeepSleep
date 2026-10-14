@@ -165,7 +165,7 @@ namespace DeepSleep.Editor.Setup
             SaveNew(projectileConfig, ConfigRoot + "/CFG_KI_MoonProjectile.asset");
             var hitConfig = ScriptableObject.CreateInstance<OneShotSpriteEffectConfig>();
             Set(hitConfig, "_prewarmCount", 32); Set(hitConfig, "_maximumCount", 128);
-            Set(hitConfig, "_worldDiameter", 1.1f); Set(hitConfig, "_durationSeconds", .28f);
+            Set(hitConfig, "_worldDiameter", 1.1f); Set(hitConfig, "_durationSeconds", .6f); Set(hitConfig, "_fadeStart01", .35f);
             SaveNew(hitConfig, ConfigRoot + "/CFG_KI_Hit.asset");
 
             GameObject hit = UnityEngine.Object.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>(EnemyHit));

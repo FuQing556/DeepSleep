@@ -20,6 +20,7 @@ namespace DeepSleep.Runtime.Input.Touch
         private uint _sequence;
         private Vector2 _move;
         private AimIntent _aim;
+        private Vector2 _lastMeleeDirection;
         private CommandButtonState _skill, _secondary, _attack, _cancel;
         public bool TouchEnabled => ForceTouchForTesting || Application.isMobilePlatform;
         public bool UiBlocked { get; private set; }
@@ -43,6 +44,16 @@ namespace DeepSleep.Runtime.Input.Touch
                 : new AimIntent(AimReference.None, Vector2.zero);
         }
         public void SetAttack(bool down) => SetButton(ref _attack, down);
+        /// <summary>右摇杆只提供方向，不以玩家到按钮的连线瞄准；中央按住沿用上一次方向。</summary>
+        public void SetMeleeDirection(Vector2 value)
+        {
+            if (value.sqrMagnitude > .0001f) _lastMeleeDirection = value.normalized;
+            _aim = _lastMeleeDirection.sqrMagnitude > .0001f
+                ? new AimIntent(AimReference.Direction, _lastMeleeDirection)
+                : default;
+        }
+        public void ResetMeleeInput()
+        { _attack = 0; _aim = default; _lastMeleeDirection = Vector2.zero; }
         public void SetSkill(bool down) => SetButton(ref _skill, down);
         public void SetSecondary(bool down) => SetButton(ref _secondary, down);
         public void SetCancel(bool down) => SetButton(ref _cancel, down);
@@ -50,13 +61,19 @@ namespace DeepSleep.Runtime.Input.Touch
         { state = down ? state | CommandButtonState.Pressed | CommandButtonState.Held :
                 (state & ~CommandButtonState.Held) | CommandButtonState.Released; }
         private void OnApplicationFocus(bool focus) { if (!focus) Clear(); }
-        private void Clear() { _move = Vector2.zero; _skill = _secondary = _attack = _cancel = 0; }
+        private void Clear()
+        {
+            _move = Vector2.zero;
+            _skill = _secondary = _attack = _cancel = 0;
+            _aim = default; _lastMeleeDirection = Vector2.zero;
+        }
         public bool TryGetCommand(uint tick, out PlayerCommand command)
         {
             if (!TouchEnabled)
             {
                 bool available = _desktop.TryGetCommand(tick, out command);
                 if (UiBlocked) command = new PlayerCommand(command.Sequence, tick, Vector2.zero, default, 0, 0, 0, 0, 0, 0);
+                else if (available) command = command.WithControlOptions(PlayerControlPreferences.Options);
                 return available;
             }
             if (UiBlocked)
@@ -65,7 +82,7 @@ namespace DeepSleep.Runtime.Input.Touch
                 command = new PlayerCommand(++_sequence, tick, Vector2.zero, default, 0, 0, 0, 0, 0, 0);
                 return true;
             }
-            command = new PlayerCommand(++_sequence, tick, _move, _aim, _skill, _secondary, _attack, _cancel, 0, 0);
+            command = new PlayerCommand(++_sequence, tick, _move, _aim, _skill, _secondary, _attack, _cancel, 0, 0, PlayerControlPreferences.Options);
             _skill &= CommandButtonState.Held; _secondary &= CommandButtonState.Held;
             _attack &= CommandButtonState.Held; _cancel &= CommandButtonState.Held;
             return true;

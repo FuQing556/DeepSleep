@@ -199,7 +199,8 @@ namespace DeepSleep.Runtime.Combat.Enemies
             if (!_bound || _children == null || _session == null)
             { Debug.LogError("[RecursiveJelly] 分裂后代池或权威会话未显式注入。", this); return; }
             if (_session.Phase != SessionPhase.Offline && !_session.IsAuthority) return;
-            float multiplier = _inheritedHealthMultiplier > 0 ? _inheritedHealthMultiplier : Health.MaximumHealth / BaseHealth.MaximumHealth;
+            float difficulty = Health.SpawnHealthMultiplier;
+            float multiplier = _inheritedHealthMultiplier > 0 ? _inheritedHealthMultiplier : Health.MaximumHealth / BaseHealth.MaximumHealth / difficulty;
             Rect bounds = Playfield.WorldBounds;
             foreach (Vector2 raw in Config.SplitDirections)
             {
@@ -211,6 +212,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
                 { Debug.LogError("[RecursiveJelly] 后代容量不足，检查生成容量约束。", this); return; }
                 // 新生边界缓存专属组件，之后每帧不查组件；倍率继承本段，不继承父体当前血量。
                 var jelly = child.GetComponent<RecursiveJelly2D>();
+                child.Health.SetSpawnHealthMultiplier(difficulty);
                 child.Health.SetMaximumHealthBonus(jelly.BaseHealth.MaximumHealth * multiplier - jelly.BaseHealth.MaximumHealth);
                 child.Health.ResetToMaximum();
                 jelly.BeginSeparation(direction, multiplier);

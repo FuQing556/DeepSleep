@@ -11,6 +11,8 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
     public sealed class KimiBoss2D : MonoBehaviour, IDamageReceiver, IDamageFeedbackSource
     {
         public KimiBossConfig Config;
+        public DeepSleep.Runtime.Progression.Run.RunDifficultyContext Difficulty;
+        public float DurabilityMultiplier => Difficulty != null ? Difficulty.DurabilityMultiplier : 1f;
         public Collider2D HitCollider;
         public SpriteRenderer Body;
         public SpriteRenderer Cloud;
@@ -24,7 +26,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
         public event Action FeedbackReset;
         public event Action Defeated;
         public float CurrentHealth { get; private set; }
-        public float MaximumHealth => Config.MaximumHealth;
+        public float MaximumHealth => Config.MaximumHealth * DurabilityMultiplier;
         public bool IsShown { get; private set; }
         public bool IsAlive => IsShown && CurrentHealth > 0;
         public bool PhaseTwo { get; private set; }

@@ -22,7 +22,6 @@ namespace DeepSleep.Runtime.Progression.Meta
         {
             if (_facts == null || _facts.Chapter == null || _bindings == null || _bindings.Length == 0)
             { Debug.LogError("[Achievements] 未配置玩法事实源及成就映射。", this); enabled = false; return; }
-            _service = GameAppRoot.Instance.Achievements;
             _facts.FactPresented += OnFact;
         }
 
@@ -34,6 +33,11 @@ namespace DeepSleep.Runtime.Progression.Meta
         private void OnFact(NetworkMessageCatalog.CombatPresentationKind fact)
         {
             if (_facts.Chapter.IsChallenge) return;
+            if (_service == null)
+            {
+                if (GameAppRoot.Instance == null) return; // 退出场景/编辑器重载期间无服务。
+                _service = GameAppRoot.Instance.Achievements;
+            }
             foreach (var binding in _bindings)
                 if (binding.Fact == fact)
                     _service.Report(binding.TriggerId);

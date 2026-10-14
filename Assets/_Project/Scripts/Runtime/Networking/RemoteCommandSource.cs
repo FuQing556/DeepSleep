@@ -68,6 +68,6 @@ namespace DeepSleep.Runtime.Networking
                 heldOnly ? Hold(c.PrimarySkill) : c.PrimarySkill,
                 heldOnly ? Hold(c.SecondarySkill) : c.SecondarySkill,
                 heldOnly ? Hold(c.ConfirmAim) : c.ConfirmAim,
-                heldOnly ? Hold(c.CancelAim) : c.CancelAim, 0, 0);
+                heldOnly ? Hold(c.CancelAim) : c.CancelAim, 0, 0, c.ControlOptions);
     }
 }

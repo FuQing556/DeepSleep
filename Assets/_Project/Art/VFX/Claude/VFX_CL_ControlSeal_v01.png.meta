@@ -1,0 +1,1016 @@
+fileFormatVersion: 2
+guid: cbf419b21059ff8468f2d53b1907fdd4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7144243192231327362
+    second: VFX_CL_ControlSeal_v01_0
+  - first:
+      213: 7342851341920776339
+    second: VFX_CL_ControlSeal_v01_1
+  - first:
+      213: -3612715698603531219
+    second: VFX_CL_ControlSeal_v01_2
+  - first:
+      213: 3725901367288380777
+    second: VFX_CL_ControlSeal_v01_3
+  - first:
+      213: 26464813989936161
+    second: VFX_CL_ControlSeal_v01_4
+  - first:
+      213: -7757116564549031714
+    second: VFX_CL_ControlSeal_v01_5
+  - first:
+      213: -6333795989811583668
+    second: VFX_CL_ControlSeal_v01_6
+  - first:
+      213: 7814983314014994853
+    second: VFX_CL_ControlSeal_v01_7
+  - first:
+      213: 1785345323205232689
+    second: VFX_CL_ControlSeal_v01_8
+  - first:
+      213: 4261715504889517543
+    second: VFX_CL_ControlSeal_v01_9
+  - first:
+      213: -4156513178161057577
+    second: VFX_CL_ControlSeal_v01_10
+  - first:
+      213: 4057459898145165347
+    second: VFX_CL_ControlSeal_v01_11
+  - first:
+      213: -452374759912839985
+    second: VFX_CL_ControlSeal_v01_12
+  - first:
+      213: -3983273537051695124
+    second: VFX_CL_ControlSeal_v01_13
+  - first:
+      213: 5820365338456832740
+    second: VFX_CL_ControlSeal_v01_14
+  - first:
+      213: -5010493476364575483
+    second: VFX_CL_ControlSeal_v01_15
+  - first:
+      213: -8348684278952425385
+    second: VFX_CL_ControlSeal_v01_16
+  - first:
+      213: 7874447601243102621
+    second: VFX_CL_ControlSeal_v01_17
+  - first:
+      213: -5515897883936359162
+    second: VFX_CL_ControlSeal_v01_18
+  - first:
+      213: 8267865433467769066
+    second: VFX_CL_ControlSeal_v01_19
+  - first:
+      213: -959047479693902693
+    second: VFX_CL_ControlSeal_v01_20
+  - first:
+      213: -626867181959845605
+    second: VFX_CL_ControlSeal_v01_21
+  - first:
+      213: -2622395934840941346
+    second: VFX_CL_ControlSeal_v01_22
+  - first:
+      213: -3536760476826473853
+    second: VFX_CL_ControlSeal_v01_23
+  - first:
+      213: 1009318002074864279
+    second: VFX_CL_ControlSeal_v01_24
+  - first:
+      213: 5444329169577894114
+    second: VFX_CL_ControlSeal_v01_25
+  - first:
+      213: 21943135772869380
+    second: VFX_CL_ControlSeal_v01_26
+  - first:
+      213: -7293077124929333637
+    second: VFX_CL_ControlSeal_v01_27
+  - first:
+      213: -2064715400077961738
+    second: VFX_CL_ControlSeal_v01_28
+  - first:
+      213: 712515079067526383
+    second: VFX_CL_ControlSeal_v01_29
+  - first:
+      213: 5026819142663983329
+    second: VFX_CL_ControlSeal_v01_30
+  - first:
+      213: -8932188220478706236
+    second: VFX_CL_ControlSeal_v01_31
+  - first:
+      213: -907575662419671408
+    second: VFX_CL_ControlSeal_v01_32
+  - first:
+      213: 7019803989823451368
+    second: VFX_CL_ControlSeal_v01_33
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 1243
+        height: 1254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28673fdd453752360800000000000000
+      internalID: 7144243192231327362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1177
+        width: 53
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39030b1346c07e560800000000000000
+      internalID: 7342851341920776339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_2
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 945
+        width: 7
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d24624e863e0dddc0800000000000000
+      internalID: -3612715698603531219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_3
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 943
+        width: 23
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96dbd598d8f05b330800000000000000
+      internalID: 3725901367288380777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_4
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 883
+        width: 49
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12cbaecab950e5000800000000000000
+      internalID: 26464813989936161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_5
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 936
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed8a1c0659f295490800000000000000
+      internalID: -7757116564549031714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_6
+      rect:
+        serializedVersion: 2
+        x: 1236
+        y: 859
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c45ac7bea16d918a0800000000000000
+      internalID: -6333795989811583668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_7
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 821
+        width: 9
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a108752be5647c60800000000000000
+      internalID: 7814983314014994853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_8
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 682
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1388d0fbc12d6c810800000000000000
+      internalID: 1785345323205232689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_9
+      rect:
+        serializedVersion: 2
+        x: 868
+        y: 294
+        width: 386
+        height: 464
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e5d6b21ca7a42b30800000000000000
+      internalID: 4261715504889517543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 328
+        width: 5
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d0fa7f59491156c0800000000000000
+      internalID: -4156513178161057577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_11
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 320
+        width: 242
+        height: 248
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 320d55fa74efe4830800000000000000
+      internalID: 4057459898145165347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_12
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 250
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc4ea0a7d87d8b9f0800000000000000
+      internalID: -452374759912839985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 99
+        width: 5
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce7e1d482d198b8c0800000000000000
+      internalID: -3983273537051695124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_14
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 119
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ea37bd007716c050800000000000000
+      internalID: 5820365338456832740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_15
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 103
+        width: 7
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50d90efdab6277ab0800000000000000
+      internalID: -5010493476364575483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_16
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 16
+        width: 102
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 758072ba1e3832c80800000000000000
+      internalID: -8348684278952425385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_17
+      rect:
+        serializedVersion: 2
+        x: 832
+        y: 9
+        width: 196
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9d958a6f58a74d60800000000000000
+      internalID: 7874447601243102621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_18
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 78
+        width: 13
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60df4aa59189373b0800000000000000
+      internalID: -5515897883936359162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_19
+      rect:
+        serializedVersion: 2
+        x: 217
+        y: 7
+        width: 104
+        height: 73
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae0d3948ecb5db270800000000000000
+      internalID: 8267865433467769066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_20
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 31
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9c7c120667c0b2f0800000000000000
+      internalID: -959047479693902693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_21
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 9
+        width: 67
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b19eee98e9bec47f0800000000000000
+      internalID: -626867181959845605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_22
+      rect:
+        serializedVersion: 2
+        x: 394
+        y: 9
+        width: 23
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed490639ac06b9bd0800000000000000
+      internalID: -2622395934840941346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_23
+      rect:
+        serializedVersion: 2
+        x: 709
+        y: 33
+        width: 18
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38aed1bb517eaeec0800000000000000
+      internalID: -3536760476826473853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_24
+      rect:
+        serializedVersion: 2
+        x: 1059
+        y: 21
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79a44131061d10e00800000000000000
+      internalID: 1009318002074864279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_25
+      rect:
+        serializedVersion: 2
+        x: 1157
+        y: 25
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e0ecf0d8842e8b40800000000000000
+      internalID: 5444329169577894114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_26
+      rect:
+        serializedVersion: 2
+        x: 1169
+        y: 23
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 403000d6a25fd4000800000000000000
+      internalID: 21943135772869380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_27
+      rect:
+        serializedVersion: 2
+        x: 426
+        y: 23
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b765f09cef8c9ca90800000000000000
+      internalID: -7293077124929333637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_28
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 23
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f513107848a853e0800000000000000
+      internalID: -2064715400077961738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_29
+      rect:
+        serializedVersion: 2
+        x: 651
+        y: 17
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe4ede870bc53e900800000000000000
+      internalID: 712515079067526383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_30
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 9
+        width: 7
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e0de948069d2c540800000000000000
+      internalID: 5026819142663983329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_31
+      rect:
+        serializedVersion: 2
+        x: 914
+        y: 7
+        width: 12
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cd2073632e7a0480800000000000000
+      internalID: -8932188220478706236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_32
+      rect:
+        serializedVersion: 2
+        x: 1188
+        y: 13
+        width: 17
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0968faa5eb4a763f0800000000000000
+      internalID: -907575662419671408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: VFX_CL_ControlSeal_v01_33
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 9
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e0fb46498a5b6160800000000000000
+      internalID: 7019803989823451368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      VFX_CL_ControlSeal_v01_0: 7144243192231327362
+      VFX_CL_ControlSeal_v01_1: 7342851341920776339
+      VFX_CL_ControlSeal_v01_10: -4156513178161057577
+      VFX_CL_ControlSeal_v01_11: 4057459898145165347
+      VFX_CL_ControlSeal_v01_12: -452374759912839985
+      VFX_CL_ControlSeal_v01_13: -3983273537051695124
+      VFX_CL_ControlSeal_v01_14: 5820365338456832740
+      VFX_CL_ControlSeal_v01_15: -5010493476364575483
+      VFX_CL_ControlSeal_v01_16: -8348684278952425385
+      VFX_CL_ControlSeal_v01_17: 7874447601243102621
+      VFX_CL_ControlSeal_v01_18: -5515897883936359162
+      VFX_CL_ControlSeal_v01_19: 8267865433467769066
+      VFX_CL_ControlSeal_v01_2: -3612715698603531219
+      VFX_CL_ControlSeal_v01_20: -959047479693902693
+      VFX_CL_ControlSeal_v01_21: -626867181959845605
+      VFX_CL_ControlSeal_v01_22: -2622395934840941346
+      VFX_CL_ControlSeal_v01_23: -3536760476826473853
+      VFX_CL_ControlSeal_v01_24: 1009318002074864279
+      VFX_CL_ControlSeal_v01_25: 5444329169577894114
+      VFX_CL_ControlSeal_v01_26: 21943135772869380
+      VFX_CL_ControlSeal_v01_27: -7293077124929333637
+      VFX_CL_ControlSeal_v01_28: -2064715400077961738
+      VFX_CL_ControlSeal_v01_29: 712515079067526383
+      VFX_CL_ControlSeal_v01_3: 3725901367288380777
+      VFX_CL_ControlSeal_v01_30: 5026819142663983329
+      VFX_CL_ControlSeal_v01_31: -8932188220478706236
+      VFX_CL_ControlSeal_v01_32: -907575662419671408
+      VFX_CL_ControlSeal_v01_33: 7019803989823451368
+      VFX_CL_ControlSeal_v01_4: 26464813989936161
+      VFX_CL_ControlSeal_v01_5: -7757116564549031714
+      VFX_CL_ControlSeal_v01_6: -6333795989811583668
+      VFX_CL_ControlSeal_v01_7: 7814983314014994853
+      VFX_CL_ControlSeal_v01_8: 1785345323205232689
+      VFX_CL_ControlSeal_v01_9: 4261715504889517543
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

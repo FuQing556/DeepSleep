@@ -1,6 +1,7 @@
 using DeepSleep.Runtime.Combat.Damage;
 using DeepSleep.Runtime.Players.Orientation;
 using UnityEngine;
+using DeepSleep.Runtime.Combat.Beams.Presentation;
 
 namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
 {
@@ -10,6 +11,14 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
     public sealed class HarnessTerminalLaserPresenter : MonoBehaviour
     {
         public bool CharacterPoseExternallyDriven { get; set; }
+        public bool IsHoldingAttackPose => _controller.HasAimPoint || _poseView.IsHoldingFire;
+        public void SetIdleVariant(Sprite sprite) => _poseView.IdleVariant = sprite;
+        public void SetAimMovementOverride(Sprite sprite) => _poseView.AimMovementOverride = sprite;
+        public void RestoreAttackPoseAfterHurt()
+        {
+            if (!CharacterPoseExternallyDriven && !_poseOverridden)
+                _poseView.SetAiming(IsHoldingAttackPose, _config);
+        }
         [Header("数据源")]
         [SerializeField] private HarnessTerminalLaserController _controller;
         [SerializeField] private PlayerFacingController2D _facingController;
@@ -23,6 +32,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
         private HarnessLaserShotView2D _shotView = new();
         [SerializeField]
         private HarnessLaserPoseView2D _poseView = new();
+        [SerializeField] private SpriteRenderer[] _auxiliaryMuzzles = System.Array.Empty<SpriteRenderer>();
 
         private bool _isInitialized;
         private bool _poseOverridden;
@@ -76,6 +86,19 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
             }
 
             bool shotFinished = _shotView.Tick(Time.deltaTime, _config);
+            _controller.AdvanceAuxiliaryMotion(Time.deltaTime);
+            for (int i = 0; i < _auxiliaryMuzzles.Length; i++)
+            {
+                var muzzle = _auxiliaryMuzzles[i];
+                if (!_controller.GetAuxiliaryView(i, out var target, out float progress, out bool charging))
+                { muzzle.enabled = false; continue; }
+                Vector2 origin = _controller.GetAuxiliaryOrigin(i);
+                float alpha = charging ? Mathf.Lerp(_config.MuzzleChargingStartAlpha, 1f, progress) : _config.AuxiliaryIdleAlpha;
+                float scale = charging ? Mathf.Lerp(_config.MuzzleChargingStartScaleMultiplier, 1f, progress) : _config.AuxiliaryIdleScale;
+                scale *= _controller.AuxiliaryBreath(i);
+                WorldSpriteGeometry2D.ShowWithWorldDiameter(muzzle, origin, _config.MuzzleWorldDiameter * scale,
+                    WorldSpriteGeometry2D.DirectionToAngle(target - origin), WorldSpriteGeometry2D.WithMultipliedAlpha(_config.MuzzleColor, alpha));
+            }
             if (_poseOverridden) return;
 
             if (shotFinished && !_controller.HasAimPoint)
@@ -111,7 +134,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
             }
 
             _shotView.Play(request, this);
-            if (!CharacterPoseExternallyDriven) _poseView.HoldFirePose(
+            if (!request.IsAuxiliary && !CharacterPoseExternallyDriven) _poseView.HoldFirePose(
                 _config.FirePoseHoldSeconds,
                 _config);
         }
@@ -150,7 +173,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
                     beamOrigin,
                     targetPosition - beamOrigin,
                     _controller.StateProgress01,
-                    _config, 1 + _controller.AdditionalPorts, _controller.Config.PortSpacing);
+                    _config);
             }
             else if (_controller.State ==
                      HarnessTerminalLaserState.Cooldown)
@@ -158,7 +181,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
                 _shotView.ShowQueuedMuzzle(
                     beamOrigin,
                     targetPosition - beamOrigin,
-                    _config, 1 + _controller.AdditionalPorts, _controller.Config.PortSpacing);
+                    _config);
             }
             else
             {
@@ -171,6 +194,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
             _targetingView.Hide();
             _shotView.Stop();
             _poseView.Reset();
+            foreach (var muzzle in _auxiliaryMuzzles) muzzle.enabled = false;
         }
 
         public bool TryValidateConfiguration(out string reason)

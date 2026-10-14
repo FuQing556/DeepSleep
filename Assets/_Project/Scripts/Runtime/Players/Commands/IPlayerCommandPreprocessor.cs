@@ -8,6 +8,7 @@ namespace DeepSleep.Runtime.Players.Commands
     /// </summary>
     public interface IPlayerCommandPreprocessor
     {
-        void PreprocessCommand(in PlayerCommand command, float deltaTime);
+        /// <param name="realDeltaTime">未受场景倍率影响的活动时间；暂停时不调用。</param>
+        void PreprocessCommand(in PlayerCommand command, float realDeltaTime);
     }
 }

@@ -47,7 +47,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
         private float _burstDamageMultiplier, _burstWidthMultiplier;
         public HarnessTerminalLaserConfig Config => _config;
         public PlayerUpgradeRuntimeState Upgrades => _upgradeState;
-        public int AdditionalPorts => Mathf.FloorToInt(GetUpgradeBonus(UpgradeEffectKind.ProjectileCount));
+        public int AdditionalPorts => Mathf.Clamp(Mathf.FloorToInt(GetUpgradeBonus(UpgradeEffectKind.ProjectileCount)), 0, 4);
         public int ChainLevel => Mathf.Clamp(Mathf.FloorToInt(GetUpgradeBonus(UpgradeEffectKind.ChainLevel)), 0, 2);
 
         public void SetInputSuppressed(bool suppressed)
@@ -64,6 +64,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
             if (!_isInitialized || !isActiveAndEnabled) return;
             // 未发射的锁定/蓄力取消，不将被封期间的命令积攒到解封瞬间。
             CancelSelection();
+            ResetAuxiliaries();
             AdvanceCycle(Mathf.Max(0, deltaTime));
         }
 
@@ -99,6 +100,8 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                 _config.TargetLayers,
                 _config.MaximumTargetCandidates);
             _targetEligibility = IsSelectableDamageTarget;
+            InitializeAssistance();
+            InitializeAuxiliaries();
             _isInitialized = true;
         }
 
@@ -113,6 +116,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
 
             if (_inputSuppressed)
             {
+                TickAuxiliaries(Mathf.Max(0f, deltaTime));
                 AdvanceCycle(Mathf.Max(0f, deltaTime));
                 return;
             }
@@ -123,10 +127,13 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
             }
             else if (WasPressed(command.ConfirmAim))
             {
-                SelectTarget(command.Aim);
+                SelectTarget(command.Aim, command.ControlOptions);
             }
+            else if ((command.ControlOptions & PlayerControlOptions.HarnessAutoFire) != 0)
+                TryAutomaticSelection(deltaTime);
 
             AdvanceCycle(Mathf.Max(0f, deltaTime));
+            TickAuxiliaries(Mathf.Max(0f, deltaTime));
         }
 
         /// <summary>
@@ -155,6 +162,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
 
         public void CancelSelection()
         {
+            ClearManualPreference();
             if (!_isInitialized)
             {
                 return;
@@ -184,7 +192,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
             return true;
         }
 
-        private void SelectTarget(AimIntent aim)
+        private void SelectTarget(AimIntent aim, PlayerControlOptions options)
         {
             Collider2D selectedTarget = null;
             Vector2 origin = _beamOrigin.position;
@@ -195,10 +203,11 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
                     _targetFinder.TryFindNearPoint(
                         aim.Value,
                         origin,
-                        _config.PointSelectionRadius,
+                        (options & PlayerControlOptions.HumanTargeting) == 0 ? _config.PointSelectionRadius :
+                            (options & PlayerControlOptions.AimAssist) != 0 ? _playfield.WorldBounds.height * _config.AssistedSelectionHeightFraction : 0f,
                         _config.MaximumLockDistance,
                         _targetEligibility,
-                        out selectedTarget),
+                        out selectedTarget, (options & PlayerControlOptions.AimAssist) != 0 ? _priority : null),
                 AimReference.Direction =>
                     _targetFinder.TryFindInDirection(
                         origin,
@@ -212,7 +221,8 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
 
             if (foundTarget)
             {
-                TrySelectTarget(selectedTarget);
+                if (TrySelectTarget(selectedTarget) && (options & PlayerControlOptions.HumanTargeting) != 0)
+                    RememberManualTarget(selectedTarget);
                 return;
             }
 
@@ -264,7 +274,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
             {
                 _burstActive = true;
                 _burstRemaining = 1 + Mathf.FloorToInt(GetUpgradeBonus(UpgradeEffectKind.BurstCount));
-                _burstPorts = AdditionalPorts;
+                _burstPorts = 0; // 升级的额外炮口由独立副炮周期驱动。
                 _burstChain = ChainLevel;
                 _burstDamageMultiplier = (_config.PrimaryTargetDamage + GetUpgradeBonus(UpgradeEffectKind.WeaponDamage)) / _config.PrimaryTargetDamage;
                 _burstWidthMultiplier = GetUpgradeMultiplier(UpgradeEffectKind.BeamWidth);
@@ -442,6 +452,8 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
 
         private void OnDisable()
         {
+            ResetAuxiliaries();
+            ClearManualPreference();
             _burstActive = false; _burstRemaining = 0; _burstWait = 0f;
             if (!_isInitialized)
             {

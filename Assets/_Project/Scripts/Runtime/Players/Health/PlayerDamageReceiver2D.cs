@@ -56,14 +56,20 @@ namespace DeepSleep.Runtime.Players.Health
 
         private void FixedUpdate()
         {
-            if (!IsInvulnerable)
+            AdvanceProtection(Time.fixedUnscaledDeltaTime);
+        }
+
+        /// <summary>普通受击和复活保护共用有效现实秒；暂停不产生固定步。</summary>
+        public void AdvanceProtection(float realDeltaTime)
+        {
+            if (!IsInvulnerable || !float.IsFinite(realDeltaTime) || realDeltaTime <= 0f)
             {
                 return;
             }
 
             _remainingInvulnerabilitySeconds = Mathf.Max(
                 0f,
-                _remainingInvulnerabilitySeconds - Time.deltaTime);
+                _remainingInvulnerabilitySeconds - realDeltaTime);
 
             if (!IsInvulnerable)
             {

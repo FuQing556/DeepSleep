@@ -14,20 +14,21 @@ namespace DeepSleep.Editor.Networking
             int passed = 0;
             var command = new PlayerCommand(15, 20, new Vector2(0.25f, -0.5f),
                 new AimIntent(AimReference.WorldPosition, new Vector2(2.5f, -3)),
-                CommandButtonState.Pressed | CommandButtonState.Held, 0, CommandButtonState.Pressed, 0, 0, 0);
+                CommandButtonState.Pressed | CommandButtonState.Held, 0, CommandButtonState.Pressed, 0, 0, 0,
+                PlayerControlOptions.HumanTargeting | PlayerControlOptions.AimAssist | PlayerControlOptions.HarnessAutoFire);
             using var stream = new MemoryStream(); using var w = new BinaryWriter(stream);
             NetworkCommandCodec.Write(w, command); stream.Position = 0;
             using var r = new BinaryReader(stream);
             Require(NetworkCommandCodec.TryRead(r, out var decoded) && decoded.Sequence == 15 &&
-                Vector2.Distance(command.Move, decoded.Move) < 0.0001f && decoded.Aim.Value == command.Aim.Value, "round trip"); passed++;
+                Vector2.Distance(command.Move, decoded.Move) < 0.0001f && decoded.Aim.Value == command.Aim.Value && decoded.ControlOptions == command.ControlOptions, "round trip including operation options"); passed++;
             var source = new RemoteCommandSource(2, 1);
             Require(source.Enqueue(command, Time.unscaledTime), "first input accepted"); passed++;
             Require(!source.Enqueue(command, Time.unscaledTime), "duplicate rejected"); passed++;
             source.TryGetCommand(100, out var first); source.TryGetCommand(101, out var second);
             Require((first.PrimarySkill & CommandButtonState.Pressed) != 0 && second.PrimarySkill == CommandButtonState.Held &&
-                second.ConfirmAim == 0 && second.SimulationTick == 101, "edge consumed once"); passed++;
+                second.ConfirmAim == 0 && second.SimulationTick == 101 && second.ControlOptions == command.ControlOptions, "edge consumed once, options retained"); passed++;
             source.Clear(); source.TryGetCommand(102, out var neutral);
-            Require(neutral.Move == Vector2.zero && neutral.PrimarySkill == 0, "takeover clears stale input"); passed++;
+            Require(neutral.Move == Vector2.zero && neutral.PrimarySkill == 0 && neutral.ControlOptions == PlayerControlOptions.None, "takeover clears stale input and automatic fire"); passed++;
             Require(RemoteCommandSource.IsNewer(0, uint.MaxValue) && !RemoteCommandSource.IsNewer(uint.MaxValue, 0), "sequence wrap"); passed++;
             stream.SetLength(0);
             var invalid = new PlayerCommand(1, 1, Vector2.zero,

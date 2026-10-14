@@ -91,17 +91,19 @@ namespace DeepSleep.Runtime.Simulation
             }
 
             float deltaTime = Time.fixedDeltaTime;
+            // FixedUpdate 在暂停时不推进；这份增量保留现实秒，不随场景加减速缩短救援。
+            float realDeltaTime = Time.fixedUnscaledDeltaTime;
 
             for (int index = 0; index < playerDispatchers.Length; index++)
             {
-                playerDispatchers[index].Simulate(currentTick, deltaTime);
+                playerDispatchers[index].Simulate(currentTick, deltaTime, realDeltaTime);
             }
 
             int coordinatorCount = reviveCoordinators?.Length ?? 0;
 
             for (int index = 0; index < coordinatorCount; index++)
             {
-                reviveCoordinators[index].Simulate(deltaTime);
+                reviveCoordinators[index].Simulate(realDeltaTime);
             }
 
             // Inspector 顺序是明确的依赖顺序：刷怪、敌方弹体寿命、敌人决策/运动。

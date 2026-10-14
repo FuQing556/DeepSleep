@@ -21,6 +21,8 @@ namespace DeepSleep.Runtime.Players.Orientation
         public Vector2 Forward => _currentDirection == FacingDirection.Left
             ? Vector2.left
             : Vector2.right;
+        public bool MovementFallbackEnabled { get; set; }
+        public FacingDirection MovementFallback { get; set; } = FacingDirection.Right;
 
         private void Awake()
         {
@@ -63,7 +65,7 @@ namespace DeepSleep.Runtime.Players.Orientation
 
         public void ResetToInitialDirection()
         {
-            SetDirection(_initialDirection);
+            SetDirection(MovementFallbackEnabled ? MovementFallback : _initialDirection);
         }
 
         private void OnDisable()

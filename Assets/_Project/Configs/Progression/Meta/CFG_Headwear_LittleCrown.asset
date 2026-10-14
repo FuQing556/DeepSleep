@@ -83,3 +83,78 @@ MonoBehaviour:
     Anchor: {x: 0.755, y: 0.788303}
     Angle: 4.9
     WidthRatio: 0.32
+  - Pose: {fileID: 21300000, guid: 4820b484071b5304a92d420661c58630, type: 3}
+    Role: 0
+    Anchor: {x: 0.57789475, y: 0.84210527}
+    Angle: 38.2
+    WidthRatio: 0.32
+  - Pose: {fileID: 21300000, guid: b97795535667f9042b1f5ca053477a3f, type: 3}
+    Role: 0
+    Anchor: {x: 0.37842107, y: 0.83157897}
+    Angle: 55.8
+    WidthRatio: 0.32
+  - Pose: {fileID: 21300000, guid: a51ccf775f1d3534b986ca03373dcbe4, type: 3}
+    Role: 0
+    Anchor: {x: 0.48473686, y: 0.8578948}
+    Angle: 49.3
+    WidthRatio: 0.32
+  - Pose: {fileID: 21300000, guid: 6fd54a40a19ef484ca1f6f63062b0e04, type: 3}
+    Role: 0
+    Anchor: {x: 0.38947365, y: 0.84315795}
+    Angle: 57.4
+    WidthRatio: 0.32
+  - Pose: {fileID: 21300000, guid: d966c13bef57fee479a27ffc39cb591e, type: 3}
+    Role: 1
+    Anchor: {x: 0.83947366, y: 0.85105264}
+    Angle: -41.1
+    WidthRatio: 0.32
+  - Pose: {fileID: 21300000, guid: 8754814f5436db54cb9e6ccd815ce40f, type: 3}
+    Role: 1
+    Anchor: {x: 0.8531579, y: 0.8478948}
+    Angle: -43.5
+    WidthRatio: 0.32
+  - Pose: {fileID: 21300000, guid: 7f60700cb83734b4887a33a62f6f3b6f, type: 3}
+    Role: 1
+    Anchor: {x: 0.88736844, y: 0.84210527}
+    Angle: -47.6
+    WidthRatio: 0.32
+  - Pose: {fileID: 21300000, guid: 7d0dbc1f5a98f5e438f777c3021ca21a, type: 3}
+    Role: 1
+    Anchor: {x: 0.83526313, y: 0.8494737}
+    Angle: -35.3
+    WidthRatio: 0.32
+  - Pose: {fileID: 21300000, guid: e6d94c953908bbc469834013d096cf4a, type: 3}
+    Role: 0
+    Anchor: {x: 0.58631575, y: 0.8010527}
+    Angle: 38.2
+    WidthRatio: 0.32
+  - Pose: {fileID: 21300000, guid: 6b55247e66326874e9a37910b08b32c4, type: 3}
+    Role: 0
+    Anchor: {x: 0.42736837, y: 0.8594737}
+    Angle: 50.6
+    WidthRatio: 0.32
+  - Pose: {fileID: 21300000, guid: b1bc73dc01c1ec549a24b9795127b191, type: 3}
+    Role: 0
+    Anchor: {x: 0.4331579, y: 0.84052634}
+    Angle: 53.2
+    WidthRatio: 0.32
+  - Pose: {fileID: 21300000, guid: 0239e9918decaf841b7a422468084537, type: 3}
+    Role: 0
+    Anchor: {x: 0.37736842, y: 0.85315794}
+    Angle: 53.8
+    WidthRatio: 0.32
+  - Pose: {fileID: 21300000, guid: 39d1463c0cef6974b961545e85b89b23, type: 3}
+    Role: 0
+    Anchor: {x: 0.37526315, y: 0.7752632}
+    Angle: 53.5
+    WidthRatio: 0.32
+  - Pose: {fileID: 21300000, guid: 859df9f499f70c54487ff96ac7d8520d, type: 3}
+    Role: 1
+    Anchor: {x: 0.9305263, y: 0.77}
+    Angle: -39.8
+    WidthRatio: 0.32
+  - Pose: {fileID: 21300000, guid: e4efffc0e9cebbe4680ac5594245ccd4, type: 3}
+    Role: 0
+    Anchor: {x: 0.4889473, y: 0.7515789}
+    Angle: 49.3
+    WidthRatio: 0.32

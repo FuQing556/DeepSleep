@@ -59,7 +59,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
             _chargeSeconds=phaseTwo?Config.PhaseTwoChargeSeconds:Config.PhaseOneChargeSeconds;
             State=KimiUltimateState.Charging;
             Curtain.Show((Vector2)Boss.transform.position+Config.CurtainOffset,
-                phaseTwo?Config.PhaseTwoHits:Config.PhaseOneHits,session,perception);
+                Mathf.Max(1, Mathf.CeilToInt((phaseTwo?Config.PhaseTwoHits:Config.PhaseOneHits) * Boss.DurabilityMultiplier)),session,perception);
             Boss.SetVulnerable(false); Boss.SetPose(KimiPose.FluteCharge);
             Reinforcements.ApplyRuntimeTuning(true,0,1,Config.ReinforcementLimit,Config.ReinforcementHealthMultiplier);
             return true;

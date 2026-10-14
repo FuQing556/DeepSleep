@@ -37,5 +37,11 @@ namespace DeepSleep.Runtime.AppFlow
         {
             if (Instance == this) Instance = null;
         }
+
+        private void OnEnable()
+        {
+            // 编辑器脚本重载后恢复静态入口；重复实例仍由 Awake 拒绝。
+            if (Instance == null) Instance = this;
+        }
     }
 }

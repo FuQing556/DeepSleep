@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ab8873683b73e4d91a72da00672f0c, type: 3}
   m_Name: CFG_VFX_EN_404Window_ContactImpact
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Presentation.Effects.OneShotSpriteEffectConfig
-  _durationSeconds: 0.2
+  _durationSeconds: 0.6
   _worldDiameter: 1
   _startScaleMultiplier: 0.5
   _endScaleMultiplier: 1.08
-  _fadeStart01: 0.12
+  _fadeStart01: 0.35
   _baseRotationOffsetDegrees: 0
   _minimumRotationDegrees: 8
   _maximumRotationDegrees: 20

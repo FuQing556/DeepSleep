@@ -46,7 +46,8 @@ namespace DeepSleep.Runtime.Combat.Targeting
             float selectionRadius,
             float maximumLockDistance,
             Predicate<Collider2D> isEligible,
-            out Collider2D target)
+            out Collider2D target,
+            Func<Collider2D, int> priority = null)
         {
             int candidateCount = Physics2D.OverlapCircle(
                 selectionPoint,
@@ -56,6 +57,9 @@ namespace DeepSleep.Runtime.Combat.Targeting
 
             Collider2D bestTarget = null;
             float bestDistanceSquared = float.PositiveInfinity;
+            float bestCenterDistance = float.PositiveInfinity;
+            int bestPriority = int.MinValue;
+            bool bestExact = false;
             float maximumDistanceSquared =
                 maximumLockDistance * maximumLockDistance;
 
@@ -75,13 +79,29 @@ namespace DeepSleep.Runtime.Combat.Targeting
                 float distanceSquared =
                     (closestPoint - selectionPoint).sqrMagnitude;
 
-                if (distanceSquared >= bestDistanceSquared)
+                bool exact = candidate.OverlapPoint(selectionPoint);
+                int rank = priority != null ? priority(candidate) : 0;
+                float centerDistance = ((Vector2)candidate.bounds.center - selectionPoint).sqrMagnitude;
+                // 精确点中优先于辅助抢目标；同档按点击距离、中心距离和稳定实体身份排序。
+                if (bestTarget != null)
                 {
-                    continue;
+                    if (bestExact && !exact) continue;
+                    if (bestExact == exact)
+                    {
+                        if (!exact && rank < bestPriority) continue;
+                        if (exact || rank == bestPriority)
+                        {
+                            if (distanceSquared > bestDistanceSquared) continue;
+                            if (Mathf.Approximately(distanceSquared, bestDistanceSquared) &&
+                                (centerDistance > bestCenterDistance ||
+                                 (Mathf.Approximately(centerDistance, bestCenterDistance) && candidate.GetEntityId().CompareTo(bestTarget.GetEntityId()) >= 0))) continue;
+                        }
+                    }
                 }
 
                 bestTarget = candidate;
                 bestDistanceSquared = distanceSquared;
+                bestCenterDistance = centerDistance; bestPriority = rank; bestExact = exact;
             }
 
             target = bestTarget;

@@ -20,6 +20,9 @@ namespace DeepSleep.Runtime.Players.LifeCycle
 
         private readonly SpritePoseGhost2D _ghost = new();
         private Sprite _aliveSprite;
+        private Sprite _selectedAliveSprite;
+        public Sprite SelectedAliveSprite => _selectedAliveSprite != null ? _selectedAliveSprite : _aliveSprite;
+        public DeepSleep.Runtime.Progression.Meta.PlayerSkinDefinition CurrentSkin => _skin;
         private Vector3 _baseVisualScale;
         private bool _isInitialized;
         private bool _showingDowned;
@@ -42,6 +45,7 @@ namespace DeepSleep.Runtime.Players.LifeCycle
 
             _ghostRenderer.enabled = false;
             _aliveSprite = _characterRenderer.sprite;
+            _selectedAliveSprite = _aliveSprite;
             _baseVisualScale = _characterRenderer.transform.localScale;
             ApplyPoseScale(_aliveScaleMultiplier);
             _isInitialized = true;
@@ -104,6 +108,7 @@ namespace DeepSleep.Runtime.Players.LifeCycle
             color.a = 1f;
             _characterRenderer.color = color;
             _characterRenderer.sprite = _aliveSprite;
+            _selectedAliveSprite = _aliveSprite;
             _showingDowned = false;
             ApplySkinVariant();
             ApplyPoseScale(_aliveScaleMultiplier);
@@ -124,6 +129,7 @@ namespace DeepSleep.Runtime.Players.LifeCycle
             _skin = skin;
             if (!_isInitialized) return;
             _characterRenderer.sprite = _showingDowned ? _downedSprite : _aliveSprite;
+            _selectedAliveSprite = _aliveSprite;
             ApplySkinVariant();
         }
 
@@ -138,6 +144,7 @@ namespace DeepSleep.Runtime.Players.LifeCycle
             if (_skin == null) return;
             var variants = _showingDowned ? _skin.DownedVariants : _skin.AliveVariants;
             _characterRenderer.sprite = variants[_skinRandom.Next(variants.Length)];
+            if (!_showingDowned) _selectedAliveSprite = _characterRenderer.sprite;
             SkinRollCount++;
         }
 

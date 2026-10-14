@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: CFG_Network
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Networking.NetworkTuningConfig
   Port: 7777
-  ProtocolVersion: 18
+  ProtocolVersion: 21
   ClientVersion: 0.1.0
-  ContentVersion: 20261009-android-1.1.7
+  ContentVersion: 20261014-hs-auxiliary-motion-1
   SnapshotRate: 20
   InputTimeout: 0.35
   ConnectionTimeout: 12

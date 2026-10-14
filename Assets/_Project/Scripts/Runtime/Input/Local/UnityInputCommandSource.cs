@@ -34,10 +34,16 @@ namespace DeepSleep.Runtime.Input.Local
         private InputActionButtonBuffer pauseBuffer;
 
         private uint sequence;
-        private bool isInitialized;
+        [System.NonSerialized] private bool isInitialized;
 
         private void Awake()
         {
+            Initialize();
+        }
+
+        private void Initialize()
+        {
+            if (isInitialized) return;
             if (!HasAllActionReferences())
             {
                 enabled = false;
@@ -55,6 +61,8 @@ namespace DeepSleep.Runtime.Input.Local
 
         private void OnEnable()
         {
+            // 脚本重载会丢失非序列化输入缓存，但不会重新执行 Awake。
+            Initialize();
             if (!isInitialized)
             {
                 return;

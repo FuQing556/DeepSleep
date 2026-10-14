@@ -310,6 +310,7 @@ namespace DeepSleep.Editor.Diagnostics
             writer.Write((byte)PlayerRole.DeepSeek);
             writer.Write((uint)1);
             writer.Write(playing);
+            writer.Write(false);
             writer.Write(levelId);
             return stream.ToArray();
         }

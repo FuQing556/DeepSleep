@@ -310,7 +310,8 @@ namespace DeepSleep.Runtime.Presentation.Audio
         }
         private void OnLaserFire(HarnessTerminalLaserFireRequest request)
         {
-            EnsureContext(); StopCharge(); _chargeSuppressed = true;
+            EnsureContext();
+            if (request != null && !request.IsAuxiliary) { StopCharge(); _chargeSuppressed = true; }
             if (CanPresent && request != null && request.IsValid)
                 Play(AudioCue.HsFire, request.BeamSnapshot.SourceOrigin, PlayerRole.Harness, WeaponGain(PlayerRole.Harness));
         }

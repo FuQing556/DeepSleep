@@ -31,6 +31,7 @@ namespace DeepSleep.Runtime.Progression.Upgrades
         private readonly Dictionary<UpgradeCardId, int> _teamRanks = new();
 
         public event Action Changed;
+        public event Action<PlayerRole, UpgradeCardId> Applied;
         public UpgradeCatalog Catalog => _catalog;
 
         private void Awake()
@@ -82,6 +83,7 @@ namespace DeepSleep.Runtime.Progression.Upgrades
 
             ranks[id] = rank + 1;
             Changed?.Invoke();
+            Applied?.Invoke(role, id);
             return true;
         }
 

@@ -56,6 +56,12 @@ namespace DeepSleep.Runtime.Networking
                 w.Write(Melee.Attack != null ? Melee.Attack.RuntimeTimeScale : Melee.SpeedScale);
                 w.Write(Guard.IsActive); w.Write(Guard.IsWarning); w.Write(Guard.RemainingCharges);
                 w.Write((float)Guard.RemainingSeconds); w.Write((float)Guard.CooldownRemaining);
+                for (int i = 0; i < 4; i++)
+                {
+                    bool visible = Laser.GetAuxiliaryView(i, out var aim, out float progress, out bool charging);
+                    w.Write(visible); w.Write(charging); w.Write(progress); Vec(w, aim);
+                    Vec(w, Laser.GetAuxiliaryOrigin(i));
+                }
             }, true);
         }
         private void Fire(HarnessTerminalLaserFireRequest request)
@@ -64,6 +70,7 @@ namespace DeepSleep.Runtime.Networking
             Session.SendAuthority(LASER, w =>
             {
                 w.Write(++_eventSequence); Vec(w, request.PrimaryTargetPosition);
+                w.Write(request.IsAuxiliary);
                 NetworkBeamSnapshotCodec.Write(w, request.BeamSnapshot);
             }, true);
         }
@@ -97,15 +104,16 @@ namespace DeepSleep.Runtime.Networking
                 Laser.ApplyReplicaState(state, seconds, progress, aiming, target);
                 Melee.ApplyReplicaState(melee, swinging, swing, ResolveAttack(poseId), swingProgress, aim, duration, cooldown, range, speed);
                 Guard.ApplyReplicaState(active, warning, charges, guardSeconds, guardCooldown);
+                for (int i = 0; i < 4; i++) Laser.ApplyAuxiliaryReplica(i, r.ReadBoolean(), r.ReadBoolean(), r.ReadSingle(), Vec(r), Vec(r));
                 _hasState = true; _lastState = seq; return;
             }
             if (_hasEvent && !RemoteCommandSource.IsNewer(seq, _lastEvent)) return;
             switch (kind)
             {
                 case LASER:
-                    Vector2 primary = Vec(r); var snapshot = NetworkBeamSnapshotCodec.Read(r);
+                    Vector2 primary = Vec(r); bool auxiliary = r.ReadBoolean(); var snapshot = NetworkBeamSnapshotCodec.Read(r);
                     Laser.PresentReplicaFire(new HarnessTerminalLaserFireRequest(Laser.gameObject, null, primary,
-                        snapshot)); break;
+                        snapshot, auxiliary)); break;
                 case WAVE:
                     var attack = ResolveAttack(r.ReadUInt32()); Vector2 waveOrigin = Vec(r); float angle = r.ReadSingle();
                     int echo = r.ReadByte(); float waveRange = r.ReadSingle(), waveSpeed = r.ReadSingle();

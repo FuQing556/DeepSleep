@@ -49,6 +49,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Doubao
         private DoubaoMazeRoute _mazeRoute;
         private int _mazeRow;
         private float _bossHealthMultiplier = 1f;
+        public DeepSleep.Runtime.Progression.Run.RunDifficultyContext Difficulty;
 
         public event Action<DoubaoWordWallEncounter2D> Completed;
         public event Action<Vector2> BossRevealed;
@@ -131,7 +132,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Doubao
             if (State == DoubaoEncounterState.Prelude &&
                 _elapsed >= Mathf.Max(_config.BossRevealSeconds, _firstWaveArrivalSeconds))
             {
-                _boss.Activate(_bossAnchor.position, _config.BossMaximumHealth * _bossHealthMultiplier);
+                _boss.Activate(_bossAnchor.position, _config.BossMaximumHealth * _bossHealthMultiplier * (Difficulty != null ? Difficulty.DurabilityMultiplier : 1f));
                 State = DoubaoEncounterState.Active;
                 BossRevealed?.Invoke(_bossAnchor.position);
             }
@@ -329,7 +330,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Doubao
                     slot.Width,
                     _config.BlockHeight,
                     phrase,
-                    _config.BlockMaximumHealth,
+                    _config.BlockMaximumHealth * (Difficulty != null ? Difficulty.DurabilityMultiplier : 1f),
                     _config.FallSpeed,
                     bottom,
                     _config.ContactDamage,

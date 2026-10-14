@@ -13,6 +13,8 @@ namespace DeepSleep.Runtime.Combat.Health
 
         private float _currentHealth;
         private float _maximumHealthBonus;
+        private float _spawnHealthMultiplier = 1f;
+        public float SpawnHealthMultiplier => _spawnHealthMultiplier;
         private bool _isInitialized;
 
         public event Action<HealthComponent> HealthChanged;
@@ -24,7 +26,7 @@ namespace DeepSleep.Runtime.Combat.Health
         public float MaximumHealth =>
             _config != null
                 ? Mathf.Max(1f, Mathf.Floor(
-                    _config.MaximumHealth + _maximumHealthBonus))
+                    _config.MaximumHealth + _maximumHealthBonus)) * _spawnHealthMultiplier
                 : 0f;
         public bool IsDepleted => _currentHealth <= 0f;
         public bool LastDamageSuppressesKillReward { get; private set; }
@@ -159,6 +161,14 @@ namespace DeepSleep.Runtime.Combat.Health
             FeedbackReset?.Invoke();
             HealthChanged?.Invoke(this);
             return true;
+        }
+
+        /// <summary>敌人生成入口从基础值设置一次；角色成长仍走原加成，不影响玩家生命。</summary>
+        public void SetSpawnHealthMultiplier(float multiplier)
+        {
+            if (!float.IsFinite(multiplier) || multiplier <= 0f)
+            { Debug.LogError("[Health] 生成生命倍率必须是正有限值。", this); return; }
+            _spawnHealthMultiplier = multiplier;
         }
     }
 }

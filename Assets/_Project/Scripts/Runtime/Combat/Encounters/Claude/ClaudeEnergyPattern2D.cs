@@ -18,6 +18,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Claude
     public sealed class ClaudeEnergyPattern2D : MonoBehaviour, IFixedSimulationStep, IDamageReceiver, IDamageFeedbackSource
     {
         public ClaudeEnergyConfig Config;
+        public DeepSleep.Runtime.Progression.Run.RunDifficultyContext Difficulty;
         public CombatPlayfieldConfig Playfield;
         public BossDamageBody2D Boss;
         public Transform Muzzle;
@@ -87,7 +88,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Claude
             Cancel();
             _direction = (target - origin).normalized;
             _aimTarget = aimTarget;
-            CurrentHealth = Mathf.Floor(phaseTwo ? Config.PhaseTwoHealth : Config.PhaseOneHealth);
+            CurrentHealth = (phaseTwo ? Config.PhaseTwoHealth : Config.PhaseOneHealth) * (Difficulty != null ? Difficulty.DurabilityMultiplier : 1f);
             State = ClaudeEnergyState.Charging;
             transform.position = origin;
             Shape.radius = Config.CollisionRadius;

@@ -25,12 +25,12 @@ MonoBehaviour:
     WidthRatio: 1.5
   - Pose: {fileID: 21300000, guid: 029e724a7167c8a4baa09ff54559f7b4, type: 3}
     Role: 0
-    Anchor: {x: 0.6142105, y: 0.46736842}
+    Anchor: {x: 0.64578944, y: 0.4894737}
     Angle: 0
     WidthRatio: 1.5
   - Pose: {fileID: 21300000, guid: 89a7618210594394cb96adfaa7ce42db, type: 3}
     Role: 1
-    Anchor: {x: 0.5973684, y: 0.51894736}
+    Anchor: {x: 0.6194737, y: 0.52842104}
     Angle: 0
     WidthRatio: 1.5
   - Pose: {fileID: 21300000, guid: 37f64160fdfbbad41bff5119545e9658, type: 3}
@@ -40,7 +40,7 @@ MonoBehaviour:
     WidthRatio: 1.5
   - Pose: {fileID: 21300000, guid: f4f4dda098d67f0499871416d852225b, type: 3}
     Role: 1
-    Anchor: {x: 0.41368422, y: 0.49894735}
+    Anchor: {x: 0.41894737, y: 0.50842106}
     Angle: 0
     WidthRatio: 1.5
   - Pose: {fileID: 21300000, guid: 196cdf5b48121da41a623fc3117d64a2, type: 3}
@@ -55,12 +55,12 @@ MonoBehaviour:
     WidthRatio: 1.5
   - Pose: {fileID: 21300000, guid: 564250c1b39377f4d96f9f625c650edc, type: 3}
     Role: 1
-    Anchor: {x: 0.5826315, y: 0.50526315}
+    Anchor: {x: 0.60894734, y: 0.51789474}
     Angle: 0
     WidthRatio: 1.5
   - Pose: {fileID: 21300000, guid: 534a84eb6a0acc34bafdde9a32bbed55, type: 3}
     Role: 1
-    Anchor: {x: 0.5931579, y: 0.5336842}
+    Anchor: {x: 0.61, y: 0.5536842}
     Angle: 0
     WidthRatio: 1.5
   - Pose: {fileID: 21300000, guid: 84c677269b71cd242a7976f3f62b257e, type: 3}
@@ -75,11 +75,86 @@ MonoBehaviour:
     WidthRatio: 1.5
   - Pose: {fileID: 21300000, guid: 9c94674055f9b1948921bf4ee6c05d04, type: 3}
     Role: 0
-    Anchor: {x: 0.6142105, y: 0.46736842}
+    Anchor: {x: 0.65, y: 0.48}
     Angle: 0
     WidthRatio: 1.5
   - Pose: {fileID: 21300000, guid: 1b0be348196862749bded8f3625b769a, type: 3}
     Role: 0
-    Anchor: {x: 0.6142105, y: 0.46736842}
+    Anchor: {x: 0.65, y: 0.48}
     Angle: 0
     WidthRatio: 1.5
+  - Pose: {fileID: 21300000, guid: 4820b484071b5304a92d420661c58630, type: 3}
+    Role: 0
+    Anchor: {x: 0.6731579, y: 0.47421053}
+    Angle: 0
+    WidthRatio: 1.5
+  - Pose: {fileID: 21300000, guid: b97795535667f9042b1f5ca053477a3f, type: 3}
+    Role: 0
+    Anchor: {x: 0.5636842, y: 0.5094737}
+    Angle: 0
+    WidthRatio: 1.5
+  - Pose: {fileID: 21300000, guid: a51ccf775f1d3534b986ca03373dcbe4, type: 3}
+    Role: 0
+    Anchor: {x: 0.6163158, y: 0.5205263}
+    Angle: 0
+    WidthRatio: 1.5
+  - Pose: {fileID: 21300000, guid: 6fd54a40a19ef484ca1f6f63062b0e04, type: 3}
+    Role: 0
+    Anchor: {x: 0.5726316, y: 0.5336842}
+    Angle: 0
+    WidthRatio: 1.5
+  - Pose: {fileID: 21300000, guid: d966c13bef57fee479a27ffc39cb591e, type: 3}
+    Role: 1
+    Anchor: {x: 0.6557895, y: 0.52105266}
+    Angle: 0
+    WidthRatio: 1.5
+  - Pose: {fileID: 21300000, guid: 8754814f5436db54cb9e6ccd815ce40f, type: 3}
+    Role: 1
+    Anchor: {x: 0.62421054, y: 0.5010526}
+    Angle: 0
+    WidthRatio: 1.5
+  - Pose: {fileID: 21300000, guid: 7f60700cb83734b4887a33a62f6f3b6f, type: 3}
+    Role: 1
+    Anchor: {x: 0.6394737, y: 0.5221053}
+    Angle: 0
+    WidthRatio: 1.5
+  - Pose: {fileID: 21300000, guid: 7d0dbc1f5a98f5e438f777c3021ca21a, type: 3}
+    Role: 1
+    Anchor: {x: 0.63631576, y: 0.5263158}
+    Angle: 0
+    WidthRatio: 1.5
+  - Pose: {fileID: 21300000, guid: e6d94c953908bbc469834013d096cf4a, type: 3}
+    Role: 0
+    Anchor: {x: 0.6594737, y: 0.44947368}
+    Angle: 0
+    WidthRatio: 1.5
+  - Pose: {fileID: 21300000, guid: 6b55247e66326874e9a37910b08b32c4, type: 3}
+    Role: 0
+    Anchor: {x: 0.56578946, y: 0.5231579}
+    Angle: 0
+    WidthRatio: 1.5
+  - Pose: {fileID: 21300000, guid: b1bc73dc01c1ec549a24b9795127b191, type: 3}
+    Role: 0
+    Anchor: {x: 0.59210527, y: 0.5131579}
+    Angle: 0
+    WidthRatio: 1.5
+  - Pose: {fileID: 21300000, guid: 0239e9918decaf841b7a422468084537, type: 3}
+    Role: 0
+    Anchor: {x: 0.5689474, y: 0.52894735}
+    Angle: 0
+    WidthRatio: 1.5
+  - Pose: {fileID: 21300000, guid: 39d1463c0cef6974b961545e85b89b23, type: 3}
+    Role: 0
+    Anchor: {x: 0.53947365, y: 0.48473686}
+    Angle: 0
+    WidthRatio: 1.6992186
+  - Pose: {fileID: 21300000, guid: 859df9f499f70c54487ff96ac7d8520d, type: 3}
+    Role: 1
+    Anchor: {x: 0.68368423, y: 0.48157892}
+    Angle: 0
+    WidthRatio: 1.640625
+  - Pose: {fileID: 21300000, guid: e4efffc0e9cebbe4680ac5594245ccd4, type: 3}
+    Role: 0
+    Anchor: {x: 0.62210524, y: 0.48947367}
+    Angle: 0
+    WidthRatio: 1.5820312

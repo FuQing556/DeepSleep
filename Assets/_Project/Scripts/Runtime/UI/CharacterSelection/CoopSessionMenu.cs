@@ -32,7 +32,9 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
         public Button CloseButton, ScanButton, ManualButton, ConfirmLeave, CancelLeave, QuickAi;
         public Text TitleLabel, DiscoveryLabel, PlayHint, QuickAiLabel;
         public RectTransform MenuCard;
+        public AudioSettingsPanel Settings;
         public Vector2 LobbyMenuSize, PlayMenuSize;
+        public string StandardDifficultyText, EasyDifficultyText;
         public Button[] RoomButtons;
         public Text[] RoomLabels;
         private readonly string[] _roomAddresses = new string[32];
@@ -101,7 +103,8 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
             }
             if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame && InGame)
             {
-                if (ConfirmGroup.activeSelf) CancelExit(); else Toggle();
+                if (Settings != null && Settings.IsOpen) Settings.Close();
+                else if (ConfirmGroup.activeSelf) CancelExit(); else Toggle();
             }
         }
         private void LateUpdate()
@@ -133,7 +136,11 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
                 GameAppRoot.Instance?.Audio?.Play(open ? AudioCue.UiOpen : AudioCue.UiCancel);
             Panel.SetActive(open);
             Touch?.SetUiBlocked(open && InGame);
-            if (!open) ConfirmGroup.SetActive(false);
+            if (!open)
+            {
+                ConfirmGroup.SetActive(false);
+                if (Settings != null) Settings.Close();
+            }
             if (open && Session.IsSoloPlaying && !_ownsPause)
             {
                 _previousTimeScale = Time.timeScale; _ownsPause = true; Time.timeScale = 0;
@@ -268,7 +275,7 @@ namespace DeepSleep.Runtime.UI.CharacterSelection
                 StatusLabel.text = "房主 " + (Session.HostRole == PlayerRole.DeepSeek ? "DS" : "HS") + "：" + (Session.HostReady ? "已准备" : "未准备") +
                     "    队友：" + (!Session.HasPeer ? "等待加入" : Session.GuestReady ? "已准备" : "未准备") +
                     (_relay && Relay != null ? "\n房间码：" + Relay.RoomCode : "\n让队友进入局域网大厅，点击你的房间即可加入。") +
-                    "\n双方准备后开始。";
+                    "\n" + (Session.IsEasyMode ? EasyDifficultyText : StandardDifficultyText) + " · 双方准备后开始。";
             else if (Session.Phase == SessionPhase.Connecting) StatusLabel.text = "正在连接房主…";
             else if (disconnected) StatusLabel.text = "连接中断，可重新加入原房间；房主仍在线时由 AI 临时接管。\n" + Session.Status;
             else StatusLabel.text = (_relay ? "先填写中继地址，再创建房间或输入房间码加入。\n" : "一人创建房间，另一人在下方点击加入。\n") +

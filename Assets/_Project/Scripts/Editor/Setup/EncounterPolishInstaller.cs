@@ -106,9 +106,9 @@ namespace DeepSleep.Editor.Setup
                     string configPath = Root + "Configs/Combat/Enemies/Internet/CFG_" + prefabName + "_" + kind + ".asset";
                     var config = AssetDatabase.LoadAssetAtPath<OneShotSpriteEffectConfig>(configPath);
                     if (config == null) { config = ScriptableObject.CreateInstance<OneShotSpriteEffectConfig>(); AssetDatabase.CreateAsset(config,configPath); }
-                    Set(config,"_durationSeconds",death ? .38f : .2f); Set(config,"_worldDiameter",death ? 2.5f : .8f);
+                    Set(config,"_durationSeconds",death ? .38f : .6f); Set(config,"_worldDiameter",death ? 2.5f : .8f);
                     Set(config,"_startScaleMultiplier",death ? .8f : .6f); Set(config,"_endScaleMultiplier",1.2f);
-                    Set(config,"_fadeStart01",.12f); Set(pool,"_config",config);
+                    Set(config,"_fadeStart01",death ? .12f : .35f); Set(pool,"_config",config);
                 }
                 PrefabUtility.SaveAsPrefabAsset(go,path);
             }

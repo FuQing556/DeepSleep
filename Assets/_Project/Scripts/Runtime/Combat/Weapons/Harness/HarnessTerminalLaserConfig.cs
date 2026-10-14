@@ -13,11 +13,22 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
     public sealed class HarnessTerminalLaserConfig : ScriptableObject
     {
         public LayerMask AttackBlockerLayers;
+        [Header("自动副炮阵列（独立贴边、二维跟随）")]
+        [Range(.05f, .45f)] public float AuxiliaryVerticalInset = .28f;
+        [Min(0f)] public float AuxiliaryEdgeMargin = .5f;
+        [Min(0f)] public float AuxiliaryFollowRate = 4f;
+        [Min(0f)] public float AuxiliaryReturnRate = 12f;
+        [Min(0f)] public float AuxiliaryDriftRadius = .16f;
+        [Min(0f)] public float AuxiliaryDriftSpeed = 1.4f;
+        [Min(0f)] public float AuxiliaryShotHoldSeconds = .26f;
+        [Range(0f,.3f)] public float AuxiliaryBreathAmount = .08f;
         [Header("节奏")]
         [SerializeField, Min(0f)] private float _calibrationSeconds;
         [SerializeField, Min(0.01f)] private float _fireCooldownSeconds;
 
         [Header("目标选择")]
+        [Range(0, .2f)] public float AssistedSelectionHeightFraction;
+        [Min(.01f)] public float AutomaticScanInterval;
         [SerializeField, Min(0.01f)] private float _pointSelectionRadius;
         [SerializeField, Min(0.01f)] private float _maximumLockDistance;
         [SerializeField, Range(0f, 1f)]

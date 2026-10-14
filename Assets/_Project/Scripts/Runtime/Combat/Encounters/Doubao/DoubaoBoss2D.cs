@@ -44,7 +44,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Doubao
         public void Activate(Vector2 position, float maximumHealth)
         {
             transform.position = position;
-            _currentHealth = Mathf.Max(1f, Mathf.Floor(maximumHealth));
+            _currentHealth = Mathf.Max(float.Epsilon, maximumHealth);
             _isActive = true;
             _departing = false;
             _visualElapsed = 0f;

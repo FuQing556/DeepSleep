@@ -81,13 +81,13 @@ MonoBehaviour:
     _effectPerRank: 1
   - _id: 22
     _displayName: "\u7EC8\u7AEF\u9635\u5217"
-    _description: "\u53D1\u5C04\u88C5\u7F6E+1\uFF0C\u5404\u675F\u6C47\u805A\u540C\u4E00\u76EE\u6807\u5E76\u72EC\u7ACB\u8D2F\u7A7F\u3002\u8FD1\u6218\u5251\u6C14\u6B8B\u54CD+1\uFF0850%\u4F24\u5BB3\uFF09\u3002"
+    _description: "\u81EA\u52A8\u526F\u70AE+1\uFF0C\u6700\u591A4\u95E8\uFF1B\u968FHS\u6F02\u6D6E\uFF0C\u653B\u51FB\u9A7B\u7559\u3001\u7ED3\u675F\u5F52\u961F\uFF0C\u81EA\u52A8\u5206\u706B\u3001\u624B\u52A8\u9501\u5B9A\u96C6\u706B\u3002\u8FD1\u6218\u524D2\u7EA7\u5404\u589E\u52A0\u4E00\u905350%\u4F24\u5BB3\u5251\u6C14\u6B8B\u54CD\uFF0C\u540E2\u7EA7\u53EA\u589E\u52A0\u526F\u70AE\u3002"
     _icon: {fileID: 21300000, guid: f679222c274150b438ad591972652595, type: 3}
     _eligibleRoles: 2
     _ownershipScope: 0
-    _maximumRank: 2
-    _baseTokenCost: 100
-    _additionalCostPerRank: 50
+    _maximumRank: 4
+    _baseTokenCost: 50
+    _additionalCostPerRank: 25
     _effect: 3
     _effectPerRank: 1
   - _id: 23

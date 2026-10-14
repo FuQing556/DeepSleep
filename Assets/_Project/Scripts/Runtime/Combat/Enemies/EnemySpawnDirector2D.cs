@@ -33,6 +33,7 @@ namespace DeepSleep.Runtime.Combat.Enemies
         private float _runtimeIntervalMultiplier = 1f;
         private int _runtimeMaximumAliveCount;
         private float _runtimeHealthMultiplier = 1f;
+        public DeepSleep.Runtime.Progression.Run.RunDifficultyContext Difficulty;
         private int _encounterMaximumAliveCount;
         private int _runtimeSpawnLimit, _spawnedCount;
         private float _runtimeSpawnInterval;
@@ -200,10 +201,11 @@ namespace DeepSleep.Runtime.Combat.Enemies
                 if (_runtimeSpawnLimit > 0 && _spawnedCount >= _runtimeSpawnLimit) Stop();
                 if (_spawnAnchor != null) _formationIndex = (_formationIndex + 1) % _spawnOffsets.Length;
                 // 每次从基础生命计算，不能把池化实体上一段的倍率叠乘进来。
+                actor.Health.SetSpawnHealthMultiplier(1f);
                 actor.Health.SetMaximumHealthBonus(0f);
                 float baseHealth = actor.Health.MaximumHealth;
-                actor.Health.SetMaximumHealthBonus(
-                    baseHealth * _runtimeHealthMultiplier - baseHealth);
+                actor.Health.SetMaximumHealthBonus(baseHealth * _runtimeHealthMultiplier - baseHealth);
+                actor.Health.SetSpawnHealthMultiplier(Difficulty != null ? Difficulty.DurabilityMultiplier : 1f);
                 actor.Health.ResetToMaximum();
             }
             return spawned;

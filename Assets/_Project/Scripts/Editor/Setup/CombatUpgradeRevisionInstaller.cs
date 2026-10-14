@@ -23,7 +23,7 @@ namespace DeepSleep.Editor.Setup
                 Card(UpgradeCardId.RiceStorm,"饭团速射","饭团攻击频率增加基础值的50%。",PlayerRoleMask.DeepSeek,4,30,15,UpgradeEffectKind.AttackRate,.5f),
                 Card(UpgradeCardId.RiceGuidance,"多目标校准","需先获得饭团扇阵。仅侧弹道在8度内校准其他不同目标；无目标保持原方向，主弹道始终瞄准当前目标。",PlayerRoleMask.DeepSeek,1,20,0,UpgradeEffectKind.TargetCorrection,1),
                 Card(UpgradeCardId.RiceSplash,"饭团溅射","命中时在1.2单位半径内爆炸，周围敌人受50%伤害（向下取整，最低1）；直击目标不重复受伤。",PlayerRoleMask.DeepSeek,1,60,0,UpgradeEffectKind.RiceSplash,1),
-                Card(UpgradeCardId.TerminalArray,"终端阵列","发射装置+1，各束汇聚同一目标并独立贯穿。近战剑气残响+1（50%伤害）。",PlayerRoleMask.Harness,2,100,50,UpgradeEffectKind.ProjectileCount,1),
+                Card(UpgradeCardId.TerminalArray,"终端阵列","自动副炮+1，最多4门；随HS漂浮，攻击驻留、结束归队，自动分火、手动集火。近战前2级各增加一道50%伤害残响，后2级只增加副炮。",PlayerRoleMask.Harness,4,50,25,UpgradeEffectKind.ProjectileCount,1),
                 Card(UpgradeCardId.TerminalBurst,"终端连射","每次指令多发1轮完整激光，间隔0.18秒。近战动作速度增加基础值的30%。",PlayerRoleMask.Harness,2,90,45,UpgradeEffectKind.BurstCount,1),
                 Card(UpgradeCardId.TerminalChain,"终端连锁","连锁层级+1，每级伤害减半，仍贯穿。近战剑与剑气范围+15%，角色不变。",PlayerRoleMask.Harness,2,75,40,UpgradeEffectKind.ChainLevel,1)
             });

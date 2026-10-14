@@ -72,11 +72,11 @@ namespace DeepSleep.Editor.Diagnostics
                 try
                 {
                     EditorJsonUtility.FromJsonOverwrite(json, loaded);
-                    Check(loaded.Layer == item.Layer && loaded.Poses.Length == 9, ref assertions);
-                    for (int i = 0; i < 9; i++) Check(loaded.Poses[i].Anchor == item.Poses[i].Anchor && loaded.Poses[i].WidthRatio == item.Poses[i].WidthRatio, ref assertions);
+                    Check(loaded.Layer == item.Layer && loaded.Poses.Length == item.Poses.Length, ref assertions);
+                    for (int i = 0; i < item.Poses.Length; i++) Check(loaded.Poses[i].Pose == item.Poses[i].Pose && loaded.Poses[i].Anchor == item.Poses[i].Anchor && loaded.Poses[i].WidthRatio == item.Poses[i].WidthRatio, ref assertions);
                 }
                 finally { Object.DestroyImmediate(loaded); }
-                return "PASS " + assertions + " assertions: 9 poses/front-back/flip/UI hierarchy and anchors/serialization. No production config or save writes.";
+                return "PASS " + assertions + " assertions: " + item.Poses.Length + " poses/front-back/flip/UI hierarchy and anchors/serialization. No production config or save writes.";
             }
             finally { Object.DestroyImmediate(root); Object.DestroyImmediate(item); }
         }

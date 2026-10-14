@@ -60,7 +60,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Doubao
             Action<DoubaoWordWallBlock2D> returnRequested)
         {
             _replicationId = replicationId;
-            _currentHealth = Mathf.Max(1f, Mathf.Floor(maximumHealth));
+            _currentHealth = Mathf.Max(float.Epsilon, maximumHealth);
             _fallSpeed = fallSpeed;
             _despawnY = despawnY;
             _contactDamage = contactDamage;

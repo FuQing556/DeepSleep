@@ -2,6 +2,11 @@ using UnityEngine;
 
 namespace DeepSleep.Runtime.Input.Commands
 {
+    [System.Flags]
+    public enum PlayerControlOptions : byte
+    {
+        None = 0, HumanTargeting = 1, AimAssist = 2, HarnessAutoFire = 4
+    }
     /// <summary>
     /// 一个控制源在一个模拟刻提交给玩法层的完整意图快照。
     /// 本地输入、同伴 AI 与远端网络输入都必须产生同一种命令。
@@ -18,7 +23,8 @@ namespace DeepSleep.Runtime.Input.Commands
             CommandButtonState confirmAim,
             CommandButtonState cancelAim,
             CommandButtonState reconnect,
-            CommandButtonState pause)
+            CommandButtonState pause,
+            PlayerControlOptions controlOptions = PlayerControlOptions.None)
         {
             Sequence = sequence;
             SimulationTick = simulationTick;
@@ -30,6 +36,7 @@ namespace DeepSleep.Runtime.Input.Commands
             CancelAim = cancelAim;
             Reconnect = reconnect;
             Pause = pause;
+            ControlOptions = controlOptions;
         }
 
         /// <summary>
@@ -66,5 +73,8 @@ namespace DeepSleep.Runtime.Input.Commands
         /// 暂停或菜单请求。在线模式是否暂停由上层会话规则决定。
         /// </summary>
         public CommandButtonState Pause { get; }
+        public PlayerControlOptions ControlOptions { get; }
+        public PlayerCommand WithControlOptions(PlayerControlOptions options) => new PlayerCommand(
+            Sequence, SimulationTick, Move, Aim, PrimarySkill, SecondarySkill, ConfirmAim, CancelAim, Reconnect, Pause, options);
     }
 }

@@ -15,6 +15,7 @@ namespace DeepSleep.Runtime.Networking
             w.Write((byte)c.Aim.Reference); w.Write(c.Aim.Value.x); w.Write(c.Aim.Value.y);
             w.Write((byte)c.PrimarySkill); w.Write((byte)c.SecondarySkill);
             w.Write((byte)c.ConfirmAim); w.Write((byte)c.CancelAim);
+            w.Write((byte)c.ControlOptions);
         }
 
         public static bool TryRead(BinaryReader r, out PlayerCommand command)
@@ -25,11 +26,12 @@ namespace DeepSleep.Runtime.Networking
             var reference = (AimReference)r.ReadByte();
             var aim = new Vector2(r.ReadSingle(), r.ReadSingle());
             byte primary = r.ReadByte(), secondary = r.ReadByte(), confirm = r.ReadByte(), cancel = r.ReadByte();
+            byte options = r.ReadByte();
             if ((byte)reference > (byte)AimReference.WorldPosition || !Finite(aim.x) || !Finite(aim.y) ||
-                (primary | secondary | confirm | cancel) > 7) return false;
+                (primary | secondary | confirm | cancel) > 7 || options > 7) return false;
             command = new PlayerCommand(sequence, tick, Vector2.ClampMagnitude(move, 1),
                 new AimIntent(reference, aim), (CommandButtonState)primary, (CommandButtonState)secondary,
-                (CommandButtonState)confirm, (CommandButtonState)cancel, 0, 0);
+                (CommandButtonState)confirm, (CommandButtonState)cancel, 0, 0, (PlayerControlOptions)options);
             return true;
         }
 

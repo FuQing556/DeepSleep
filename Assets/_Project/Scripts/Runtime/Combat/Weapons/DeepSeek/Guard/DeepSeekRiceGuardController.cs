@@ -42,6 +42,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.DeepSeek.Guard
         public double RemainingSeconds => _replica ? _replicaSeconds : _state?.RemainingSeconds ?? 0;
         public double CooldownRemaining => _replica ? _replicaCooldown : _state?.CooldownRemaining ?? 0;
         public float Radius => _config != null ? _config.Radius : 0f;
+        public float CooldownDuration => _config != null ? _config.CooldownSeconds : 0f;
 
         public event Action Activated;
         public event Action<PlayerDamageReceiver2D, DamagePacket, int>

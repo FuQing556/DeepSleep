@@ -31,7 +31,7 @@ namespace DeepSleep.Editor.Setup
             var scene=EditorSceneManager.OpenScene("Assets/Scenes/World01_EarlyInternet.unity");
             var encounter=scene.GetRootGameObjects().SelectMany(x=>x.GetComponentsInChildren<DoubaoWordWallEncounter2D>(true)).Single();
             var session=scene.GetRootGameObjects().SelectMany(x=>x.GetComponentsInChildren<CoopSessionController>(true)).Single();
-            var impact=Effect(encounter.transform,session,"BubbleImpact",111,0.4f,1.2f,true);
+            var impact=Effect(encounter.transform,session,"BubbleImpact",111,0.6f,1.2f,true);
             var broken=Effect(encounter.transform,session,"BubbleBreak",112,0.55f,1.05f,false);
             Set(encounter,"_impactEffects",impact); Set(encounter,"_breakEffects",broken);
             var channel=encounter.GetComponent<DoubaoEncounterNetworkChannel>();
@@ -138,7 +138,7 @@ namespace DeepSleep.Editor.Setup
             var cfg=AssetDatabase.LoadAssetAtPath<OneShotSpriteEffectConfig>(configPath);
             if(cfg==null){cfg=ScriptableObject.CreateInstance<OneShotSpriteEffectConfig>();AssetDatabase.CreateAsset(cfg,configPath);}
             Set(cfg,"_durationSeconds",duration);Set(cfg,"_worldDiameter",diameter);
-            Set(cfg,"_startScaleMultiplier",.7f);Set(cfg,"_endScaleMultiplier",1.25f);Set(cfg,"_fadeStart01",.2f);
+            Set(cfg,"_startScaleMultiplier",.7f);Set(cfg,"_endScaleMultiplier",1.25f);Set(cfg,"_fadeStart01",name=="BubbleImpact"?.35f:.2f);
             Set(cfg,"_prewarmCount",12);Set(cfg,"_maximumCount",96);
             var t=parent.Find(name+"Effects");if(t==null){t=new GameObject(name+"Effects").transform;t.SetParent(parent,false);}
             var pool=t.GetComponent<OneShotSpriteEffectPool2D>();if(pool==null)pool=t.gameObject.AddComponent<OneShotSpriteEffectPool2D>();

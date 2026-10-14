@@ -14,18 +14,20 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness
             GameObject source,
             DamageHitbox2D primaryTarget,
             Vector2 primaryTargetPosition,
-            BeamFireSnapshot beamSnapshot)
+            BeamFireSnapshot beamSnapshot, bool auxiliary = false)
         {
             Source = source;
             PrimaryTarget = primaryTarget;
             PrimaryTargetPosition = primaryTargetPosition;
             BeamSnapshot = beamSnapshot;
+            IsAuxiliary = auxiliary;
         }
 
         public GameObject Source { get; }
         public DamageHitbox2D PrimaryTarget { get; }
         public Vector2 PrimaryTargetPosition { get; }
         public BeamFireSnapshot BeamSnapshot { get; }
+        public bool IsAuxiliary { get; }
 
         public bool IsValid =>
             Source != null &&

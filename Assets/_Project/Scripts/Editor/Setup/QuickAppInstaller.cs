@@ -125,9 +125,9 @@ namespace DeepSleep.Editor.Setup
                     }
                     finally { PrefabUtility.UnloadPrefabContents(view); }
                     var c = Create<OneShotSpriteEffectConfig>(effect.name);
-                    Set(c, "_worldDiameter", contact ? 1.25f : 2.4f); Set(c, "_durationSeconds", contact ? .24f : .36f);
+                    Set(c, "_worldDiameter", contact ? 1.25f : 2.4f); Set(c, "_durationSeconds", contact ? .6f : .36f);
                     Set(c, "_startScaleMultiplier", .75f); Set(c, "_endScaleMultiplier", contact ? 1.1f : 1.2f);
-                    Set(c, "_fadeStart01", .1f); Set(c, "_minimumRotationDegrees", 0f); Set(c, "_maximumRotationDegrees", 0f);
+                    Set(c, "_fadeStart01", contact ? .35f : .1f); Set(c, "_minimumRotationDegrees", 0f); Set(c, "_maximumRotationDegrees", 0f);
                     Set(c, "_color", new Color(1, 1, 1, .9f)); Set(c, "_prewarmCount", 4); Set(c, "_maximumCount", 12);
                     Set(effect, "_config", c);
                 }

@@ -37,6 +37,8 @@ namespace DeepSleep.Runtime.AppFlow
         [SerializeField] private Button _onlineButton;
         [SerializeField] private Button _backButton;
         [SerializeField] private Button _quitButton;
+        [SerializeField] private Button _appearanceButton;
+        [SerializeField] private GameObject _appearanceTabs;
 
         private MainMenuPage _page;
         private GameSceneRouter _router;
@@ -63,6 +65,7 @@ namespace DeepSleep.Runtime.AppFlow
             _startGame.onClick.AddListener(OpenLevels);
             _shopButton.onClick.AddListener(OpenShop);
             _inventoryButton.onClick.AddListener(OpenInventory);
+            if (_appearanceButton != null) _appearanceButton.onClick.AddListener(OpenInventory);
             _achievementsButton.onClick.AddListener(OpenAchievements);
             if (_bestiaryButton != null) _bestiaryButton.onClick.AddListener(OpenBestiary);
             _prototypeButton.onClick.AddListener(SelectPrototype);
@@ -78,6 +81,7 @@ namespace DeepSleep.Runtime.AppFlow
             _startGame.onClick.RemoveListener(OpenLevels);
             _shopButton.onClick.RemoveListener(OpenShop);
             _inventoryButton.onClick.RemoveListener(OpenInventory);
+            if (_appearanceButton != null) _appearanceButton.onClick.RemoveListener(OpenInventory);
             _achievementsButton.onClick.RemoveListener(OpenAchievements);
             if (_bestiaryButton != null) _bestiaryButton.onClick.RemoveListener(OpenBestiary);
             _prototypeButton.onClick.RemoveListener(SelectPrototype);
@@ -171,6 +175,12 @@ namespace DeepSleep.Runtime.AppFlow
             _modeSelection.SetActive(_page == MainMenuPage.ModeSelection);
             _shop.SetActive(_page == MainMenuPage.Shop);
             _inventory.SetActive(_page == MainMenuPage.Inventory);
+            if (_appearanceTabs != null)
+            {
+                _appearanceTabs.SetActive(_page == MainMenuPage.Shop || _page == MainMenuPage.Inventory);
+                _shopButton.interactable = _page != MainMenuPage.Shop;
+                _inventoryButton.interactable = _page != MainMenuPage.Inventory;
+            }
             _achievements.SetActive(_page == MainMenuPage.Achievements);
             if (_bestiary != null) _bestiary.SetActive(_page == MainMenuPage.Bestiary);
             _backButton.gameObject.SetActive(_page != MainMenuPage.Home);

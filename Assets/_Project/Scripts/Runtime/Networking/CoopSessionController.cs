@@ -31,6 +31,8 @@ namespace DeepSleep.Runtime.Networking
         public OpeningCharacterSelectionController Selection;
         public LevelSceneBindings LevelBindings;
         public MonoBehaviour LocalInput;
+        public DeepSleep.Runtime.Progression.Run.RunDifficultyContext Difficulty;
+        public bool IsEasyMode => Difficulty != null && Difficulty.IsEasy;
         public PlayerActor DeepSeek, Harness;
         public CompanionCommandSource2D DeepSeekAi, HarnessAi;
         private ITransportAdapter _transport;
@@ -239,6 +241,7 @@ namespace DeepSleep.Runtime.Networking
             Send(Message.Welcome, w =>
             {
                 w.Write((byte)HostRole); w.Write(_epoch); w.Write(Phase == SessionPhase.Playing);
+                w.Write(IsEasyMode);
                 w.Write(levelId);
             });
             if (Phase == SessionPhase.Playing) BindSources();
@@ -447,6 +450,7 @@ namespace DeepSleep.Runtime.Networking
                     case Message.Welcome when !IsAuthority:
                         var hostRole = (PlayerRole)r.ReadByte(); if ((byte)hostRole > 1) return;
                         uint welcomeEpoch = r.ReadUInt32(); bool playing = r.ReadBoolean();
+                        bool easyMode = r.ReadBoolean();
                         string remoteLevelId = r.ReadString();
                         if (!TryGetLevelId(out string localLevelId)) { RejectIncomingLevelStart(); break; }
                         if (!string.Equals(remoteLevelId, localLevelId, StringComparison.Ordinal))
@@ -456,6 +460,7 @@ namespace DeepSleep.Runtime.Networking
                             break;
                         }
                         HostRole = hostRole;
+                        if (Difficulty != null) Difficulty.ApplyAuthority(easyMode);
                         LocalRole = HostRole == PlayerRole.DeepSeek ? PlayerRole.Harness : PlayerRole.DeepSeek;
                         _epoch = welcomeEpoch; _hasPeer = true;
                         if (!PrepareSelection(LocalRole))

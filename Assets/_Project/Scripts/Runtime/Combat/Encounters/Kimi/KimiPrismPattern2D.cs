@@ -82,7 +82,7 @@ namespace DeepSleep.Runtime.Combat.Encounters.Kimi
                 Arena.yMax-Sides[3].Thickness*.5f-Config.OrbRadius);
             ExitBounds=Rect.MinMaxRect(b.xMin-Config.ExitPadding,b.yMin-Config.ExitPadding,b.xMax+Config.ExitPadding,b.yMax+Config.ExitPadding);
             if(!ReflectionBounds.Contains(Muzzle.position)) {Debug.LogError("[KimiPrism] 炮口必须位于镜框内。",this);return false;}
-            float health=phaseTwo?Config.PhaseTwoMirrorHealth:Config.PhaseOneMirrorHealth;
+            float health=(phaseTwo?Config.PhaseTwoMirrorHealth:Config.PhaseOneMirrorHealth) * Boss.DurabilityMultiplier;
             for(int i=0;i<4;i++)
             {
                 bool vertical=i<2;

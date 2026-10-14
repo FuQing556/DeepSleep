@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe55f423922d864b9379da45e6f13ad, type: 3}
+  m_Name: CFG_PlayerActions_HS
+  m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Players.Presentation.PlayerActionPoseSet
+  Movement: {fileID: 21300000, guid: 859df9f499f70c54487ff96ac7d8520d, type: 3}
+  Hurt: {fileID: 21300000, guid: 8754814f5436db54cb9e6ccd815ce40f, type: 3}
+  Rescue: {fileID: 21300000, guid: 7f60700cb83734b4887a33a62f6f3b6f, type: 3}
+  Celebrate: {fileID: 21300000, guid: 7d0dbc1f5a98f5e438f777c3021ca21a, type: 3}
+  Backward: {fileID: 21300000, guid: d966c13bef57fee479a27ffc39cb591e, type: 3}
+  MovementBase: {fileID: 0}

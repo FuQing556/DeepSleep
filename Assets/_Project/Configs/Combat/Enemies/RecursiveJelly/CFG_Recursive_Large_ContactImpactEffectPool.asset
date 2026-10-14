@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9ab8873683b73e4d91a72da00672f0c, type: 3}
   m_Name: CFG_Recursive_Large_ContactImpactEffectPool
   m_EditorClassIdentifier: DeepSleep.Runtime::DeepSleep.Runtime.Presentation.Effects.OneShotSpriteEffectConfig
-  _durationSeconds: 0.24
+  _durationSeconds: 0.6
   _worldDiameter: 1.6800001
   _startScaleMultiplier: 0.7
   _endScaleMultiplier: 1.1
-  _fadeStart01: 0.05
+  _fadeStart01: 0.35
   _baseRotationOffsetDegrees: 0
   _minimumRotationDegrees: 0
   _maximumRotationDegrees: 0

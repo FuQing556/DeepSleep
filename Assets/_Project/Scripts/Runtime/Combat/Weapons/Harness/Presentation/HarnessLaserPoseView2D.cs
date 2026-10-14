@@ -17,6 +17,9 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
         [SerializeField] private Transform _followRoot;
 
         private float _firePoseRemainingSeconds;
+        public Sprite IdleVariant { get; set; }
+        public Sprite AimMovementOverride { get; set; }
+        public bool IsHoldingFire => _firePoseRemainingSeconds > 0f;
         private readonly SpritePoseGhost2D _ghost = new();
 
         public void SetAiming(
@@ -25,13 +28,13 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
         {
             if (isAiming)
             {
-                TransitionTo(_calibrationSprite, config);
+                TransitionTo(AimMovementOverride != null ? AimMovementOverride : _calibrationSprite, config);
                 return;
             }
 
             if (_firePoseRemainingSeconds <= 0f)
             {
-                TransitionTo(_idleSprite, config);
+                TransitionTo(IdleVariant != null ? IdleVariant : _idleSprite, config);
             }
         }
 
@@ -40,7 +43,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
             HarnessTerminalLaserPresentationConfig config)
         {
             _firePoseRemainingSeconds = Mathf.Max(0f, durationSeconds);
-            TransitionTo(_calibrationSprite, config);
+            TransitionTo(AimMovementOverride != null ? AimMovementOverride : _calibrationSprite, config);
         }
 
         public void Tick(
@@ -52,6 +55,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
 
             if (isAiming)
             {
+                TransitionTo(AimMovementOverride != null ? AimMovementOverride : _calibrationSprite, config);
                 return;
             }
 
@@ -61,7 +65,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
 
             if (_firePoseRemainingSeconds <= 0f)
             {
-                TransitionTo(_idleSprite, config);
+                TransitionTo(IdleVariant != null ? IdleVariant : _idleSprite, config);
             }
         }
 

@@ -70,7 +70,7 @@ namespace DeepSleep.Editor.Diagnostics
             var lane = new BeamLaneSnapshot(0, Vector2.zero, Vector2.right, 10, .3f, 2, 1);
             var beam = new BeamFireSnapshot(3, Vector2.zero, Vector2.right, 1, new[] { lane, lane });
             byte[] laser = Packet(Catalog.Authority.LaserFire, w =>
-            { w.Write((uint)1); Floats(w, 2); NetworkBeamSnapshotCodec.Write(w, beam); });
+            { w.Write((uint)1); Floats(w, 2); w.Write(false); NetworkBeamSnapshotCodec.Write(w, beam); });
             Require(Catalog.TryValidatePacket(laser, Catalog.Direction.AuthorityToPeer, out reason), "Real beam codec: " + reason); checks++;
             foreach (int blocks in new[] { 0, 1, 240 })
             {
@@ -192,7 +192,7 @@ namespace DeepSleep.Editor.Diagnostics
                         case Catalog.Peer.Skin: w.Write((ushort)1); break;
                         case Catalog.Peer.Headwear: w.Write((ushort)1); w.Write((ushort)0); w.Write((ushort)2); w.Write((ushort)0); break;
                         case Catalog.Peer.Ready: case Catalog.Peer.Control: case Catalog.Peer.RestNodeReady: w.Write(true); break;
-                        case Catalog.Peer.Input: w.Write(new byte[29]); break;
+                        case Catalog.Peer.Input: w.Write(new byte[30]); break;
                         case Catalog.Peer.UpgradeRequest: w.Write((byte)1); w.Write((byte)0); break;
                         default: throw new Exception("No peer fixture for " + definition.Name);
                     }
@@ -203,7 +203,7 @@ namespace DeepSleep.Editor.Diagnostics
                 {
                     case Catalog.Authority.Skin: w.Write((ushort)1); break;
                     case Catalog.Authority.Headwear: w.Write((ushort)1); w.Write((ushort)0); w.Write((ushort)2); w.Write((ushort)0); break;
-                    case Catalog.Authority.Welcome: w.Write((byte)0); w.Write((uint)1); w.Write(false); w.Write("World01"); break;
+                    case Catalog.Authority.Welcome: w.Write((byte)0); w.Write((uint)1); w.Write(false); w.Write(false); w.Write("World01"); break;
                     case Catalog.Authority.Start: break;
                     case Catalog.Authority.Room: w.Write(new byte[8]); break;
                     case Catalog.Authority.PlayerSnapshot:
@@ -216,9 +216,10 @@ namespace DeepSleep.Editor.Diagnostics
                     case Catalog.Authority.WeaponState:
                         w.Write((uint)1); w.Write((byte)0); Floats(w, 2); w.Write(false); Floats(w, 2);
                         w.Write(false); w.Write(false); w.Write((uint)1); w.Write((uint)1); Floats(w, 6);
-                        w.Write(false); w.Write(false); w.Write(0); Floats(w, 2); break;
+                        w.Write(false); w.Write(false); w.Write(0); Floats(w, 2);
+                        for(int i=0;i<4;i++) {w.Write(false);w.Write(false);Floats(w,5);} break;
                     case Catalog.Authority.LaserFire:
-                        w.Write((uint)1); Floats(w, 2);
+                        w.Write((uint)1); Floats(w, 2); w.Write(false);
                         NetworkBeamSnapshotCodec.Write(w, new BeamFireSnapshot(1, Vector2.zero, Vector2.right, 1,
                             new[] { new BeamLaneSnapshot(0, Vector2.zero, Vector2.right, 10, .3f, 2, 1) })); break;
                     case Catalog.Authority.MeleeWave: w.Write((uint)1); w.Write((uint)1); Floats(w, 3); w.Write((byte)0); Floats(w, 2); break;
@@ -285,14 +286,14 @@ namespace DeepSleep.Editor.Diagnostics
                 CheckWelcome(WelcomeRaw(w => w.Write(encoded)), false); checks++;
             }
             byte[] maximum = WelcomeString(new string('a', 128));
-            Require(maximum.Length == 137, "Maximum Welcome packet must include two-byte string prefix"); checks++;
+            Require(maximum.Length == 138, "Maximum Welcome packet must include difficulty and two-byte string prefix"); checks++;
             CheckWelcome(maximum.Take(maximum.Length - 1).ToArray(), false); checks++;
             return checks;
         }
 
         private static byte[] WelcomeString(string id) => WelcomeRaw(w => w.Write(id));
         private static byte[] WelcomeRaw(Action<BinaryWriter> write) => Packet(Catalog.Authority.Welcome, w =>
-        { w.Write((byte)0); w.Write((uint)1); w.Write(false); write(w); });
+        { w.Write((byte)0); w.Write((uint)1); w.Write(false); w.Write(false); write(w); });
         private static void CheckWelcome(byte[] packet, bool expected)
         {
             Require(Catalog.TryValidatePacket(packet, Catalog.Direction.AuthorityToPeer, out _) == expected,

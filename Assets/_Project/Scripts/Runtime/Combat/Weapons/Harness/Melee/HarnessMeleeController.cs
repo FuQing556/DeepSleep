@@ -11,7 +11,7 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
 {
     /// <summary>命令决定意图；固定模拟刻推进近战时钟、轨迹与伤害。表现不负责扣血。</summary>
     public sealed partial class HarnessMeleeController : MonoBehaviour, IPlayerActionCommandConsumer,
-        IFixedSimulationStep, IPlayerReviveStartBlocker
+        IFixedSimulationStep, IPlayerReviveStartBlocker, IPlayerCancellationCommandConsumer
     {
         [SerializeField] private HarnessMeleeConfig _config;
         [SerializeField] private HarnessTerminalLaserController _laser;
@@ -75,9 +75,17 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Melee
                 _nextAttack = 0;
                 ModeChanged?.Invoke(true);
                 _laser.SetInputSuppressed(true);
-                // 入场第一刀跟当前朝向，不要求额外点敌人。
-                StartSwing(_facing.Forward);
+                // 入场不替玩家挥刀；右摇杆或桌面攻击输入决定第一刀的方向。
+                _held = false;
             }
+        }
+
+        public void ConsumeCancellation(in PlayerCommand command)
+        {
+            _held = _commandReceived = false;
+            if (!IsMelee || (command.PrimarySkill & CommandButtonState.Pressed) == 0) return;
+            _exitRequested = true;
+            if (!IsSwinging) EndMode();
         }
 
         public void Simulate(float deltaTime)

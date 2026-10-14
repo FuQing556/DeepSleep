@@ -11,7 +11,7 @@ namespace DeepSleep.Runtime.Networking
     /// </summary>
     public static class NetworkMessageCatalog
     {
-        public const ushort ProtocolVersion = 18;
+        public const ushort ProtocolVersion = 21;
         public enum Direction { AuthorityToPeer, PeerToAuthority }
 
         // 仅补现有表现消息没有的动作边沿；激光/剑波/盾挡/角色受伤仍复用原消息。
@@ -70,16 +70,16 @@ namespace DeepSleep.Runtime.Networking
         private const int MaximumDoubaoPhraseBytes = 64;
         private static readonly Definition[] Entries =
         {
-            A(Authority.Welcome, nameof(Authority.Welcome), 7, 6 + 2 + LevelIdentityValidation.MaximumLevelIdUtf8Bytes),
+            A(Authority.Welcome, nameof(Authority.Welcome), 8, 7 + 2 + LevelIdentityValidation.MaximumLevelIdUtf8Bytes),
             A(Authority.Start, nameof(Authority.Start), 0), A(Authority.Room, nameof(Authority.Room), 8),
             P(Peer.Ready, nameof(Peer.Ready), 1), P(Peer.Control, nameof(Peer.Control), 1),
-            P(Peer.Input, nameof(Peer.Input), 29),
+            P(Peer.Input, nameof(Peer.Input), 30),
             A(Authority.PlayerSnapshot, nameof(Authority.PlayerSnapshot), 266),
             A(Authority.WorldEntity, nameof(Authority.WorldEntity), 38, 38 + 59 * 255),
             A(Authority.WorldDespawn, nameof(Authority.WorldDespawn), 8),
             A(Authority.Effect, nameof(Authority.Effect), 18),
-            A(Authority.WeaponState, nameof(Authority.WeaponState), 70),
-            A(Authority.LaserFire, nameof(Authority.LaserFire), 37 + 38, 37 + 38 * 128),
+            A(Authority.WeaponState, nameof(Authority.WeaponState), 158),
+            A(Authority.LaserFire, nameof(Authority.LaserFire), 38 + 38, 38 + 38 * 128),
             A(Authority.MeleeWave, nameof(Authority.MeleeWave), 29),
             A(Authority.GuardBlock, nameof(Authority.GuardBlock), 28),
             A(Authority.RestNodeState, nameof(Authority.RestNodeState), 3),
@@ -192,7 +192,7 @@ namespace DeepSleep.Runtime.Networking
                 case Peer.Ready: case Peer.Control: case Peer.RestNodeReady: c.Bool(); break;
                 case Peer.Input:
                     c.Skip(16); // epoch、命令序号、模拟刻、两个量化方向 short。
-                    c.Enum(2); c.Floats(2); for (int i = 0; i < 4; i++) c.Enum(7); break;
+                    c.Enum(2); c.Floats(2); for (int i = 0; i < 5; i++) c.Enum(7); break;
                 case Peer.UpgradeRequest:
                     byte request = c.Byte(); c.Enum(1);
                     if (request == 2) c.Byte();
@@ -210,7 +210,7 @@ namespace DeepSleep.Runtime.Networking
                 case Authority.Headwear: c.Skip(8); break;
                 case Authority.Skin: c.Skip(2); break;
                 case Authority.Welcome:
-                    c.Enum(1); c.Skip(4); c.Bool();
+                    c.Enum(1); c.Skip(4); c.Bool(); c.Bool();
                     c.StringBytes(LevelIdentityValidation.MaximumLevelIdUtf8Bytes, 1, true); break;
                 case Authority.Start: break;
                 case Authority.Room: c.Bool(); c.Bool(); c.Enum(2); c.Enum(2); c.Skip(4); break;
@@ -228,9 +228,10 @@ namespace DeepSleep.Runtime.Networking
                 case Authority.Effect: c.Skip(6); c.Floats(3); break;
                 case Authority.WeaponState:
                     c.Skip(4); c.Enum(2); c.Floats(2); c.Bool(); c.Floats(2);
-                    c.Bool(); c.Bool(); c.Skip(8); c.Floats(6); c.Bool(); c.Bool(); c.Skip(4); c.Floats(2); break;
+                    c.Bool(); c.Bool(); c.Skip(8); c.Floats(6); c.Bool(); c.Bool(); c.Skip(4); c.Floats(2);
+                    for (int i = 0; i < 4; i++) { c.Bool(); c.Bool(); c.Floats(5); } break;
                 case Authority.LaserFire:
-                    c.Skip(4); c.Floats(2); c.Skip(4); c.Floats(4); c.Skip(4); int lanes = c.Byte();
+                    c.Skip(4); c.Floats(2); c.Bool(); c.Skip(4); c.Floats(4); c.Skip(4); int lanes = c.Byte();
                     if (lanes < 1 || lanes > 128) throw new InvalidDataException();
                     for (int i = 0; i < lanes; i++)
                     {

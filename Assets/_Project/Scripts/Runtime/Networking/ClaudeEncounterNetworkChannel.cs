@@ -154,7 +154,7 @@ namespace DeepSleep.Runtime.Networking
             Encounter.SecondaryEnergy.ApplyReplica(f,true);
             Encounter.ApplyReplicaState(f.EncounterState); ChapterDriver.ApplyReplica(f.TakenOver);
             var actor = Encounter.Actor;
-            actor.transform.position = f.Position; actor.Body.ApplyReplica(actor.Config.MaximumHealth, f.Health, f.Shown, f.PhaseTwo);
+            actor.transform.position = f.Position; actor.Body.ApplyReplica(actor.MaximumHealth, f.Health, f.Shown, f.PhaseTwo);
             actor.SetPose(f.Pose); Barrier.ApplyReplica(f.BarrierHit, f.BarrierHitAge);
             if (f.Pose == ClaudePose.EnergyCharge || f.Pose == ClaudePose.EnergyRelease)
                 actor.FaceAt(f.Position + (f.SecondEnergyState==ClaudeEnergyState.Charging || f.SecondEnergyState==ClaudeEnergyState.Flying

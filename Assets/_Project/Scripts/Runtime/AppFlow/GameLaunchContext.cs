@@ -27,6 +27,7 @@ namespace DeepSleep.Runtime.AppFlow
         public MetaLevelDefinition SelectedLevel { get; private set; }
         public GameLaunchMode Mode { get; private set; }
         public BestiaryEntryDefinition Challenge { get; private set; }
+        public bool EasyMode { get; private set; }
         public MainMenuPage ReturnPage { get; private set; } =
             MainMenuPage.Home;
 
@@ -37,6 +38,7 @@ namespace DeepSleep.Runtime.AppFlow
             SelectedLevel = level;
             Mode = mode;
             Challenge = null;
+            EasyMode = DeepSleep.Runtime.Progression.Run.DifficultyPreferences.EasyMode;
         }
 
         public void PrepareChallenge(BestiaryEntryDefinition entry)

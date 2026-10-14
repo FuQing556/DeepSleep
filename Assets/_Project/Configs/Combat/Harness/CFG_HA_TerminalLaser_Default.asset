@@ -15,8 +15,18 @@ MonoBehaviour:
   AttackBlockerLayers:
     serializedVersion: 2
     m_Bits: 65536
+  AuxiliaryVerticalInset: 0.28
+  AuxiliaryEdgeMargin: 0.5
+  AuxiliaryFollowRate: 4
+  AuxiliaryReturnRate: 12
+  AuxiliaryDriftRadius: 0.16
+  AuxiliaryDriftSpeed: 1.4
+  AuxiliaryShotHoldSeconds: 0.26
+  AuxiliaryBreathAmount: 0.08
   _calibrationSeconds: 0.5
   _fireCooldownSeconds: 1.25
+  AssistedSelectionHeightFraction: 0.1
+  AutomaticScanInterval: 0.12
   _pointSelectionRadius: 0.8
   _maximumLockDistance: 20
   _minimumDirectionDot: 0.85

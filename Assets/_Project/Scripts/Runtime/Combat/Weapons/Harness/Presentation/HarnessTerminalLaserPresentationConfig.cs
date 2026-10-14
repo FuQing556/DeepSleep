@@ -51,6 +51,12 @@ namespace DeepSleep.Runtime.Combat.Weapons.Harness.Presentation
         [SerializeField, Range(0.01f, 1f)]
         private float _queuedMuzzleScaleMultiplier = 0.5f;
 
+        [Header("悬浮副炮待机")]
+        [SerializeField, Range(0f, 1f)] private float _auxiliaryIdleAlpha = 0.6f;
+        [SerializeField, Range(0.01f, 1f)] private float _auxiliaryIdleScale = 0.85f;
+        public float AuxiliaryIdleAlpha => _auxiliaryIdleAlpha;
+        public float AuxiliaryIdleScale => _auxiliaryIdleScale;
+
         [Header("命中反馈")]
         [SerializeField, Min(0.01f)]
         private float _hitEffectDurationSeconds = 0.18f;
