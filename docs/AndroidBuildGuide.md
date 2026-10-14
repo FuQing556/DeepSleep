@@ -7,7 +7,7 @@
 1. 退出 Play，保存已修改的场景/Prefab，等 Unity 导入、编译结束；Console 不应有编译红错。
 2. 打开 **File → Build Profiles**，选择 Android。沿用当前配置：APK（不勾 Build App Bundle）、非 Development Build、IL2CPP、ARM64；不要临时更换后端或清缓存。
 3. 检查构建场景为五个，且 Boot 排第一：`Boot`、`MainMenu`、`Gameplay_Prototype`、`World01_EarlyInternet`、`World02_2066`（均在 `Assets/Scenes/`）。旧指南的四场景列表已过期，不要漏掉第二世界。
-4. Player Settings 中更新版本号及 Android Bundle Version Code（必须递增；本轮 **1.1.7 / 9**，下轮不能重复使用此code）。不改包名、签名或 SDK 设置。
+4. Player Settings 中更新版本号及 Android Bundle Version Code（必须递增；最新 **1.1.8 / 10**，下轮不能重复使用此code）。不改包名、签名或 SDK 设置。
 5. 点 **Build**，输出到 `Releases/v<版本>/DeepSleep-Android-v<版本>.apk`。等构建完成，检查最终成功/失败信息。不是 Build And Run，不必连接手机。
 6. 检查 APK 包名/版本/ARM64及签名，记录文件大小和 SHA256，然后交付文件。是否安装设备、实玩或上传 GitHub，另按用户指令。
 
